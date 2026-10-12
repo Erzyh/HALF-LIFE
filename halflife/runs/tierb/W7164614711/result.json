@@ -1,0 +1,65 @@
+{
+  "wid": "W7164614711",
+  "title": "I Understand How You Feel: Enhancing Deeper Emotional Support Through Multilingual Emotional Validation in Dialogue System",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "metric": "macro_f1",
+  "original_value": 51.68,
+  "original_location": "Table 2, Multilingual block, row 'GPT 4.1 Nano - Zero-shot', M-EDESConv Overall M-F1",
+  "reexecution": {
+    "mean_over_seeds": 0.4156093177762293,
+    "per_seed": {
+      "0": {
+        "value": 0.41542147841081545,
+        "n": 12780,
+        "ci95": [
+          0.4078404166392891,
+          0.42425932230833435
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.41433623379692097,
+        "n": 12780,
+        "ci95": [
+          0.40675027960070886,
+          0.42307359116263554
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.4170702411209515,
+        "n": 12780,
+        "ci95": [
+          0.4097183344728153,
+          0.42615009631774836
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 232
+  },
+  "prepare": {
+    "wid": "W7164614711",
+    "n_items": 12780,
+    "n_requests": 38340,
+    "seeds": 3,
+    "est_usd": 0.73,
+    "subset_note": null,
+    "model": "gpt-4.1-nano-2025-04-14",
+    "metric": "macro_f1",
+    "original_value": 51.68
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 9
+  },
+  "approximation": "The release holds single utterance/response pairs (no multi-turn context), so the utterance alone is classified; the trailing 'Let's think step by step' line belongs to the CoT regime and is omitted; prompt placement (system vs user) not stated.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 41.560931777622926,
+    "delta": -10.119068222377074,
+    "original_inside_ci95": false
+  }
+}

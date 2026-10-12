@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7130393701",
+  "title": "Enhancing RAG with Agentic AI and Multi-HyDE for Knowledge Retrieval and Hallucination Reduction using Mistral and Qwen2 LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "'FinanceBench shows that GPT-4-Turbo with retrieval incorrectly answers or refuses 81% of questions [17]' (Section II); experiments use Mistral-7B-Instruct-v0.3 and Qwen2-7B-Instruct"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section III (pseudo-code with prompt instructions for the RAG pipeline)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "faithfulness score",
+    "value": 1.0,
+    "n_items": null,
+    "location": "Abstract and Section V (both Mistral and Qwen2 variants report faithfulness 1.0)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "financial news/report documents (DCB Bank example); no release"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is cited only; local open-weight models are the subjects."
+}

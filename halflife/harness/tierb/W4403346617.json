@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403346617",
+ "title": "Structural Reasoning Improves Molecular Understanding of LLM",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13 (GPT-4o)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "footnote 2: \"We used gpt-4o-2024-05-13.\"; Table 3 row \"GPT-4o 0.232 0.128 0.389 0.183 0.307 0.291\" (molecule-to-text, ChEBI-20, no fine-tuning)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix A.2, Figure 12 (molecule-to-text generalist prompt); Appendix A.1 Figures 10-11 for the structural-reasoning prompts",
+  "note": "Zero-/10-shot in-context prompt for generalist LLMs, following Li et al. 2024's template; full text is printed."
+ },
+ "claim": {
+  "metric": "BLEU-2, molecule-to-text (ChEBI-20, no fine-tuning)",
+  "value": 0.232,
+  "n_items": null,
+  "location": "Table 3, row GPT-4o, BL.2 column (ChEBI-20 test split; size not stated in visible text, standard ChEBI-20 test is a few thousand molecules)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ChEBI-20 (Edwards et al., 2021), a standard public molecule-captioning benchmark"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Test-set size for ChEBI-20 is not printed anywhere in the extracted text (only hyperparameters/appendix tables for the fine-tuned baselines are given), so n_items cannot be confirmed from the paper itself even though the dataset and its usual ~3k test split are public; this is the sole gap keeping this from 'eligible'. GPT-4o is also used with MSR (+MSR row, 0.286) which needs the same prompt plus a structural-reasoning preamble (Appendix A.1)."
+}

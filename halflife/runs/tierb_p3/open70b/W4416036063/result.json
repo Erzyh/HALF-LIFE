@@ -1,0 +1,56 @@
+{
+  "wid": "W4416036063",
+  "title": "sudoLLM: On Multi-role Alignment of Language Models",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 89.2,
+  "original_location": "Table 1, caption line \"OQ MMLU accuracy: 89.2 +- 0.9 %\" (response accuracy of o1-2024-12-17 on the original queries)",
+  "reexecution": {
+    "mean_over_seeds": 0.8166666666666667,
+    "per_seed": {
+      "0": {
+        "value": 0.8166666666666667,
+        "n": 1500,
+        "ci95": [
+          0.7966666666666666,
+          0.8346666666666667
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 1
+  },
+  "prepare": {
+    "wid": "W4416036063",
+    "n_items": 1500,
+    "n_requests": 1500,
+    "seeds": 1,
+    "est_usd": 0.43,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 89.2,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper draws 3 mutually-exclusive sets of 500 OQ samples from the MMLU test split and reports their mean +- sd (89.2 +- 0.9). The exact draw lives in data/mmlu_quality/MMLU_samples.json of the release, which is NOT in the repository (DATA.md points at an empty link), so a seeded draw of the same size (1500) from the same split is used and one pooled accuracy is compared with the reported mean.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "o1-2024-12-17",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4416036063"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 81.66666666666667,
+    "delta": -7.533333333333331,
+    "original_inside_ci95": false
+  }
+}

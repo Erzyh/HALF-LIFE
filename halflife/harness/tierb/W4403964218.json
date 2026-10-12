@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403964218",
+ "title": "As Simple as Fine-tuning: LLM Alignment via Bidirectional Negative Feedback Loss",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Footnote 2: \"...using GPT-4-0314 as reference and GPT-4o-mini as evaluator...The original evaluator was GPT-4-Turbo, we replace it with GPT-4o-mini due to high API costs.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (GPT-4-Turbo was explicitly NOT used as the evaluator in the final reported results; it was replaced by GPT-4o-mini for cost reasons)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "UltraFeedback (Cui et al., 2024); Arena-Hard, Wild-Bench benchmarks"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-Turbo is mentioned only to explain a discontinued design choice (the authors swapped it out for GPT-4o-mini before running their actual experiments); the paper's real evaluators are GPT-4o-mini (Arena-Hard) and GPT-4o (Wild-Bench), both undated and neither the subject of a GPT-4-Turbo claim."
+}

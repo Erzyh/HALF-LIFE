@@ -1,0 +1,7 @@
+﻿type,identifiers,retired,announced,median lifespan days,shortest,longest,examples
+preview release,17,17,0,210.0,83,871,"gemini-3.1-flash-lite-preview, gemini-3-pro-preview, gpt-4.5-preview"
+dated chat snapshot,14,10,4,490.0,365,927,"claude-3-7-sonnet-20250219, claude-opus-4-1-20250805, claude-3-5-sonnet-20241022"
+GPT-5 series,6,0,6,491.0,380,504,"gpt-5.4-nano-2026-03-17, gpt-5-pro-2025-10-06, gpt-5-mini-2025-08-07"
+undated chat alias,44,41,3,565.0,93,1228,"gemini-2.5-pro-exp-03-25, gemini-2.0-pro-exp, gemini-2.0-flash-thinking-exp"
+reasoning series (o1/o3/o4),7,1,6,583.0,410,675,"o1-mini, o3-pro-2025-06-10, o4-mini-2025-04-16"
+legacy completion (text-*),7,7,0,707.0,402,712,"text-davinci-003, text-davinci-002, text-davinci-001"

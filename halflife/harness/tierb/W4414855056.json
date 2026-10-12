@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4414855056",
+  "title": "Agent-UniRAG: A Trainable Open-Source LLM Agent Framework for Unified Retrieval-Augmented Generation Systems",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 3: \"GPT-4-Turbo 0.35 0.13 4.35 2.27\" (Rouge-L/BLEU/GPT-Score/Step, compared with Llama-3-70B-Inst and the proposed Agent-UniRAG on the SynAgent-RAG test set)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. 4-5 (agent pipeline described), Appendix", "note": "GPT-4-Turbo used as the backbone LLM for a single-step RAG agent baseline; exact instruction text not quoted in the main text."},
+  "claim": {
+    "metric": "ROUGE-L, SynAgent-RAG test set", "value": 0.35, "n_items": null,
+    "location": "Table 3, row GPT-4-Turbo, Rouge-L column",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "SynAgent-RAG (new dataset introduced by this paper); public release not confirmed in the excerpted text"},
+  "cost": {"est_calls": null, "tier": "mid"},
+  "blockers": [],
+  "notes": "arXiv 2025. Exact size of the SynAgent-RAG test set is not stated in the sections read, which is the soft gap keeping this at 'maybe'. A separate GPT-Score column uses an unspecified 'LLM-based evaluator' as judge, not used for this record's claim (ROUGE-L is judge-free)."
+}

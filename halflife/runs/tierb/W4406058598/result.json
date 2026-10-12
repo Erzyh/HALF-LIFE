@@ -1,0 +1,65 @@
+{
+  "wid": "W4406058598",
+  "title": "Halu-J: Critique-Based Hallucination Judge",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "accuracy",
+  "original_value": 0.83,
+  "original_location": "Table 1, row GPT-4o, column ME-FEVER",
+  "reexecution": {
+    "mean_over_seeds": 0.884760366182014,
+    "per_seed": {
+      "0": {
+        "value": 0.8869143780290791,
+        "n": 1238,
+        "ci95": [
+          0.8683360258481422,
+          0.9038772213247173
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.8861066235864298,
+        "n": 1238,
+        "ci95": [
+          0.8683360258481422,
+          0.9030694668820679
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.8812600969305331,
+        "n": 1238,
+        "ci95": [
+          0.8626817447495961,
+          0.8990306946688207
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4406058598",
+    "n_items": 1238,
+    "n_requests": 3714,
+    "seeds": 3,
+    "est_usd": 34.79,
+    "subset_note": null,
+    "model": "gpt-4o-2024-05-13",
+    "metric": "accuracy",
+    "original_value": 0.83
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 5
+  },
+  "approximation": "the order in which the golden, partially irrelevant, completely irrelevant and misleading evidences are numbered is not stated; a seeded shuffle per instance (seed 20260907) is used; zero-shot Table 11 prompt without the in-context critique demonstrations used for the evidence-matching experiment",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.884760366182014,
+    "delta": 0.054760366182014075,
+    "original_inside_ci95": false
+  }
+}

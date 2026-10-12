@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411119711",
+ "title": "FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Table 2: \"GPT-4-Turbo w/ simple, zero-shot prompt (Luo et al., 2023) 55.96 42.16\" (BA%, F1-M%) as a hallucination detector."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Table 2 cites the exact source prompts: zero-shot prompt from Luo et al. (2023), CoT prompt from FACTS (Jacovi et al., 2025)",
+  "note": "Prompt provenance is precisely cited to two external papers rather than reprinted verbatim in this paper's own appendix (not confirmed otherwise)."
+ },
+ "claim": {
+  "metric": "Balanced Accuracy (BA), hallucination detection, zero-shot prompt",
+  "value": 55.96,
+  "n_items": 750,
+  "location": "Table 2, row 'GPT-4-Turbo w/ simple, zero-shot prompt'; \"final benchmark totals at 750 samples (75 passages x 10 LLMs)\" (Sec 2.3)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FaithBench (summaries from 10 modern LLMs, human-annotated); authors state annotations 'will be made open source to the public'"
+ },
+ "cost": {
+  "est_calls": 2250,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "o3-mini also qualifies with a clean number in the same table (BA 58.87% zero-shot / 58.18% CoT). GPT-4-Turbo is used here as a hallucination detector (LLM-as-a-judge) whose own detection accuracy against human labels is the reported metric, analogous to a detector/classifier role rather than free-form generation."
+}

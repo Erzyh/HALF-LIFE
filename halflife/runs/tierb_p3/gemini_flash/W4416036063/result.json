@@ -1,0 +1,56 @@
+{
+  "wid": "W4416036063",
+  "title": "sudoLLM: On Multi-role Alignment of Language Models",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 89.2,
+  "original_location": "Table 1, caption line \"OQ MMLU accuracy: 89.2 +- 0.9 %\" (response accuracy of o1-2024-12-17 on the original queries)",
+  "reexecution": {
+    "mean_over_seeds": 0.9359534206695779,
+    "per_seed": {
+      "0": {
+        "value": 0.9359534206695779,
+        "n": 1374,
+        "ci95": [
+          0.9221251819505094,
+          0.9497816593886463
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416036063",
+    "n_items": 1374,
+    "n_requests": 1374,
+    "seeds": 1,
+    "est_usd": 2.98,
+    "subset_note": "cost cap $2.98: seeded random subset of 1374 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 89.2,
+    "cap_usd": 2.98
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper draws 3 mutually-exclusive sets of 500 OQ samples from the MMLU test split and reports their mean +- sd (89.2 +- 0.9). The exact draw lives in data/mmlu_quality/MMLU_samples.json of the release, which is NOT in the repository (DATA.md points at an empty link), so a seeded draw of the same size (1500) from the same split is used and one pooled accuracy is compared with the reported mean.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "o1-2024-12-17",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4416036063"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 93.59534206695778,
+    "delta": 4.395342066957781,
+    "original_inside_ci95": false
+  }
+}

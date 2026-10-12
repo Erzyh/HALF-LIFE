@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7166900952",
+ "title": "Correct codes for the wrong reasons? validating LLMs as measurement instruments for theoretical constructs",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"...comments human coders had marked as authority (recall R=0.15; GPT-4 Turbo, about five)—the instrument vastly [under-recovers]...\" - citing an external study's [20] numbers within a methodological critique essay."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - this is a conceptual/methodological essay (uses a Plato's-cave allegory, 'B9' as a hypothetical instrument) that synthesizes and critiques prior studies rather than running new experiments",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none run by these authors; all GPT-4/GPT-4-Turbo figures (93% accuracy, R=0.15 recall, etc.) are drawn from cited prior studies to illustrate a measurement-validity argument",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "n/a (no original data collection by these authors)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A theoretical/methodological essay on LLM-as-coding-instrument validity; no live model call is made by the authors themselves - all cited numbers (including GPT-4 Turbo's) belong to other studies."
+}

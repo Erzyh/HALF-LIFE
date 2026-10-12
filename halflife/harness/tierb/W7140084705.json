@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7140084705",
+  "title": "Quantifying Data Contamination in Psychometric Evaluations of LLMs",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 1 row \"gpt-4.1-nano 0.21+-0.01 0.27+-0.07 0.92+-0.07 0.85+-0.29 1.21+-0.08\"; \"For all experiments we set the temperature to 0.7, repeat three times\" (Sec. 3)."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix B.2, Prompts 1-5 (semantic memorization, refusal/similarity, keyword, item-dimension mapping, option-score, target score)", "note": "Templates printed with {inventory_name}, {item_index}, {item} placeholders."},
+  "claim": {
+    "metric": "item-dimension mapping F1 (mean over BFI-44, MFQ, PVQ-40, SD-3)", "value": 0.92, "n_items": 141, "location": "Table 1, row gpt-4.1-nano, column Item-Dimension Mapping (F1); per-inventory values in Tables 3-6",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "BFI-44, MFQ (30), PVQ-40, SD-3 (27) inventories, all public; code at the GitHub link in footnote 1"},
+  "cost": {"est_calls": 450, "tier": "low"},
+  "blockers": [],
+  "notes": "Snapshot not named in the text; gpt-4.1-nano has a single dated snapshot (2025-04-14). The semantic-memorization column additionally uses GPT-5.2-mini as a refusal filter and text-embedding-3-large for similarity; the chosen F1 claim needs neither."
+}

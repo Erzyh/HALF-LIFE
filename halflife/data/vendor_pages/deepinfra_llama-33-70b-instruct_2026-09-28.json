@@ -1,0 +1,702 @@
+{
+ "source": "GET https://api.deepinfra.com/models/meta-llama/Llama-3.3-70B-Instruct, read 2026-09-28",
+ "response": {
+  "model_name": "meta-llama/Llama-3.3-70B-Instruct",
+  "type": "text-generation",
+  "tags": [
+   "openai",
+   "json",
+   "tools",
+   "structured-output"
+  ],
+  "reported_type": "text-generation",
+  "version": "38ff4e01a70559264c95945aa04b900a11e68422",
+  "description": "Llama 3.3-70B is a multilingual LLM trained on a massive dataset of 15 trillion tokens, fine-tuned for instruction-following and conversational dialogue. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation.",
+  "mf_description": "Llama 3.3-70B is a multilingual LLM trained on a massive dataset of 15 trillion tokens, fine-tuned for instruction-following and conversational dialogue. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation.",
+  "featured": false,
+  "owner": false,
+  "public": true,
+  "curl_inv": "curl -X POST \\\n    -d '{\"input\": \"I have this dream\"}'  \\\n    -H \"Authorization: bearer $DEEPINFRA_API_KEY\"  \\\n    -H 'Content-Type: application/json'  \\\n    'https://api.deepinfra.com/v1/inference/meta-llama/Llama-3.3-70B-Instruct'",
+  "cmdline_inv": "deepctl infer \\\n    -m 'meta-llama/Llama-3.3-70B-Instruct'  \\\n    -i 'input=I have this dream'",
+  "txt_docs": "parameters:\n  input     : string. text to generate from\n  max_new_tokens: integer. maximum length of the newly generated text. If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller\n  temperature: (Default: 0.7) number. temperature to use for sampling. 0 means the output is deterministic. Values greater than 1 encourage more diversity\n  top_p     : (Default: 0.9) number. Sample from the set of tokens with highest probability such that sum of probabilies is higher than p. Lower values focus on the most probable tokens.Higher values sample more low-probability tokens\n  min_p     : (Default: 0.0) number. Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.\n  top_k     : (Default: 0) integer. Sample from the best k (number of) tokens. 0 means off\n  repetition_penalty: (Default: 1.0) number. repetition penalty. Value of 1 means no penalty, values greater than 1 discourage repetition, smaller than 1 encourage repetition.\n  stop      : array. Up to 16 strings that will terminate generation immediately\n  num_responses: (Default: 1) integer. Number of output sequences to return. Incompatible with streaming\n  response_format: (Default: {'type': 'text'}) object. Optional nested object with \"type\" set to \"json_object\"\n  presence_penalty: (Default: 0) number. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.\n  frequency_penalty: (Default: 0) number. Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.\n  user      : string. A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.\n  seed      : integer. Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.\n  prompt_cache_key: string. A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.\n  stream    : (Default: False) boolean. Whether to stream tokens, by default it will be false, currently only supported for Llama 2 text generation models, token by token updates will be sent over SSE\n  webhook   : string. The webhook to call when inference is done, by default you will get the output in the response of your inference request\n\nsend the parameters as EITHER:\n- JSON object (one key: value per parameter, binary as base64 or Data URL)\n- HTTP multipart (one part per parameter).\n",
+  "out_example": "{\n  \"results\": [\n    {\n      \"generated_text\": null\n    }\n  ],\n  \"num_tokens\": 42,\n  \"num_input_tokens\": 100,\n  \"request_id\": null,\n  \"inference_status\": {\n    \"status\": \"unknown\",\n    \"runtime_ms\": 0,\n    \"cost\": 0.0,\n    \"tokens_generated\": 0,\n    \"tokens_input\": 0,\n    \"output_length\": 0\n  }\n}\n",
+  "out_docs": "results: array[GeneratedText]. a list of generated texts\nGeneratedText fields:\n    generated_text: string. generated text, including the prompt\nnum_tokens: integer. number of generated tokens, excluding prompt\nnum_input_tokens: integer. number of input tokens\nrequest_id: string. The request id\ninference_status: object. Object containing the status of the inference request\n",
+  "in_schema": {
+   "definitions": {
+    "JsonObjectResponseFormat": {
+     "properties": {
+      "type": {
+       "const": "json_object",
+       "default": "json_object",
+       "title": "Type",
+       "type": "string"
+      }
+     },
+     "title": "JsonObjectResponseFormat",
+     "type": "object"
+    },
+    "JsonSchema": {
+     "properties": {
+      "name": {
+       "description": "Name identifier for the JSON schema",
+       "title": "Name",
+       "type": "string"
+      },
+      "schema": {
+       "additionalProperties": true,
+       "description": "The actual JSON schema definition",
+       "title": "Schema",
+       "type": "object"
+      }
+     },
+     "required": [
+      "name",
+      "schema"
+     ],
+     "title": "JsonSchema",
+     "type": "object"
+    },
+    "JsonSchemaResponseFormat": {
+     "properties": {
+      "type": {
+       "const": "json_schema",
+       "default": "json_schema",
+       "title": "Type",
+       "type": "string"
+      },
+      "json_schema": {
+       "$ref": "#/definitions/JsonSchema",
+       "description": "JSON schema for structured output when type is 'json_schema'"
+      }
+     },
+     "required": [
+      "json_schema"
+     ],
+     "title": "JsonSchemaResponseFormat",
+     "type": "object"
+    },
+    "RegexResponseFormat": {
+     "properties": {
+      "type": {
+       "const": "regex",
+       "default": "regex",
+       "title": "Type",
+       "type": "string"
+      },
+      "regex": {
+       "description": "Regex pattern for structured output when type is 'regex'",
+       "title": "Regex",
+       "type": "string"
+      }
+     },
+     "required": [
+      "regex"
+     ],
+     "title": "RegexResponseFormat",
+     "type": "object"
+    },
+    "TextResponseFormat": {
+     "properties": {
+      "type": {
+       "const": "text",
+       "default": "text",
+       "title": "Type",
+       "type": "string"
+      }
+     },
+     "title": "TextResponseFormat",
+     "type": "object"
+    }
+   },
+   "required": [
+    "input"
+   ],
+   "title": "TextGenerationIn",
+   "type": "object",
+   "properties": {
+    "input": {
+     "description": "text to generate from",
+     "title": "Input",
+     "type": "string",
+     "example": "I have this dream"
+    },
+    "max_new_tokens": {
+     "description": "maximum length of the newly generated text. If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller",
+     "maximum": 1000000,
+     "minimum": 1,
+     "title": "Max New Tokens",
+     "type": "integer",
+     "example": 16384
+    },
+    "temperature": {
+     "default": 0.7,
+     "description": "temperature to use for sampling. 0 means the output is deterministic. Values greater than 1 encourage more diversity",
+     "maximum": 100,
+     "minimum": 0,
+     "title": "Temperature",
+     "type": "number",
+     "example": 0.7
+    },
+    "top_p": {
+     "default": 0.9,
+     "description": "Sample from the set of tokens with highest probability such that sum of probabilies is higher than p. Lower values focus on the most probable tokens.Higher values sample more low-probability tokens",
+     "exclusiveMinimum": 0,
+     "maximum": 1,
+     "title": "Top P",
+     "type": "number",
+     "example": 0.9
+    },
+    "min_p": {
+     "default": 0,
+     "description": "Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.",
+     "maximum": 1,
+     "minimum": 0,
+     "title": "Min P",
+     "type": "number",
+     "example": 0.1
+    },
+    "top_k": {
+     "default": 0,
+     "description": "Sample from the best k (number of) tokens. 0 means off",
+     "exclusiveMaximum": 1000,
+     "minimum": 0,
+     "title": "Top K",
+     "type": "integer",
+     "example": 50
+    },
+    "repetition_penalty": {
+     "default": 1,
+     "description": "repetition penalty. Value of 1 means no penalty, values greater than 1 discourage repetition, smaller than 1 encourage repetition.",
+     "maximum": 5,
+     "minimum": 0.01,
+     "title": "Repetition Penalty",
+     "type": "number",
+     "example": 1
+    },
+    "stop": {
+     "description": "Up to 16 strings that will terminate generation immediately",
+     "items": {
+      "type": "string"
+     },
+     "title": "Stop",
+     "type": "array"
+    },
+    "num_responses": {
+     "default": 1,
+     "description": "Number of output sequences to return. Incompatible with streaming",
+     "maximum": 4,
+     "minimum": 1,
+     "title": "Num Responses",
+     "type": "integer"
+    },
+    "response_format": {
+     "anyOf": [
+      {
+       "$ref": "#/definitions/TextResponseFormat"
+      },
+      {
+       "$ref": "#/definitions/JsonObjectResponseFormat"
+      },
+      {
+       "$ref": "#/definitions/JsonSchemaResponseFormat"
+      },
+      {
+       "$ref": "#/definitions/RegexResponseFormat"
+      }
+     ],
+     "default": {
+      "type": "text"
+     },
+     "description": "Optional nested object with \"type\" set to \"json_object\"",
+     "title": "Response Format"
+    },
+    "presence_penalty": {
+     "default": 0,
+     "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+     "maximum": 2,
+     "minimum": -2,
+     "title": "Presence Penalty",
+     "type": "number"
+    },
+    "frequency_penalty": {
+     "default": 0,
+     "description": "Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+     "maximum": 2,
+     "minimum": -2,
+     "title": "Frequency Penalty",
+     "type": "number"
+    },
+    "user": {
+     "description": "A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.",
+     "title": "User",
+     "type": "string"
+    },
+    "seed": {
+     "description": "Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.",
+     "exclusiveMaximum": 18446744073709551616,
+     "minimum": -9223372036854775808,
+     "title": "Seed",
+     "type": "integer"
+    },
+    "prompt_cache_key": {
+     "description": "A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.",
+     "title": "Prompt Cache Key",
+     "type": "string"
+    },
+    "webhook": {
+     "description": "The webhook to call when inference is done, by default you will get the output in the response of your inference request",
+     "format": "uri",
+     "is_base_field": true,
+     "maxLength": 2083,
+     "minLength": 1,
+     "title": "Webhook",
+     "type": "string"
+    },
+    "stream": {
+     "default": false,
+     "description": "Whether to stream tokens, by default it will be false, currently only supported for Llama 2 text generation models, token by token updates will be sent over SSE",
+     "is_base_field": true,
+     "title": "Stream",
+     "type": "boolean",
+     "example": true
+    }
+   }
+  },
+  "out_schema": {
+   "definitions": {
+    "GeneratedText": {
+     "properties": {
+      "generated_text": {
+       "description": "generated text, including the prompt",
+       "examples": [
+        "I have this dream about the day I got a job at a tech company. I just woke up on a plane. I sat down on the floor and started getting work done. After getting up around 6 p.m., I looked around and"
+       ],
+       "title": "Generated Text",
+       "type": "string"
+      }
+     },
+     "required": [
+      "generated_text"
+     ],
+     "title": "GeneratedText",
+     "type": "object"
+    },
+    "InferenceReplyStatus": {
+     "properties": {
+      "status": {
+       "choices": [
+        "unknown",
+        "queued",
+        "running",
+        "succeeded",
+        "failed"
+       ],
+       "default": "succeeded",
+       "description": "Inference status",
+       "title": "Status",
+       "type": "string"
+      },
+      "runtime_ms": {
+       "default": 0,
+       "description": "runtime in milliseconds",
+       "title": "Runtime Ms",
+       "type": "integer"
+      },
+      "cost": {
+       "description": "estimated cost billed for the request in USD",
+       "title": "Cost",
+       "type": "number"
+      },
+      "tokens_generated": {
+       "description": "number of tokens generated",
+       "title": "Tokens Generated",
+       "type": "integer"
+      },
+      "tokens_input": {
+       "description": "number of input tokens",
+       "title": "Tokens Input",
+       "type": "integer"
+      },
+      "output_length": {
+       "description": "length of the output in seconds",
+       "title": "Output Length",
+       "type": "integer"
+      }
+     },
+     "required": [
+      "cost"
+     ],
+     "title": "InferenceReplyStatus",
+     "type": "object"
+    }
+   },
+   "required": [
+    "results"
+   ],
+   "title": "TextGenerationOut",
+   "type": "object",
+   "properties": {
+    "results": {
+     "description": "a list of generated texts",
+     "items": {
+      "$ref": "#/definitions/GeneratedText"
+     },
+     "title": "Results",
+     "type": "array"
+    },
+    "num_tokens": {
+     "description": "number of generated tokens, excluding prompt",
+     "title": "Num Tokens",
+     "type": "integer",
+     "example": 42
+    },
+    "num_input_tokens": {
+     "description": "number of input tokens",
+     "title": "Num Input Tokens",
+     "type": "integer",
+     "example": 100
+    },
+    "request_id": {
+     "description": "The request id",
+     "is_base_field": true,
+     "title": "Request Id",
+     "type": "string"
+    },
+    "inference_status": {
+     "$ref": "#/definitions/InferenceReplyStatus",
+     "description": "Object containing the status of the inference request",
+     "is_base_field": true,
+     "type": "object",
+     "title": "InferenceReplyStatus"
+    }
+   }
+  },
+  "in_fields": [
+   {
+    "name": "input",
+    "parent": null,
+    "ftype": "string",
+    "description": "text to generate from",
+    "allowed": null,
+    "default": null,
+    "examples": [
+     "I have this dream"
+    ],
+    "minimum": null,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "max_new_tokens",
+    "parent": null,
+    "ftype": "integer",
+    "description": "maximum length of the newly generated text. If explicitly set to None it will be the model's max context length minus input length or 65536, whichever is smaller",
+    "allowed": null,
+    "default": null,
+    "examples": [
+     16384
+    ],
+    "minimum": 1.0,
+    "exclusiveMinimum": null,
+    "maximum": 1000000.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "temperature",
+    "parent": null,
+    "ftype": "number",
+    "description": "temperature to use for sampling. 0 means the output is deterministic. Values greater than 1 encourage more diversity",
+    "allowed": null,
+    "default": 0.7,
+    "examples": [
+     0.7
+    ],
+    "minimum": 0.0,
+    "exclusiveMinimum": null,
+    "maximum": 100.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "top_p",
+    "parent": null,
+    "ftype": "number",
+    "description": "Sample from the set of tokens with highest probability such that sum of probabilies is higher than p. Lower values focus on the most probable tokens.Higher values sample more low-probability tokens",
+    "allowed": null,
+    "default": 0.9,
+    "examples": [
+     0.9
+    ],
+    "minimum": null,
+    "exclusiveMinimum": 0.0,
+    "maximum": 1.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "min_p",
+    "parent": null,
+    "ftype": "number",
+    "description": "Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this.",
+    "allowed": null,
+    "default": 0,
+    "examples": [
+     0.1
+    ],
+    "minimum": 0.0,
+    "exclusiveMinimum": null,
+    "maximum": 1.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "top_k",
+    "parent": null,
+    "ftype": "integer",
+    "description": "Sample from the best k (number of) tokens. 0 means off",
+    "allowed": null,
+    "default": 0,
+    "examples": [
+     50
+    ],
+    "minimum": 0.0,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": 1000.0
+   },
+   {
+    "name": "repetition_penalty",
+    "parent": null,
+    "ftype": "number",
+    "description": "repetition penalty. Value of 1 means no penalty, values greater than 1 discourage repetition, smaller than 1 encourage repetition.",
+    "allowed": null,
+    "default": 1,
+    "examples": [
+     1
+    ],
+    "minimum": 0.01,
+    "exclusiveMinimum": null,
+    "maximum": 5.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "stop",
+    "parent": null,
+    "ftype": "array",
+    "description": "Up to 16 strings that will terminate generation immediately",
+    "allowed": null,
+    "default": null,
+    "examples": [],
+    "minimum": null,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "num_responses",
+    "parent": null,
+    "ftype": "integer",
+    "description": "Number of output sequences to return. Incompatible with streaming",
+    "allowed": null,
+    "default": 1,
+    "examples": [],
+    "minimum": 1.0,
+    "exclusiveMinimum": null,
+    "maximum": 4.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "response_format",
+    "parent": null,
+    "ftype": "any",
+    "description": "Optional nested object with \"type\" set to \"json_object\"",
+    "allowed": null,
+    "default": {
+     "type": "text"
+    },
+    "examples": [],
+    "minimum": null,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "presence_penalty",
+    "parent": null,
+    "ftype": "number",
+    "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+    "allowed": null,
+    "default": 0,
+    "examples": [],
+    "minimum": -2.0,
+    "exclusiveMinimum": null,
+    "maximum": 2.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "frequency_penalty",
+    "parent": null,
+    "ftype": "number",
+    "description": "Positive values penalize new tokens based on how many times they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+    "allowed": null,
+    "default": 0,
+    "examples": [],
+    "minimum": -2.0,
+    "exclusiveMinimum": null,
+    "maximum": 2.0,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "user",
+    "parent": null,
+    "ftype": "string",
+    "description": "A unique identifier representing your end-user, which can help monitor and detect abuse. Avoid sending us any identifying information. We recommend hashing user identifiers.",
+    "allowed": null,
+    "default": null,
+    "examples": [],
+    "minimum": null,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "seed",
+    "parent": null,
+    "ftype": "integer",
+    "description": "Seed for random number generator. If not provided, a random seed is used. Determinism is not guaranteed.",
+    "allowed": null,
+    "default": null,
+    "examples": [],
+    "minimum": -9.223372036854776e+18,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": 1.8446744073709552e+19
+   },
+   {
+    "name": "prompt_cache_key",
+    "parent": null,
+    "ftype": "string",
+    "description": "A key to identify prompt cache for reuse across requests. If provided, the prompt will be cached and can be reused in subsequent requests with the same key.",
+    "allowed": null,
+    "default": null,
+    "examples": [],
+    "minimum": null,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "webhook",
+    "parent": null,
+    "ftype": "file",
+    "description": "The webhook to call when inference is done, by default you will get the output in the response of your inference request",
+    "allowed": null,
+    "default": null,
+    "examples": [],
+    "minimum": null,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": null
+   },
+   {
+    "name": "stream",
+    "parent": null,
+    "ftype": "boolean",
+    "description": "Whether to stream tokens, by default it will be false, currently only supported for Llama 2 text generation models, token by token updates will be sent over SSE",
+    "allowed": null,
+    "default": false,
+    "examples": [
+     true
+    ],
+    "minimum": null,
+    "exclusiveMinimum": null,
+    "maximum": null,
+    "exclusiveMaximum": null
+   }
+  ],
+  "pricing": {
+   "discount": null,
+   "discount_ends_at": null,
+   "short": null,
+   "full": null,
+   "table": null,
+   "type": "tokens",
+   "cents_per_input_token": 2.3e-05,
+   "cents_per_output_token": 4e-05,
+   "rate_per_input_token_cached": null,
+   "rate_per_input_token_cache_write": null,
+   "rate_per_service_tier_priority": null,
+   "rate_per_service_tier_flex": null,
+   "rate_per_explicit_cache_write_token": null,
+   "explicit_cache_granularity_tokens": null
+  },
+  "doc_blocks": [
+   {
+    "key": "openai-http",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/openai-http.md"
+   },
+   {
+    "key": "openai-python",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/openai-python.md"
+   },
+   {
+    "key": "openai-js",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/openai-js.md"
+   },
+   {
+    "key": "ai-sdk-js",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/ai-sdk-js.md"
+   },
+   {
+    "key": "http",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/http.md"
+   },
+   {
+    "key": "deepctl",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/deepctl.md"
+   },
+   {
+    "key": "js-text-gen",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/js-text-gen.md"
+   }
+  ],
+  "short_doc_block": {
+   "key": "openai-python-short",
+   "url": "/models/meta-llama/Llama-3.3-70B-Instruct/docs/openai-python-short.md"
+  },
+  "schemas": [
+   {
+    "key": "openai-chat-completions",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/schema/openai-chat-completions"
+   },
+   {
+    "key": "openai-completions",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/schema/openai-completions"
+   },
+   {
+    "key": "ai-sdk",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/schema/ai-sdk"
+   },
+   {
+    "key": "default",
+    "url": "/models/meta-llama/Llama-3.3-70B-Instruct/schema/default"
+   }
+  ],
+  "meta": {
+   "github_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+   "license_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE",
+   "readme": "https://shared.deepinfra.com/models/meta-llama/Llama-3.3-70B-Instruct/readme.3f8f51a49d27a5ea5ded1924cc3f283ab016ed83e1a73e29511d9cd82ed86fc3.md",
+   "cover_img_url": "https://shared.deepinfra.com/models/meta-llama/Llama-3.3-70B-Instruct/cover_image.e90aef7bcab5b478ff3608e1b174f2d2e6580188adddacd74c6a24448e61a6db.webp"
+  },
+  "max_tokens": 131072,
+  "max_output_tokens": null,
+  "replaced_by": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "deprecated": 1762392581,
+  "quantization": "bfloat16",
+  "mmlu": null,
+  "expected": null,
+  "import_time": "2024-12-06T17:39:34.164173+00:00",
+  "is_partner": false,
+  "is_custom_deployable": true,
+  "mf_name": "llama",
+  "mf_title": "Llama"
+ }
+}

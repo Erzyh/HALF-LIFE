@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415274576",
+ "title": "D-com: Accelerating Iterative Processing to Enable Low-rank Decomposition of Activations",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"More recent models like Claude 2 and GPT-4-turbo support...\" (background scale/context-length comparison only)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - GPT-4-turbo is never queried",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (Tables 2-3 report the authors' own weight/activation decomposition method's accuracy on arc_easy/wikitext2, which requires white-box weight access and is run on an open-weight model, not GPT-4-turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "Tables 2-3 use an unnamed open-weight decomposed model, not GPT-4-turbo",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "arc_easy, wikitext2 (public benchmarks); irrelevant since GPT-4-turbo is not evaluated"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is a low-rank weight/activation decomposition method paper, which inherently requires white-box access to model weights; GPT-4-turbo appears only as a closed-model example in the introduction."
+}

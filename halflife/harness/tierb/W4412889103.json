@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412889103",
+  "title": "Questioning Our Questions: How Well Do Medical QA Benchmarks Evaluate Clinical Capabilities of Language Models?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09 (also gpt-4o-2024-05-13, o3-mini)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Table 7 'Proprietary Language Models Release Timeline': 'gpt-4-turbo-2024-04-09 2024-04-09 gpt-4-turbo-2024-04-09'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Tables 5-7 (abstract-screening and full-text review prompt templates for the literature pipeline)",
+    "note": "Prompts are for an LLM used in systematic-review screening (auxiliary role)."
+  },
+  "claim": {
+    "metric": "",
+    "value": null,
+    "n_items": null,
+    "location": "none (meta-analysis of published benchmark results)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Aggregated published benchmark and clinical-performance data"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Model IDs appear in a release timeline and in the collected performance dataset; no experiment runs the live models."
+}

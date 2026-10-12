@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4410633563",
+ "title": "Reasoning Over Pre-training: Evaluating LLM Performance and Augmentation in Women’s Health",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o3-mini-high",
+  "resolved": "o3-mini-2025-01-31",
+  "role": "S",
+  "evidence": "Table 2: \"o3-mini-high: OpenAI o3-mini-2025-01-31, set to 'high' reasoning\"; \"the best-performing model in MedQA, o3-mini...92.99% base...average accuracy\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (MedQA/MRCOG question format and RAG-context variant described); no verbatim prompt block located",
+  "note": ""
+ },
+ "claim": {
+  "metric": "accuracy, MedQA women's-health subset (base, no RAG)",
+  "value": 92.99,
+  "n_items": null,
+  "location": "Results text (\"o3-mini...92.99% base\"); bootstrapped as 5000 sets of 100 questions (Fig 1b)",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "MedQA (public); MRCOG Part 2 question bank not public (extracted from a proprietary exam via GPT-4o + manual review)"
+ },
+ "cost": {
+  "est_calls": 500,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "MRCOG Part 2 claims are data_closed (proprietary RCOG exam questions); the MedQA women's-health-subset claim avoids that since MedQA is public. Soft gap: the underlying question-bank size behind the 5000x100 bootstrap isn't stated, so n_items for a one-shot re-run is unclear. A comparable GPT-4o arm uses gpt-4o-2024-08-06, outside the tracked live list."
+}

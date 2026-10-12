@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403347060",
+  "title": "Multi-Session Client-Centered Treatment Outcome Evaluation in Psychotherapy",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Appendix A: 'the tests were gpt-4-0613, gpt-4o-2024-05-13, gpt-4-turbo-2024-04-09, gpt-4o-mini-2024-...'; Table 3 row 'GPT-4-turbo 0.7561+-0.00 0.8726+-0.02 ...'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix E (psychological assessment prompt with <Psychometric Test>, <Format Instructions>, <Interview>, <Item-aware Reasoning Result> placeholders); Appendix C (items-aware reasoning)",
+    "note": "Two-step pipeline; placeholders must be filled from other appendices."
+  },
+  "claim": {
+    "metric": "accuracy, SCL-90 symptom assessment",
+    "value": 0.7561,
+    "n_items": 800,
+    "location": "Table 3, row GPT-4-turbo, column Accuracy (TheraPhase: 400 clients, 800 sessions)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TheraPhase (huggingface.co/datasets/UTSNLPGroup/TheraPhase), Chinese; AnnoMI"
+  },
+  "cost": {
+    "est_calls": 4800,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "n_items assumed to be the 800 TheraPhase sessions; gpt-4o-2024-05-13 also evaluated (Table 4).",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "Fill <Psychometric Test> with the 90 SCL-90 items (public instrument), <Interview> with each TheraPhase session transcript (HF dataset, 400 clients / 800 sessions), <Format Instructions> with a per-symptom-category JSON schema written from Sec. 3.3 and Appendix G, and <Item-aware Reasoning Result> with the output of the Appendix D step. Run both steps with gpt-4-turbo-2024-04-09 and score against the reference scores; those are GPT-4o-generated (Sec. 3.3 'gold model'), so use them from the TheraPhase release if shipped, otherwise regenerate with gpt-4o-2024-05-13 through the same pipeline.",
+    "approximation": "Format-instruction wording authored by us; references possibly regenerated rather than the authors' file; temperature not stated.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

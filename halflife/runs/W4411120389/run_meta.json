@@ -1,0 +1,324 @@
+{
+  "card_id": "W4411120389",
+  "run_date_utc": "2026-09-18",
+  "target_paper": {
+    "title": "The Good, The Bad, and The Greedy: Evaluation of LLMs Should Not Ignore Non-Determinism",
+    "doi": "10.18653/v1/2025.naacl-long.211",
+    "repo": "https://github.com/Yifan-Song793/GoodBadGreedy",
+    "repo_commit": "eb9a5860ce7a94e800fed6aa04faf6e27bf6b04d",
+    "repo_license": "none in the code repo; released samples (HF goodbadgreedy/GoodBadGreedy) Apache-2.0",
+    "original_run_dates": "2024-06-14 (created timestamps in the released openai_query_results.jsonl)",
+    "original_values": {
+      "greedy": 89.6,
+      "sample_mean": 84.1,
+      "std": 2.65,
+      "delta_best_worst": 11.0,
+      "gap": 5.5,
+      "N_stated": 128,
+      "N_released": 32,
+      "t_test_p": 1.1e-48
+    },
+    "original_source": "Table 2 (HumanEval, GPT-4-Turbo row), Table 8 (App. A)"
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served_field": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13,
+    "system_fingerprint_example": "fp_7c6d5e440d",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (raw HTTPS, harness/openai_client.py)",
+    "parameters": "single user message; temperature 0.0 (greedy, 3 repeats) / 1.0 (sampling, 32 runs); top_p 1.0; n 1; no max_tokens; no stop sequences - the Open-Instruct OpenAI branch (run_eval.py:138-150) except top_p (code 0.95, paper 1.0)",
+    "prompt_template_source": "allenai/open-instruct@167a2b4b eval/codex_humaneval/run_eval.py:140 ('Complete the following python function. Please only output the code for the completed function.' + HumanEval prompt), verified verbatim against the released calls",
+    "postprocessing": "```python block(s) of the reply concatenated and stripped (authors' step, inferred; empty when no fence); lenient variant reported",
+    "samples_per_task": {
+      "greedy": 3,
+      "sample": 32
+    },
+    "n_tasks": 164,
+    "python": "3.13.7",
+    "pricing_assumed_usd_per_1m": {
+      "input": 10.0,
+      "output": 30.0
+    },
+    "budget_cap_usd": 50.0,
+    "run_config": {
+      "card_id": "W4411120389",
+      "model": "gpt-4-turbo-2024-04-09",
+      "n_greedy_repeats": 3,
+      "n_sample_runs": 32,
+      "n_max_affordable": 43,
+      "temperature_greedy": 0.0,
+      "temperature_sample": 1.0,
+      "top_p": 1.0,
+      "n_per_call": 1,
+      "max_tokens": null,
+      "stop": null,
+      "cap_usd": 50.0,
+      "calls": 5740,
+      "calibrated_cost_usd": 30.237840000000006,
+      "prompt_source": "allenai/open-instruct@167a2b4b eval/codex_humaneval/run_eval.py:140",
+      "instruction": "Complete the following python function. Please only output the code for the completed function.\n\n\n",
+      "built_utc": "2026-09-18T09:35:11.991833+00:00"
+    },
+    "battery": "5740 archived calls in baseline_alive/calls.jsonl"
+  },
+  "evaluation": {
+    "python": "3.13.7",
+    "timeout_s": 10.0,
+    "workers": 8,
+    "mode": "fresh isolated interpreter per sample (subprocess.run, cwd = temp dir); check program per Open-Instruct execution.py:38-42",
+    "k": [
+      1
+    ],
+    "problem_file": "openai/human-eval data/HumanEval.jsonl.gz (164 problems)",
+    "environment_reference_check": {
+      "canonical_solutions_pass": {
+        "passed": 164,
+        "n": 164
+      },
+      "released_flags_reproduced": {
+        "agree": 5410,
+        "disagree": 2
+      },
+      "released_greedy_rescored": 89.63414634146342,
+      "released_sample_mean_rescored": 84.0891768292683
+    }
+  },
+  "results": {
+    "reexecution": {
+      "greedy_pass1_per_repeat": [
+        88.41463414634147,
+        88.41463414634147,
+        88.41463414634147
+      ],
+      "greedy_median": 88.41463414634147,
+      "n_greedy_repeats": 3,
+      "sample": {
+        "n_runs": 32,
+        "mean": 86.92835365853658,
+        "std_pop": 1.371421815201725,
+        "std_sample": 1.393365957611607,
+        "max": 90.85365853658537,
+        "min": 82.92682926829268,
+        "delta_best_worst": 7.926829268292693,
+        "scores": [
+          86.585,
+          87.805,
+          87.195,
+          87.805,
+          86.585,
+          87.195,
+          85.976,
+          87.805,
+          87.805,
+          86.585,
+          84.756,
+          86.585,
+          87.195,
+          87.805,
+          87.195,
+          87.195,
+          82.927,
+          85.366,
+          88.415,
+          85.366,
+          85.976,
+          88.415,
+          90.854,
+          88.415,
+          87.195,
+          86.585,
+          85.976,
+          87.195,
+          88.415,
+          86.585,
+          86.585,
+          85.366
+        ]
+      },
+      "n_sample_runs": 32,
+      "gap": 1.4862804878048905,
+      "t_test_runs_vs_greedy_median": {
+        "t": -6.033742982049665,
+        "p": 1.1147943802031857e-06,
+        "df": 31
+      },
+      "t_test_all_samples_vs_greedy_median": {
+        "t": -3.193820002267426,
+        "p": 0.001412339553157989,
+        "df": 5247
+      },
+      "bootstrap95": {
+        "greedy_median_ci95": [
+          82.92682926829268,
+          92.6829268292683
+        ],
+        "sample_mean_ci95": [
+          83.07783917682927,
+          90.45350609756098
+        ],
+        "gap_ci95": [
+          -1.5434451219512089,
+          4.212080792682933
+        ],
+        "n_boot": 1000,
+        "seed": 0
+      },
+      "per_problem": {
+        "always_solved": 77,
+        "never_solved": 5,
+        "unstable": 82,
+        "oracle_any_pass_pct": 96.95121951219512,
+        "mean_per_problem_variance": 0.055032869664634144,
+        "per_problem_rate_quartiles": [
+          0.875,
+          0.96875,
+          1.0
+        ],
+        "greedy_pass_sample_rate_below_half": 3,
+        "greedy_fail_sample_rate_at_least_half": 7,
+        "greedy_fail_some_sample_pass": 13
+      },
+      "lenient_postprocessing": {
+        "greedy_per_repeat": [
+          88.41463414634147,
+          88.41463414634147,
+          88.41463414634147
+        ],
+        "sample": {
+          "n_runs": 32,
+          "mean": 88.7766768292683,
+          "std_pop": 1.484691732152709,
+          "std_sample": 1.508448308316215,
+          "max": 92.6829268292683,
+          "min": 85.97560975609755,
+          "delta_best_worst": 6.707317073170742,
+          "scores": [
+            87.805,
+            88.415,
+            88.415,
+            87.805,
+            89.634,
+            88.415,
+            87.805,
+            90.244,
+            88.415,
+            88.415,
+            86.585,
+            87.195,
+            89.024,
+            89.024,
+            88.415,
+            90.854,
+            87.195,
+            87.805,
+            92.073,
+            85.976,
+            87.805,
+            89.634,
+            92.683,
+            89.634,
+            89.634,
+            88.415,
+            87.805,
+            89.634,
+            90.854,
+            90.244,
+            87.805,
+            87.195
+          ]
+        },
+        "gap": -0.36204268292682684
+      },
+      "replies_without_python_fence": {
+        "greedy": 0,
+        "sample": 103
+      },
+      "incomplete_runs_dropped": {
+        "greedy": 0,
+        "sample": 0
+      },
+      "top_p": 1.0
+    },
+    "original": {
+      "paper": {
+        "greedy": 89.6,
+        "sample_mean": 84.1,
+        "std": 2.65,
+        "delta_best_worst": 11.0,
+        "gap": 5.5,
+        "N_stated": 128,
+        "N_released": 32,
+        "t_test_p": 1.1e-48,
+        "source": "Table 2 (HumanEval, GPT-4-Turbo row), Table 8 (App. A)"
+      },
+      "released_runs_rescored_in_our_harness": {
+        "greedy": 89.63414634146342,
+        "sample_mean": 84.0891768292683,
+        "std_pop": 2.655063247507938,
+        "delta_best_worst": 10.975609756097569,
+        "gap": 5.544969512195124,
+        "t_test_p": 7.767387891533803e-13,
+        "bootstrap95": {
+          "greedy_median_ci95": [
+            84.7560975609756,
+            93.90243902439023
+          ],
+          "sample_mean_ci95": [
+            80.35442073170732,
+            87.55764100609757
+          ],
+          "gap_ci95": [
+            2.5147675304878048,
+            8.651867378048784
+          ],
+          "n_boot": 1000,
+          "seed": 0
+        },
+        "n_runs": 32
+      }
+    },
+    "paired_with_released": {
+      "released_runs": 32,
+      "our_runs": 32,
+      "per_problem_sample_rate_pearson_r": 0.9208668132285666,
+      "per_problem_sample_rate_mean_abs_diff": 0.0665015243902439,
+      "problems_majority_flipped": 5,
+      "greedy_flag_agreement_with_released_greedy": 0.9471544715447154,
+      "released_rescored_greedy": 89.63414634146342,
+      "released_rescored_sample_mean": 84.0891768292683,
+      "released_rescored_gap": 5.544969512195124
+    },
+    "delta_gap_points_vs_paper": -4.0137195121951095,
+    "delta_greedy_points_vs_paper": -1.1853658536585243,
+    "delta_sample_mean_points_vs_paper": 2.828353658536585,
+    "cost_usd": 30.128,
+    "calls": 5740,
+    "errors": 0,
+    "call_log_stats": {
+      "http_200": 5740,
+      "distinct_system_fingerprints": 13,
+      "finish_reasons": {
+        "stop": 5740
+      },
+      "latency_ms_median": 3867,
+      "latency_ms_p95": 8885,
+      "tokens_in": 880845,
+      "tokens_out": 710645
+    },
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN Sec. 1 as instantiated in the card: survived if median greedy (3 repeats) > sampling mean, one-sample t-test of run scores vs greedy p < 0.05 and gap >= 2 points; partial if greedy > mean but n.s. or gap < 2; dead if sampling mean >= greedy; human double-coding pending",
+    "subsidiary_claim_std_ordering": "not judged (HumanEval only; MMLU-Redux/GSM8K arms not run)",
+    "note": "greedy median 88.41 (repeats [88.41, 88.41, 88.41]) vs sampling mean 86.93 (std 1.37, best-worst 7.93, 32 runs); gap 1.49 [95% CI -1.54, 4.21] vs paper 5.5 (released runs re-scored: 5.54); t-test p 1.1e-06. Lenient post-processing gap -0.36."
+  },
+  "reproducibility_frictions_observed": [
+    "Table 1/2 state N=128 sampled runs for HumanEval, but the released archive holds 32 sampled runs for gpt-4-turbo-2024-04-09 and their metrics reproduce Table 2 exactly (mean 84.05, std 2.645, best-worst 10.98): the reported row rests on N=32",
+    "the paper says top-p 1.0; the Open-Instruct OpenAI branch that produced the released runs hard-codes top_p=0.95 (run_eval.py:147); re-run uses 1.0 as decided, 0.95 left as an unrun sensitivity",
+    "the OpenAI branch passes no max_tokens and no stop sequences (the codex stop list feeds only the vLLM/HF branches); the card's stop/max_tokens fields describe the local-model path",
+    "the released completions are the ```python block(s) of each reply (empty when a reply has no fence, then scored failed), a post-processing step that is neither in Open-Instruct nor in the released repository; the rule was inferred and reproduces all 5,412 released completions",
+    "generation via the OpenAI API, so 'greedy' (temperature 0) is itself non-deterministic; 3 repeats were run and the median used",
+    "Open-Instruct's evaluator forks a worker and uses signal.alarm (POSIX only); scoring here runs each program in a fresh isolated interpreter with a wall-clock timeout",
+    "the one-sample t-test p-value of Table 8 (1.1e-48) is not reproduced by a t-test over the 32 run scores (about 1e-12) nor by one over all 5,248 sample outcomes; the construction is not documented"
+  ]
+}

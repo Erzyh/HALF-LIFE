@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403585697",
+ "title": "Diagram Formalization Enhanced Multi-Modal Geometry Problem Solver",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Table II ('Performance Comparison of Formal Enhanced GPS Against LMMs and MLLMs on the FormalGeo7K Test Set'): 'GPT-4-turbo [35] 49.62 38.00 69.63' (Acc-Choice, PES, Acc-Open-ended)"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method section describes multiple-choice vs. open-ended evaluation protocol; exact prompt template location not confirmed in the excerpt read",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Accuracy (%), multiple-choice mode, FormalGeo7K test set",
+  "value": 49.62,
+  "n_items": null,
+  "location": "Table II, row GPT-4-turbo, Acc (Choice) column",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FormalGeo7K (public geometry-problem benchmark)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Open-ended-mode accuracy (69.63) is scored by GPT-4o-mini as a process-evaluation judge (PES), which is undated/off-list (aux_model_dead risk) -- the multiple-choice Acc column avoids that dependency and is used as the headline metric here. Exact FormalGeo7K test-set size (n_items) not located in the excerpt read."
+}

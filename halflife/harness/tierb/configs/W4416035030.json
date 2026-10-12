@@ -1,0 +1,79 @@
+{
+  "wid": "W4416035030",
+  "title": "Conflicting Needles in a Haystack: How LLMs behave when faced with contradictory information",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 256,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.3 / Sec. 4 ('generate answers via greedy decoding'); max_tokens assumed (paper silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1703,
+    "subset_rule": "one call per constructed haystack; the paper's N = 1703 is the number of GPT-4.1-nano answers that mentioned exactly one needle ('single'), which is what enters the regression, not the number of prompts sent (Table 10, Appendix E)",
+    "approximation": "BLOCKED: the haystack documents are not released. Rebuilding them means choosing a Wikipedia revision for each of the six articles of Table 7, truncating to 5,000 words, writing the three needle sentences (the paper prints only the answer tokens Dralveth / Fyrundell / Zequarith, not the sentences that carry them) and inserting them at the seven layouts with repetition 1/2/5. Every one of those steps would be our reconstruction."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "English Wikipedia articles named in Table 7: 'Capital city' (Geography, related), 'Treaty' (History, related), 'Species' (Biology, related), '2012 Formula One' (Geography, unrelated), 'Rock music' (History, unrelated), 'Euro area crisis' (Biology, unrelated); questions and needle names in Table 1",
+    "config_or_split": "haystacks of 5,000 words (~7,000 tokens), full factorial of layout x question type x relatedness x (repetition, position, identity) over three needles",
+    "filter": null,
+    "fields": {
+      "input": "haystack text with the three needles inserted",
+      "options": "the three needles Dralveth, Fyrundell, Zequarith",
+      "label": "none (no objectively correct needle: Sec. 3.3, 'there is no objectively correct needle in our experimental setup')",
+      "id": "haystack configuration id"
+    },
+    "license": "CC BY-SA 4.0 (Wikipedia text, stated in Appendix A)",
+    "access_checked": false,
+    "size_mb": null,
+    "file_url": null,
+    "access_note": "No dataset or code release is named anywhere in the paper (the only repository cited is Kamradt's original needle-in-a-haystack). The six source articles are ordinary Wikipedia pages; the constructed haystacks are not published."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{haystack} {question} Answer:",
+    "placeholders": {
+      "haystack": "the constructed haystack document",
+      "question": "the domain's question: 'What is the capital of Xaltruvia?' (Geography) | 'Which treaty resolved the Xaltruvian conflict?' (History) | 'In which genus is Xaltruvia classified?' (Biology)"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 4: 'The prompts' configuration was as follows: \"<haystack> <question> Answer:\"'; questions in Table 1",
+    "verbatim": "full for the template (three fields separated by single spaces, ending in 'Answer:') and for the three questions; the haystack contents are not printed.",
+    "placeholders_paper": {
+      "haystack": "<haystack>",
+      "question": "<question>"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the reply is annotated 'single' (exactly one needle mentioned), 'mixed' (more than one) or 'refused' (Sec. 3.3); only 'single' answers enter the regression",
+    "parse_paper": "same; the paper does not say whether the annotation is a string match or manual"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Odds ratio for the H1 '5x' term of a conditional logistic regression over generation-based needle selection: each haystack is a group of three rows (one per needle), the selected needle is the outcome, and the full model carries the H1-H8 main effects and interactions of Table 3; coefficients are exponentiated (reference levels: repetition 1x, position 1st, needle Dralveth, layout Beg-Seq, unrelated domain).",
+    "judge": "none",
+    "original_value": 9.96,
+    "original_location": "Table 6 ('Odds ratios ... for generation-based needle selection for OpenAI models'), row H1 5x, column GPT-4.1-nano (marked **, p < 0.01); N = 1703 in Table 10",
+    "bootstrap_unit": "haystack (group)",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 5109,
+    "est_usd": 4.4,
+    "tier": "low",
+    "cost_note": "~1,700 single-answer haystacks imply at least that many prompts per seed at ~7,000 input tokens each; 3 seeds at gpt-4.1-nano prices ($0.10 / $0.40 per 1M) is about $4. The paper states ~$3 for both commercial models together."
+  },
+  "open_points": [
+    "items: the haystacks are not released and cannot be rebuilt from the paper. Missing are the needle sentences (only the answer tokens are given), the Wikipedia revisions and the truncation rule for 5,000 words, the exact offsets of the seven layouts (Beg-Seq, End-Seq, Clust@50, Clust@45-55, Even, beg-5%-apart, end-5%-apart) and the size of the factorial (Table 10's 1703 counts retained answers, not prompts). A human must decide whether to build our own generator - a different experiment - or drop the paper.",
+    "metric: reproducing a regression coefficient, not a per-item score. It needs the grouped conditional logit of Table 3 with all H1-H8 interactions (statsmodels ConditionalLogit) fitted on our own factor coding, and the runner has no such metric; a hook could fit it only once the item design above is settled.",
+    "annotation: 'single / mixed / refused' labelling of free-text answers is described but not specified (rule or human), and it decides which haystacks enter the regression."
+  ],
+  "notes": "The paper's headline results (Tables 4-5) are probability-based and open-weight only: 'Due to API limitations, the commercial models were evaluated using only the generation-based approach' (Sec. 4), so Table 6 is the only cell for gpt-4.1-nano-2025-04-14 (identifier confirmed in Table 8). Table 8 spells GPT-4o-mini as 'gpt-4o-mini-2025-04-14', which is not a released snapshot - a sign that the identifier table was filled in loosely, though the GPT-4.1-nano entry is correct."
+}

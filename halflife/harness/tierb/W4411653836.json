@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411653836",
+ "title": "ChatGPT Provides High-Quality Responses to Patient Questions: A Multi-Rater Evaluation by Anesthesiology Experts",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"submitted to ChatGPT using the GPT-4-turbo model, OpenAI's optimized... version of GPT-4, through the official interface (chat.openai.com) on May 1, 2025\"."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 1 (22 questions and ChatGPT answers printed)",
+  "note": "\"No follow-up prompts or clarifications were provided\" - single-turn queries."
+ },
+ "claim": {
+  "metric": "4-point Likert quality rating (1=excellent...4=unsatisfactory), reviewer-wise mean range 1.27-1.73",
+  "value": null,
+  "n_items": 22,
+  "location": "Results (\"average score per question ranged from 1.0 to 2.4\"), Table 2",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "22 questions printed in the paper (web-compiled FAQ list)"
+ },
+ "cost": {
+  "est_calls": 22,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui"
+ ],
+ "notes": "Accessed via chat.openai.com (consumer ChatGPT UI), not the API; the served GPT-4-turbo snapshot and decoding parameters are not controllable or reproducible via script."
+}

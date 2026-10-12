@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7144391352",
+  "title": "CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Korean Law",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "'The following LLM models were used for evaluation: gpt-5-2025-08-07, gemini-3-flash-preview, ...' (Section 4.1); Table 1: via OpenRouter, three runs, seed fixed"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A.2 (Benchmark Examples A.2.1-A.2.3, English translations including the 'output only one letter A/B/C/D' instruction)",
+    "note": "Original Korean prompts are the benchmark items in the GitHub repository; the paper prints translated examples only."
+  },
+  "claim": {
+    "metric": "accuracy (Type-ISR, average over Sufficient/Insufficient/Partial conditions)",
+    "value": 0.754,
+    "n_items": 279,
+    "location": "Table 1, row GPT-5* (l), Type-ISR Avg (Type-TCR avg 0.587, Type-JSA avg 0.547)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/jhCOR/CALRKBench (Type-TCR 100, Type-ISR 279, Type-JSA 100 questions)"
+  },
+  "cost": {
+    "est_calls": 4311,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Reasoning-effort levels (minimal/low/medium/high) must be matched; API results averaged over three runs. Prompt printed only as translated examples, hence maybe rather than eligible.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The prompts are the benchmark items themselves: the 279 Type-ISR questions in the released repository (Korean) whose instruction ends with 'output only one letter A/B/C/D' (Appendix A.2 shows English translations). Run gpt-5-2025-08-07 with reasoning_effort low (the GPT-5* (l) row), three runs with a fixed seed, over the Sufficient/Insufficient/Partial conditions and compare the average accuracy 0.754 (Table 1).",
+    "approximation": "Direct API instead of OpenRouter; a seed does not make GPT-5 deterministic; the released items are the only source of the Korean wording.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

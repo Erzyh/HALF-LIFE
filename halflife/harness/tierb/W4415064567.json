@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4415064567",
+  "title": "FinDER: Financial Dataset for Question Answering and Evaluating Retrieval-Augmented Generation",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-o1",
+    "resolved": "o1-2024-12-17",
+    "role": "S",
+    "evidence": "Sec. 4.2: \"we evaluate...using four state-of-the-art language models: GPT-o1 from OpenAI (Jaech et al., 2024)...\"; Table 7 row GPT-o1."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 4.2",
+    "note": "\"Prompts are kept minimal across all settings, presenting the context (if any) followed by the user query\"; temperature 0.0; exact wording not quoted."
+  },
+  "claim": {
+    "metric": "Response Correctness, Qualitative task, partial-information (top-10 retrieved) setting",
+    "value": 33.28,
+    "n_items": null,
+    "location": "Table 7, row GPT-o1, Qualitative/Corr. column",
+    "task_type": "generation",
+    "judge": "llm:unspecified (RAGAS Correctness/Faithfulness scoring; judge model not named in the reviewed text)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "FinDER benchmark introduced in this paper (financial QA over public filings); a related 500-query well-formed-question subsample is also used (Table 5)"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Test-set size for the main generation table (Table 7) is not stated in the reviewed text (only a separate 500-query subsample is sized, Table 5), so n_items and cost are approximate. GPT-o1 is also used non-experimentally to standardize gold draft answers during dataset construction (role A, Sec. 3)."
+}

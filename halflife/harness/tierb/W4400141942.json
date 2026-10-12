@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4400141942",
+  "title": "HuatuoGPT-Vision, Towards Injecting Medical Visual Knowledge into Multimodal LLMs at Scale",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "'we employ GPT-4V (gpt-4-turbo-2024-04-09) as MLLMs to synthesize' medical VQA data (Section 3.2); 'We use gpt-4 as the LLM and gpt-4V as the MLLM'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 4 (data-generation prompt), Appendix D Figures 8-17 (QA scenario prompts), Appendix E (evaluation prompt)",
+    "note": "Prompts are for synthetic data generation, not for a reported evaluation of the live model."
+  },
+  "claim": {
+    "metric": "none tied to the live model (reported numbers are for fine-tuned HuatuoGPT-Vision)",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 2-5 (HuatuoGPT-Vision benchmark results and expert scores)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PubMedVision (1.3M synthesized samples) and public medical VQA benchmarks"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is a data reformatter/annotator; reproduction would mean regenerating 1.3M training samples and retraining the model."
+}

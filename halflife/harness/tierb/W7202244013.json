@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7202244013",
+  "title": "The Application Landscape Analysis of Multi-agent Collaboration Research in the Medical Field",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (cited) / gpt-5-mini-2025-08-07 (screening)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Khan et al. simulated a dual-reviewer process by having GPT-4-turbo and Claude-3-Opus independently extract data.\" (Discussion); gpt-5-mini used only for title/abstract screening"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary material Section 2 (screening prompt, not in the extracted text)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (systematic review / meta-analysis; GPT-4-turbo is a cited study)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "screened bibliographic records (1M+ titles) and included studies"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-5-mini-2025-08-07 is used as an annotator for literature screening (role A) with a 1% manual audit; the review's outcomes are meta-analytic, not model benchmarks."
+}

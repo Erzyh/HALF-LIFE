@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4411119490",
+  "title": "Are We Done with MMLU?",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 2 row \"GPT-4 Turbo (2024-04-09)\"; Sec. 4.1: \"experiments with 4 state-of-the-art models: OpenAI's GPT-4 Turbo, GPT-4o, Anthropic's Claude-3 Opus, and Meta's LlamA-3-70B\"; Table 3 row GPT-4 Turbo Zero-Shot 22.81 / 22.70 / 23.90."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix G (standard prompting and CoT prompt templates; few-shot examples)", "note": "Temperature 0.0, top_p 1, max_tokens 600 (Appendix G)."},
+  "claim": {
+    "metric": "F1 for detecting erroneous questions (positive class = not ok), zero-shot", "value": 22.70, "n_items": 3000, "location": "Table 3, row GPT-4 Turbo / Zero-Shot (Recall 22.81, F1 22.70, F2 23.90); MMLU-Redux = 30 subjects x 100 questions",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "https://huggingface.co/datasets/edinburgh-dawg/mmlu-redux; https://github.com/aryopg/mmlu-redux"},
+  "cost": {"est_calls": 9000, "tier": "high"},
+  "blockers": [],
+  "notes": "Deterministic decoding, so one seed likely suffices (3,000 calls, about $30). Table 6 gives per-subject F1 (100 items each, e.g. College Chemistry zero-shot 52.94) for a cheap subset. MMLU-Redux has since been re-released as MMLU-Redux-2.0; use the original 3,000-item version."
+}

@@ -1,0 +1,13 @@
+{
+  "wid": "W4400611869",
+  "n_items": 925,
+  "n_requests": 925,
+  "seeds": 1,
+  "est_usd": 1.0,
+  "subset_note": "cost cap $1.0: seeded random subset of 925 items (seed 20260907)",
+  "dropped_unrenderable": 0,
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 82.2,
+  "cap_usd": 1.0
+}

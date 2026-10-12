@@ -1,0 +1,81 @@
+{
+  "wid": "W4411120021",
+  "title": "xLAM: A Family of Large Action Models to Empower AI Agent Systems",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; AgentBoard's own default for API models is greedy decoding)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 60,
+    "subset_rule": "all 60 ToolQuery test cases (Sec. 5.1: 'ToolQuery features 60 test cases across three distinct settings: Weather, Movie, and Academia'), presented in the unified format of Sec. 3.2",
+    "approximation": "BLOCKED, not runnable by this harness: ToolQuery is an interactive AgentBoard environment. One test case is a multi-turn episode in which the model's tool calls are executed against a live local environment (a weather API mock, a movie database and an academia graph) and the observations are fed back until the episode ends or the step budget is exhausted. The runner issues one stateless chat completion per item and hooks may not call any API, so neither the episode loop nor the environment can be expressed here."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "AgentBoard (Ma et al. 2024), https://github.com/hkust-nlp/AgentBoard - tool-query tasks (weather/movie/academia) plus its environment servers; data mirror https://huggingface.co/datasets/hkust-nlp/agentboard; the unified prompt format is from https://github.com/SalesforceAIResearch/xLAM",
+    "config_or_split": "tool-query, 60 test cases (20 per domain)",
+    "filter": null,
+    "fields": {
+      "input": "goal / task instruction",
+      "options": "the domain's tool list (JSON schemas)",
+      "label": "environment-checked subgoal state (no static gold answer)",
+      "id": "task id"
+    },
+    "license": "AgentBoard: GPL-3.0 (repository LICENSE); xLAM code Apache-2.0",
+    "access_checked": true,
+    "size_mb": null,
+    "file_url": null,
+    "access_note": "HTTP 200 on the AgentBoard repository, the hkust-nlp/agentboard dataset page and the xLAM repository (2026-09-19). Nothing was downloaded: the environments, not a file of items, are what the run would need."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "[BEGIN OF TASK INSTRUCTION]\nBased on the previous context and API request history, generate an API\nrequest or a response as an AI assistant.\n[END OF TASK INSTRUCTION]\n\n[BEGIN OF AVAILABLE TOOLS]\n[\n{tools}\n]\n[END OF AVAILABLE TOOLS]\n\n[BEGIN OF FORMAT INSTRUCTION]\nYour output should be in the JSON format, which specifies a list of\nfunction calls. The example format is as follows. Please make sure the\nparameter type is correct. If no function call is needed, please make\ntool_calls an empty list \"[]\".\n\"\"\"\n{\"thought\": \"the thought process, or an empty string\", \"tool_calls\":\n[{\"name\": \"api_name1\", \"arguments\": {\"argument1\": \"value1\", \"argument2\":\n\"value2\"}}]}\n\"\"\"\n[END OF FORMAT INSTRUCTION]\n\n[BEGIN OF QUERY]\n{query}\n[END OF QUERY]\n\n[BEGIN OF HISTORY STEPS]\n{history}\n[END OF HISTORY STEPS]\n\nOutput:",
+    "placeholders": {
+      "tools": "the JSON schemas of the domain's tools (Figure 4 shows one, get_fire_info, followed by ',...')",
+      "query": "the ToolQuery task instruction",
+      "history": "the list of previous {thought, tool_calls, step_id, next_observation, user_input} steps of this episode"
+    },
+    "few_shot": "none",
+    "source_location": "Figure 4 ('Example prompt and output for function-calling using xLAM'), format defined in Sec. 3.2 and Figure 3",
+    "verbatim": "partial: the fixed blocks (task instruction, format instruction, section markers, 'Output:') are verbatim from Figure 4, with the extraction's line breaks kept. The three variable blocks are illustrated in the figure by one wildfire example, not by the ToolQuery instances, so {tools}/{query}/{history} stand for material the paper does not print. The figure's leading label 'Prompt:' and its trailing example output are not part of the template.",
+    "placeholders_paper": {
+      "tools": "[BEGIN OF AVAILABLE TOOLS] block",
+      "query": "[BEGIN OF QUERY] block",
+      "history": "[BEGIN OF HISTORY STEPS] block"
+    }
+  },
+  "output": {
+    "parse": "json field tool_calls",
+    "postprocess": "the reply is one JSON object {thought, tool_calls}; each tool call would then have to be executed in the environment",
+    "parse_paper": "AgentBoard parses the unified-format reply and executes the tool calls"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Success Rate: share of the 60 episodes in which the environment reports every subgoal of the task reached (AgentBoard's own scorer, Ma et al. 2024). Not computable from stateless completions.",
+    "judge": "none (environment-checked)",
+    "original_value": 0.366,
+    "original_location": "Table 2 ('Testing results on ToolQuery-Unified'), row GPT-4o-2024-05-13, Success Rate column: 0.366 (0.633 on plain ToolQuery); per-domain 0.45 Academia / 0.20 Movie / 0.25 Weather",
+    "bootstrap_unit": "episode",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 1800,
+    "est_usd": 12.0,
+    "tier": "low",
+    "cost_note": "60 episodes x 3 seeds x about 10 agent steps; the triage's 180 counts episodes, not model calls. Long tool lists and growing history make the per-call input large."
+  },
+  "open_points": [
+    "harness: ToolQuery is an interactive environment benchmark. Reproducing it needs the AgentBoard runtime (episode loop, three tool servers, subgoal checker) driven by our API key, which is outside this runner's single-call design and outside a hook's remit (hooks may not call an API). A human must decide whether to stand AgentBoard up as a separate arm or drop the paper.",
+    "protocol: the paper gives one illustrative unified-format prompt (Figure 4) but not the ToolQuery-Unified system prompt actually sent, the per-domain tool schemas, the step budget or the temperature, so even with the environment the prompt would be reconstructed from the xLAM repository rather than from the paper.",
+    "0.366 is a mean of three per-domain rates over 20 tasks each (0.45/0.20/0.25 -> 0.30 unweighted; the reported 0.366 is not that mean), so the aggregation rule behind Table 2 is itself unclear."
+  ],
+  "notes": "Only the ToolQuery-Unified cell is treated as this paper's live-model claim: Table 1 spells the same model 'GPT-4o-2024-0523' and Table 5 reproduces the public BFCL-v2 leaderboard (cited numbers, not the authors' runs). Webshop and ToolBench are interactive in the same way; BFCL-v2 would be static but is a cited leaderboard, not a result of this paper."
+}

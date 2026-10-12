@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404659393",
+ "title": "ChatGPT-4 Turbo and Meta's LLaMA 3.1: A Relative Analysis of Answering Radiology Text-Based Questions",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Abstract: 'GPT-4 Turbo performed at an overall accuracy of 88.6% (70/79 questions), outperforming LLaMA 3.1's 77.2% (61/79)'; 'OpenAI's GPT-4 Turbo (San Francisco, CA)...utilize deep learning'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Figure 2 (sequence-of-methodology figure shows one example question and GPT-4 Turbo's response, Part B)",
+  "note": "One worked example is shown in a figure; the full set of 79 pediatric radiology questions is not confirmed to be listed verbatim in text/appendix."
+ },
+ "claim": {
+  "metric": "overall accuracy (%) on pediatric radiology text-based questions",
+  "value": 88.6,
+  "n_items": 79,
+  "location": "Abstract and Results (70/79 correct); per-subsection breakdown also given (e.g., chest/cardiac best, vascular 66.7% worst)",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Author-authored pediatric radiology text-based questions; not confirmed as a released public question bank"
+ },
+ "cost": {
+  "est_calls": 79,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Judged/scored by the authors (correct vs. incorrect against presumed reference answers) rather than an automated metric; only one Q&A pair is shown as a worked example, so exact question wording for the other 78 items is not confirmed available."
+}

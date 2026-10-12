@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W4411119839",
+  "title": "IrokoBench: A New Benchmark for African Languages in the Age of Large Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo / 4-Turbo-0125 / gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4: \"OpenAI GPT (3.5-0125, 4-Turbo-0125, 4o-mini-07-18, 4o-08-06)\"; Appendix Tables 16-18 label the same rows \"gpt-4-turbo-2024-04-09 (t3)\"; Table 2 row GPT-4-Turbo 59.5 (AfriMMLU)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 12 (five AfriMMLU prompts t1-t5), Table 10 (AfriMGSM), Table 11 (AfriXNLI)",
+    "note": "Best prompt per model is marked in the result tables (t3 for GPT-4-Turbo on AfriMMLU)."
+  },
+  "claim": {
+    "metric": "AfriMMLU option-prediction accuracy, average over African languages (excl. eng, fra, vai)",
+    "value": 59.5,
+    "n_items": 7500,
+    "location": "Table 2, row GPT-4-Turbo, AfriMMLU column; per-language rows in Table 17 (gpt-4-turbo-2024-04-09 (t3), in-language); 500 test items x 15 languages",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/masakhane-io/ and https://huggingface.co/collections/masakhane/ (AfriMMLU, AfriMGSM, AfriXNLI)"
+  },
+  "cost": {
+    "est_calls": 22500,
+    "tier": "high"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "Alias conflict: the main text says 4-Turbo-0125 (a dead preview string) while three appendix result tables name gpt-4-turbo-2024-04-09; the appendix snapshot list is precise for every other OpenAI model, so 0125 is likely a typo, but the rule flags it. Per-language numbers in Table 17 allow a low-cost single-language subset (500 calls).",
+  "resolution": {
+    "gap": "other",
+    "plan": "Sec. 4 lists '4-Turbo-0125' (a dead preview) while Appendix Tables 16-18 label the same results 'gpt-4-turbo-2024-04-09 (t3)'; the evaluation configs/logs in the masakhane-nlu repository are the public record that can settle the snapshot. If 2024-04-09 is confirmed, run AfriMMLU (HF collection masakhane/irokobench) in-language with prompt t3 (Table 12) on 500 items x 15 African languages with gpt-4-turbo-2024-04-09 and compare the average with 59.5 (Table 2); the Table 17 per-language rows allow a 500-call single-language pilot.",
+    "approximation": "If the run used gpt-4-0125-preview the number is not re-executable (dead_alias stands).",
+    "needs_repo": true,
+    "repo_url": "https://github.com/masakhane-io/masakhane-nlu",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

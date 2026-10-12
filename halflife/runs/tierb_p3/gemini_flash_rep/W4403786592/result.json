@@ -1,0 +1,66 @@
+{
+  "wid": "W4403786592",
+  "title": "A Comprehensive Evaluation of Large Language Models on Mental Illnesses",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 39.6,
+  "original_location": "Table 10, row GPT-4-Turbo, column DepSeverity (39.6 / 0.805)",
+  "reexecution": {
+    "mean_over_seeds": 0.37799999999999995,
+    "per_seed": {
+      "0": {
+        "value": 0.38199999999999995,
+        "n": 1000,
+        "ci95": [
+          0.351975,
+          0.41302499999999986
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.37399999999999994,
+        "n": 1000,
+        "ci95": [
+          0.344,
+          0.4040249999999999
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4403786592",
+    "n_items": 1000,
+    "n_requests": 2000,
+    "seeds": 2,
+    "est_usd": 4.12,
+    "subset_note": "repeat of the gemini_flash condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 39.6,
+    "cap_usd": 1.7,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gemini_flash\\W4403786592"
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Different 1,000-post balanced sample (IDs unpublished); SEV-4 wording transcribed from the Figure 1 image, block separators and post placement (post appended after a blank line) assumed.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash_rep\\W4403786592"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 37.8,
+    "delta": -1.8000000000000043,
+    "original_inside_ci95": true
+  }
+}

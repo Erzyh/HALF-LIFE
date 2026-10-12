@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4410313682",
+  "title": "Multi-SWE-bench: A Multilingual Benchmark for Issue Resolving",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "OpenAI-o1 (o1-2024-12-17); OpenAI-o3-mini-high (o3-mini-2025-01-31 high)",
+    "resolved": "o1-2024-12-17",
+    "role": "S",
+    "evidence": "Sec. 4: 'We evaluated 9 popular LLMs across the above three methods: GPT-4o (gpt-4o-2024-11-20), OpenAI-o1 (o1-2024-12-17), OpenAI-o3-mini-high (o3-mini-2025-01-31 high), Claude-3.5-...'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Agent scaffolds MagentLess / MSWE-agent / MopenHands (prompts revised per language, not printed)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "resolved rate (%) on Python, MagentLess",
+    "value": 48.2,
+    "n_items": 500,
+    "location": "Table 4, MagentLess block, row OpenAI-o1, column Python",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Multi-SWE-bench (1,632 instances, 7 languages) and SWE-bench Verified Python, https://github.com/multi-swe-bench"
+  },
+  "cost": {
+    "est_calls": 5000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Agentic issue resolving with containerized test execution; needs the scaffolds and Docker images."
+}

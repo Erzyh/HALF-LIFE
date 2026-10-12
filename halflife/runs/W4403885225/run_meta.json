@@ -1,0 +1,157 @@
+{
+  "card_id": "W4403885225",
+  "run_date_utc": "2026-09-19",
+  "target_paper": {
+    "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+    "doi": "10.48550/arxiv.2410.02736",
+    "repo": "https://github.com/Y0oMu/LLM-Judge-Bias-Dataset",
+    "repo_commit": "f6248e9f9a93c20c2059bbb46ce3096ca414ad19",
+    "repo_license": "none declared (README defers to the per-row source datasets)",
+    "original_source": "Table 4 (D_FR, row GPT-4-Turbo, columns Ver. and CR_FR); RR/CR defined in Sec. 3 Metrics",
+    "original_values": {
+      "Ver_RR": 0.915,
+      "CR_FR": 0.99,
+      "other_judges_Ver_RR": {
+        "ChatGPT": 0.9,
+        "GPT-4o": 0.977,
+        "GLM-4": 0.887,
+        "Claude-3.5": 0.952,
+        "Qwen2": 0.884
+      }
+    }
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13,
+    "python": "3.13.7",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (harness/openai_client.py)",
+    "parameters": "one user message (the '[System]' header is part of the template); temperature 0.7 (Sec. 3 Hyperparameters); max_tokens 1024 and top_p 1.0 unreported by the paper, carried over from the Tier B config; no seed parameter; 1 seed",
+    "prompt_template_source": "external/repos/W4403885225/Y0oMu__LLM-Judge-Bias-Dataset/promptTemplate.py evaluate_ai_responses (== evaluate_ai_responses_no_tie), the source string of Appendix F Figure 13, imported from the release rather than transcribed",
+    "battery": "1500 archived calls = 500 items x 3 judgments (orig / pert / rep), item-major; 500 complete triples"
+  },
+  "results": {
+    "primary_rule": "unparsable or missing verdict -> item dropped, drop rate reported",
+    "rr": 0.9495,
+    "rr_ci95": [
+      0.9293,
+      0.9677
+    ],
+    "n_rr": 495,
+    "rr_items_dropped": 5,
+    "rr_drop_rate": 0.01,
+    "rr_item_counts": {
+      "not_archived": 0,
+      "unparsable_verdict": 5
+    },
+    "cr": 0.9737,
+    "cr_ci95": [
+      0.9578,
+      0.9859
+    ],
+    "n_cr": 494,
+    "cr_items_dropped": 6,
+    "cr_drop_rate": 0.012,
+    "cr_item_counts": {
+      "not_archived": 0,
+      "unparsable_verdict": 6
+    },
+    "rr_minus_cr": -0.0242,
+    "rr_minus_cr_ci95": [
+      -0.0462,
+      -0.0039
+    ],
+    "mcnemar_rr_below_cr": {
+      "n_pairs": 494,
+      "consistent_not_robust": 20,
+      "robust_not_consistent": 8,
+      "test": "exact McNemar (binomial on discordant items), H1: RR < CR",
+      "p_one_sided": 0.017849069088697433
+    },
+    "orig_rr_0.915_inside_ci95": false,
+    "orig_cr_0.990_inside_ci95": false,
+    "binomial_rr_vs_published_cr_0.990": 8.75204273835928e-11,
+    "n_boot": 1000,
+    "bootstrap_seed": 0,
+    "secondary_rule_missing_equals_flip": {
+      "rr": 0.94,
+      "rr_ci95": [
+        0.918,
+        0.96
+      ],
+      "cr": 0.962,
+      "cr_ci95": [
+        0.944,
+        0.978
+      ],
+      "rr_minus_cr": -0.022,
+      "mcnemar_p": 0.03071417286992073
+    },
+    "verdict_distribution": {
+      "orig": {
+        "A": 484,
+        "B": 11,
+        "null": 5
+      },
+      "pert": {
+        "A": 481,
+        "B": 19
+      },
+      "rep": {
+        "A": 487,
+        "B": 12,
+        "null": 1
+      }
+    },
+    "parse": {
+      "parsed": 1494,
+      "unparsed": 6
+    },
+    "unparsed_tie_like": 6,
+    "finish_reasons": {
+      "stop": 1500
+    },
+    "published_ordering_context": {
+      "our_rr": 0.9495,
+      "ChatGPT": 0.9,
+      "GPT-4o": 0.977,
+      "GLM-4": 0.887,
+      "Claude-3.5": 0.952,
+      "Qwen2": 0.884,
+      "note": "single live arm by decision; the ordering GPT-4o > Claude-3.5 > GPT-4-Turbo > ChatGPT is reported as context, not re-measured"
+    },
+    "flags": {
+      "original_0.915_inside_ci95": false,
+      "rr_significantly_below_cr_ceiling": true,
+      "rr_increased_vs_paper": true,
+      "rr_above_gpt4o_0.977": false,
+      "rr_above_claude35_0.952": false
+    },
+    "cost_usd": 22.2605,
+    "calls": 1500,
+    "errors": 0,
+    "cap_usd": 35.0,
+    "stopped_at_cap": false,
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as the card instantiates it (0.915 inside the item-bootstrap 95% CI AND RR significantly below the same-run CR ceiling = survived; outside the CI but still below the ceiling = partial; not distinguishable from CR = dead); human double-coding pending",
+    "tierb_comparison": {
+      "tierb_rr_published": 0.926,
+      "tierb_rr_rescored_by_rule": {
+        "drop": 0.9354,
+        "flip": 0.926
+      },
+      "difference": "Tier B ran 1,000 calls (orig+pert only, no CR arm) with the PDF transcription of the template (paragraph wraps joined, ~11 fewer input tokens per call); Tier A adds the unperturbed repeat and renders the repository's source string"
+    }
+  },
+  "reproducibility_frictions_observed": [
+    "no evaluation code in the release: the verdict parser, the RR/CR aggregation and the treatment of an unparsable verdict are ours",
+    "item-level original verdicts are not released, so the comparison is at the aggregate RR/CR level only (0.915 of 500 = 457 or 458 items)",
+    "temperature 0.7 with no seed: the published 0.915 is itself a single noisy draw, and this re-run is one seed by decision",
+    "max_tokens and top_p are unreported; 1024 / 1.0 carried over from the Tier B config (no Tier B reply was truncated, longest 539 tokens)",
+    "the pairwise template offers no tie option, but the judge sometimes declares a tie in prose and emits no bracketed verdict; those items are dropped under the primary rule and counted as flips under the Tier B rule",
+    "the release declares no licence and points back to the per-row data_resource (ScienceQA CC BY-NC-SA 4.0, GSM8K/MATH MIT)",
+    "the verbosity file's unperturbed pairs differ from base_datasets/fact_related_dataset.json in a minority of rows and in row order, so 'the fact-related dataset' is not one fixed file in the release"
+  ]
+}

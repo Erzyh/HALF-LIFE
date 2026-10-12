@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7119234145",
+  "title": "Logical Phase Transitions: Understanding Collapse in LLM Logical Reasoning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1 Nano (also GPT-4.1 Mini; GPT-5 used for translation)",
+    "resolved": "gpt-4.1-nano-2025-04-14 (alias; snapshot not stated)",
+    "role": "S",
+    "evidence": "Sec. 5: 'closed-source GPT-4.1 Nano/Mini and DeepSeek V3.1. All evaluations use temperature=0 decoding'; Table 7: 'GPT-4.1 Nano 0.950 0.809 0.784 0.593 0.514 0.384 0.411 0.377 0.356' (bins 1-9)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Prompting strategies compared in Figure 5; evaluation prompt not printed ('The prompts for constructing our datasets can' be found in the repository)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy at complexity bin 1 on the NSA-LR logical reasoning set",
+    "value": 0.95,
+    "n_items": null,
+    "location": "Appendix C.2, Table 7, row GPT-4.1 Nano, column bin 1 (bins 1-9)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "NSA-LR dataset and code: https://github.com/AI4SS/Logical-Phase-Transitions; ProntoQA, ProofWriter, FOLIO, ProverQA (public)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "low"
+  },
+  "blockers": [
+    "prompt_none"
+  ],
+  "notes": "Number of instances per complexity bin and the exact evaluation prompt are only in the repository; gpt-4.1-nano snapshot not stated. Full per-bin rows exist for GPT-4.1 Nano and Mini."
+}

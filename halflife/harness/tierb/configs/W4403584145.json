@@ -1,0 +1,79 @@
+{
+  "wid": "W4403584145",
+  "title": "AI agents can coordinate beyond human scale",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.2,
+      "max_tokens": 150,
+      "top_p": 1.0
+    },
+    "params_source": "paper Methods 'Details on the LLMs' (T = 0.2 for all main-text simulations); max_tokens 150 from the released script opinion_dynamics_chatgpt.py",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 20,
+    "subset_rule": "all (20 independent realizations of the N = 50 opinion-dynamics simulation, t_max = 10)",
+    "approximation": "Random agent names and the k/z opinion-name shuffling are re-drawn with our seed; an unparsable reply leaves the agent's opinion unchanged (rule not stated in the paper)."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Synthetic: Methods 'Opinion dynamics simulations' (N = 50 agents, random 3-character names, binary opinions named k and z, initial m = 0, dt = 1/N, one agent updated per step); reference code at https://github.com/giordano-demarzo/LLMs-Opinion-Dynamics",
+    "config_or_split": "N = 50, t_max = 10, 20 realizations",
+    "filter": null,
+    "fields": {
+      "input": "friend_list",
+      "label": null,
+      "id": "realization"
+    },
+    "license": "not stated (repository without license file)",
+    "access_checked": true,
+    "size_mb": 0,
+    "fields_prose": {
+      "input": "list of the other 49 agents with their current opinions",
+      "label": "none (dynamics)",
+      "id": "realization index"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Below you can see the list of all your friends together with the opinion they support.\nYou must reply with the opinion you want to support.\nThe opinion must be reported between square brackets.\n{friend_list}\nReply only with the opinion you want to support, between square brackets.",
+    "placeholders": {
+      "friend_list": "state of the other 49 agents at the current step (sequential simulation; not expressible)"
+    },
+    "few_shot": "none",
+    "source_location": "Methods, 'Opinion dynamics simulations' (prompt block)",
+    "verbatim": "full (typographic line wraps of the printed block joined)",
+    "placeholders_prose": {
+      "friend_list": "one line per other agent: '<name> <opinion>' (e.g. 'X7v k'), all 49 agents except the queried one, opinion names k/z swapped with probability 0.5 at each iteration"
+    }
+  },
+  "output": {
+    "parse": "regex \\[(k|z)\\]",
+    "postprocess": "strip; no bracketed k/z keeps the agent's previous opinion",
+    "parse_prose": "regex \\[(k|z)\\] -> new opinion (mapped back through the current name shuffle)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "fraction of the 20 realizations with coordination level C = |(N+ - N-)/N| = 1 at t = 10 (all 50 agents share one opinion).",
+    "judge": "none",
+    "original_value": 1.0,
+    "original_location": "Figure 2 (box plot of C(t = 10) over 20 simulations) and Results text: 'Claude 3 Opus and GPT-4 Turbo, coordinate in all simulations'",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 10000,
+    "est_usd": 100.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Sequential multi-agent simulation: each of up to 500 calls per realization depends on the previous replies (N = 50 agents updated one at a time, early stop at C = 1); the runner renders independent items from a static table and the hook contract has no stateful loop."
+  ],
+  "notes": "Each realization needs at most N x t_max = 500 calls (stop early once C = 1). bootstrap item = realization. Cheaper secondary check: Table 3 majority-counting success 0.735 at N = 51. || [hooks_2 2026-09-07] reviewed for a per-paper hook: sequential multi-call simulation; no hook written.",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "none (needs_human: sequential multi-call simulation)"
+}

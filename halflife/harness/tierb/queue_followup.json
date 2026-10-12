@@ -1,0 +1,14 @@
+[
+ {
+  "wid": "W4416036577v2",
+  "cap": 6,
+  "model": "gpt-4o-2024-05-13",
+  "note": "rumor detection, base prompt + source-domain demonstrations (dying model, before 2026-10-23)"
+ },
+ {
+  "wid": "W4399912745v2",
+  "cap": 30,
+  "model": "gpt-4-turbo-2024-04-09",
+  "note": "ALiiCE, code-release prompt format (dying model, before 2026-10-23); prepared with cap 30 so that the full 948-item set runs (expected cost about $10, the cap is the worst case)"
+ }
+]

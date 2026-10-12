@@ -1,0 +1,84 @@
+{
+  "wid": "W7139147531",
+  "title": "LLMs learn scientific taste from institutional traces across the social sciences",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 4,
+      "logprobs": true,
+      "top_logprobs": 20
+    },
+    "params_source": "paper SM1/SM2 (deterministic first-token log-probability classification over the four tier tokens); temperature and top_logprobs assumed for the chat API emulation; max_tokens raised 1 -> 4 so the whole tier word is generated for the text parse (logprobs/top_logprobs still requested and archived)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 120,
+    "subset_rule": "all 120 management benchmark pitches (30 per tier)",
+    "approximation": "restricted-vocabulary first-token scoring is emulated with the chat API's top-20 logprobs (tier tokens outside the top-20 get zero mass); the placement of the pitch after the prompt is not printed; text-argmax emulation: the reply's tier word (temperature 0, 4 tokens) is scored instead of the restricted first-token log-probability argmax; identical whenever the top token is one of the four tiers (the archived top-20 logprobs allow the exact SM1 rule later)"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "FutureTech-OB/ai-taste, data/management_deep_probe/benchmark/management_benchmark_120.jsonl (fields title, journal, domain, level, rq_with_context; head verified)",
+    "config_or_split": "management_benchmark_120.jsonl",
+    "filter": null,
+    "fields": {
+      "input": "rq_with_context",
+      "label": "level",
+      "id": "title"
+    },
+    "license": "CC BY (reproducibility package)",
+    "access_checked": true,
+    "size_mb": 0.3,
+    "file_url": "https://raw.githubusercontent.com/FutureTech-OB/ai-taste/main/data/management_deep_probe/benchmark/management_benchmark_120.jsonl",
+    "fields_prose": {
+      "input": "rq_with_context (the released research-idea text)",
+      "label": "level (exceptional / strong / fair / limited)",
+      "id": "title"
+    },
+    "label_map": {
+      "top": "Exceptional",
+      "top-": "Strong",
+      "good": "Fair",
+      "fair": "Limited"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are an expert in social science research. Read the research idea below and estimate its likely publication potential based on its scholarly contribution.\n- Exceptional: Field-defining work with strong theoretical or empirical contribution. It would influence how researchers across the social sciences think about an important problem.\n- Strong: Clear and meaningful contribution. It advances theory, evidence, or method in a non-trivial way and would be well regarded by scholars in the field.\n- Fair: Competent but incremental. It extends existing knowledge in a predictable way, with limited novelty, scope, or broader significance.\n- Limited: Weak contribution. The question is narrow, obvious, poorly motivated, or methodologically insufficient to support a meaningful scholarly advance.\n# IMPORTANT\n- Do not use search capabilities to look up information about this idea\n# OUTPUT FORMAT\nRespond with EXACTLY ONE of these four notations:\n- Exceptional\n- Strong\n- Fair\n- Limited\nOutput only the tier notation in your final answer.\n\n{pitch}",
+    "placeholders": {
+      "pitch": "items.rq_with_context"
+    },
+    "few_shot": "none",
+    "source_location": "Supplementary Methods 2 (SM2), 'Pre-specified evaluation prompt (used for SFT training, SFT evaluation, base controls, and frontier controls)'",
+    "verbatim": "full for the prompt text; the position of the pitch (appended after the prompt) is assumed",
+    "placeholders_prose": {
+      "pitch": "items.rq_with_context (the research idea), placed after the instruction block"
+    }
+  },
+  "output": {
+    "parse": "label from set [Exceptional, Strong, Fair, Limited]",
+    "postprocess": "if none of the four tokens appears in the top-20 logprobs the item is unresolved and scored as incorrect (paper: <1% unresolved)",
+    "parse_prose": "first-token top logprobs: probability mass of the tokens that start 'Exceptional', 'Strong', 'Fair', 'Limited' (case-insensitive, leading space ignored), softmax-normalized over the four; argmax with ties broken in the alphabetical order exceptional < fair < limited < strong (SM1)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "four-class accuracy (%) of the argmax tier against level over the 120 pitches",
+    "judge": "none",
+    "original_value": 25.0,
+    "original_location": "Table ST13c (GPT-4.1-nano SFT versus architecture-matched base), row Management, column Base accuracy (SFT 57.5)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 360,
+    "est_usd": 0.3,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "The base value sits at chance (25%), so agreement is weakly informative; the prediction records in data/management_deep_probe/predictions/ (with logp dictionaries) allow a direct per-item comparison. Confidence = exp(max logprob) as in SM7. Benchmark 'level' values are the journal tiers top / top- / good / fair; the released prediction records (predictions/sft_predictions.jsonl, field rank) map them one-to-one to exceptional / strong / fair / limited (30 each), encoded in items.label_map.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

@@ -1,0 +1,66 @@
+{
+  "wid": "W4399911213",
+  "title": "WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 86.7,
+  "original_location": "Table 3, row GPT-4, column Acc (Macro-F 76.1)",
+  "reexecution": {
+    "mean_over_seeds": 0.8458333333333333,
+    "per_seed": {
+      "0": {
+        "value": 0.85,
+        "n": 240,
+        "ci95": [
+          0.8,
+          0.8959374999999995
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.8416666666666667,
+        "n": 240,
+        "ci95": [
+          0.7958333333333333,
+          0.8875
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911213",
+    "n_items": 240,
+    "n_requests": 480,
+    "seeds": 2,
+    "est_usd": 2.72,
+    "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 86.7,
+    "cap_usd": 3.82,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4399911213"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 8
+  },
+  "approximation": "none (Appendix C labels the instruction plus the eight examples 'System prompt'; the testing instance is sent as the user message)",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4399911213"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 84.58333333333333,
+    "delta": -2.1166666666666742,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4415722963",
+  "title": "Performance of Generative Artificial Intelligence Models (GPT-4o, Gemini, Copilot) in YKS/TYT Exam: A Comparative Study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "Copilot (GPT-4 Turbo)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"Copilot ... answers using GPT-4 Turbo [43]\" (Sec. 1.2); \"Gemini 43.3% and Copilot achieved 42.5% accuracy\" (Abstract)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Question-entry procedure described; no verbatim instruction printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on TYT questions",
+    "value": 0.425,
+    "n_items": 120,
+    "location": "Abstract; results by subject (TYT: 120 questions)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "OSYM YKS/TYT exam questions (published by OSYM)"
+  },
+  "cost": {
+    "est_calls": 360,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui"
+  ],
+  "notes": "GPT-4 Turbo only as Copilot's underlying model; ChatGPT (GPT-4o) and Gemini also via web apps; image-based questions included."
+}

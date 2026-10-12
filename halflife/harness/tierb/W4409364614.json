@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4409364614",
+  "title": "GNN-Transformer Task Planning Enhanced with Semantic-Driven Data Augmentation",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-TURBO (GPT-4-T)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Our experiments utilize GPT-4 O, GPT-4-TURBO (GPT-4-T)...as the backbone LLMs\"; Table 1 row \"GPT-4-T 91.0 49.4 36.3 74.8 94.2 55.4 40.1 22.7\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. Experiments (\"we provide our training data as a prompt\"); Appendix A (semantic information details)",
+    "note": "ZERO-SHOT PLANNER baseline is given the authors' training examples as a few-shot prompt; exact template not quoted in the reviewed text."
+  },
+  "claim": {
+    "metric": "%SR (Success Rate), ZERO-SHOT setting, GPT-4-T backbone, unseen environment",
+    "value": 40.1,
+    "n_items": null,
+    "location": "Table 1 (VirtualHome environment), row GPT-4-T, Unseen environment %SR column",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "VirtualHome simulated household environment (public simulator/benchmark)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Number of planning tasks behind Table 1's percentages is not stated in the reviewed excerpt. The paper reports its own $Cost column for one run (74.8 in the seen setting), which already implies a high tier before any x3-seed reproduction multiplier."
+}

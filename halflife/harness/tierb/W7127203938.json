@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7127203938",
+  "title": "A Structured Approach to Safety Case Construction for AI Systems",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"'Using gpt-4 turbo to automatically identify defeaters in assurance cases,' in 2024 IEEE 32nd International ...\" (reference list)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Literature corpus of safety-case papers"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Systematic review / framework paper; LLM mentions are citations only."
+}

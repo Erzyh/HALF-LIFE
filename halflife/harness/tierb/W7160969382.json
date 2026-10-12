@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7160969382",
+  "title": "Uneven Evolution of Cognition Across Generations of Generative AI Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini",
+    "resolved": "o3-mini",
+    "role": "S",
+    "evidence": "Sec. 3.2: 'evaluated across several generations of OpenAI models (o1-mini, o1, o3-mini, o3, gpt-5.4-mini, and gpt-5.4)' on the AIQ Benchmark (Figure 3)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C (AIQ example items per cognitive domain)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "AIQ subtest accuracy",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 3 (bar chart; no per-model table for OpenAI models)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "AIQ Benchmark (internal); WAIS-IV items are copyrighted (Table 1 GPT-4 Turbo numbers from prior work)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number"
+  ],
+  "notes": ""
+}

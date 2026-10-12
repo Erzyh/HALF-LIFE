@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403885480",
+  "title": "AutoML-Agent: A Multi-Agent LLM Framework for Full-Pipeline AutoML",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (once written as gpt-4-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4: 'we use GPT-4 (gpt-4o-2024-05-13) as the backbone model for all agents and LLM-based baselines'; App. B.3: 'gpt-4-2024-05-13 models via the OpenAI API'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B.3 'Zero-Shot Prompt for GPT-3.5 and GPT-4 Baselines' + Table 3/4 user instructions + Appendix B.1 skeleton script",
+    "note": "AutoML-Agent's own agent prompts are also printed, but its prompt agent is a LoRA-tuned Mixtral that is not released in the paper"
+  },
+  "claim": {
+    "metric": "success rate (executable pipeline), constraint-free average",
+    "value": 0.314,
+    "n_items": 70,
+    "location": "Table 6, row GPT-4, column Avg. (constraint-free); 14 datasets x 5 runs",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "14 public datasets listed in Table 5 (Kaggle / HuggingFace / Time-Series-Library): Butterfly Image, Shopee-IET, Ecommerce Text, Cora, Citeseer, Weather, Electricity, etc."
+  },
+  "cost": {
+    "est_calls": 210,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Claim chosen is the zero-shot GPT-4 baseline, not the headline AutoML-Agent SR=1.000 (needs the fine-tuned prompt agent and full multi-agent loop). SR requires executing each generated pipeline (training models on 14 datasets) in a runtime; API cost is low but compute/setup is heavy.",
+  "resolution": {
+    "gap": "other",
+    "plan": "SR is execution-based (Appendix: 0 = code fails, 0.5 = runnable model, 1.0 = runnable model plus a deployment endpoint), so the number needs a Python runtime with the 14 public datasets (Table 5 links) rather than the authors' code. For each dataset build the Appendix B.3 zero-shot prompt with the Table 3/4 user instruction, sample 5 completions from gpt-4o-2024-05-13, execute each returned pipeline in a fresh environment and grade on the 3-level scale; average over the 70 runs and compare with 0.314 (Table 6).",
+    "approximation": "Runtime, package versions and dataset downloads (Kaggle) differ from the authors' environment; decoding parameters unstated.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

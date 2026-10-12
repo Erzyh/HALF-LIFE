@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4411453360",
+  "title": "LLM agent framework for intelligent change analysis in urban environment using remote sensing imagery",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (agent backend and vanilla baseline)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4: 'LLM backends, GPT-3.5-turbo, Gemini Pro 1.0, and GPT-4-turbo'; Table 3: GPT-4-turbo agent Match 98.21 with Δ = +0.443 (p < 0.001) over vanilla GPT-4-turbo"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A 'Part of Prompt Design for LLM Agent Integration'",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Match accuracy (%) of vanilla GPT-4-turbo on the 140-question change-analysis set",
+    "value": null,
+    "n_items": 140,
+    "location": "Table 3 (only the agent's 98.21% and the +0.443 delta are printed; vanilla is about 53.9% by subtraction)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "curated 140-question dataset on LEVIR-CD imagery (release not stated); LEVIR-CD itself is public"
+  },
+  "cost": {
+    "est_calls": 420,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number"
+  ],
+  "notes": "Snapshot not stated (2025 journal paper); most numbers appear in figures; the agent relies on change-detection tools and a hierarchical pipeline."
+}

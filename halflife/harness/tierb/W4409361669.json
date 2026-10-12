@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4409361669",
+  "title": "Bridging the Gap: Enhancing LLM Performance for Low-Resource African Languages with New Benchmarks, Fine-Tuning, and Cultural Adjustments",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09 / gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "gpt-3.5-turbo-1106 (GPT-3.5), gpt-4-turbo-2024-04-09 (GPT-4), gpt-4o-2024-05-13 (GPT-4o) (Section 'The LLM Performance Gap'); Table 1 rows GPT-4o and GPT-4"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "'See Appendix A.6 for the evaluation prompts used for each benchmark' - the appendix is not included in this text",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on Belebele (0-shot), average over 11 African languages",
+    "value": 76.0,
+    "n_items": 9900,
+    "location": "Table 1, block 'Average Performance (all 11 African languages)', row GPT-4o, column Bele (GPT-4 row: 69.6)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Translated Winogrande, MMLU clinical sections and Belebele; https://github.com/InstituteforDiseaseModeling/ (MIT)"
+  },
+  "cost": {
+    "est_calls": 29700,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Both live snapshots are explicitly named. Prompts and hyperparameters (Appendix A.6/B) are outside the extracted text; a single-language Belebele run (900 items) would be a low-cost variant once prompts are known."
+}

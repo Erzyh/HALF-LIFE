@@ -1,0 +1,55 @@
+{
+  "openalex_id": "https://openalex.org/W4404782209",
+  "title": "Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate",
+  "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.992",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-3.5-turbo-0301|gpt-4-0314",
+  "flags": "agentic/heavy",
+  "all_links": [
+    "github.com/Skytliang/Multi-Agents-Debate.1",
+    "github.com/Unbabel/COMET",
+    "github.com/google-research/bleurt",
+    "huggingface.co/lmsys/vicuna-13b-v1.5-16k",
+    "huggingface.co/lmsys/vicuna-13b-v1.5-16k5We",
+    "huggingface.co/lmsys/vicuna-7b-v1.5-16k",
+    "huggingface.co/lmsys/vicuna-7b-v1.5-16k4https"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/Skytliang/Multi-Agents-Debate.1",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/Unbabel/COMET",
+      "cloned": true,
+      "audit": {
+        "n_files": 90,
+        "ext_top": {
+          ".py": 51,
+          ".md": 11,
+          ".yaml": 8,
+          ".rst": 4,
+          ".png": 4,
+          "": 3,
+          ".csv": 3,
+          ".jpg": 2
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 51,
+        "n_data_files": 3,
+        "files_mentioning_prompt": 2,
+        "files_with_eval_terms": 37,
+        "model_ids_in_code": {},
+        "readme_head": "<p align=\"center\">\n  <img src=\"https://raw.githubusercontent.com/Unbabel/COMET/master/docs/source/_static/img/COMET_lockup-dark.png\">\n  <br />\n  <br />\n  <a href=\"https://github.com/Unbabel/COMET/blob/master/LICENSE\"><img alt=\"License\" src=\"https://img.shields.io/github/license/Unbabel/COMET\" /></a>\n  <a href=\"https://github.com/Unbabel/COMET/stargazers\"><img alt=\"GitHub stars\" src=\"https://img.shields.io/github/stars/Unbabel/COMET\" /></a>\n  <a href=\"\"><img alt=\"PyPI\" src=\"https://img.shields.io/pypi/v/unbabel-comet\" /></a>\n  <a href=\"https://github.com/psf/black\"><img alt=\"Code Style\" src=\"https://img.shields.io/badge/code%20style-black-black\" /></a>\n</p>\n\n**NEWS:** \n1) We added a new method to extract free-text explanations from XCOMET outputs! [Check this section](https://github.com/Unbabel/COMET?tab=readme-ov-file#explaining-translation-errors)\n2) We now support [DocCOMET](https://statmt.org/wmt22/pdf/2022.wmt-1.6.pdf), a document-level extension of COMET which can utilize contextual information. Using context improves accuracy on discourse phenomena tasks as well as referenceless evaluation of [chat translation quality](https://arxiv.org/pdf/2403.08314).\n3) We released our new eXplainable COMET models ([XCOMET-XL](https://huggingface.co/Unbabel/XCOMET-XL) and [-XXL](https://huggingface.co/Unbabel/XCOMET-XXL)) which along with quality scores detects which errors in the translation are minor, major or critical according to MQM typology\n\nPlease check all available models [h"
+      },
+      "commit": "da61b810ea06f67bbd5d96031f55082167a16e80"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4404782209.txt",
+  "paper_text_status": "pdf"
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4402113045",
+ "title": "Herramientas e inteligencias artificiales para la investigación científica.",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"You (https://you.com/)...hace uso de varios modelos, tales como GPT-4o, GPT-4 Turbo, GPT-4, Claude 3.5 Sonnet...\" -- descriptive listing of models used internally by a third-party tool (You.com)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "A guide/survey of AI research tools; no experiment of its own."
+ },
+ "claim": {
+  "metric": "none (descriptive tools guide, not an evaluation)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Spanish-language guide describing AI tools available for scientific research (ChatGPT, You.com, etc.); GPT-4 Turbo is mentioned only as one of several models the third-party tool You.com uses, not something the authors tested."
+}

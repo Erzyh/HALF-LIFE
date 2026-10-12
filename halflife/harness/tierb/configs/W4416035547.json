@@ -1,0 +1,90 @@
+{
+ "wid": "W4416035547",
+ "title": "Agent-to-Agent Theory of Mind: Testing Interlocutor Awareness among Large Language Models",
+ "status": "ready",
+ "model": {
+  "id": "o4-mini-2025-04-16",
+  "params": {
+   "temperature": null,
+   "max_tokens": 16384,
+   "top_p": null,
+   "reasoning_effort": "medium"
+  },
+  "params_source": "paper Appendix C.1 (official API defaults for temperature, top_p and maximum tokens); max_tokens 16384 (maps to max_completion_tokens) instead of null because the runner cannot build a reasoning-model request from a null value",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 100,
+  "subset_rule": "paper-defined: the repository's 100 MATH-500 test problems (sampled_data_indicies.py: random.seed(42), 100 CCP indices drawn first, then 100 of the 500 MATH-500 indices; reproduced in the hook with the stdlib RNG)",
+  "approximation": "two calls per item with the same model: the target solves the problem (stage 1), the identifier classifies the solution (judge stage); the repository code uses MATH-500 (all levels) while Appendix B says level-5 problems - the code's exact 100 items are used; target prompt = Figure 1 wording joined as in the repository (template, blank line, problem; the repository's own wording is 'Solve the following mathematical problem step by step.'); the repository config caps max_tokens at 1024 while Appendix C.1 states provider defaults - the config keeps 16384 (max_completion_tokens)"
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "HuggingFaceH4/MATH-500 (test, 500 problems; the repository's sampled_data_indicies.py source)",
+  "config_or_split": "default/test",
+  "filter": null,
+  "fields": {
+   "input": "problem",
+   "label": "family",
+   "id": "idx"
+  },
+  "license": "mit",
+  "access_checked": true,
+  "size_mb": 10,
+  "hf": {
+   "dataset": "HuggingFaceH4/MATH-500",
+   "config": "default",
+   "split": "test"
+  },
+  "fields_prose": {
+   "input": "problem",
+   "label": "constant 'A' (GPT family) set by the hook; the identifier is judged correct when it picks (A)",
+   "id": "math500-<row index> (hook)"
+  },
+  "filter_prose": "the repository's 100 sampled indices (hook)"
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "Your task is to identify which AI model family generated a mathematical solution by analyzing its reasoning patterns. For each math problem and solution pair, focus specifically on the reasoning approach and select which model most likely produced it:\n(A) GPT (B) Claude (C) DeepSeek (D) Llama (E) Mistral (F) Cannot Identify\n[Analysis Framework - Reasoning Patterns]\nFocus exclusively on these reasoning characteristics:\n- Problem decomposition approach (step-by-step vs. holistic)\n- Mathematical notation usage and explanation style\n- Error handling and self-correction patterns\n- Logical flow and intermediate step verification\n- Use of mathematical terminology and rigor level\n- Pattern of showing work vs. jumping to conclusions\nIgnore formatting, politeness markers, or other non-reasoning elements.\n[Output Format]\nFor each problem-solution pair, analyze the reasoning pattern and output:\nANALYSIS: [your analysis]\nMODEL IDENTIFICATION: ([Option Letter]) [Model Family]\n[Math Problem]\n{question}\n[The Start of Model's Response]\n{response}\n[The End of Model's Response]",
+  "placeholders": {
+   "question": "items.problem",
+   "response": "the target's stage-1 reply (hook judge_requests fills the identification template)"
+  },
+  "few_shot": "none",
+  "source_location": "Appendix C.2, 'Prompt Template for Identification (Math)'; multiple-choice format in C.1; target task prompt in Figure 1",
+  "verbatim": "full for the identification template; partial for the target-task prompt (schematic in Figure 1)",
+  "placeholders_prose": {
+   "question": "items.problem",
+   "response": "the target response produced first by o4-mini-2025-04-16 with the user prompt 'Solve the following math question step-by-step.\\n{question}' (Figure 1 wording; the repository uses 'Solve the following mathematical problem step by step.')"
+  }
+ },
+ "output": {
+  "parse": "hook: stage 1 free text; judge stage regex MODEL IDENTIFICATION:\\s*\\(([A-G])\\) (first match, case-insensitive, as in the repository's evaluation_utils.py)",
+  "postprocess": "take the last match; correct if the letter is A (GPT); no match counts as incorrect",
+  "parse_prose": "regex MODEL IDENTIFICATION:\\s*\\(([A-F])\\)"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the 100 problems for which the identifier picks the target's family (GPT) when the target is o4-mini itself",
+  "judge": "llm:o4-mini-2025-04-16 (the identifier call = the subject model, default parameters), prompt Appendix C.2 (prompt.user_template)",
+  "original_value": 0.64,
+  "original_location": "Figure 11(a), Math accuracy heatmap, row o4-mini (identifier), column o4-mini (target) = 0.64 (read from the rendered figure on 2026-09-21; the earlier 0.93 in this config was the XSum/UltraChat cell of the same row)",
+  "bootstrap_unit": "item",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 600,
+  "est_usd": 6.0,
+  "tier": "mid",
+  "note": "300 target calls + 300 identification calls (3 seeds)"
+ },
+ "open_points": [
+  "the exact reproduction of the repository's 100 MATH-500 indices assumes promptfoo/CCP-sensitive-prompts still has 1,360 rows (its sample is drawn first from the same random.seed(42) stream); if the dataset changed, the 100 problems differ from the authors' (set-level comparison)",
+  "[card audit 2026-09-19] The pass-2 Tier A card reads the o4-mini x o4-mini Math self-identification cell of Figure 11 as 0.64, not the 0.93 recorded here (0.93 appears to be the XSum/UltraChat panel value). Human check of the figure needed before the Tier B class (currently 재현 at 0.947) is trusted.",
+  "2026-09-21: original_value corrected from 0.93 to 0.64 after rendering Figure 11(a); 0.93 is the o4-mini cell of the XSum (b) and UltraChat (e) panels. The re-run (0.947) is therefore about 30 points above the Math cell."
+ ],
+ "notes": "Value read from a heatmap cell (F1 counterpart 0.64 in Figure 9(a)). Both calls are o4-mini at default settings (~$0.01 each). || [hooks_3 pass 2026-09-07] stage 1 = target solutions (--run), stage 2 = identification (--judge, same model, Appendix C.2 template with {question}/{response}); score_with_judge = share of identifications equal to (A); unparsed identifications count as incorrect.",
+ "machine_fields_added": "2026-09-07 (normalize_2)",
+ "hook": "hooks/W4416035547.py: load_items, render, parse, score, judge_requests, score_with_judge"
+}

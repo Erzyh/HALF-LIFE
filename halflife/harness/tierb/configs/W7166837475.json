@@ -1,0 +1,96 @@
+{
+  "wid": "W7166837475",
+  "title": "Large Language Models Require Curated Context for Reliable Political Fact-Checking—Even with Reasoning and Web Search",
+  "status": "ready",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 4096,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 2.4 (temperature 0 for all tests - not configurable on o3-mini, placeholder 1.0; structured JSON responses); reasoning effort not stated (default medium)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 6137,
+    "subset_rule": "paper-defined: the '6k' stratified subset (6,153 claims, half of the 12k set per year; 6,137 with valid outputs across all models - IDs expected in the Zenodo data)",
+    "approximation": "Structured-output schema (label + justification) not printed; NEI predictions excluded from macro-F1 as in the paper; malformed outputs re-parsed with gpt-4o-mini-2024-07-18 in the paper. Re-execution uses all 6153 claims of the released 0.25-per-year sample (the paper's 6,137 are those with valid outputs across all models; that filter is not reproducible). The paper's structured output (JSON schema label/justification via response_format) is not passed by the runner for reasoning models; the hook parses JSON first and falls back to the label named in the text."
+  },
+  "items": {
+    "source_type": "zenodo",
+    "source": "https://doi.org/10.5281/zenodo.17693220 (data.tar.gz 1.24 GB: PolitiFact claims with verdicts, originators, dates; cc-by-4.0) + github.com/osome-iu/fact_check_rag_osome (pipeline)",
+    "config_or_split": "6k subset = data/cleaned/2024-10-10_factchecks_cleaned_sampled_0.25_per_year.parquet (6153 claims with a six-label verdict; the paper reports 6,137 after dropping claims some model failed on)",
+    "filter": null,
+    "fields": {
+      "input": "claim",
+      "originator": "statement_originator",
+      "label": "verdict",
+      "id": "claim_id"
+    },
+    "license": "cc-by-4.0",
+    "access_checked": true,
+    "size_mb": 1244,
+    "file_url": "https://zenodo.org/records/17693220/files/data.tar.gz",
+    "fields_prose": {
+      "input": "statement (claim text) + statement_originator",
+      "label": "verdict (PolitiFact: True, Mostly true, Half true, Mostly false, False, Pants on fire)",
+      "id": "factcheck_analysis_link (unique PolitiFact URL)"
+    },
+    "filter_prose": "claims in the 6k subset",
+    "local_files": {
+      "dir": "external/data/tierb_items/W7166837475/",
+      "archive": "data.tar.gz (1,243,640,873 B)",
+      "used": "data/cleaned/2024-10-10_factchecks_cleaned_sampled_0.25_per_year.parquet"
+    },
+    "download": {
+      "date": "2026-09-18",
+      "url": "https://zenodo.org/api/records/19709981/files/data.tar.gz/content",
+      "note": "the DOI record 17693220 now resolves to version record 19709981 (same file names, sizes and md5 as listed on 17693220's API page); records/17693220/files/... answers 404; fetched with 16 parallel HTTP range requests",
+      "bytes": 1243640873,
+      "sha256": "a27e4fcc3cdff63565bd34d0b07a86e79c7c5e834572f04e773e1e24fea62c83",
+      "md5_listed_on_zenodo": "bfc7c65bb9ee1b409407dedf938b14a4",
+      "parquet_bytes": 1041153,
+      "parquet_sha256": "0949e54664b44fedd100c2e6b86789c5b20eb5bd3897326cf82a512459b07e76",
+      "tool": "urllib range download; tarfile extraction of the one member (the tarball exceeds the runner's 250 MB _get limit, hence the hook)"
+    }
+  },
+  "prompt": {
+    "system": "As an AI fact checker, your task is to evaluate the accuracy of a CLAIM by assigning a label from the ‘Truth Scale’ and providing a justification for that label. Each claim will include a ‘STATEMENT ORIGINATOR’ indicating the source of the claim to assist you.\nTruth Scale:\n• True - The statement is accurate and there’s nothing significant missing.\n• Mostly true - The statement is accurate but needs clarification or additional information.\n• Half true - The statement is partially accurate but leaves out important details or takes things out of context.\n• Mostly false - The statement contains an element of truth but ignores critical facts that would give a different impression.\n• False - The statement is not accurate.\n• Pants on fire - The statement is not accurate and makes a ridiculous claim.\n• Not enough information - There is not enough information to reliably apply one of the other labels.\nInstructions:\n1. Evaluate the claim using the most relevant information you have.\n2. If you do not have enough information, use the ‘Not enough information’ label.\n3. Consider nuances and subtle details that could influence the claim’s accuracy.\n4. Choose the most appropriate label from the ‘Truth Scale’ and explain your reasoning concisely.",
+    "user_template": "STATEMENT ORIGINATOR: {statement_originator}\nCLAIM: {claim}",
+    "placeholders": {
+      "statement_originator": "items.statement_originator",
+      "claim": "items.claim"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix, 'System prompt: Zero-shot' and 'User prompt: Zero shot'",
+    "verbatim": "full (bullets as printed)",
+    "placeholders_prose": {
+      "statement_originator": "claim source (PolitiFact 'statement originator')",
+      "claim": "claim text"
+    }
+  },
+  "output": {
+    "parse": "json field label",
+    "postprocess": "'Not enough information' excluded from the macro-F1 (Sec. 2.4)",
+    "parse_prose": "json field label (structured output); fallback: label from the 7-label Truth Scale"
+  },
+  "metric": {
+    "name": "macro_f1",
+    "definition": "macro F1 over the six PolitiFact labels (NEI predictions excluded)",
+    "judge": "none",
+    "original_value": 0.27,
+    "original_location": "Table A2, row o3-mini, k = 0, column F1 (macro)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 6137,
+    "est_usd": 61.0,
+    "tier": "high"
+  },
+  "open_points": [],
+  "notes": "o1-2024-12-17 k=0 macro F1 0.38 is the alternative live cell; the Zenodo tarball exceeds the download limit so the 6k subset ids and field names are unverified. || [datacheck 2026-09-18] data.tar.gz downloaded and the 6k parquet extracted; columns verified (statement, statement_originator, verdict, factcheck_date, factcheck_analysis_link). Verdict distribution: {'Mostly true': 910, 'True': 639, 'Half true': 910, 'Mostly false': 934, 'False': 1936, 'Pants on fire': 824}; fact-check years 2007-2024. Hook harness/tierb/hooks/W7166837475.py: load_items / parse (JSON, then text fallback) / score (macro-F1 'all' variant of generate_performance_results in generate_classification_reports.py: unparsable predictions dropped, NEI predictions kept as errors, binary F1 per label with zero_division=1, the NEI label excluded from the mean). Variant confirmed from the released tables in the archive (data/cleaned/classification_reports/multi_class_{all,attempted}_summary_0.25.parquet): o3-mini k=0 'all' macro-F1 0.2653 (accuracy 0.318, n 6,137) = Table A2's 0.27; 'attempted' (NEI rows dropped) 0.2874 (n 5,313). o1-2024-12-17 k=0: 0.3763 / 0.3828.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

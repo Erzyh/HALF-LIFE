@@ -1,0 +1,67 @@
+{
+  "openalex_id": "https://openalex.org/W4400337928",
+  "title": "Agentless: Demystifying LLM-based Software Engineering Agents",
+  "doi": "https://doi.org/10.48550/arxiv.2407.01489",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4o-2024-05-13",
+  "dead_models": "claude-3-5-sonnet",
+  "flags": "agentic/heavy",
+  "all_links": [
+    "github.com/OpenAutoCoder/Agentless",
+    "github.com/OpenAutoCoder/Agentless1",
+    "github.com/OpenDevin/OpenDevi",
+    "github.com/aorwall/moatless-tools",
+    "github.com/ozyyshr/RepoGraph",
+    "github.com/swe-bench/experiments"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/OpenAutoCoder/Agentless",
+      "cloned": true,
+      "audit": {
+        "n_files": 35,
+        "ext_top": {
+          ".py": 25,
+          ".md": 3,
+          "": 2,
+          ".txt": 2,
+          ".yaml": 1,
+          ".csv": 1,
+          ".png": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 25,
+        "n_data_files": 1,
+        "files_mentioning_prompt": 9,
+        "files_with_eval_terms": 8,
+        "model_ids_in_code": {
+          "o1": 16,
+          "o4": 9,
+          "gpt-4o-": 8,
+          "o3": 7,
+          "gpt-4o-mini-2024-07-18": 4,
+          "claude-3-5-sonnet-20241022": 4,
+          "gpt-3.5-turbo-0301": 1,
+          "gpt-3.5-turbo": 1,
+          "claude-2.1": 1
+        },
+        "readme_head": "# 😺 Agentless\n\n<p align=\"center\">\n    <a href=\"https://arxiv.org/abs/2407.01489\"><img src=\"https://img.shields.io/badge/📃-Arxiv-b31b1b?style=for-the-badge\"></a>\n    <a href=\"https://github.com/OpenAutoCoder/Agentless/blob/master/LICENSE\"><img src=\"https://forthebadge.com/images/badges/license-mit.svg\" style=\"height: 28px\"></a>\n</p>\n\n<p align=\"center\">\n    <big><a href=\"#-news\">😽News</a></big> |\n    <big><a href=\"#-setup\">🐈Setup</a></big> |\n    <big><a href=\"#-comparison\">🧶Comparison</a></big> | \n    <big><a href=\"#-artifacts\">🐈‍⬛Artifacts</a></big> |\n    <big><a href=\"#-citation\">📝Citation</a></big> |\n    <big><a href=\"#-acknowledgement\">😻Acknowledgement</a></big>\n</p>\n\n## 😽 News \n\n- *Dec 2nd, 2024*: We integrated Agentless with Claude 3.5 Sonnet to achieve 40.7% and 50.8% solve rate on SWE-bench lite and verified \n- *Oct 28th, 2024*: We just released OpenAutoCoder-Agentless 1.5! \n- *July 1st, 2024*: We just released OpenAutoCoder-Agentless 1.0! **Agentless** currently is the best open-source approach on SWE-bench lite with 82 fixes (27.3%) and costing on average $0.34 per issue.\n\n## 😺 About \n\n**Agentless** is an *agentless* approach to automatically solve software development problems. To solve each issue, **Agentless** follows a simple three phase process: localization, repair, and patch validation.\n- 🙀 **Localization**: Agentless employs a hierarchical process to first localize the fault to specific files, then to relevant classes or functions, and finally to fine-grained "
+      },
+      "commit": "5ce5888b9f149beaace393957a55ea8ee46c9f71"
+    },
+    {
+      "url": "https://github.com/OpenAutoCoder/Agentless1",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/OpenDevin/OpenDevi",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4400337928.txt",
+  "paper_text_status": "pdf"
+}

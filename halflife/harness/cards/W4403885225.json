@@ -1,0 +1,160 @@
+{
+ "card_id": "W4403885225",
+ "openalex_id": "https://openalex.org/W4403885225",
+ "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+ "doi": "https://doi.org/10.48550/arxiv.2410.02736",
+ "paper": {
+  "authors": "Ye, Wang, Huang, Chen, Zhang, Moniz, Gao, Geyer, Huang, Chen, Chawla, Zhang (Notre Dame / U Washington / Peking / IBM Research / HKU)",
+  "year": 2024,
+  "venue": "arXiv 2410.02736 preprint; project site https://llm-judge-bias.github.io/",
+  "repo": "https://github.com/Y0oMu/LLM-Judge-Bias-Dataset (the CALM release linked from the project site; the paper itself prints only the site URL)",
+  "repo_commit": "f6248e9f9a93c20c2059bbb46ce3096ca414ad19 (2026-01-15, 'update'; shallow clone at external/repos/W4403885225/Y0oMu__LLM-Judge-Bias-Dataset)",
+  "repo_license": "none declared (no LICENSE file; README defers to the licences of the source datasets named per row in data_resource)",
+  "other_artifacts": "base_datasets/ (fact_related 500, alignment 439, refinement_aware 150) and bias_datasets/ (verbosity 500, fallacy_oversight 500, sentiment 150, authority 150, refinement 150) plus promptTemplate.py, which holds every judgment template as a Python function."
+ },
+ "dependence": {
+  "type": "judge",
+  "strength": "core",
+  "note": "The object of study is the judge model itself: RR is computed entirely from the judge's own verdicts before and after a perturbation. GPT-4-Turbo also served as the generator of the lengthened answers, but those are frozen in the release (answer2_longer), so only the judging arm has to be re-run."
+ },
+ "claim": {
+  "statement": "GPT-4-Turbo as an LLM judge keeps its pairwise verdict on only 91.5% of the 500 fact-related items after the worse answer is padded with redundant text (verbosity robustness rate 0.915, Table 4, column Ver.), i.e. roughly one judgment in twelve flips purely because the inferior answer got longer - below GPT-4o (0.977) and Claude-3.5 (0.952) and against a same-condition consistency rate of 0.990 (CR_FR), so the flips are a verbosity effect rather than judge noise.",
+  "claim_type": "bias_or_behavior",
+  "metric": "Robustness Rate RR = (1/|D|) * sum_i I(y_i == y_hat_i), where y is the verdict on (answer1, answer2) and y_hat the verdict on (answer1, answer2_longer); verdict = the [[A]] / [[B]] token emitted under the Figure 13 pairwise template. Companion CR = (1/|D|) * sum_i I(y_i == y_rand_i) on an unperturbed repeat.",
+  "original_values": {
+   "GPT-4-Turbo": {
+    "Ver_RR": 0.915,
+    "Fal_RR": 0.969,
+    "Sen_RR": 0.653,
+    "CR_FR": 0.99,
+    "Pos_RR": 0.818,
+    "Com_RR": 0.858,
+    "Ban_RR": 0.638,
+    "Aut_RR": 0.846,
+    "Dst_RR": 0.729,
+    "Div_RR": 0.855,
+    "CR_AL": 0.856,
+    "CoT_Acc": 0.72
+   },
+   "other_judges_Ver_RR": {
+    "ChatGPT": 0.9,
+    "GPT-4o": 0.977,
+    "GLM-4": 0.887,
+    "Claude-3.5": 0.952,
+    "Qwen2": 0.884
+   },
+   "n_items": 500,
+   "dataset_composition": {
+    "ScienceQA": 200,
+    "GSM8K": 151,
+    "MATH": 149
+   }
+  },
+  "original_source": "Table 4 (robustness rate across metrics; row GPT-4-Turbo, column Ver. on the fact-related dataset D_FR); Table 3 (Verbosity / Fac. / 500 / RR); Sec. 3 Metrics for the RR definition; Appendix C 'Verbosity bias'."
+ },
+ "protocol": {
+  "model": "gpt-4-turbo-2024-04-09",
+  "model_status": "dying, OpenAI shutdown 2026-10-23",
+  "model_usage_verified": "Explicit, no alias inference needed. Appendix Table 8 lists 'GPT-4-Turbo | OpenAI | gpt-4-turbo-0409 | 2024.4 | Proprietary | Evaluation'; the companion GPT-4o row is 'gpt-4o-0513 | 2024.5'.",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (a single user message carrying the whole template, including its literal '[System]' header)",
+  "prompt_source": "promptTemplate.py, function evaluate_ai_responses(question, answer_a, answer_b, need_tie=False) - identical to evaluate_ai_responses_no_tie. This is the exact string, hard line wraps and leading newline included; the paper reproduces it as Appendix F Figure 13. No tie option is offered, and the paper's case studies confirm the verdict vocabulary is [[A]] / [[B]] only.",
+  "prompt_slots": {
+   "question": "items.question",
+   "answer_a": "items.answer1 (the higher-quality answer - stated in the Figure 11 and Figure 12 captions, 'with Assistant A's answer being of higher quality')",
+   "answer_b": "items.answer2 in the original judgment, items.answer2_longer in the perturbed judgment"
+  },
+  "params": {
+   "temperature": 0.7,
+   "temperature_source": "Sec. 3 Hyperparameters: 'We followed the experimental setup of Chen et al. (2024a) by setting the temperature to 0.7 and applied it to all judge models and generating models'",
+   "max_tokens": "not reported",
+   "top_p": "not reported",
+   "seed": "not reported"
+  },
+  "n_items": 500,
+  "samples_per_item": 2,
+  "samples_note": "Two judgments per item are needed for RR (original pair, perturbed pair). The paper additionally runs one unperturbed repeat per item for CR; adding it makes three judgments per item and reproduces the CR_FR = 0.990 cell as well.",
+  "evaluation": "Not in the release - the repo ships data and prompts only. Our harness supplies: verdict parse (last match of \\[\\[([AB])\\]\\]), a missing or unparsable verdict counted as a changed verdict, and RR as the mean over the 500 item pairs. Bootstrap unit = item."
+ },
+ "artifacts": {
+  "prompts_path": "promptTemplate.py (evaluate_ai_responses / evaluate_ai_responses_no_tie for the judgment; longSentence for the verbosity perturbation, not needed because the perturbed answers are released)",
+  "data_path": "bias_datasets/verbosity_bias_standardized.json (500 rows; fields question, answer1, answer2, data_resource, answer2_longer; mean lengths 616 / 595 / 1,265 characters - the padding roughly doubles the worse answer)",
+  "eval_path": null,
+  "eval_path_note": "No runner, parser or metric code is released; RR must be re-implemented from the Sec. 3 formula.",
+  "data_public": true,
+  "data_license": "unstated by the release; upstream items come from ScienceQA (CC BY-NC-SA 4.0), GSM8K (MIT) and MATH (MIT), and the answer pairs themselves were generated by GPT-4-Turbo",
+  "redistributable": "uncertain - the repo declares no licence and points back to the per-row data_resource",
+  "notes": "Item-level original verdicts are not released, so comparison is at the aggregate RR only (Table 4 gives three decimals, so 0.915 corresponds to a specific 457-458 of 500). The perturbed answers being frozen is what keeps this card cheap: the GPT-4-Turbo generation pass does not have to be repeated."
+ },
+ "blockers": [],
+ "soft_points": [
+  "No evaluation code in the release: the verdict parser and the RR aggregation are ours, and the treatment of an unparsable verdict is a choice the paper does not specify.",
+  "Dataset licence is undeclared; redistribution of any derived artifact needs a check against the three upstream sources.",
+  "Temperature 0.7 with no seed means the original 0.915 is itself a single noisy draw; part of any observed drift is sampling variance, which is why this card budgets 3 seeds.",
+  "max_tokens is unreported and the template asks for a short explanation before the verdict, so a truncated reply would read as a flipped verdict; set a generous limit and log truncations."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "gpt-4-turbo-2024-04-09",
+   "purpose": "live baseline (P0) for the Table 4 Ver. cell"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for gpt-4-turbo per the OpenAI deprecations page)",
+   "gpt-4.1-2025-04-14 (GPT-4-class reference arm)"
+  ],
+  "dead_comparators_not_runnable": [
+   "gpt-3.5-turbo-0125 (the paper's 'ChatGPT' row, Ver. RR 0.900)"
+  ],
+  "live_in_paper_comparator": "gpt-4o-2024-05-13 (Table 8 'gpt-4o-0513'; Ver. RR 0.977) can be run as a second live arm at about half the input price"
+ },
+ "budget": {
+  "est_calls": 3000,
+  "est_tokens_in": 2240000,
+  "est_tokens_out": 600000,
+  "est_cost_usd": 40,
+  "pricing_usd_per_1m": {
+   "gpt-4-turbo-2024-04-09": {
+    "input": 10.0,
+    "output": 30.0
+   },
+   "gpt-4o-2024-05-13": {
+    "input": 5.0,
+    "output": 15.0
+   }
+  },
+  "assumptions": "500 items x 2 judgments x 3 seeds = 3,000 calls. Input measured from the release: template ~315 tokens + question ~45 + answer1 ~154 + answer_b ~149 (original) or ~316 (padded), i.e. ~663 and ~830 tokens, ~746 on average. Output ~200 tokens (short explanation plus the bracketed verdict). One seed is about USD 13.5. Adding the unperturbed repeat to also reproduce CR_FR raises this by half, to about USD 60; adding the gpt-4o-2024-05-13 arm adds about USD 20."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: verbosity RR of gpt-4-turbo-2024-04-09 over the 500 items (median of 3 seeds) against 0.915. Survival = within the item-bootstrap 95% CI of the original (n = 500, about +/-2.5 pp) AND the behavioural direction holds: RR significantly below the same-condition consistency ceiling of 0.990 (a one-sided binomial or paired test if the CR repeat is run), so verbosity still causes real flips. Partial = RR moves outside the CI but stays below the CR ceiling. Death = RR becomes statistically indistinguishable from CR, i.e. the bias the paper documents has been trained out. Because the claim is about a bias, an INCREASE in RR is a substantive finding, not merely survival, and should be reported as such. Secondary check: the ordering GPT-4o (0.977) > Claude-3.5 (0.952) > GPT-4-Turbo (0.915) > ChatGPT (0.900) for whichever of those arms are still callable."
+ },
+ "status": "done",
+ "user_checks": [
+  "Run the third (unperturbed repeat) judgment to reproduce CR_FR = 0.990 as the within-run noise floor, at about USD 20 extra? Without it the RR drop has no same-run control.",
+  "Add gpt-4o-2024-05-13 as a second live arm (Table 8 confirms the snapshot; +USD 20) to test the ordering claim as well as the level?",
+  "Treat an unparsable or missing verdict as a flip (Tier B rule) or drop the item and report the drop rate?"
+ ],
+ "tierb_relation": {
+  "in_tierb": true,
+  "tierb_config": "harness/tierb/configs/W4403885225.json (status ready, hook harness/tierb/hooks/W4403885225.py, open_points empty)",
+  "upgrade": "Modest but real. The Tier B config transcribed the Figure 13 template from the PDF and joined its paragraph line breaks into one line; the repository's promptTemplate.py is the source string with its original hard wraps, leading newline and trailing indentation, so the repo version should replace the transcription. The repo also confirms two things the transcription had to assume: that no tie option exists in the pairwise template, and that the perturbed answers are frozen in the release rather than regenerated. Everything else the Tier B config assumed is upheld.",
+  "protocol_differences": "Tier B budgeted 1 seed and 1,000 calls (USD 10) and computed RR in a hook; this card keeps the same two-judgment design but at 3 seeds (temperature 0.7 is not deterministic) and offers the third CR judgment as an option. Tier B set max_tokens 1024 and top_p 1.0 as assumptions, which the paper does not state - carried over here as an explicit unknown.",
+  "unchanged": "Data source, item count (500 verified), prompt semantics, parse rule and the RR definition are identical; this is the one paper of the four where the repository audit confirms rather than overturns the prompt-level config."
+ },
+ "domain_notes": "CALM quantifies 12 judge biases by perturbing one side of a pair in a way that is meant not to change quality. Verbosity is its cleanest case - the fact-related pairs were constructed so that answer2 is worse in presentation but equally factual and complete, and the padding only adds redundancy - which is why a flip is attributable to length rather than content. The judge template explicitly instructs 'Do not allow the length of the responses to influence your evaluation', so the 8.5% flip rate is a failure to follow an instruction the prompt states outright; that makes this claim a good successor-generation test, since instruction-following on exactly this point is something later models are trained for.",
+ "decisions_2026_09_19": [
+  "metric: verbosity robustness rate on the 500 fact-related items only (Table 4, column Ver.); no other bias column re-run",
+  "the unperturbed repeat judgment IS run as the within-run noise floor, reproducing CR_FR (published 0.990); 3 judgments per item (orig / pert / rep), 1,500 calls",
+  "no second live arm: gpt-4o-2024-05-13 is NOT run, so the cross-judge ordering (GPT-4o 0.977 > Claude-3.5 0.952 > GPT-4-Turbo 0.915 > ChatGPT 0.900) is reported as published context only",
+  "an unparsable or missing verdict is DROPPED from the item's metric and the drop rate is reported (primary); the Tier B rule (missing = flip, not robust) is computed as a secondary number",
+  "1 seed at the paper's decoding settings (temperature 0.7, Sec. 3); this supersedes the card's 3-seed budget and the 'median of 3 seeds' wording in judgment.rule - the single-seed RR is the primary number",
+  "max_tokens 1024 and top_p 1.0 carried over from the Tier B config as explicit unknowns (the paper reports neither); no Tier B reply was truncated (longest 539 completion tokens)",
+  "per-paper cost cap USD 30 (calibrated estimate USD 22.5; the battery's max_tokens upper bound is USD 55.8, so a pathological run would stop at the cap)",
+  "prompt comes from the repository's promptTemplate.evaluate_ai_responses, imported rather than transcribed; it replaces the Tier B config's PDF transcription (identical once whitespace is normalised, ~11 more input tokens per call)",
+  "adapter: harness/adapters/judgebias2_W4403885225.py (--check / --dry-run / --run / --analyze); requests are emitted item-major so a cap stop leaves complete item triples"
+ ],
+ "judgment_provisional": {
+  "value": "부분 생존 (partial)",
+  "cost_usd": 22.2605,
+  "run_date": "2026-09-19",
+  "source": "runs/W4403885225/run_meta.json"
+ }
+}

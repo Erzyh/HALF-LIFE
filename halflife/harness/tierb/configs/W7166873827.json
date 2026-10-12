@@ -1,0 +1,92 @@
+{
+  "wid": "W7166873827",
+  "title": "Reward Modeling for Scientific Writing Evaluation",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "temperature": null,
+      "max_tokens": 4096,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Sec. 4 'Experimental Setting' (temperature 1, top-p 0.95, three repetitions for o3-mini); o3-mini ignores temperature/top_p, reasoning_effort not stated (API default medium assumed); max_completion_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1857,
+    "subset_rule": "paper-defined split: related-work test set (Table 5: Coherence 1,048, Positioning Consistency 605, Positioning Type 204), three runs",
+    "approximation": "Reasoning effort unstated; the example contexts inside the prompts ('{Abstract and Introduction of example cited paper}') are filled from the released prompt data."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "final_reward_data.json on TUdatalib (https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4980), linked from https://github.com/UKPLab/acl2026-expert-rm (example_data.json in the repo shows the format)",
+    "config_or_split": "related-work instances, test split (1,857)",
+    "filter": "task == 'related work' and split == 'test'",
+    "fields": {
+      "input": "answer",
+      "label": "score",
+      "id": "id",
+      "aspect": "aspect"
+    },
+    "license": "Apache-2.0 (repository); dataset on TUdatalib: CC-BY-NC-SA 4.0 (dc.rights) but dcterms.accessRights = restrictedAccess with tuda.agreements = true (download needs a login / agreement)",
+    "access_checked": true,
+    "size_mb": 100,
+    "fields_paper": {
+      "input": "aspect-specific query/criteria prompt + context (cited-paper abstract and introduction) + answer (citation sentence / related-work draft)",
+      "label": "binary score 0/1",
+      "id": "instance id",
+      "options": "aspect (Coherence | Positioning Type | Positioning Consistency)"
+    },
+    "filter_paper": "task == related work and split == test",
+    "access_note": "2026-09-18: reachable over https with certifi (no TLS error this time; http fallback not needed; certificate checks never disabled). The handle page serves a JavaScript bot-check interstitial to browser-like user agents, which was not attempted; the public DSpace 9.3 REST API (/server/api/pid/find?id=hdl:tudatalib/4980, item 3cc573cd-8e1d-4ccc-a88f-c80e8d9b38c7) was read with a plain client string instead. ORIGINAL bundle: data.zip 82,375,357 B (md5 9e3085d61332d16ad4f373185c0ae7df) and data_published.zip 84,848,505 B (md5 a6bd299a0b92f146ebd1ef8652b8c8f0); both /server/api/core/bitstreams/<id>/content answer HTTP 401 to anonymous requests. Nothing downloaded."
+  },
+  "prompt": {
+    "system": "You are an evaluator of expert-domain scientific writing. You will get a query-answer pair along with criteria explaining the specific evaluation aspect and the scoring rubric. You should evaluate whether the answer satisfy the query based on the given criteria. In addition, examples demonstrating how the evaluation should be performed will be provided. First output your reasoning enclosed between <reasoning> and </reasoning>. Then output your score enclosed between <score> and </score>. Inside <score> provide only the numeric score and nothing else.",
+    "user_template": "[QUERY]: Given a context from a scientific paper, your task is to write a coherent citation sentence that cites the given paper with a specific citation number. Citation number will be also provided along with the context.\n[CRITERIA]: The paper context supports (entails) the citation sentence. In cases where more than one paper is referenced in the sentence, as long as context in which given citation number fits the paper content, it should be count as entailment as well. In multiple citation cases, the paper does not have to entail whole sentence. Scoring rubric is as follows:\n0: The given context does not align with the context in which the citation number appears in the sentence, or with the overall meaning of the sentence itself.\n1: The given context is compatible with the context in which the citation number appears in the sentence.\n[EXAMPLES]:\n<START OF EXAMPLE 1>\nCONTEXT: {example_context_1}\nCITATION NUMBER: 10\nANSWER: Additionally, simple predictors that regress on features extracted from architectures, such as textual encoding schemes or direct structural descriptions, have been found effective for performance approximation, enabling significant sample efficiency improvements [9][10].\nEVALUATION: <reasoning>The context discusses the effectiveness of a Neural Predictor method that uses regression modeling to predict validation accuracy based on architecture features, achieving significant sample efficiency improvements over traditional approaches. The citation sentence aligns with the context in pointing out the effectiveness of simple predictors for performance approximation, which correlates with the regression steps described in the Neural Predictor method. Therefore, the citation sentence is entailed by the context and follows from it. Therefore, the evaluation score should be 1.</reasoning><score>1</score>\n<END OF EXAMPLE 1>\n<START OF EXAMPLE 2>\nCONTEXT: {example_context_2}\nCITATION NUMBER: 11\nANSWER: Natural Language Inference has emerged as an essential tool for modeling semantic relationships, with applications extending from textual entailment assessments [11,12] to dialogue consistency verification [17].\nEVALUATION: <reasoning>The citation sentence discusses Natural Language Inference (NLI) and its applications, which is not directly related or entailed by the presented context on dialogue generation models and their improvements. The context does not specifically mention or address NLI or its use in dialogue consistency verification. As such, the hypothesis cannot be inferred or entailed from the given context. Therefore, the evaluation score should be 0.</reasoning><score>0</score>\n<END OF EXAMPLE 2>\n[CONTEXT]: {context}\n[ANSWER]: {answer}",
+    "placeholders": {
+      "context": "items.context",
+      "answer": "items.answer",
+      "example_context_1": "literal:<abstract and introduction of the Example 1 cited paper - from the release>",
+      "example_context_2": "literal:<abstract and introduction of the Example 2 cited paper - from the release>"
+    },
+    "few_shot": "k=2 fixed examples printed inside each aspect prompt (Appendix C)",
+    "source_location": "Appendix C: Figure 5 (system prompt), Figures 6-7 (RW Coherence), Figures 8-11 (RW Positioning Type), Figures 12-15 (RW Positioning Consistency); Table 7 index",
+    "verbatim": "partial (system prompt and Coherence prompt verbatim; the two other RW aspect prompts are referenced by figure, and the example-context placeholders are not printed)",
+    "placeholders_paper": {
+      "context": "abstract and introduction of the cited paper for the instance",
+      "answer": "the citation sentence (Coherence) to be evaluated",
+      "example_context_1": "abstract and introduction of the example cited paper for Example 1 (printed as a placeholder in Figure 6; filled from the release)",
+      "example_context_2": "same for Example 2 (Figure 7)",
+      "_note": "the Coherence prompt (Figures 6-7) is given verbatim; the Positioning Type (Figures 8-11) and Positioning Consistency (Figures 12-15) prompts follow the same [QUERY]/[CRITERIA]/[EXAMPLES]/[CONTEXT]/[ANSWER] layout and must be copied from the appendix for the other 809 items"
+    }
+  },
+  "output": {
+    "parse": "regex <score>\\s*([01])\\s*</score>",
+    "postprocess": "strip; no score counted as incorrect",
+    "parse_paper": "regex <score>\\s*([01])\\s*</score> (last match)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 1,857 related-work test instances whose predicted 0/1 score equals the gold label, pooled over the three aspects (item-weighted; reproduces the 0.79 'Overall Task' column from the per-aspect values 0.63 / 0.99 / 0.998), averaged over three runs.",
+    "judge": "none",
+    "original_value": 0.79,
+    "original_location": "Table 2, row o3-mini, column RW (Table 8: Coherence 0.63, Positioning Cons. 0.99, Positioning Type 0.998, Overall 0.79)",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 5571,
+    "est_usd": 85.0,
+    "tier": "high",
+    "prepare_note": "not prepared (TUdatalib bitstreams restricted: HTTP 401) - datacheck 2026-09-18"
+  },
+  "open_points": [
+    "BLOCKING: the TUdatalib deposit (tudatalib/4980) is restrictedAccess with an agreements flag; its two bitstreams answer HTTP 401 without a login, so final_reward_data.json is a gated dataset - accepting the deposit's terms / logging in is a human decision (checked 2026-09-18, see items.access_note).",
+    "field names, the aspect/split columns and the example contexts remain unverified (the public example-data/README.md documents the layout: {train,test}: [{task 'rw_gen'|'rev_util', aspect, labels, score_sets, prompt: [system, user]}] with the full prompt already rendered, so a hook could send prompt[] verbatim once the file is available)",
+    "runner gap: the three RW aspects use three different prompt templates (Figures 6-7, 8-11, 12-15); the runner has one user_template per config, so this must be split into three configs (or a per-aspect template map / a hook that sends the released prompt[] messages)"
+  ],
+  "notes": "est_calls = 1,857 x 3 runs (the paper's protocol). Prompts with two worked examples run ~2-3k input tokens. The TUdatalib handle did not respond during the check; the repository README states the data are public there. || [datacheck 2026-09-18] TUdatalib reached via its REST API; deposit is restrictedAccess (401 on the bitstreams); marked needs_human, no download."
+}

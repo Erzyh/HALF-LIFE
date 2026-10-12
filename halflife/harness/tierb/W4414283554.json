@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4414283554",
+ "title": "Lexical diversity, syntactic complexity, and readability: a corpus-based analysis of ChatGPT and L2 student essays",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Methods: \"The AI-generated texts were produced using OpenAI's GPT-4 Turbo, the version of GPT-4 provided to ChatGPT Plus subscribers via the web interface...All texts were generated in December 2024.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (essay prompts identical to those assigned to students, each submitted 5 times)",
+  "note": "Course-specific essay prompts, not fully quoted in the visible text."
+ },
+ "claim": {
+  "metric": "linguistic complexity comparison, AI-generated vs. L2 student essays",
+  "value": null,
+  "n_items": null,
+  "location": "Results tables (corpus-based comparison)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Anonymized L2 student essays (United Arab Emirates university); AI essays newly generated for this study"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui"
+ ],
+ "notes": "Generated via the ChatGPT Plus web interface rather than the API, so the exact snapshot cannot be pinned or reproduced through an API call; by December 2024 ChatGPT Plus's default model had already moved past GPT-4 Turbo, adding further doubt about the claimed version."
+}

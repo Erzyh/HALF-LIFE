@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4413259164",
+  "title": "Development and Evaluation of a Retrieval-Augmented Generation-Based Electronic Medical Record Chatbot System",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "It offers faster text generation than GPT-4-turbo (Discussion, describing GPT-3.5-turbo)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 2 (prompt template for the GPT-3.5-turbo API, Korean and English)",
+    "note": "Prompt is for GPT-3.5-turbo (fine-tuned), not the live model."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (GPT-4-turbo not run)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Hospital EMR data (not public)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Text file starts at the Introduction (front matter missing) but content matches the paper (RAG EMR chatbot, GPT-3.5-turbo fine-tuning, 97.6% accuracy)."
+}

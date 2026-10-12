@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7125460230",
+ "title": "ClaimDB: A Fact Verification Benchmark over Large Structured Data",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano(2025a)",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "Results row \"gpt-4.1-nano(2025a) 0.647 0.641 0.376 0.165 0.124 0.952 0.263 0.208 0.539 0.337 0.416\" (per-label P/R/F1 + Macro-F1 0.337 + Acc 0.416), one of 30 tested LLMs."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "\"We use a single prompt (Figure 22 in the Appendix)\"",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Macro-F1 (entailed/contradicted/not-enough-info)",
+  "value": 0.337,
+  "n_items": 1000,
+  "location": "Sec 6 results table; \"public test set\" of 1,000 claims (Sec 6.1 / Fig.6)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ClaimDB, released under CC BY-SA 4.0, https://claimdb.github.io"
+ },
+ "cost": {
+  "est_calls": 1000,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Agentic tool-calling benchmark for claim verification against structured databases; gpt-4.1-nano is one of 30 compared LLMs with a full row of per-label precision/recall/F1 plus Macro-F1 and accuracy on the public 1,000-claim test set."
+}

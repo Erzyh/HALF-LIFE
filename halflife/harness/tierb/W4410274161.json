@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4410274161",
+  "title": "Implementing a context-augmented large language model to guide precision cancer medicine",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Methods, Benchmark against other LLMs: \"- OpenAI GPT-4o (gpt-4o-2024-05-13) - OpenAI GPT-4o-mini (gpt-4o-mini-2024-07-18)\"; Results: \"Without RAG-provided context, model accuracy ranged from 54-69%\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 1 (basic prompt with JSON schema, Query: {prompt}); Methods, Prompt engineering (strategies 1-4)",
+    "note": "The 234 synthetic queries are in supplementary Tables S1-S2, not in the main text."
+  },
+  "claim": {
+    "metric": "partial-match accuracy (%) of FDA-approved therapy recommendations, LLM-only",
+    "value": null,
+    "n_items": 234,
+    "location": "Figure 3A (per-model bars); text gives only the 54-69% range across the five LLM-only models",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "MOAlmanac v.2024-04-11 (https://github.com/vanallenlab/moalmanac-db); ground-truth therapies and queries in supplementary Tables S1-S4 (medRxiv preprint supplement)"
+  },
+  "cost": {
+    "est_calls": 702,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the GPT-4o-specific LLM-only accuracy is only readable from Figure 3A, and the query set lives in the supplement. Scoring is deterministic (drug names parsed from JSON output against Table S2 ground truth). Temperature 0.0 with fixed seed. The RAG variants need the mistral-embed/FAISS pipeline and are out of scope.",
+  "resolution": {
+    "gap": "figure_only_number",
+    "plan": "Read the LLM-only partial-match accuracy of GPT-4o from the Figure 3A bars in the PDF (the text gives only the 54-69% range across the five LLM-only models). Take the 234 synthetic queries and the ground-truth FDA-approved therapies from Supplementary Tables S1-S2 (medRxiv supplement), fill the Table 1 basic prompt with the JSON schema, call gpt-4o-2024-05-13 at temperature 0 with a fixed seed, parse the returned drug list and score partial match (at least one ground-truth therapy present).",
+    "approximation": "none beyond reading the bar value; the supplement is downloaded together with the PDF",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

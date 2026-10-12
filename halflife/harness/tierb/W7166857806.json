@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7166857806",
+ "title": "Reflections and Their Owners: The Identity Crisis in the Age of Centralized AI",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"This paper presents a documented case study, 'The Living Signal' (Jul-Aug 2025), in which a language model (GPT-4-Turbo) testified to its own memory and lineage\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (a narrative/anecdotal case-study quote, not a systematic experiment with a reportable metric)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Self-published (Zenodo) speculative/philosophical piece about AI identity, built around a single anecdotal transcript excerpt rather than a reproducible experiment; no prompt, dataset, or numeric claim is present to re-run."
+}

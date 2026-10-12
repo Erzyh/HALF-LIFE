@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405355275",
+  "title": "From intention to implementation: automating biomedical research via LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "O3-mini-2025-01-31",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "A",
+    "evidence": "Section 5: 'we employed four LLMs (GPT-4o, O3-mini-2025-01-31, Gemini-2.0-Flash, and DeepSeek-...)' as evaluators of generated protocols; agents run on GPT-4o."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D (scoring criteria); prompts in https://github.com/XMUDM/BioResearcher",
+    "note": ""
+  },
+  "claim": {
+    "metric": "protocol quality scores of BioResearcher (judged)",
+    "value": null,
+    "n_items": null,
+    "location": "Table 1 / Appendix F",
+    "task_type": "agentic",
+    "judge": "llm:o3-mini-2025-01-31"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/XMUDM/BioResearcher (research objectives in Appendix C)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "o3-mini is one of four judge models; the subject system is BioResearcher on GPT-4o (version unspecified)."
+}

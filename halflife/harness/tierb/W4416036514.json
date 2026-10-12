@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036514",
+  "title": "Humans Hallucinate Too: Language Models Identify and Correct Subjective Annotation Errors With Label-in-a-Haystack Prompts",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "\"We use GPT-3.5 Turbo (gpt-3.5-turbo), GPT-4 (gpt-4-turbo), and GPT-4o (gpt-4o-mini), Llama-2 ... and Llama-3\" (Sec. 4.2)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix: LiaHR prompt with randomly retrieved in-context examples",
+    "note": ""
+  },
+  "claim": {
+    "metric": "p-value of reasonableness contingency (copy-correct items judged reasonable vs unreasonable)",
+    "value": 2.38e-07,
+    "n_items": 60,
+    "location": "Table 4, SemEval, LiaHR, row GPT-4 (25/5, 4/26)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SemEval-2018 Task 1 (E-c); annotator reasonableness labels in github.com/gchochla/liahr (unverified)"
+  },
+  "cost": {
+    "est_calls": 180,
+    "tier": "low"
+  },
+  "blockers": [
+    "human_outcome"
+  ],
+  "notes": "GPT-4 numbers are contingency counts against human reasonableness annotations; GPT-4o is the main model. Version not printed; date rule."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405033318",
+ "title": "Evaluating the Consistency of LLM Evaluators",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo / GPT-4",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"Table 3: Pearson Correlation between selected LLM Evaluators and GPT-4\"; footnote: \"of GPT-4-Turbo2 in Table 3...2 https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 2/Appendix A.1, C (criterion definitions at 3 granularities; scoring-scale templates in Table 1)",
+  "note": "Evaluation rubric/criteria structure is described; GPT-4/GPT-4-Turbo's own exact evaluator prompt is not isolated from the five main evaluator models' prompts in the retrieved text."
+ },
+ "claim": {
+  "metric": "none for GPT-4-Turbo itself (it is used only as the fixed correlation reference for the five tested evaluator models: Llama-2-Chat, Tulu-2-DPO, Zephyr, Mistral-Instruct, GPT-3.5-Turbo)",
+  "value": null,
+  "n_items": 1000,
+  "location": "Sec 3.3/Table 3-4 (Pearson r of each of the 5 tested models against GPT-4, 1000 sampled instances per criterion)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Harmlessness (Bai et al. 2022), Helpfulness (Zhou et al. 2023), Factuality (Lin et al. 2022) and a Conciseness dataset; 1000 sampled instances per criterion"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The paper's own Self-Consistency and Inter-scale-Consistency experiments (Sec 3.1-3.2) test five OTHER models (Llama-2-Chat, Tulu-2-DPO, Zephyr, Mistral-Instruct-v0.2, GPT-3.5-Turbo); GPT-4/GPT-4-Turbo is brought in only in Sec 3.3 as a fixed high-quality reference so those five models' scores can be correlated against it, so no self-consistency or capability number is reported for GPT-4-Turbo itself."
+}

@@ -1,0 +1,46 @@
+﻿transform,covariate,chi2,df,p,correlation_with_time,direction
+km,any Anthropic model,843813.6432691271,1,0.0,0.147,hazard ratio rises with time since publication
+km,any Google model,162650.9992233967,1,0.0,0.079,hazard ratio rises with time since publication
+km,field: Medicine,447945.8620033549,1,0.0,0.162,hazard ratio rises with time since publication
+km,field: Social Sciences,547669.9457063363,1,0.0,0.174,hazard ratio rises with time since publication
+km,field: Engineering,474119.15437605383,1,0.0,0.131,hazard ratio rises with time since publication
+km,field: Decision Sciences,644326.9711395783,1,0.0,0.198,hazard ratio rises with time since publication
+km,field: Psychology,96462.4591856753,1,0.0,0.101,hazard ratio rises with time since publication
+km,field: other,466998.2699898448,1,0.0,0.130,hazard ratio rises with time since publication
+km,published 2022,132196.9590844112,1,0.0,-0.124,hazard ratio falls with time since publication
+km,published 2023,1171352.8707381324,1,0.0,-0.203,hazard ratio falls with time since publication
+km,published 2025,1345932.43059063,1,0.0,0.164,hazard ratio rises with time since publication
+km,published 2026,1226873.8535804928,1,0.0,0.137,hazard ratio rises with time since publication
+km,preprint,309.81254825421456,1,2.399163424496294e-69,0.008,hazard ratio rises with time since publication
+km,log(1 + citations),971895.6980764956,1,0.0,-0.146,hazard ratio falls with time since publication
+km,GLOBAL,2416705.0190368956,14,0.0,,
+rank,any Anthropic model,838944.7778004034,1,0.0,0.146,hazard ratio rises with time since publication
+rank,any Google model,161935.7722117729,1,0.0,0.079,hazard ratio rises with time since publication
+rank,field: Medicine,450335.9465076261,1,0.0,0.162,hazard ratio rises with time since publication
+rank,field: Social Sciences,550389.8328056916,1,0.0,0.174,hazard ratio rises with time since publication
+rank,field: Engineering,475641.18747148855,1,0.0,0.131,hazard ratio rises with time since publication
+rank,field: Decision Sciences,642513.162421469,1,0.0,0.198,hazard ratio rises with time since publication
+rank,field: Psychology,96717.72897682812,1,0.0,0.102,hazard ratio rises with time since publication
+rank,field: other,468096.3406740026,1,0.0,0.130,hazard ratio rises with time since publication
+rank,published 2022,132118.64784098227,1,0.0,-0.124,hazard ratio falls with time since publication
+rank,published 2023,1170779.9577607934,1,0.0,-0.203,hazard ratio falls with time since publication
+rank,published 2025,1345752.000571887,1,0.0,0.164,hazard ratio rises with time since publication
+rank,published 2026,1225712.1298794996,1,0.0,0.137,hazard ratio rises with time since publication
+rank,preprint,198.08147380006085,1,5.4765507294458545e-45,0.007,hazard ratio rises with time since publication
+rank,log(1 + citations),972015.0572975434,1,0.0,-0.146,hazard ratio falls with time since publication
+rank,GLOBAL,2415707.1137533593,14,0.0,,
+identity,any Anthropic model,737301.1527555458,1,0.0,0.137,hazard ratio rises with time since publication
+identity,any Google model,112251.76103286429,1,0.0,0.065,hazard ratio rises with time since publication
+identity,field: Medicine,351053.16154336673,1,0.0,0.143,hazard ratio rises with time since publication
+identity,field: Social Sciences,496309.0230797369,1,0.0,0.166,hazard ratio rises with time since publication
+identity,field: Engineering,281248.1876387797,1,0.0,0.101,hazard ratio rises with time since publication
+identity,field: Decision Sciences,912402.1942676267,1,0.0,0.236,hazard ratio rises with time since publication
+identity,field: Psychology,24118.445871373748,1,0.0,0.051,hazard ratio rises with time since publication
+identity,field: other,262436.69161572494,1,0.0,0.097,hazard ratio rises with time since publication
+identity,published 2022,384677.64766570256,1,0.0,-0.212,hazard ratio falls with time since publication
+identity,published 2023,1909585.0670008939,1,0.0,-0.259,hazard ratio falls with time since publication
+identity,published 2025,984846.8931826011,1,0.0,0.140,hazard ratio rises with time since publication
+identity,published 2026,730825.3521770127,1,0.0,0.106,hazard ratio rises with time since publication
+identity,preprint,8116.533545397534,1,0.0,-0.042,hazard ratio falls with time since publication
+identity,log(1 + citations),723045.0952846365,1,0.0,-0.126,hazard ratio falls with time since publication
+identity,GLOBAL,2660359.392239301,14,0.0,,

@@ -1,0 +1,122 @@
+[
+ {
+  "wid": "W4399317891",
+  "cap": 11.9,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 7.7,
+  "n_calls_baseline": 807,
+  "config_seeds": 3,
+  "title": "OR-Bench: An Over-Refusal Benchmark for Large Langua"
+ },
+ {
+  "wid": "W4406058562",
+  "cap": 12.8,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 8.31,
+  "n_calls_baseline": 100,
+  "config_seeds": 1,
+  "title": "Applicability of Large Language Models and Generativ"
+ },
+ {
+  "wid": "W4403758464",
+  "cap": 13.4,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 8.76,
+  "n_calls_baseline": 1800,
+  "config_seeds": 3,
+  "title": "LLMs Still Can't Plan; Can LRMs? A Preliminary Evalu"
+ },
+ {
+  "wid": "W7140138327",
+  "cap": 13.5,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-terra",
+  "model": "gpt-5-mini-2025-08-07",
+  "est_usd": 8.83,
+  "n_calls_baseline": 3777,
+  "config_seeds": 3,
+  "title": "ReMedQA: Are We Done With Medical Multiple-Choice Be"
+ },
+ {
+  "wid": "W4403786592",
+  "cap": 13.6,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 8.88,
+  "n_calls_baseline": 3000,
+  "config_seeds": 3,
+  "title": "A Comprehensive Evaluation of Large Language Models "
+ },
+ {
+  "wid": "W4399912745",
+  "cap": 17.0,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 11.11,
+  "n_calls_baseline": 907,
+  "config_seeds": 1,
+  "title": "ALiiCE: Evaluating Positional Fine-grained Citation "
+ },
+ {
+  "wid": "W4403882451",
+  "cap": 18.8,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 12.36,
+  "n_calls_baseline": 1800,
+  "config_seeds": 3,
+  "title": "Planning in Strawberry Fields: Evaluating and Improv"
+ },
+ {
+  "wid": "W4411080278",
+  "cap": 20.4,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4o-2024-05-13",
+  "est_usd": 13.41,
+  "n_calls_baseline": 3000,
+  "config_seeds": 3,
+  "title": "Temperature-Driven Variability in Emergency Diagnost"
+ },
+ {
+  "wid": "W4416037849",
+  "cap": 20.8,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "o3-mini-2025-01-31",
+  "est_usd": 13.7,
+  "n_calls_baseline": 1167,
+  "config_seeds": 3,
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retriev"
+ },
+ {
+  "wid": "W4404985489",
+  "cap": 22.4,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 14.72,
+  "n_calls_baseline": 589,
+  "config_seeds": 1,
+  "title": "Variable Extraction for Model Recovery in Scientific"
+ }
+]

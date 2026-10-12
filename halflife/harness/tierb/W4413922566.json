@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4413922566",
+ "title": "Is ChatGPT a Sufficient and Readable Help Tool for the Most Frequently Asked Questions in General Dentistry?",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"questions were then posed to the GPT-4-turbo model available under the ChatGPT Plus plan (Table 1)\"; answers rated for accuracy (Likert) and readability (SMOG/Flesch-Kincaid)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 1 (all 40 patient questions listed verbatim)",
+  "note": "Single-turn questions, no system prompt described."
+ },
+ "claim": {
+  "metric": "accuracy Likert rating / readability (SMOG, FKGL, FRES)",
+  "value": null,
+  "n_items": 40,
+  "location": "Tables 2-4 (ICC-based accuracy/readability scoring of the 40 answers)",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "40 questions printed in Table 1 (web-sourced FAQ compilation)"
+ },
+ "cost": {
+  "est_calls": 40,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui"
+ ],
+ "notes": "Accessed through the ChatGPT Plus consumer interface, not the API, so the exact served snapshot/decoding settings cannot be pinned or scripted for a 3-seed rerun."
+}

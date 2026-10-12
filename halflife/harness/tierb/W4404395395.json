@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404395395",
+ "title": "Evaluating Fine-Tuning Efficiency of Human-Inspired Learning Strategies in Medical Question Answering",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "'We prompted six LLMs to answer the questions in the LEK dataset...For each LLM, we calculated an expected accuracy for each question as the probability the LLM assigns to the correct answer'; models include 'GPT-4 Turbo [30], GPT-3.5...'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 2.4 (instruction prompt used to query all six LLMs on the LEK dataset)",
+  "note": "Uses next-token log-probabilities over answer options A-E to derive an 'expected accuracy' difficulty label per question."
+ },
+ "claim": {
+  "metric": "none reported for GPT-4 Turbo's own accuracy (its logprob-based 'expected accuracy' is only used to derive difficulty labels that feed curriculum-learning experiments on separately fine-tuned open models: TinyLlama, Llama-2, Mistral)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 reports fine-tuned open-model accuracy, not GPT-4 Turbo's own",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LEK dataset, publicly available at https://cem.edu.pl/"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo plays a role-A data-labeling function (difficulty estimation via answer log-probabilities) rather than being the paper's benchmarked subject; the headline accuracy results are for fine-tuned open-source models."
+}

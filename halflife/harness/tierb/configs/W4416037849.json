@@ -1,0 +1,84 @@
+{
+  "wid": "W4416037849",
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retrieval-Augmented LLMs in Biomedicine",
+  "status": "ready",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "reasoning_effort": "medium",
+      "max_completion_tokens": 2048
+    },
+    "params_source": "assumed (paper gives no decoding parameters for o3-mini)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 2371,
+    "subset_rule": "all 400 CRAB queries (100 per language file: en, french, german, chinese); per query a seeded (20260907) draw of references balanced 40% relevant / 60% irrelevant (n_rel = min(#positive, floor(2/3 x #negative)), n_irr = round(1.5 x n_rel)); items = the drawn references (~7 per query)",
+    "approximation": "the paper's per-query 40/60 draw is not listed (seeded draw, set-level comparison); the 'Query:' / 'References:' layout and the expected output format are reconstructed (only the instruction sentence is printed); no item-level CI (F1)"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "zhm0/CRAB, config benchmark, files en_data.jsonl / french_data.jsonl / german_data.jsonl / zh_data.jsonl (100 queries each; fields question, positive (list of relevant reference strings prefixed '[n] '), negative (list of irrelevant references))",
+    "config_or_split": "benchmark; splits en, french, german, chinese",
+    "filter": "queries with at least one positive and one negative reference (a few queries have no relevant reference)",
+    "fields": {
+      "input": "question",
+      "references": "references",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "Apache-2.0 (dataset card)",
+    "access_checked": true,
+    "size_mb": 4,
+    "file_urls": [
+      "https://huggingface.co/datasets/zhm0/CRAB/resolve/main/en_data.jsonl",
+      "https://huggingface.co/datasets/zhm0/CRAB/resolve/main/french_data.jsonl",
+      "https://huggingface.co/datasets/zhm0/CRAB/resolve/main/german_data.jsonl",
+      "https://huggingface.co/datasets/zhm0/CRAB/resolve/main/zh_data.jsonl"
+    ]
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Given the following biomedical query and references, classify each reference as relevant (1) or irrelevant (0) to answering the query. Provide only the classification scores.\n\nQuery: {query}\n\nReferences:\n{references}",
+    "placeholders": {
+      "query": "items.question",
+      "references": "items.references"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix C.1.2 Implementation Details (Task A prompt template)",
+    "verbatim": "partial: the instruction sentence is verbatim; the 'Query:' / 'References:' layout is reconstructed (not printed)"
+  },
+  "output": {
+    "parse": "sequence of 0/1 labels in reference order: a bracketed list like [1, 0, 1, ...] or per-line '[n]: label' / 'n: label'; length must equal the number of references",
+    "postprocess": "strip; missing or extra labels -> the query is re-parsed leniently, else all its references count as predicted 0 and the query is reported"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Relevance Precision (RP) = F1 of the relevant class (label 1) over all drawn references pooled across queries (Sec. 2.3: RP/IS/CE are the F1 of the relevant/irrelevant class and the macro F1)",
+    "judge": "none",
+    "original_value": 71.22,
+    "original_location": "Table 7, row o3-mini, column Relevance Precision / SRC (IS 73.99, CE 72.60)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1167,
+    "est_usd": 6.97,
+    "tier": "mid",
+    "est_usd_prepare": 6.97,
+    "est_usd_dryrun_max_tokens": 2.14,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens"
+  },
+  "open_points": [],
+  "notes": "References are abstracts (~200 words each), so calls carry ~1.5k input tokens. The headline Table 2 numbers use the unprinted main CRAB instruction and stay out of scope. || [hook 2026-09-07] load_items() reads the four language files (400 queries; 11 without a positive or negative reference skipped -> 389 queries), draws per query with one RNG (seed 20260907) a 40/60 relevant/irrelevant reference set (n_rel = min(#pos, floor(2/3 #neg)), n_irr = min(#neg, round(1.5 n_rel))), shuffles and renumbers [1]..[n]: 2,371 references (938 relevant); parse() reads per-reference 0/1 labels ('[k] 1', 'k: 0', 'Reference k - 1') or a bare 0/1 sequence; score() pools all references: RP = F1 of the relevant class (returned), IS = F1 of the irrelevant class, CE = macro F1 (printed); an unparsable reply predicts 0 for its references. C.1.2 fixes the 400-query (four-language) protocol, so Table 7 is compared on all languages.",
+  "hook": {
+    "path": "harness/tierb/hooks/W4416037849.py",
+    "functions": [
+      "load_items",
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

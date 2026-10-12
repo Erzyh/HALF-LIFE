@@ -1,0 +1,33 @@
+﻿covariate,level,results,papers,deviated,share_pct,wilson_lo_pct,wilson_hi_pct
+arm,Gemini 3.8 Flash,66,66,43,65.2,53.1,75.5
+arm,gpt-4.1,48,48,23,47.9,34.5,61.7
+arm,open-weight Llama 70B,64,64,43,67.2,55.0,77.4
+arm,vendor-designated (gpt-5.6),72,72,38,52.8,41.4,63.9
+task type,classification,116,36,69,59.5,50.4,68.0
+task type,extraction,19,6,8,42.1,23.1,63.7
+task type,generation,37,11,17,45.9,31.0,61.6
+task type,multiple choice,40,12,23,57.5,42.2,71.5
+task type,other / agentic,38,10,30,78.9,63.7,88.9
+field group,computer science,19,6,10,52.6,31.7,72.7
+field group,engineering,30,8,24,80.0,62.7,90.5
+field group,life science,31,10,19,61.3,43.8,76.3
+field group,medicine,31,9,20,64.5,46.9,78.9
+field group,social science,139,42,74,53.2,45.0,61.3
+metric family,accuracy / exact match,121,35,82,67.8,59.0,75.4
+metric family,other metric,129,40,65,50.4,41.9,58.9
+pre-shutdown baseline vs reported,close,21,6,16,76.2,54.9,89.4
+pre-shutdown baseline vs reported,deviated,60,18,44,73.3,61.0,82.9
+pre-shutdown baseline vs reported,other,3,1,3,100.0,43.8,100.0
+pre-shutdown baseline vs reported,reproduced,166,50,84,50.6,43.1,58.1
+original model family,gpt-4-turbo,137,40,76,55.5,47.1,63.5
+original model family,gpt-4.1-nano,21,7,19,90.5,71.1,97.3
+original model family,gpt-4o,44,12,29,65.9,51.1,78.1
+original model family,"reasoning (o-series, gpt-5)",48,16,23,47.9,34.5,61.7
+reported value (0-100 scale),"[0.0, 50.0)",102,30,62,60.8,51.1,69.7
+reported value (0-100 scale),"[50.0, 75.0)",63,19,39,61.9,49.6,72.9
+reported value (0-100 scale),"[75.0, 90.0)",43,13,24,55.8,41.1,69.6
+reported value (0-100 scale),"[90.0, 100.01)",42,13,22,52.4,37.7,66.6
+items (log10),"[0.0, 2.0)",32,10,9,28.1,15.6,45.4
+items (log10),"[2.0, 2.5)",90,27,56,62.2,51.9,71.5
+items (log10),"[2.5, 3.0)",69,23,45,65.2,53.4,75.4
+items (log10),"[3.0, 9.0)",59,21,37,62.7,50.0,73.9

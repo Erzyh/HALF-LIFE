@@ -1,0 +1,77 @@
+{
+  "wid": "W7128864310",
+  "title": "GPT-4o Lacks Core Features of Theory of Mind",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "response_format": {"type": "json_object"},
+      "logprobs": true,
+      "top_logprobs": 20,
+      "max_tokens": 256
+    },
+    "params_source": "paper 'LLM Used' ('We left parameters at their default values: temperature=1 and top_p=1 ... we set response_format=json'); logprobs/top_logprobs are ours - the paper reads 'the LLM's probability distribution over next tokens (e.g. \"box\" or \"basket\")', which needs logprobs, but does not say how many were requested. max_tokens 256 is ours.",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 243,
+    "subset_rule": "all 243 ContainerWorld tuples: every combination of beliefs B, desires D and states S (9 x 3 x 9, Procedure)",
+    "approximation": "blocked: the verbatim prompts are on OSF and the comparison model is not printed (see open_points). Item construction from the text alone (spawn corner, box next to the character, covered basket 'about 50 steps away', fruit sets {apples, oranges, apples and oranges}, desires {like, dislike} with not both disliked, closing question 'Which container would Jason open?') would be our own wording."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "OSF repository of the paper, https://osf.io/8eha3/ ('Code and data for this paper can be found at the accompanying OSF repository'); the vignettes are generated combinatorially, so the materials are the generator plus the system/user prompts",
+    "config_or_split": "ContainerWorld, Study 1 (forward action prediction)",
+    "filter": null,
+    "fields": {
+      "input": "user prompt (transcription of <B, D, S>)",
+      "label": "HumanToM predicted action (box | basket)",
+      "id": "tuple index"
+    },
+    "license": "unknown (OSF node not readable from here)",
+    "access_checked": false,
+    "size_mb": null,
+    "download": {
+      "date": "2026-09-19",
+      "check": "https://osf.io/8eha3/ returns 200 but only the OSF single-page-app shell; api.osf.io/v2/nodes/8eha3/ and /files/osfstorage/ return 401 Unauthorized and files.osf.io/v1/resources/8eha3/providers/osfstorage/ returns 403 from this machine, so the file list, the prompts and the licence could not be read."
+    }
+  },
+  "prompt": {
+    "system": "[not printed] a system prompt 'informing the LLM of its task and providing a JSON schema informing the LLM how to structure its response' (Procedure); available on OSF",
+    "user_template": "[not printed] parametrically generated transcription of <beliefs, desires, states>, always ending with the question “Which container would Jason open?”",
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Methods / Procedure ('all system and user prompts are available on OSF'); Figure 2A shows one rendered ContainerWorld instance as an illustration",
+    "verbatim": "partial: only the closing question is quoted in the text. The system prompt, the JSON schema and the vignette template are on OSF, which could not be read (see items.download).",
+    "placeholders_paper": {}
+  },
+  "output": {
+    "parse": "json field action",
+    "postprocess": "the paper does not parse the text: it takes the next-token probability distribution over 'box' and 'basket' as the model's action distribution",
+    "parse_paper": "probability distribution over the next token ('box' vs 'basket') from the logprobs"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "% Agreement between GPT-4o's predicted action and the HumanToM candidate model's prediction over the 243 ContainerWorld tuples (87.24% = 212/243). HumanToM is the full belief-desire-cost utility model of Jara-Ettinger et al. (2016); the ablated candidates (BeliefDesire 27.98, Belief 0, DesireCost 65.84, Desire 0, Cost 74.07) come from the same family.",
+    "judge": "none (agreement with a computational model, not with a gold label)",
+    "original_value": 87.24,
+    "original_location": "Figure 1C ('Accuracy on ContainerWorld'), bar HumanToM, printed value 87.24",
+    "bootstrap_unit": "item (tuple)",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 729,
+    "est_usd": 4.0,
+    "tier": "low",
+    "prepare_note": "not run: no prompts and no gold predictions."
+  },
+  "open_points": [
+    "prompts: the system prompt, the JSON schema and the user-vignette template are only on OSF (https://osf.io/8eha3/), and the OSF API is not reachable from this machine (401/403). Until the node's files can be read, the prompt cannot be copied verbatim.",
+    "gold: '% Agreement' is agreement with the HumanToM model's own predictions, and that model (utility = desire x state minus cost, with the paper's cost/softmax parameters) is described but not parameterised in the text. Its 243 predictions have to come from the OSF code; re-deriving them would be our own model.",
+    "scoring input: the paper scores the next-token probability distribution, not the parsed answer. The runner archives the full API record, but hook score() sees only parsed predictions, so a logprob-based comparison needs a runner change (or a score_with_judge-style hook that reads the archive)."
+  ],
+  "notes": "243 = 9 belief x 3 desire x 9 state tuples; 87.24% is exactly 212/243, i.e. the agreement is counted per tuple. The MovieWorld replication (Study 3) and the mental-state inference correlations use the same materials and have the same blockers. Even with the OSF files this stays a three-part reconstruction (prompt, candidate model, logprob scoring), so it is a needs_human rather than a needs_download_check."
+}

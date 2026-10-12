@@ -1,0 +1,21 @@
+{
+  "wid": "W4401545735",
+  "n_items": 2264,
+  "n_requests": 2264,
+  "seeds": 1,
+  "est_usd": 3.55,
+  "subset_note": "paraphrase p1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [2264]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4o-2024-05-13",
+  "metric": "accuracy",
+  "original_value": 74.57,
+  "cap_usd": 2.08,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4401545735",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "Question: what is the sentiment? Answer with negative/neutral/positive.",
+      "Question: which sentiment does it express? Reply with negative/neutral/positive."
+    ]
+  ]
+}

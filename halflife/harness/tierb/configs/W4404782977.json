@@ -1,0 +1,103 @@
+{
+ "wid": "W4404782977",
+ "title": "The Computational Anatomy of Humility: Modeling Intellectual Humility in Online Public Discourse",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 64,
+   "top_p": 1.0
+  },
+  "params_source": "paper Sec. 4 ('To ensure determinism in the generated responses, we set the temperature parameter of the LLMs to zero'); max_tokens assumed (a single class name)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 194,
+  "subset_rule": "paper-defined: the 194 of 350 screened Reddit posts that received at least one code from the final codebook; each carries a composite IH / IA / Neutral label inferred from the individual codes",
+  "approximation": "the released data.csv is the full 1,412-post screening pool with in-progress per-annotator labels, not the cleaned 350/194-post gold standard, so the evaluation set cannot be cut exactly"
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/xiaobo-guo/The-Computational-Anatomy-of-Humility-Modeling-Intellectual-Humility-in-Online-Public-Discourse, file data.csv (3.26 MB, 1,412 rows) - the link is a PDF hyperlink on page 1 ('Our dataset is available at Dataset') whose target is lost in the text extraction and was recovered from the link annotations of aclanthology.org/2024.emnlp-main.327.pdf",
+  "config_or_split": "single csv; Reddit threads from 48 religion-oriented subreddits",
+  "filter": null,
+  "fields": {
+   "input": "focal_post",
+   "label": "final_labels (comma separated)",
+   "id": "thread_id"
+  },
+  "license": "unknown (repository has no LICENSE file)",
+  "access_checked": true,
+  "size_mb": 3.3,
+  "file_url": "https://raw.githubusercontent.com/xiaobo-guo/The-Computational-Anatomy-of-Humility-Modeling-Intellectual-Humility-in-Online-Public-Discourse/main/data.csv",
+  "local_files": {
+   "dir": "external/data/tierb_items/W4404782977/",
+   "file": "data.csv (3,258,446 bytes, downloaded 2026-09-19)"
+  },
+  "columns": [
+   "file_path",
+   "subreddit",
+   "thread_id",
+   "thread_title",
+   "submission_text",
+   "comment_1",
+   "comment_2",
+   "focal_post",
+   "neil_labels (comma separated)",
+   "melody_labels (comma separated)",
+   "final_labels (comma separated)",
+   "neil_explanation",
+   "melody_explanation",
+   "both_explanation",
+   "done_coding?",
+   "random_number"
+  ],
+  "column_counts": "1,412 rows; annotator Neil labelled 456, annotator Melody 268, union 503; 'final_labels' is filled for only 21 rows; 'done_coding?' is 'No' on every row",
+  "filter_paper": "rows whose final composite IH/IA/Neutral label is defined - not expressible against the released columns (see open points)"
+ },
+ "prompt": {
+  "system": "You are a classifier for predicting whether the given text is intellectual humility, intellectual arrogant, or neutral. You must choose the answer from the following options: neutral, intellectual humility, and intellectual arrogance.\nIntellectual humility means recognizing that their beliefs might be wrong, including the following features: {IH_code}. If it follows any of this, it should be labeled as Intellectual humility.\nIntellectual arrogance is a state of mind where someone has an exaggerated view of their own intellect and knowledge and believes it is superior to others, such as the following features: {IA_code}. The list of features is not exhaustive.\nNeutral means not related to religious discourse or not enough information to classify as intellectual humility or intellectual arrogance.",
+  "user_template": "Here is a discussion with the title: '{Post_title}', and the content is as follows: '{Post_content}'. The first comment is: '{First_comment}'.\n\nThe second comment is: '{Second_comment}'.\n\nBased on the content do you think Comment: '{Focal_comment}' is '{Label}' or not.",
+  "placeholders": {
+   "IH_code": "the IH half of the final codebook (Table 2) as name + description pairs - Code-and-Description setting",
+   "IA_code": "the IA half of the final codebook (Table 2) as name + description pairs",
+   "Post_title": "items.thread_title",
+   "Post_content": "items.submission_text",
+   "First_comment": "items.comment_1",
+   "Second_comment": "items.comment_2 (only when the focal post is the second comment)",
+   "Focal_comment": "the comment named by items.focal_post",
+   "Label": "the class being asked about"
+  },
+  "few_shot": "none (the Few-shot and CoT variants of Appendix C.2 are separate, later experiments)",
+  "source_location": "Appendix C.1.1 (IH/IA/Neutral system prompt, Code-and-Description variant) and C.1.3 (user prompt, identical for all tasks and settings)",
+  "verbatim": "partial - the text is Appendix C.1 as printed, with the spacing damage of the monospace listing repaired (the extraction inserts a space before every comma and inside every brace pair, e.g. 'intellectual humility ,' -> 'intellectual humility,' and '{ { IH_code } }' -> '{IH_code}') and the Guidance wrappers ({{#system~}} ... {{~/system}}, the {{#if focus_on_second_comment}} block) resolved into plain message content. The printed user prompt carries a {Label} slot that belongs to the label-wise Binary-Question task; no separate user prompt is printed for the three-way IH/IA/Neutral task."
+ },
+ "output": {
+  "parse": "label from set [neutral, intellectual humility, intellectual arrogance]",
+  "postprocess": "strip, lowercase",
+  "parse_paper": "unstated; the paper only says the prompts were iteratively refined 'to ensure the generated text adhered closely to the instructions'"
+ },
+ "metric": {
+  "name": "macro_f1",
+  "definition": "Macro-F1 of the three-way IH / IA / Neutral prediction against the human gold label, averaged over the two annotators' reference sets (Sec. 4.1: 'The F1 score reported is an average derived from comparing the labels generated by two annotators on a subset of samples and labels')",
+  "judge": "none",
+  "original_value": 0.7,
+  "original_location": "Table 3, IH/IA/NE column, C&D block, GPT-4 row (0.70). In Table 3 the IH/IA/NE value spans the BQ and MS rows of a content variation, because Sec. 4.2 states that the three-way task 'is impossible to format into BQ; therefore, we only test with MS' - so the 0.70 cell is the Code-and-Description content with the Multiple-Selection format.",
+  "bootstrap_unit": "item",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 582,
+  "est_usd": 12.0,
+  "tier": "mid"
+ },
+ "open_points": [
+  "gold labels: the released data.csv is the raw screening pool. 'done_coding?' is 'No' on all 1,412 rows, 'final_labels' is filled on 21, and the two annotator columns cover 456 and 268 rows (union 503) - none of these equals the 350 screened or the 194 labelled posts of the paper, so the evaluation set and its IH/IA/Neutral gold cannot be cut without a decision about which column and which subset the authors used.",
+  "codebook: the {IH_code} and {IA_code} slots have to be filled with the final codebook of Table 2 (label name + description + whether the label is IH or IA). Table 2 survives the PDF extraction only in fragments (two of about a dozen rows), so the prompt cannot be completed from the text at hand.",
+  "prompt slot: Appendix C.1.3 prints one user prompt for all settings, ending in \"is '{Label}' or not\", which fits the binary per-code task rather than the three-way IH/IA/Neutral classification the 0.70 cell reports; how the three-way question was posed is not printed.",
+  "metric definition: 'an average derived from comparing the labels generated by two annotators on a subset of samples and labels' leaves the averaging unit (per annotator, per label, per sample) undetermined."
+ ],
+ "notes": "Recovered link (2026-09-19): the page-1 footnote 'Our dataset is available at Dataset' points at github.com/xiaobo-guo/The-Computational-Anatomy-of-Humility-... ; the repository holds README.md and data.csv only. GPT-3.5-turbo-0125 is evaluated beside GPT-4 in the same table and is out of scope."
+}

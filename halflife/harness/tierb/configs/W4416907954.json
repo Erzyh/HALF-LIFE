@@ -1,0 +1,74 @@
+{
+  "wid": "W4416907954",
+  "title": "Role of Artificial Intelligence in Predicting Outcomes of Clinical Trials in Oncology",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 16,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (the paper states no decoding parameters); max_tokens is small because the prompt asks for a single word",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 712,
+    "subset_rule": "the 712 oncology-specific trials of the extracted cohort (2,163 trials in total)",
+    "approximation": "The cohort is defined only by inclusion criteria (interventional oncology trials, Phases I-III, completed with results posted between January 2015 and December 2023, clearly defined primary outcomes, human subjects); no NCT list is published. The Success/Failure labels were assigned by the authors ('NLP-assisted manual review by two clinical experts') and are not published either. Table 1 is captioned 'Overall AI Model Performance' and the text calls it 'the overall predictive accuracy across all clinical trial data', so it may cover the 2,163-trial cohort rather than the 712 oncology trials."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "ClinicalTrials.gov (https://clinicaltrials.gov/api/v2/studies); the authors' curated cohort and its labels are not released",
+    "config_or_split": "interventional oncology trials, Phases I-III, completed 2015-2023 with posted results",
+    "filter": "phase in ['PHASE1','PHASE2','PHASE3'] and overallStatus == 'COMPLETED' and hasResults",
+    "fields": {
+      "input": "briefTitle + briefSummary + condition + phase + intervention + primaryOutcome + sponsorType + duration",
+      "label": "outcome",
+      "id": "nctId"
+    },
+    "license": "public domain (ClinicalTrials.gov terms of use)",
+    "access_checked": true,
+    "size_mb": 5,
+    "file_url": "https://clinicaltrials.gov/api/v2/studies?filter.overallStatus=COMPLETED&query.cond=cancer",
+    "checks_2026_09_19": [
+      "ClinicalTrials.gov API v2 answers with HTTP 200 and returns study records carrying the needed fields"
+    ]
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Use the following clinical trial data to predict whether the outcome will be a success or failure. Reply with only one word: success or failure.\n{trial_data}",
+    "placeholders": {
+      "trial_data": "the structured trial record: trial title, summary, disease category, phase, intervention, endpoint type, sponsor type and trial duration (Sec. 'Model Input and Prediction Process')"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 'Model Input and Prediction Process' ('Each model was prompted with structured trial data using a standardized instruction')",
+    "verbatim": "partial: the instruction sentence is printed verbatim, but the paper does not show how the eight input fields are laid out after it, so the {trial_data} block would be our own serialisation"
+  },
+  "output": {
+    "parse": "label from set [success, failure]",
+    "postprocess": "strip, lowercase"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "balanced accuracy = (sensitivity + specificity) / 2 over the Success/Failure labels; the runner has no balanced-accuracy metric, so a hook score() would be needed",
+    "judge": "none",
+    "original_value": 0.542,
+    "original_location": "Table 1, row GPT-4 (MCC 0.234, Recall 1.000, Specificity 0.083 in the same row)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 2136,
+    "est_usd": 8.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "Neither the 712-trial cohort (no NCT identifiers) nor the expert Success/Failure labels are published; rebuilding both from ClinicalTrials.gov would produce our own dataset, not the paper's.",
+    "It is unclear whether Table 1 covers the 712 oncology trials or all 2,163 extracted trials; either way the row's recall of 1.000 with specificity 0.083 says the model answered 'success' for almost every trial.",
+    "The layout of the eight input fields inside the prompt is not printed.",
+    "Metric gap: balanced accuracy is not one of the runner's metric names."
+  ],
+  "notes": "The paper's GPT-4o row uses the rolling alias chatgpt-4o-latest and is therefore not reproducible at all; gpt-4-turbo-2024-04-09 is the only dated snapshot in the model table. est_calls assumes 712 trials x 3 seeds."
+}

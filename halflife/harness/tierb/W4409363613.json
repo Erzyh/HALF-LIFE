@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4409363613",
+  "title": "CogSQL: A Cognitive Framework for Enhancing Large Language Models in Text-to-SQL Translation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Implementation: 'GPT4-0613, GPT-4o-2024-05-13, and GPT-4o-mini'; Table 2: 'COGSQL + GPT-4o 84.70 85.80 59.19 63.99'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 (instruction lines for components, e.g. 'Instruction: Read the question to identify the required data to query')",
+    "note": "Full prompts with demonstrations are not printed; code at github.com/Yhw109/COGSQL."
+  },
+  "claim": {
+    "metric": "execution accuracy (%)",
+    "value": 84.7,
+    "n_items": null,
+    "location": "Table 2, row COGSQL + GPT-4o, first column (Spider)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Spider, BIRD"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Multi-stage pipeline (demonstration retrieval, augmentation, self-consistency sampling at temperature 0.7, SQL execution); prompts only partially shown. Two gaps, so ineligible rather than maybe."
+}

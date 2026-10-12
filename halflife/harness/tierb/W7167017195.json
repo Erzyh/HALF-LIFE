@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7167017195",
+ "title": "Bayesian Uncertainty Propagation for Agentic RAG Pipelines: A Proof-of-Concept Study on Multi-Hop Question Answering",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-Nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Abstract: \"The approach is evaluated on StrategyQA and HotpotQA using GPT-3.5-Turbo and GPT-4.1-Nano, with Area Under the Receiver Operating Characteristic Curve (AUROC), Area Under the Accuracy-Rejection Curve (AUARC), Expected Calibration Error (ECE), and Brier Score...\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Only the arXiv abstract landing page was captured (submission metadata, bibliographic-tool links); the paper body, planner/evaluator/generator prompts and result tables were not retrieved into papers_tierb."
+ },
+ "claim": {
+  "metric": "none isolable for GPT-4.1-Nano (abstract gives only qualitative, dataset-level findings, not per-model numeric metrics)",
+  "value": null,
+  "n_items": null,
+  "location": "Abstract only: \"Bayesian propagation is more effective on HotpotQA...while StrategyQA exposes limitations caused by miscalibration...\"",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "StrategyQA and HotpotQA (public multi-hop QA benchmarks)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_prompt",
+  "no_number"
+ ],
+ "notes": "GPT-4.1-Nano resolves cleanly and is clearly run as a subject model (role S) in an agentic RAG pipeline, but as with other abstract-only captures in this batch, no body text, prompts, or per-model AUROC/AUARC/ECE/Brier values were available -- only the qualitative abstract summary."
+}

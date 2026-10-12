@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4416034022",
+ "title": "CoTD-PO: Chain-of-Thought Distillation with Preference Optimization",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4o (2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "B",
+  "evidence": "Table 1 (Black-Box Models): \"GPT-4o (2024-05-13) (teacher-model) 57.5 79.2 -\" (AlpacaEval 2 LC, Arena-Hard, MT-Bench)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "GPT-4o is scored on the standard public AlpacaEval 2.0 / Arena-Hard-Auto question sets, not on a prompt unique to this paper."
+ },
+ "claim": {
+  "metric": "AlpacaEval 2.0 length-controlled win rate (%), GPT-4o (2024-05-13), teacher-model row",
+  "value": 57.5,
+  "n_items": 805,
+  "location": "Table 1, row 'GPT-4o (2024-05-13) (teacher-model)', AlpacaEval 2 (LC) column; AlpacaEval 2.0 has 805 queries (Sec. Evaluation)",
+  "task_type": "generation",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AlpacaEval 2.0 (805 queries), Arena-Hard-Auto (500 prompts), MT-Bench (160 prompts) -- all public benchmarks"
+ },
+ "cost": {
+  "est_calls": 805,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4o-2024-05-13 appears as a 'black-box' teacher-model reference with its own AlpacaEval2/Arena-Hard scores; AlpacaEval's automated win-rate judge is GPT-4-turbo (undated in this sentence, but the paper is dated Jan 2025 per alias_note, so it resolves to gpt-4-turbo-2024-04-09, itself still live) -- both subject and judge are reproducible live snapshots."
+}

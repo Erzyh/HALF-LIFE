@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4411119226",
+  "title": "AI with Emotions: Exploring Emotional Expressions in Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 turbo (gpt-4-turbo-2024-04-09); GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'GPT-4 turbo (version gpt-4-turbo-2024-04-09), GPT-4o (version gpt-4o-2024-05-13)' (Section 3.1); 'All parameters for the LLMs were set to defaults'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 1 (system prompt with arousal/valence placeholders plus user question); Table 1 (the ten questions)",
+    "note": "Figure 1 text is font-shifted in the extraction (each character +1) but decodable; verify against the PDF."
+  },
+  "claim": {
+    "metric": "mean cosine similarity between specified and evaluated emotional state (Total)",
+    "value": 0.53,
+    "n_items": 120,
+    "location": "Table 2, row GPT-4 turbo, column Total (GPT-4o row: 0.420)",
+    "task_type": "generation",
+    "judge": "llm:jkhan447 GoEmotions classifier (HuggingFace) mapped to arousal-valence (Appendix B)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "printed in the paper (10 questions in Table 1 x 12 emotional states = 120 generations per model)"
+  },
+  "cost": {
+    "est_calls": 720,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Default sampling (temperature not pinned). The evaluator is a public HuggingFace model; the label-to-arousal/valence mapping is in Appendix B. Both live snapshots appear as subjects."
+}

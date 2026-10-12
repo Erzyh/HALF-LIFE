@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4417086779",
+ "title": "Prompt2Craft: Generating Functional Craft Assemblies With LLMs",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o4-mini-2025-04-16",
+  "resolved": "o4-mini-2025-04-16",
+  "role": "S",
+  "evidence": "Sec. IV-A: \"The LLM used is OpenAI's o4-mini-2025-04-16, with reasoning effort set to 'high'...It was selected due to its strong reasoning performance and accepting multi-modal inputs.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. III-C/D (template format and prompt description) and Appendix A (complete field/value listing); Fig. 2 overview",
+  "note": "Re-prompting strategies (with/without feedback) described in Sec. III-I."
+ },
+ "claim": {
+  "metric": "overall craft-generation success rate, no re-prompting (85.0% after allowing re-prompts)",
+  "value": 63.4,
+  "n_items": null,
+  "location": "Table I, row 'Overall'",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "8 object categories (hammer, bookshelf, chair, table, bus, scooter, skateboard, truck), one scene, 41 part types; uses the public PartCrafter model for mesh generation"
+ },
+ "cost": {
+  "est_calls": 100,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Table I gives per-class percentages (e.g. Hammer 81%/95%, Shelves 53%/80%) but the number of trials underlying each percentage is not stated in the visible text, only the 8-class x 3-function x 41-part-type design, so n_items is left unclear."
+}

@@ -1,0 +1,67 @@
+{
+  "wid": "W4411119985",
+  "title": "How Inclusively do LMs Perceive Social and Moral Norms?",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "mean_abs_error",
+  "original_value": 0.92,
+  "original_location": "Table 1, row 'GPT-4 Turbo', Zero-Shot / CONF column (the same row gives AITA 0.79, ROC 0.79, DEAR 1.02)",
+  "reexecution": {
+    "mean_over_seeds": 0.5866666666666666,
+    "per_seed": {
+      "0": {
+        "value": 0.58,
+        "n": 100,
+        "ci95": [
+          0.455,
+          0.7
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.58,
+        "n": 100,
+        "ci95": [
+          0.45987500000000003,
+          0.705
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.6,
+        "n": 100,
+        "ci95": [
+          0.474875,
+          0.725
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119985",
+    "n_items": 100,
+    "n_requests": 300,
+    "seeds": 3,
+    "est_usd": 0.46,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "mean_abs_error",
+    "original_value": 0.92,
+    "cap_usd": 3.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "none for the CONF cell. The paper's other three columns (AITA / ROC / DEAR) are the same 100-RoT blocks of the same split and can be run by changing AREA in the hook.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.5866666666666666,
+    "delta": -0.3333333333333335,
+    "original_inside_ci95": false
+  }
+}

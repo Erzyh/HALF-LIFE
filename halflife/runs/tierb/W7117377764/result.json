@@ -1,0 +1,67 @@
+{
+  "wid": "W7117377764",
+  "title": "Benchmarking large language models for geolocating colonial Virginia land grants",
+  "model": "o3-2025-04-16",
+  "metric": "custom",
+  "original_value": 23.4,
+  "original_location": "Table 4, row M-2 o3-2025-04-16, column Mean (95% CI 17.4-29.3); median 14.3 km",
+  "reexecution": {
+    "mean_over_seeds": 20.29673308882767,
+    "per_seed": {
+      "0": {
+        "value": 20.268472721856686,
+        "n": 43,
+        "ci95": [
+          14.541942308126382,
+          26.655198701097213
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 20.691508210500764,
+        "n": 43,
+        "ci95": [
+          15.239965275501817,
+          26.688262840947765
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 19.93021833412556,
+        "n": 43,
+        "ci95": [
+          14.656677729943507,
+          25.680863744053408
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7117377764",
+    "n_items": 43,
+    "n_requests": 129,
+    "seeds": 3,
+    "est_usd": 1.06,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "o3-2025-04-16",
+    "metric": "custom",
+    "original_value": 23.4,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "o3-2025-04-16"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the position of the abstract relative to the printed instruction (appended after it) is assumed; unparsable replies are excluded from the mean and counted",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 20.29673308882767,
+    "delta": -3.10326691117233,
+    "original_inside_ci95": true
+  }
+}

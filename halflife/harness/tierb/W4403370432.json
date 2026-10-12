@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403370432",
+  "title": "An Evaluation of Requirements Modeling for Cyber-Physical Systems via LLMs",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-0409",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "TABLE II 'Evaluated LLMs in our benchmark': 'Close-source gpt-4 gpt-4-turbo-0409 128,000 OpenAI'; greedy decoding with temperature 0 (Section IV.D)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Fig. 4 (entity recognition prompt) and Fig. 5 (interaction extraction prompt) with task description, schema, examples, test",
+    "note": "k-shot examples are retrieved by embedding similarity from the training folds (10-fold CV), so the exact shots depend on the retriever."
+  },
+  "claim": {
+    "metric": "F1 (entity recognition, average over entity types, 3-shot)",
+    "value": 48,
+    "n_items": null,
+    "location": "TABLE III, block 3-shot, row gpt-4, column Entity Ave (P/R/F1 = 43/54/48)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CPSBench replication package (anonymous.4open.science link, ref. [26]); 10 CPS requirements documents, 5,795 entities and 3,092 interactions"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Number of test sentences is not stated (derivable from the released benchmark). Retrieval of shots must be re-implemented from the paper's description.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n is derivable: Sec. III states 2,633 requirement sentences (5,795 entities), all in the CPSBench replication package, and Table III scores every sentence once through 10-fold sentence-level CV. Rebuild the Fig. 4 prompt (task description, schema, three retrieved examples, test sentence) with shots retrieved from the training folds by cosine similarity of princeton-nlp/sup-simcse-bert-base-uncased embeddings (top-3, faiss), run gpt-4-turbo-2024-04-09 at temperature 0, parse the JSON, and compute entity-type P/R/F1 averaged as in the 'Entity Ave' column.",
+    "approximation": "Fold partition seed and retriever tie-breaking differ; the averaging convention behind 'Entity Ave' is inferred; the package is an anonymous 4open.science link (ref. [26]).",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4417163360",
+ "title": "Platonic Representations for Poverty Mapping: Unified Vision-Language Codes or Agent-Induced Novelty?",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4.1 Nano",
+  "resolved": "gpt-4.1-nano",
+  "role": "S",
+  "evidence": "Sec. 3: \"LLM-Only Pipeline: An LLM (e.g., Llama-4-Maverick, GPT-4.1 Nano) predicts IWI directly from location-year prompts...outputs include prediction, justification, confidence\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 3 (\"LLM-generated descriptions (GPT-4.1 Nano, no search or tools enabled) conditioned on year, location coordinates, and location name\"); exact prompt wording not quoted",
+  "note": ""
+ },
+ "claim": {
+  "metric": "R² (out-of-sample International Wealth Index prediction), NMR (LLM-only) pipeline, GPT-4.1 Nano, Random Split",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 3 bar chart (\"NMR / GPT4.1Nano\" appears as a labeled bar, no printed numeric value in the extracted text); full results said to be in Table A.I.1 (not present in extracted text). For comparison, the best NMR configuration (Llama-4-Maverick) scores R²=0.668 on Random Split (Sec. 4).",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "~60,000 DHS geolocated clusters (1990-2020) -- DHS Program registration required; Landsat imagery is public; IWI-Africa-Multimodal dataset to be released on Hugging Face"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4.1 Nano is one of two LLMs tested in the LLM-Only (NMR) pipeline and also powers the AI Search Agent (ASA) pipeline; evaluated via 100 bootstrap 80/20 splits (Random, Out-of-Country, Out-of-Time). Marked 'maybe': the GPT-4.1-Nano-specific R² is visible only as an unlabeled chart bar position in the extracted text (the referenced Table A.I.1 with exact numbers is not present), and DHS data access needs registration (partial, not fully open)."
+}

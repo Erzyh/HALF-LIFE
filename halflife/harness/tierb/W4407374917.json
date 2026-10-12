@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4407374917",
+  "title": "Large language models possess some ecological knowledge, but how much?",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 2.1: 'the temperature ... is set to zero to ensure deterministic outputs ... We use following versions of the models: gemini-1.5-pro-001 and gpt-4o-2024-05-13.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 2 (Task 1 prompt template, species name + 10 locations, answer as a Python list); Figures 3-6 for Tasks 2-5",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean accuracy (%) species presence, Task 1a (coordinates), scores binarized at 0.5",
+    "value": 78.0,
+    "n_items": 100,
+    "location": "Table 1, row GPT-4o, Task 1a Mean Acc. (78.0±11.9%, 0 invalid responses)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/filipgdorm/eco-llm (species list, sampled locations, code and data); IUCN range maps as ground truth"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "One call per species covers 10 locations (1,000 judgments); temperature 0; models queried Aug-Oct 2024. Task 1b (country names, 87.6%) is an alternative claim."
+}

@@ -1,0 +1,74 @@
+[
+ {
+  "wid": "W4411112894",
+  "cap": 18.0,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 14.73,
+  "n_calls_baseline": 3081,
+  "config_seeds": 3,
+  "title": "The Promises and Pitfalls of LLM Annotations in Data"
+ },
+ {
+  "wid": "W4403370432",
+  "cap": 19.1,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 15.63,
+  "n_calls_baseline": 4149,
+  "config_seeds": 3,
+  "title": "An Evaluation of Requirements Modeling for Cyber-Phy"
+ },
+ {
+  "wid": "W4403885225",
+  "cap": 19.9,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 16.32,
+  "n_calls_baseline": 1000,
+  "config_seeds": 1,
+  "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a"
+ },
+ {
+  "wid": "W4406058598",
+  "cap": 22.6,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4o-2024-05-13",
+  "est_usd": 18.55,
+  "n_calls_baseline": 3714,
+  "config_seeds": 3,
+  "title": "Halu-J: Critique-Based Hallucination Judge"
+ },
+ {
+  "wid": "W4401545735",
+  "cap": 23.1,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4o-2024-05-13",
+  "est_usd": 18.97,
+  "n_calls_baseline": 6792,
+  "config_seeds": 3,
+  "title": "Designing Heterogeneous LLM Agents for Financial Sen"
+ },
+ {
+  "wid": "W4403556032",
+  "cap": 26.3,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 21.63,
+  "n_calls_baseline": 3816,
+  "config_seeds": 3,
+  "title": "Enhancing Healthcare LLM Trust with Atypical Present"
+ }
+]

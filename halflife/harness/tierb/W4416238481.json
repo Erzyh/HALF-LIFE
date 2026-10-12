@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4416238481",
+ "title": "On the Military Applications of Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (underlying Microsoft Copilot)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "'...on GPT-4 Turbo from OpenAI and pretrained with data that...'; results discuss 'Copilot' (the commercial chatbot) responding to military-application questions (surveillance, information warfare) 'without even any jailbreak prompts used'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Results (Sec. on Surveillance, Information Warfare, etc.): conversational probes are described narratively; literal chat transcripts are quoted in places but not as a single reusable template",
+  "note": "Explicitly no jailbreak prompting was used, per the authors."
+ },
+ "claim": {
+  "metric": "none quantitative; findings are qualitative/descriptive (which military-application categories Copilot would or would not discuss)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "Ad hoc conversational probes devised by the authors; not a released prompt set"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Access was via Microsoft Copilot's chat interface, not the OpenAI API. The paper's probes concern dual-use military/surveillance topics (though the authors state no explicit jailbreaking was used); flagged here for human review given the sensitive subject matter, but the primary blockers are webui and the lack of any quantitative claim."
+}

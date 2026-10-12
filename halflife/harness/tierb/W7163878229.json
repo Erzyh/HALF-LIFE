@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7163878229",
+ "title": "The quantified immune-aging dysregulation index: a large-language model-powered method for annotating and quantifying systems-level dysregulation",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano",
+  "role": "S",
+  "evidence": "Sec. 2.2: \"natural language processing of enriched processes was performed via an API node using GPT-4.1-nano\"; Table 2, \"LLM mean TENSE\" over 100 iterations."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 2.2/2.4.1 (full DIRES 'D'-category classifier system prompt quoted, incl. output contract, self-check, anchors, override rule)",
+  "note": "Same structure is reused serially for the I, R, E, S categories with category-specific definitions swapped in; only the D-category instance is quoted in full."
+ },
+ "claim": {
+  "metric": "mean TENSE score vs. human-consensus reference (Bias of the Mean)",
+  "value": -0.006,
+  "n_items": 100,
+  "location": "Table 2 (100 iterations of GPT-4.1-nano; reference TENSE 0.248, LLM mean 0.242, RBM -2.7%)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Enrichr/Reactome pathway annotations (public); transcriptomic module (TM1/TM9/TM10) from the published Sparks et al. (2024) WGCNA study; prompts in Supplementary File 1"
+ },
+ "cost": {
+  "est_calls": 1540,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Paper states the 100-run TENSE calculation used '100x5x38 = 1,540 total prompt iterations'; note 100*5*38 arithmetically equals 19,000, so actual call count may be higher than the printed total — flagged here rather than silently corrected. Also benchmarks Claude Haiku 4.5 as an alternative classifier (not in scope: not an OpenAI still-callable id)."
+}

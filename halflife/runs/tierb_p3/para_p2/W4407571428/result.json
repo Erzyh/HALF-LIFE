@@ -1,0 +1,76 @@
+{
+  "wid": "W4407571428",
+  "title": "The Stochastic Parrot on LLM's Shoulder: A Summative Assessment of Physical Concept Understanding",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 41.3,
+  "original_location": "Table 3, text-only block, row GPT-4, column CORE-Dev (41.3 +/- 1.3); CORE-Test 28.2 +/- 2.3 is not scorable offline",
+  "reexecution": {
+    "mean_over_seeds": 0.385,
+    "per_seed": {
+      "0": {
+        "value": 0.385,
+        "n": 200,
+        "ci95": [
+          0.32,
+          0.455
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4407571428",
+    "n_items": 200,
+    "n_requests": 200,
+    "seeds": 1,
+    "est_usd": 13.0,
+    "subset_note": "paraphrase p2: 4 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [200, 200, 200, 200]",
+    "dropped_unrenderable": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 41.3,
+    "cap_usd": 14.66,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4407571428",
+    "paraphrase": "p2",
+    "pairs": [
+      [
+        "You will be playing a game:\nYou are given several examples. Each example consists of an ``input grid'' and an ``output grid'' of numbers from 0-9, where each number corresponds to a color.\nYour task if try to find the common patterns from the examples and abstract the meanings of the patterns in the physical or mathematics world.\nBased on the recognized meaning, please select the most close description of the common pattern from the provided options.",
+        "Here is a game:\nYou get a number of examples, each consisting of an ``input grid'' and an ``output grid'' filled with numbers 0-9, each number representing a color.\nTry to work out the pattern shared by the examples and to express its meaning in physical or mathematical terms.\nThen choose, among the options given, the description closest to that common pattern."
+      ],
+      [
+        "Lets play a game where you are transforming an input grid of numbers into an output grid of numbers.\nThe numbers represent different colors:",
+        "In this game you transform a grid of numbers (the input) into another grid of numbers (the output).\nThe numbers correspond to colors:"
+      ],
+      [
+        "Here are examples of input grids and its corresponding output grids:",
+        "The following examples show input grids and the output grids they map to:"
+      ],
+      [
+        "Your response should end with your choice of answer.",
+        "Finish your reply with your chosen answer."
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 15
+  },
+  "approximation": "CORE-Dev cell instead of CORE-Test (test labels not public); grids serialised as rows of space-separated digits and options lettered 'A. text' (the exact matrix/option serialisation is not printed and is the only unverified step; parse rule verified on all 600 replies); three runs as in the paper",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p2\\W4407571428"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 38.5,
+    "delta": -2.799999999999997,
+    "original_inside_ci95": true
+  }
+}

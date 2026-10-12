@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402942065",
+  "title": "Artificial Reason and Artificial Intelligence: the Legal Reasoning Capabilities of GPT-4",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Text file begins 'Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context, Gemini Team, Google'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "text is a different document (Gemini 1.5 technical report), not the legal-reasoning paper; not triaged."
+}

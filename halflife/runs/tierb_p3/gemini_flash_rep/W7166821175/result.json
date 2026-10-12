@@ -1,0 +1,66 @@
+{
+  "wid": "W7166821175",
+  "title": "From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiovascular Device Traceability",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 60.1,
+  "original_location": "Table 2, Group B, row GPT-4-turbo, column R@Gold (repeated as Table 14, row GPT-4-turbo, Recall 60.1)",
+  "reexecution": {
+    "mean_over_seeds": 0.911965811965812,
+    "per_seed": {
+      "0": {
+        "value": 0.9128205128205128,
+        "n": 585,
+        "ci95": [
+          0.8905982905982905,
+          0.935042735042735
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.9111111111111111,
+        "n": 585,
+        "ci95": [
+          0.8888461538461538,
+          0.9333333333333333
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7166821175",
+    "n_items": 585,
+    "n_requests": 1170,
+    "seeds": 2,
+    "est_usd": 3.1,
+    "subset_note": "repeat of the gemini_flash condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 60.1,
+    "cap_usd": 3.22,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gemini_flash\\W7166821175"
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Only the gold positives are run: R@Gold is recall over the 585 verified pairs, so the negatives of the paper's 'balanced evaluation set' (hard negatives with S >= 70 and sim > 0.8, plus random negatives, counts unreported) are not needed for this claim and the companion FPR (28.6%) is therefore not reproduced. The prompt's two entity slots are filled with the released ontology entity lists (ent_names_d / ent_names_p); the repository's few-shot script instead fills them with an entity-overlap score hint, and the paper does not say which filling the Table 14 0-shot run used. Device and patent text are truncated to 400 characters, as that script does. The released gold standard covers 74 devices, the paper's Table 14 caption says 85.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash_rep\\W7166821175"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 91.19658119658119,
+    "delta": 31.09658119658119,
+    "original_inside_ci95": false
+  }
+}

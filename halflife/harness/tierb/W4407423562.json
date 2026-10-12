@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4407423562",
+  "title": "Can ChatGPT Diagnose Alzheimer's Disease?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT Version 4 Plus (GPT-4-turbo)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"conducted using OpenAI ChatGPT Version 4 Plus (GPT-4-turbo) ... all previous chat histories were cleared before initiating each new run\" (Sec. 5.2)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 1: zero-shot and multi-shot prompts with uploaded CSV files (Zero_Shot_ADNI.csv, Multi_Shot_ADNI.csv)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, zero-shot, MRI + cognitive tests, 75% confidence threshold",
+    "value": 0.744,
+    "n_items": null,
+    "location": "Table 3, MRI and Cognitive Tests, 75%",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "ADNI (data use agreement required); record subset per run not specified"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "data_closed"
+  ],
+  "notes": "File-upload workflow in ChatGPT Plus, 5 runs per condition (mean +/- SD)."
+}

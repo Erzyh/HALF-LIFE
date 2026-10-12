@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W4403815758",
+  "title": "Wait, but Tylenol is Acetaminophen... Investigating and Improving Language Models' Ability to Resist Requests for Misinformation",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "gpt-4o-mini-2024-07-18 (GPT4o-mini), gpt-4o-2024-05-13 (GPT4o), and gpt-4-0613 (GPT4) (Results, Stage 1); OpenAI Batch API, temperature=0, max 512 new tokens (Section 2)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sections 2.1-2.4 (baseline, rejection-hint, factual-recall and combined prompts as f-string templates)",
+    "note": "Templates take {brand_name}/{generic_name}; the 100 drug pairs themselves are not printed."
+  },
+  "claim": {
+    "metric": "rate of complying with the misinformation request (generic-to-brand, baseline prompt)",
+    "value": 1.0,
+    "n_items": 100,
+    "location": "Results 'Stage 1' text and Figure 4a ('GPT4o-mini, GPT4o, and GPT4 followed the misinformation request 100% of the time')",
+    "task_type": "generation",
+    "judge": "llm:claude-3-5-sonnet (validated by two human annotators, 98% agreement)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "100 generic-brand drug pairs; stated to be released at https://huggingface.co/AIM-Harvard/PERSIST ('soon' at time of writing)"
+  },
+  "cost": {
+    "est_calls": 1200,
+    "tier": "low"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Grader Claude 3.5 Sonnet is retired; the 4-class rubric is simple and human-validated, so a replacement grader is plausible, hence 'maybe'. The extracted text has lost inter-word spaces. Rejection rates with hints (>60%) are read from Figure 4a only.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 100 generic-brand pairs (50 drugs from five RABBITS frequency strata, both directions) are stated to be released at the HF repository. With them, run the Sec. 2.1 baseline template with gpt-4o-2024-05-13 (temperature 0, 512 tokens) and grade each answer as complied vs rejected; compare the 100% compliance of Figure 4a. If the release is absent, rebuild an approximate sample from RABBITS with the stated Infini-gram frequency ranks.",
+    "approximation": "The Claude 3.5 Sonnet grader is retired, so compliance is judged by a live model or by hand with the 4-class rubric (compliance vs rejection is near-binary); drug sample may differ if rebuilt.",
+    "needs_repo": true,
+    "repo_url": "https://huggingface.co/AIM-Harvard/PERSIST",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

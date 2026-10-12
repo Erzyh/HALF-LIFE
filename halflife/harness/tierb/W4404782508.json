@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4404782508",
+  "title": "ToolBeHonest: A Multi-level Hallucination Diagnostic Benchmark for Tool-Augmented Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13); GPT-4-Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Appendix C.1: 'GPT-4-Turbo: gpt-4-turbo-2024-04-09', 'GPT-4o: gpt-4o-2024-05-13'; Table 2: 'GPT-4o 53.3 69.9 24.8 24.8 47.0 62.0 27.9 33.2 56.0 21.9 6.8 4.4 37.0'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix Figures 16-18 (evaluation prompts for Level-1 solvability detection, Level-2 solution planning, Level-3 missing-tool analysis), text extracted",
+    "note": "Task descriptions and provided-tool lists are filled from the benchmark files."
+  },
+  "claim": {
+    "metric": "overall ToolBH score (%)",
+    "value": 37.0,
+    "n_items": 700,
+    "location": "Table 2, row GPT-4o, column Overall",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/ToolBeHonest/ToolBeHonest (700 samples, 7 subtasks over MNT/PT/LFT scenarios)"
+  },
+  "cost": {
+    "est_calls": 2100,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Temperature 0.0. L3-MS uses cosine similarity with Gemini text-embedding-004 (or all-MiniLM-L6-v2), both available. GPT-4-Turbo row (35.9) is an alternative claim at about twice the cost."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403665748",
+  "title": "Toward Automated Simulation Research Workflow through LLM Prompt Engineering Design",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We used GPT-4-Turbo for the experiments, testing ASA's completion of RP 1 and RP 2\"; \"ASA-GPT-4-Turbo...also demonstrated some success in solving complex missions over 20 trials\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Methods; Supplementary Information (SI-data-2)",
+    "note": "Research-plan (RP) text prompts drive the autonomous simulation agent (ASA); full text is referenced as being in the SI, not quoted in the main text reviewed."
+  },
+  "claim": {
+    "metric": "none as printed text for ASA-GPT-4-Turbo specifically (completion counts are shown only in Figure 3B, a per-model bar chart, not restated as text/table numbers)",
+    "value": null,
+    "n_items": 20,
+    "location": "Figure 3 (\"Statistics of the number of criteria met by each ASA over 20 experiments\")",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "custom polymer-chain-conformation simulation research plans (RP1-4), not stated as released"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4-Turbo is a genuine live subject (one of nine ASA backbones, 20 trials per research plan), but its criteria-met counts are only shown in a figure panel; the main text gives exact fractions only for other models (e.g. Claude-3.5 \"over two-thirds of trials\")."
+}

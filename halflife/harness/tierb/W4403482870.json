@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403482870",
+  "title": "Selecting Countermeasures against Fake News using Large Language Models for Performance Elicitation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "Chat-GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"using the model Chat-GPT-4-turbo costs 0,02 € per investigation\"; Fig. 4 shows the literal JSON user message sent to the ChatGPT Assistant."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Fig. 4 (user message to the ChatGPT Assistant)",
+    "note": "A JSON payload naming the fake-news case, one criterion, and the countermeasure options, asking for a performance rating (very high/high/medium/low)."
+  },
+  "claim": {
+    "metric": "none (a single demonstration case scored by an MCDA tool (M-Macbeth) from the model's ratings; no ground-truth accuracy is computed)",
+    "value": null,
+    "n_items": 1,
+    "location": "Table 3 (M-Macbeth countermeasure scores for one demonstration case)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "one illustrative fake-news scenario invented by the authors; no dataset released"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "This is a single-case system/tool demonstration (a DSR prototype piping GPT-4-Turbo ratings into an MCDA tool), not a quantitative evaluation; the paper's own Evaluation section proposes a future expert interview rather than reporting any accuracy metric."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4399911276",
+  "title": "Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4: 'For all experiments, we use GPT-4o (gpt-4o-2024-05-13) as the underlying MLLM'; Appendix: 'we use a temperature of 0, max tokens of 2048, top p of 1, frequency penalty of 0.05'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix (direct-answer prompt from Yamada et al. 2024; WoT system prompt and image-creation instructions)",
+    "note": "Direct baseline prompt is a one-line instruction to output an answer after 'Answer:'."
+  },
+  "claim": {
+    "metric": "accuracy (%), Direct prompting",
+    "value": 19.6,
+    "n_items": 250,
+    "location": "Table 1, row Direct, column MNIST (ASCII MNIST)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "BIG-Bench ASCII tasks (public); 250 randomly chosen, manually verified examples per task (subset not identified)"
+  },
+  "cost": {
+    "est_calls": 250,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The WoT headline (66.0) requires executing model-written Matplotlib code and feeding the image back. Soft gap: the 250-item subset is not identified.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "The 250 MNIST items are an unlisted random draw from the BIG-Bench mnist_ascii evaluation split, manually checked for answerability, with the 0-9 options removed (Appendix). Draw a seeded random subset of 250 from the public BIG-Bench task, strip the options, and send the printed direct prompt ('You are given a task to solve. Make sure to output an answer after \"Answer:\" without any explanation.') at temperature 0, max_tokens 2048, top_p 1, frequency penalty 0.05. Score by integer conversion and equality; compare 19.6% at the set level.",
+    "approximation": "Different 250 items; no manual answerability filter; comparison is approximate.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

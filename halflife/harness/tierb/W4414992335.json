@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4414992335",
+  "title": "VMMU: A Vietnamese Multitask Multimodal Understanding and Reasoning Benchmark",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-2025-04-16 (CSV live_id o4-mini is a reference-list citation only)",
+    "resolved": "o3-2025-04-16",
+    "role": "S",
+    "evidence": "Appendix model table: 'o3 *o3-2025-04-16 N/A OpenAI (*reasoning_effort: medium)'; Table 3 row o3: 84.87 68.98 82.78 67.16 88.98 74.66 50.42 73.98"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C, Figure 10 (Integrated-MM prompt, English and Vietnamese)",
+    "note": "one-sentence instruction; answer letter in curly brackets"
+  },
+  "claim": {
+    "metric": "accuracy, mean over 7 domains (%)",
+    "value": 73.98,
+    "n_items": 2548,
+    "location": "Table 3, row o3, column Mean (Integrated-MM setting)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "VMMU (2,548 questions), code and data at vmmu-bench.github.io"
+  },
+  "cost": {
+    "est_calls": 7644,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Image-input MCQ. Mean is a macro average over 7 domains, so per-domain counts are needed to reproduce exactly; a single domain subset lowers cost to mid. gpt-5-2025-08-07 is run in one appendix table. Text-only/OCR variants use o3 as OCR engine."
+}

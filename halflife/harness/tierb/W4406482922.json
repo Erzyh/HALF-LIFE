@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406482922",
+  "title": "LLM-based Human Simulations Have Not Yet Been Reliable",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (cited result)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Table 1: 'GPT-4-Turbo (27% success rate) proved far more susceptible to attacks than humans (6%)' (citing Chen et al., 2024b)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Position paper summarizing prior findings"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Position paper; no experiments."
+}

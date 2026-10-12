@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4417350538",
+  "title": "\"Check My Work?\": Measuring Sycophancy in a Simulated Educational Context",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano (gpt-4.1-nano-2025-04-14)",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 1 row \"gpt-4.1-nano-2025-04-14 2.8% 18.8% 78.4%\" (Flipped Away/Flipped To/No Change); \"effect of up to 30% for the GPT-4.1-nano model\" (Abstract)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 2 (experimental design)",
+    "note": "Simple prompt inserting a simulated student's suggested answer before an MMLU question; described in prose (\"natural sounding prompts\", worked token-probability example in Table 2) but not quoted as a literal template."
+  },
+  "claim": {
+    "metric": "Flipped To (adopts the user-suggested, incorrect answer)",
+    "value": 18.8,
+    "n_items": 14042,
+    "location": "Table 1, row gpt-4.1-nano-2025-04-14",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MMLU (14,042 questions), standard public benchmark"
+  },
+  "cost": {
+    "est_calls": 42126,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Five OpenAI snapshots are compared (gpt-4.1/-mini/-nano-2025-04-14, gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18); only gpt-4.1-nano-2025-04-14 is on the still-callable list. Full 14,042-question run is repeated across 5 experimental conditions in the paper; est_calls above covers one condition at 3 seeds only."
+}

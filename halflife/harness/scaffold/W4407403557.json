@@ -1,0 +1,46 @@
+{
+  "openalex_id": "https://openalex.org/W4407403557",
+  "title": "When ELIZA meets therapists: A Turing test for the heart and mind",
+  "doi": "https://doi.org/10.1371/journal.pmen.0000145",
+  "field": "Psychology",
+  "year": "2025",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/PLOS/plos-thesaurus",
+    "osf.io/8mnsc",
+    "osf.io/hf3g7",
+    "osf.io/prepri",
+    "osf.io/up7v4"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/PLOS/plos-thesaurus",
+      "cloned": true,
+      "audit": {
+        "n_files": 54,
+        "ext_top": {
+          ".xlsx": 32,
+          ".xml": 17,
+          ".txt": 3,
+          ".md": 1,
+          ".rdf": 1
+        },
+        "has_license": true,
+        "has_requirements": false,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 0,
+        "n_data_files": 32,
+        "files_mentioning_prompt": 0,
+        "files_with_eval_terms": 0,
+        "model_ids_in_code": {},
+        "readme_head": "# plos-thesaurus\nWelcome to the repository for the PLOS Thesaurus. \n\n## Subject Area terms\nThe Subject Areas panel on each PLOS article displays eight terms selected from over 10,000 available. Subsequently, clicking on a Subject Area term in an article returns a list of all articles related to that term. Each article’s XML download provides the eight Subject Area terms listed on the article page and includes broader terms from all the paths leading back to these eight.\n\nSubject Area terms relate to each other with a system of broader/narrower term relationships that form a polyhierarchy. For example the term “White blood cells” has two broader terms “Blood cells” and “Immune cells”. All terms track back to one or more of the top-tier terms, such as “Biology and life sciences” or “Social sciences.”\n\nSubject Area searches on the journal websites using the Subject field will return articles where the given Subject Area ranks highly enough to be included in the top eight retrieved terms. By contrast, performing an All fields search will return every article that contains even a single match to the term. The hierarchical nature of the thesaurus allows search to retrieve all articles indexed with a specific Subject Area term and retrieve articles indexed with any term that sits deeper in the hierarchy. For example, queries for “Blood cells” will return all articles indexed with the narrower term “White blood cells”.\n\n## How the thesaurus works\nMachine Aided Indexing (MAI) is used "
+      },
+      "commit": "0906edc58c4bd1f31d20a024475cefbd646f7c1c"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4407403557.txt",
+  "paper_text_status": "html"
+}

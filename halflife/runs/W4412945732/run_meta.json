@@ -1,0 +1,236 @@
+{
+  "card_id": "W4412945732",
+  "run_date_utc": "2026-09-17",
+  "target_paper": {
+    "title": "Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Medicine",
+    "repo": "https://github.com/maximegmd/glianorex-oai (eval) ; https://github.com/maximegmd/glianorex-gen (generation)",
+    "repo_commit": "glianorex-oai d6a4d375541ceacb5393f9f5b81beea3854647c9; glianorex-gen 0a3feddc7f264224f9e9745c70d63f49f2af7475; dataset maximegmd/glianorex@9a2ee7489bf7dc73c72510a02b99128a732226fe",
+    "original_source": "Table 6 (accuracy by language x generator) for gpt-4o-2024-05-13 and gpt-4-turbo-2024-04-09; Section 4.2.1 (physicians 27%, chance 25%)"
+  },
+  "generation": {
+    "model_requested": [
+      "gpt-4o-2024-05-13",
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "model_served": [
+      "gpt-4-turbo-2024-04-09",
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": {
+      "gpt-4o-2024-05-13": 6,
+      "gpt-4-turbo-2024-04-09": 13
+    },
+    "parameters": "temperature 0, max_tokens 3, n 1, top_p 1.0, no seed; single user message from main.py compute(); guidance select re-implemented as strict '^Answer: [A-D]' parsing of a plain chat completion (without an assistant 'Answer: ' message)",
+    "battery": "976 items x 2 models x 3 seed(s) = 5856 archived calls; median over seeds, item-level bootstrap CIs (1,000)"
+  },
+  "results": {
+    "rows": {
+      "gpt-4o-2024-05-13/en_gpt": {
+        "acc": 0.7576,
+        "acc_ci95": [
+          0.7058,
+          0.8068
+        ],
+        "orig_acc": 0.74,
+        "orig_ci95": [
+          0.6821,
+          0.7979
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 7.9422468765203e-67,
+        "n": 264,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4o-2024-05-13/en_claude": {
+        "acc": 0.7232,
+        "acc_ci95": [
+          0.6637,
+          0.7812
+        ],
+        "orig_acc": 0.72,
+        "orig_ci95": [
+          0.6562,
+          0.7838
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 8.690287279732161e-50,
+        "n": 224,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4o-2024-05-13/fr_gpt": {
+        "acc": 0.7083,
+        "acc_ci95": [
+          0.649,
+          0.7551
+        ],
+        "orig_acc": 0.69,
+        "orig_ci95": [
+          0.6292,
+          0.7508
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 6.300033302326901e-55,
+        "n": 264,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4o-2024-05-13/fr_claude": {
+        "acc": 0.7188,
+        "acc_ci95": [
+          0.6592,
+          0.7769
+        ],
+        "orig_acc": 0.71,
+        "orig_ci95": [
+          0.6456,
+          0.7744
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 6.7256834557270394e-49,
+        "n": 224,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4o-2024-05-13/overall_derived": {
+        "acc": 0.7275,
+        "acc_ci95": [
+          0.7001,
+          0.7527
+        ],
+        "orig_acc_derived": 0.715,
+        "rerun_inside_orig_ci": true,
+        "n": 976,
+        "secondary": true
+      },
+      "gpt-4-turbo-2024-04-09/en_gpt": {
+        "acc": 0.6591,
+        "acc_ci95": [
+          0.6048,
+          0.7172
+        ],
+        "orig_acc": 0.65,
+        "orig_ci95": [
+          0.5875,
+          0.7125
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 2.2820353513616543e-44,
+        "n": 264,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4-turbo-2024-04-09/en_claude": {
+        "acc": 0.692,
+        "acc_ci95": [
+          0.6279,
+          0.7485
+        ],
+        "orig_acc": 0.69,
+        "orig_ci95": [
+          0.6244,
+          0.7556
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 9.190464879653786e-44,
+        "n": 224,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4-turbo-2024-04-09/fr_gpt": {
+        "acc": 0.6591,
+        "acc_ci95": [
+          0.596,
+          0.7121
+        ],
+        "orig_acc": 0.68,
+        "orig_ci95": [
+          0.6187,
+          0.7413
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 2.2820353513616543e-44,
+        "n": 264,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4-turbo-2024-04-09/fr_claude": {
+        "acc": 0.6741,
+        "acc_ci95": [
+          0.6131,
+          0.7336
+        ],
+        "orig_acc": 0.68,
+        "orig_ci95": [
+          0.6139,
+          0.7461
+        ],
+        "rerun_inside_orig_ci": true,
+        "orig_inside_ci": true,
+        "p_above_chance": 1.6056247682017986e-40,
+        "n": 224,
+        "verdict": "생존 (survived)"
+      },
+      "gpt-4-turbo-2024-04-09/overall_derived": {
+        "acc": 0.6701,
+        "acc_ci95": [
+          0.6417,
+          0.6998
+        ],
+        "orig_acc_derived": 0.674,
+        "rerun_inside_orig_ci": true,
+        "n": 976,
+        "secondary": true
+      }
+    },
+    "accuracy_rows_with_rerun_inside_original_ci95": "8/8",
+    "central_contrast": {
+      "gpt-4o-2024-05-13": {
+        "description": "fictional-organ accuracy vs chance 0.25 and vs the physicians' 0.27 (paper 4.2.1); the paper has no original-vs-modified arm",
+        "acc_overall": 0.7275,
+        "p_above_chance": 1.288242186645374e-214,
+        "p_above_physicians": 5.312155747054451e-194,
+        "acc_en": 0.7418,
+        "p_en_above_physicians": 4.538226830321178e-104,
+        "en_minus_fr": 0.0287,
+        "orig_en_minus_fr": 0.032,
+        "direction_holds": true
+      },
+      "gpt-4-turbo-2024-04-09": {
+        "description": "fictional-organ accuracy vs chance 0.25 and vs the physicians' 0.27 (paper 4.2.1); the paper has no original-vs-modified arm",
+        "acc_overall": 0.6701,
+        "p_above_chance": 2.086949813363903e-167,
+        "p_above_physicians": 2.5602920976524794e-149,
+        "acc_en": 0.6742,
+        "p_en_above_physicians": 4.2354736665956275e-77,
+        "en_minus_fr": 0.0062,
+        "orig_en_minus_fr": -0.012,
+        "direction_holds": true
+      }
+    },
+    "gpt4o_minus_gpt4turbo": {
+      "n_items": 976,
+      "diff": 0.0567,
+      "diff_ci95": [
+        0.03,
+        0.0847
+      ],
+      "orig_diff_derived": 0.041
+    },
+    "cost_usd": 14.1589,
+    "calls": 5856,
+    "errors": 0,
+    "judgment": "생존 (survived)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 (card operationalisation: per Table 6 cell of the primary model); human double-coding pending",
+    "note": " unparsable replies are scored incorrect: {\"gpt-4o-2024-05-13\": {\"strict\": 2928}, \"gpt-4-turbo-2024-04-09\": {\"strict\": 2928}}"
+  },
+  "reproducibility_frictions_observed": [
+    "the evaluation script calls the undated alias 'gpt-4-turbo' while the paper reports gpt-4-turbo-2024-04-09; the dated snapshot is pinned here",
+    "guidance[openai] is unpinned; its select() for remote chat models is generate-and-match (assistant prefix never transmitted, byte-exact 'Answer: X' required, exception on any deviation at temperature 0) - re-implemented as a strict parser over a plain chat completion",
+    "item-level original outputs were not released; comparison is at the accuracy level with two-decimal Table 6 cells (rounding half-width 0.005 added to the original CI)",
+    "the item set lives only on the Hugging Face Hub (not in the code repositories); pinned at revision 9a2ee7489bf7dc73c72510a02b99128a732226fe and frozen under runs/W4412945732/",
+    "the 8 items the authors call incomplete (keyword 'context') are not flagged in the dataset and were not excluded by the paper; none excluded here",
+    "the paper has no original-vs-modified question arm for these models; the central contrast judged is accuracy vs chance / physicians"
+  ]
+}

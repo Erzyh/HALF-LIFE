@@ -1,0 +1,195 @@
+{
+  "wid": "W4401246245",
+  "title": "Imaging protocol suggested by large language model depends on language: preliminary experiments using GPT-4",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "paper Methods ('The temperature parameter, which controls the diversity of the results, was set to 0.0 to obtain a deterministic output'); max_tokens and top_p assumed (paper silent) - 512 because the reply is a two-step answer that first describes the disease's MRI features",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 20,
+    "subset_rule": "all 20 brain-MRI protocols / disease names of Table 1 (English arm)",
+    "approximation": "The paper ran the identical design in Japanese as well (28/40); only the English arm is configured. The paper used 'an in-house application' as the API front end; we call the API directly."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Table 1 of the paper (protocol / disease names, the institution's own additional sequence, and GPT-4's English and Japanese suggestions)",
+    "config_or_split": "Table 1, all rows",
+    "filter": null,
+    "fields": {
+      "input": "disease",
+      "options": null,
+      "label": "our_sequence",
+      "id": "id"
+    },
+    "license": "n/a (the 20 names are standard neuroradiology indications, printed in the paper)",
+    "access_checked": true,
+    "size_mb": 0,
+    "inline": [
+      {
+        "id": "01",
+        "disease": "Cerebral aneurysm",
+        "our_sequence": "None",
+        "gpt_en_2024": "None"
+      },
+      {
+        "id": "02",
+        "disease": "Hemorrhage",
+        "our_sequence": "T2*WI Ax",
+        "gpt_en_2024": "SWI"
+      },
+      {
+        "id": "03",
+        "disease": "Cavernous hemangioma",
+        "our_sequence": "T2*WI Ax",
+        "gpt_en_2024": "GRE or SWI"
+      },
+      {
+        "id": "04",
+        "disease": "Arteriovenous malformation (AVM)",
+        "our_sequence": "None",
+        "gpt_en_2024": "SWI"
+      },
+      {
+        "id": "05",
+        "disease": "Moyamoya disease",
+        "our_sequence": "Heavy T2",
+        "gpt_en_2024": "SWI"
+      },
+      {
+        "id": "06",
+        "disease": "Cerebral infarction",
+        "our_sequence": "None",
+        "gpt_en_2024": "SWI"
+      },
+      {
+        "id": "07",
+        "disease": "Headache",
+        "our_sequence": "None",
+        "gpt_en_2024": "None"
+      },
+      {
+        "id": "08",
+        "disease": "Screening",
+        "our_sequence": "None",
+        "gpt_en_2024": "None"
+      },
+      {
+        "id": "09",
+        "disease": "Multiple sclerosis",
+        "our_sequence": "FLAIR Cor",
+        "gpt_en_2024": "T2WI Sag"
+      },
+      {
+        "id": "10",
+        "disease": "Neuromyelitis optica",
+        "our_sequence": "FLAIR Cor",
+        "gpt_en_2024": "T2WI Cor"
+      },
+      {
+        "id": "11",
+        "disease": "Alzheimer's disease",
+        "our_sequence": "FLAIR Cor",
+        "gpt_en_2024": "T1WI Cor"
+      },
+      {
+        "id": "12",
+        "disease": "Epilepsy",
+        "our_sequence": "FLAIR Cor",
+        "gpt_en_2024": "T2WI Cor or FLAIR Cor"
+      },
+      {
+        "id": "13",
+        "disease": "Hydrocephalus",
+        "our_sequence": "FLAIR Cor",
+        "gpt_en_2024": "Cine Phase-Contrast-MRI"
+      },
+      {
+        "id": "14",
+        "disease": "Parkinson's disease",
+        "our_sequence": "T1WI Sag",
+        "gpt_en_2024": "SWI"
+      },
+      {
+        "id": "15",
+        "disease": "Infective endocarditis, Sepsis",
+        "our_sequence": "T2*WI Ax",
+        "gpt_en_2024": "SWI"
+      },
+      {
+        "id": "16",
+        "disease": "Trigeminal neuralgia",
+        "our_sequence": "DRIVE",
+        "gpt_en_2024": "CISS or FIESTA"
+      },
+      {
+        "id": "17",
+        "disease": "Hemifacial spasm",
+        "our_sequence": "DRIVE",
+        "gpt_en_2024": "CISS or FIESTA"
+      },
+      {
+        "id": "18",
+        "disease": "Glossopharyngeal neuralgia",
+        "our_sequence": "DRIVE",
+        "gpt_en_2024": "CISS or FIESTA"
+      },
+      {
+        "id": "19",
+        "disease": "Spinocerebellar degeneration",
+        "our_sequence": "T1WI Sag",
+        "gpt_en_2024": "T1WI Sag"
+      },
+      {
+        "id": "20",
+        "disease": "Cerebellar ataxia, Cerebellar atrophy",
+        "our_sequence": "T1WI Sag",
+        "gpt_en_2024": "T1WI Sag"
+      }
+    ],
+    "label_map": null,
+    "inline_note": "`our_sequence` is the institution's own additional sequence (the gold standard the radiologists scored against) and `gpt_en_2024` is what GPT-4o suggested in the paper's English run - carried for side-by-side reading, not used by any automatic metric."
+  },
+  "prompt": {
+    "system": "This GPT will assist in determining the MRI sequences for brain imaging. The basic imaging methods are T1WI Ax, T2WI Ax, FLAIR Ax, DWI Ax, and TOF MRA, and these should be performed in all cases. For the given disease name, if there is an additional sequence that needs to be imaged, please suggest only one. Since we do not want to increase unnecessary tests, if the necessary sequence is included in the above, it is okay not to add any additional sequences. Do not include contrast-enhanced examinations. Do not include examinations of areas other than the brain.\nIn making the suggestion, please follow these steps:\n1. Describe the MRI imaging features of the disease.\n2. Based on those features, select one additional imaging method to be added.",
+    "user_template": "{disease}",
+    "placeholders": {
+      "disease": "items.disease"
+    },
+    "few_shot": "none",
+    "source_location": "Methods, 'System prompt for GPT-4 (Witten in both English and Japanese)'; the user prompt is specified in the same paragraph ('Only the disease name was sent as the user prompt')",
+    "verbatim": "full - one extraction repair: 'Do not in clude contrast-enhanced examinations' is restored to 'Do not include' (a space injected inside the word at a PDF line break). The sentence that straddles the page break ('...if the necessary sequence is included in the above, it is / okay not to add any additional sequences.') is rejoined. Nothing else changed."
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "none - the reply is the two-step answer the prompt asks for (imaging features, then one additional sequence); the sequence name has to be read out of step 2 by the scorer."
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Sum over the 20 protocols of a 0/1/2 expert score, max 40: 0 = inappropriate, 1 = acceptable but does not match the protocol used at the authors' institute, 2 = matches their protocol (Methods). The paper's score is 27/40 for English.",
+    "judge": "human - 'two radiologists with over 20 years of relevant experience working together'. No rubric text, no anchors beyond the three level names, and no LLM judge is used or specified anywhere in the paper.",
+    "original_value": 27,
+    "original_location": "Results: 'The scores for the sequences proposed by GPT were 27/40 points in English and 28/40 points in Japanese'; per-protocol suggestions in Table 1",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 60,
+    "est_usd": 0.42,
+    "tier": "low",
+    "est_usd_prepare": 0.42,
+    "prepare_note": "runner --prepare --dry-run --cap 20 2026-09-19: prepare succeeds, all 20 prompts render, 20 items x 3 seeds"
+  },
+  "open_points": [
+    "Human expert judge: the 0/1/2 score is assigned by two radiologists with 20+ years of experience, and the 0-versus-1 boundary ('inappropriate' versus 'acceptable but not our protocol') is exactly the part that needs domain expertise - the paper's own discussion shows it, scoring '3D CISS or 3D FIESTA' as correct against the institute's DRIVE because all three are heavily T2-weighted 3D cisternography. No LLM judge is used or specified, so the ANALYSIS_PLAN's judge route is unavailable. A human radiologist must score the 60 replies before the 27/40 comparison can be made; everything up to that point is ready and prepared.",
+    "If a partial, automatic read-out is wanted instead, only the '2 = matches our protocol' level is machine-checkable, against items.our_sequence, and it yields a lower bound on the score rather than the paper's number. That is a scoping decision, not a fix."
+  ],
+  "notes": "Otherwise the cleanest possible setup: 20 items printed in Table 1, system prompt quoted in full, user prompt is the bare disease name, temperature 0.0, snapshot named in text (gpt-4o-2024-05-13). Prepared and dry-run successfully; the rendered system prompt matches the Methods text and the user message is the disease name alone. The paper's per-protocol 2024 suggestions are carried in items.inline as gpt_en_2024, so a scorer can see at a glance which suggestions moved. Two known 0-point cases in the English run (Moyamoya disease, neuromyelitis optica) plus the paper's own explanation of why make good calibration anchors for whoever scores. Full 2024 responses exist as a supplementary Excel sheet; the paper text gives only the cerebral-aneurysm sample reply."
+}

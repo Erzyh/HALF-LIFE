@@ -1,0 +1,47 @@
+{
+  "wid": "W4411119490",
+  "title": "Are We Done with MMLU?",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 22.7,
+  "original_location": "Table 3, row GPT-4 Turbo / Zero-Shot, column F1 (Recall 22.81, F2 23.90)",
+  "reexecution": {
+    "mean_over_seeds": 0.25627240143369173,
+    "per_seed": {
+      "0": {
+        "value": 0.25627240143369173,
+        "n": 3000,
+        "ci95": [
+          0.22418088644169437,
+          0.2863544194761264
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119490",
+    "n_items": 3000,
+    "n_requests": 3000,
+    "seeds": 1,
+    "est_usd": 8.01,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 22.7
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "the input block layout after the '# Task:' text is taken from the code release (src/taxonomy/data_utils.py verbaliser), not from the paper",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 25.627240143369175,
+    "delta": 2.9272401433691755,
+    "original_inside_ci95": true
+  }
+}

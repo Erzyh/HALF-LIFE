@@ -1,0 +1,90 @@
+{
+  "wid": "W4403443823",
+  "title": "Science is Exploration: Computational Frontiers for Conceptual Metaphor Theory",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "top_p": 0.1,
+      "max_tokens": 1024
+    },
+    "params_source": "paper Sec. 3 (top_p = 0.1; all other parameters left at their defaults, i.e. temperature 1.0); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 3737,
+    "subset_rule": "all human-labelled TroFi sentences (3,736; sentences labelled only by the TroFi clustering system excluded, Sec. 4)",
+    "approximation": "3,737 human-tagged sentences vs the paper's 3,736; tokenised WSJ text kept (spaces before punctuation), the trailing './.' marker replaced by a period and -LRB-/-RRB-/``/'' restored; the surface form of the target verb is located by stem/irregular-form matching; no item-level CI (precision)"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "TroFi Example Base (Birke & Sarkar 2006), https://www.cs.sfu.ca/~anoop/students/jbirke/TroFiExampleBase.txt (1.1 MB; 6,436 sentences, 3,737 human-tagged); repository github.com/rmatouschekh/science-is-exploration holds only the MWLB release",
+    "config_or_split": "sentences tagged N or L (human-annotated); U (clustering-only) dropped",
+    "filter": null,
+    "fields": {
+      "input": "sentence",
+      "target": "target",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "TroFi Example Base distributed for research use (SFU page); repository license not checked",
+    "access_checked": true,
+    "size_mb": 1.1,
+    "fields_paper": {
+      "input": "sentence",
+      "target": "the annotated target verb (one of the 50 TroFi words)",
+      "label": "literal / nonliteral",
+      "id": "TroFi sentence id"
+    },
+    "filter_paper": "drop sentences whose literal/nonliteral tag comes only from the clustering system",
+    "file_url": "https://www.cs.sfu.ca/~anoop/students/jbirke/TroFiExampleBase.txt"
+  },
+  "prompt": {
+    "system": "You are a helpful assistant. You have extensive linguistic knowledge. ",
+    "user_template": "For each word in the following text, determine if it has a *more* basic contemporary meaning in other contexts than the one in the given context. For our purposes, basic meanings tend to be:\n- more concrete; what they evoke is easier to imagine, see, here, feel, smell, and taste\n- related to bodily action\n- more precise (as opposed to vague)\n- historically older\nBasic meanings are not necessarily the most frequent meanings of the word. Remember to only report YES for words whose use in this context is not their most basic meaning.\n\nExamples:\n\n“I demolished his argument.”\n- I: NO (pronoun, basic meaning is the same)\n- demolished: YES (verb, more basic meaning refers to destroying a building)\n- his: NO (possessive pronoun, basic meaning is the same)\n- argument: NO (noun, basic meaning is the same)\n\n“They write about their family.”\n- They: NO (pronoun, basic meaning is the same)\n- write: NO (verb, basic meaning is the same)\n- about: NO (preposition, basic meaning is the same)\n- their: NO (possessive pronoun, basic meaning is the same)\n- family: NO (noun, basic meaning is the same)\n\n“{sentence}”",
+    "placeholders": {
+      "sentence": "items.sentence"
+    },
+    "few_shot": "k=2 fixed examples printed inside the Figure 2 prompt",
+    "source_location": "Figure 2 (modified MIP prompt) and Sec. 3 (system prompt, sentence appended in quotations)",
+    "verbatim": "full (Figure 2 text; the typo 'here' for 'hear' kept; PDF line wraps re-joined)",
+    "placeholders_paper": {
+      "sentence": "items.sentence, appended in double quotation marks at the end of the prompt (Sec. 3)"
+    }
+  },
+  "output": {
+    "parse": "regex per-word line '^- (.+?): (YES|NO)' ; take the line whose word (or phrase) contains the TroFi target word; a phrase-level label is applied to the target word (Sec. 4)",
+    "postprocess": "uppercase; YES = predicted metaphorical (nonliteral), NO = literal; a reply with no label for the target word is scored as incorrect"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "precision on the metaphorical class = #(predicted YES and TroFi label nonliteral) / #(predicted YES)",
+    "judge": "rule",
+    "original_value": 74.8,
+    "original_location": "Table 1, row 4-turbo, Metaphorical Precision (Recall 86.90; Literal P 77.41 / R 60.53)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3737,
+    "est_usd": 39.98,
+    "tier": "high",
+    "prepare_note": "runner --prepare 2026-09-07 (working-copy runner, same output guess after subsetting): pre-cap estimate ~$58 for 3,737 sentences -> $40 cap keeps a seeded subset of 2,586 (est_usd 39.98); dry-run counting max_tokens 1024 for the subset: 88.39",
+    "est_usd_prepare": 39.98,
+    "est_usd_dryrun_max_tokens": 88.39,
+    "est_usd_full_set": 58.0
+  },
+  "open_points": [],
+  "notes": "The repository's data/ directory could not be listed (GitHub API rate-limited) and the SFU TroFi page refuses automated requests (403), so the 3,736-sentence file and its columns must be verified after cloning. Recall, literal precision/recall and the confusion matrix (Figure 3) come from the same run. || [hook 2026-09-07] load_items() downloads the TroFi Example Base from the SFU page (reachable with a browser user agent) and keeps the human-tagged sentences (N/L; U = clustering-only, dropped): 3,737 sentences for 50 verbs (paper: 3,736); the gold carries label, target lemma and its surface form; parse() reads the '- word: YES|NO' lines; score() takes the line of the target form (a phrase containing it counts, Sec. 4), treats a missing label as the incorrect label (Sec. 4) and returns precision on the metaphorical class (recall and literal P/R printed). prepare's pre-cap estimate (~$58) exceeds the $40 cap, so the runner keeps a seeded subset of 2,586 sentences (set-level metric).",
+  "hook": {
+    "path": "harness/tierb/hooks/W4403443823.py",
+    "functions": [
+      "load_items",
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

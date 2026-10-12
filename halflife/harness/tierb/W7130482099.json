@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7130482099",
+ "title": "CARE-Drive: A Framework for Evaluating Reason-Responsiveness of Vision Language Models in Automated Driving",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano",
+  "resolved": "gpt-4.1-nano",
+  "role": "S",
+  "evidence": "Sec 4.1.1: \"we select M ∈ {gpt-4.1, gpt-4.1-mini, gpt-4.1-nano}\"; Table 3 row \"Role + R + ToT gpt-4.1-nano 11\" (of 30 runs)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.3-4.1 (formal notation I(R,T,L) for Role/human-Reasons/CoT-ToT/explanation-Length conditions)",
+  "note": "Prompt conditions are specified structurally (which components are included); exact wording is in the public code repo, not quoted in the paper body."
+ },
+ "claim": {
+  "metric": "overtake-decision alignment count with expert reference (Role+Reasons+ToT condition)",
+  "value": 11,
+  "n_items": 30,
+  "location": "Table 3, row 'Role + R + ToT gpt-4.1-nano' (Sec 4.1.2)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "CARLA simulator scenarios + expert reference decisions; code at https://github.com/lucassuryana/CARE-Drive"
+ },
+ "cost": {
+  "est_calls": 360,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "gpt-4.1-nano is screened out after Step 1 (only gpt-4.1 with CoT/ToT reaches 'perfect alignment' and proceeds to the Stage-2 robustness analysis in Table 4); the cited number is from the discarded screening table (Table 3), not the paper's headline result."
+}

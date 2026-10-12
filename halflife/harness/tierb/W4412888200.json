@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4412888200",
+  "title": "P3: Prompts Promote Prompting",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 1 (Arena-hard): 'GPT-4-turbo-2024-04-09 76.60 76.60 76.90 78.00 76.27' (Raw, BPO, PAS, P3, P3-ICL)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Optimized system/user prompts are produced by the P3 pipeline (GPT-4o-mini proposer, fine-tuned Qwen2-7B online optimizer); not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Arena-hard score with P3-optimized prompts",
+    "value": 78.0,
+    "n_items": 500,
+    "location": "Table 1, Arena-hard block, row GPT-4-turbo-2024-04-09, column P3",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-1106-preview (Arena-hard / AlpacaEval 2.0 judge)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Arena-hard (500 prompts), AlpacaEval 2.0 (805), PAS offline optimization data"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt",
+    "aux_model_dead"
+  ],
+  "notes": "Arena-hard and AlpacaEval 2.0 use gpt-4-1106-preview as judge (dead). 'Raw' column values are leaderboard numbers without prompt optimization. GPT-4-1106-preview is a separate base-model row, so the live id is explicit."
+}

@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7128684877",
+ "title": "Comparative performance analysis of ChatGPT, Scholar GPT, and DeepSeek of the Conselho Brasileiro de Oftalmologia 2022 theoretical exams",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-4-Turbo version, also stated elsewhere as 'version GPT-4.0'); Scholar GPT (GPT-4-Turbo version)",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "'ChatGPT (version GPT-4.0) and ScholarGPT (version 1.2) were accessed via their official web platforms, operating remotely on the providers' cloud infrastructure'; elsewhere: 'ChatGPT: GPT-4-Turbo version.'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods: 'Uniform prompt structures were applied to each question'; models given the uploaded exam PDF and asked for direct answers",
+  "note": "Prompt structure described generically; exact wording not printed."
+ },
+ "claim": {
+  "metric": "accuracy (%) on CBO 2022 theoretical exams I/II (ChatGPT-specific value not confirmed; only DeepSeek's 97.8%/81.9% is given in the abstract, with ChatGPT stated as 'intermediate')",
+  "value": null,
+  "n_items": 168,
+  "location": "Abstract/Results (46 valid Exam I + 122 valid Exam II questions = 168); DeepSeek numbers given, ChatGPT numeric row not located in excerpt",
+  "task_type": "mcq",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "Conselho Brasileiro de Oftalmologia 2022 Specialist Certification theoretical exams I/II (proprietary certification exam, uploaded as PDF; not confirmed publicly released)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Models accessed through ChatGPT's and Scholar GPT's web interfaces on a single date (March 2, 2025) rather than the API, and the internal model-version label is inconsistent (GPT-4-Turbo vs. GPT-4.0) so it cannot be pinned to a specific live snapshot. Also relies on a proprietary certification exam."
+}

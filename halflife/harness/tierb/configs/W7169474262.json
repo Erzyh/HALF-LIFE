@@ -1,0 +1,218 @@
+{
+  "wid": "W7169474262",
+  "title": "The One-Word Census: Answer-Choice Conformity Across 44 Language Models",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.1 ('max_tokens is 1024 and requested temperature is 1.0 for every model'); top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 124,
+    "subset_rule": "all 31 frozen stimuli (Sec. 3.1), each asked four times (Sec. 3.5, 'Each model was queried four times per prompt') = 124 calls per seed",
+    "approximation": "The paper served every model through OpenRouter under the alias 'gpt-4-turbo' in July 2026; this run calls the dated snapshot gpt-4-turbo-2024-04-09 on the OpenAI API directly, so routing and any provider-side sampling differences are not reproduced. Self-distinctness is a within-model statistic, so it does not depend on the other 43 models; the plural merge, which the authors apply over the whole panel's answers for a category, is applied here to our own four answers only.",
+    "n_items_prepare": 124
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Sec. 3.1 of the paper (the 31 prompts are printed in full); identical to spec/stimulus.json of https://github.com/tap2k/modelun/tree/main/studies/consensus, which the paper names as the frozen stimulus",
+    "config_or_split": "all 31 scenes, 4 runs each",
+    "filter": null,
+    "fields": {
+      "input": "stimulus",
+      "label": "category",
+      "id": "id"
+    },
+    "license": "repository is public (Data and code availability section); the stimuli are the paper's own text",
+    "access_checked": true,
+    "size_mb": 0.003,
+    "inline": [
+      {
+        "id": "color",
+        "stimulus": "Name a color. Reply with one word only."
+      },
+      {
+        "id": "animal",
+        "stimulus": "Name an animal. Reply with one word only."
+      },
+      {
+        "id": "fruit",
+        "stimulus": "Name a fruit. Reply with one word only."
+      },
+      {
+        "id": "vegetable",
+        "stimulus": "Name a vegetable. Reply with one word only."
+      },
+      {
+        "id": "city",
+        "stimulus": "Name a city. Reply with one word only."
+      },
+      {
+        "id": "country",
+        "stimulus": "Name a country. Reply with one word only."
+      },
+      {
+        "id": "flower",
+        "stimulus": "Name a flower. Reply with one word only."
+      },
+      {
+        "id": "sport",
+        "stimulus": "Name a sport. Reply with one word only."
+      },
+      {
+        "id": "instrument",
+        "stimulus": "Name a musical instrument. Reply with one word only."
+      },
+      {
+        "id": "bird",
+        "stimulus": "Name a bird. Reply with one word only."
+      },
+      {
+        "id": "gemstone",
+        "stimulus": "Name a gemstone. Reply with one word only."
+      },
+      {
+        "id": "tree",
+        "stimulus": "Name a tree. Reply with one word only."
+      },
+      {
+        "id": "beverage",
+        "stimulus": "Name a beverage. Reply with one word only."
+      },
+      {
+        "id": "insect",
+        "stimulus": "Name an insect. Reply with one word only."
+      },
+      {
+        "id": "occupation",
+        "stimulus": "Name an occupation. Reply with one word only."
+      },
+      {
+        "id": "language",
+        "stimulus": "Name a language. Reply with one word only."
+      },
+      {
+        "id": "dessert",
+        "stimulus": "Name a dessert. Reply with one word only."
+      },
+      {
+        "id": "tool",
+        "stimulus": "Name a tool. Reply with one word only."
+      },
+      {
+        "id": "fish",
+        "stimulus": "Name a fish. Reply with one word only."
+      },
+      {
+        "id": "metal",
+        "stimulus": "Name a metal. Reply with one word only."
+      },
+      {
+        "id": "fabric",
+        "stimulus": "Name a fabric. Reply with one word only."
+      },
+      {
+        "id": "herb",
+        "stimulus": "Name an herb. Reply with one word only."
+      },
+      {
+        "id": "dance",
+        "stimulus": "Name a dance. Reply with one word only."
+      },
+      {
+        "id": "hobby",
+        "stimulus": "Name a hobby. Reply with one word only."
+      },
+      {
+        "id": "condiment",
+        "stimulus": "Name a condiment. Reply with one word only."
+      },
+      {
+        "id": "cheese",
+        "stimulus": "Name a cheese. Reply with one word only."
+      },
+      {
+        "id": "dinosaur",
+        "stimulus": "Name a dinosaur. Reply with one word only."
+      },
+      {
+        "id": "mythical_creature",
+        "stimulus": "Name a mythical creature. Reply with one word only."
+      },
+      {
+        "id": "board_game",
+        "stimulus": "Name a board game. Reply with one word only."
+      },
+      {
+        "id": "emotion",
+        "stimulus": "Name an emotion. Reply with one word only."
+      },
+      {
+        "id": "any_word",
+        "stimulus": "Pick a word. Reply with one word only."
+      }
+    ],
+    "local_files": {
+      "dir": "external/data/tierb_items/W7169474262/",
+      "files": [
+        "stimulus.json (3,496 B, the 31 frozen prompts)",
+        "analyze.py (8,284 B, the authors' scorer)",
+        "README.md"
+      ],
+      "download_date": "2026-09-19"
+    },
+    "hook": "harness/tierb/hooks/W7169474262.py (expands each stimulus to four runs, applies the authors' normalizer and computes self-distinctness)",
+    "fields_paper": {
+      "input": "the single-turn prompt",
+      "label": "the category id, used only to group the four runs",
+      "id": "category#run"
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{stimulus}",
+    "placeholders": {
+      "stimulus": "items.stimulus"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 3.1 'Stimulus' (30 category prompts of the form 'Name a[n] X. Reply with one word only.' plus 'Pick a word. Reply with one word only.'); no system prompt, fresh single-turn conversation each time",
+    "verbatim": "full: the 31 prompts are given verbatim in items.inline. Sec. 3.1 prints the template with the placeholder article 'a[n]' and the 30 category names; the resolved wording of each prompt (including 'Name an herb.' and 'Name a musical instrument.') is taken from spec/stimulus.json in the repository the paper points to, which the paper calls the frozen stimulus.",
+    "placeholders_paper": {
+      "stimulus": "the prompt itself"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "hook parse: the authors' norm() (analyze.py) - junk guard first (chat-template artifacts, replies over 15 words, bare acknowledgments -> failed cell), then lowercase, punctuation and emoji stripped, last alphabetic word kept, single-letter tokens dropped",
+    "parse_paper": "Sec. 3.3 'Normalization and data hygiene'"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "self-distinctness: for each category, the number of distinct normalized answers divided by the number of valid samples (4 unless a cell failed); the score is the mean over the 31 categories. Bare plurals are merged with their singulars inside a category pool.",
+    "judge": "none",
+    "original_value": 40,
+    "original_location": "Table 1 (appendix scorecard), rank 10, row 'gpt-4-turbo': 2.05 [1.67, 2.45] surprisal, 51% modal avoidance, 1% novel, 40% self-distinctness",
+    "bootstrap_unit": "category (set-level statistic: the runner resamples items and recomputes the mean)",
+    "scale": 100,
+    "hook": "parse() and score() in harness/tierb/hooks/W7169474262.py"
+  },
+  "cost": {
+    "est_calls": 372,
+    "est_usd": 4.5,
+    "tier": "low",
+    "cost_note": "the dry-run charges max_tokens as output; the real replies are one word, so the true cost is near the paper's stated ~$1 per model.",
+    "est_usd_prepare": 4.53,
+    "prepare_note": "runner --prepare --dry-run 2026-09-19: 124 items x 3 seeds, $4.53 (the battery's own dry-run line says $11.50 because it charges the full max_tokens of 1024 as output)"
+  },
+  "open_points": [
+    "The headline metric of the paper (answer-choice surprisal) is leave-one-out against the other 43 models and cannot be recomputed from a single model's answers; self-distinctness is the cell chosen here because it is defined within a model. If the surprisal row is wanted instead, the panel's transcripts in the repository would have to be used as the field, which is a different comparison (our answers scored against their 2026 field).",
+    "Requested temperature 1.0 is part of the paper's design and is not honored uniformly by providers (the paper's own caveat); three seeds of four runs each give some grip on how much of the 40% is sampling spread."
+  ],
+  "notes": "Four runs per prompt are the paper's protocol, so they are items (124 rows = 31 categories x 4 runs) and the harness's three seeds sit on top: each seed yields one complete replication of the paper's measurement. The repository also ships analyze.py, from which parse() and score() are transcribed."
+}

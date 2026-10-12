@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7167909575",
+ "title": "Situated Augmented Reality for Urban Planning: A Privacy-Aware On-Device Localization Pipeline",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Declaration of Generative AI... the author(s) used ChatGPT (GPT-4-turbo, version as of April 2025)... to assist with rephrasing and grammar correction\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Not a research use; a writing-assistance disclosure only."
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo is disclosed only as a writing/grammar aid used by the authors while drafting the manuscript; the paper's actual localization pipeline does not use it."
+}

@@ -1,0 +1,68 @@
+{
+  "wid": "W4402952718",
+  "title": "Evaluating Large Language Models on Spatial Tasks: A Multi-Task Benchmarking Study",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.2 (temperature uniformly set to 1 for all models); max_tokens and top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 900,
+    "subset_rule": "all 900 questions (12 categories)",
+    "approximation": "automatic scoring for multiple-choice, true/false and objective-answer items (normalized match to the reference = 2, else 0) and an LLM judge on the printed 0/1/2 rubric for subjective and code items replace the human reviewer voting (resolution plan); the partial-credit share will differ"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "figshare private share link https://figshare.com/s/be55522f22bf761cfcab (Sec. 10 Data availability): the 900-question spatial benchmark with expert-validated answers",
+    "config_or_split": "all 900 questions",
+    "filter": "none",
+    "fields": {
+      "input": "question text",
+      "label": "reference answer / expected code output",
+      "id": "question id",
+      "category": "task category (12 subspaces, Table 2) and question type (multiple-choice, true/false, objective, subjective)"
+    },
+    "license": "unknown (figshare share page; not readable without opening the link)",
+    "access_checked": true,
+    "size_mb": null
+  },
+  "prompt": {
+    "system": "You are a quiz assistant answering the following questions and outputting the results without any additional explanation.",
+    "user_template": "{question}",
+    "placeholders": {
+      "question": "items.question verbatim (zero-shot round; no prompt-strategy tuning)"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 3.2 (system prompt for the zero-shot round)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "free text; multiple-choice -> option letter; true/false -> true/false; objective -> normalized string or number; subjective/code -> full reply passed to the judge",
+    "postprocess": "strip, lowercase, remove punctuation for the automatic match; a matched answer scores 2, a mismatch 0; judge returns 0/1/2"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "WA = (2*n2 + 1*n1) / (2*(n0+n1+n2)) x 100, where n_k is the number of answers scored k (Eq. 1)",
+    "judge": "rule for multiple-choice, true/false and objective items; llm:gpt-4.1-2025-04-14 (to be confirmed) for subjective and code items, prompt = the Sec. 3.3 scoring rubric (2 = fully correct, 1 = partially correct, 0 = incorrect; code: runs perfectly with correct output = 2, minor syntax/logic/format errors = 1, fails or deviates = 0), code items executed where possible",
+    "original_value": 69.7,
+    "original_location": "Table 1, row gpt-4-turbo-2024-04-09, column WA (%) (Count S0 260, S1 26, S2 614)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 5400,
+    "est_usd": 54.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "Choose and fix the LLM judge model for the subjective and code items (the paper used human reviewer voting; gpt-4.1-2025-04-14 is a placeholder a human must approve).",
+    "Open the figshare share link and confirm that it holds the 900 questions with reference answers, category and question-type fields (the private-link page is JavaScript-rendered and returns no file list to scripted access)"
+  ],
+  "notes": "2,700 subject calls plus up to 2,700 judge calls per 3 seeds. Table 2 gives per-category WA (e.g. GIS concepts 93.6, simple route planning 8.7) for a cheaper category-level check."
+}

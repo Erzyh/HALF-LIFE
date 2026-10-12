@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4399401121",
+  "title": "Superhuman performance in urology board questions by an explainable large language model enabled for context integration of the European Association of Urology guidelines: the UroBot study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 / GPT-4o ('gpt-4-turbo-2024-04-09' and 'gpt-4o-2024-05-13')",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec 2.2: \"the OpenAI text generation API was used with the models 'gpt-3.5-turbo-0125', 'gpt-4-turbo-2024-04-09' and 'gpt-4o-2024-05-13'\"; Table 1: GPT-4o RoCA=0.776 (95% CI 0.771-0.781), GPT-4=0.722"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "\"The exact prompts utilised in this study can be accessed in the Supplementary Material\"; code/instructions on GitHub (github.com/marjohe/UroBot)",
+    "note": "Prompt is not printed in the main text, only referenced as available via supplement/repo."
+  },
+  "claim": {
+    "metric": "mean Rate of Correct Answers (RoCA), GPT-4o",
+    "value": 0.776,
+    "n_items": 200,
+    "location": "Table 1, GPT-4o column; 200 EBU ISA questions x 10 runs",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "200 European Board of Urology In-Service Assessment (ISA) questions -- \"confidential and only obtainable through purchase on the official EBU website\""
+  },
+  "cost": {
+    "est_calls": 2000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "gpt-4-turbo-2024-04-09 (labelled \"GPT-4\") is run identically, RoCA=0.722. Everything else about this paper is strong (dated snapshots, code/prompts on GitHub, clean numbers, 10-run Fleiss' Kappa consistency) but the EBU question bank must be purchased, so the exact test items are not obtainable from the public record."
+}

@@ -1,0 +1,49 @@
+{
+  "wid": "W4403443823",
+  "title": "Science is Exploration: Computational Frontiers for Conceptual Metaphor Theory",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 74.8,
+  "original_location": "Table 1, row 4-turbo, Metaphorical Precision (Recall 86.90; Literal P 77.41 / R 60.53)",
+  "reexecution": {
+    "mean_over_seeds": 0.7148245944926442,
+    "per_seed": {
+      "0": {
+        "value": 0.7148245944926442,
+        "n": 3737,
+        "ci95": [
+          0.6985913539293346,
+          0.7319239186963682
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403443823",
+    "n_items": 3737,
+    "n_requests": 3737,
+    "seeds": 1,
+    "est_usd": 57.79,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 74.8,
+    "cap_usd": 200.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 14
+  },
+  "approximation": "3,737 human-tagged sentences vs the paper's 3,736; tokenised WSJ text kept (spaces before punctuation), the trailing './.' marker replaced by a period and -LRB-/-RRB-/``/'' restored; the surface form of the target verb is located by stem/irregular-form matching; no item-level CI (precision)",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 71.48245944926443,
+    "delta": -3.317540550735572,
+    "original_inside_ci95": false
+  }
+}

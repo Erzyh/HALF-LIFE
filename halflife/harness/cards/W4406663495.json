@@ -1,0 +1,100 @@
+{
+  "card_id": "W4406663495",
+  "openalex_id": "https://openalex.org/W4406663495",
+  "title": "Collaborative large language models for automated data extraction in living systematic reviews",
+  "doi": "10.1093/jamia/ocae325",
+  "paper": {
+    "authors": "not extracted from full text (JAMIA 32(4):638; PMID 39836495; PMC12005628; Mayo Clinic Cancer Data Science group; repo contacts riaz.irbaz@mayo.edu, ayub.umair@mayo.edu)",
+    "year": 2025,
+    "repo": "https://github.com/CancerDataScience/LLMs_ExtractionWithCrossCritique",
+    "repo_commit": "b27a201f0434d30727eaab3f9638128222987f8a",
+    "repo_license": "none (no LICENSE file)"
+  },
+  "dependence": {
+    "type": "annotator",
+    "strength": "core",
+    "note": "Two LLMs act as the two data-extraction reviewers of a living systematic review; every reported number (concordance, accuracy, cross-critique gain) is a property of the LLM outputs judged against a human gold standard."
+  },
+  "claim": {
+    "statement": "In the held-out test set (17 publications x 23 variables = 391 responses), GPT-4-turbo (gpt-4-0125-preview text + gpt-4-vision-preview images) and Claude-3-Opus gave concordant extractions for 342 (87%) responses with accuracy 0.94 against the gold standard; the 49 discordant responses had accuracy 0.41 (GPT-4-turbo) / 0.50 (Claude-3-Opus); cross-critique made 25/49 (51%) discordant responses concordant and raised their accuracy to 0.76; single-model mean accuracy was 0.89 (GPT-4T) vs 0.90 (Claude-3O) (Abstract; Figures 2-3).",
+    "claim_type": "method_effect",
+    "metric": "accuracy of extracted variable values vs. the human gold standard (manual adjudication of free-text values); concordance rate between the two LLMs; accuracy of discordant responses before/after cross-critique",
+    "original_values": {
+      "test_publications": 17,
+      "variables": 23,
+      "test_responses": 391,
+      "test_concordant": 342,
+      "test_concordance_pct": 87,
+      "concordant_accuracy": 0.94,
+      "discordant_n": 49,
+      "discordant_accuracy_gpt4turbo": 0.41,
+      "discordant_accuracy_claude3opus": 0.50,
+      "cross_critique_resolved": 25,
+      "cross_critique_resolved_pct": 51,
+      "cross_critique_accuracy": 0.76,
+      "single_model_mean_accuracy_gpt4turbo": 0.89,
+      "single_model_mean_accuracy_claude3opus": 0.90,
+      "dev_responses": 115,
+      "dev_concordant": 110,
+      "dev_concordance_pct": 96,
+      "dev_accuracy": 0.99,
+      "tokens_processed": "277,810 text tokens and 169 images (both sets)"
+    },
+    "original_source": "Abstract; Results (PMC12005628 full text); Figure 2 (single vs collaborative accuracy), Figure 3 (cross-critique: concordance 87% -> 94%)"
+  },
+  "protocol": {
+    "model": "gpt-4-0125-preview (text) + gpt-4-vision-preview (images); second reviewer claude-3-opus-20240229",
+    "model_note": "The scaffold's live arm 'gpt-4-turbo' is an alias false positive: the paper's 'GPT-4-turbo' is explicitly gpt-4-0125-preview ('latest available versions as of April 2024').",
+    "model_status": "DEAD - gpt-4-0125-preview shut down 2026-03-26, gpt-4-vision-preview 2024-12-06, claude-3-opus-20240229 2026-01-05. No original arm can be baselined.",
+    "endpoint": "OpenAI chat completions (text: system + user; images: gpt-4o vision call in the current notebook) and Anthropic messages API",
+    "prompt_source": "Repo notebook LLM_Extraction_and_CrossCritique/Code/DataExtraction&CrossCritique.ipynb - cell 13 prompt_design(): 'Extract from the given text, Extract [var_1], [var_2], ... Where the information is not available, the output should be NA. Do not include information outside the given text. Generate short and precise responses.'; system prompt 'You are an expert of data extraction from a given chunk of text.'; cell 19 post-processing prompt (structured 'Variable :: value' table); cell 24 cross-critique prompt ('For the given text, LLM generate the response = [..] for the variable = [..]. Verify if ... correct or incorrect ...'); paper Methods S1",
+    "params": {
+      "temperature": "0.00001 in notebook (paper: 0)",
+      "max_tokens": "1000 (Claude text; GPT image calls); not set for GPT text calls",
+      "seed": "not set",
+      "other": "PDF text via PyMuPDF, chunked to ~123k tokens (GPT) / ~45k (Claude) with 1000-token overlap; page images extracted and sent separately; prompt_size N variables per prompt is a user input (value used in the paper is in Methods S1, not in the repo); 30 s sleep between Claude calls"
+    },
+    "n_items": 391,
+    "n_items_note": "17 test PDFs x 23 variables (plus 115 dev responses from 5 PDFs); number of API calls per PDF depends on chunk count x prompts x images",
+    "samples_per_item": 1,
+    "evaluation": "Accuracy judged manually against gold_standard.xlsx (free-text values such as hazard ratios, counts, arm names); the repo has no automatic scorer - the 'Annotated Agreement Matching File' (Variable, GPT_Responses, CLAUDE_Responses, Gold_Standard, Agree/Disagree) is produced by hand"
+  },
+  "artifacts": {
+    "prompts_path": "LLM_Extraction_and_CrossCritique/Code/DataExtraction&CrossCritique.ipynb (cells 13, 19, 24)",
+    "data_path": "LLM_Extraction_and_CrossCritique/test_studies/*.pdf (17), LLM_Extraction_and_CrossCritique/training_studies/*.pdf (5), LLM_Extraction_and_CrossCritique/gold_standard.xlsx, LLM_Extraction_and_CrossCritique/variables.csv (23 variables)",
+    "eval_path": null,
+    "data_public": "partial",
+    "data_license": "none stated; the 22 publication PDFs are journal articles under publishers' copyright (redistributed in the repo)",
+    "redistributable": false,
+    "notes": "Gold standard covers 23 variables for 22 files (mHSPC trials, e.g. ARASENS NEJM'22/JCO'23). Notebook comments say gpt-4o and Claude Sonnet models 'can also be used'."
+  },
+  "blockers": [
+    "live model dead: paper's GPT-4-turbo = gpt-4-0125-preview (shutdown 2026-03-26) + gpt-4-vision-preview (2024-12-06); claude-3-opus-20240229 also dead - neither original arm can be baselined",
+    "accuracy scoring is manual (semantic match of free-text extracted values to the gold standard); no automatic scorer in the repo",
+    "prompt_size (variables per prompt) and exact image handling are user inputs not fixed in the repo",
+    "22 publication PDFs are copyrighted; we cannot redistribute them even though the repo does"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "proxy_option": "gpt-4-turbo-2024-04-09 (vision-capable, dying 2026-10-23) paired with a current Claude - a successor-only design, not the original snapshot" },
+    "successors": ["gpt-5-2025-08-07", "gpt-5-mini-2025-08-07", "claude (current dated snapshot)", "gemini (current dated snapshot)", "llama-3.x (open weights, hash-pinned)", "qwen3 (open weights, hash-pinned)"]
+  },
+  "budget": {
+    "est_calls": 960,
+    "est_tokens_in": 3600000,
+    "est_tokens_out": 180000,
+    "est_cost_usd": 45,
+    "pricing_usd_per_1m": { "gpt-4-turbo": { "input": 10.0, "output": 30.0 } },
+    "assumptions": "CONDITIONAL proxy run, GPT arm only, test set only: ~215k text tokens x 5 sub-prompts (N=5 variables/prompt) + ~130 images per pass = ~1.2M input tokens and ~60k output per pass; 3 seeds; plus post-processing and cross-critique (~USD 3). The Claude arm would add a similar amount at Claude prices."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (proxy): survival if concordant-response accuracy >= 0.90 and the direction 'concordant accuracy >> discordant accuracy' (0.94 vs 0.41/0.50) holds, and cross-critique raises discordant accuracy (0.41/0.50 -> 0.76) in the same direction; bootstrap CI over the 391 responses.",
+    "notes": "Temperature 0 in the original, so seed variance should be small; most variance will come from PDF parsing/chunking and from the human accuracy judgment."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Accept a successor-only design (gpt-4-turbo-2024-04-09 + a live Claude) given that all original snapshots are dead? If not, close the card.",
+    "Who adjudicates extraction accuracy? Needs a reviewer familiar with mHSPC trial reporting (CHAARTED volume, synchronous/metachronous, OS hazard ratios).",
+    "Fix prompt_size N from Methods S1 (repo leaves it as an interactive input)."
+  ],
+  "domain_notes": "The 10 trials / 22 publications come from a living systematic review of metastatic hormone-sensitive prostate cancer; the 23 variables are trial identifiers, arm names, subgroup counts and OS hazard ratios (with CIs) - values whose correctness is a semantic judgment, not string equality. The pipeline depends on PyMuPDF text extraction and page-image rendering, so environment drift is a confound. The reported test-set accuracies come from a single deterministic run with no confidence intervals."
+}

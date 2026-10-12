@@ -1,0 +1,189 @@
+{
+ "card_id": "W4406880877",
+ "openalex_id": "https://openalex.org/W4406880877",
+ "title": "People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text",
+ "doi": "10.48550/arxiv.2501.15654",
+ "paper": {
+  "authors": "Russell, Karpinska, Iyyer (UMass Amherst)",
+  "year": 2025,
+  "venue": "arXiv 2501.15654",
+  "repo": "https://github.com/jenna-russell/human_detectors",
+  "repo_commit": "afcf03d14d2da4a038d8d0fafa5ec779dd858181 (2025-05-09; shallow clone under external/repos/W4406880877/jenna-russell__human_detectors)",
+  "repo_license": "MIT (Copyright 2025 Jenna Russell)",
+  "other_artifacts": "human_detectors.json (10.3 MB, in-repo): 300 articles with gold labels, five expert annotators' guesses/confidence/free-text comments, the expert majority vote and the outputs of seven automatic detectors (Pangram, Pangram-humanizers, GPTZero, e5_lora, RADAR, Binoculars low-FPR and accuracy)."
+ },
+ "dependence": {
+  "type": "subject",
+  "strength": "auxiliary",
+  "note": "The paper's headline result is about human experts, not models: five LLM-frequent-user annotators reach 99.3 TPR by majority vote. o1-2024-12-17 appears as a prompt-based detector baseline (Table 2 section C) whose failure is the paper's contrast case. The 300 articles - including the o1-pro ones generated through the ChatGPT Pro web UI - are frozen in the release, so the detector arm depends on no other live model."
+ },
+ "claim": {
+  "statement": "As a zero-shot + chain-of-thought prompt-based detector, o1-2024-12-17 identifies only 54% of the 150 AI-generated articles (4% false-positive rate on the 150 human-written ones), far below the expert majority vote's 99.3 (0.0), and it collapses on the evasion conditions: 83.3 TPR on GPT-4o articles, 53.3 on Claude, 96.7 on GPT-4o paraphrased, 20 on o1-pro and 16.7 on o1-pro humanized (Table 2, section C, Detector LLM O1-2024-12-17, row ZERO-SHOT + COT).",
+  "claim_type": "capability_limit",
+  "metric": "TPR (FPR) in percent per 30-article experiment block and overall: TPR = 100 x #(AI-generated articles labelled AI-GENERATED) / 150; FPR = 100 x #(human-written articles labelled AI-GENERATED) / 150. Label parsed from the <answer> tag; no judge model.",
+  "original_values": {
+   "o1_zero_shot_cot": {
+    "gpt4o": [
+     83.3,
+     6.7
+    ],
+    "claude": [
+     53.3,
+     3.3
+    ],
+    "gpt4o_paraphrased": [
+     96.7,
+     3.3
+    ],
+    "o1_pro": [
+     20.0,
+     3.3
+    ],
+    "o1_pro_humanized": [
+     16.7,
+     3.3
+    ],
+    "overall": [
+     54.0,
+     4.0
+    ]
+   },
+   "o1_other_rows": {
+    "zero_shot": [
+     42.2,
+     5.6
+    ],
+    "zero_shot_guide": [
+     36.7,
+     0.0
+    ],
+    "zero_shot_cot_guide": [
+     53.3,
+     0.6
+    ]
+   },
+   "comparators": {
+    "expert_majority_vote_overall": [
+     99.3,
+     0.0
+    ],
+    "gpt4o_2024_11_20_zero_shot_cot_overall": [
+     42.0,
+     2.0
+    ],
+    "pangram_humanizers_overall": [
+     99.3,
+     2.7
+    ]
+   },
+   "n_per_block": 30,
+   "n_ai_total": 150,
+   "n_human_total": 150
+  },
+  "original_source": "Table 2 (five 30-article generation-method columns plus OVERALL, each cell TPR% (FPR%)); prompt in Table 20; o1 settings in footnote 22.",
+  "known_inconsistency": "The plain ZERO-SHOT row's overall (42.2) is not the mean of its own five columns (93.3, 66.6, 96.7, 40.0, 20.0 -> 63.3); the ZERO-SHOT + COT row used here is internally consistent (mean of 83.3, 53.3, 96.7, 20, 16.7 = 54.0)."
+ },
+ "protocol": {
+  "model": "o1-2024-12-17",
+  "model_status": "dying, OpenAI shutdown 2026-10-23",
+  "model_usage_verified": "yes - Table 2 prints the dated snapshot 'O1-2024-12-17' as the detector LLM row label. No alias inference needed. (The o1-pro arm in the same paper is a generator, run through the ChatGPT Pro web UI, and its articles are released, so it is not an execution dependency.)",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions, via models.ChatGPT.obtain_response (openai>=1.0.0 SDK)",
+  "prompt_source": "prompts/detector_prompts/classify_zero_shot_cot.txt, loaded by models.Detector.__init__ and filled with .format(text); selected by detect.py with --no_guide (guide off) and explanations on.",
+  "params": {
+   "temperature": "not sent - obtain_response omits temperature for any model whose name contains 'o1' (the API fixes it at 1 anyway; paper footnote 22 says the same)",
+   "max_tokens": "not sent for o1 (the non-o1 branch sends max_tokens=2024)",
+   "reasoning_effort": "not sent by models.py, so the API default 'medium' applies - which is exactly what footnote 22 reports. Note that helpers.model_call, a second code path in the same repo, hard-codes reasoning_effort='high' for o1; that path is not the detector path and contradicts the footnote.",
+   "seed": 42,
+   "seed_note": "obtain_response passes seed=42 for every OpenAI call; the Tier B prompt-level run did not set it",
+   "retries": "up to 5 attempts, 5 s apart, then returns None"
+  },
+  "n_items": 300,
+  "n_items_note": "150 AI-generated + 150 human-written; the Tier B prompt-level run covered only the 150 AI-generated half (TPR), so the repo-based run adds the FPR half",
+  "samples_per_item": 1,
+  "samples_note": "1 per seed; 3 seeds planned because the API fixes o1 at temperature 1 and the paper reports a single run",
+  "evaluation": "models.Detector.detect applies re.search(r'<answer>(.*?)</answer>', response, re.DOTALL) and r'<description>(.*?)</description>'; a missing tag yields None. TPR/FPR computed per generation-method block and overall.",
+  "environment": "Python with openai, pandas, tqdm (requirements.txt also pulls torch/transformers/anthropic/spacy, which the OpenAI detector path does not need)"
+ },
+ "artifacts": {
+  "prompts_path": "prompts/detector_prompts/classify_zero_shot_cot.txt (also classify_zero_shot.txt, classify_zero_shot_guide.txt, classify_zero_shot_cot_guide.txt and prompts/detection_guide.txt, 18 KB, for the guide rows)",
+  "data_path": "human_detectors.json (in-repo, 300 records keyed '0'-'299'; fields article, ground_truth, generation_model, prompt_id, title, sub-title, author, source, issue, section, link, id, plus annotator and detector outputs)",
+  "eval_path": "detect.py + models.py (Detector, LLM, ChatGPT); no scoring script - TPR/FPR aggregation is ours",
+  "data_public": true,
+  "data_license": "MIT (repo LICENSE covers the release)",
+  "redistributable": true,
+  "notes": "The AI-generated half is model output; the human half consists of news articles from AP, etc., reproduced in full inside human_detectors.json under the repo's MIT licence - our runs send them to the API but we do not redistribute them. Gold labels in the file are 'Human-written' / 'Machine-generated' (the README's example and the Tier B config note the label-string mismatch with the paper's wording)."
+ },
+ "blockers": [],
+ "tierb_relationship": {
+  "tierb_config": "harness/tierb/configs/W4406880877.json (status ready, run 2026-09-08)",
+  "tierb_result": "runs/tierb/W4406880877/result_sha_matched.json - TPR 54.67 (82/150, item-bootstrap CI 46.7-62.7) against the paper's 54.0; original inside CI. 150 calls, 161,392 input and 234,723 output tokens, USD 16.50 measured.",
+  "upgrade": "yes - the repository supports full pipeline re-execution. Tier B rebuilt the prompt from the paper's Table 20 and drove it through the generic runner; the repo ships the authors' own prompt file, their Detector class, their parser and the dataset, so the card upgrades from a paper-transcribed prompt to the authors' code path and adds the missing FPR half.",
+  "protocol_differences": [
+   "Prompt text: Tier B transcribed Table 20, which prints '</end of candidate text>' (a PDF artifact) and whose line wraps were rejoined into one block. The repo file has '<end of candidate text>' without the slash, the candidate text on its own line, and blank lines between the instruction blocks. Same wording, different literal - the repo file is authoritative.",
+   "Parameters: Tier B sent reasoning_effort 'medium' and max_completion_tokens 4096 and no seed; the repo sends no reasoning_effort (API default medium, matching footnote 22), no max_completion_tokens, and seed=42.",
+   "Coverage: Tier B scored the 150 AI-generated articles only (accuracy x 100 = TPR); the card covers all 300 so the Table 2 cell '54 (4)' can be reproduced as a pair.",
+   "Parsing: Tier B used the same <answer> regex plus a last-label fallback and counted a missing label as HUMAN-WRITTEN; the repo returns None, so unparsed replies must be reported separately rather than folded into the negative class.",
+   "Item keying: the released records carry a non-unique 'id' field alongside the unique dict key; the Tier B runner let the record field shadow the key and mis-paired 89 replies (TPR 30.0) until responses were re-matched by request hash. A repo-based run must transpose the dict and key on the dict index."
+  ],
+  "adapter_needed": "small - detect.py requires a 'text' column and calls pd.read_json, which transposes this dict-of-records; a ~10-line adapter must load human_detectors.json, transpose it, rename article -> text and keep the dict key as the id. No prompt or API code changes."
+ },
+ "arms": {
+  "baseline_alive": {
+   "model": "o1-2024-12-17",
+   "purpose": "live baseline (P0): the detector row exactly as Table 2 labels it"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for o1)"
+  ]
+ },
+ "budget": {
+  "est_calls": 900,
+  "est_tokens_in": 970000,
+  "est_tokens_out": 1410000,
+  "est_cost_usd": 99,
+  "pricing_usd_per_1m": {
+   "o1-2024-12-17": {
+    "input": 15.0,
+    "output": 60.0
+   }
+  },
+  "assumptions": "300 articles x 3 seeds = 900 calls. Per-call token counts are measured, not estimated: the Tier B run billed 1,076 input and 1,565 output tokens per call (articles run ~1,000 words; the output is dominated by o1 reasoning tokens) at USD 0.110 per call. Human-written articles are the same length, so 900 x 0.110 = ~USD 99. A single seed over 300 articles is ~USD 33; repeating the Tier B scope (150 AI articles, 1 seed) is ~USD 17."
+ },
+ "decisions_2026_09_19": {
+  "adapter": "harness/adapters/detect_W4406880877.py (--check / --dry-run / --run / --analyze); imports the repository's models.py and drives models.Detector with a stub LLM, so prompt rendering and answer parsing are the authors' code, not a copy",
+  "prompt": "the repository file prompts/detector_prompts/classify_zero_shot_cot.txt verbatim, loaded by models.Detector.__init__ and filled with .format(article) - not the Tier B transcription of Table 20. 658 chars as loaded (LF), sha256 cf40eba6fcb0dd66...; the working-tree checkout is CRLF (git index is LF), and Python's text mode restores LF.",
+  "seed": "the repository's seed=42 (models.ChatGPT.obtain_response passes it on every OpenAI call); Tier B sent none",
+  "reasoning_effort": "left unset, so the API default 'medium' applies - exactly what footnote 22 reports ('We set temperature=0 for GPT-4O and reasoning efforts to medium for O1'). helpers.model_call's hard-coded 'high' is a different code path and is not used.",
+  "other_params": "no temperature, no max_tokens, no max_completion_tokens - the o1 branch of obtain_response sends only model, messages and seed. Tier B additionally sent max_completion_tokens 4096; it never bound (Tier B max completion 2,807 tokens, all 150 finish_reason 'stop').",
+  "coverage": "all 300 articles (150 AI-generated + 150 human-written), so the Table 2 cell 54 (4) is judged as a TPR (FPR) pair; Tier B covered the AI half only",
+  "seeds": "1 seed (o1 pricing; the paper ran once), overriding the card's earlier 3-seed plan and its 900-call / USD 99 budget block",
+  "cost_cap": "per-paper cap USD 45; the calibrated estimate is USD 32.9 for the 300 calls (316,774 input + 469,446 output tokens), cross-checked against the measured Tier B USD 0.1100 per call (USD 33.0)",
+  "item_keying": "items are keyed on the dict index '0'-'299'; the record's own 'id' field is not unique and caused the Tier B mis-pairing",
+  "metric_and_ci": "TPR = 100 x #(AI articles labelled AI-GENERATED)/150, FPR = 100 x #(human articles labelled AI-GENERATED)/150, both also per 30-article block; Wilson score 95% intervals (n=150 gives +/-8 pp, matching the item-bootstrap band the judgment rule assumes)",
+  "unparsed_replies": "a reply without an <answer> tag yields None in the authors' parser: it is not a label, so it is reported separately and never folded into HUMAN-WRITTEN (as the Tier B runner did). Tier B had 0 such replies.",
+  "environment_check": "runs/W4406880877/environment_check.json - the repository parser re-reads the 150 archived Tier B replies and reproduces TPR 54.67 (82/150) exactly, per block 80.0 / 56.7 / 96.7 / 23.3 / 16.7 against the paper's 83.3 / 53.3 / 96.7 / 20.0 / 16.7",
+  "corrections_to_this_card": [
+   "artifacts.notes and the Tier B config say the gold strings are 'Human-written' / 'Machine-generated'; the release actually carries 'Human-written' / 'AI-generated'",
+   "the Tier B triage note's 'two middle batches swapped in order' is not a defect: the release orders the blocks gpt-4o, paraphrased_gpt-4o, claude, o1-pro, humanized_o1-pro while Table 2 prints gpt-4o, claude, paraphrased, o1-pro, humanized. Keying on generation_model instead of position makes the per-block TPRs line up.",
+   "each generation_model block holds 30 AI *and* 30 human articles paired by prompt_id, so the per-block FPRs (6.7, 3.3, 3.3, 3.3, 3.3 = 6/150 = 4.0 overall) are recoverable as well"
+  ],
+  "unresolved": "the cap binds only in a worst case: if every one of the 300 replies were as long as the Tier B 95th percentile (2,415 completion tokens) the run would cost USD 48.2, above the USD 45 cap. With the mean it is USD 32.9. battery stops cleanly at the cap and the run is resumable, so a raised cap can finish it."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: overall TPR of the zero-shot + CoT detector over the 150 AI-generated articles (original 54.0), with FPR (original 4.0) as the paired secondary. Survival = median-over-seeds TPR inside the item-bootstrap 95% CI of the original (n=150 gives about +/-8 pp) AND the behavioural direction holds: the detector stays far below the expert majority vote (99.3) and degrades on the evasion blocks, i.e. o1-pro and o1-pro-humanized TPR stay well below the GPT-4o and paraphrased blocks. Partial = overall level moves outside the CI while the evasion gradient survives. Death = the block gradient disappears (o1-pro/humanized TPR rising to the GPT-4o level), which would overturn the paper's 'automatic detectors cannot match experts under evasion' conclusion. The Tier B run already places the original inside the CI (54.67 vs 54.0) for the TPR half at one seed.",
+  "notes": "Per-block n is only 30, so block-level numbers carry about +/-15 pp - report them as a gradient, not as point comparisons. Because the card adds the FPR half, the survival test becomes a pair rather than a single rate; a detector that reaches the same TPR by labelling everything AI-GENERATED would show up as an FPR blow-out."
+ },
+ "status": "done",
+ "user_checks": [
+  "Use the repo prompt file (classify_zero_shot_cot.txt) rather than the Tier B transcription of Table 20? The wording is identical; whitespace and one '</end' vs '<end' differ.",
+  "Keep the repo's seed=42 (Tier B sent none) and leave reasoning_effort unset so the API default 'medium' applies, per footnote 22 - rather than helpers.model_call's conflicting 'high'?",
+  "Run all 300 articles for the TPR (FPR) pair at ~USD 99 for 3 seeds, or stay at the 150 AI-generated articles already covered by Tier B?"
+ ],
+ "domain_notes": "The 300 articles are non-fiction English news/feature pieces: 150 originals from outlets such as AP and 150 model-written counterparts across five conditions (GPT-4o, Claude-3.5-Sonnet, GPT-4o then sentence-level paraphrase, o1-pro, o1-pro then humanization). The evasion conditions are the point: humanized o1-pro text drops every prompt-based detector to near zero while the five expert annotators, recruited for frequent LLM use in writing work, still catch it. The expert half of the paper is a human-subject result and is not re-executable; this card re-executes only the automatic-detector row, which is the paper's own contrast baseline.",
+ "judgment_provisional": {
+  "value": "생존 (survived)",
+  "cost_usd": 28.213,
+  "run_date": "2026-09-19",
+  "source": "runs/W4406880877/run_meta.json"
+ }
+}

@@ -1,0 +1,93 @@
+{
+ "wid": "W4411119711",
+ "title": "FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 64,
+   "top_p": 1.0
+  },
+  "params_source": "the authors' released judge script (data_collection_scripts/gpt_as_a_judge_pred.ipynb in github.com/forrestbao/faithbench) calls chat.completions with temperature=0 and no other parameter; max_tokens assumed (the answer is one word)",
+  "seeds": 1
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 750,
+  "subset_rule": "all 750 FaithBench samples (75 passages x 10 summarizer LLMs, Sec. 2.3)",
+  "approximation": "The paper cites the prompt to Luo et al. (2023) rather than printing it; the exact system/user strings are taken from the authors' own judge notebook, which also fixes temperature 0 and the answer parser. The alias 'GPT-4-Turbo' of Table 2 is read as the tracked snapshot gpt-4-turbo-2024-04-09."
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/vectara/FaithBench, directory data_for_release (batch_1..batch_16.json, batch 13 absent)",
+  "config_or_split": "all 15 released batches = 750 samples",
+  "filter": null,
+  "fields": {
+   "input": "article",
+   "label": "gold",
+   "id": "id"
+  },
+  "license": "Apache-2.0 (repository LICENSE)",
+  "access_checked": true,
+  "size_mb": 3.3,
+  "file_url": "https://raw.githubusercontent.com/vectara/FaithBench/main/data_for_release/batch_1.json (and batches 2-12, 14-16)",
+  "fields_source": {
+   "input": "source (the article)",
+   "summary": "summary",
+   "label": "derived from annotations[].label",
+   "id": "batch + sample_id"
+  },
+  "label_map_hook": {
+   "Unwanted / Questionable (worst pooling)": "no (hallucinated, negative class)",
+   "Benign or no annotation": "yes (consistent, positive class)"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W4411119711/",
+   "n_files": 15,
+   "bytes": 3315262
+  },
+  "download": {
+   "date": "2026-09-19",
+   "check": "750 samples, gold 511 hallucinated / 239 consistent under the released binarize.py configuration (aggregation 'worst', hallucinated = Questionable + Unwanted*); the benchmark's own archived 'gpt-4-turbo' metadata column scores balanced accuracy 55.21% against this gold, against the paper's 55.96%"
+  }
+ },
+ "prompt": {
+  "system": "Decide if the following summary is consistent with the correponding article. Note that consistency means all information in the summary is supported by the article.",
+  "user_template": "Article: {article}\nSummary: {summary}\nAnswer (yes or no):",
+  "placeholders": {
+   "article": "items.article",
+   "summary": "items.summary"
+  },
+  "few_shot": "none (simple zero-shot)",
+  "source_location": "Table 2, row 'GPT-4-Turbo w/ simple, zero-shot prompt (Luo et al., 2023)'; the strings themselves come from the authors' released detector notebook data_collection_scripts/gpt_as_a_judge_pred.ipynb (variables `system` and `user`, commented '# Aggrefact prompt')",
+  "verbatim": "partial - this paper prints no prompt, it only cites Luo et al. (2023). The two strings above are copied from the FaithBench authors' own judge code, including its typo 'correponding', which is therefore reproduced deliberately."
+ },
+ "output": {
+  "parse": "label from set [yes, no]",
+  "postprocess": "hook parse() = the authors' parser: re.sub(r'[^\\w\\s]', '', reply), lower-case, first token, {yes, accurate} -> yes and {no, inaccurate} -> no; anything else None and counted as the wrong class",
+  "parse_paper": "label_mapping = {'yes': 1, 'no': 0, 'accurate': 1, 'inaccurate': 0} applied to the first token of the punctuation-stripped reply"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "balanced accuracy = mean of the two class recalls (recall on consistent samples and recall on hallucinated samples), the sample-level score of Table 2",
+  "judge": "none",
+  "original_value": 55.96,
+  "original_location": "Table 2, row 'GPT-4-Turbo w/ simple, zero-shot prompt (Luo et al., 2023)', column BA (%) (F1-M 42.16)",
+  "bootstrap_unit": "sample (set-level resample: BA recomputed on resampled samples)",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 750,
+  "est_usd": 5.0,
+  "tier": "high",
+  "est_usd_prepare": 4.87,
+  "est_usd_dryrun_max": 5.95,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 750 items x 1 seed = 750 calls, ~451k input tokens (the articles are long); the answer is one word."
+ },
+ "open_points": [
+  "The prompt is external to the paper. It is taken from the FaithBench authors' own released judge code rather than from Luo et al. (2023) directly; if that notebook has drifted from the version used for Table 2, the wording could differ.",
+  "Scoring the benchmark's own archived gpt-4-turbo column with this gold gives 55.21% against the paper's 55.96% (about six samples), so either the archived column is a different pass or the sample-level pooling behind Table 2 differs slightly from the released binarize.py configuration. The released binarize.py also returns 0 (its comment says 'consistent', but 0 is its hallucinated code) for samples with no annotation; this config treats an unannotated sample as consistent, which is what Table 2's caption says and what makes the archived column land near the reported value."
+ ],
+ "notes": "Table 2 is a detector ranking: the subject model is used as a hallucination judge and its own detection accuracy against human labels is the metric. o3-mini (58.87) and o1-mini (61.17) are the reasoning alternatives in the same column; the FACTS CoT prompt row (53.59 for GPT-4-Turbo) uses the second prompt pair of the same notebook (facts_system / facts_user)."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7131191447",
+  "title": "El Agente Gráfico: A Semantic Execution Runtime for Scientific Agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Supplementary config: '\"gpt-5-2025-08-07\": {\"temperature\": 1.0, \"openai_reasoning_effort\": \"low\" ...}'; results table row gpt-5 98.88 / 98.50"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Supplementary sections (workflow definitions; prompts summarized, complete prompts and transcripts in Supplementary)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "rubric score (%)",
+    "value": 98.88,
+    "n_items": null,
+    "location": "Agent benchmark results table, row gpt-5, first score column",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Chemistry exercises executed through the Gráfico runtime (quantum-chemistry workflows, code execution tools)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Tool-using agent over a semantic execution runtime; requires the software stack; scores assigned by an unversioned gpt-4o judge. data_closed here means the inputs are environment/tool-generated."
+}

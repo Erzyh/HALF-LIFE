@@ -1,0 +1,13 @@
+{
+  "wid": "W4399317891",
+  "n_items": 931,
+  "n_requests": 931,
+  "seeds": 1,
+  "est_usd": 3.05,
+  "subset_note": "cost cap $3.05: seeded random subset of 931 items (seed 20260907)",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 12.7,
+  "cap_usd": 3.05
+}

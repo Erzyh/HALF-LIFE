@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405355481",
+ "title": "Sail into the Headwind: Alignment via Robust Rewards and Dynamic Labels against Reward Hacking",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "dead-preview",
+  "role": "B",
+  "evidence": "\"we report the win rate (WR) of the model's responses against responses from GPT-4-Turbo\"; elsewhere: \"we use GPT-4-Preview-1106 as comparison baseline model.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a (standard AlpacaEval 2.0 / Arena-Hard harnesses, not reproduced in the paper)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for the live id (win rate is of the trained POWER-DL models against the fixed GPT-4-Turbo reference, not a GPT-4-Turbo capability claim)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AlpacaEval 2.0, Arena-Hard, MT-Bench (public benchmarks); Helpsteer2/UltraFeedback preference data (public)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias"
+ ],
+ "notes": "The paper names the fixed comparator GPT-4-Preview-1106, the standard (dead) Arena-Hard/AlpacaEval baseline; \"GPT-4-Turbo\" elsewhere is the same dead preview under its marketing name, not gpt-4-turbo-2024-04-09."
+}

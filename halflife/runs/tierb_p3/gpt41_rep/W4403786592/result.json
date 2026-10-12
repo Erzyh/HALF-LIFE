@@ -1,0 +1,66 @@
+{
+  "wid": "W4403786592",
+  "title": "A Comprehensive Evaluation of Large Language Models on Mental Illnesses",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 39.6,
+  "original_location": "Table 10, row GPT-4-Turbo, column DepSeverity (39.6 / 0.805)",
+  "reexecution": {
+    "mean_over_seeds": 0.3275,
+    "per_seed": {
+      "0": {
+        "value": 0.327,
+        "n": 1000,
+        "ci95": [
+          0.297,
+          0.35602499999999987
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.328,
+        "n": 1000,
+        "ci95": [
+          0.298,
+          0.357
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403786592",
+    "n_items": 1000,
+    "n_requests": 2000,
+    "seeds": 2,
+    "est_usd": 1.0,
+    "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 39.6,
+    "cap_usd": 2.22,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4403786592"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 48
+  },
+  "approximation": "Different 1,000-post balanced sample (IDs unpublished); SEV-4 wording transcribed from the Figure 1 image, block separators and post placement (post appended after a blank line) assumed.",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4403786592"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 32.75,
+    "delta": -6.850000000000001,
+    "original_inside_ci95": false
+  }
+}

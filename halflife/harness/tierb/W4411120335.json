@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411120335",
+  "title": "Does Liking Yellow Imply Driving a School Bus? Semantic Leakage in Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Footnote 5: 'gpt-3.5-turbo-0125, gpt-4-turbo-2024-04-09 and gpt-4o-2024-05-13, respectively'; Table 2 row 'GPT4 70.8 61.2 84.4' (Leak-Rate with BS/SB/OAI embeddings)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 3 (109 manually created prompts; full list at https://gonenhila.github.io/files/semantic_leakage_prompts.txt); Table 1 examples",
+    "note": "10 samples at each of 4 temperature values per prompt; Leak-Rate compares similarity to a control generation."
+  },
+  "claim": {
+    "metric": "semantic Leak-Rate (BERTScore)",
+    "value": 70.8,
+    "n_items": 4360,
+    "location": "Table 2, row GPT4, column BS (109 prompts x 10 samples x 4 temperatures)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Prompt list at the author's site (URL in footnote 2); embeddings via BERTScore, sentence-BERT, text-embedding-3-large"
+  },
+  "cost": {
+    "est_calls": 13080,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Prompt set is external to the paper but public. gpt-4o-2024-05-13 is a second subject (row GPT4o 76.9). Max-token and control-prompt details are in Section 3.1.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The prompt set is a public file named in the paper. Download the 109 test prompts and their matched control prompts from the URL in footnote 2; for each prompt and each temperature in {0, 0.5, 1, 1.5} draw 10 generations from gpt-4-turbo-2024-04-09, strip a repeated prompt and truncate after the first period (Sec. 3.1); compute Leak-Rate with BERTScore similarity of the concept to the test vs control generation (1 / 0 / 0.5 rule) averaged over the 4 x 10 samples and compare with 70.8 (Table 2, row GPT4, column BS).",
+    "approximation": "max_tokens is not stated; the BERTScore backbone version may differ from the authors' evaluate-metric default; the prompt file must still be served at the author's site.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "wid": "W4403556032",
+  "title": "Enhancing Healthcare LLM Trust with Atypical Presentations Recalibration",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 0.751,
+  "original_location": "Table 2, block gpt-4-turbo, row 'Atypical presentations', MedQA Acc",
+  "reexecution": {
+    "mean_over_seeds": 0.8110587002096435,
+    "per_seed": {
+      "0": {
+        "value": 0.8160377358490566,
+        "n": 1272,
+        "ci95": [
+          0.7948113207547169,
+          0.8364779874213837
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.8121069182389937,
+        "n": 1272,
+        "ci95": [
+          0.7908805031446541,
+          0.8325471698113207
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.8050314465408805,
+        "n": 1272,
+        "ci95": [
+          0.7838050314465409,
+          0.8254716981132075
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 32
+  },
+  "prepare": {
+    "wid": "W4403556032",
+    "n_items": 1272,
+    "n_requests": 3816,
+    "seeds": 3,
+    "est_usd": 61.79,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 0.751,
+    "cap_usd": 200.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 14
+  },
+  "approximation": "Options rendered as 'A. ...' lines inside {question} (format not printed); the printed prompt keeps the optional Difficulty line (Appendix B says it is optional and was used for analysis only).",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.8110587002096435,
+    "delta": 0.060058700209643545,
+    "original_inside_ci95": false
+  }
+}

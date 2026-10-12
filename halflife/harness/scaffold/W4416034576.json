@@ -1,0 +1,26 @@
+{
+  "openalex_id": "https://openalex.org/W4416034576",
+  "title": "AIRepr: An Analyst-Inspector Framework for Evaluating Reproducibility of LLMs in Data Science",
+  "doi": "https://doi.org/10.18653/v1/2025.findings-emnlp.539",
+  "field": "Biochemistry, Genetics and Molecular Biology",
+  "year": "2025",
+  "live_models": "o3-mini|o3-mini-2025-01-31",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/Anonymous-2025-Repr/LLM-DS-",
+    "github.com/Anonymous-2025-Repr/LLM-DS-Reproducibilityadvances"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/Anonymous-2025-Repr/LLM-DS-",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/Anonymous-2025-Repr/LLM-DS-Reproducibilityadvances",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4416034576.txt",
+  "paper_text_status": "pdf"
+}

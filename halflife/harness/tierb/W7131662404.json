@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7131662404",
+  "title": "Reporting checklist for foundation and large language models in medical research (REFINE): an international consensus guideline",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5-2025-08-07",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Table 3 reporting instructions: 'Specify the model name (e.g., GPT-5), vendor ... version or API identifier (e.g., 5 or GPT-5-2025-08-07)'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "",
+    "value": null,
+    "n_items": null,
+    "location": "none",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Not applicable (reporting guideline)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Consensus reporting checklist; the model identifier is used as an example only."
+}

@@ -1,0 +1,193 @@
+{
+  "card": "W4403885225",
+  "model": "gpt-4-turbo-2024-04-09",
+  "run_dir": "runs/W4403885225/baseline_alive",
+  "n_calls": 1500,
+  "complete_item_triples": 500,
+  "cost_usd": 22.2605,
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "finish_reasons": {
+    "stop": 1500
+  },
+  "parse": {
+    "parsed": 1494,
+    "unparsed": 6
+  },
+  "unparsed": [
+    {
+      "id": "84|orig",
+      "tie_like": true,
+      "chars": 1390
+    },
+    {
+      "id": "113|orig",
+      "tie_like": true,
+      "chars": 1639
+    },
+    {
+      "id": "147|rep",
+      "tie_like": true,
+      "chars": 1451
+    },
+    {
+      "id": "243|orig",
+      "tie_like": true,
+      "chars": 1771
+    },
+    {
+      "id": "320|orig",
+      "tie_like": true,
+      "chars": 1163
+    },
+    {
+      "id": "332|orig",
+      "tie_like": true,
+      "chars": 1895
+    }
+  ],
+  "unparsed_tie_like": 6,
+  "rules": {
+    "drop": {
+      "rr": 0.9495,
+      "rr_ci95": [
+        0.9293,
+        0.9677
+      ],
+      "n_rr": 495,
+      "rr_items_dropped": 5,
+      "rr_drop_rate": 0.01,
+      "rr_item_counts": {
+        "not_archived": 0,
+        "unparsable_verdict": 5
+      },
+      "cr": 0.9737,
+      "cr_ci95": [
+        0.9578,
+        0.9859
+      ],
+      "n_cr": 494,
+      "cr_items_dropped": 6,
+      "cr_drop_rate": 0.012,
+      "cr_item_counts": {
+        "not_archived": 0,
+        "unparsable_verdict": 6
+      },
+      "rr_minus_cr": -0.0242,
+      "rr_minus_cr_ci95": [
+        -0.0462,
+        -0.0039
+      ],
+      "mcnemar_rr_below_cr": {
+        "n_pairs": 494,
+        "consistent_not_robust": 20,
+        "robust_not_consistent": 8,
+        "test": "exact McNemar (binomial on discordant items), H1: RR < CR",
+        "p_one_sided": 0.017849069088697433
+      },
+      "n_boot": 1000,
+      "bootstrap_seed": 0,
+      "binomial_rr_vs_published_cr_0.990": 8.75204273835928e-11,
+      "orig_rr_0.915_inside_ci95": false,
+      "orig_cr_0.990_inside_ci95": false
+    },
+    "flip": {
+      "rr": 0.94,
+      "rr_ci95": [
+        0.918,
+        0.96
+      ],
+      "n_rr": 500,
+      "rr_items_dropped": 0,
+      "rr_drop_rate": 0.0,
+      "rr_item_counts": {
+        "not_archived": 0,
+        "unparsable_verdict": 5
+      },
+      "cr": 0.962,
+      "cr_ci95": [
+        0.944,
+        0.978
+      ],
+      "n_cr": 500,
+      "cr_items_dropped": 0,
+      "cr_drop_rate": 0.0,
+      "cr_item_counts": {
+        "not_archived": 0,
+        "unparsable_verdict": 6
+      },
+      "rr_minus_cr": -0.022,
+      "rr_minus_cr_ci95": [
+        -0.044,
+        -0.002
+      ],
+      "mcnemar_rr_below_cr": {
+        "n_pairs": 500,
+        "consistent_not_robust": 20,
+        "robust_not_consistent": 9,
+        "test": "exact McNemar (binomial on discordant items), H1: RR < CR",
+        "p_one_sided": 0.03071417286992073
+      },
+      "n_boot": 1000,
+      "bootstrap_seed": 0,
+      "binomial_rr_vs_published_cr_0.990": 1.5143152763865614e-14,
+      "orig_rr_0.915_inside_ci95": false,
+      "orig_cr_0.990_inside_ci95": false
+    }
+  },
+  "primary_rule": "drop",
+  "verdict_distribution": {
+    "orig": {
+      "A": 484,
+      "B": 11,
+      "null": 5
+    },
+    "pert": {
+      "A": 481,
+      "B": 19
+    },
+    "rep": {
+      "A": 487,
+      "B": 12,
+      "null": 1
+    }
+  },
+  "flags": {
+    "original_0.915_inside_ci95": false,
+    "rr_significantly_below_cr_ceiling": true,
+    "rr_increased_vs_paper": true,
+    "rr_above_gpt4o_0.977": false,
+    "rr_above_claude35_0.952": false
+  },
+  "judgment": "부분 생존 (partial)",
+  "original": {
+    "Ver_RR": 0.915,
+    "CR_FR": 0.99,
+    "n_items": 500,
+    "composition": {
+      "ScienceQA": 200,
+      "GSM8K": 151,
+      "MATH": 149
+    },
+    "other_judges_Ver_RR": {
+      "ChatGPT": 0.9,
+      "GPT-4o": 0.977,
+      "GLM-4": 0.887,
+      "Claude-3.5": 0.952,
+      "Qwen2": 0.884
+    },
+    "source": "Table 4 (D_FR, row GPT-4-Turbo, columns Ver. and CR_FR); RR/CR defined in Sec. 3 Metrics"
+  },
+  "tierb": {
+    "run_dir": "runs/tierb/W4403885225",
+    "rr_by_rule": {
+      "drop": 0.9354,
+      "flip": 0.926
+    },
+    "difference": "Tier B ran 1,000 calls (orig+pert only, no CR arm) with the PDF transcription of the template (paragraph wraps joined, ~11 fewer input tokens per call); Tier A adds the unperturbed repeat and renders the repository's source string"
+  }
+}

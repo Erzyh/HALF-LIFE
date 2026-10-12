@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7169835348",
+ "title": "Artificial Intelligence-Supported Virtual Nursing at Home: A Systematic Review",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"...particular GPT-4 Turbo, in accurately diagnosing images and supporting treatment selection...\" (narrative synthesis of reviewed literature)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - this is a systematic review, not an original experiment",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (this paper never calls an LLM itself; it synthesizes findings from included studies)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (characteristics of included studies)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Corpus of included systematic-review studies"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A systematic review of virtual-nursing literature; GPT-4 Turbo is mentioned only as an example of AI capability discussed in the reviewed papers."
+}

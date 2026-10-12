@@ -1,0 +1,27 @@
+{
+  "card_id": "W7166808082",
+  "model": "o3-2025-04-16",
+  "reasoning_effort": "medium",
+  "max_completion_tokens": 8192,
+  "temperature": null,
+  "top_p": null,
+  "seed_param": null,
+  "n_items": 102,
+  "n_seeds": 3,
+  "calls": 306,
+  "cap_usd": 25.0,
+  "prompt_source": "src/turtleai/prompts/template_code_synthesis.md",
+  "message_layout": "examples/common.py:generate_code (text, image_url)",
+  "estimate": {
+    "calls": 306,
+    "text_tokens_per_call": 654.5,
+    "image_tokens_mean_per_call": 248.5,
+    "image_tokens_mean_per_call_upscaled": 992.6,
+    "tokens_in": 276327,
+    "tokens_in_upscaled_variant": 504027,
+    "tokens_out_budgeted": 1836000,
+    "tokens_out_typical": 1224000,
+    "tokens_out_cap": 2506752
+  },
+  "built_utc": "2026-09-19T12:54:48.378322+00:00"
+}

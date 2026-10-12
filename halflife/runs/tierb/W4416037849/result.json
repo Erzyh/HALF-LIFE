@@ -1,0 +1,65 @@
+{
+  "wid": "W4416037849",
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retrieval-Augmented LLMs in Biomedicine",
+  "model": "o3-mini-2025-01-31",
+  "metric": "custom",
+  "original_value": 71.22,
+  "original_location": "Table 7, row o3-mini, column Relevance Precision / SRC (IS 73.99, CE 72.60)",
+  "reexecution": {
+    "mean_over_seeds": 0.6990508594278747,
+    "per_seed": {
+      "0": {
+        "value": 0.6994193836534167,
+        "n": 389,
+        "ci95": [
+          0.680451063920198,
+          0.7203519255841165
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.6977777777777778,
+        "n": 389,
+        "ci95": [
+          0.6789160996663471,
+          0.7201865974671979
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.6999554168524298,
+        "n": 389,
+        "ci95": [
+          0.6810591630316768,
+          0.721259028085053
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416037849",
+    "n_items": 389,
+    "n_requests": 1167,
+    "seeds": 3,
+    "est_usd": 6.97,
+    "subset_note": null,
+    "model": "o3-mini-2025-01-31",
+    "metric": "custom",
+    "original_value": 71.22
+  },
+  "served": {
+    "models": [
+      "o3-mini-2025-01-31"
+    ],
+    "n_fingerprints": 7
+  },
+  "approximation": "the paper's per-query 40/60 draw is not listed (seeded draw, set-level comparison); the 'Query:' / 'References:' layout and the expected output format are reconstructed (only the instruction sentence is printed); no item-level CI (F1)",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 69.90508594278747,
+    "delta": -1.3149140572125333,
+    "original_inside_ci95": true
+  }
+}

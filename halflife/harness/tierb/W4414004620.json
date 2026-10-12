@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414004620",
+  "title": "Integrating Semantic Web Technologies and Large Language Models: Ontologies and LLMs for Medication and Anaphylaxis Detection",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "For the experiments, gpt-4 Turbo models run using OpenAI's cloud and llama3-70b, llama3-8b, and gemma-7b models used the Groq Cloud (OntoDrug chapter); Table 2 row 'gpt-4 turbo 0.974 1.000 0.987'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Anaphylaxis chapter: final prompt described as five requested items with JSON output; medication prompt not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1-score for medication recognition in prescriptions",
+    "value": 0.987,
+    "n_items": 203,
+    "location": "Table 2 (OntoDrug chapter), row gpt-4 turbo",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "203 prescriptions sampled from 3,761 and 150 EMRs from Hospital Sirio-Libanes; not public"
+  },
+  "cost": {
+    "est_calls": 609,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Master's dissertation (USP) bundling the WebMedia 2024 OntoDrug paper (W4403389951) and an anaphylaxis-detection study; no model version string beyond 'gpt-4 Turbo'."
+}

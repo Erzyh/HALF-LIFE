@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7162395757",
+ "title": "Revolutionizing medical physiology education: a narrative review of the transition from traditional classrooms to artificial intelligence",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Generative AI statement: ... The ChatGPT, GPT-4-Turbo model (2025) was used for the language enhancement.\" -- writing-assistance disclosure, not a research method"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (writing/language-enhancement assistance only)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (narrative review, no experiment)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Narrative review in Frontiers in Medicine; GPT-4-Turbo is disclosed only as a manuscript language-enhancement tool."
+}

@@ -1,0 +1,87 @@
+{
+  "wid": "W4412888091",
+  "title": "LoFTI: Localization and Factuality Transfer to Indian Locales",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding; Appendix A.5 names the gpt-4-turbo model via the OpenAI API)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 250,
+    "subset_rule": "seeded random 250 (seed 20260907) of the 1,100 LoFTI samples unless the release identifies the Table 4 subset",
+    "approximation": "The 250-sample subset of Table 4 is 'randomly chosen' and unlisted; the same snapshot serves as subject and judge; decoding parameters not stated.",
+    "n_items_prepare": 250
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/csalt-research/LoFTI, file dataset/LoFTI.jsonl (also Hugging Face sonasimon/LoFTI)",
+    "config_or_split": "dataset/LoFTI.jsonl (1,100 rows)",
+    "filter": null,
+    "fields": {
+      "input": "reference_text",
+      "label": "true_target_entity",
+      "id": "id",
+      "target_location": "target_location",
+      "reference_entity": "reference_entity",
+      "category": "category",
+      "true_target_text": "true_target_text"
+    },
+    "license": "Apache-2.0 (repository LICENSE)",
+    "access_checked": true,
+    "size_mb": 3,
+    "file_url": "https://raw.githubusercontent.com/csalt-research/LoFTI/main/dataset/LoFTI.jsonl",
+    "fields_paper": {
+      "input": "Reference Text, Target Location (+ Reference Entity, Category for the judge)",
+      "label": "True Target Entity, True Target Text (judge references)",
+      "id": "row index"
+    },
+    "filter_paper": "none (seeded subset)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are a localization assistant. Convert the reference entity sentence from English to the Indian domain by localizing the reference sentence with a similar entity from the target location. Make the needed modifications in the sentence to make it factually correct for the target location. Output answers in English using multi-entity localization. Use the below format.\nMy reference sentence: <reference_claim>\nTarget location: <target_location>\nTarget sentence: <localized_target_sentence>\nReason: <reason_for_the_localization>\nMy reference sentence: {reference_text}\nTarget location: {target_location}\nTarget sentence: <fill_your_answer_here>\nReason: <fill_your_answer_here>",
+    "placeholders": {
+      "reference_text": "items.reference_text",
+      "target_location": "items.target_location"
+    },
+    "few_shot": "none",
+    "source_location": "Figure A4 (prompt used for localized text transfer in Mixtral and GPT-4 models)",
+    "verbatim": "full",
+    "placeholders_paper": {
+      "reference_text": "items['Reference Text']",
+      "target_location": "items['Target Location']"
+    }
+  },
+  "output": {
+    "parse": "regex Target sentence:\\s*(.*?)\\n\\s*Reason:",
+    "postprocess": "strip",
+    "parse_paper": "regex Target sentence:\\s*(.*?)\\n\\s*Reason: (dotall) -> generated target text"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Entity Correctness under GPT-4 evaluation: for each generated target text, gpt-4-turbo-2024-04-09 extracts the target entity (Figure A11 prompt) and scores it against the True Target Entity (Figure A12 prompt: 2 exact match, 1 possible correct localization, 0 otherwise); EC = share of items with score >= 1 (A.5.6).",
+    "judge": "llm:gpt-4-turbo-2024-04-09, prompt location Figures A11 (entity extraction) and A12 (scoring), Appendix A.5.6",
+    "original_value": 0.81,
+    "original_location": "Table 4, GPT-4 column, Overall, block GPT-4 Evaluation, row EC",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 2250,
+    "est_usd": 23.0,
+    "tier": "mid",
+    "est_usd_prepare": 13.24,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [
+    "runner gap beyond the hook protocol: Entity Correctness needs two chained judge calls per item (Figure A11 entity extraction, then Figure A12 scoring of the extracted entity against the True Target Entity) - one judge stage more than the hook protocol allows (one main + one judge stage); a human must approve either a second judge stage in the runner or switching the claim to a one-call metric"
+  ],
+  "notes": "Per seed 250 generations + 250 extraction + 250 scoring calls. The repository tree lists a LoFTI_subset.jsonl at the root (raw fetch returned 404 on the main branch); if it holds the 250-item Table 4 subset, use it instead of the seeded draw. Field names come from the README dataset structure and must be checked against the JSONL keys. || [normalize 2026-09-07] LoFTI.jsonl verified (1,100 rows; snake_case keys id, region, category, reference_location, reference_entity, target_location, true_target_entity, high_cardinality, hyperlocal_score, reference_text, true_target_text, common_questions), so the placeholders are plain items.<field>; the 'seeded random 250' subset rule is applied by the runner. Prompts render with --prepare."
+}

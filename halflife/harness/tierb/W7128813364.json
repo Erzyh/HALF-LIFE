@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7128813364",
+  "title": "Improving reliability and accuracy of structured data extraction using a consensus large-language model approach–a use case description in multiple sclerosis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini-2025-01-31",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Methods: 'gpt-4o-2024-08-06 (4o; OpenAI), gpt-4o-mini-2024-07-18 (4o-mini; OpenAI) and o3-mini-2025-01-31 (o3-mini; OpenAI) ... temperature value of 0.7'; extraction from routine clinical MS records."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Methods describe system/revised prompts and structured-output settings; error tables per prompt variant",
+    "note": ""
+  },
+  "claim": {
+    "metric": "extraction error counts (consensus approach)",
+    "value": null,
+    "n_items": null,
+    "location": "Results tables (errors per model and prompt variant)",
+    "task_type": "extraction",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "Routine clinical records of multiple sclerosis patients (not shareable)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Patient data are closed; an early proof-of-concept used the 4o-mini web interface, but the o3-mini runs were via API."
+}

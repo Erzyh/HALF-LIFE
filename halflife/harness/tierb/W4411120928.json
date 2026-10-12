@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411120928",
+  "title": "Paths of A Million People: Extracting Life Trajectories from Wikipedia",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (documentation URL)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Footnote 7: 'https://platform.openai.com/docs/models/gpt-4-turbo-and-...'; the baselines run are gpt-3.5-turbo-0613 and GPT-4 (gpt-4-0613) at temperature 0."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix (prompts for extraction, self-verification and the GPT-3.5 baseline)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Wikipedia-derived life-trajectory dataset (github.com/ZhangDataLab/COSMOS)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The callable gpt-4-turbo id appears only in a documentation URL; the GPT-4 baseline is gpt-4-0613 (Table 4)."
+}

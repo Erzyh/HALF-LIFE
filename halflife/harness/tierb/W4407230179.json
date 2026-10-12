@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4407230179",
+  "title": "The data scientist as a mainstay of the tumor board: global implications and opportunities for the global south",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"creation of this manuscript. While ChatGPT (GPT-4-turbo) by\" (author-disclosure / acknowledgment statement, not an experiment)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "No prompts; model mentioned only in a generative-AI writing-assistance disclosure."},
+  "claim": {
+    "metric": "none", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (opinion/commentary article, no dataset)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Commentary article on tumor boards. GPT-4-turbo is named only in a disclosure that ChatGPT helped draft the manuscript; no experiment involving the model is reported."
+}

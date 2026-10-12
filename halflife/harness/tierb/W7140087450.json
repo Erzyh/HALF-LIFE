@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7140087450",
+  "title": "JEEM: Vision-Language Understanding in Four Arabic Dialects",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 5: 'We use GPT-4 for this evaluation (gpt-4-turbo-2024-04-09), a version intentionally distinct from the one used to generate the captions.'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix E, Figure 13 (evaluation prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Likert scores assigned by the GPT-4 judge",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 3-4 (scores describe the VLM subjects, not the judge)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "JEEM dataset (Arabic dialect image captioning / VQA)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is the LLM-as-judge only; subject models are Arabic VLMs and gpt-4o-2024-08-06."
+}

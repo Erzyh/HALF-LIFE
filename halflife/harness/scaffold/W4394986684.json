@@ -1,0 +1,93 @@
+{
+  "openalex_id": "https://openalex.org/W4394986684",
+  "title": "Benchmarking Large Language Models for Bio-Image Analysis Code Generation",
+  "doi": "https://doi.org/10.1101/2024.04.19.590278",
+  "field": "Biochemistry, Genetics and Molecular Biology",
+  "year": "2024",
+  "live_models": "gpt-4-turbo|gpt-4-turbo-2024-04-09",
+  "dead_models": "claude-3-opus-20240229|gpt-4-1106-preview",
+  "flags": "",
+  "all_links": [
+    "github.com/AllenCellModeling/aicsimageio",
+    "github.com/haesleinhuepf/human-eval-bia",
+    "github.com/haesleinhuepf/human-eval-bia2",
+    "github.com/itseez/opencv"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/AllenCellModeling/aicsimageio",
+      "cloned": true,
+      "audit": {
+        "n_files": 117,
+        "ext_top": {
+          ".py": 76,
+          ".md": 10,
+          "": 7,
+          ".yml": 7,
+          ".rst": 5,
+          ".yaml": 2,
+          ".ipynb": 2,
+          ".rc": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 2,
+        "n_py": 76,
+        "n_data_files": 1,
+        "files_mentioning_prompt": 0,
+        "files_with_eval_terms": 13,
+        "model_ids_in_code": {
+          "o3": 1
+        },
+        "readme_head": "> [!IMPORTANT]\n> We are no longer actively maintaining this repository. All active work by the Allen Institute for Cell Science is located under the **[AllenCell](https://github.com/AllenCell)** organization.\n\n# AICSImageIO\n\n> [!WARNING]  \n> AICSImageIO is now in maintenance mode only.  Please take a look at its compatible successor [`bioio`](https://github.com/bioio-devs/bioio) ([see here for migration guide](https://bioio-devs.github.io/bioio/MIGRATION.html))\n\n[![Build Status](https://github.com/AllenCellModeling/aicsimageio/actions/workflows/build-main.yml/badge.svg)](https://github.com/AllenCellModeling/aicsimageio/actions)\n[![Documentation](https://github.com/AllenCellModeling/aicsimageio/workflows/Documentation/badge.svg)](https://AllenCellModeling.github.io/aicsimageio/)\n[![Code Coverage](https://codecov.io/gh/AllenCellModeling/aicsimageio/branch/main/graph/badge.svg)](https://app.codecov.io/gh/AllenCellModeling/aicsimageio/branch/main)\n[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4906608.svg)](https://doi.org/10.5281/zenodo.4906608)\n\nImage Reading, Metadata Conversion, and Image Writing for Microscopy Images in Pure Python\n\n\n---\n\n## Features\n\n-   Supports reading metadata and imaging data for:\n    -   `OME-TIFF`\n    -   `TIFF`\n    -   `ND2` -- (`pip install aicsimageio[nd2]`)\n    -   `DV` -- (`pip install aicsimageio[dv]`)\n    -   `CZI` -- (`pip install aicspylibczi>=3.1.1 fsspec>=2022.8.0`)\n    -   `LIF` -- (`pip install readlif>=0.6.4`)\n    -   `PNG`, `GIF`, "
+      },
+      "commit": "8dfaaba9893c0ee5931938a0def3a4d93a5d13eb"
+    },
+    {
+      "url": "https://github.com/haesleinhuepf/human-eval-bia",
+      "cloned": true,
+      "audit": {
+        "n_files": 215,
+        "ext_top": {
+          ".ipynb": 69,
+          ".jsonl": 56,
+          ".csv": 27,
+          ".png": 17,
+          ".tif": 16,
+          ".md": 9,
+          ".py": 6,
+          "": 4
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 69,
+        "n_py": 6,
+        "n_data_files": 83,
+        "files_mentioning_prompt": 15,
+        "files_with_eval_terms": 91,
+        "model_ids_in_code": {
+          "o3": 2397,
+          "o1": 2264,
+          "o4": 1112,
+          "claude-3-5-sonnet-20240620": 82,
+          "gpt-4o-": 53,
+          "o1-mini-2024-09-12": 34,
+          "claude-3-opus-20240229": 32,
+          "claude-3-5-sonnet-20241022": 31,
+          "gemini-1.5-pro-001": 29,
+          "gpt-4-turbo-2024-04-09": 27
+        },
+        "readme_head": "# Benchmarking Large Language Models for Bio-Image Analysis Code Generation\n[![DOI](https://zenodo.org/badge/776550410.svg)](https://zenodo.org/doi/10.5281/zenodo.12656869)\n\nThis is a fork of the [HumanEval](https://github.com/openai/human-eval) repository where modifications were made \nto adapt the evaluation for [Benchmarking LLMs in the Bio-image Analysis domain](https://www.biorxiv.org/content/10.1101/2024.04.19.590278v2). The original HumanEval repository is an evaluation harness for the HumanEval problem solving dataset described in the paper \n\"[Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)\". \n\n## Insights\n\nUsing the benchmark in this repository, we compared 15 LLMs in their capabilities to generate Bio-image Analysis Python code. \nTherefore, we defined test-cases [listed here](test_cases/readme.md) which can be used to evaluate functional correctness of bio-image analysis code.\nThe pass-rate shown in this plot expresses the probability that generated code passed given unit-tests:\n\n![](docs/paper/pass_rate_llms.png)\n\nFurthermore, we visualize the observed pass-rate per task:\n\n![](docs/paper/performance_per_task.png)\n\nTo find out more, please read our [preprint](https://www.biorxiv.org/content/10.1101/2024.04.19.590278v2)\n\nFeedback is welcome, e.g. as [Github issue](https://github.com/haesleinhuepf/human-eval-bia/issues).\n\n## Installation\n\nMake sure to use python 3.10 or later:\n```\n$ mamba create --name heb python=3.10\n$ conda activa"
+      },
+      "commit": "f6edaa15545e84951f5428d07e16db04155f2266"
+    },
+    {
+      "url": "https://github.com/haesleinhuepf/human-eval-bia2",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4394986684.txt",
+  "paper_text_status": "pdf"
+}

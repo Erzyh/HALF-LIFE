@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4414809055",
+ "title": "ALARB: An Arabic Legal Argument Reasoning Benchmark",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-o4-mini",
+  "resolved": "o4-mini-2025-04-16",
+  "role": "B",
+  "evidence": "Table 4 (Verdict Prediction results): 'GPT-o4-mini 22.9 46 30.9 61.3 36.72 27.6 43.8 28.5' (Correct/Partial/Incorrect per input condition); 'we used GPT-4o as an LLM-as-a-judge...tasked with assessing their alignment'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 5.1: 'the models were provided with detailed prompts outlining both the expected output and the format of the response'; a sample MCQ prompt is shown for a different task (Figure 11)",
+  "note": "Prompt existence and structure are described but the verdict-prediction prompt itself is not confirmed verbatim in the excerpt read."
+ },
+ "claim": {
+  "metric": "verdict prediction: Correct (%), Facts Only condition",
+  "value": 22.9,
+  "n_items": 1329,
+  "location": "Table 4, row GPT-o4-mini, Facts Only/Correct column; 'benchmarks were performed on a subset of 1,329 legal cases'",
+  "task_type": "classification",
+  "judge": "llm:gpt-4o (undated)"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ALARB (paper introduces and benchmarks the dataset)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "aux_model_dead"
+ ],
+ "notes": "The Correct/Partial/Incorrect categorization is produced by an undated GPT-4o judge assessing alignment between predicted and actual verdicts, so the reported number cannot be reproduced without that same (unpinned) judge even if o4-mini's raw outputs were regenerated."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405767487",
+ "title": "Multi-Agent Sampling: Scaling Inference Compute for Data Synthesis with Tree Search-Based Agentic Collaboration",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (04/09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 1 (AlpacaEval 2.0 results): \"GPT-4 Turbo (04/09) 55.0 46.1 -\" (length-controlled win rate, win rate); caption: \"...win rate (%) with GPT-4-Preview-1106 as both baseline and annotator.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix B.4 (\"provides the prompts used\"); Appendix B.3 for inference settings",
+  "note": "Prompts are referenced as being in an appendix not reached in the retrieved excerpt."
+ },
+ "claim": {
+  "metric": "AlpacaEval 2.0 length-controlled win rate (%), GPT-4 Turbo (04/09)",
+  "value": 55.0,
+  "n_items": null,
+  "location": "Table 1, row 'GPT-4 Turbo (04/09)', LC column",
+  "task_type": "generation",
+  "judge": "llm:GPT-4-Preview-1106"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AlpacaEval 2.0 and WMT public benchmarks"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [
+  "aux_model_dead"
+ ],
+ "notes": "GPT-4 Turbo (04/09) is a clean, dated subject model with its own AlpacaEval score, but per the table caption both the baseline AND the annotator/judge for every row in this table is GPT-4-Preview-1106, a retired snapshot not on the live list; win rate is judge-relative, so the same number cannot be reproduced with a different judge."
+}

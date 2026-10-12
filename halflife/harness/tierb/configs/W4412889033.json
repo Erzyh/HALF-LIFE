@@ -1,0 +1,80 @@
+{
+  "wid": "W4412889033",
+  "title": "Applying the Character-Role Narrative Framework with LLMs to Investigate Environmental Narratives in Scientific Editorials and Tweets",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.2,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 5.3 (temperature 0.2 for the GPT models); max_tokens assumed; snapshot by the alias rule (record)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 50,
+    "subset_rule": "paper-defined split: the 50-tweet categorization test set annotated by Annotator 3 (Sec. 5.4)",
+    "approximation": "the prompt says each text is one entity while the output format tags entities in-line; each tweet is sent once with its pre-labelled character spans and the returned tag per span is scored; F1 averaging (not stated) taken as micro F1 over entities",
+    "n_items_prepare": 1559
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/stefanolocci/Character-Role-Narrative-Framework-LLMs (tweet_dataset folder; categorization test set file path unverified)",
+    "config_or_split": "tweets, 50-item categorization test set",
+    "filter": null,
+    "fields": {
+      "input": "data.Text",
+      "label": null,
+      "id": null
+    },
+    "license": "cc-by-sa-4.0 (tweet_dataset, per the repository README)",
+    "access_checked": true,
+    "size_mb": 1,
+    "file_url": "https://raw.githubusercontent.com/stefanolocci/Character-Role-Narrative-Framework-LLMs/main/tweets_dataset.json",
+    "fields_paper": {
+      "input": "tweet text with the entities to categorize",
+      "label": "category per entity: Human / Instrumental / Natural",
+      "id": "tweet id"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Task Overview: You are given a text. Each text represents a unique entity, and your task is to categorize the entity based on one of three categories: Human, Instrumental, or Natural. Below are the definitions for each category, along with relevant examples.\nCategories:\nHuman Characters: These include humans or entities made up of people, such as corporations, governments, organizations of any type (e.g., religious), and political movements. Examples:\n\"Oil and gas industry\" (categorized as Human because it refers to a group of businesses).\n\"World\" (categorized as Human when referring to governments, organizations, or companies).\nInstrumental Characters: These are more abstract entities such as policies, laws, technologies, measures, objects, or human-driven processes (e.g., \"urbanization,\" \"deforestation,\" \"city growth\"). They can also be artifacts or processes that have been produced or initiated by human characters. Examples:\n\"Pesticides and fertilizers\" (categorized as Instrumental because they are human-made technologies).\n\"Carbon emissions\" (categorized as Instrumental because they result from human processes).\nNatural Characters: These comprise non-human entities such as natural elements (e.g., soil, oceans), animals, nature itself, and the planet. They can also include natural processes or phenomena (e.g., \"biodiversity loss,\" \"climate change,\" \"pandemic\"). Examples:\n\"Europe\" (categorized as Natural when referring to the geographical region and its natural elements, rather than its people).\n\"Smoke\" (categorized as Natural when referring to poor air quality from smoke, assuming it is not human-caused).\nOutput Format: You must return the input text with each entity labeled using in-line tag annotations (<start_token>text<end_token>), where the tag corresponds to a category name.\nThe only available tags are:\nHuman: <HUM>text</HUM>\nInstrumental: <INS>text</INS>\nNatural: <NAT>text</NAT>\nExamples:\n<HUM>oil and gas industry</HUM>\n<HUM>low-income communities</HUM>\n<INS>30x30 policy</INS>\n<INS>pesticides and fertilizers</INS>\n<NAT>climate change</NAT>\n<NAT>the ocean</NAT>\nHere is the text to annotate:\n{text}",
+    "placeholders": {
+      "text": "items.data.Text"
+    },
+    "few_shot": "k=6 fixed tagged examples printed inside the Appendix A.4 prompt",
+    "source_location": "Appendix A.4, 'Prompt for GPT family and Llama for character categorization task - few-shot'",
+    "verbatim": "full (curly quotes normalised); the exact GPT-4-Turbo prompt version is in the repository per Sec. 5.2",
+    "placeholders_paper": {
+      "text": "the tweet (entities as annotated by Annotator 3)"
+    }
+  },
+  "output": {
+    "parse": "regex <(HUM|INS|NAT)>(.+?)</\\1> ; each gold entity span takes the tag wrapping it",
+    "postprocess": "map HUM/INS/NAT to Human/Instrumental/Natural; an entity without a tag counts as a miss"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "F1 over entity-level category predictions against Annotator 3's labels on the 50-tweet test set (averaging method unstated; micro F1 used)",
+    "judge": "none",
+    "original_value": 0.78,
+    "original_location": "Table 4, block 'Tweets 50 test set', row GPT-4-Turbo, column F1-score",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 150,
+    "est_usd": 2.0,
+    "tier": "low",
+    "est_usd_prepare": 97.27,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [
+    "no hook: the public release stores every tweet text and every entity span as the string 'ANONYM' (only offsets, roles and categories remain), so the 50-tweet categorization test set cannot be reconstructed from the public record.",
+    "if texts were available: entity-level tag matching and F1 (micro vs macro unstated) would be a small hook."
+  ],
+  "notes": "Cheap (~$0.01 per call). The character-role detection task (Tables 2-3) is scored against two annotators separately and is not targeted. || [normalize 2026-09-07] GitHub tree read on 2026-09-07: root holds GPT_Prompts.md (the categorization prompt printed in the config, with more examples), tweets_dataset.json (list of {annotations:[{result:[{value:{start,end,text,labels,cat}}]}], data:{ID,Text,stance}}) and editorials_dataset.json; all Text/text values are 'ANONYM'."
+}

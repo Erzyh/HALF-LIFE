@@ -1,0 +1,92 @@
+{
+  "card_id": "W4404792914",
+  "openalex_id": "https://openalex.org/W4404792914",
+  "title": "PATIENT-PSI: Using Large Language Models to Simulate Patients for Training Mental Health Professionals",
+  "doi": "10.18653/v1/2024.emnlp-main.711",
+  "paper": {
+    "doi": "10.18653/v1/2024.emnlp-main.711 (EMNLP 2024, pp. 12772-12797); arXiv 2405.19660",
+    "authors": "Ruiyi Wang, Stephanie Milani, Jamie C. Chiu, Jiayin Zhi, Shaun M. Eack, Travis Labrum, Samuel M. Murphy, Nev Jones, Kate Hardy, Hong Shen, Fei Fang, Zhiyu Zoey Chen",
+    "year": 2024,
+    "venue": "Proceedings of EMNLP 2024",
+    "repo": "https://github.com/ruiyiw/patient-psi",
+    "repo_commit": "de72a768e5366d3e94f7d8c711c563fb4a5b4d26",
+    "repo_license": "MIT (LICENSE file, 'Copyright (c) 2026 Ruiyi Wang'); README badge says Apache-2.0 - inconsistent"
+  },
+  "dependence": {
+    "type": "simulated_participant",
+    "strength": "core",
+    "note": "GPT-4 role-plays CBT patients from expert-authored cognitive models (PATIENT-PSI); the core outcomes are ratings by 20 mental-health experts and 13 trainees who interacted with the simulated patients. GPT-4 Turbo appears only in dataset construction (summaries of licensed therapy transcripts that inspired the cognitive models)."
+  },
+  "claim": {
+    "statement": "PATIENT-PSI (GPT-4 prompted with an expert-created CCD cognitive model plus a conversational-style instruction) is rated by 20 experts as significantly more realistic than a vanilla GPT-4 patient baseline (mean pairwise fidelity preference mu = 1.3 on a -2..2 scale, p < 1e-4; Table 3; per-dimension mu = 0.6/1.1/1.3 for maladaptive cognitions/emotional states/conversational styles) and as capturing its reference cognitive model with mean accuracy 4.0/5 overall (95% CI [3.7, 4.2]; Table 12), with 80-88% of simulated patients rated very-to-extremely accurate per component (Section 4.2).",
+    "claim_type": "method_effect",
+    "metric": "expert pairwise comparison (-2..2) of fidelity vs baseline; 5-point Likert accuracy per CCD component; model-side proxy: GPT-4-as-judge accuracy/macro-F1 of PATIENT-PSI vs its reference cognitive model over the 40 expert conversations (Table 6)",
+    "original_values": {
+      "fidelity_vs_gpt4_baseline_mu": 1.3,
+      "fidelity_vs_traditional_mu": 1.3,
+      "fidelity_dimensions_mu": {"maladaptive_cognitions": 0.6, "emotional_states": 1.1, "conversational_styles": 1.3},
+      "accuracy_overall_mean_ci": [4.0, 3.7, 4.2],
+      "accuracy_components_mean": {"core_beliefs": 4.2, "emotions": 4.3, "intermediate_beliefs": 4.1, "intermediate_beliefs_depression": 4.2, "situation": 4.1},
+      "llm_judge_table6": {"situation_acc": 0.97, "coping_strategies_acc": 0.93, "intermediate_beliefs_acc": 0.92, "automatic_thoughts_acc": 0.88, "behaviors_acc": 0.84, "core_beliefs_macro_f1": 0.80, "emotions_macro_f1": 0.72, "core_beliefs_fine_macro_f1": 0.48},
+      "llm_judge_fidelity_vs_expert": {"gpt4_judge_mu": 3.53, "llama3_70b_judge_mu": 3.06, "expert_mu": 4.10, "p": "<0.01"}
+    },
+    "original_source": "Tables 3, 6, 11, 12 and Sections 4.1-4.2, 5 of the EMNLP paper"
+  },
+  "protocol": {
+    "model": "'gpt-4' alias (lib/chat/actions.tsx, Vercel AI SDK) for the simulated patient and the GPT-4 baseline; 'GPT-4 Turbo (OpenAI, 2023)' only for transcript summarisation during PATIENT-PSI-CM construction; judges: GPT-4 and Llama-3-70B at temperature 1.0",
+    "model_status": "live model NOT an experimental arm: gpt-4-turbo was used only to summarise licensed transcripts (auxiliary data-construction step). The patient simulator ran on the 'gpt-4' alias (gpt-4-0613, dead) via the app; snapshot unpinned.",
+    "endpoint": "chat completions through the Next.js/Vercel app (app/api, lib/chat/actions.tsx); python/generation/generate.py (langchain ChatOpenAI, GENERATOR_MODEL=gpt-4, temperature 1.0) for cognitive-model extraction",
+    "prompt_source": "app/api/getDataFromKV.ts formatPromptString (patient system prompt), app/api/data/patient-types.jsx (six conversational-style instructions), python/generation/generation_template.py (CCD extraction prompt); Appendix C.3-C.4 of the paper",
+    "messages": [
+      {"role": "system", "content": "Imagine you are {name}, a patient who has been experiencing mental health challenges. ... Patient History: {history} ... Cognitive Conceptualization Diagram: Core Beliefs / Intermediate Beliefs / ... Situation / Automatic Thoughts / Emotions / Behavior ... guidelines 1-5 (style instruction, natural language, gradual revelation, consistency, dynamic conversation) ... Limit each of your responses to a maximum of 5 sentences."},
+      {"role": "user", "content": "<therapist turn(s) from the human trainee/expert>"}
+    ],
+    "params": {"temperature": "not set in the chat app (SDK default); 1.0 for CM generation and for the LLM judges", "max_tokens": "not set", "seed": "not set"},
+    "n_items": "66 cognitive models used in the user study; 33 participants x 2 sessions per system; 40 expert conversations for the automatic evaluation",
+    "samples_per_item": "1 live session per participant/system",
+    "evaluation": "Core: human questionnaires (experts/trainees) - not re-measurable without new participants. Model-side: Table 6 LLM-judge accuracy needs the 40 archived conversations (de-identified, 'consented to be released for research purposes' but not in the repo) and the PATIENT-PSI-CM dataset (by request, institutions with an Alexander Street subscription)."
+  },
+  "artifacts": {
+    "prompts_path": "external/repos/W4404792914/ruiyiw__patient-psi/app/api/getDataFromKV.ts; app/api/data/patient-types.jsx; python/generation/generation_template.py",
+    "data_path": "PATIENT-PSI-CM: request form https://forms.gle/pQ3g6YVFrEWjBU2H7 (restricted); example profiles in python/data/profiles.json (Beck Institute 'Abe' example); user-study conversations not released",
+    "eval_path": null,
+    "data_public": false,
+    "data_license": "code MIT; dataset restricted to academic institutions with an Alexander Street subscription",
+    "redistributable": false,
+    "notes": "Judge prompts and the automatic-evaluation scripts are not in the repository."
+  },
+  "blockers": [
+    "core outcomes are expert/trainee ratings from live sessions - only model outputs re-executable, and the patient simulation needs a human therapist interlocutor",
+    "live model not an experimental arm (GPT-4 Turbo only summarised transcripts); the simulator used the unpinned 'gpt-4' alias (gpt-4-0613, dead)",
+    "PATIENT-PSI-CM dataset and the 40 conversations are restricted/unreleased; judge prompts not released",
+    "source transcripts come from a licensed database (Alexander Street)"
+  ],
+  "arms": {
+    "baseline_alive": {"model": null, "note": "none"},
+    "successors": [
+      "gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm)",
+      "claude (current Anthropic flagship)",
+      "gemini (current Google flagship)",
+      "llama (open weights, e.g. Llama-3.3-70B-Instruct)",
+      "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct)"
+    ]
+  },
+  "budget": {
+    "est_calls": 960,
+    "est_tokens_in": 2900000,
+    "est_tokens_out": 100000,
+    "est_cost_usd": 32,
+    "pricing_usd_per_1m": {"gpt-4-turbo-2024-04-09": {"input": 10.0, "output": 30.0}},
+    "assumptions": "conditional model-side proxy only: re-run the LLM-judge accuracy (Table 6) with a live judge over 40 conversations x 8 components x 3 seeds, ~3,000 input tokens per call - requires the unreleased conversations and cognitive models. A new simulated-patient session set would additionally need human therapists."
+  },
+  "judgment": {
+    "rule": "Not judgeable under ANALYSIS_PLAN section 1 for the core claim (human fidelity/accuracy ratings). If the proxy is approved: survival if judge-measured component accuracies stay >= 0.8 for text fields and macro-F1 for core beliefs/emotions stays within +/- 0.1 of 0.80/0.72; note that the judge itself changes model, confounding the comparison.",
+    "notes": "The paper itself shows LLM judges disagree with experts (Figure 5), so a judge-based proxy is weak evidence for the human-rated claim."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Should we request PATIENT-PSI-CM and the 40 de-identified expert conversations from the authors to enable the Table 6 proxy?",
+    "Record this paper as 'human-outcome; live model auxiliary only' - agree?"
+  ],
+  "domain_notes": "CBT cognitive models follow Beck's Cognitive Conceptualization Diagram (19 core-belief categories, 9 emotions); the fidelity construct is clinical realism judged by practising clinicians, which no automatic metric replaces. The paper reports that GPT-4 and Llama-3 judges systematically favour the vanilla GPT-4 baseline, i.e. LLM-as-judge is anti-correlated with expert judgment here - relevant for any judge-based successor comparison."
+}

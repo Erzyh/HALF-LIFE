@@ -1,0 +1,93 @@
+{
+  "wid": "W4399404161",
+  "title": "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 4000,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding; the public evaluation script in TIGER-AI-Lab/MMLU-Pro uses temperature 0, top_p 1, max_tokens 4000)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 12032,
+    "subset_rule": "all",
+    "approximation": "none (same 12,032 test items, same 5 validation exemplars per category; option lines rendered one per line as in the public eval script because Table 7's rendering collapses line breaks)"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "TIGER-Lab/MMLU-Pro",
+    "config_or_split": "default / test (exemplars: default / validation, 70 rows = 5 per category)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "options",
+      "label": "gold",
+      "id": "id",
+      "category": "category"
+    },
+    "license": "mit",
+    "access_checked": true,
+    "size_mb": 9,
+    "hf": {
+      "dataset": "TIGER-Lab/MMLU-Pro",
+      "config": "default",
+      "split": "test"
+    },
+    "fields_paper": {
+      "input": "question",
+      "options": "options (list of up to 10 strings, lettered A-J in order)",
+      "label": "gold {answer: letter, n_options: k} (hook; k feeds the paper's random fallback)",
+      "id": "question_id",
+      "category": "category",
+      "exemplar_cot": "cot_content (validation split only)"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "The following are multiple-choice questions (with answers) about {category}. Think step by step and then finish your answer with \"The answer is (X)\" where X is the correct letter choice.\n{few_shot_block}Question: {question}\nOptions: {options}\nAnswer: Let's think step by step.",
+    "placeholders": {
+      "category": "items.category (hook render)",
+      "question": "items.question",
+      "options": "options_lettered(options)",
+      "few_shot_block": "hook: the 5 validation-split exemplars of the item's category, each 'Question: ..\\nOptions: A. ..\\nAnswer: Let's think step by step. .. The answer is (X).\\n\\n' (cot_content with its 'A: ' prefix removed)"
+    },
+    "few_shot": "k=5 fixed exemplars per category from the MMLU-Pro validation split (Sec. 4 / Appendix A.2)",
+    "source_location": "Table 7 (5-shot CoT prompt example in physics) and Appendix A.2",
+    "verbatim": "full (instruction line, exemplar layout and the trailing 'Answer: Let's think step by step.' copied from Table 7; the line breaks between options are restored per the public eval script)",
+    "placeholders_paper": {
+      "category": "items.category (e.g. physics), lowercase as in Table 7",
+      "few_shot_block": "the 5 validation-split exemplars of the same category, each formatted as 'Question: {question}\\nOptions: {options}\\nAnswer: {cot_content}\\n\\n' where cot_content already starts with \"Let's think step by step.\" and ends with \"The answer is (X).\"",
+      "question": "items.question",
+      "options": "items.options formatted as 'A. ...\\nB. ...' (one option per line, letters A-J)"
+    }
+  },
+  "output": {
+    "parse": "hook: regex answer is \\(?([A-J])\\)? ; fallback [aA]nswer:\\s*([A-J]) ; else seeded random option (paper fallback, count logged)",
+    "postprocess": "take the first match of the primary regex, else the fallback; if both fail select a seeded random option (paper's fallback) and log the count",
+    "parse_paper": "regex answer is \\(?([A-J])\\)? ; fallback regex [aA]nswer:\\s*([A-J]) (Sec. 4 Answer Extraction)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of test items whose extracted letter equals the answer field, in percent",
+    "judge": "none",
+    "original_value": 63.7,
+    "original_location": "Table 2, row GPT-4-Turbo, column Overall (5-shot CoT)",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 12032,
+    "est_usd": 420.0,
+    "tier": "high"
+  },
+  "open_points": [],
+  "notes": "Roughly 2.5K input tokens (5 CoT exemplars) and 300 output tokens per call at gpt-4-turbo prices (~$0.035/call). The repository's instruction line differs slightly ('...then output the answer in the format of \"The answer is (X)\" at the end.'); the paper's Table 7 wording is used. Per-subject subsets (e.g. physics 1,299 items, Table 2 column) are cheaper partial checks. GPT-4-Turbo also served in dataset construction (answer extraction, option augmentation). || [normalize 2026-09-07] hf parquet default/test (12,032 rows) and default/validation (70 rows; question_id, question, options, answer, answer_index, cot_content, category, src) verified; options_lettered(options) yields the 'A. ..' lines. || [hooks_2 2026-09-07] few-shot assembly from the validation split and the random fallback live in the hook; prepare verified (12,032 items; the default --cap 40 subsets the run, raise the cap for the full set). || [triage 2026-09-09] DEVIATION, pipeline verified: the cost-cap subset is a seeded random draw over the whole test set (ids 85..12244; per-category shares within 1.7 points of the full set; reweighting the per-category accuracies to the full shares gives 67.4 vs 68.0). Extraction: 1,627 primary regex, 0 secondary, 25 random fallback (paper's rule; 13 of the 25 would be caught by the repository script's third-stage 'last standalone letter' regex, which the paper does not describe), 0 truncated at max_tokens 4000, no 'answer is **X**' cases. Per category vs Table 2 (same snapshot gpt-4-turbo-2024-04-09): math 75.4 vs 62.8, physics 72.7 vs 61.0, engineering 50.8 vs 35.9, law 45.2 vs 51.2, history 64.8 vs 67.7, psychology 77.7 vs 78.3 - the gap sits entirely in the quantitative subjects. The dataset's post-publication answer-key corrections (changelog 2024-07/08/09, a handful of math/engineering IDs) are too few to explain it; the pattern is consistent with the paper's run losing long CoT answers (truncation or extraction failure -> random option) on math/physics/engineering. Full-set re-run would cost about $420.",
+  "hook": "harness/tierb/hooks/W4399404161.py: load_items (test + validation exemplars per category), render (Table 7 layout), parse (two regexes), score (accuracy with seeded random fallback)"
+}

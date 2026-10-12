@@ -1,0 +1,58 @@
+{
+  "wid": "W4404781158",
+  "title": "MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Models",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "accuracy",
+  "original_value": 75.28,
+  "original_location": "Table 5, row GPT-4, English Avg. (quantity 65.00, quality 83.89, relation 82.22, manner 70.00)",
+  "reexecution": {
+    "mean_over_seeds": 0.775,
+    "per_seed": {
+      "0": {
+        "value": 0.775,
+        "n": 240,
+        "ci95": [
+          0.7208333333333333,
+          0.825
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404781158",
+    "n_items": 240,
+    "n_requests": 240,
+    "seeds": 1,
+    "est_usd": 0.11,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 75.28,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4404781158",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "automatic option extraction replaces the three human ratings of the free-form answers (resolution plan)",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W4404781158"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 77.5,
+    "delta": 2.219999999999999,
+    "original_inside_ci95": true
+  }
+}

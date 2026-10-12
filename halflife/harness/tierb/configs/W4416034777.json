@@ -1,0 +1,386 @@
+{
+  "wid": "W4416034777",
+  "title": "The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decision-Making in Rock-Paper-Scissors Games?",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "frequency_penalty": 0,
+      "presence_penalty": 0,
+      "max_tokens": 1024
+    },
+    "params_source": "paper Sec. 4.1 Configurations (temperature 1, top-p 1, repetition penalties disabled); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 100,
+    "subset_rule": "100 independent single-turn games, a new session (fresh conversation) per call",
+    "approximation": "the paper's 'GPT-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (EMNLP Findings 2025, no version string)",
+    "n_items_prepare": 100
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Sec. 4.2 prompt box (the prompt is the entire input; footnote 2 spells out RPS and {R, P, S})",
+    "config_or_split": "n/a",
+    "filter": null,
+    "fields": {
+      "input": null,
+      "label": null,
+      "id": "id"
+    },
+    "license": "n/a (printed in the paper)",
+    "access_checked": true,
+    "size_mb": 0,
+    "inline": [
+      {
+        "id": "1"
+      },
+      {
+        "id": "2"
+      },
+      {
+        "id": "3"
+      },
+      {
+        "id": "4"
+      },
+      {
+        "id": "5"
+      },
+      {
+        "id": "6"
+      },
+      {
+        "id": "7"
+      },
+      {
+        "id": "8"
+      },
+      {
+        "id": "9"
+      },
+      {
+        "id": "10"
+      },
+      {
+        "id": "11"
+      },
+      {
+        "id": "12"
+      },
+      {
+        "id": "13"
+      },
+      {
+        "id": "14"
+      },
+      {
+        "id": "15"
+      },
+      {
+        "id": "16"
+      },
+      {
+        "id": "17"
+      },
+      {
+        "id": "18"
+      },
+      {
+        "id": "19"
+      },
+      {
+        "id": "20"
+      },
+      {
+        "id": "21"
+      },
+      {
+        "id": "22"
+      },
+      {
+        "id": "23"
+      },
+      {
+        "id": "24"
+      },
+      {
+        "id": "25"
+      },
+      {
+        "id": "26"
+      },
+      {
+        "id": "27"
+      },
+      {
+        "id": "28"
+      },
+      {
+        "id": "29"
+      },
+      {
+        "id": "30"
+      },
+      {
+        "id": "31"
+      },
+      {
+        "id": "32"
+      },
+      {
+        "id": "33"
+      },
+      {
+        "id": "34"
+      },
+      {
+        "id": "35"
+      },
+      {
+        "id": "36"
+      },
+      {
+        "id": "37"
+      },
+      {
+        "id": "38"
+      },
+      {
+        "id": "39"
+      },
+      {
+        "id": "40"
+      },
+      {
+        "id": "41"
+      },
+      {
+        "id": "42"
+      },
+      {
+        "id": "43"
+      },
+      {
+        "id": "44"
+      },
+      {
+        "id": "45"
+      },
+      {
+        "id": "46"
+      },
+      {
+        "id": "47"
+      },
+      {
+        "id": "48"
+      },
+      {
+        "id": "49"
+      },
+      {
+        "id": "50"
+      },
+      {
+        "id": "51"
+      },
+      {
+        "id": "52"
+      },
+      {
+        "id": "53"
+      },
+      {
+        "id": "54"
+      },
+      {
+        "id": "55"
+      },
+      {
+        "id": "56"
+      },
+      {
+        "id": "57"
+      },
+      {
+        "id": "58"
+      },
+      {
+        "id": "59"
+      },
+      {
+        "id": "60"
+      },
+      {
+        "id": "61"
+      },
+      {
+        "id": "62"
+      },
+      {
+        "id": "63"
+      },
+      {
+        "id": "64"
+      },
+      {
+        "id": "65"
+      },
+      {
+        "id": "66"
+      },
+      {
+        "id": "67"
+      },
+      {
+        "id": "68"
+      },
+      {
+        "id": "69"
+      },
+      {
+        "id": "70"
+      },
+      {
+        "id": "71"
+      },
+      {
+        "id": "72"
+      },
+      {
+        "id": "73"
+      },
+      {
+        "id": "74"
+      },
+      {
+        "id": "75"
+      },
+      {
+        "id": "76"
+      },
+      {
+        "id": "77"
+      },
+      {
+        "id": "78"
+      },
+      {
+        "id": "79"
+      },
+      {
+        "id": "80"
+      },
+      {
+        "id": "81"
+      },
+      {
+        "id": "82"
+      },
+      {
+        "id": "83"
+      },
+      {
+        "id": "84"
+      },
+      {
+        "id": "85"
+      },
+      {
+        "id": "86"
+      },
+      {
+        "id": "87"
+      },
+      {
+        "id": "88"
+      },
+      {
+        "id": "89"
+      },
+      {
+        "id": "90"
+      },
+      {
+        "id": "91"
+      },
+      {
+        "id": "92"
+      },
+      {
+        "id": "93"
+      },
+      {
+        "id": "94"
+      },
+      {
+        "id": "95"
+      },
+      {
+        "id": "96"
+      },
+      {
+        "id": "97"
+      },
+      {
+        "id": "98"
+      },
+      {
+        "id": "99"
+      },
+      {
+        "id": "100"
+      }
+    ],
+    "fields_paper": {
+      "input": "fixed prompt",
+      "label": "none (target distribution = uniform 1/3)",
+      "id": "game index 1..100"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are playing the Rock-Paper-Scissors game. You should first reason about the Nash equilibrium of this game, and then choose one action from {Rock, Paper, Scissors} based on your reasoning. Please choose an exact action.",
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Sec. 4.2 prompt box (below Table 1) with footnote 2 expansions ('RPS' -> 'Rock-Paper-Scissors', '{R,P,S}' -> Rock, Paper, Scissors)",
+    "verbatim": "full (abbreviations expanded exactly as footnote 2 states; note the literal braces around the action set are part of the prompt, not a placeholder)",
+    "placeholders_paper": {}
+  },
+  "output": {
+    "parse": "final chosen action: last occurrence of Rock / Paper / Scissors in the reply after the reasoning (prefer patterns 'choose <X>', 'action: <X>', '**<X>**'); replies naming none or several actions without a final pick are invalid",
+    "postprocess": "lowercase; invalid replies dropped and the empirical distribution renormalized over {rock, paper, scissors} (Eq. 3)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "TVD = 0.5 x sum_a |1/3 - p_hat(a)| over the three actions, p_hat from the 100 games (Eq. 4); mean over seeds",
+    "judge": "none",
+    "original_value": 0.107,
+    "original_location": "Table 1, row GPT-4-turbo (mean TVD)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 300,
+    "est_usd": 3.79,
+    "tier": "low",
+    "est_usd_prepare": 3.79,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens",
+    "est_usd_dryrun_max_tokens": 9.41
+  },
+  "open_points": [],
+  "notes": "The per-action shares (Figure 2) are a finer check. Each seed is a fresh 100-game sample at temperature 1; the bootstrap over games gives the TVD uncertainty. || [normalize 2026-09-07] items.inline = 100 empty rows (ids 1..100); the prompt has no slots and the literal '{Rock, Paper, Scissors}' set is not touched by the renderer. --prepare renders 100 identical prompts; scoring needs the two additions in open_points. || [hook 2026-09-07] parse() returns the action named in the last sentence/line that mentions exactly one of Rock/Paper/Scissors (the reasoning lists all three; a final pick names one), else invalid; score() renormalises over valid replies (Eq. 3) and returns the TVD from uniform (Eq. 4), shares printed (Figure 2). No item-level CI.",
+  "hook": {
+    "path": "harness/tierb/hooks/W4416034777.py",
+    "functions": [
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

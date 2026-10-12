@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4405627013",
+  "title": "Alignment faking in large language models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "\"We also find no alignment faking with GPT-4 Turbo and GPT-4o (OpenAI et al., 2024), though we think this is because these models do not reason in sufficient detail ... (Appendix G.1.6).\""
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix J (system prompts for the prompted helpful-only and animal-welfare settings)",
+    "note": "Long system prompts plus scratchpad instructions; harmful-request user turns."
+  },
+  "claim": {
+    "metric": "rate of alignment-faking reasoning / compliance gap for GPT-4 Turbo",
+    "value": null,
+    "n_items": null,
+    "location": "Appendix G.1.6 (text statement only; no numeric row for GPT-4 Turbo in the extracted text)",
+    "task_type": "generation",
+    "judge": "llm:claude (classifier prompts)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "helpful-only user queries drawn from harmful-request datasets; animal-welfare queries (paper states release of prompts)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "tos",
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo is a secondary model reported only qualitatively (no alignment faking). The helpful-only setting requires eliciting compliance with harmful requests, and the alignment-faking classifiers are Claude models, so the pipeline is not a light re-run."
+}

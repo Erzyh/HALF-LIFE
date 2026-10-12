@@ -1,0 +1,96 @@
+{
+  "wid": "W4414580759",
+  "title": "AppealCase: A Dataset and Benchmark for Civil Case Appeal Scenarios",
+  "status": "needs_human",
+  "model": {
+    "id": "o4-mini-2025-04-16",
+    "params": {
+      "max_tokens": 4096
+    },
+    "params_source": "assumed (Appendix C 'experimental details' is not in the extracted text and no decoding parameters are printed in the body). o4-mini is a reasoning model and ignores temperature; max_completion_tokens 4096 leaves room for hidden reasoning plus a one-line label list.",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 4519,
+    "subset_rule": "paper-defined split: the second-instance perspective, i.e. the cases where new information is introduced at the second instance (Sec. 3.1) = new_information == True, 4,519 of the 10,000 pairs (Table 3)",
+    "approximation": "The composition of the '## First-instance Documents' block is not stated; this config concatenates header, claim, fact_description, court_view, judgment and footer of the first-instance record, which matches the range the Appendix B.2 example shows (court header through the appeal notice). The paper's example elides the document body with '(...omitted here...)', so the true length of what the model saw is unknown."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "ythuang02/AppealCase (mirror of github.com/ythuang02/AppealCase, whose AppealCase.json is a 252 MB Git-LFS file)",
+    "config_or_split": "default/train (10,000 rows); new_information == True selects 4,519",
+    "filter": "new_information == True",
+    "fields": {
+      "input": "first-instance",
+      "label": "reasons_for_reversal",
+      "id": "index"
+    },
+    "license": "CC BY-NC 4.0 (dataset card and repository README)",
+    "access_checked": true,
+    "size_mb": 106.9,
+    "hf": {
+      "dataset": "ythuang02/AppealCase",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_prose": {
+      "input": "the first-instance document plus the second-instance claim and fact description",
+      "label": "reasons_for_reversal, a list: [] = 'Non-Reversed', else any of 'factual determination errors' / 'legal application errors'",
+      "id": "index (0-9999)"
+    },
+    "columns_checked": [
+      "index", "first-instance{claim,court_view,fact_description,footer,header,judgment}",
+      "second-instance{claim,court_view,fact_description,footer,header,judgment}",
+      "judgment_reversal", "reasons_for_reversal", "claims", "legal_privisions", "new_information"
+    ],
+    "download": {
+      "date": "2026-09-19",
+      "note": "NOT downloaded: the Hub parquet conversion is 106.9 MB, over the 50 MB ceiling. Schema, row counts and label values were read instead from the datasets-server API (/first-rows, /size, /filter): 10,000 rows; new_information == True -> 4,519 (matches Table 3) and == False -> 5,481; of the 4,519, judgment_reversal is true for 2,666; reasons_for_reversal holds the English strings 'factual determination errors' and 'legal application errors' (both together in a minority of cases), i.e. exactly the option set printed in Appendix B.2."
+    }
+  },
+  "prompt": {
+    "system": "You are a helpful assistant",
+    "user_template": "Read the following first-instance judgment and determine whether the appellate court will reverse the judgment if an appeal is filed. If it will, specify whether the reason for changing the judgment is an error in fact-finding or an error in the application of the law.\n## First-instance Documents\n{first_instance}\n## Second-instance Claims\n{second_claim}\n## Second-instance Fact Description\n{second_facts}\n## Reason for reversal\nDirectly output the answer by selecting from [\"Non-Reversed\", \"Factual determination errors\", \"Legal application errors\"]. There may be multiple answers.\nDo not output anything else.",
+    "placeholders": {
+      "first_instance": "hook: '\\n'.join of first-instance header, claim, fact_description, court_view, judgment, footer",
+      "second_claim": "items.[second-instance.claim]",
+      "second_facts": "items.[second-instance.fact_description]"
+    },
+    "few_shot": "none (the appendix shows one worked example of the task format, not an in-prompt demonstration)",
+    "source_location": "Appendix B.2 'Judgment Reversal Prediction from the second-instance perspective'; the system prompt is the triage record's note ('default system prompt You are a helpful assistant plus the task instruction shown in Appendix B')",
+    "verbatim": "partial - the appendix prints an ENGLISH TRANSLATION of the instruction and of the example case document, while the dataset is Chinese (China Judgments Online). The Chinese original that the models actually received is not printed anywhere. The line breaks and the three ## section headers are as printed; the case body itself is elided in the paper with '(...omitted here...)'. The released label strings are English, which is consistent with an English instruction over Chinese documents, but does not prove it.",
+    "placeholders_paper": {
+      "first_instance": "the first-instance document",
+      "second_claim": "the second-instance claim",
+      "second_facts": "the second-instance fact description (the new information of Problem 2)"
+    }
+  },
+  "output": {
+    "parse": "hook: the set of labels named in the reply, from {Non-Reversed, Factual determination errors, Legal application errors} (case-insensitive substring match; 'Non-Reversed' alone means the empty gold set)",
+    "postprocess": "strip, lower-case; a reply naming no option is scored as the empty prediction set",
+    "parse_paper": "not printed; the prompt demands 'Directly output the answer ... Do not output anything else'"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "F1-macro over the multi-label reversal-reason task (Table 3 lists Precision, Recall, F1-macro): per-class F1 for each of the three labels (Non-Reversed = empty reasons_for_reversal, factual determination errors, legal application errors), averaged over the three classes. Needs a hook: the runner's macro_f1 assumes one label per item.",
+    "judge": "none",
+    "original_value": 47.85,
+    "original_location": "Table 4, row GPT-o4-mini (block 'Reasoning'), Second-instance Perspective, column F1 (Precision 54.31, Recall 49.16); the model id o4-mini-2025-04-16 is pinned in Table 8",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 4519,
+    "est_usd": 60.0,
+    "tier": "high",
+    "prepare_note": "--prepare was NOT run: it would make the runner download the 106.9 MB parquet, over the 50 MB ceiling of this task. The estimate assumes ~8k input tokens per Chinese judgment at o4-mini $1.10/$4.40 per 1M plus ~1k reasoning+answer tokens out."
+  },
+  "open_points": [
+    "PROMPT LANGUAGE: Appendix B.1/B.2 print an English translation of the instruction; the dataset is Chinese and the Chinese prompt is not published. Running the English instruction over Chinese judgments is a choice a human must make (and record as an approximation), since it may be exactly what the authors did or may not be.",
+    "DOCUMENT ASSEMBLY: '## First-instance Documents' is elided in the paper with '(...omitted here...)'. Which of header / claim / fact_description / court_view / judgment / footer it contains - and in what order - must be decided before the run; this config's choice (all six, in that order) reproduces the visible start and end of the appendix example but is not confirmed.",
+    "DOWNLOAD: the Hub parquet conversion is 106.9 MB, so neither --prepare nor a rendered-prompt check could be run under the 50 MB limit of this task. Field names, the 4,519 split and the label strings were confirmed through the datasets-server API instead. A human must lift the download cap (the runner's own limit is 250 MB) to verify the render.",
+    "COST: 4,519 full Chinese civil judgments in one pass is the largest single item in this group; the first-instance record of row 0 alone is ~6,000 characters. A cost cap or a seeded subset should be agreed before the run."
+  ],
+  "notes": "The first-instance perspective (new_information == False, 5,481 cases, GPT-o4-mini F1 40.36, Appendix B.1) is the same config with the filter inverted and the '## Second-instance Fact Description' block removed, so it is a cheap sibling once the two prompt decisions above are settled. || GPT-4.1-2025-04-14 is run on the same cells as a non-reasoning baseline (Table 4, F1 44.80 second-instance) and is also a live snapshot. || Data provenance: github.com/ythuang02/AppealCase stores AppealCase.json through Git LFS (252,556,536 B) and a 6.9 MB AppealCase.metadata.json (case names and numbers only, no text); the Hugging Face mirror is the practical source."
+}

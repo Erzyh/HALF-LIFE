@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411120021",
+ "title": "xLAM: A Family of Large Action Models to Empower AI Agent Systems",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "B",
+  "evidence": "Table 2 (ToolQuery-Unified, authors' own benchmark): \"GPT-4o-2024-05-13 0.366 (0.633)\" Success Rate (unified format; original ToolQuery format in parentheses)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Figure 4 (\"Example prompt and output for function-calling using xLAM\")",
+  "note": "One example prompt/output pair is shown; full templates for the GPT-4o baseline runs not separately confirmed in the body reviewed."
+ },
+ "claim": {
+  "metric": "Success Rate, ToolQuery-Unified format",
+  "value": 0.366,
+  "n_items": 60,
+  "location": "Table 2; \"ToolQuery features 60 test cases across three distinct domains\" (Academia/Movie/Weather)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ToolQuery / ToolQuery-Unified, Webshop, BFCL-v2 (public agent/function-calling benchmarks)"
+ },
+ "cost": {
+  "est_calls": 180,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Table 3 also reproduces the public BFCL-v2 leaderboard (cutoff 2024-09-19), which separately lists 'GPT-4-turbo-20240409 (Prompt)' at 83.89 overall accuracy and 'GPT-4o-2024-05-13' at 83.13 (Prompt)/79.55 (FC) — but those are cited official leaderboard numbers (role C for this paper), not runs performed by these authors, so the ToolQuery-Unified result (role B, their own run) is used as the primary claim instead."
+}

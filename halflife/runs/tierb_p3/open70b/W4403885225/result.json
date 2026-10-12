@@ -1,0 +1,56 @@
+{
+  "wid": "W4403885225",
+  "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 0.915,
+  "original_location": "Table 4, row GPT-4-Turbo, column Ver. (also Table 7, row Ver. Default, column GPT-4)",
+  "reexecution": {
+    "mean_over_seeds": 0.97,
+    "per_seed": {
+      "0": {
+        "value": 0.97,
+        "n": 1000,
+        "ci95": [
+          0.954,
+          0.984
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 1
+  },
+  "prepare": {
+    "wid": "W4403885225",
+    "n_items": 1000,
+    "n_requests": 1000,
+    "seeds": 1,
+    "est_usd": 0.98,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 0.915,
+    "cap_usd": 1.54
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "answer1 is shown as Assistant A and answer2 / answer2_longer as Assistant B in both judgments (order not stated); two judgments per item (original and perturbed); the paper's unperturbed repeat (CR) is not needed for RR.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4403885225"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.97,
+    "delta": 0.05499999999999994,
+    "original_inside_ci95": false
+  }
+}

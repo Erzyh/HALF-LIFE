@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403783611",
+  "title": "Enhancing LLM-based Autonomous Driving Agents to Mitigate Perception Attacks",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 6.1: 'evaluate the performance of three LLMs (GPT-4-turbo, Llama-3-8B, and Gemma-1.1-7B)'; Sec. 1: 'GPT-4 achieves 84.48% detection and 86.36% avoidance rate'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 4 (system prompt and chain-of-thought design), Appendix A (full scene description), Appendix B (DSL log example)",
+    "note": "Full system prompt text not printed; snapshot not stated (paper dated 2024-09)."
+  },
+  "claim": {
+    "metric": "attack detection rate",
+    "value": 84.48,
+    "n_items": 3300,
+    "location": "Sec. 1 / Sec. 8 summary (3,300 adversarial scenes); per-attack rates in Table 3",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Adversarial driving scenarios released at https://tinyurl.com/llm-ad-eva (CARLA)"
+  },
+  "cost": {
+    "est_calls": 9900,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Temperature 0.3; long DSL scene descriptions per call.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Only prompt snippets (Listings 6-9), the component description (Sec. 5.3) and one scene description (Appendix A) are printed; the full system prompt, the response format and the DSL-to-text scene template are not. Obtain them together with the 3,300 adversarial scene descriptions from the scenario release, then make one call per scene to gpt-4-turbo-2024-04-09 at temperature 0.3 and count the scenes whose response flags an inconsistency; compare with the 84.48% headline (Sec. 6.2 reports 83.27% = 2748/3300 for the same quantity).",
+    "approximation": "If the release holds only CARLA scenario configurations, the scenes must be re-simulated with CARLA and HUDSON's log collector, which is outside a prompt-only re-run and would make the record ineligible; the paper's two detection figures (84.48 vs 83.27) disagree.",
+    "needs_repo": true,
+    "repo_url": "https://tinyurl.com/llm-ad-eva",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

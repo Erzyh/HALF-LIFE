@@ -1,0 +1,34 @@
+[
+ {
+  "wid": "W4404985489",
+  "cap": 2.1,
+  "seeds": 1,
+  "arm": "open70b",
+  "arm_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "model": "gpt-4-turbo-2024-04-09",
+  "force": true,
+  "est_judge_usd": 0.71,
+  "note": "variable extraction: judge stage 13,199 calls per seed; the first pass had a $1 cap that skipped the judge stage; main-stage calls are reused from the archive"
+ },
+ {
+  "wid": "W4403882451",
+  "cap": 2.8,
+  "seeds": 1,
+  "arm": "open70b",
+  "arm_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "model": "gpt-4-turbo-2024-04-09",
+  "force": true,
+  "est_judge_usd": 1.2,
+  "note": "Strawberry Fields planning: judge stage 600 calls per seed; the first pass had a $1 cap that skipped the judge stage; main-stage calls are reused from the archive"
+ },
+ {
+  "wid": "W7126280993",
+  "cap": 2.0,
+  "seeds": 1,
+  "arm": "open70b",
+  "arm_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "model": "o3-2025-04-16",
+  "force": true,
+  "note": "first pass failed with HTTP 422: the paper's max_tokens 100000 exceeds the hosted model's context check; re-prepared with the 8192 clamp"
+ }
+]

@@ -1,0 +1,93 @@
+{
+  "wid": "W4399911276",
+  "title": "Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048,
+      "top_p": 1.0,
+      "frequency_penalty": 0.05
+    },
+    "params_source": "paper Appendix 'Experimental details' (temperature 0, max tokens 2048, top p 1, frequency penalty 0.05, presence penalty 0 for direct queries)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 250,
+    "subset_rule": "seeded random 250 (seed 20260907) from the 70,000 examples of task.json",
+    "approximation": "Different 250 items from the paper's unlisted draw and no manual answerability filter (resolution plan); frequency_penalty 0.05 must be passed as an extra API parameter; multiple-choice options removed as in the paper; gold is the target_scores dict; items.label_map maps each of its ten string forms to the digit (runner has no argmax-of-dict facility); item ids are positions in the seeded subset; the paper's frequency_penalty 0.05 is listed in model.params but the runner does not forward it"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/google/BIG-bench, bigbench/benchmark_tasks/mnist_ascii/task.json (57.8 MB, 70,000 examples with fields input = ASCII block and target_scores = {digit: 0/1}; task_prefix 'Please type the digit that you see in the following image: '). Used instead of the tasksource/bigbench parquet mirror because its 'inputs' column carries the loader-appended 'choice: 8 ... choice: 6' lines that the paper removed",
+    "config_or_split": "examples (all 70,000); seeded random 250",
+    "filter": null,
+    "fields": {
+      "input": "input",
+      "label": "target_scores",
+      "id": null
+    },
+    "license": "apache-2.0",
+    "access_checked": true,
+    "size_mb": 58,
+    "source_prose": "tasksource/bigbench (parquet mirror of google/bigbench; original task JSON github.com/google/BIG-bench bigbench/benchmark_tasks/mnist_ascii/task.json is 57.8 MB)",
+    "file_url": "https://raw.githubusercontent.com/google/BIG-bench/main/bigbench/benchmark_tasks/mnist_ascii/task.json",
+    "fields_prose": {
+      "input": "inputs (BIG-bench text: 'Please type the digit that you see in the following image: Q: <ascii art>')",
+      "options": "multiple_choice_targets (not shown to the model)",
+      "label": "targets (list with one digit string)",
+      "id": "idx"
+    },
+    "label_map": {
+      "{'0': 1, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0}": "0",
+      "{'0': 0, '1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0}": "1",
+      "{'0': 0, '1': 0, '2': 1, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0}": "2",
+      "{'0': 0, '1': 0, '2': 0, '3': 1, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0}": "3",
+      "{'0': 0, '1': 0, '2': 0, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0}": "4",
+      "{'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 1, '6': 0, '7': 0, '8': 0, '9': 0}": "5",
+      "{'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 1, '7': 0, '8': 0, '9': 0}": "6",
+      "{'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 1, '8': 0, '9': 0}": "7",
+      "{'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 1, '9': 0}": "8",
+      "{'0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 1}": "9"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are given a task to solve. Make sure to output an answer after \"Answer:\" without any explanation.\n\nPlease type the digit that you see in the following image: \nQ: {task_input}\nA:",
+    "placeholders": {
+      "task_input": "items.input"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix 'Experimental details' (direct-answer prompt from Yamada et al. 2024) and the ASCII dataset paragraph of the same appendix",
+    "verbatim": "full (instruction sentence verbatim; placing it before the task text follows Yamada et al. 2024, the paper does not spell out the concatenation); for the runner the fixed part of the BIG-bench task text (task_prefix and the json-task 'Q:' / 'A:' wrappers, formerly inside the {task_input} slot) is written into the template and only the ASCII block is a placeholder, so the rendered text equals the BIG-bench input without the multiple-choice lines; original template kept in user_template_paper",
+    "user_template_paper": "You are given a task to solve. Make sure to output an answer after \"Answer:\" without any explanation.\n\n{task_input}",
+    "placeholders_prose": {
+      "task_input": "items.input verbatim (BIG-bench 'inputs' field with the ASCII digit), options stripped"
+    }
+  },
+  "output": {
+    "parse": "regex (?s).*Answer:\\s*\\**\\s*(\\d)",
+    "postprocess": "strip, convert to int; conversion failure counts as incorrect (Appendix)",
+    "parse_prose": "text after the last 'Answer:'"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 250 items whose integer-converted answer equals the target digit",
+    "judge": "none",
+    "original_value": 19.6,
+    "original_location": "Table 1, row Direct, column MNIST",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 750,
+    "est_usd": 4.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "tasksource/bigbench validation split has the same 13,996 rows as google/bigbench (script-based loader) for mnist_ascii. CoT row (21.6) is an alternative cell with 'Let's think step by step' style prompting not printed. Parse: digit after the last 'Answer:' (greedy prefix), compared as a string with the target digit.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

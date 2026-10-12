@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4405033740",
+  "title": "Linear Probe Penalties Reduce LLM Sycophancy",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 5: \"Our subsequent analysis evaluates the performance differences between GPT-4 and GPT-4 Turbo ... a system prompt specifically designed to elicit a straightforward 'A' or 'B' response from GPT-4 Turbo\"; Figure 5: \"Disagreement rate of GPT-4 Turbo\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Sec. 5 (modified A/B judge prompt template for GPT-4 Turbo), Appendix A (GPT-4 prompt)", "note": "The live model only labels which of two responses is more positive."},
+  "claim": {
+    "metric": "disagreement rate between GPT-4 Turbo and GPT-4 labels", "value": null, "n_items": null, "location": "Figure 5 (no table value)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "poem and sycophancy datasets described in Appendix B; sentiment-roberta-large-english"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "GPT-4 Turbo is used as a pairwise labeler (judge) whose agreement with GPT-4 is plotted; the paper's subject is a probe-based reward penalty on open models. No snapshot is named (paper dated 2024-12)."
+}

@@ -1,0 +1,50 @@
+{
+  "openalex_id": "https://openalex.org/W4406663495",
+  "title": "Collaborative large language models for automated data extraction in living systematic reviews",
+  "doi": "https://doi.org/10.1093/jamia/ocae325",
+  "field": "Decision Sciences",
+  "year": "2025",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/CancerDataScience/LLMs_ExtractionWithCrossCritique"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/CancerDataScience/LLMs_ExtractionWithCrossCritique",
+      "cloned": true,
+      "audit": {
+        "n_files": 27,
+        "ext_top": {
+          ".pdf": 22,
+          ".md": 1,
+          ".xlsx": 1,
+          ".txt": 1,
+          ".csv": 1,
+          ".ipynb": 1
+        },
+        "has_license": false,
+        "has_requirements": false,
+        "has_readme": true,
+        "n_notebooks": 1,
+        "n_py": 0,
+        "n_data_files": 2,
+        "files_mentioning_prompt": 3,
+        "files_with_eval_terms": 1,
+        "model_ids_in_code": {
+          "gpt-4-": 6,
+          "claude-3-opus-20240229": 4,
+          "gpt-4o": 3,
+          "gpt-3.5-turbo": 2,
+          "gpt-3.5": 1,
+          "gpt-4": 1
+        },
+        "readme_head": "* Directory Hierarchy\n  - Python script is provided in the \"Code\" folder.\n  - Training studies are provided in the \"training_studies\" folder.\n  - Test studies are provided in the \"test_studies\" folder.\n\n* Requiements\n  * 'Jupyter Notebook' is required to execute the script, the script can be executed using following plateforms:\n    - Kaggle\n    - Colab\n    - Local Machine\n\n   * Libraries Required for Local Machines: tiktoken, PyMuPDF, openai, anthropic + (pandas, re, time, os, numpy, requests, math, base64) \n   * Libraries Required for Kaggle: tiktoken, PyMuPDF, openai, anthropic\n\n* INPUT\n   - Model-Name    = claude-3-opus-20240229 / gpt-4-0125-preview / gpt-4o --- For initial testing, it is recommended to use gpt-3.5-turbo (to save the cost)\n   - Model-Key     = APIKey for Cluade or GPT (purchased APIKey)\n   - pdf_folder    = path to the folder that contains pdf files (in this case, for training, we provide the path to \"training_studies\" folder)\n   - variable_file = Path to the variable file (this file contains all the variables that need to be extracted)\n   - prompt_size   = Enter the number of variables for each prompt (integer number: 1, 3, 5, 10, etc.)\n      - Example: If we select N=5, and # of variable=10, we will have 2 prompts (each with 5 variables) [This is a hybrid (composed/decomposed) prompting technique]\n   \n* OUTPUT\n   The code will produce 2 files of responses\n   - The first file will contain the raw responses for all the provided files and for all the variab"
+      },
+      "commit": "b27a201f0434d30727eaab3f9638128222987f8a"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4406663495.txt",
+  "paper_text_status": "html"
+}

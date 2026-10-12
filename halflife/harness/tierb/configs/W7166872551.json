@@ -1,0 +1,83 @@
+{
+ "wid": "W7166872551",
+ "title": "Post Hoc Agentic Refinement for Improving Precision in Multilingual Clinical Text De-identification",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-5-2025-08-07",
+  "params": {
+   "reasoning_effort": "medium",
+   "verbosity": "medium",
+   "max_tokens": 8192
+  },
+  "params_source": "paper Sec. 3.3 and Sec. 4 state medium verbosity and medium reasoning effort for the GPT-5 refiner; the same settings are assumed for the initial annotation pass, which the paper does not parameterise separately. max_tokens must hold one entity list per note.",
+  "seeds": 1
+ },
+ "task": {
+  "type": "extraction",
+  "n_items": null,
+  "subset_rule": "WikiPII-EN, all documents, one call per entity class per document (the prompt annotates a single named entity type at a time)",
+  "approximation": "BLOCKING - the corpus, the entity list and the per-entity guidelines are all unavailable; see open_points."
+ },
+ "items": {
+  "source_type": "url",
+  "source": "WikiPII-EN, described as \"Info-boxes with people and animal descriptions derived from English Wikipedia articles (Wang et al., 2018)\" with 24,145 total PII spans. The reference list resolves Wang et al. 2018 to \"Describing a knowledge base\" (INLG 2018), which is not a PII corpus; the better-known WikiPII (Hathurusinghe et al., PrivateNLP 2021) is a different, automatically labelled Wikipedia-biography NER set. The paper gives no download link, repository or licence for any of its three datasets.",
+  "config_or_split": "WikiPII-EN (the only one of the three datasets that is not a clinical PHI corpus; CARMEN-ES and Transcripts-DE are hospital records)",
+  "filter": null,
+  "fields": {
+   "input": "note text",
+   "label": "gold PHI/PII spans (character offsets + class)",
+   "id": "note id"
+  },
+  "license": "unknown",
+  "access_checked": false,
+  "size_mb": null,
+  "file_url": null,
+  "fields_note": "24,145 is the number of gold PII spans, not the number of documents or of calls; the number of notes and the number of entity classes - and therefore the true call count - are not stated."
+ },
+ "prompt": {
+  "system": "You will be provided a note containing named entities.\nPlease identify all instances of the named entity: {ENTITY}.\nSpecific annotation instructions for the entity: {ENTITY_INSTRUCTION}\nRespond with the entity type and the text of the entity, with one entity per line.\nHere is an example for {LANGUAGE}: {EXAMPLE}\nRespond with the text from the note EXACTLY.\n...\nIf no annotations are found, respond with NO ENTITIES.\nThe user will provide the note to annotate.",
+  "user_template": "{note}",
+  "placeholders": {
+   "ENTITY": "the entity class being annotated (the class list is not printed)",
+   "ENTITY_INSTRUCTION": "the class-specific annotation guideline (not printed)",
+   "LANGUAGE": "literal:English",
+   "EXAMPLE": "the class- and language-specific few-shot example (not printed)",
+   "note": "items.note"
+  },
+  "few_shot": "few-shot, k unknown: the prompt carries one example per entity class and language, none of which is printed",
+  "source_location": "Appendix A.1 (\"Original Annotation Prompt\")",
+  "verbatim": "partial. The fixed scaffolding is printed in full, but the printed block contains a literal '...' before the last two lines, and the four slots {ENTITY}, {ENTITY_INSTRUCTION}, {LANGUAGE} and {EXAMPLE} are never filled in the paper: the entity class list, the per-class guidelines and the examples are all absent."
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "one entity per line as 'type<sep>text'; the literal reply NO ENTITIES means an empty set; spans are then located back in the note",
+  "parse_paper": "lines of entity type + surface text, matched back onto character offsets in the note"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "binary PHI/PII detection F1 at token level: an annotation counts as correct if its span overlaps a gold span regardless of entity class; precision is the share of predicted PHI/PII tokens that are correct and recall the share of gold PHI/PII tokens recovered (Sec. 3.2, Evaluation).",
+  "judge": "none (rule-based span overlap)",
+  "original_value": 89.41,
+  "original_location": "Table 1, block 'Original GPT-5 Annotations', row WikiPII-EN (P 83.03 / R 96.85 / F1 89.41)",
+  "bootstrap_unit": "document",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": null,
+  "est_usd": null,
+  "tier": "high",
+  "est_note": "One call per entity class per note over a corpus whose size is not reported; the triage row's 24,145 is the gold span count, not a call count. No estimate can be made until the corpus and class list are known."
+ },
+ "open_points": [
+  "Items unavailable and ambiguous: no link, repository or licence is given for WikiPII-EN, and the citation (Wang et al., 2018 = \"Describing a knowledge base\") does not match a PII corpus. Which corpus is meant must be settled from the public record before anything else.",
+  "The prompt cannot be filled: the entity class list, the per-class annotation guidelines and the few-shot examples are all unpublished, and the printed prompt itself elides a section with '...'. Writing them would be our own instrument.",
+  "Metric gap: token-level overlap P/R/F1 against gold character spans is not in the runner and needs a scoring hook plus a tokenisation decision.",
+  "The other two datasets are out of reach in any case: CARMEN-ES and Transcripts-DE are clinical records that need a data-use agreement."
+ ],
+ "notes": "The headline contribution is the agentic refiner (Table 1, third block); the cell here is its pre-refinement baseline, which is the cleanest number attributable to gpt-5-2025-08-07 alone. || Precision 83.03 with recall 96.85 is the over-tagging pattern the paper's refiner is built to correct. || The refinement prompt (Appendix A.2) has the same unfilled {ENTITY GUIDELINES} and {EXAMPLES} slots.",
+ "runner_gaps": [
+  "prompt: entity list, guidelines and few-shot examples not published",
+  "items: corpus not identified or linked",
+  "metric: token-level span-overlap F1 not implemented"
+ ]
+}

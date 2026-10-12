@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415137654",
+ "title": "How Hungry is AI? Benchmarking Energy, Water, and Carbon Footprint of LLM Inference",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo, GPT-4o, GPT-4.1 nano, GPT-5, o3-mini (multiple)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"DGX A100 was estimated for GPT-4o mini, GPT-4 Turbo, and GPT-4...\"; \"Our framework estimates 0.42 Wh for a short GPT-4o prompt\" -- energy-modeling, not a task claim"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No task prompt exists; the paper estimates energy/water/carbon footprints from published specs and hardware assumptions, not from a model's answer to a prompt."
+ },
+ "claim": {
+  "metric": "none of the relevant type: the numbers are environmental-footprint ESTIMATES (Wh/query, annual water/carbon), not an accuracy metric tied to a prompt+answer",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Published model/hardware specs, scaled usage assumptions (e.g., 1 billion daily queries), and third-party benchmark throughput numbers"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This paper is an environmental-impact estimation study (energy/water/carbon per query and at scale), not an empirical task-accuracy benchmark; it references many live and dead OpenAI snapshots (gpt-4-turbo, gpt-4o, gpt-4o mini, gpt-4.1 nano, gpt-5, o3-mini) throughout, but none is tied to a printed prompt + reported task-performance number of the kind this triage targets. Not a fit for prompt-level reproduction regardless of model availability."
+}

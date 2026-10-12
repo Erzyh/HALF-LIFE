@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405562150",
+  "title": "LLMs are Also Effective Embedding Models: An In-depth Overview",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"GPT-4-turbo to generate the query-positive-negative triplet as training samples across six tasks\" (description of a surveyed method, Sec. 3)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (survey)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (survey paper)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MTEB and other public benchmarks (surveyed)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey of LLM-based embedding models; the live id is mentioned only when describing another paper's data synthesis."
+}

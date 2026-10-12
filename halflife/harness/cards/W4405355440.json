@@ -1,0 +1,151 @@
+{
+  "card_id": "W4405355440",
+  "openalex_id": "https://openalex.org/W4405355440",
+  "title": "Neptune: The Long Orbit to Benchmarking Long Video Understanding",
+  "doi": "10.48550/arxiv.2412.09582",
+  "paper": {
+    "authors": "Nagrani, Menon, Iscen, Buch, Mehran, Jha, Hauth, Zhu, Smaira, Schmid, Sun, Angelova, Dave et al. (Google DeepMind / Google Research)",
+    "year": 2024,
+    "venue": "arXiv 2412.09582 (Dec 2024); dataset page now part of the MINERVA collection",
+    "repo": "https://github.com/google-deepmind/neptune",
+    "repo_commit": "bdde4b1919fba9a02954be7cbb1c9da7e4bd8001 (HEAD 2026-03-31; shallow clone external/repos/W4405355440/google-deepmind__neptune)",
+    "repo_license": "Apache-2.0 for software, CC BY 4.0 for all other materials (README 'License and disclaimer')",
+    "other_artifacts": "The repository is data-only: README, six PNG figures and one JSON (minerva-ego_20260205.json). No evaluation code, no frame-extraction or ASR code, no model outputs. Annotations live in Google Cloud Storage. NEW (verified by this card): the README's storage.mtls.cloud.google.com links 302 to a Google sign-in, but the plain bucket URLs https://storage.googleapis.com/neptunedata/neptune_full.json (4,599,593 bytes) and .../neptune_mmh.json (1,665,552 bytes) return HTTP 200 without credentials."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "GPT-4o is one of the benchmarked systems: the Table 4 row is a direct measurement of model outputs, with no human or LLM judge in the multiple-choice metric (the GEM column does use a Gemma-based open-ended metric, but the accuracy column does not). Gemini-1.5-pro was additionally used inside the semi-automatic dataset-creation pipeline, so the items themselves are partly model-generated, but they are frozen and released - only the evaluation arm would need re-running."
+  },
+  "claim": {
+    "statement": "With 8 RGB frames plus the ASR transcript, gpt-4o-2024-05-13 answers NEPTUNE-FULL's 3,268 five-way MCQs at 80.23% accuracy and the harder vision-required subset NEPTUNE-MMH (1,171 MCQs) at 72.86%, on a par with Gemini-1.5-pro-002 at all frames + ASR (80.98 / 75.42) and far above the best open-source long-context MLLM (LLaVA-OneVision, 66.22 / 62.82) and the 20.00 random baseline (Table 4).",
+    "claim_type": "capability_level",
+    "metric": "Multiple-choice accuracy: the model is asked to emit '[CHOICE]: [REASON]' and the chosen option is compared with answer_id over five options (answer plus four decoys). GEM (the second column) is a separate Gemma-based open-ended equivalence metric and is not needed for the accuracy claim.",
+    "original_values": {
+      "gpt-4o-2024-05-13 RGB(8 frames)+ASR": {
+        "NEPTUNE-FULL_acc": 80.23,
+        "NEPTUNE-FULL_GEM": 49.01,
+        "NEPTUNE-MMH_acc": 72.86,
+        "NEPTUNE-MMH_GEM": "N/A"
+      },
+      "comparators": {
+        "Gemini-1.5-pro-002 RGB(all)+ASR": [
+          80.98,
+          75.42
+        ],
+        "Gemini-1.5-flash RGB(all)+ASR": [
+          76.9,
+          71.05
+        ],
+        "LLaVA-OneVision RGB(100 frames)": [
+          66.22,
+          62.82
+        ],
+        "JCEF VLM captions + LLM": [
+          58.51,
+          56.45
+        ],
+        "random": [
+          20.0,
+          20.0
+        ]
+      },
+      "n_items_in_paper": {
+        "NEPTUNE-FULL": 3268,
+        "NEPTUNE-FULL_videos": 2405,
+        "NEPTUNE-MMH": 1171,
+        "NEPTUNE-MMH_videos": 1000
+      },
+      "n_items_in_current_release": {
+        "NEPTUNE-FULL": 2974,
+        "NEPTUNE-FULL_videos": 2189,
+        "NEPTUNE-MMH": 1074,
+        "NEPTUNE-MMH_videos": 912
+      },
+      "caveat": "The GEM value 49.01 is flagged in the Table 4 caption as '*Computed on 10% of the results'."
+    },
+    "original_source": "Paper Table 4 (row 'GPT-4o4 RGB (8 frames) + ASR'), footnote 4 ('Version gpt-4o-2024-05-13'), Section 5.2 ('For GPT-4o we use the public API'), Section 3 dataset statistics. Release counts measured by the card author from the two bucket JSONs on 2026-09-19."
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+    "model_usage_verified": "yes - footnote 4 pins the snapshot explicitly; no alias inference needed",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions with multimodal content parts (8 image_url parts plus text)",
+    "prompt_source": "Appendix C.5.6 'GPT-4o prompts', block 'Multiple-choice evaluation with transcript' (printed verbatim, including the duplicated 'and and')",
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are an expert in video understanding and question answering. You can analyze a video given its image sequence and and transcript and answer questions based on them.\n{video_frames}\nVideo Transcript: {transcript}\nAnswer the question using the image sequence. Do not describe the frames just answer the question by identifying the choice. Question: {question} Choices: {choices} Please identify the correct CHOICE and explain your reasoning concisely. Output Format: [CHOICE]: [REASON]"
+      }
+    ],
+    "params": {
+      "temperature": "not reported",
+      "max_tokens": "not reported",
+      "top_p": "not reported",
+      "seed": "not reported",
+      "image_detail": "not reported",
+      "frame_sampling": "not reported for GPT-4o; the paper's other 8-frame baselines use uniform sampling, so uniform is the natural assumption",
+      "asr_engine": "not reported; transcripts are not in the release"
+    },
+    "n_items": 2974,
+    "samples_per_item": 1,
+    "evaluation": "Parse the text before the first ':' as the chosen option, match it against the five answer_choice_i strings (or their index/letter), compare with answer_id, and report accuracy. No judge, no logprobs. Choice presentation (letters vs raw answer text vs numbering) is not printed in the paper.",
+    "environment": "Would require: YouTube video download for 2,189 video ids, decoding and uniform 8-frame extraction, an ASR pass, and a multimodal request builder. None of this exists in the repository."
+  },
+  "artifacts": {
+    "prompts_path": "paper Appendix C.5.6 only - not in the repository",
+    "data_path": "https://storage.googleapis.com/neptunedata/neptune_full.json (2,974 rows) and neptune_mmh.json (1,074 rows); fields key / video_id / question / answer_choice_0..4 / answer_id / answer / question_type. Videos are NOT distributed - only YouTube ids.",
+    "eval_path": null,
+    "data_public": true,
+    "data_license": "CC BY 4.0 for the annotations (repo README); the underlying videos remain under YouTube's terms and their uploaders' licences",
+    "redistributable": "annotations yes (CC BY 4.0); videos and extracted frames no",
+    "notes": "Annotations carry no transcripts, so ASR must be regenerated; the paper does not say with what. The release is also smaller than the paper: 2,974 of 3,268 questions (91.0%) and 2,189 of 2,405 videos, so even a perfect re-run is a different, partly overlapping item set and a further unknown share of those YouTube ids will have gone private or been removed since. No per-item GPT-4o outputs were released, so the comparison would be accuracy-level only."
+  },
+  "blockers": [
+    "Video/image input beyond the text-only runner, with no paper code to lean on: the repository contains no evaluation, frame-extraction, ASR or request-building code whatsoever, so every multimodal step would be our own re-implementation rather than the authors' pipeline.",
+    "The 2,189 videos must be pulled from YouTube, which is a terms-of-service question and an availability-drift problem on top of it; the annotation release has itself already shrunk to 91% of the paper's item count (2,974 / 3,268).",
+    "Cost: roughly $166 for a single seed at default image detail (see budget), far above the ~$30 ceiling for a multimodal card, and about $45 even if all eight frames are sent at low detail - which would itself be a protocol change.",
+    "Three unreported protocol parameters that materially move the number: the frame-sampling rule, the image detail/resolution, and the ASR engine. Choice formatting (letters vs raw option text) is also not printed, and decoding parameters are absent entirely.",
+    "The GEM column for this row is computed on 10% of the results (Table 4 caption), so only the accuracy cell is a full-set measurement."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4o-2024-05-13",
+      "purpose": "live baseline (P0) - not runnable here, see blockers"
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for gpt-4o)",
+      "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+    ],
+    "dead_comparators_not_runnable": [
+      "Gemini-1.5-pro-002 and Gemini-1.5-flash (Google retirements; outside the OpenAI census anyway)"
+    ]
+  },
+  "budget": {
+    "est_calls": 2974,
+    "est_tokens_in": 32100000,
+    "est_tokens_out": 360000,
+    "est_cost_usd": 166,
+    "pricing_usd_per_1m": {
+      "gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      }
+    },
+    "assumptions": "One seed over the current 2,974-item release. Per call: 8 frames at default (high) detail ~ 1,105 tokens each = ~8,840; ASR transcript for a video of up to 15 minutes ~ 1,500 tokens on average; question + five choices measured from the release at ~253 tokens, plus ~120 tokens of instruction; output ~120 tokens ('[CHOICE]: [REASON]', concise). That is ~10,800 in / ~120 out per call = $0.056, i.e. $166 per seed and ~$498 at the usual 3 seeds. Sending all eight frames at low detail (85 tokens each) would cut it to about $45 per seed but changes the protocol. MMH alone (1,074 items) would be ~$60 per seed."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (not executable as specified). Had it been runnable: primary number = NEPTUNE-FULL accuracy for gpt-4o-2024-05-13 on the still-available subset, with coverage reported. Survival = re-run accuracy (median of 3 seeds) inside the bootstrap 95% CI over items of 80.23 (n~2,974, about +/-1.4 pp) AND the ranking claims hold (GPT-4o still comparable to Gemini-1.5-pro, still above LLaVA-OneVision and far above the 20% random floor). Partial = level shifts beyond the CI but the ordering against the open-source block survives. Death = accuracy falls to or below the best open-source long-context model.",
+    "notes": "Any re-run is a partial replication by construction: the item set is 91% of the original, the video pixels depend on YouTube availability, and the frames/ASR are ours rather than the authors'. A defensible fallback is to treat the re-run as a NEW measurement on the released subset and report only the direction of the ranking claims, not a level comparison with 80.23."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm 'blocked': the paper ships no code at all, so the eight-frame + ASR multimodal pipeline would be entirely our own, and even a single seed is ~$166. Any scope at which you would still want it (e.g. MMH only, low-detail frames, ~$60)?",
+    "If a text-only shadow arm is of interest instead, the paper's own ASR-only ablation (Table 3) gives a text-only reference point for Gemini and VideoLLaMA2 - but not for GPT-4o, so it would be a new measurement rather than a re-execution."
+  ],
+  "domain_notes": "Tier B relationship: harness/tierb/configs/W4405355440.json already carries this paper at prompt level (status needs_human, no hook, est $98) and the triage record harness/tierb/W4405355440.json marks the data as 'partial'. The repository does NOT enable an upgrade to repository-based re-execution - it is a data-and-README repository with no code, so the prompt-level config remains the only available protocol. Two corrections to the Tier B record: (1) the annotations are in fact publicly downloadable - the README's storage.mtls.* link is sign-in gated but the plain storage.googleapis.com/neptunedata/ URLs serve both JSONs anonymously; (2) the released item counts are 2,974 / 1,074, not the paper's 3,268 / 1,171, so the Tier B n_items of 3,268 is unattainable and the cost estimate should scale down accordingly (while the per-call cost estimate of $0.03 looks low for eight default-detail frames).",
+  "decisions_2026_09_19": [
+    "status blocked: multimodal input with no author code, YouTube dependence, and a one-seed cost of ~$166",
+    "record the public GCS URLs and the shrunken release counts as corrections to the Tier B config"
+  ]
+}

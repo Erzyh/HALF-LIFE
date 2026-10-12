@@ -1,0 +1,56 @@
+{
+  "wid": "W4403556032",
+  "title": "Enhancing Healthcare LLM Trust with Atypical Presentations Recalibration",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 0.751,
+  "original_location": "Table 2, block gpt-4-turbo, row 'Atypical presentations', MedQA Acc",
+  "reexecution": {
+    "mean_over_seeds": 0.3503709810387469,
+    "per_seed": {
+      "0": {
+        "value": 0.3503709810387469,
+        "n": 1213,
+        "ci95": [
+          0.3239901071723001,
+          0.37675185490519375
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 774
+  },
+  "prepare": {
+    "wid": "W4403556032",
+    "n_items": 1213,
+    "n_requests": 1213,
+    "seeds": 1,
+    "est_usd": 26.29,
+    "subset_note": "cost cap $26.3: seeded random subset of 1213 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 0.751,
+    "cap_usd": 26.3
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Options rendered as 'A. ...' lines inside {question} (format not printed); the printed prompt keeps the optional Difficulty line (Appendix B says it is optional and was used for analysis only).",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4403556032"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.3503709810387469,
+    "delta": -0.4006290189612531,
+    "original_inside_ci95": false
+  }
+}

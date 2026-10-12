@@ -1,0 +1,114 @@
+{
+  "card_id": "W4404783537",
+  "openalex_id": "https://openalex.org/W4404783537",
+  "title": "Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Performance Of Large Language Models",
+  "doi": "10.18653/v1/2024.emnlp-industry.91",
+  "paper": {
+    "doi": "10.18653/v1/2024.emnlp-industry.91",
+    "authors": "Tam, Wu, Tsai, Lin, Lee, Chen",
+    "year": 2024,
+    "venue": "EMNLP 2024 Industry Track, pp. 1218-1236",
+    "repo": "https://github.com/appier-research/structure-gen",
+    "repo_commit": "28b64ca060de229d6eaf4bceababa32032db45e0",
+    "repo_license": "none (no LICENSE file in the repository)",
+    "repo_note": "Scaffold link was glued ('structure-genStandar'); correct repo cloned for this card. Executed results (raw responses for all runs) are linked from README as a Google Drive zip, not versioned in git. updates.md (2024-12-09) revisits the settings after community criticism."
+  },
+  "dependence": {
+    "type": "component",
+    "strength": "auxiliary",
+    "note": "gpt-4-turbo-2024-04-09 is used only as the reference answer-extraction parser in Appendix B (Table 4: agreement with human-parsed answers on 300 sampled responses; Figure 7: Cohen's kappa against candidate low-cost parsers). It is not a subject of the format-restriction experiments. The subjects are gpt-3.5-turbo-0125, claude-3-haiku-20240307 (dead 2026-04-20), gemini-1.5-flash (dead 2025-09-29), LLaMA-3-8B-Instruct and Gemma-2-9B-Instruct (open weights); the production parser is claude-3-haiku-20240307 (dead) with a gpt-4o-mini fallback in code."
+  },
+  "claim": {
+    "statement": "Format restrictions degrade reasoning performance, and stricter restrictions degrade it more: on GSM8K / Last Letter / Shuffled Objects, JSON-mode < FRI (JSON) < NL-to-Format ~ NL for most models (Figure 2), e.g. GSM8K with schema-constrained JSON drops gpt-3.5-turbo from 75.99 (text) to 49.25, claude-3-haiku from 86.51 to 23.44, LLaMA-3-8B from 75.13 to 48.90 (Table 1, mean over 9 prompt variants), whereas classification tasks (DDXPlus, Sports, Task280, MultiFin) are unaffected or improved by JSON-mode (Figure 3). Auxiliary tool-validity claim involving the live model: GPT-4-turbo agrees with human answer parsing in 97.7% of 300 responses (Table 4).",
+    "claim_type": "method_effect",
+    "metric": "Exact match (GSM8K, Last Letter) and accuracy (Shuffled Objects, DDXPlus, Sports, Task280, MultiFin), averaged over 9 prompt variants (3 task descriptions x 3 format variants) with standard deviation; answers extracted by an LLM parser",
+    "original_values": {
+      "gsm8k_table1_mean_std": {
+        "gemini-1.5-flash": { "text": "89.33 (0.8)", "json": "89.66 (0.3)", "xml": "89.26 (0.3)", "yaml": "89.21 (0.4)", "json_schema": "89.21 (1.5)", "xml_schema": "88.20 (2.2)", "yaml_schema": "87.42 (3.7)" },
+        "claude-3-haiku": { "text": "86.51 (0.8)", "json": "86.99 (0.2)", "xml": "86.96 (0.6)", "yaml": "82.89 (5.7)", "json_schema": "23.44 (22.9)", "xml_schema": "79.76 (7.0)", "yaml_schema": "80.63 (2.8)" },
+        "gpt-3.5-turbo": { "text": "75.99 (3.1)", "json": "74.70 (1.1)", "xml": "60.45 (7.2)", "yaml": "71.58 (3.0)", "json_schema": "49.25 (12.0)", "xml_schema": "45.06 (19.9)", "yaml_schema": "73.85 (5.6)" },
+        "llama-3-8b": { "text": "75.13 (0.9)", "json": "64.67 (2.23)", "xml": "65.07 (0.56)", "yaml": "69.41 (0.95)", "json_schema": "48.90 (6.7)", "xml_schema": "56.74 (8.3)", "yaml_schema": "46.08 (16.8)" }
+      },
+      "gpt-4o-mini_table2": { "gsm8k": { "nl": "94.57 (3.95)", "fri": "87.17 (4.43)", "json_mode": "86.95 (1.36)", "json_schema": "91.71 (0.68)" }, "shuffle_obj": { "nl": 82.85, "fri": 81.46, "json_mode": 76.43, "json_schema": 81.77 }, "last_letter": { "nl": 83.11, "fri": 84.73, "json_mode": 76.00, "json_schema": 86.07 } },
+      "gpt-4-turbo_parser_agreement_table4": { "last_letter": 97.0, "shuffle_obj": 96.0, "gsm8k": 100.0, "average": 97.7, "n_per_task": 100 },
+      "parser_kappa_vs_gpt-4-turbo_fig7": { "claude-3-haiku": 0.86, "llama-3-8b": 0.82, "gpt-3.5-turbo": 0.81, "gemini-1.5-pro": 0.33, "gemini-1.5-flash": 0.0 }
+    },
+    "original_source": "Table 1 (GSM8K with/without schema), Figure 2-4 (bar charts; numeric values only in the Drive result files), Table 2 (gpt-4o-mini), Table 3 (parsing error rates), Table 4 + Figure 7 (parser study, App. B)"
+  },
+  "protocol": {
+    "model": "NOT AN EXPERIMENTAL ARM. gpt-4-turbo-2024-04-09 appears only as the reference parser (study_llm_parser.py: OpenAIChat('gpt-4-turbo-2024-04-09')). Subject models: gpt-3.5-turbo-0125 (status not in target_models.json; verify), claude-3-haiku-20240307 (dead), gemini-1.5-flash (dead), LLaMA-3-8B-Instruct, Gemma-2-9B-Instruct (open weights via TGI/Together).",
+    "model_status": "gpt-4-turbo-2024-04-09: dying (2026-10-23) but auxiliary only; claude-3-haiku: dead 2026-04-20; gemini-1.5-flash: dead 2025-09-29; gpt-3.5-turbo-0125: unknown (not in vocabulary)",
+    "endpoint": "OpenAI chat completions (llms/oai_chat.py), Anthropic messages (llms/claude.py), Gemini Vertex (llms/gemini_vertex*.py), TGI grammar / Together for open models; JSON-mode via provider flags",
+    "prompt_source": "tasks/templates/<task>-t{1,2,3}-f{1,2,3}.yaml (task_specification, format_instruct for text/json/yaml/xml, parser_prompt, fewshots); run_*.sh enumerate the 9 combinations per task and format",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 0.999,
+      "max_tokens": 512,
+      "num_shots": 0,
+      "prompt_variants": "3 task descriptions x 3 format variants = 9 per format",
+      "parser": "claude-3-haiku-20240307 at temperature 0 (tasks/llm_parser.py); gpt-4o-mini-2024-07-18 alternative in code",
+      "seed": "not set; single run per prompt variant"
+    },
+    "n_items": "GSM8K test 1,319; Last Letter, Shuffled Objects (BigBench validation), DDXPlus (StreamBench subset), MultiFin, Sports Understanding, NI Task 280 (data/task280_stereoset_classification_stereotype_type.json) - sizes not stated in the paper except GSM8K",
+    "samples_per_item": "1 per prompt variant (9 variants per format)",
+    "evaluation": "Automatic EM/accuracy after LLM-based answer extraction (tasks/*.py parsers + tasks/llm_parser.py); agg_result.py aggregates mean/std over variants",
+    "execution_environment": "Python; API keys for OpenAI, Anthropic, Gemini Vertex (gcloud), Together; open models served with text-generation-inference (JSON-mode support) - GPU required for the LLaMA/Gemma arms; no docker beyond TGI",
+    "representative_subset": "(hypothetical, successor arms) GSM8K only, 3 prompt variants x {NL, FRI-JSON, JSON-mode} x 1,319 items with a live parser"
+  },
+  "artifacts": {
+    "prompts_path": "tasks/templates/*.yaml",
+    "data_path": "data/task280_stereoset_classification_stereotype_type.json; other tasks loaded from HF/BigBench/StreamBench sources inside tasks/*.py; executed results: Google Drive zip linked in README",
+    "eval_path": "main.py, agg_result.py, tasks/llm_parser.py, study_llm_parser.py (parser agreement study), 2stage_parsing.py",
+    "data_public": "partial",
+    "data_license": "repo has no license; benchmark datasets under their own licenses (GSM8K MIT, BigBench Apache-2.0, DDXPlus CC-BY, StereoSet/NI CC-BY-SA); study_data/ (300 human-parsed samples for Table 4) is not in the repo",
+    "redistributable": "unknown",
+    "notes": "The human-parsed reference answers behind Table 4 (the only claim in which gpt-4-turbo is the subject) are not released (study_llm_parser.py reads study_data/inputs_*.jsonl which is absent)."
+  },
+  "blockers": [
+    "live model not an experimental arm: gpt-4-turbo-2024-04-09 only serves as the reference answer parser (App. B); the format-restriction subjects are dead API models (claude-3-haiku, gemini-1.5-flash) or open weights",
+    "Production parser claude-3-haiku-20240307 is dead -> even a successor re-run must substitute the parser component",
+    "Human-parsed labels for the Table 4 parser-validity claim are not released",
+    "No repository license; per-task numeric results exist only in the Drive zip (figures in the paper are bar charts)"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "purpose": "none - gpt-4-turbo was a parser reference, not a subject; subject API arms are dead" },
+    "successors": [
+      "gpt-5-2025-08-07 (with JSON-mode / structured-output flags)",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated snapshot)",
+      "gemini (current dated snapshot, JSON-mode)",
+      "llama (open weights, weight hash pinned, TGI JSON grammar) - permanent axis; LLaMA-3-8B-Instruct itself is still runnable",
+      "qwen (open weights, weight hash pinned, TGI JSON grammar)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "reference_gpt-4-turbo": { "input": 10.0, "output": 30.0 }, "parser_gpt-4o-mini": { "input": 0.15, "output": 0.6 } },
+    "unit_basis": "Hypothetical (no live arm). ~6,000 items across 7 tasks x 9 prompt variants x 6 conditions (JSON-mode, JSON, YAML, XML, NL, NL-to-Format) = ~324K subject calls (~300 in / ~250 out) + ~324K parser calls",
+    "full": {
+      "definition": "one successor model, all tasks/formats/variants, 1 run (the 9 variants already provide dispersion)",
+      "est_calls": 648000,
+      "est_tokens_in": 230000000,
+      "est_tokens_out": 84000000,
+      "est_cost_usd": 3500
+    },
+    "subset": {
+      "definition": "GSM8K, 3 variants x 3 conditions (NL, FRI-JSON, JSON-mode) x 1,319, one model, 1 run",
+      "est_calls": 23800,
+      "est_tokens_in": 7500000,
+      "est_tokens_out": 3000000,
+      "est_cost_usd": 130
+    },
+    "cap_usd": "0 for P0 (blocked)"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1, method_effect (successor arms only). Direction: NL >= FRI(JSON) >= JSON-mode on reasoning tasks (GSM8K, Last Letter, Shuffled Objects); classification tasks not degraded. SURVIVED if the sign of (NL - schema-constrained JSON) is positive on GSM8K with a gap of the same order as the original (>= 5 points for the weakest model tier; the original ranges 10-63 points) and the 9-variant dispersion is larger under constraints. PARTIAL if the sign holds but the gap is < 5 points or only JSON-mode (not FRI) degrades. DEAD if constrained formats match or beat NL on reasoning tasks (as reported for gpt-4o-mini JSON-schema vs FRI in Table 2, and as claimed by the dottxt rebuttal cited in updates.md).",
+    "notes": "The Table 4 tool-validity claim (gpt-4-turbo parser = 97.7% human agreement) would be the only live-arm claim, but it needs the unreleased 300 human-parsed samples; if the authors release study_data/, it becomes a cheap (~300 calls) tool_validity card."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm classification: gpt-4-turbo is an auxiliary component (parser reference, App. B), so this paper leaves the gpt-4-turbo live stratum; is gpt-3.5-turbo-0125 (a subject arm) still callable, and should it be added to target_models.json?",
+    "Ask the authors for study_data/ (300 human-parsed responses) to convert Table 4 into a tool_validity card with gpt-4-turbo-2024-04-09 as subject (~$3 to run)?",
+    "Keep the format-restriction claim as a P3 successor/open-weights case (LLaMA-3-8B and Gemma-2-9B are still runnable as a permanent axis), with gpt-4o-mini as the substitute parser?"
+  ],
+  "domain_notes": "The paper's effect is contested (updates.md and the dottxt 'Say what you mean' rebuttal argue prompt design drives the gap), and the authors' own gpt-4o-mini Table 2 shows JSON-schema close to NL; a successor re-run is therefore scientifically interesting but has no live baseline. The parser component (claude-3-haiku) is a dead-model dependency inside the measurement pipeline, an instance of hidden auxiliary dependence worth flagging in the census coding."
+}

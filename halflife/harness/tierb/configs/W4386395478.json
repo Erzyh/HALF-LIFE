@@ -1,0 +1,69 @@
+{
+  "wid": "W4386395478",
+  "title": "Large Language Models as Data Preprocessors",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.35,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4.1 (temperature 0.35; 10 few-shot examples; random batching with batch size 5-10 for GPT-4o); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 86,
+    "subset_rule": "all (Restaurant data-imputation test split of the Narayan et al. fm_data_tasks release; 86 rows expected, verify on download)",
+    "approximation": "The 10 few-shot demonstrations with reasons are hand-written by us (the paper's are unlisted); batch composition is a seeded random draw with batch size 7 (paper: 5-10); the exact GPT-4o 'best setting' behind Table 1 is not identified."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "https://fm-data-tasks.s3.us-west-1.amazonaws.com/datasets.tar.gz (HazyResearch/fm_data_tasks release), file data_imputation/Restaurant/test.csv; train.csv for demonstrations",
+    "config_or_split": "data_imputation/Restaurant test.csv",
+    "filter": "none",
+    "fields": {
+      "input": "name, addr, phone, type (record attributes)",
+      "label": "city",
+      "id": "row index"
+    },
+    "license": "Apache-2.0 (fm_data_tasks repository); underlying Restaurant dataset license not stated",
+    "access_checked": true,
+    "size_mb": 111
+  },
+  "prompt": {
+    "system": "You are a database engineer.",
+    "user_template": "You are requested to infer the value of the \"city\" attribute based on the values of other attributes.\nMUST answer each question in two lines. In the first line, you give the reason for the inference. In the second line, you ONLY give the value of the \"city\" attribute.\n{few_shot_block}\nUsers:\n{batch_questions}\nAssistant:",
+    "placeholders": {
+      "few_shot_block": "10 demonstrations in the Sec. 3.2 layout: 'Users:\\nQuestion 1: Record is [Data Instance 1]. What is the city?\\n...\\nAssistant:\\nAnswer 1: [Reason 1]\\n[Answer 1]\\n...' where each data instance is contextualized as [name: \"...\", addr: \"...\", phone: \"...\", type: \"...\", city: ???] (Sec. 3.3) and each reason follows the printed example ('The phone number \"770\" suggests that the city should be either Atlanta or Marietta in Georgia. The addr attribute suggests a place in Marietta.')",
+      "batch_questions": "one line per test record in the batch: 'Question k: Record is [name: \"...\", addr: \"...\", phone: \"...\", type: \"...\", city: ???]. What is the city?' (Sec. 3.5 random batching, 5-10 records per call)"
+    },
+    "few_shot": "k=10 hand-written demonstrations (paper: manually selected and labelled with reasons; not printed)",
+    "source_location": "Sec. 3 (template), 3.1 (zero-shot DI prompt), 3.2 (few-shot layout and example reason), 3.3 (contextualization), 3.5 (batch prompting), 4.1 (settings)",
+    "verbatim": "partial (role line, zero-shot DI instructions and the few-shot/batch layout are copied verbatim; the 10 demonstrations and their reasons are not printed and are assembled by us)"
+  },
+  "output": {
+    "parse": "regex ^Answer (\\d+):\\s*(?P<reason>.*)\\n(?P<value>.*)$ per numbered answer; the second line is the imputed city",
+    "postprocess": "strip, lowercase, remove trailing punctuation; missing answer counted as wrong"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of test records whose imputed city equals the gold city after lowercasing and stripping (Narayan et al. DI accuracy convention).",
+    "judge": "none",
+    "original_value": 90.7,
+    "original_location": "Table 1, row GPT-4o, column Restaurant (Data Imputation, accuracy %)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 39,
+    "est_usd": 1.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "Data download needs a human: the fm_data_tasks archive https://fm-data-tasks.s3.us-west-1.amazonaws.com/datasets.tar.gz is 111 MB (over the 100 MB hook limit) and the Restaurant split has no other public copy (the HazyResearch/fm_data_tasks repository holds code only). Extract data_imputation/Restaurant/train.csv and test.csv to halflife/external/data/tierb_items/fm_data_tasks/; a hook can then build the batched few-shot prompts (10 seeded train rows with a fixed reason template following the printed example, batches of 7) and parse the two-line answers.",
+    "Demonstration reasons: accept 10 seeded train rows with a fixed reason template (the paper's hand-written reasons are not printed)."
+  ],
+  "notes": "Set-level comparison only: the paper's n is not printed. Batching is done with 7 records per call (13 calls per seed). The data-type hint sentence of Sec. 3.1 is not used for the 'city' attribute. || [hooks_2 2026-09-07] reviewed for a per-paper hook: archive over the 100 MB download limit; no hook written.",
+  "hook": "none (needs_human: archive over the 100 MB download limit)"
+}

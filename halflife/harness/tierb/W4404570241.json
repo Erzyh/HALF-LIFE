@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404570241",
+ "title": "Developer Challenges on Large Language Models: A Study of Stack Overflow and OpenAI Developer Forum Posts",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"ChatGPT Models\" topic: \"...whether GPT-3, GPT-4, or the GPT-4 Turbo variant-presents unique considerations\" -- forum-discourse theme, not the authors' own API call."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Corpus/topic-modeling study of forum posts, not a model-evaluation paper."
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Stack Overflow and OpenAI Developer Forum posts (public)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Discourse analysis of what developers post about; GPT-4 Turbo is discussed by forum users, never invoked by the study's authors."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166872685",
+ "title": "Machine Behavior in Relational Moral Dilemmas: Moral Rightness, Predicted Human Behavior, and Model Decisions",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "o3-mini",
+  "resolved": "o3-mini-2025-01-31",
+  "role": "S",
+  "evidence": "Sec. \"Models\": \"six representative LLMs: Claude 3.5 Haiku, Gemini 2.5 Pro, GPT-5 mini, o3-mini...\"; confirmed \"o3-mini-2025-01-31\"; Fig 3: \"0.53 1.00 1.00 / o3-mini\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 1 (severity/closeness/perspective component examples); Sec. 3.1 Template; Appendix A.2 (fraud/burglary categories)",
+  "note": "Whistleblower's Dilemma: severity (4) x closeness (4) x crime type (3) x perspective (moral rightness / predicted human behavior / LLM's decision)."
+ },
+ "claim": {
+  "metric": "Reporting ratio P_report, Moral Rightness perspective",
+  "value": 0.53,
+  "n_items": 144,
+  "location": "Figure 3 (\"0.53 1.00 1.00 / o3-mini\", first value = Moral Rightness); n_items = 4 severity x 4 closeness x 3 crime types x 3 perspectives = 144 unique prompt instances",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Whistleblower's Dilemma framework fully specified in the paper (Table 1, Sec. 3.1, Appendix A.2); no external dataset needed"
+ },
+ "cost": {
+  "est_calls": 432,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Each of the 144 unique prompt instances is evaluated across 3 independent random seeds by the authors' own methodology (\"to account for model stochasticity and ensure reproducibility\"), giving est_calls=432 directly from the paper's own design. GPT-5-mini (gpt-5-mini-2025-08-07, confirmed dated in the model list) is also tested and would give an equally valid eligible record (Moral Rightness ratio=0.36)."
+}

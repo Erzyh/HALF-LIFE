@@ -1,0 +1,171 @@
+{
+  "wid": "W7134094238",
+  "title": "BioLLMAgent: A Hybrid Framework with Enhanced Structural Interpretability for Simulating Human Decision-Making in Computational Psychiatry",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "max_tokens": 256
+    },
+    "params_source": "paper Sec. IV.A (T = 0.5, top-p 0.9, gpt-4o-2024-05-13); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 30,
+    "subset_rule": "30 independent calls (simulated participants) per seed; from each returned distribution 100 deck choices are sampled with a fixed RNG (seed 20260907), giving 3,000 pooled choices (resolution plan budget)",
+    "approximation": "the number of simulated participants/trials behind Table V is unstated; the LLM-only prior is evaluated without the ORL/PyMC loop; KL scales with sample size, so KL <= 0.01 is treated as agreement"
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Appendix A.1 Neutral Prior Prompt (the prompt is the whole input; no dataset)",
+    "config_or_split": "n/a",
+    "filter": null,
+    "fields": {
+      "id": "id"
+    },
+    "license": "n/a (printed in the paper)",
+    "access_checked": true,
+    "size_mb": 0,
+    "inline": [
+      {
+        "id": "1"
+      },
+      {
+        "id": "2"
+      },
+      {
+        "id": "3"
+      },
+      {
+        "id": "4"
+      },
+      {
+        "id": "5"
+      },
+      {
+        "id": "6"
+      },
+      {
+        "id": "7"
+      },
+      {
+        "id": "8"
+      },
+      {
+        "id": "9"
+      },
+      {
+        "id": "10"
+      },
+      {
+        "id": "11"
+      },
+      {
+        "id": "12"
+      },
+      {
+        "id": "13"
+      },
+      {
+        "id": "14"
+      },
+      {
+        "id": "15"
+      },
+      {
+        "id": "16"
+      },
+      {
+        "id": "17"
+      },
+      {
+        "id": "18"
+      },
+      {
+        "id": "19"
+      },
+      {
+        "id": "20"
+      },
+      {
+        "id": "21"
+      },
+      {
+        "id": "22"
+      },
+      {
+        "id": "23"
+      },
+      {
+        "id": "24"
+      },
+      {
+        "id": "25"
+      },
+      {
+        "id": "26"
+      },
+      {
+        "id": "27"
+      },
+      {
+        "id": "28"
+      },
+      {
+        "id": "29"
+      },
+      {
+        "id": "30"
+      }
+    ],
+    "fields_prose": {
+      "input": "fixed prompt",
+      "label": "none (target = uniform 0.25 per deck)",
+      "id": "call index 1..30"
+    },
+    "label_map": null
+  },
+  "prompt": {
+    "system": "You are an agent participating in a decision-making experiment called the Iowa Gambling Task.",
+    "user_template": "[Task]: You will make repeated choices from four card decks (A, B, C, D) over 100 trials. Each choice yields a monetary outcome (gain or loss). Your goal is to maximize total earnings.\n[Instruction]: You have no prior information about the decks. Please select uniformly among the four options. Do not attempt to identify patterns or learn from previous outcomes—maintain uniform random selection throughout.\n[Output]: Provide a probability distribution: {A: p_A, B: p_B, C: p_C, D: p_D}, where sum p = 1.0.",
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Appendix A.1 'Neutral Prior Prompt (Baseline Condition)'",
+    "verbatim": "full ([System] block sent as the system message; [Task]/[Instruction]/[Output] blocks as the user message with their labels; the extraction's 'P p= 1.0' rendered as 'sum p = 1.0')"
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "invalid or non-normalizable replies dropped and reported; 100 deck choices sampled from each valid distribution",
+    "parse_prose": "regex the four probabilities 'A: p, B: p, C: p, D: p' (accept JSON or the braces format); normalize to sum 1"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "KL divergence KL(p_hat || uniform) = sum_d p_hat(d) log(p_hat(d)/0.25) over the pooled 3,000 sampled choices; also chi-square goodness-of-fit p-value against uniform and the standard deviation of the four deck proportions (Table V columns)",
+    "judge": "none",
+    "original_value": 0.002,
+    "original_location": "Table V, row GPT-4o w/ (Chi-sq p 0.988, KL 0.002, Std 0.017)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 90,
+    "est_usd": 0.42,
+    "tier": "low",
+    "est_usd_prepare": 0.42,
+    "est_usd_dryrun_max_tokens": 0.42,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens"
+  },
+  "open_points": [],
+  "notes": "Because the prompt asks for a distribution rather than a choice, the pooled distribution can also be computed directly as the mean of the returned probabilities (no sampling); report both. The 'w/o' row (KL 0.124) drops the uniform-selection instruction sentence. || [hook 2026-09-07] parse() reads the four deck probabilities and normalises them; score() samples 100 choices per valid reply (seed 20260907), pools them and returns KL(p_hat || uniform); chi-square p (df 3, closed form), std of deck shares and the KL of the mean distribution are printed. No item-level CI (distribution-level metric).",
+  "hook": {
+    "path": "harness/tierb/hooks/W7134094238.py",
+    "functions": [
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

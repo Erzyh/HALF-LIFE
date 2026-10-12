@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4404652849",
+  "title": "OpenScholar: Synthesizing Scientific Literature with Retrieval-augmented LMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4.1: \"we evaluate both open-weight and proprietary LMs, including Llama 3.1 (8B, 70B) and GPT-4o (gpt-4o-2024-05-13). In this setup, each LM generates an answer independently, without external retrieval\"; Table 2 row GPT4o."
+  },
+  "prompt": {"verbatim": "none", "location": "not printed; Appendix B.3 gives evaluation (judge and annotator) instructions only", "note": "Generation prompt for the no-retrieval GPT-4o baseline is not reproduced; temperature 0.7, max 3,000 tokens (Sec. 4.1)."},
+  "claim": {
+    "metric": "SciFact correctness (accuracy), no retrieval", "value": 77.8, "n_items": null, "location": "Table 2, row GPT4o, column Sci Corr (PubMedQA Corr 65.8, QASA ROUGE-L 21.2, ScholarQA-CS 45.0)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "https://github.com/AkariAsai/ScholarBench (ScholarQABench, modified SciFact/PubMedQA/QASA splits)"},
+  "cost": {"est_calls": 1500, "tier": "low"},
+  "blockers": [],
+  "notes": "Fails the prompt criterion: the baseline generation prompt is not in the paper. Single-paper task sizes are given only in Appendix B.2 tables (not extracted). Long-form ScholarQA metrics additionally depend on GPT4o-turbo and Prometheus v2 judges."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036421",
+  "title": "IL-PCSR: Legal Corpus for Prior Case and Statute Retrieval",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (event/summary generation during dataset construction); GPT-4.1 (re-ranker)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 3: 'used GPT-4 (gpt-4-turbo: https://platform.openai.com/docs/models/gpt-4-turbo) to cre-'; Appendix: 'To control costs, we first used GPT-4-turbo'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.2 (LLM prompts incl. GPT-4.1 two-stage re-ranking; Fig. 3 in brief)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Retrieval results (e.g. 'GPT-4.1 First-stage prompt 45.29 59.73 81.02 ...') belong to GPT-4.1, which is not in the live-id list",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/Exploration-Lab/IL-PCSR (Hugging Face dataset)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4.1 re-ranking rows (Sec. 6 tables, prompts in App. C.2) could be a separate candidate if gpt-4.1 is added to the live list."
+}

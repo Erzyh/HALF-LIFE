@@ -1,0 +1,62 @@
+{
+  "openalex_id": "https://openalex.org/W4362598103",
+  "title": "Accuracy and Political Bias of News Source Credibility Ratings by Large Language Models",
+  "doi": "https://doi.org/10.48550/arxiv.2304.00228",
+  "field": "Social Sciences",
+  "year": "2023",
+  "live_models": "gpt-4-turbo|gpt-4-turbo-2024-04-09|gpt-4o-2024-05-13",
+  "dead_models": "gemini-1.0-pro|gemini-1.5-flash|gemini-1.5-pro|o1-mini",
+  "flags": "",
+  "all_links": [
+    "github.com/jujumilk3/leaked-system-prompts",
+    "github.com/jujumilk3/leaked-system-prompts14bbc.com",
+    "github.com/osome-iu/llm_domain_rati",
+    "github.com/osome-iu/llm_domain_ratingConference"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/jujumilk3/leaked-system-prompts",
+      "cloned": true,
+      "audit": {
+        "n_files": 173,
+        "ext_top": {
+          ".md": 168,
+          ".webp": 4,
+          "": 1
+        },
+        "has_license": false,
+        "has_requirements": false,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 0,
+        "n_data_files": 0,
+        "files_mentioning_prompt": 147,
+        "files_with_eval_terms": 64,
+        "model_ids_in_code": {
+          "claude-sonnet-4-20250514": 26,
+          "gpt-4": 24,
+          "claude-haiku-4-5-20251001": 17,
+          "claude-opus-4-6": 16,
+          "gpt-4o": 15,
+          "gpt-5-mini": 11,
+          "claude-sonnet-4-6": 10,
+          "claude-sonnet-4-5-20250929": 9,
+          "gpt-5.": 6,
+          "gpt-5": 6
+        },
+        "readme_head": "# leaked-system-prompts\n\n## Description\n\nThis repository is a collection of leaked system prompts from widely used LLM based services.\n\n1. If you would like to submit a PR, please match the format of other documents. You must include sources that I can verify or reproducible prompts.\n2. If the above process is too cumbersome, you can simply post a link in the Issues section. If there are verifiable sources or reproducible prompts, I will verify them and then proceed with the merge.\n3. This repository is cited in many papers. To prevent repository takedown due to [DMCA](https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy) warnings, please do not include sensitive commercial source code.\n"
+      },
+      "commit": "3afab05da7bbba93d04458e4b44e4239198f69cd"
+    },
+    {
+      "url": "https://github.com/jujumilk3/leaked-system-prompts14bbc.com",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/osome-iu/llm_domain_rati",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4362598103.txt",
+  "paper_text_status": "pdf"
+}

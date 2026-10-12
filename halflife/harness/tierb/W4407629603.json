@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4407629603",
+  "title": "Chinese Generative AI Models Challenge Western AI in Clinical Chemistry MCQs: A Benchmarking Follow-up Study on AI Use in Health Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "Bing Chat (GPT-4 Turbo)",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "\"Bing Chat (GPT-4 Turbo) (Microsoft, Redmond, WA): Tested with its 'Balanced' conversation mode, last updated April 2023\" (Methods)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods: standardized prompt quoted verbatim",
+    "note": "MCQs entered one by one after the prompt"
+  },
+  "claim": {
+    "metric": "accuracy, Remember category",
+    "value": 0.83,
+    "n_items": 60,
+    "location": "Table I, row Microsoft Bing, column Remember",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "60 clinical chemistry MCQs for master's students; not printed"
+  },
+  "cost": {
+    "est_calls": 180,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "dead_alias",
+    "data_closed"
+  ],
+  "notes": "All models via consumer chat interfaces (Bing Chat, ChatGPT Legacy April 2023, Bard, DeepSeek, Qwen); the GPT-4 Turbo build behind Bing in April 2023 is a dead preview."
+}

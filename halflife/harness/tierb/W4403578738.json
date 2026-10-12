@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403578738",
+  "title": "Answering Questions in Stages: Prompt Chaining for Contract QA",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Section 4: 'We used OpenAI's GPT-4o and GPT-4-Turbo models for all experiments ... temperature was set to zero'; Table 1 'P1 Exact Match 0.47 0.84 0.51 0.68 0.55 0.81 0.51 0.73'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figures 2-16 (single-stage and two-stage prompts P1-P4 for questions Q1-Q4, Appendix A.1)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "exact match accuracy (Q1, prompt P1)",
+    "value": 0.55,
+    "n_items": 200,
+    "location": "Table 1, row P1 Exact Match, GPT-4 Turbo column Q1 (about 200 lawyer-reviewed clauses per question)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "In-house annotated clauses from EDGAR/SEDAR contracts: 'This dataset will be released later for public use' (footnote 11)"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Paper dated 2024-10-09 with no preview string (alias resolved by rule). Everything except the annotated clause set is printed."
+}

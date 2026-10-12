@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7164447259",
+  "title": "LLM-Based Code Documentation Generation and Multi-Judge Evaluation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Sec. IV Results: \"Lower Tier: gpt-4.1-nano (3.15) ... which lag behind primarily due to weaker code quality, factual instability\" (Table I referenced)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. II.B-E narrate five PocketFlow pipeline prompt stages (persona + instructions) without quoting any template text",
+    "note": "Actual prompt text lives in the referenced PocketFlow pipeline/code, not in the paper."
+  },
+  "claim": {
+    "metric": "average weighted final documentation score (1-5 scale)",
+    "value": 3.15,
+    "n_items": null,
+    "location": "Sec. IV: \"Lower Tier: gpt-4.1-nano (3.15)\"; Table I gives per-metric breakdown",
+    "task_type": "generation",
+    "judge": "llm:multi-judge ensemble (4 judges, one per model family; identities not individually named)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "PyMedPhys open-source medical-physics library (GitHub); number of documentation chapters/units evaluated is not stated"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "gpt-5-nano is also a generator run the same way (Middle Tier, 3.70) and shares the same no_prompt gap. None of the five PocketFlow pipeline prompts (FetchRepo/IdentifyAbstractions/AnalyzeRelationships/OrderChapters/WriteChapters) is quoted verbatim."
+}

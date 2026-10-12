@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7154404167",
+ "title": "DeepSeek in China: AI Hiring or Bias Hiring?",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"DeepSeek...has attracted global attention for its strong performance compared with models like OpenAI's GPT-4 Turbo and Google's Gemini 1.5 Pro.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 3.2.1 (full Mandarin system-instruction prompt quoted, refined via pilot testing N=50)",
+  "note": "This prompt was used with DeepSeek-reasoner, not GPT-4 Turbo."
+ },
+ "claim": {
+  "metric": "none for GPT-4 Turbo; the paper's own CV-screening experiment (4,080 CV-job pairs, OLS regression on gender/age bias) runs deepseek-reasoner (April 2025) exclusively",
+  "value": null,
+  "n_items": null,
+  "location": "Sec 3.2.2 (\"The deepseek-reasoner model was used as the primary scoring engine\")",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "255 scraped job listings and 4,080 synthetic CV-job pairs from BOSS Zhipin; no release statement found"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo appears only once, as a comparison point in background text about DeepSeek's reputation. The entire experiment (CV-scoring bias audit) is run on DeepSeek's own API (deepseek-reasoner), which is outside OpenAI's tracked live-model list."
+}

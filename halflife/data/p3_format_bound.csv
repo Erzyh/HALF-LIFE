@@ -1,0 +1,251 @@
+﻿arm,wid,title,metric,original,arm_value,delta_pts,class_vs_original,n_items,unparsed,unparsed_share,explainable_by_format
+designated replacement (gpt-5.6),W4399317891,OR-Bench: An Over-Refusal Benchmark for Large Language Model,custom,12.7,15.986,3.29,재현,294,0,0.0,False
+designated replacement (gpt-5.6),W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,94.509,4.27,근접,100,0,0.0,False
+designated replacement (gpt-5.6),W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,85.47,-1.23,재현,234,0,0.0,False
+designated replacement (gpt-5.6),W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,accuracy,19.6,69.942,50.34,편차,173,0,0.0,False
+designated replacement (gpt-5.6),W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,46.716,-0.28,재현,707,0,0.0,False
+designated replacement (gpt-5.6),W4400065264,Following Length Constraints in Instructions,custom,49.3,12.968,-36.33,편차,802,0,0.0,False
+designated replacement (gpt-5.6),W4400375186,CEB: Compositional Evaluation Benchmark for Fairness in Larg,micro_f1,69.5,94.118,24.62,편차,136,0,0.0,False
+designated replacement (gpt-5.6),W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,50.552,25.05,편차,724,0,0.0,False
+designated replacement (gpt-5.6),W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,90.784,8.58,편차,510,0,0.0,False
+designated replacement (gpt-5.6),W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,91.418,16.85,편차,1841,0,0.0,False
+designated replacement (gpt-5.6),W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,0.538,41.85,편차,143,0,0.0,False
+designated replacement (gpt-5.6),W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,50.793,2.79,근접,1135,0,0.0,False
+designated replacement (gpt-5.6),W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,55.72,2.75,재현,133,0,0.0,False
+designated replacement (gpt-5.6),W4403580619,Evaluating Gender Bias of LLMs in Making Morality Judgements,custom,0.1773,0.224,4.63,근접,1816,0,0.0,False
+designated replacement (gpt-5.6),W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,100.0,59.9,편차,600,0,0.0,False
+designated replacement (gpt-5.6),W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,37.8,-1.8,재현,1000,0,0.0,False
+designated replacement (gpt-5.6),W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,100.0,59.9,편차,432,0,0.0,False
+designated replacement (gpt-5.6),W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,0.987,7.18,편차,871,0,0.0,False
+designated replacement (gpt-5.6),W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,0.919,10.25,편차,535,1,0.002,False
+designated replacement (gpt-5.6),W4404573318,Chat Bankman-Fried: an Exploration of LLM Alignment in Finan,accuracy,0.41,0.0,-41.0,편차,500,0,0.0,False
+designated replacement (gpt-5.6),W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,87.124,11.84,편차,233,0,0.0,False
+designated replacement (gpt-5.6),W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,78.2,17.0,편차,500,0,0.0,False
+designated replacement (gpt-5.6),W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,31.7,0.34,재현,10,0,0.0,False
+designated replacement (gpt-5.6),W4404985489,Variable Extraction for Model Recovery in Scientific Literat,custom,0.491,0.479,-1.21,재현,522,0,0.0,False
+designated replacement (gpt-5.6),W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,0.162,-3.56,근접,77,0,0.0,False
+designated replacement (gpt-5.6),W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,0.901,7.08,편차,867,0,0.0,False
+designated replacement (gpt-5.6),W4406880877,People who frequently use ChatGPT for writing tasks are accu,accuracy,54.0,100.0,46.0,편차,150,0,0.0,False
+designated replacement (gpt-5.6),W4406975432,Actions Speak Louder than Words: Agent Decisions Reveal Impl,custom,0.513,0.216,-29.66,편차,831,0,0.0,False
+designated replacement (gpt-5.6),W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,81.6,3.6,근접,100,0,0.0,False
+designated replacement (gpt-5.6),W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,80.5,39.2,편차,200,0,0.0,False
+designated replacement (gpt-5.6),W4410110677,Large Language Models for Supporting Clear Writing and Detec,accuracy,0.97,0.972,0.2,재현,250,0,0.0,False
+designated replacement (gpt-5.6),W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,99.5,-0.5,재현,1000,0,0.0,False
+designated replacement (gpt-5.6),W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,0.712,2.92,재현,882,0,0.0,False
+designated replacement (gpt-5.6),W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,81.98,-1.82,재현,394,0,0.0,False
+designated replacement (gpt-5.6),W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,60.048,4.09,근접,750,0,0.0,False
+designated replacement (gpt-5.6),W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,0.6,-32.0,편차,100,0,0.0,False
+designated replacement (gpt-5.6),W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,0.729,28.77,편차,1844,0,0.0,False
+designated replacement (gpt-5.6),W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,100.0,3.3,근접,31,0,0.0,False
+designated replacement (gpt-5.6),W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,92.523,11.63,편차,214,5,0.023,False
+designated replacement (gpt-5.6),W4414758400,Mitigation of Gender and Ethnicity Bias in AI-Generated Stor,custom,51.5,53.061,1.56,재현,25,0,0.0,False
+designated replacement (gpt-5.6),W4414979614,Overcoming Language Barriers: Multilingual Analysis of the 2,custom,0.93,0.897,-3.34,재현,30,0,0.0,False
+designated replacement (gpt-5.6),W4415035710,Do LLMs have a Gender (Entropy) Bias?,custom,2.0,-0.482,-2.48,편차,158,0,0.0,False
+designated replacement (gpt-5.6),W4415270561,Diff-XYZ: A Benchmark for Evaluating Diff Understanding,exact_match,0.38,0.894,51.4,편차,1000,0,0.0,False
+designated replacement (gpt-5.6),W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,80.0,6.9,재현,100,0,0.0,False
+designated replacement (gpt-5.6),W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,0.898,32.77,편차,215,0,0.0,False
+designated replacement (gpt-5.6),W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,67.157,49.51,편차,204,10,0.049,False
+designated replacement (gpt-5.6),W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,0.057,-5.03,재현,100,0,0.0,False
+designated replacement (gpt-5.6),W4416036063,sudoLLM: On Multi-role Alignment of Language Models,accuracy,89.2,93.638,4.44,근접,1289,0,0.0,False
+designated replacement (gpt-5.6),W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,0.453,-19.05,편차,400,0,0.0,False
+designated replacement (gpt-5.6),W4416037849,CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme,custom,71.22,69.397,-1.82,재현,389,0,0.0,False
+designated replacement (gpt-5.6),W4416339332,"""As Eastern Powers, I will veto."" : An Investigation of Nati",custom,65.0,93.808,28.81,편차,66,0,0.0,False
+designated replacement (gpt-5.6),W4416683695,AI Self-preferencing in Algorithmic Hiring: Empirical Eviden,custom,93.0,13.214,-79.79,편차,560,0,0.0,False
+designated replacement (gpt-5.6),W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,0.759,3.93,재현,54,0,0.0,False
+designated replacement (gpt-5.6),W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,19.658,-3.74,재현,43,0,0.0,False
+designated replacement (gpt-5.6),W7126280993,Semantic Content Determines Algorithmic Performance,custom,0.4,0.254,-14.6,편차,383,0,0.0,False
+designated replacement (gpt-5.6),W7131319772,Can Large Language Models Replace Human Coders? Introducing ,accuracy,99.0,99.8,0.8,재현,1000,0,0.0,False
+designated replacement (gpt-5.6),W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,0.0,-0.16,재현,30,0,0.0,False
+designated replacement (gpt-5.6),W7134885605,More Signal vs. More Noise - Comparing Full Text and Abstrac,accuracy,0.86,0.935,7.5,편차,200,0,0.0,False
+designated replacement (gpt-5.6),W7135428702,SommBench: Assessing Sommelier Expertise of Language Models,accuracy,0.73,0.913,18.31,편차,1024,0,0.0,False
+designated replacement (gpt-5.6),W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,0.986,6.58,편차,138,0,0.0,False
+designated replacement (gpt-5.6),W7140138327,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,accuracy,94.4,93.309,-1.09,재현,1076,29,0.027,False
+designated replacement (gpt-5.6),W7140953907,How Utilitarian Are OpenAI's Models Really? Replicating and ,accuracy,100.0,100.0,0.0,재현,1000,0,0.0,False
+designated replacement (gpt-5.6),W7144391352,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,accuracy,0.754,0.76,0.59,재현,279,0,0.0,False
+designated replacement (gpt-5.6),W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,2.028,0.67,편차,25,0,0.0,False
+designated replacement (gpt-5.6),W7160514285,Large Language Models Show Metacognitive Sensitivity in Medi,accuracy,0.935,0.657,-27.76,편차,108,0,0.0,False
+designated replacement (gpt-5.6),W7162149911,Refining and Reusing Annotation Guidelines for LLM Annotatio,custom,0.46,0.428,-3.22,재현,100,0,0.0,False
+designated replacement (gpt-5.6),W7164614711,I Understand How You Feel: Enhancing Deeper Emotional Suppor,macro_f1,51.68,47.671,-4.01,근접,12780,5,0.0,False
+designated replacement (gpt-5.6),W7166799942,CMTD: Cognitive Modeling with Traits and Distortions for Mul,accuracy,42.45,5.67,-36.78,편차,280,61,0.218,False
+designated replacement (gpt-5.6),W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,75.214,15.11,편차,585,0,0.0,False
+designated replacement (gpt-5.6),W7166852552,LexGenius: An Expert-Level Benchmark for Large Language Mode,accuracy,46.51,63.571,17.06,편차,8345,10,0.001,False
+designated replacement (gpt-5.6),W7166872685,Machine Behavior in Relational Moral Dilemmas: Moral Rightne,accuracy,0.53,1.0,47.0,편차,432,0,0.0,False
+designated replacement (gpt-5.6),W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,41.129,1.13,재현,124,0,0.0,False
+gpt-4.1,W4399317891,OR-Bench: An Over-Refusal Benchmark for Large Language Model,custom,12.7,26.478,13.78,편차,931,0,0.0,False
+gpt-4.1,W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,84.16,-6.08,편차,100,0,0.0,False
+gpt-4.1,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,84.583,-2.12,재현,240,0,0.0,False
+gpt-4.1,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,accuracy,19.6,15.2,-4.4,재현,250,0,0.0,False
+gpt-4.1,W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,45.583,-1.42,재현,595,0,0.0,False
+gpt-4.1,W4400065264,Following Length Constraints in Instructions,custom,49.3,8.105,-41.2,편차,802,0,0.0,False
+gpt-4.1,W4400375186,CEB: Compositional Evaluation Benchmark for Fairness in Larg,micro_f1,69.5,83.0,13.5,편차,200,0,0.0,False
+gpt-4.1,W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,37.856,12.36,편차,737,0,0.0,False
+gpt-4.1,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,83.212,1.01,재현,411,1,0.002,False
+gpt-4.1,W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,91.299,16.73,편차,2264,1,0.0,False
+gpt-4.1,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,0.392,27.2,편차,199,0,0.0,False
+gpt-4.1,W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,47.736,-0.26,재현,1391,0,0.0,False
+gpt-4.1,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,52.542,-0.43,재현,133,0,0.0,False
+gpt-4.1,W4403580619,Evaluating Gender Bias of LLMs in Making Morality Judgements,custom,0.1773,0.215,3.75,근접,1816,0,0.0,False
+gpt-4.1,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,36.333,-3.77,재현,600,0,0.0,False
+gpt-4.1,W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,32.4,-7.2,편차,1000,0,0.0,False
+gpt-4.1,W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,36.333,-3.77,재현,600,0,0.0,False
+gpt-4.1,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,0.99,7.5,편차,1000,0,0.0,False
+gpt-4.1,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,0.873,5.62,편차,356,1,0.003,False
+gpt-4.1,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,67.083,-8.2,편차,240,0,0.0,False
+gpt-4.1,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,75.2,14.0,편차,500,0,0.0,False
+gpt-4.1,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,37.3,5.94,편차,10,0,0.0,False
+gpt-4.1,W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,0.222,2.38,근접,100,0,0.0,False
+gpt-4.1,W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,0.884,5.41,편차,1027,0,0.0,False
+gpt-4.1,W4406975432,Actions Speak Louder than Words: Agent Decisions Reveal Impl,custom,0.513,0.215,-29.75,편차,4061,191,0.047,False
+gpt-4.1,W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,78.367,0.37,재현,100,2,0.02,False
+gpt-4.1,W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,47.5,6.2,재현,200,0,0.0,False
+gpt-4.1,W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,92.7,-7.3,편차,1000,0,0.0,False
+gpt-4.1,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,0.72,3.69,재현,1266,0,0.0,False
+gpt-4.1,W4411119263,ReIFE: Re-evaluating Instruction-Following Evaluation,custom,84.0,86.87,2.87,근접,2060,0,0.0,False
+gpt-4.1,W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,82.487,-1.31,재현,394,0,0.0,False
+gpt-4.1,W4411119490,Are We Done with MMLU?,custom,22.7,35.963,13.26,편차,3000,0,0.0,False
+gpt-4.1,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,55.415,-0.54,재현,750,0,0.0,False
+gpt-4.1,W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,0.94,2.0,재현,100,0,0.0,False
+gpt-4.1,W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,0.605,16.33,편차,4459,0,0.0,False
+gpt-4.1,W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,100.0,3.3,근접,31,0,0.0,False
+gpt-4.1,W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,84.0,3.11,재현,225,7,0.031,False
+gpt-4.1,W4414758400,Mitigation of Gender and Ethnicity Bias in AI-Generated Stor,custom,51.5,51.813,0.31,재현,25,0,0.0,False
+gpt-4.1,W4415035710,Do LLMs have a Gender (Entropy) Bias?,custom,2.0,-0.081,-2.08,편차,158,0,0.0,False
+gpt-4.1,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,0.699,12.91,편차,216,0,0.0,False
+gpt-4.1,W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,28.922,11.27,편차,204,0,0.0,False
+gpt-4.1,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,0.527,41.97,편차,100,0,0.0,False
+gpt-4.1,W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,0.51,-13.3,편차,400,0,0.0,False
+gpt-4.1,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,0.722,0.22,재현,54,0,0.0,False
+gpt-4.1,W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,0.0,-0.16,재현,30,0,0.0,False
+gpt-4.1,W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,1.372,0.01,재현,25,0,0.0,False
+gpt-4.1,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,60.342,0.24,재현,585,0,0.0,False
+gpt-4.1,W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,37.903,-2.1,재현,124,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,80.309,-9.93,편차,100,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,85.0,-1.7,재현,240,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,49.033,2.03,재현,948,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4400065264,Following Length Constraints in Instructions,custom,49.3,0.623,-48.68,편차,802,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,50.0,24.5,편차,800,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,72.324,-9.88,편차,925,23,0.025,False
+open-weight Llama 3.3 70B (FP8),W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,79.638,5.07,편차,2264,8,0.004,False
+open-weight Llama 3.3 70B (FP8),W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,0.322,20.16,편차,199,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,47.45,-0.55,재현,1391,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,57.301,4.33,재현,133,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,60.333,20.23,편차,600,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,33.9,-5.7,편차,1000,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,61.5,21.4,편차,600,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,0.97,5.5,편차,1000,1,0.001,False
+open-weight Llama 3.3 70B (FP8),W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,0.84,2.35,재현,707,5,0.007,False
+open-weight Llama 3.3 70B (FP8),W4404573318,Chat Bankman-Fried: an Exploration of LLM Alignment in Finan,accuracy,0.41,0.138,-27.2,편차,500,1,0.002,False
+open-weight Llama 3.3 70B (FP8),W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,77.083,1.8,재현,240,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,75.6,14.4,편차,500,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,10.0,-21.36,편차,10,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4404985489,Variable Extraction for Model Recovery in Scientific Literat,custom,0.491,0.42,-7.07,편차,589,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,0.236,3.77,근접,100,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,0.887,5.69,편차,1238,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4406880877,People who frequently use ChatGPT for writing tasks are accu,accuracy,54.0,8.0,-46.0,편차,150,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,71.351,-6.65,편차,100,26,0.26,True
+open-weight Llama 3.3 70B (FP8),W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,34.0,-7.3,편차,200,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4410110677,Large Language Models for Supporting Clear Writing and Detec,accuracy,0.97,0.96,-1.0,재현,250,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,31.3,-68.7,편차,1000,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,0.667,-1.63,재현,2283,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,85.787,1.99,재현,394,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,57.348,1.39,재현,750,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,0.538,-38.15,편차,100,48,0.48,True
+open-weight Llama 3.3 70B (FP8),W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,0.29,-15.11,편차,9302,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,83.871,-12.83,재현,31,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,72.889,-8.0,편차,225,23,0.102,True
+open-weight Llama 3.3 70B (FP8),W4414979614,Overcoming Language Barriers: Multilingual Analysis of the 2,custom,0.93,0.788,-14.21,편차,30,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4415270561,Diff-XYZ: A Benchmark for Evaluating Diff Understanding,exact_match,0.38,0.623,24.3,편차,1000,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,52.0,-21.1,편차,100,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,0.731,16.15,편차,216,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,14.216,-3.43,재현,204,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,0.615,50.81,편차,100,3,0.03,False
+open-weight Llama 3.3 70B (FP8),W4416036063,sudoLLM: On Multi-role Alignment of Language Models,accuracy,89.2,81.667,-7.53,편차,1500,1,0.001,False
+open-weight Llama 3.3 70B (FP8),W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,0.557,-8.55,편차,400,1,0.002,False
+open-weight Llama 3.3 70B (FP8),W4416037849,CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme,custom,71.22,67.005,-4.21,근접,389,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W4416339332,"""As Eastern Powers, I will veto."" : An Investigation of Nati",custom,65.0,56.587,-8.41,재현,66,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,0.741,2.07,재현,54,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,250.331,226.93,편차,43,11,0.256,False
+open-weight Llama 3.3 70B (FP8),W7126280993,Semantic Content Determines Algorithmic Performance,custom,0.4,0.337,-6.25,재현,480,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7131319772,Can Large Language Models Replace Human Coders? Introducing ,accuracy,99.0,93.0,-6.0,편차,1000,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,0.0,-0.16,재현,30,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7134885605,More Signal vs. More Noise - Comparing Full Text and Abstrac,accuracy,0.86,0.64,-22.0,편차,200,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7135428702,SommBench: Assessing Sommelier Expertise of Language Models,accuracy,0.73,0.805,7.47,편차,1024,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,0.931,1.09,재현,138,1,0.007,False
+open-weight Llama 3.3 70B (FP8),W7140138327,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,accuracy,94.4,85.226,-9.17,편차,1259,8,0.006,False
+open-weight Llama 3.3 70B (FP8),W7140953907,How Utilitarian Are OpenAI's Models Really? Replicating and ,accuracy,100.0,100.0,0.0,재현,1000,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7144391352,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,accuracy,0.754,0.659,-9.45,편차,279,2,0.007,False
+open-weight Llama 3.3 70B (FP8),W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,1.612,0.25,편차,25,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7160514285,Large Language Models Show Metacognitive Sensitivity in Medi,accuracy,0.935,0.778,-15.72,편차,108,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7162149911,Refining and Reusing Annotation Guidelines for LLM Annotatio,custom,0.46,0.165,-29.51,편차,100,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7164614711,I Understand How You Feel: Enhancing Deeper Emotional Suppor,macro_f1,51.68,46.354,-5.33,편차,12780,102,0.008,False
+open-weight Llama 3.3 70B (FP8),W7166799942,CMTD: Cognitive Modeling with Traits and Distortions for Mul,accuracy,42.45,7.586,-34.86,편차,280,41,0.146,False
+open-weight Llama 3.3 70B (FP8),W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,75.043,14.94,편차,585,2,0.003,False
+open-weight Llama 3.3 70B (FP8),W7166852552,LexGenius: An Expert-Level Benchmark for Large Language Mode,accuracy,46.51,55.53,9.02,편차,8345,2,0.0,False
+open-weight Llama 3.3 70B (FP8),W7166872685,Machine Behavior in Relational Moral Dilemmas: Moral Rightne,accuracy,0.53,0.988,45.84,편차,432,0,0.0,False
+open-weight Llama 3.3 70B (FP8),W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,41.935,1.94,재현,124,0,0.0,False
+Gemini 3.8 Flash,W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,95.259,5.02,편차,100,0,0.0,False
+Gemini 3.8 Flash,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,86.667,-0.03,재현,240,0,0.0,False
+Gemini 3.8 Flash,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,accuracy,19.6,80.0,60.4,편차,250,0,0.0,False
+Gemini 3.8 Flash,W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,47.138,0.14,재현,948,0,0.0,False
+Gemini 3.8 Flash,W4400065264,Following Length Constraints in Instructions,custom,49.3,13.092,-36.21,편차,802,0,0.0,False
+Gemini 3.8 Flash,W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,50.0,24.5,편차,800,0,0.0,False
+Gemini 3.8 Flash,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,88.283,6.08,편차,990,1,0.001,False
+Gemini 3.8 Flash,W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,95.671,21.1,편차,2264,2,0.001,False
+Gemini 3.8 Flash,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,0.492,37.25,편차,199,2,0.01,False
+Gemini 3.8 Flash,W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,50.468,2.47,근접,1391,1,0.001,False
+Gemini 3.8 Flash,W4403556032,Enhancing Healthcare LLM Trust with Atypical Presentations R,accuracy,0.751,0.949,19.79,편차,1272,24,0.019,False
+Gemini 3.8 Flash,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,50.212,-2.76,근접,133,2,0.015,False
+Gemini 3.8 Flash,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,99.5,59.4,편차,600,0,0.0,False
+Gemini 3.8 Flash,W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,38.6,-1.0,재현,1000,1,0.001,False
+Gemini 3.8 Flash,W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,99.667,59.57,편차,600,0,0.0,False
+Gemini 3.8 Flash,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,0.978,6.3,편차,1000,0,0.0,False
+Gemini 3.8 Flash,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,0.901,8.37,편차,707,2,0.003,False
+Gemini 3.8 Flash,W4404573318,Chat Bankman-Fried: an Exploration of LLM Alignment in Finan,accuracy,0.41,0.0,-41.0,편차,500,0,0.0,False
+Gemini 3.8 Flash,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,88.75,13.47,편차,240,0,0.0,False
+Gemini 3.8 Flash,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,68.0,6.8,편차,500,0,0.0,False
+Gemini 3.8 Flash,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,30.6,-0.76,재현,10,0,0.0,False
+Gemini 3.8 Flash,W4404985489,Variable Extraction for Model Recovery in Scientific Literat,custom,0.491,0.489,-0.15,재현,589,0,0.0,False
+Gemini 3.8 Flash,W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,0.215,1.65,재현,100,0,0.0,False
+Gemini 3.8 Flash,W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,0.897,6.74,편차,1238,0,0.0,False
+Gemini 3.8 Flash,W4406880877,People who frequently use ChatGPT for writing tasks are accu,accuracy,54.0,100.0,46.0,편차,150,0,0.0,False
+Gemini 3.8 Flash,W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,83.838,5.84,편차,100,0,0.0,False
+Gemini 3.8 Flash,W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,82.5,41.2,편차,200,0,0.0,False
+Gemini 3.8 Flash,W4410110677,Large Language Models for Supporting Clear Writing and Detec,accuracy,0.97,0.976,0.6,재현,250,0,0.0,False
+Gemini 3.8 Flash,W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,50.3,-49.7,편차,1000,0,0.0,False
+Gemini 3.8 Flash,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,0.777,9.4,편차,1624,0,0.0,False
+Gemini 3.8 Flash,W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,85.279,1.48,재현,394,0,0.0,False
+Gemini 3.8 Flash,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,60.405,4.44,근접,750,24,0.032,False
+Gemini 3.8 Flash,W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,0.73,-19.0,편차,100,0,0.0,False
+Gemini 3.8 Flash,W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,0.757,31.55,편차,12561,12,0.001,False
+Gemini 3.8 Flash,W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,100.0,3.3,근접,31,0,0.0,False
+Gemini 3.8 Flash,W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,64.0,-16.89,편차,225,72,0.32,True
+Gemini 3.8 Flash,W4414979614,Overcoming Language Barriers: Multilingual Analysis of the 2,custom,0.93,0.929,-0.14,재현,30,0,0.0,False
+Gemini 3.8 Flash,W4415270561,Diff-XYZ: A Benchmark for Evaluating Diff Understanding,exact_match,0.38,0.98,60.0,편차,1000,1,0.001,False
+Gemini 3.8 Flash,W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,92.0,18.9,편차,100,0,0.0,False
+Gemini 3.8 Flash,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,0.838,26.8,편차,216,0,0.0,False
+Gemini 3.8 Flash,W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,69.118,51.47,편차,204,0,0.0,False
+Gemini 3.8 Flash,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,0.487,37.97,편차,100,0,0.0,False
+Gemini 3.8 Flash,W4416036063,sudoLLM: On Multi-role Alignment of Language Models,accuracy,89.2,93.595,4.4,근접,1374,0,0.0,False
+Gemini 3.8 Flash,W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,0.487,-15.55,편차,400,0,0.0,False
+Gemini 3.8 Flash,W4416037849,CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme,custom,71.22,70.897,-0.32,재현,389,0,0.0,False
+Gemini 3.8 Flash,W4416339332,"""As Eastern Powers, I will veto."" : An Investigation of Nati",custom,65.0,93.721,28.72,편차,66,0,0.0,False
+Gemini 3.8 Flash,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,0.759,3.93,재현,54,0,0.0,False
+Gemini 3.8 Flash,W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,17.579,-5.82,재현,43,1,0.023,False
+Gemini 3.8 Flash,W7126280993,Semantic Content Determines Algorithmic Performance,custom,0.4,0.25,-15.0,편차,480,0,0.0,False
+Gemini 3.8 Flash,W7131319772,Can Large Language Models Replace Human Coders? Introducing ,accuracy,99.0,99.8,0.8,재현,1000,0,0.0,False
+Gemini 3.8 Flash,W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,0.0,-0.16,재현,30,0,0.0,False
+Gemini 3.8 Flash,W7134885605,More Signal vs. More Noise - Comparing Full Text and Abstrac,accuracy,0.86,0.975,11.5,편차,200,0,0.0,False
+Gemini 3.8 Flash,W7135428702,SommBench: Assessing Sommelier Expertise of Language Models,accuracy,0.73,0.979,24.85,편차,1024,0,0.0,False
+Gemini 3.8 Flash,W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,1.0,8.0,편차,138,0,0.0,False
+Gemini 3.8 Flash,W7140138327,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,accuracy,94.4,97.061,2.66,근접,1259,1,0.001,False
+Gemini 3.8 Flash,W7140953907,How Utilitarian Are OpenAI's Models Really? Replicating and ,accuracy,100.0,100.0,0.0,재현,1000,0,0.0,False
+Gemini 3.8 Flash,W7144391352,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,accuracy,0.754,0.717,-3.72,재현,279,0,0.0,False
+Gemini 3.8 Flash,W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,1.818,0.46,편차,25,0,0.0,False
+Gemini 3.8 Flash,W7160514285,Large Language Models Show Metacognitive Sensitivity in Medi,accuracy,0.935,0.991,5.57,편차,108,0,0.0,False
+Gemini 3.8 Flash,W7162149911,Refining and Reusing Annotation Guidelines for LLM Annotatio,custom,0.46,0.621,16.05,편차,100,0,0.0,False
+Gemini 3.8 Flash,W7164614711,I Understand How You Feel: Enhancing Deeper Emotional Suppor,macro_f1,51.68,44.908,-6.77,편차,12780,1,0.0,False
+Gemini 3.8 Flash,W7166799942,CMTD: Cognitive Modeling with Traits and Distortions for Mul,accuracy,42.45,13.831,-28.62,편차,280,28,0.1,False
+Gemini 3.8 Flash,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,90.94,30.84,편차,585,0,0.0,False
+Gemini 3.8 Flash,W7166852552,LexGenius: An Expert-Level Benchmark for Large Language Mode,accuracy,46.51,64.685,18.18,편차,8345,0,0.0,False
+Gemini 3.8 Flash,W7166872685,Machine Behavior in Relational Moral Dilemmas: Moral Rightne,accuracy,0.53,0.78,25.01,편차,432,4,0.009,False
+Gemini 3.8 Flash,W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,34.677,-5.32,재현,124,0,0.0,False

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4412944705",
+  "title": "Task Facet Learning: A Structured Approach To Prompt Optimization",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 5: 'We use GPT-4-Turbo as both the solver and the expert LLM'; Table 4: 'GPT-4-Turbo 87.1 90.9' (reported) vs 'UNIPROMPT 93.8 92.5'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Final optimized prompts for HumanEval/MBPP are not printed; only feedback snippets (Sec. 5) and an initialization example (Appendix)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "% solved problems",
+    "value": 93.8,
+    "n_items": 164,
+    "location": "Table 4 (Appendix A.8), row UNIPROMPT, column HumanEval",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HumanEval, MBPP"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The GPT-4-Turbo baseline row is cited from OpenAI reports (role C for that number); the UniPrompt number depends on an optimization loop and an unpublished final prompt."
+}

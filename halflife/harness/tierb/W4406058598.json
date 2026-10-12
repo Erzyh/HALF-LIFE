@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4406058598",
+  "title": "Halu-J: Critique-Based Hallucination Judge",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13 (gpt-4-turbo-2024-04-09 as generator/critique judge)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "\"We use the models Mistral-7B-Instruct-v0.2, GPT-3.5-Turbo-0301, GPT-4o-2024-05-13, Llama-2-13b-Chat ... for our baseline experiments.\" (Sec. 6.1); Table 1 GPT-4o ME-FEVER 0.83"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 11 (prompt example for the multiple-evidence scenario); Tables 4-10 (data-synthesis and critique-scoring prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "label prediction accuracy on the ME-FEVER test set",
+    "value": 0.83,
+    "n_items": 1238,
+    "location": "Table 1, row GPT-4o, column ME-FEVER (FEVER 0.88, ANLI 0.74, WANLI 0.60, HaluEval 0.81, KBQA 0.84)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ME-FEVER (3,901 instances; 1,238 test) and code, stated released (footnote in Sec. 1); ANLI/WANLI/HaluEval/KBQA public"
+  },
+  "cost": {
+    "est_calls": 1238,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "The CSV's gpt-4-turbo (gpt-4-turbo-2024-04-09) is role A here: it generates evidence, synthesizes golden critiques and scores critiques (Table 9). Decoding parameters for the baselines are not stated."
+}

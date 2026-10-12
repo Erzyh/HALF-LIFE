@@ -1,0 +1,23 @@
+{
+  "0": {
+    "rule_current_repo": 0.3416666666666667,
+    "rule_prefix_paper_version": 0.3016666666666667,
+    "judge_gpt4o_translation": 0.5233333333333333,
+    "n": 600,
+    "n_judge": 600
+  },
+  "1": {
+    "rule_current_repo": 0.3516666666666667,
+    "rule_prefix_paper_version": 0.30833333333333335,
+    "judge_gpt4o_translation": 0.57,
+    "n": 600,
+    "n_judge": 600
+  },
+  "2": {
+    "rule_current_repo": 0.35333333333333333,
+    "rule_prefix_paper_version": 0.315,
+    "judge_gpt4o_translation": 0.5466666666666666,
+    "n": 600,
+    "n_judge": 600
+  }
+}

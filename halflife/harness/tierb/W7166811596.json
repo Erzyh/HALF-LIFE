@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166811596",
+  "title": "All Prompts Are Created Equal? Evaluating Robustness of LLM Judges Against Non-Adversarial Prompt Variations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano (GPT-4.1-nano-2025-04-14)",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "We use eight models as evaluators - three each for the GPT ... {GPT-3.5-turbo, GPT-4.1-nano, GPT-4.1} (Model Families); Table 4 lists GPT-4.1-nano-2025-04-14; default temperature (T=1.0)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix: original attribute prompt plus paraphrase examples for one attribute; the 120 evaluation prompts 'will be released' (Appendix C)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "average judge accuracy across tasks and attributes",
+    "value": 0.3,
+    "n_items": null,
+    "location": "Results text: 'GPT-4.1-nano being the 8th and worst-performing model (accuracy=0.30)'; ~100 samples per task x 4 tasks x 12 attributes x 10 paraphrases",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TLDR (Stiennon et al. 2020), Topical-Chat, QG-Eval, ASAP++/DREsS; sample IDs to be released"
+  },
+  "cost": {
+    "est_calls": 14400,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "The reported number aggregates ~115,000 judgments over paraphrased prompts that are not printed; item counts per condition are approximate."
+}

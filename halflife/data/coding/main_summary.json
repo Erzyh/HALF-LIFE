@@ -1,0 +1,524 @@
+{
+ "papers": 500,
+ "codebook": "v1.3",
+ "coders": 4,
+ "decisions_applied": 60,
+ "papers_by_resolution": {
+  "agree": 415,
+  "fulltext": 37,
+  "third": 47,
+  "single": 1
+ },
+ "dependence": {
+  "dependent": 360,
+  "decided": 492,
+  "share_pct": 73.2,
+  "wilson95": [
+   69.1,
+   76.9
+  ],
+  "pending_third_coder": 0,
+  "both_unopened": 0,
+  "uncoded": 0,
+  "bounds_if_pending_all_dependent_pct": 73.2,
+  "bounds_if_pending_all_nondependent_pct": 73.2
+ },
+ "post_stratified": {
+  "frame_n": 26649,
+  "share_pct": 73.0,
+  "ci95_pct": [
+   69.1,
+   76.9
+  ],
+  "census_dependent": 42788,
+  "census_dependent_range": [
+   40487,
+   45090
+  ],
+  "curve_dependent": 35921,
+  "curve_dependent_range": [
+   33989,
+   37853
+  ],
+  "current_census": {
+   "frame_n": 57614,
+   "strata_not_in_sampling_frame": [],
+   "papers_in_those_strata": 0,
+   "share_pct": 70.6,
+   "ci95_pct": [
+    65.8,
+    75.4
+   ],
+   "census_dependent": 41380,
+   "curve_dependent": 34739
+  }
+ },
+ "by_status": {
+  "dead": {
+   "dependent": 208,
+   "decided": 271,
+   "share_pct": 76.8,
+   "wilson95": [
+    71.4,
+    81.4
+   ]
+  },
+  "dead|dying": {
+   "dependent": 51,
+   "decided": 73,
+   "share_pct": 69.9,
+   "wilson95": [
+    58.6,
+    79.2
+   ]
+  },
+  "dying": {
+   "dependent": 101,
+   "decided": 148,
+   "share_pct": 68.2,
+   "wilson95": [
+    60.4,
+    75.2
+   ]
+  }
+ },
+ "by_group": {
+  "CS": {
+   "dependent": 217,
+   "decided": 295,
+   "share_pct": 73.6,
+   "wilson95": [
+    68.2,
+    78.3
+   ]
+  },
+  "ENG": {
+   "dependent": 34,
+   "decided": 40,
+   "share_pct": 85.0,
+   "wilson95": [
+    70.9,
+    92.9
+   ]
+  },
+  "LIFE": {
+   "dependent": 19,
+   "decided": 23,
+   "share_pct": 82.6,
+   "wilson95": [
+    62.9,
+    93.0
+   ]
+  },
+  "MED": {
+   "dependent": 29,
+   "decided": 49,
+   "share_pct": 59.2,
+   "wilson95": [
+    45.2,
+    71.8
+   ]
+  },
+  "SOC": {
+   "dependent": 46,
+   "decided": 64,
+   "share_pct": 71.9,
+   "wilson95": [
+    59.9,
+    81.4
+   ]
+  },
+  "UNK": {
+   "dependent": 15,
+   "decided": 21,
+   "share_pct": 71.4,
+   "wilson95": [
+    50.0,
+    86.2
+   ]
+  }
+ },
+ "by_stratum": [
+  {
+   "stratum": "dead|CS",
+   "frame_n": 9532,
+   "weight_pct": 35.77,
+   "sample_n": 176,
+   "decided": 175,
+   "dependent": 136,
+   "share_pct": 77.7,
+   "wilson95": [
+    71.0,
+    83.2
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|ENG",
+   "frame_n": 1249,
+   "weight_pct": 4.69,
+   "sample_n": 20,
+   "decided": 20,
+   "dependent": 16,
+   "share_pct": 80.0,
+   "wilson95": [
+    58.4,
+    91.9
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|LIFE",
+   "frame_n": 392,
+   "weight_pct": 1.47,
+   "sample_n": 8,
+   "decided": 8,
+   "dependent": 7,
+   "share_pct": 87.5,
+   "wilson95": [
+    52.9,
+    97.8
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|MED",
+   "frame_n": 1636,
+   "weight_pct": 6.14,
+   "sample_n": 27,
+   "decided": 25,
+   "dependent": 16,
+   "share_pct": 64.0,
+   "wilson95": [
+    44.5,
+    79.8
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|SOC",
+   "frame_n": 2078,
+   "weight_pct": 7.8,
+   "sample_n": 36,
+   "decided": 36,
+   "dependent": 29,
+   "share_pct": 80.6,
+   "wilson95": [
+    65.0,
+    90.2
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|UNK",
+   "frame_n": 232,
+   "weight_pct": 0.87,
+   "sample_n": 8,
+   "decided": 7,
+   "dependent": 4,
+   "share_pct": 57.1,
+   "wilson95": [
+    25.0,
+    84.2
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|dying|CS",
+   "frame_n": 2031,
+   "weight_pct": 7.62,
+   "sample_n": 35,
+   "decided": 35,
+   "dependent": 24,
+   "share_pct": 68.6,
+   "wilson95": [
+    52.0,
+    81.4
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|dying|ENG",
+   "frame_n": 293,
+   "weight_pct": 1.1,
+   "sample_n": 8,
+   "decided": 8,
+   "dependent": 7,
+   "share_pct": 87.5,
+   "wilson95": [
+    52.9,
+    97.8
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|dying|LIFE",
+   "frame_n": 90,
+   "weight_pct": 0.34,
+   "sample_n": 8,
+   "decided": 8,
+   "dependent": 6,
+   "share_pct": 75.0,
+   "wilson95": [
+    40.9,
+    92.9
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|dying|MED",
+   "frame_n": 307,
+   "weight_pct": 1.15,
+   "sample_n": 8,
+   "decided": 8,
+   "dependent": 3,
+   "share_pct": 37.5,
+   "wilson95": [
+    13.7,
+    69.4
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|dying|SOC",
+   "frame_n": 478,
+   "weight_pct": 1.79,
+   "sample_n": 8,
+   "decided": 8,
+   "dependent": 6,
+   "share_pct": 75.0,
+   "wilson95": [
+    40.9,
+    92.9
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dead|dying|UNK",
+   "frame_n": 33,
+   "weight_pct": 0.12,
+   "sample_n": 8,
+   "decided": 6,
+   "dependent": 5,
+   "share_pct": 83.3,
+   "wilson95": [
+    43.6,
+    97.0
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dying|CS",
+   "frame_n": 4770,
+   "weight_pct": 17.9,
+   "sample_n": 86,
+   "decided": 85,
+   "dependent": 57,
+   "share_pct": 67.1,
+   "wilson95": [
+    56.5,
+    76.1
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dying|ENG",
+   "frame_n": 805,
+   "weight_pct": 3.02,
+   "sample_n": 12,
+   "decided": 12,
+   "dependent": 11,
+   "share_pct": 91.7,
+   "wilson95": [
+    64.6,
+    98.5
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dying|LIFE",
+   "frame_n": 293,
+   "weight_pct": 1.1,
+   "sample_n": 8,
+   "decided": 7,
+   "dependent": 6,
+   "share_pct": 85.7,
+   "wilson95": [
+    48.7,
+    97.4
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dying|MED",
+   "frame_n": 1026,
+   "weight_pct": 3.85,
+   "sample_n": 16,
+   "decided": 16,
+   "dependent": 10,
+   "share_pct": 62.5,
+   "wilson95": [
+    38.6,
+    81.5
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dying|SOC",
+   "frame_n": 1257,
+   "weight_pct": 4.72,
+   "sample_n": 20,
+   "decided": 20,
+   "dependent": 11,
+   "share_pct": 55.0,
+   "wilson95": [
+    34.2,
+    74.2
+   ],
+   "pending": 0
+  },
+  {
+   "stratum": "dying|UNK",
+   "frame_n": 147,
+   "weight_pct": 0.55,
+   "sample_n": 8,
+   "decided": 8,
+   "dependent": 6,
+   "share_pct": 75.0,
+   "wilson95": [
+    40.9,
+    92.9
+   ],
+   "pending": 0
+  }
+ ],
+ "per_coder": {
+  "A": {
+   "papers": 249,
+   "의존": 176,
+   "decided": 230,
+   "판단불가": 19,
+   "share_pct": 76.5
+  },
+  "B": {
+   "papers": 250,
+   "의존": 175,
+   "decided": 246,
+   "판단불가": 4,
+   "share_pct": 71.1
+  },
+  "C": {
+   "papers": 250,
+   "의존": 173,
+   "decided": 234,
+   "판단불가": 16,
+   "share_pct": 73.9
+  },
+  "D": {
+   "papers": 250,
+   "의존": 184,
+   "decided": 241,
+   "판단불가": 9,
+   "share_pct": 76.3
+  }
+ },
+ "questions": {
+  "dependent_papers": 360,
+  "Q1_final": {
+   "API": 150,
+   "": 117,
+   "불명": 75,
+   "혼합": 3,
+   "클라우드배포": 4,
+   "웹UI": 8,
+   "서드파티": 3
+  },
+  "Q2_final": {
+   "날짜 스냅숏": 170,
+   "별칭·계열명": 176,
+   "": 13,
+   "제품명": 1
+  },
+  "Q3_final": {
+   "없음": 315,
+   "연도만": 4,
+   "연월": 39,
+   "해당없음": 2
+  },
+  "snapshot_any_coder": 170,
+  "snapshot_final": 170,
+  "run_date_any_coder": 43,
+  "run_month_final": 39,
+  "webui_or_mixed_any_coder": 42,
+  "webui_final": 8,
+  "outside_list_named": 428,
+  "median_models_named": 5.0
+ },
+ "agreement": {
+  "role": {
+   "units_coded_by_2plus": 732,
+   "alpha": 0.713,
+   "percent_agreement": 0.865
+  },
+  "dependence_collapsed": {
+   "units_coded_by_2plus": 675,
+   "alpha": 0.824,
+   "percent_agreement": 0.929
+  },
+  "pairwise_role_kappa": {
+   "A-B": {
+    "n": 173,
+    "percent_agreement": 0.809,
+    "kappa": 0.618
+   },
+   "A-C": {
+    "n": 0
+   },
+   "A-D": {
+    "n": 189,
+    "percent_agreement": 0.804,
+    "kappa": 0.586
+   },
+   "B-C": {
+    "n": 170,
+    "percent_agreement": 0.929,
+    "kappa": 0.838
+   },
+   "B-D": {
+    "n": 0
+   },
+   "C-D": {
+    "n": 200,
+    "percent_agreement": 0.915,
+    "kappa": 0.818
+   }
+  },
+  "questions": {
+   "Q1 접근경로": {
+    "units_coded_by_2plus": 449,
+    "alpha": 0.35,
+    "percent_agreement": 0.561
+   },
+   "Q2 버전표기": {
+    "units_coded_by_2plus": 461,
+    "alpha": 0.443,
+    "percent_agreement": 0.703
+   },
+   "Q3 실행시점": {
+    "units_coded_by_2plus": 460,
+    "alpha": 0.373,
+    "percent_agreement": 0.813
+   },
+   "Q5 열람": {
+    "units_coded_by_2plus": 484,
+    "alpha": 0.169,
+    "percent_agreement": 0.955
+   },
+   "Q6 확신도": {
+    "units_coded_by_2plus": 485,
+    "alpha": -0.049,
+    "percent_agreement": 0.786
+   }
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4414631693",
+ "title": "Demand for LLMs: Descriptive Evidence on Substitution, Market Expansion, and Multihoming",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "OpenAI o1-pro / GPT-4o (product catalog)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"hosts some of the most expensive models including Claude Sonnet 3.7 and OpenAI o1-pro.\"; catalog table: \"GPT-4o 2024 05 13 Openai Old\"..."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (this is an economics paper analyzing aggregate API/usage demand, substitution, and multihoming patterns across LLM products via a routing-platform catalog; it does not run any model on a task)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "LLM routing-platform usage/pricing catalog data (e.g., OpenRouter-style)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Descriptive market-economics study of LLM product demand/substitution; models including o1-pro (not on the live list) and various GPT-4o dates appear only as catalog/pricing entries, never as a model the authors prompt on a task."
+}

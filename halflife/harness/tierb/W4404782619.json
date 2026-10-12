@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404782619",
+  "title": "Words Matter: Reducing Stigma in Online Conversations about Substance Use with Large Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Footnote 1: 'The exact models for GPT-3.5 Turbo and GPT-4 Turbo used in this paper are gpt-3.5-turbo-0125 and gpt-4-turbo-2024-04-09, respectively'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B: Figure 2 (few-shot drug-mention prompt), Figure 3 (stigma detection), Figure 4 (de-stigmatization)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1, drug-mention labeling vs manual annotation",
+    "value": 0.9,
+    "n_items": 200,
+    "location": "Appendix A, Table 6, row GPT 4-Turbo",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Reddit posts; 'dataset and models are available' at github.com/social-nlp-lab/destigma; inclusion of the 200-post annotated sample not confirmed"
+  },
+  "cost": {
+    "est_calls": 200,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "De-stigmatization outputs (Table 5) are rated by human reviewers (human_outcome for that part, not for the chosen claim). Sampling temperature not stated.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The F1 is over a random sample of 200 manually annotated Reddit posts (Sec. 3, Appendix A); the paper says the dataset and models are in the GitHub repository but does not say whether that annotated sample and its labels are included. Take the 200 posts and labels from the repo, run the Figure 2 few-shot drug-mention prompt with gpt-4-turbo-2024-04-09, and compute F1 against the manual labels.",
+    "approximation": "Sampling temperature unstated; if the annotated sample is not in the repository the number cannot be reproduced (Reddit texts alone do not give the labels).",
+    "needs_repo": true,
+    "repo_url": "https://github.com/social-nlp-lab/destigma",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

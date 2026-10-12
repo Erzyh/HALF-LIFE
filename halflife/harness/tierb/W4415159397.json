@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415159397",
+ "title": "CHARM: Calibrating Reward Models With Chatbot Arena Scores",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Leaderboard listing: \"gpt-4-turbo-2024-04-09 1256 55\" among hundreds of Chatbot Arena models; the paper recalibrates existing Arena Elo scores rather than querying the models itself."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (Arena Elo/scores are pre-existing crowdsourced data, not fresh model calls)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LMSYS Chatbot Arena leaderboard (public, but derived from human battles, not reproducible via simple prompting)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "CHARM's contribution is a statistical recalibration of already-collected Chatbot Arena human-preference scores; gpt-4-turbo-2024-04-09 appears only as one of hundreds of rows in that reused leaderboard data, not as a model the authors call themselves."
+}

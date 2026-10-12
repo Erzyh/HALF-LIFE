@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4406489787",
+  "title": "MALADE: Orchestration of LLM-powered Agents with Retrieval Augmented Generation for Pharmacovigilance",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "In the evaluations of MALADE, we consider two LLMs, GPT-4 Turbo and GPT-4o (Section 5.2); Table 1 'GPT-4 Turbo AUC with confidence 0.831 0.851'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B.1 (full prompts to DrugFinder, DrugAgent Critic, FDAHandler, CategoryAgent and its Critic)",
+    "note": "All agent system prompts are printed; the orchestration logic is described in Section 4 and Appendix B."
+  },
+  "claim": {
+    "metric": "ADE-based AUC (confidence-derived scores)",
+    "value": 0.851,
+    "n_items": 55,
+    "location": "Table 1, row 'GPT-4 Turbo AUC with confidence', column ADE-based",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "OMOP ADE ground-truth table (10 drug categories x 10 outcomes, 55 evaluable pairs) and FDA drug labels via the OpenFDA API"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "arXiv Aug 2024 with no preview string, so resolved to the GA snapshot; code at github.com/jihyechoi77/malade. Re-execution without code requires rebuilding the Langroid multi-agent loop, RAG over FDA labels and OpenFDA tool calls, hence 'maybe'. Authors note nondeterminism; no temperature stated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "All agent prompts are printed (Appendix B.1) but the number depends on the Langroid orchestration (DrugFinder, DrugAgent and Critic, FDAHandler with vector-DB RAG over FDA labels and the OpenFDA tool, CategoryAgent and Critic), the label post-processing (Appendix B.4) and the confidence-to-score mapping behind the AUC, which are only in the repository. Take the pipeline from the repo, run it with gpt-4-turbo-2024-04-09 on the 55 evaluable OMOP category/outcome pairs, and compute the ADE-based AUC from the confidence scores (0.851).",
+    "approximation": "FDA label content and OpenFDA responses drift over time; the authors report nondeterminism and no temperature.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/jihyechoi77/malade",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

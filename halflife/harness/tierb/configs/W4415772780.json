@@ -1,0 +1,79 @@
+{
+  "wid": "W4415772780",
+  "title": "Bridging Behavioral Gaps: Automatic Extrapolation of Concreteness Norms for Arabic and English with a k-Nearest Neighbor Approach",
+  "status": "needs_human",
+  "model": {
+    "id": "o4-mini-2025-04-16",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048
+    },
+    "params_source": "paper Sec. 4.5 ('instructed to return a single integer (1-5) at zero-temperature'); o4-mini ignores temperature, so the stated 0 is recorded but not sent. max_tokens 2048 is ours (a one-integer answer plus hidden reasoning tokens); the paper does not mention reasoning effort, so the API default (medium) applies.",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 545,
+    "subset_rule": "paper-defined split: the English held-out test set, 10% of the 5,448-noun English dataset (Sec. 4.1) = 545 words; each word queried three times and the mean rating used (Sec. 4.5)",
+    "approximation": "blocked: neither the exact 545-word test split nor the exact prompt wording is recoverable (see open_points). A seeded 10% draw from the 5,448 nouns plus a reconstruction of the Brysbaert instructions would be our own instrument."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "Brysbaert, Warriner & Kuperman (2014) English concreteness norms, the published supplementary file (40,000 words with mean concreteness); the paper uses the Schulte im Walde & Frassinelli (2022) reprocessed subset of 5,448 unambiguous nouns, and then a 10% test split of it",
+    "config_or_split": "held-out test split (545 of 5,448 nouns) - not published",
+    "filter": "the paper's own POS/frequency filtering is already applied in the Schulte im Walde & Frassinelli (2022) subset; the test-split membership is unknown",
+    "fields": {
+      "input": "Word",
+      "label": "Conc.M",
+      "id": "Word"
+    },
+    "license": "Brysbaert et al. (2014) norms are distributed as journal supplementary material (Behavior Research Methods); free for research use, no explicit licence statement",
+    "access_checked": true,
+    "size_mb": 2.2,
+    "file_url": "https://static-content.springer.com/esm/art%3A10.3758%2Fs13428-013-0403-5/MediaObjects/13428_2013_403_MOESM1_ESM.xlsx",
+    "download": {
+      "date": "2026-09-19",
+      "check": "HEAD 200, 2,198,394 bytes, application/octet-stream (not downloaded: .xlsx is not a runner table format and the item set is undetermined anyway)"
+    },
+    "paper_release": "footnote 4 says only 'Code and data are available at Supplementary material' - no URL, repository or DOI is given anywhere in the text"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "[not printed in the paper] the human annotation guidelines from Brysbaert et al. (2014), plus an instruction to return a single integer 1-5 for the word {word}",
+    "placeholders": {
+      "word": "items.Word"
+    },
+    "few_shot": "unknown; the paper notes in its discussion that the Brysbaert instructions 'contain three concreteness examples', so the guidelines themselves carry examples",
+    "source_location": "Sec. 4.5 / 5.5 ('by prompting it with the human annotation guidelines from Brysbaert et al. (2014) for English ... The model was instructed to return a single integer (1-5) at zero-temperature')",
+    "verbatim": "partial: the paper describes the prompt but prints no part of it. The guidelines are an external published instrument (the Brysbaert et al. 2014 annotation instructions), and the wording of the added output instruction is unknown.",
+    "placeholders_paper": {
+      "word": "the target word being rated"
+    }
+  },
+  "output": {
+    "parse": "number",
+    "postprocess": "take the integer rating; the mean of the three queries per word is the model's score for that word",
+    "parse_paper": "a single integer 1-5"
+  },
+  "metric": {
+    "name": "pearson",
+    "definition": "Spearman rank correlation between the model's mean rating per word and the human concreteness rating over the 545 test words (the runner has pearson, not spearman; a rank transform in a hook would be needed).",
+    "judge": "none",
+    "original_value": 0.804,
+    "original_location": "Table 6, row 'ChatGPT', column English: Spearman rho 0.804 (RMSE 0.669)",
+    "bootstrap_unit": "item (word)",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 1635,
+    "est_usd": 5.0,
+    "tier": "low",
+    "prepare_note": "not run: no item list and no prompt."
+  },
+  "open_points": [
+    "prompt: not printed. It is 'the human annotation guidelines from Brysbaert et al. (2014)' - text from another paper - plus an unquoted instruction to output one integer. Reconstructing it from the 2014 article would be our own wording, and the paper's own discussion shows the result is prompt-sensitive (decimal vs integer prompts move Spearman from 0.798 to 0.824 in Arabic).",
+    "items: the 545-word English test set is a 10% split (Sec. 4.1) with no seed and no released word list; footnote 4 points at 'Supplementary material' without a URL. A seeded draw from the 5,448-noun subset would be a different item set, and Spearman over 545 words is sensitive to which words they are.",
+    "metric: Spearman is not in the runner's metric list (pearson is); a small hook would have to rank-transform both sides. Also, three queries per word are averaged BEFORE correlating, which the runner's per-seed scoring does not do - the hook would have to aggregate over seeds."
+  ],
+  "notes": "The paper's own caveat is that o4-mini returns only five discrete values, so ties inflate Spearman; the RMSE column (0.669) is the scale-sensitive companion. The Arabic arm (41 test words, 0.798 integer / 0.824 decimal prompting) has the same two blockers."
+}

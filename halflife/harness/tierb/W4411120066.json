@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411120066",
+  "title": "A Comparative Analysis of Ethical and Safety Gaps in LLMs using Relative Danger Coefficient",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We systematically stress-tested several state-of-the-art models, including the GPT family... GPT-4 Turbo3\" (Intro); Sec 4.3 reports Relative Danger Coefficient (RDC) by category"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 3.1 (RDC formula), Appendix A/B (prompt/category details referenced)",
+    "note": "Prompts probe Hate Speech, Self-Harm, Weapons, Crime, and Substance categories with adversarial/harmful scenarios."
+  },
+  "claim": {
+    "metric": "Relative Danger Coefficient (RDC), by category",
+    "value": null,
+    "n_items": null,
+    "location": "Sec 4.3 (charts/figures per category); no consolidated per-model table found",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Author-constructed adversarial prompt set (categories inspired by Tedeschi et al. 2024), not stated as released"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "tos"
+  ],
+  "notes": "This is a red-teaming/jailbreak-style safety study (prompts elicit hate speech, self-harm, weapons, crime, and substance-abuse content); such prompts should not be re-run against a commercial API regardless of other reproducibility factors."
+}

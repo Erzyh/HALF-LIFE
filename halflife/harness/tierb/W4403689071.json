@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4403689071",
+  "title": "COMPARATIVE ANALYSIS OF MULTILINGUAL QA MODELS AND THEIR ADAPTATION TO THE KAZAKH LANGUAGE",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4-turbo has achieved the highest F1 score of 73.33% after fine-tuning\" (Results); Table 3 row \"GPT-4-turbo 71.1111 73.3333\" (F1 without/with fine-tuning) on the Kazakh sKQuAD dataset"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "No prompt, instruction text, or API/inference details are given anywhere for how GPT-4-turbo was queried."},
+  "claim": {
+    "metric": "F1 score (%), Kazakh sKQuAD QA, after fine-tuning", "value": 73.3333, "n_items": null, "location": "Table 3, row GPT-4-turbo, 'Performance After Fine-tuning' column",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "Kazakh sKQuAD dataset (Nugumanova et al., cited); GPT-4-turbo numbers are the authors' own addition to that dataset's published results"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["prompt_none"],
+  "notes": "Published in a low-visibility regional journal (Scientific Journal of Astana IT University). The paper describes 'fine-tuning' GPT-4-turbo via adapter modules and learning-rate/batch-size tuning, which is not offered by OpenAI for this model, casting doubt on the reported methodology; no prompt or API details are given regardless, so the number cannot be reproduced at prompt level as described."
+}

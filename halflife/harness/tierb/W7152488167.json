@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7152488167",
+ "title": "Mapeamento Sistemático sobre o Uso de IAs Generativas no Ensino de Programação",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"1 trabalho registra o uso do GPT-4 Turbo via API\" -- counts one OTHER surveyed study's tool choice in this systematic mapping review"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Systematic mapping study (survey of programming-education literature); no prompt of its own."
+ },
+ "claim": {
+  "metric": "none (tallies which generative-AI tools the surveyed primary studies used)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a; the paper's corpus is the surveyed publication set itself, not an LLM-evaluation dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Portuguese-language systematic mapping study; GPT-4 Turbo appears only as one tool used by one of the surveyed primary studies, not as something the authors themselves ran."
+}

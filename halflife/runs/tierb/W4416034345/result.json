@@ -1,0 +1,47 @@
+{
+  "wid": "W4416034345",
+  "title": "Unlocking Legal Knowledge: A Multilingual Dataset for Judicial Summarization in Switzerland",
+  "model": "o3-mini-2025-01-31",
+  "metric": "rouge_l",
+  "original_value": 18.21,
+  "original_location": "Table 2, row o3-mini one-shot, column ROUGE-L (+/- 0.67)",
+  "reexecution": {
+    "mean_over_seeds": 0.1850674396831814,
+    "per_seed": {
+      "0": {
+        "value": 0.1850674396831814,
+        "n": 852,
+        "ci95": [
+          0.18057281289057467,
+          0.18697963716334243
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416034345",
+    "n_items": 978,
+    "n_requests": 978,
+    "seeds": 1,
+    "est_usd": 12.49,
+    "subset_note": null,
+    "model": "o3-mini-2025-01-31",
+    "metric": "rouge_l",
+    "original_value": 18.21
+  },
+  "served": {
+    "models": [
+      "o3-mini-2025-01-31"
+    ],
+    "n_fingerprints": 6
+  },
+  "approximation": "o3-mini ignores the temperature/top_p the authors requested and the runner does not pass seed 2025 to reasoning models (reasoning_effort medium assumed); ROUGE-L re-implemented after rouge_score defaults (rougeL, not rougeLsum)",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 18.50674396831814,
+    "delta": 0.29674396831813965,
+    "original_inside_ci95": true
+  }
+}

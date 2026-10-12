@@ -1,0 +1,66 @@
+{
+  "wid": "W4404314294",
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLMs in Disaster Response",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 0.817,
+  "original_location": "Table II (Results from No Prompting), row GPT-4 Turbo, column 1st Index (81.70%)",
+  "reexecution": {
+    "mean_over_seeds": 0.868831065488979,
+    "per_seed": {
+      "0": {
+        "value": 0.8700564971751412,
+        "n": 356,
+        "ci95": [
+          0.8333333333333334,
+          0.9067796610169492
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.8676056338028169,
+        "n": 356,
+        "ci95": [
+          0.8309859154929577,
+          0.9014084507042254
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 3
+  },
+  "prepare": {
+    "wid": "W4404314294",
+    "n_items": 356,
+    "n_requests": 712,
+    "seeds": 2,
+    "est_usd": 2.4,
+    "subset_note": "cost cap $1.2: seeded random subset of 356 items (seed 20260907); repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 0.817,
+    "cap_usd": 1.18,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4404314294"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 46
+  },
+  "approximation": "Temperature 0.0 instead of the (unstated, presumably default) sampling temperature used to obtain five distinct completions; 'first index' = the single completion per seed.",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4404314294"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.868831065488979,
+    "delta": 0.05183106548897909,
+    "original_inside_ci95": false
+  }
+}

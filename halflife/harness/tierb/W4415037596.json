@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4415037596",
+ "title": "Are Language Models Consequentialist or Deontological Moral Reasoners?",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4.1 nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Sec (Results): 'substantial variation in CDGAP across both models and moral scenarios'; results list 'GPT-4.1 nano 0.427' (Overall CDGAP); 'across the n=640 moral dilemma vignettes'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix Table 5 (dilemma-category taxonomy); main text describes the Reason-then-Decide / Decide-then-Reason forced-choice presentation",
+  "note": "Procedure (forced choice on a moral-dilemma vignette, two orderings of reasoning vs. decision) is described; a single verbatim prompt template was not confirmed in the excerpt read."
+ },
+ "claim": {
+  "metric": "CDGAP (Consequentialist-Deontological Gap), Overall",
+  "value": 0.427,
+  "n_items": 640,
+  "location": "Results table/figure listing per-model Overall CDGAP; n=640 moral dilemma vignettes",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "640 moral dilemma vignettes constructed by the authors (trolley-problem style); MMLU used for a secondary correlation analysis"
+ },
+ "cost": {
+  "est_calls": 1920,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Value taken from a flattened model/value list in the extracted text (each model on its own line followed by its Overall score), so pairing was inferred from adjacency rather than a clean table cell; recommend a quick PDF check. gpt-4.1 (undated, not on the live list) and gpt-4o snapshots also appear in the same comparison."
+}

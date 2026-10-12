@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7124249593",
+ "title": "A Survey on Small Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"GPT-4o, released in May 2024, processes text, vision, and audio input end-to-end and is faster than GPT-4 Turbo (OpenAI, 2024)\" -- background scene-setting in a survey's applications section."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Survey paper; no original experiments."
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (survey, no experiment)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A survey of small language models; GPT-4 Turbo is mentioned only once, as a speed comparison point while introducing GPT-4o in the \"Real-Time Interaction\" applications subsection."
+}

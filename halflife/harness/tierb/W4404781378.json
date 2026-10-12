@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404781378",
+ "title": "Learning the Bitter Lesson: Empirical Evidence from 20 Years of CVPR Proceedings",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"We employ three large language models to evaluate the title and abstracts of CVPR papers from 2005 to 2024: GPT-4o-2024-05-13, gpt-4o-mini-2024-07-18, and claude-3-5-sonnet-20240620.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "\"The prompts used in this study are included in the appendix for reproducibility.\"",
+  "note": "CoT prompting via the Magentic library; Likert 0-10 scoring across 5 'bitter lesson' dimensions, anchored with 0/5/10 examples."
+ },
+ "claim": {
+  "metric": "R-squared, regression of overall bitter-lesson alignment score (GPT-4o-scored) on citation count",
+  "value": 0.178,
+  "n_items": 171,
+  "location": "Table 1, row 2024 (R-squared 0.178, N 171)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "CVPR proceedings titles/abstracts (2005-2024) + Semantic Scholar citation-count API"
+ },
+ "cost": {
+  "est_calls": 513,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Full dataset is ~200 randomly sampled CVPR papers/year x 20 years (171 in 2024 specifically); gpt-4o-mini-2024-07-18 and claude-3-5-sonnet-20240620 are scored identically and could serve as secondary claims. Inter-model scoring agreement (ICC, Krippendorff's alpha) is reported in Figure 3."
+}

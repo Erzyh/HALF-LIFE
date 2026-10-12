@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4410617211",
+ "title": "Large language model-based multimodal system for detecting and grading ocular surface diseases from smartphone images",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo (GPT4V)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"gpt-4-turbo (GPT4V, OpenAI)...requested through the Python library's official API\"; \"IQC achieved an ACC of 95.00%...utilizing the GPT4V model in the five-shot setting.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Results (IQC/DSD/SVA 'identity prompts' described); Supplementary Table S1 (hyperparameter settings)",
+  "note": "Task descriptions and few-shot memory-construction approach (STM) described; exact prompt wording not printed in the body reviewed."
+ },
+ "claim": {
+  "metric": "Image Quality Control (IQC) accuracy, five-shot",
+  "value": 95.0,
+  "n_items": 40,
+  "location": "Results text (\"IQC achieved an ACC of 95.00%...GPT4V...five-shot\"); Table 1 (Subset A test data: NB=20, WZ=20)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "UCSI dataset: proprietary smartphone ocular-surface images from Ningbo Eye Hospital, Wenzhou Medical University Eye Hospital, and Jiangdong Eye Hospital (IRB-approved, not stated as released)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Otherwise a strong candidate (confirmed real API use, not webui, explicit accuracy numbers per sub-task and few-shot level: IQC 95.00%, SVA-keratitis 88.33%, both GPT4V/gpt-4-turbo best-in-class); blocked solely because the UCSI clinical image dataset is private, multi-institution, IRB-approved data with no stated public release. Table/paragraph subset sizes are inconsistently reported (e.g., 'Subset A comprised 60 images' vs. Table 1's NB=20+WZ=20 test breakdown); n=40 uses the clearer table breakdown."
+}

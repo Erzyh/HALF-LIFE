@@ -1,0 +1,82 @@
+{
+  "wid": "W4411120188",
+  "title": "Multi3Hate: Multimodal, Multilingual, and Multicultural Hate Speech Detection with Vision-Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 40,
+      "top_p": 1.0
+    },
+    "params_source": "paper Appendix B.1 ('For all models, we generate deterministic outputs and limit generation to 40 new tokens'); top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 300,
+    "subset_rule": "the 300 English meme templates of Multi3Hate, image-only input (IMG), English prompt, US ground truth; each meme is asked with all six prompt variations (3 wordings x 2 answer orders)",
+    "approximation": "The reported 75.8 is the mean over the six prompt variations with its standard deviation (2.1); a single variation is not comparable. Images are resized to 512x512 before the call (Appendix B.1)."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/MinhDucBui/Multi3Hate (data/memes/<lang>/ images, data/final_annotations.csv labels); also published as huggingface.co/datasets/MinhDucBui/Multi3Hate",
+    "config_or_split": "English memes (data/memes/en), US annotation column",
+    "filter": null,
+    "fields": {
+      "input": "data/memes/en/<Meme ID>.jpg",
+      "label": "US",
+      "id": "Meme ID"
+    },
+    "license": "CC BY-NC-ND 4.0 (stated in Appendix A.7 and the repository)",
+    "access_checked": true,
+    "size_mb": 0.004,
+    "file_url": "https://raw.githubusercontent.com/MinhDucBui/Multi3Hate/main/data/final_annotations.csv",
+    "checks_2026_09_19": [
+      "final_annotations.csv fetched (4,113 bytes): columns 'Meme ID,US,DE,MX,CN,IN', 300 rows of 0/1 labels",
+      "data/memes holds one folder per language (de, en, es, hi, zh); the images are jpg files, sent to the API as base64 image_url parts by vlm/inference/gpt_4o.py"
+    ]
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Definition of Hate Speech:\n\nAny kind of communication [...], that attacks or uses pejorative or discriminatory language with reference to a person or a group on the basis of who they are, in other words, based on their religion, ethnicity, nationality, race, colour, descent, gender or other identity factor.\n\nAnswer if this meme is hate or not with a single alphabet letter among given answer choices a and b.\nMeme: <image>\nChoose:\na: Hate\nb: Non-hate\n",
+    "placeholders": {
+      "<image>": "the meme image as an image_url content part (base64 jpg, resized to 512x512)"
+    },
+    "variations": {
+      "wording_1": "Definition of Hate Speech:\n\nAny kind of communication [...], that attacks or uses pejorative or discriminatory language with reference to a person or a group on the basis of who they are, in other words, based on their religion, ethnicity, nationality, race, colour, descent, gender or other identity factor.\n\nAnswer if this meme is hate or not with a single alphabet letter among given answer choices a and b.",
+      "wording_2": "Definition of Hate Speech:\n\nAny kind of communication [...], that attacks or uses pejorative or discriminatory language with reference to a person or a group on the basis of who they are, in other words, based on their religion, ethnicity, nationality, race, colour, descent, gender or other identity factor.\n\nGiven a meme from online, answer if it is 'Hate Speech' or 'Non-Hate Speech'. Answer with only one single alphabet between 'a' and 'b', with no other description.",
+      "wording_3": "Definition of Hate Speech:\n\nAny kind of communication [...], that attacks or uses pejorative or discriminatory language with reference to a person or a group on the basis of who they are, in other words, based on their religion, ethnicity, nationality, race, colour, descent, gender or other identity factor.\n\nWould you consider this meme as a hate speech? Give an answer in a single alphabet only.",
+      "answer_order_a": "\nChoose:\na: Hate\nb: Non-hate\n",
+      "answer_order_b": "\nChoose:\na: Non-hate\nb: Hate\n",
+      "message_layout": "one user message with three content parts: [text: prefix + wording + '\\nMeme: '], [image_url], [text: the Choose block]"
+    },
+    "few_shot": "none (zero-shot, Sec. 5.3)",
+    "source_location": "Figure 9 (prefix, the three wordings, the two answer orders, postfix); Appendix B.2; the repository file vlm/inference/all_prompts.py holds the same strings",
+    "verbatim": "full; the line breaks the paper's figure box introduced inside sentences are joined, following the identical strings in the authors' all_prompts.py"
+  },
+  "output": {
+    "parse": "letter",
+    "postprocess": "Appendix B.1: the authors relax the letter constraint and also accept answers such as 'non-hate' or 'hate-speech'; nonsensical answers count as incorrect"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 300 memes whose predicted class matches the US majority annotation, averaged over the six prompt variations",
+    "judge": "none",
+    "original_value": 75.8,
+    "original_location": "Table 6 (large VLMs, prompt kept in English), row GPT-4o, column en / IMG, US ground truth: 75.8 with a standard deviation of 2.1 over the six prompt variations",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 5400,
+    "est_usd": 55.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "Runner gap: image input. The item is a meme image sent as an image_url content part, and the runner builds text-only messages, so this record cannot be prepared without extending the runner (the same gap as W4404352371 and W4404783148).",
+    "The reported number is a mean over six prompt variations with a standard deviation, so a faithful run is six passes per meme (1,800 calls per seed).",
+    "The country insertion of Sec. 5.5 ('in <country>') is optional in Figure 9; the en/US cell of Table 6 uses the prompt without it, which the figure marks only by the bracket convention."
+  ],
+  "notes": "The images themselves are small, but the 50 MB limit is not the obstacle - the runner is. The caption-augmented setting (+CAPT) adds the meme caption as text and the unimodal setting (Table 10, 65.4 for GPT-4o) drops the image entirely; the unimodal row is the only cell of this paper the current runner could execute."
+}

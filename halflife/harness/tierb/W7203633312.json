@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7203633312",
+ "title": "Buddhist, Yogic, and Vedic Contemplative Principles in AI Model Prompting: A Pilot Study",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1 nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "C",
+  "evidence": "\"Laukkonen et al. (2025) tested the same seven conditions against GPT-4.1 nano in an Iterated Prisoner's Dilemma\" -- a prior paper's experiment, not this study's own."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "This study's own experiment runs \"Claude, ChatGPT, Gemini\" as three commercial chat systems, not a pinned OpenAI snapshot."
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "llm:unspecified"
+ },
+ "data": {
+  "public": "no",
+  "source": "AILuminate/AIRR hazard-prompt benchmark (cited); this study's own response data not confirmed released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number",
+  "webui"
+ ],
+ "notes": "GPT-4.1 nano appears only in the literature review, describing a prior paper's (Laukkonen et al. 2025) experiment. This paper's own three tested systems are generic consumer chat interfaces (ChatGPT etc.), not a dated API snapshot."
+}

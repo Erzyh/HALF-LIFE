@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4417257719",
+  "title": "EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Financial Statements",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07 (also o4-mini-2025-04-16)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'we include GPT-4o (gpt-4o-2024-11-20), o4-mini (o4-mini-2025-04-16), GPT-5 (gpt-5-2025-08-07)'; Table 6, GPT-5 / Summary+BS+CF+PL+Text: earnings forecasting ROC-AUC 0.65±0.01"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 5 (earnings forecasting prompt), Figure 3 (fraud detection), Figure 6 (industry prediction); system prompt 'You are a financial analyst'",
+    "note": "temperature 0.0, max 4096 tokens; model returns prediction, probability and reasoning"
+  },
+  "claim": {
+    "metric": "ROC-AUC, earnings forecasting (binary), input Summary+BS+CF+PL+Text",
+    "value": 0.65,
+    "n_items": 451,
+    "location": "Table 6, block GPT-5, row Summary+BS+CF+PL+Text, column Earnings Forecasting ROC-AUC (mean of 3 runs)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "EDINET-Bench, https://huggingface.co/datasets/SakanaAI/EDINET-Bench (earnings forecasting test split 451; fraud detection test 224)"
+  },
+  "cost": {
+    "est_calls": 1353,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Inputs are long Japanese securities-report extracts, so per-call cost is high; the no-text input variant is cheaper (ROC-AUC 0.62). Fraud-detection alternative: GPT-5 ROC-AUC 0.67 on 224 items. Headline sentence: 'Even GPT-5 achieves only a ROC-AUC of 0.65'. o4-mini rows also available."
+}

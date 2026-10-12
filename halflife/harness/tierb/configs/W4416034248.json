@@ -1,0 +1,95 @@
+{
+ "wid": "W4416034248",
+ "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of Planning Capabilities",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 512,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (paper silent on decoding parameters); the snapshot is pinned in Appendix E.1 Table 11 ('GPT-4-turbo gpt-4-turbo-2024-04-09')",
+  "seeds": 3
+ },
+ "task": {
+  "type": "generation",
+  "n_items": 204,
+  "subset_rule": "all 204 Multi-Plan scenarios in the Math (mathematically structured) format",
+  "approximation": "Figure 1 is a few-shot template and Sec. 3.1 says the examples were 'randomly selected examples from the dataset'; Table 2 is the 1-shot setting (its Korean column 10.78% equals the 1-shot column of Table 12), but the drawn example is not printed, so each item gets one demonstration drawn from the other 203 scenarios with the harness RNG (seed 20260907). Appendix F.1 prints the visit/fly regular expressions in English only while the Math split's gold plans are Korean, so the hook applies the same two sentence shapes in Korean as well; a reply written in English is therefore scored wrong against the Korean gold, as in the paper's own script."
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "Bllossom/Multi-Plan",
+  "config_or_split": "default/train (the only split, 204 rows)",
+  "filter": null,
+  "fields": {
+   "input": "task",
+   "label": "answer",
+   "id": "id"
+  },
+  "license": "unknown (no license on the dataset card)",
+  "access_checked": true,
+  "size_mb": 0.21,
+  "hf": {
+   "dataset": "Bllossom/Multi-Plan",
+   "config": "default",
+   "split": "train"
+  },
+  "fields_source": {
+   "input": "question_math",
+   "label": "answer_math",
+   "id": "id",
+   "other": "category, num_cities, generation_type, question_ko/answer_ko, question_en/answer_en"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W4416034248/",
+   "file": "train-00000-of-00001.parquet"
+  },
+  "download": {
+   "date": "2026-09-19",
+   "bytes": 213802,
+   "sha256": "40dff569c89d431ac34e28acf904abc91ad1f49a973d225a5876e8ba5faf9613",
+   "note": "204 rows; answer_math is identical to answer_ko for all 204 rows (the Math format changes the request, not the plan)"
+  }
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "Refer to the example provided below, and present the solution to the given task using precisely the same format as demonstrated in the example. Your solution should be concise, and you should omit any additional explanations.\n[Example]\nTask:{example_task},Solution:{example_solution}\nTask:{task}, Solution:",
+  "placeholders": {
+   "example_task": "items.example_task",
+   "example_solution": "items.example_solution",
+   "task": "items.task"
+  },
+  "few_shot": "k=1, drawn from the other 203 Multi-Plan scenarios in the Math format with seed 20260907 (the paper says 'randomly selected examples' without printing them)",
+  "source_location": "Figure 1 ('An example of the evaluation prompt template')",
+  "verbatim": "full; the extraction wrapped the opening instruction over five lines, rejoined into one sentence pair. The three template slots keep the paper's own names."
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "hook parse(): apply the Appendix F.1 visit/fly regular expressions (English as printed, plus the Korean equivalents used by the Math gold plans) and return the ordered event list",
+  "parse_paper": "regex 'Days? (\\d+)(?:-(\\d+))?:\\s*Visit (\\w+)\\s*for (\\d+)\\s*days?\\.' and 'Day (\\d+):\\s*Fly from (\\w+)\\s*to (\\w+)\\.' (Appendix F.1)"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "planning accuracy = share of scenarios whose parsed event sequence matches the gold plan exactly in order, count and every field value (Appendix F.1)",
+  "judge": "rule",
+  "original_value": 17.65,
+  "original_location": "Table 2, row GPT-4-turbo, column Math (Korean 10.78%, English 10.78%)",
+  "bootstrap_unit": "item",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 612,
+  "est_usd": 11.0,
+  "tier": "low",
+  "est_usd_prepare": 9.79,
+  "est_usd_dryrun_max": 11.85,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 204 items x 3 seeds = 612 calls, ~245k input tokens; prepare $9.79, dry-run $11.85 (all 512 max_tokens used)."
+ },
+ "open_points": [
+  "The 1-shot demonstration is our seeded draw; the paper only says the examples were randomly selected, so the comparison is set-level. Table 12 shows GPT-4-turbo is example-sensitive (10.78 / 20.59 / 25.00 at 1 / 3 / 5 shots on Korean), so the choice of k matters more than the choice of example - k=1 is fixed by Table 2 = the 1-shot column.",
+  "Appendix F.1's regular expressions are English-only; the Korean patterns used for the Math (and Korean) formats are reconstructed from the gold plans. Any reply that answers in English scores 0 against the Korean gold - plausibly part of why the reported number is 17.65%, but not verifiable from the paper."
+ ],
+ "notes": "Table 2's Korean column equals Table 12's 1-shot column for every model, which fixes Table 2 as the 1-shot setting. o3-mini-2025-01-31 (80.39% Math) is the pricier alternative claim on the same 204 items."
+}

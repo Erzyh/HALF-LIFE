@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415042425",
+ "title": "Clinical outcomes of valve-sparing reconstructive surgery for ischemic mitral regurgitation: a 5-year single-center report and review of current global trends",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Gen AI was used in the creation of this manuscript. The author(s) declare that GPT-4-turbo on ChatGPT was used for drafting purposes\" (Generative AI statement)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Writing-assistance disclosure only; a cardiac-surgery clinical case series, not an LLM study."
+ },
+ "claim": {
+  "metric": "none (clinical case report; no experiment)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo (via the ChatGPT interface) is disclosed only as a manuscript-drafting aid for this clinical case series, with no research use or reportable metric."
+}

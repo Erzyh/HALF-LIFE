@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411120829",
+ "title": "Algorithmic Behaviors Across Regions: A Geolocation Audit of YouTube Search for COVID-19 Misinformation Between the United States and South Africa",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (v1106)",
+  "resolved": "dead-preview",
+  "role": "S",
+  "evidence": "\"large, and GPT-4 Turbo (v1106). All model performances...\"; Table 2: \"GPT-4 Turbo 0.79 0.79 0.79\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix Table 5 (search queries), Appendix Table 10 (7-point annotation labels)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "classification performance (precision/recall/F1, all 0.79)",
+  "value": 0.79,
+  "n_items": null,
+  "location": "Table 2",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "PesaCheck fact-checked dataset (362 items, Table 3); YouTube search results for 48 queries (Appendix Table 5)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias"
+ ],
+ "notes": "The paper explicitly names the gpt-4-1106-preview snapshot ('v1106'), which is a dead preview not on the still-callable list, despite the CSV's generic post-GA alias_note. Otherwise a clean, well-documented classification result (62 trained models compared, Appendix Table 11)."
+}

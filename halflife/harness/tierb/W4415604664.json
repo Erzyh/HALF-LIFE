@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4415604664",
+  "title": "A systematic review and meta-analysis of GPT-based differential diagnostic accuracy in radiological cases: 2023–2025",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Introduction: '... o3-mini, are widely recognized LLMs that have demonstrated ...'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "pooled accuracy",
+    "value": null,
+    "n_items": null,
+    "location": "Table 3 (pooled from 28 studies; GPT-4T 72.0% in text)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "28 published studies"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Systematic review / meta-analysis; no model calls."
+}

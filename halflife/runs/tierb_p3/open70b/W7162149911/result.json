@@ -1,0 +1,56 @@
+{
+  "wid": "W7162149911",
+  "title": "Refining and Reusing Annotation Guidelines for LLM Annotation",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 0.46,
+  "original_location": "Table 1, block NCBI (791), row GPT-5, column group S (simple prompting): P 0.45, R 0.48, F1 0.46, TP 378",
+  "reexecution": {
+    "mean_over_seeds": 0.16485403548941044,
+    "per_seed": {
+      "0": {
+        "value": 0.16485403548941044,
+        "n": 100,
+        "ci95": [
+          0.13671307824438572,
+          0.19469465785471665
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7162149911",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 0.07,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 0.46,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The runner sends the prompt as a chat completion without response_format={'type':'json_object'} (the runner drops response_format for reasoning models); the paper's provider sets it together with the JSON-mode system message, which is kept. Span realignment is a simplified version of the repo's align_annotations (exact offsets first, otherwise the nearest occurrence of the returned span text). Strict-match scoring is re-implemented (exact begin/end/label, one-to-one) instead of calling the authors' PubAnnotation evaluator with soft_match 0.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-5-2025-08-07",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7162149911"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.16485403548941044,
+    "delta": -0.2951459645105896,
+    "original_inside_ci95": false
+  }
+}

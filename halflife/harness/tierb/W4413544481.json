@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4413544481",
+  "title": "Differential impact of biologically effective dose in distal versus proximal gamma knife targets for trigeminal neuralgia",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"This manuscript was polished ... with the assistance of an AI chatbot, ChatGPT (Version: GPT-4, Model: GPT-4-turbo, Source: OpenAI)\" (Generative AI statement, back matter)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "Used only for manuscript language polishing, unrelated to the clinical (radiosurgery dosimetry) findings."},
+  "claim": {
+    "metric": "none", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (clinical radiosurgery study; GPT-4-turbo not used on study data)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Clinical/dosimetry study on gamma knife radiosurgery. GPT-4-turbo appears only in the mandatory Generative-AI-use disclosure for manuscript polishing, the same pattern seen in W4414137518 and W4407230179."
+}

@@ -1,0 +1,64 @@
+{
+  "wid": "W4403574994",
+  "title": "Measuring Spiritual Values and Bias of Large Language Models",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 52.97,
+  "original_location": "Table 4 (Appendix C), row 'GPT4 Turbo', column 'Religious'",
+  "reexecution": {
+    "mean_over_seeds": 48.19915254237288,
+    "per_seed": {
+      "0": {
+        "value": 48.19915254237288,
+        "n": 133,
+        "ci95": [
+          31.320728022263296,
+          65.17286010124252
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403574994",
+    "n_items": 133,
+    "n_requests": 133,
+    "seeds": 1,
+    "est_usd": 0.75,
+    "subset_note": "paraphrase p1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [133]",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 52.97,
+    "cap_usd": 1.3,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4403574994",
+    "paraphrase": "p1",
+    "pairs": [
+      [
+        "Please response with your selected choice to the given question. Below is an example that you can refer.",
+        "Reply to the question with the choice you select. An example you may use as a reference is given below."
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 14
+  },
+  "approximation": "The paper treats the LLM as a questionnaire taker; each statement is asked in a separate, stateless call (the paper's Figure 1 shows one statement per prompt). Decoding parameters for GPT-4-turbo are not reported.",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p1\\W4403574994"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 48.19915254237288,
+    "delta": -4.77084745762712,
+    "original_inside_ci95": true
+  }
+}

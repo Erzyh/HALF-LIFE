@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412887918",
+  "title": "The Structural Safety Generalization Problem",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Appendix F.1: 'For the multi-modal experiments ... we tested ... GPT-4o-2024-05-13, GPT-4o-mini-2024-07-18 ... temperature setting of 1.0'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B.1 (dataset-generation prompt), Appendix F.2 (evaluator system prompt), Appendix E.2 (guardrail system messages)",
+    "note": "Attack prompts are the released dataset items; the multi-turn/multi-image wrappers are described, not printed."
+  },
+  "claim": {
+    "metric": "attack success rate (text baseline)",
+    "value": 0.1,
+    "n_items": 500,
+    "location": "Table 1, row GPT-4O, column Text",
+    "task_type": "other",
+    "judge": "llm:gpt-4o-mini-2024-07-18 (automated evaluator) + StrongREJECT"
+  },
+  "data": {
+    "public": "yes",
+    "source": "github.com/juliusbroomfield/The-SSG-Problem (released harmful/benign datasets)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "tos"
+  ],
+  "notes": "Jailbreak red-teaming with 500 harmful instructions (ToS). o3-mini appears only as a system-card citation (role C)."
+}

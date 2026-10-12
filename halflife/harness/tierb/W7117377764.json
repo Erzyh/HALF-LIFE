@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7117377764",
+  "title": "Benchmarking large language models for geolocating colonial Virginia land grants",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-2025-04-16 (M-2); also o4-mini-2025-04-16 (M-1), o3-mini-2025-01-31 (M-3)",
+    "resolved": "o3-2025-04-16",
+    "role": "S",
+    "evidence": "Table 1 (M-series): 'M-2 o3-2025-04-16'; Table 4: 'M-2 o3-2025-04-16 23.4 [17.4, 29.3] 14.3 30.2' (mean km, 95% CI, median km, <=10 km %)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 4.5 (one-shot direct-to-coordinate prompt printed with output format); Appendix A.2 (system prompts incl. tool-augmented variant)",
+    "note": "single API call per abstract; o-series at default settings"
+  },
+  "claim": {
+    "metric": "mean geolocation error (km) over verified test grants",
+    "value": 23.4,
+    "n_items": 43,
+    "location": "Table 4, row M-2 o3-2025-04-16, column Mean (95% CI 17.4-29.3); median 14.3 km",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "5,471 Virginia patent abstracts with 43 verified test cases; GitHub repository and Zenodo DOI 10.5281/zenodo.16269949"
+  },
+  "cost": {
+    "est_calls": 129,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Great-circle error against verified ground-truth coordinates; the five-call ensemble E-1 reaches 19.2 km. Small n (43) gives wide CIs, which suits a seed-variance check."
+}

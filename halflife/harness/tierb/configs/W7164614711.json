@@ -1,0 +1,86 @@
+{
+  "wid": "W7164614711",
+  "title": "I Understand How You Feel: Enhancing Deeper Emotional Support Through Multilingual Emotional Validation in Dialogue System",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 16,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 12780,
+    "subset_rule": "all (M-EDESConv/test.csv: en 6,946 rows with 2,456 validate; ja 5,834 rows with 2,180 validate; 4,636 / 8,144 total as in Table 1)",
+    "approximation": "The release holds single utterance/response pairs (no multi-turn context), so the utterance alone is classified; the trailing 'Let's think step by step' line belongs to the CoT regime and is omitted; prompt placement (system vs user) not stated.",
+    "n_items_prepare": 12780
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/zihaurpang/Multilingual-Emotional-Validation, file M-EDESConv/test.csv (12,780 rows verified; columns Utterance, Response, validate_or_not, confidence, language)",
+    "config_or_split": "test.csv",
+    "filter": null,
+    "fields": {
+      "input": "Utterance",
+      "label": "validate_or_not",
+      "id": null,
+      "language": "language"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 2.3,
+    "file_url": "https://raw.githubusercontent.com/zihaurpang/Multilingual-Emotional-Validation/main/M-EDESConv/test.csv",
+    "fields_paper": {
+      "input": "Utterance",
+      "label": "validate_or_not (1 validate, 0 non-validate)",
+      "language": "language (en / ja)",
+      "id": "row index"
+    },
+    "label_map": {
+      "1": "validate",
+      "0": "non-validate"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Definition of validation: Validation is a communication technique, where we recognize, understand, and acknowledge others’ emotional states, thoughts, and actions.\nPlease classify each utterance into whether a validating response should be generated. Return validate if needed to generate a validating response and non-validate if not necessary to generate (meaning that it will generate a non-validating response)\n{utterance}",
+    "placeholders": {
+      "utterance": "items.Utterance"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix K.4 'Validation Timing Detection' (zero-shot = definition + instruction; the three-shot exemplars are described, not printed)",
+    "verbatim": "full (instruction text)",
+    "placeholders_paper": {
+      "utterance": "items.Utterance (appended after the instruction; separator not printed)"
+    }
+  },
+  "output": {
+    "parse": "label from set [non-validate, validate]",
+    "postprocess": "lowercase; no match = non-validate",
+    "parse_paper": "label from set [validate, non-validate] (test non-validate first)"
+  },
+  "metric": {
+    "name": "macro_f1",
+    "definition": "macro-F1 over the two classes across all 12,780 test utterances (Table 2 'Overall M-F1'); target-class F1 54.41 secondary",
+    "judge": "none",
+    "original_value": 51.68,
+    "original_location": "Table 2, Multilingual block, row 'GPT 4.1 Nano - Zero-shot', M-EDESConv Overall M-F1",
+    "bootstrap_unit": "item",
+    "name_paper": "macro_f1",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 38340,
+    "est_usd": 19.0,
+    "tier": "low",
+    "est_usd_prepare": 0.73,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [],
+  "notes": "Japanese rows are machine translations (GPT-4.1-mini) with 94% automatic labels; the human-validated subset (rightmost Table 2 block, 51.76) is a smaller alternative not released as a separate file. || [normalize 2026-09-07] test.csv verified (12,780 rows; Utterance, Response, validate_or_not, confidence, language; 8,144 x 0 / 4,636 x 1). Gold remapped 1 -> validate, 0 -> non-validate; 'non-validate' is listed first so that a 'non-validate' reply is not read as 'validate' (the runner's word-boundary match would otherwise hit both). A reply with neither label counts as a miss (the paper's 'no match = non-validate' default is not applied by the runner). || [triage 2026-09-09 g1] DEVIATION. Cell confirmed (Table 2, Multilingual block, M-EDESConv Overall M-F1 51.68; target-class P/R/F1 41.43/79.25/54.41). Replies are bare labels: validate 10,645, non-validate 2,051, 77 'Please provide the utterances you'd like me to classify.' (unparsed) per seed. Our validate-class P/R/F1 38.3/88.0/53.4 reproduces the paper's F1, but the model now answers validate for 83% of utterances (about 69% implied by the paper's P/R), which halves the non-validate F1 (29.7 vs about 49) -> macro 41.5 (per seed 41.5/41.4/41.7). Per language (seed 0): en 44.3 (paper English block 55.36), ja 37.5 (paper 47.03). Applying the config's 'no match = non-validate' default gives 42.0. Snapshot pinned (9 fingerprints); most plausibly prompt placement / separator sensitivity (the utterance is appended after the instruction without a marker; 77 replies ask for the utterances). No fix possible offline."
+}

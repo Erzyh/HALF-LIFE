@@ -1,0 +1,56 @@
+{
+  "wid": "W4400065264",
+  "title": "Following Length Constraints in Instructions",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 49.3,
+  "original_location": "Table 2, row 'GPT4 Turbo (gpt-4-turbo-2024-04-09)', AlpacaEval-LI Vlt(%) column",
+  "reexecution": {
+    "mean_over_seeds": 0.12967581047381546,
+    "per_seed": {
+      "0": {
+        "value": 0.12967581047381546,
+        "n": 802,
+        "ci95": [
+          0.1059850374064838,
+          0.15336658354114713
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4400065264",
+    "n_items": 802,
+    "n_requests": 802,
+    "seeds": 1,
+    "est_usd": 16.24,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 49.3,
+    "cap_usd": 25.0
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "decoding parameters are assumed (see params_source); the paper's own generations are not published, so only the aggregate Vlt% can be compared.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4400065264"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 12.967581047381547,
+    "delta": -36.332418952618454,
+    "original_inside_ci95": false
+  }
+}

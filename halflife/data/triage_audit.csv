@@ -1,0 +1,19 @@
+﻿block,measure,n,count,pct,note
+completeness,records with verdict eligible,1185,216,18.2,"1,185 records: 600 read on 5-7 September 2026, 585 on 19 September"
+completeness,records with verdict maybe,1185,201,17.0,"1,185 records: 600 read on 5-7 September 2026, 585 on 19 September"
+completeness,records with verdict ineligible,1185,768,64.8,"1,185 records: 600 read on 5-7 September 2026, 585 on 19 September"
+completeness,eligible: resolved live model has a quoted passage,216,216,100.0,
+completeness,eligible: claim cell has a location,216,216,100.0,
+completeness,eligible: claim has a numeric value and an item count,216,202,93.5,
+completeness,eligible: data source named,216,216,100.0,
+completeness,ineligible: at least one blocker named,768,756,98.4,
+completeness,ineligible: blockers named (counts),768,,,no_number 467; data_closed 136; no_prompt 105; webui 56; dead_alias 47; human_outcome 29; aux_model_dead 25; tos 20; prompt_none 11; alias_unpinned 9
+outcome,configurations judged executable without human input that produced a number the judges could score,86,84,97.7,"the remaining two could not be judged: one with more than half of its replies unparsable, one a non-score quantity reported without an interval"
+outcome,"deviations traced to a step the paper did not report, which the triage had judged complete (prompt wording, label mapping)",20,2,10.0,mode 3 of the loss typology at the stage 'Tier B deviations after triage' (Tables S4 and S15)
+cross-judge,three-class verdict identical (eligible / maybe / ineligible),60,28,46.7,"Cohen's kappa 0.2; second reader gpt-4.1-2025-04-14, 20 records per original class, seed 20260907"
+cross-judge,eligible versus not eligible identical,60,35,58.3,Cohen's kappa 0.242
+cross-judge,original verdict eligible: second reader gives the same verdict,20,17,85.0,"second verdicts: eligible 17, ineligible 3"
+cross-judge,original verdict maybe: second reader gives the same verdict,20,0,0.0,"second verdicts: eligible 13, ineligible 7"
+cross-judge,original verdict ineligible: second reader gives the same verdict,20,11,55.0,"second verdicts: eligible 9, ineligible 11"
+cross-judge,resolved live model identical,60,47,78.3,
+cross-judge,"second reader cost (USD) and texts truncated at 120,000 characters",60,6,10.0,cost 2.57

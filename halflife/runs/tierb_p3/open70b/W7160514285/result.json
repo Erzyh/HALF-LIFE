@@ -1,0 +1,56 @@
+{
+  "wid": "W7160514285",
+  "title": "Large Language Models Show Metacognitive Sensitivity in Medical Reasoning",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.935,
+  "original_location": "Table 2 ('Overall performance for gpt-4.1-nano'), row 'Forced-choice accuracy'",
+  "reexecution": {
+    "mean_over_seeds": 0.7777777777777778,
+    "per_seed": {
+      "0": {
+        "value": 0.7777777777777778,
+        "n": 108,
+        "ci95": [
+          0.6944444444444444,
+          0.8518518518518519
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7160514285",
+    "n_items": 108,
+    "n_requests": 108,
+    "seeds": 1,
+    "est_usd": 0.04,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.935,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper calls the Responses API; the harness calls Chat Completions with the same strict json_schema response format, the same system instruction and the same prompt text. The paper's model id is the undated alias gpt-4.1-nano, so the snapshot served may differ from the pilot's.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4.1-nano",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7160514285"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7777777777777778,
+    "delta": -0.15722222222222226,
+    "original_inside_ci95": false
+  }
+}

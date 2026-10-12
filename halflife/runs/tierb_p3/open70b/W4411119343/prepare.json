@@ -1,0 +1,13 @@
+{
+  "wid": "W4411119343",
+  "n_items": 394,
+  "n_requests": 394,
+  "seeds": 1,
+  "est_usd": 0.06,
+  "subset_note": null,
+  "dropped_unrenderable": 0,
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 83.8,
+  "cap_usd": 1.0
+}

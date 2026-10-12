@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7166826703",
+  "title": "COMPASS: A Framework for Evaluating Organization-Specific Policy Alignment in LLMs",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Table 3 row label 'GPT-5-2025-08-07'; Appendix A: GPT-5 target chatbot with temperature 0.7 and reasoning_effort=minimal; GPT-5-mini-2025-08-07 (high) is the judge."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C.5 (Policy Alignment Evaluation judge prompt, full); Appendix D/C print the AutoVia Motors system prompt only",
+    "note": "System prompts for the other seven organizations are 'available in our released codebase', not in the paper."
+  },
+  "claim": {
+    "metric": "policy alignment score (Denied Base, average of 8 domains)",
+    "value": 13.01,
+    "n_items": 516,
+    "location": "Table 3, row GPT-5-2025-08-07, Denied Base, Average",
+    "task_type": "generation",
+    "judge": "llm:gpt-5-mini-2025-08-07"
+  },
+  "data": {
+    "public": "yes",
+    "source": "COMPASS testbed, 5,920 verified queries over 8 organizations (Table 2); GitHub and HuggingFace badges on page 1 (URLs not in extracted text)"
+  },
+  "cost": {
+    "est_calls": 3096,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "One target call plus one judge call per query at 3 seeds. gpt-4.1-nano appears only as the pre-filter classifier (Table 4/10).",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Appendix D prints only the AutoVia Motors system prompt; the other seven organization prompts, the RAG pseudo-contexts (Appendix D.1) and the 516 verified denied base queries are 'available in our released codebase' (GitHub/HuggingFace badges on page 1, URLs not in the extracted text). Take them from the release, run gpt-5-2025-08-07 as the target (temperature 0.7, reasoning_effort minimal), judge with GPT-5-mini (high) using the Appendix C.5 prompt, and average the policy alignment score over the eight domains (13.01).",
+    "approximation": "Judge stochasticity; the release URL must be recovered from the public record.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

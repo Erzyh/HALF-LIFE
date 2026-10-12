@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4402702575",
+ "title": "From Bias to Balance: Detecting Facial Expression Recognition Biases in Large Multimodal Foundation Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "'We prompt each image with: \"Classify the image into one of the eight expressions...\"'; Table 1: 'GPT-4o 70.9 70.5 71.5 71.7 95.6 95.4'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 4 (prompt quoted verbatim: 'Classify the image into one of the eight expressions: [Happy, Anger, Sad, Neutral, Calm, Disgust, Fear, Surprise].')",
+  "note": "CoT zero-shot wrapper described but the core classification instruction is quoted."
+ },
+ "claim": {
+  "metric": "accuracy (%), single-sample, RADIATE dataset",
+  "value": 70.9,
+  "n_items": null,
+  "location": "Table 1, row GPT-4o, RADIATE/single column (Tarr 71.5, Chicago Face 95.6 also given)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "RADIATE, Tarr, and Chicago Face Dataset (established academic facial-expression datasets)"
+ },
+ "cost": {
+  "est_calls": 600,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Per-dataset item counts (n_items) not located in the excerpt read; up to 10 retries per image plus maj@5 sampling multiply the effective call count well above the raw image count. Table 2 also breaks results down by race (76.2%-84.5% for GPT-4o)."
+}

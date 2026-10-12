@@ -1,0 +1,14 @@
+{
+  "wid": "W4416034777",
+  "n_items": 100,
+  "n_requests": 200,
+  "seeds": 2,
+  "est_usd": 0.66,
+  "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 0.107,
+  "cap_usd": 1.1,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4416034777"
+}

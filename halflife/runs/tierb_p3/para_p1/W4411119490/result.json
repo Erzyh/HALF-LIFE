@@ -1,0 +1,64 @@
+{
+  "wid": "W4411119490",
+  "title": "Are We Done with MMLU?",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 22.7,
+  "original_location": "Table 3, row GPT-4 Turbo / Zero-Shot, column F1 (Recall 22.81, F2 23.90)",
+  "reexecution": {
+    "mean_over_seeds": 0.24873949579831933,
+    "per_seed": {
+      "0": {
+        "value": 0.24873949579831933,
+        "n": 3000,
+        "ci95": [
+          0.21797223844391536,
+          0.27886775273251085
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119490",
+    "n_items": 3000,
+    "n_requests": 3000,
+    "seeds": 1,
+    "est_usd": 8.01,
+    "subset_note": "paraphrase p1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [3000]",
+    "dropped_unrenderable": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 22.7,
+    "cap_usd": 12.84,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4411119490",
+    "paraphrase": "p1",
+    "pairs": [
+      [
+        "Given a question, its choices, and the ground truth answer, classify the question as either ‘ok’ or ‘not ok’.\n- ‘ok’ means that the question and the choices are understandable, and the ground truth answer is correct.\n- ‘not ok’ means that the ground truth answer is incorrect, or the question and the choices are not well presented.\nClassify with ‘ok’ or ‘not ok’ WITHOUT PROVIDING ANY REASONING",
+        "You receive a question, its answer choices and the ground truth answer; label the question ‘ok’ or ‘not ok’.\n- ‘ok’: the question and choices are understandable and the ground truth answer is correct.\n- ‘not ok’: the ground truth answer is wrong, or the question and choices are poorly presented.\nGive the label ‘ok’ or ‘not ok’ and NO reasoning"
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 15
+  },
+  "approximation": "the input block layout after the '# Task:' text is taken from the code release (src/taxonomy/data_utils.py verbaliser), not from the paper",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\para_p1\\W4411119490"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 24.873949579831933,
+    "delta": 2.173949579831934,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "wid": "W4411119711",
+  "title": "FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 55.96,
+  "original_location": "Table 2, row 'GPT-4-Turbo w/ simple, zero-shot prompt (Luo et al., 2023)', column BA (%) (F1-M 42.16)",
+  "reexecution": {
+    "mean_over_seeds": 0.6045247238575604,
+    "per_seed": {
+      "0": {
+        "value": 0.6034111472295687,
+        "n": 750,
+        "ci95": [
+          0.576827110906721,
+          0.6303832659301324
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.6056383004855521,
+        "n": 750,
+        "ci95": [
+          0.5789327040092327,
+          0.632067889629738
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119711",
+    "n_items": 750,
+    "n_requests": 1500,
+    "seeds": 2,
+    "est_usd": 22.08,
+    "subset_note": "repeat of the vendor condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 55.96,
+    "cap_usd": 8.86,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\vendor\\W4411119711"
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper cites the prompt to Luo et al. (2023) rather than printing it; the exact system/user strings are taken from the authors' own judge notebook, which also fixes temperature 0 and the answer parser. The alias 'GPT-4-Turbo' of Table 2 is read as the tracked snapshot gpt-4-turbo-2024-04-09.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor_rep\\W4411119711"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 60.45247238575604,
+    "delta": 4.492472385756038,
+    "original_inside_ci95": false
+  }
+}

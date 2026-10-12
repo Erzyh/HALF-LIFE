@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404792940",
+  "title": "Grasping the Essentials: Tailoring Large Language Models for Zero-Shot Relation Extraction",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "\"We use gpt-4o-2024-05-13 for GPT-4o and gpt-4o-mini-2024-07-18 for GPT-4o mini. ... temperature set to 0.6\" (Appendix F.2); Table 1 REPAL (w GPT-4o) F1 74.61 on DefOn-FewRel"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B-C, Tables 6-11 (seed construction and follow-up generation prompts)",
+    "note": "Prompts generate training instances; the reported score is of a RoBERTa-large-MNLI model trained on them."
+  },
+  "claim": {
+    "metric": "F1 of REPAL (w GPT-4o) on DefOn-FewRel (score of the trained SLM, not of GPT-4o)",
+    "value": 74.61,
+    "n_items": null,
+    "location": "Table 1, row REPAL (w GPT-4o), DefOn-FewRel F1",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "FewRel and Wiki-ZSL relation-extraction benchmarks (public)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The live model only synthesizes training data (temperature 0.6, iterative feedback loop); every reported number measures a fine-tuned SLM, so there is no number that a direct API re-run could reproduce without the training code."
+}

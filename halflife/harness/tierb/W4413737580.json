@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4413737580",
+ "title": "Large language models for combinatorial optimization of design structure matrix",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"we repeated the experiments in Table 2 using three different backbones: two open-source LLMs (Mixtral-7x8B and Llama3-70B) and one closed-source LLM (GPT-4-Turbo (OpenAI 2024)), accessed via its API.\" Table 3 (Ablation on the Backbone LLM) gives per-case GPT-4-Turbo results."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 2/3.2 (method describes prompt inputs: node names, edge list, network description, iterative in-context refinement; \"only the topological information...is engineered into the input prompt\" for the no-knowledge ablation)",
+  "note": "Prompt construction is described structurally; no single verbatim prompt string is quoted in the retrieved text."
+ },
+ "claim": {
+  "metric": "DSM sequencing solution-quality score (lower is better), GPT-4-Turbo backbone, single-trial with domain knowledge, UAV DSM case",
+  "value": 9.6,
+  "n_items": 10,
+  "location": "Table 3 (Ablation on the Backbone LLM), row 'GPT-4-Turbo / with', 1-trial, Unmanned Aerial Vehicle column (9.6 +/- 3.2); n=10 independent random-seed runs per Sec. 3.2",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Four DSM case studies (UAV, Microfilm Cartridge, Heat Exchanger, Automobile Brake System) reconstructed from published engineering references (Browning 1998; Ulrich & Eppinger 2016; Amen et al. 1999; Black et al. 1990); no code/data repository link found in the text"
+ },
+ "cost": {
+  "est_calls": 2000,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4-Turbo is one of four backbone LLMs in an ablation (Table 3), run directly via API by the authors across 4 cases x 2 knowledge conditions x {1,5,20}-trial settings x 10 seeds. Two soft gaps keep this at 'maybe': the exact prompt text is described but not quoted verbatim, and the four DSM inputs must be reassembled from cited published sources rather than a bundled release."
+}

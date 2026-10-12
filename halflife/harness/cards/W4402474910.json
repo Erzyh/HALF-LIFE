@@ -1,0 +1,86 @@
+{
+  "card_id": "W4402474910",
+  "openalex_id": "https://openalex.org/W4402474910",
+  "title": "Durably reducing conspiracy beliefs through dialogues with AI",
+  "doi": "10.1126/science.adq1814",
+  "paper": {
+    "doi": "10.1126/science.adq1814",
+    "authors": "Thomas H. Costello, Gordon Pennycook, David G. Rand",
+    "year": 2024,
+    "venue": "Science 385, eadq1814 (2024-09-13); preprint PsyArXiv 10.31234/osf.io/xcwdn",
+    "repo": "data: Dryad https://doi.org/10.5061/dryad.v6wwpzh4h ; analysis code: Zenodo https://doi.org/10.5281/zenodo.12751761 (Primary_Analyses RMD/HTML, Natural_Language_Processing.zip)",
+    "repo_commit": "Dryad dataset published 2024-08-29 (files: Data_8.28.24.zip 71.36 MB, README.md 40.45 KB); Zenodo record 12751761 (MIT). NOTE: OSF https://osf.io/wyvxf/ belongs to the 2025 follow-up paper ('...even when the AI is perceived as human'), not to this one",
+    "repo_license": "Zenodo code: MIT; Dryad data: Dryad terms (CC0 by default - verify in README)"
+  },
+  "dependence": {
+    "type": "component",
+    "strength": "core",
+    "note": "The LLM is the intervention: it generated the persuasive, evidence-based counter-arguments in a three-round dialogue with each participant. The measured outcome is human belief change, so the model output is a necessary component but not the outcome itself."
+  },
+  "claim": {
+    "statement": "Personalised evidence-based dialogues with GPT-4 Turbo reduced participants' belief in their chosen conspiracy theory by ~20% relative to control (2,190 participants across two studies), an effect that persisted 2 months later and generalised to unrelated conspiracies and behavioural intentions (abstract; main-effect figure/table number not verifiable from the paywalled text).",
+    "claim_type": "method_effect",
+    "metric": "pre-to-post change in belief in the personalised conspiracy (0-100 scale; columns Pre_Belief_Specific / Post_Belief_Specific / DV_BeliefChange_Specific in the Dryad codebook) in the AI-dialogue arm vs control; follow-ups at 10 days and 2 months; BCTI for generalisation",
+    "original_values": {
+      "n_participants_total": 2190,
+      "relative_belief_reduction": "~20% (abstract)",
+      "persistence": "effect remained at 2 months (abstract)",
+      "per_study_n_cohens_d_factcheck_share": "NOT VERIFIED - the Science full text and supplementary materials are paywalled/blocked for our fetcher; the PsyArXiv PDF download returned HTTP 403. Do not cite d or the fact-checker percentages until read from the paper."
+    },
+    "original_source": "Abstract (PubMed 39264999 / Europe PMC); Dryad dataset description; exact figure/table numbers to be filled from the Science text"
+  },
+  "protocol": {
+    "model": "GPT-4 Turbo (exact snapshot not stated in any open artifact we could read; data were collected before the April-2024 preprint, so the served snapshot was most likely gpt-4-1106-preview or gpt-4-0125-preview - both dead 2026-03-26)",
+    "model_status": "UNVERIFIED; presumed dead preview snapshot. Even if the snapshot were gpt-4-turbo-2024-04-09, the live model would only be re-executable on the model side (see evaluation).",
+    "endpoint": "chat completions (custom web app built by the authors; app code not released)",
+    "prompt_source": "system prompt is in the Science supplementary materials (not accessible to us); not in the Dryad README (per README summary) nor in the Zenodo analysis code",
+    "params": "not reported in the open artifacts (temperature etc. unknown)",
+    "n_items": "2,190 participants x 3 AI turns (three-round dialogue after the participant states the conspiracy and evidence); Study 1 and Study 2 Ns not verified",
+    "samples_per_item": 1,
+    "evaluation": "Human-rated core outcome (participants' own belief ratings) - NOT re-measurable without new participants. Model-side quantities that could be re-measured from the archived conversations: (a) regenerate the AI's three turns for each archived participant opener and compare content/strategy with the archived AI turns (embedding similarity; strategy ratings as in AI_Strategy_Ratings_2024-04-30.csv); (b) factual accuracy of the regenerated claims - but the original audit used a professional fact-checker (human), so (b) also needs new human labour."
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": "Dryad doi:10.5061/dryad.v6wwpzh4h -> Data_8.28.24.zip (AllDataForPublication.PPI.csv, AllDataFiltered.Cluster.PPI.csv, embeddings, AI_Strategy_Ratings_2024-04-30.csv); README indicates conversation-text columns (userSecondResponse, userThirdResponse, ...) - not downloaded",
+    "eval_path": "Zenodo 10.5281/zenodo.12751761: Primary_Analyses_(RMD_and_HTML).zip, Natural_Language_Processing.zip",
+    "data_public": true,
+    "data_license": "Dryad (CC0 expected); Zenodo MIT",
+    "redistributable": true,
+    "notes": "Dryad file downloads (file_stream) returned 403/401 to our fetcher; the human user must download. The 2025 follow-up OSF project (wyvxf: preregistration, 'data and code', 'material') may contain the same system prompt."
+  },
+  "blockers": [
+    "core outcome is human belief change - only model outputs are re-executable, and the persuasion effect cannot be re-measured without new participants",
+    "GPT-4 Turbo snapshot unverified; by study dates most likely a dead preview snapshot (gpt-4-1106-preview / gpt-4-0125-preview)",
+    "system prompt and exact parameters only in the Science supplementary materials (paywalled for our tooling)",
+    "fact-check of AI claims requires professional human fact-checkers"
+  ],
+  "arms": {
+    "baseline_alive": {"model": null, "note": "none confirmed; if the SM reveals gpt-4-turbo-2024-04-09, a model-side regeneration arm becomes possible"},
+    "successors": [
+      "gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm)",
+      "claude (current Anthropic flagship)",
+      "gemini (current Google flagship)",
+      "llama (open weights, e.g. Llama-3.3-70B-Instruct)",
+      "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct)"
+    ]
+  },
+  "budget": {
+    "est_calls": 19710,
+    "est_tokens_in": 29600000,
+    "est_tokens_out": 5900000,
+    "est_cost_usd": 473,
+    "pricing_usd_per_1m": {"gpt-4-turbo-2024-04-09": {"input": 10.0, "output": 30.0}},
+    "assumptions": "model-side proxy ONLY (not a claim re-run): regenerate 3 AI turns for each of 2,190 archived openers x 3 seeds; ~1,500 input tokens per turn (system prompt + participant statement + prior turns), ~300 output tokens. A 200-participant subsample would cost ~$43. No human-outcome re-measurement is included."
+  },
+  "judgment": {
+    "rule": "Not judgeable under ANALYSIS_PLAN section 1 for the core claim (human belief change). If a model-side proxy is approved, judge only the proxy (e.g. direction and magnitude of strategy/content similarity, or fact-check accuracy on a human-audited subsample) and label it as such; the belief-reduction effect itself is right-censored/unmeasurable.",
+    "notes": "Any successor-model dialogue effect would require a new human study (IRB, ~2,000 participants); out of scope."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Can you read the Science text/SM (institutional access) and record: exact GPT-4 Turbo snapshot, temperature, system prompt, Study 1/2 Ns, Cohen's d, and the fact-checker audit numbers?",
+    "Is a model-side proxy (regenerate AI turns for a 200-participant subsample, ~$43, plus a human fact-check of a claim sample) worth budgeting, or should this paper be recorded as 'human-outcome, not re-executable'?",
+    "Please download Data_8.28.24.zip and README.md from Dryad (our fetcher is blocked) if the proxy is approved."
+  ],
+  "domain_notes": "Landmark persuasion study: the LLM's value lies in tailoring evidence to each participant's specific conspiracy and stated evidence; the outcome is a within-person belief change on a 0-100 scale with 10-day and 2-month follow-ups. The AI's factual accuracy was audited by a professional fact-checker (share reported in the paper - to be verified). Reproducing the effect on successors is a human-subjects study, not an API re-run; only dialogue-content drift can be measured cheaply."
+}

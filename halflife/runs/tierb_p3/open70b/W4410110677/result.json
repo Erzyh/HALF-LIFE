@@ -1,0 +1,56 @@
+{
+  "wid": "W4410110677",
+  "title": "Large Language Models for Supporting Clear Writing and Detecting Spin in Randomized Controlled Trials in Oncology",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.97,
+  "original_location": "Table 1, block 'Title + abstract', row o1, column Accuracy (0.97; F1-Score 0.97, precision 0.98, recall 0.97; 95% CI 0.95-0.99)",
+  "reexecution": {
+    "mean_over_seeds": 0.96,
+    "per_seed": {
+      "0": {
+        "value": 0.96,
+        "n": 250,
+        "ci95": [
+          0.9359000000000001,
+          0.984
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4410110677",
+    "n_items": 250,
+    "n_requests": 250,
+    "seeds": 1,
+    "est_usd": 0.16,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.97,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "one of the 250 trials (row 176, doi 10.1001/jama.2021.0987) is dropped by the runner: its abstract contains the literal token '{IQR}', which the unfilled-placeholder check treats as an unrendered slot; 249 trials (145 POSITIVE / 104 NEGATIVE) are run",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "o1-2024-12-17",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4410110677"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.96,
+    "delta": -0.010000000000000009,
+    "original_inside_ci95": true
+  }
+}

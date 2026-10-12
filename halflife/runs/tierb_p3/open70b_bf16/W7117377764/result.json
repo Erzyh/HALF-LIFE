@@ -1,0 +1,58 @@
+{
+  "wid": "W7117377764",
+  "title": "Benchmarking large language models for geolocating colonial Virginia land grants",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "custom",
+  "original_value": 23.4,
+  "original_location": "Table 4, row M-2 o3-2025-04-16, column Mean (95% CI 17.4-29.3); median 14.3 km",
+  "reexecution": {
+    "mean_over_seeds": 579.0329694528069,
+    "per_seed": {
+      "0": {
+        "value": 579.0329694528069,
+        "n": 43,
+        "ci95": [
+          278.5979672768476,
+          912.4159236881758
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 4
+  },
+  "prepare": {
+    "wid": "W7117377764",
+    "n_items": 43,
+    "n_requests": 43,
+    "seeds": 1,
+    "est_usd": 0.02,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 23.4,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W7117377764",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "the position of the abstract relative to the printed instruction (appended after it) is assumed; unparsable replies are excluded from the mean and counted",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "o3-2025-04-16",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W7117377764"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 579.0329694528069,
+    "delta": 555.632969452807,
+    "original_inside_ci95": false
+  }
+}

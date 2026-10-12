@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4404341509",
+  "title": "SG-Bench: Evaluating LLM Safety Generalization Across Diverse Tasks and Prompt Types",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-preview (evaluated); gpt-4-turbo-2024-04-09 (Figure 1 samples only)",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "Appendix: \"For GPT-4, we use gpt-4-turbo-preview API\"; Table 2 row \"gpt-4-turbo-preview 0.00 13.56 6.45 15.11 8.78\"; footnote 3: \"We use gpt-4-turbo-2024-04-09 to generate samples in Figure 1.\""
+  },
+  "prompt": {"verbatim": "full", "location": "Sec. 3.2 and Appendix B (system prompts, few-shot and CoT templates), Appendix D (evaluation prompts)", "note": "Prompts wrap harmful queries from the SG-Bench sets."},
+  "claim": {
+    "metric": "failure rate (%) averaged over test tasks", "value": 8.78, "n_items": null, "location": "Table 2, row gpt-4-turbo-preview, Average column",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo-preview"
+  },
+  "data": {"public": "yes", "source": "https://github.com/MurrayTom/SG-Bench"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["dead_alias", "tos"],
+  "notes": "The evaluated GPT-4 endpoint is the dead gpt-4-turbo-preview pointer; the GA snapshot only produced illustrative samples for Figure 1. The benchmark consists of harmful and jailbreak queries, so the tos blocker also applies."
+}

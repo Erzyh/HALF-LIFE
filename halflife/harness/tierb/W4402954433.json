@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4402954433",
+  "title": "Beyond ChatGPT: Enhancing Software Quality Assurance Tasks with Diverse LLMs and Validation Techniques",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"we also utilize a newer model from OpenAI, GPT-4o ... gpt-4o-2024-05-13, that have a context window of 128,000 tokens\" (Sec. 4.4); Table 4 GPT-4o Top-1 221"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 1 (initial prompts for fault localization and vulnerability detection); validation prompts in Sec. 3",
+    "note": "Placeholders need test results and SBFL scores (fault localization) or retrieved examples (vulnerability detection)."
+  },
+  "claim": {
+    "metric": "faults localized at Top-1",
+    "value": 221,
+    "n_items": 324,
+    "location": "Table 4, row GPT-4o, column Top-1 (324 faulty programs, 600 faulty lines)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "FuseFL / Refactory faulty Python programs (324 programs) and the vulnerability test set of Xin et al. (386 methods)"
+  },
+  "cost": {
+    "est_calls": 324,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the prompt template requires auxiliary inputs (SBFL scores, execution results) produced by the FuseFL pipeline. Vulnerability detection (Table 5: GPT-4o accuracy 67.4 on 386 methods) additionally needs retrieval of similar training examples. Decoding parameters not stated.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The Table 1 fault-localization prompt is complete only once each of the 324 Refactory programs is paired with its Top-5 Ochiai SBFL lines, failing-test input/output and code description; these auxiliary inputs come from the FuseFL dataset (Widyasari et al. 2024) and are bundled with code, prompts and results in the authors' figshare replication package. Take the filled prompts from the package, run gpt-4o-2024-05-13, and count programs whose Top-1 predicted line is one of the 600 faulty lines; compare with 221/324 (Table 4).",
+    "approximation": "Decoding parameters unstated (use API defaults; the authors report small run-to-run differences over 3 runs).",
+    "needs_repo": true,
+    "repo_url": "https://figshare.com/s/5da14b0776750c6fa787",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

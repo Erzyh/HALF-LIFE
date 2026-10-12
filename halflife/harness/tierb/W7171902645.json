@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7171902645",
+  "title": "CARE-MH: Towards Unified, Reproducible, and Comparable Evaluation of Mental Health LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo; O4-Mini",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Table 8 (Model substitutions): \"MentalBench GPT O4-Mini ... GPT-5-mini Deprecated / unavailable\"; \"MentalChat16K GPT GPT-4 Turbo ... GPT-4.1 Deprecated / unavailable\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Figures 4-15 (SUT and evaluator system prompts per benchmark)", "note": "Prompts are for the replacement models the authors actually ran."},
+  "claim": {
+    "metric": "none", "value": null, "n_items": null, "location": "none tied to the live models",
+    "task_type": "generation",
+    "judge": "llm:gemini-2.5-pro"
+  },
+  "data": {"public": "yes", "source": "CounselBench, MentalBench, MentalChat16K (Table 6)"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "GPT-4 Turbo and o4-mini appear only as the original benchmarks' models that the authors declared deprecated and replaced (GPT-4.1, GPT-5-mini). The authors did not run either live model; all reported numbers belong to the replacements."
+}

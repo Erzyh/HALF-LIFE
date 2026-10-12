@@ -1,0 +1,56 @@
+{
+  "wid": "W4407374917",
+  "title": "Large language models possess some ecological knowledge, but how much?",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 78.0,
+  "original_location": "Table 1, row GPT-4o, Task 1a Mean Acc. (78.0 +/- 11.9 %, 0 invalid)",
+  "reexecution": {
+    "mean_over_seeds": 0.8383838383838383,
+    "per_seed": {
+      "0": {
+        "value": 0.8383838383838383,
+        "n": 100,
+        "ci95": [
+          0.8171464646464646,
+          0.8575757575757578
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4407374917",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 0.11,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 78.0,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none (species, locations and ground truth are released; the model snapshot is the paper's)",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4407374917"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 83.83838383838383,
+    "delta": 5.838383838383834,
+    "original_inside_ci95": false
+  }
+}

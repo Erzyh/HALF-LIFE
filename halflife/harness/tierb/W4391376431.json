@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4391376431",
+ "title": "Anti-Gravity from Vacancies in Fractal Space-Time: The Case of a Menger Sponge",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "o3-2025-04-16",
+  "resolved": "o3-2025-04-16",
+  "role": "C",
+  "evidence": "Acknowledgments: \"This text was partially created and revised with assistance from one or more of the following large language models: Grok4-0709, Gemini 2.5 Pro, o3-2025-04-16,...GLM-4.5. All content, ideas, and prompts were provided by the author.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Theoretical-physics preprint; o3 is disclosed only as writing/revision assistance, not part of any reported experiment or claim."
+}

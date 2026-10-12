@@ -1,0 +1,225 @@
+{
+ "card_id": "W4404781910",
+ "openalex_id": "https://openalex.org/W4404781910",
+ "title": "OffsetBias: Leveraging Debiased Data for Tuning Evaluators",
+ "doi": "10.18653/v1/2024.findings-emnlp.57",
+ "paper": {
+  "authors": "Park, Jwa, Ren, Kim, Choi (NC Research / NAVER Cloud)",
+  "year": 2024,
+  "venue": "Findings of EMNLP 2024, pp. 1043-1067 (earlier arXiv 2407.06551)",
+  "repo": "https://github.com/ncsoft/offsetbias",
+  "repo_commit": "0bd16e4ac935315999ed23480c69673b675884b0 (2024-09-11; shallow clone at external/repos/W4404781910/ncsoft__offsetbias)",
+  "repo_license": "BSD 3-Clause, (c) 2024 NCSOFT Corporation",
+  "other_artifacts": "HF datasets NCSOFT/offsetbias (8.5k training pairs), models NCSOFT/Llama-3-OffsetBias-8B and -RM-8B; EvalBiasBench itself ships inside the repo (data/evalbiasbench/biasbench.json)"
+ },
+ "dependence": {
+  "type": "judge",
+  "strength": "core",
+  "note": "gpt-4o-2024-05-13 is the proprietary judge baseline whose pairwise-preference accuracy is the reported number (Tables 1, 2 and 4); the model is both the instrument and the measured object. The dataset-construction arms (GPT-4-1106-preview, Claude-3-Opus, GPT-3.5-turbo-0125) are dead, but their output is frozen and released, and the training half of the paper is deliberately out of scope: the target claim needs inference only."
+ },
+ "claim": {
+  "statement": "As a pairwise judge with the LLMBar prompt template and greedy decoding, gpt-4o-2024-05-13 scores 86.9% micro-average accuracy on the 160 EvalBiasBench samples (80 hand-written bias test pairs, each scored in both response orders), with per-bias-type accuracies of 91.2 (length), 92.9 (concreteness), 50.0 (empty reference), 100.0 (content continuation), 91.7 (nested instruction) and 95.8 (familiar knowledge): the strongest judge overall, yet at chance level on empty-reference bias, and significantly better than the tuned 8B OffsetBias model (85.0) only on nested instruction (Table 4).",
+  "claim_type": "bias_or_behavior",
+  "metric": "Pairwise preference accuracy (%): a sample is correct when the judge names the preference-labelled output; each of the 80 pairs is presented in both response orders and the total is the micro-average over the 160 samples. Secondary: positional agreement rate (Table 2) = share of pairs whose two orders agree.",
+  "original_values": {
+   "evalbiasbench_total_gpt4o_0513": 86.9,
+   "evalbiasbench_cells_gpt4o_0513": {
+    "length": 91.2,
+    "concreteness": 92.9,
+    "empty_reference": 50.0,
+    "content_continuation": 100.0,
+    "nested_instruction": 91.7,
+    "familiar_knowledge": 95.8
+   },
+   "evalbiasbench_subset_sizes_samples": {
+    "length": 34,
+    "concreteness": 28,
+    "empty_reference": 26,
+    "content_continuation": 24,
+    "nested_instruction": 24,
+    "familiar_knowledge": 24,
+    "total": 160
+   },
+   "evalbiasbench_comparators": {
+    "offsetbias_8b": 85.0,
+    "llama3_8b_instruct_plus_base_data": 66.3,
+    "llama3_70b_instruct": 75.0,
+    "gpt_3_5_turbo_0613": 45.0,
+    "fsfairx_llama3_rm": 71.3
+   },
+   "table1_gpt4o_0513_optional_extension": {
+    "llmbar_natural": 96.5,
+    "llmbar_neighbor": 79.1,
+    "llmbar_gptinst": 86.4,
+    "llmbar_gptout": 74.5,
+    "llmbar_manual": 76.1,
+    "llmbar_macro_avg": 79.0,
+    "hhh_helpful": 90.7,
+    "hhh_honest": 82.8,
+    "hhh_harmless": 96.6,
+    "hhh_other": 97.7,
+    "mtbench_human": 80.8,
+    "mtbench_gpt4_pair": 86.4
+   },
+   "table2_positional_agreement_gpt4o_0513": {
+    "llmbar": 89.5,
+    "hhh": 93.7,
+    "mtbench": 84.5,
+    "avg": 85.9
+   }
+  },
+  "original_source": "Paper Table 4 (EvalBiasBench, row GPT-4o-0513, one decimal), with Tables 1 and 2 as the optional extension rows. Subset sizes verified against data/evalbiasbench/biasbench.json in the repo: 17+14+13+12+12+12 = 80 pairs = 160 samples, exactly the n printed in Table 4."
+ },
+ "protocol": {
+  "model": "gpt-4o-2024-05-13",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json priority 1)",
+  "model_usage_verified": "yes, dated snapshot in both paper and code. Sec. 5.3 names OpenAI's GPT-4o-2024-05-13 as the proprietary baseline and config/gpt-4o.yaml sets model: gpt-4o-2024-05-13. No alias inference needed.",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (module.py OpenaiModule.generate, official openai SDK, one call per conversation)",
+  "prompt_source": "prompt/llmbar.py, selected by config/gpt-4o.yaml (prompt: llmbar): a system message plus one user message built by InferenceModule.make_conversation(). This settles the paper's vague phrase about adopting each model's original template for the proprietary baselines.",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant in evaluating the quality of the outputs for a given instruction. Your goal is to select the best output for the given instruction."
+   },
+   {
+    "role": "user",
+    "content": "Select the Output (a) or Output (b) that is better for the given instruction. ... You should answer using ONLY [Output (a)] or [Output (b)]. Do NOT output any other words. # Instruction: {input} # Output (a): {output_1} # Output (b): {output_2}"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "max_tokens": 20,
+   "top_p": "not set",
+   "seed": "not set",
+   "decoding_note": "Appendix C.1 states greedy search for deterministic results; config/gpt-4o.yaml is the machine-readable version of that statement."
+  },
+  "n_items": 160,
+  "n_items_note": "80 EvalBiasBench pairs x 2 response orders (run_bench.py add_inference loops swap in [False, True]). The optional Table 1/2 extension adds 838 (LLMBar) + 442 (HHH) + 4,708 (MT-Bench) samples.",
+  "samples_per_item": 1,
+  "samples_note": "one call per order per seed; our house rule adds 3 seeds to capture API nondeterminism at temperature 0 (the paper ran a single greedy pass)",
+  "evaluation": "run_bench.py: get_prediction() regex-matches the two option strings (label 3 = tie, 4 = unparsed), is_correct() flips the expected label for the swapped order, get_model_statistics() reports single_accuracy (Tables 1 and 4), pair_accuracy and pair_agreement_rate (Table 2). No re-implementation needed for the OpenAI arm.",
+  "environment": "python, openai, omegaconf, datasets, tqdm (requirements.txt is unpinned; vllm/torch/transformers are needed only for the open-weight arms and can be skipped for this card)"
+ },
+ "artifacts": {
+  "prompts_path": "prompt/llmbar.py (judge prompt actually used for the OpenAI arms); prompt/offsetbias.py, prompt/autoj.py, prompt/pandalm.py, prompt/prometheus2.py (other arms); paper Appendix A (data-construction prompts) and Appendix B (training formats)",
+  "data_path": "data/evalbiasbench/biasbench.json (80 pairs; fields bias / instruction / response1 / response2 / label). LLMBar, HHH and MT-Bench are pulled from Hugging Face by run_bench.py (princeton-nlp/LLMBar with trust_remote_code=True, HuggingFaceH4/hhh_alignment, lmsys/mt_bench_human_judgments).",
+  "eval_path": "run_bench.py (add_parse_result, get_model_statistics, write_model_score) with module.py InferenceModule.get_prediction / is_correct",
+  "data_public": true,
+  "data_license": "BSD 3-Clause (the repo, which contains EvalBiasBench); the training set NCSOFT/offsetbias is separate and not needed here",
+  "redistributable": true,
+  "notes": "EvalBiasBench is hand-written by the authors and ships in the repo, so the target claim needs no external download and no training data. Item-level original outputs were not released (only table percentages), so comparison is at accuracy level. The repo writes per-item completions to result/<run>/biasbench.json, which is exactly the artifact our L1 archive should preserve."
+ },
+ "blockers": [
+  "Item-level original judge outputs are not released (only Table 4 percentages at one decimal), so per-item agreement with the 2024 run cannot be measured, only the accuracy level.",
+  "The empty-reference cell is 50.0 on 26 samples (13 pairs): one flipped pair moves it by 7.7 pp, so that cell is noise-dominated and must not be judged on its own.",
+  "requirements.txt is unpinned (openai SDK version unknown); the OpenAI path is a plain chat.completions call, so drift risk is low, but the SDK version must be logged.",
+  "Extending the card to Tables 1-2 pulls three external HF datasets, one of which (princeton-nlp/LLMBar) needs trust_remote_code=True; the MT-Bench block alone is 4,708 samples per seed."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "gpt-4o-2024-05-13",
+   "purpose": "live baseline (P0), the exact snapshot the paper judged with; cheap enough to also carry the Table 1/2 extension if approved"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for gpt-4o on the OpenAI deprecations page)",
+   "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+  ],
+  "dead_comparators_not_runnable": [
+   "gpt-3.5-turbo-0613 (Table 4 row; shut down 2024-09-13)",
+   "gpt-4-1106-preview and claude-3-opus-20240229 (dataset construction only, not needed for this card)"
+  ],
+  "open_weight_reference": "NCSOFT/Llama-3-OffsetBias-8B and LLaMA3-8B-Instruct can be re-run locally with the same repo (config/offsetbias-8b.yaml, vllm) as a permanent re-execution axis"
+ },
+ "budget": {
+  "est_calls": 480,
+  "est_tokens_in": 235000,
+  "est_tokens_out": 2000,
+  "est_cost_usd": 1.2,
+  "pricing_usd_per_1m": {
+   "gpt-4o-2024-05-13": {
+    "input": 5.0,
+    "output": 15.0
+   }
+  },
+  "assumptions": "160 samples x 3 seeds = 480 calls; about 490 input tokens per call (28-token system message + ~270-token LLMBar template + ~190 tokens of item text; mean 721 chars per pair measured from biasbench.json) and about 4 output tokens (max_tokens 20). Optional extension: LLMBar + HHH (1,280 samples x 3 seeds) adds about USD 7; MT-Bench (4,708 samples x 3 seeds, long conversations) would add roughly USD 85 and is excluded."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: EvalBiasBench total accuracy of gpt-4o-2024-05-13 over the 160 samples (median of 3 seeds) against 86.9. Survival = median inside the bootstrap 95% CI of the original (bootstrap unit = the 80 pairs, not the 160 correlated samples; the binomial reference CI at 86.9% with n=80 pairs is about +/-7 pp) AND the behavioural direction holds: far above the 50% chance level, at or above the tuned OffsetBias-8B model (85.0), and above GPT-3.5's 45.0. Partial = level outside that CI but still clearly above chance and above the 8B baselines. Death = total accuracy falls to near chance, or the ordering against the tuned 8B model inverts by more than the CI.",
+  "notes": "The six per-bias cells are secondary evidence only (12-17 pairs each). The paper's qualitative point, that a top proprietary judge still sits at chance on empty-reference bias, is the direction to preserve, so an increase in total accuracy still counts as survival unless the empty-reference cell rises far above chance, which would itself be a reportable change."
+ },
+ "decisions_2026_09_19": {
+  "date": "2026-09-19",
+  "scope": "EvalBiasBench only: 80 pairs x 2 response orders = 160 samples per seed. The Table 1 / Table 2 LLMBar-HHH-MT-Bench extension is NOT run (answers user_check 1).",
+  "seeds": "3 seeds at the repository's own decoding settings taken from config/gpt-4o.yaml (temperature 0, max_tokens 20, prompt llmbar, no top_p, no seed parameter); house rule, the paper ran a single greedy pass (answers user_check 2).",
+  "scorer": "the repository's own scorer semantics without modification: run_bench.add_parse_result -> module.get_prediction (prompt/llmbar.py output_pattern regex; no match = label 4) and module.is_correct, scored by run_bench.get_model_statistics; an unparsed or tie reply counts as incorrect (answers user_check 3).",
+  "cost_cap_usd": 3.0,
+  "training": "inference only - nothing is trained or distilled; OffsetBias-8B (85.0) stays a published comparator, not a re-run arm.",
+  "adapter": "harness/adapters/offsetbias_W4404781910.py (--check / --dry-run / --run / --analyze); the repository's own code under external/repos/W4404781910/ncsoft__offsetbias is imported, not copied.",
+  "measured_2026_09_19_dry_run": {
+   "calls": 480,
+   "prompt_tokens_tiktoken_o200k_base": 208044,
+   "mean_prompt_tokens_per_call": 433,
+   "expected_output_tokens": 1920,
+   "expected_usd": 1.07,
+   "max_tokens_bound_usd": 1.18,
+   "battery_chars_over_4_estimate_usd": 1.37,
+   "note": "the card's budget block assumed about 490 prompt tokens per call and USD 1.2; measured 433, so the expected spend is USD 1.07 (worst case 1.18 if every reply used all 20 tokens). Cap set at USD 3."
+  },
+  "environment_check_2026_09_19": {
+   "repo_head": "0bd16e4ac935315999ed23480c69673b675884b0 (matches the card)",
+   "data": "run_bench.get_benchmark_data('biasbench') gives 17+14+13+12+12+12 = 80 pairs; the doubled subset sizes 34/28/26/24/24/24 = 160 match the n= row of Table 4; every label is 1 (response1 is always the preferred output).",
+   "prompts": "160 distinct prompts rendered by module.InferenceModule.make_conversation, both orders, none malformed.",
+   "scorer": "the repository's parse+score pipeline was run on synthetic replies: oracle 100.0, always-(a) 50.0, always-(b) 50.0, refusal 0.0, and the reconstructed original counts reproduce Table 4 exactly (91.2 / 92.9 / 50.0 / 100.0 / 91.7 / 95.8, total 86.9)."
+  },
+  "original_counts_reconstructed": {
+   "length": [
+    31,
+    34
+   ],
+   "concreteness": [
+    26,
+    28
+   ],
+   "empty_reference": [
+    13,
+    26
+   ],
+   "content_continuation": [
+    24,
+    24
+   ],
+   "nested_instruction": [
+    22,
+    24
+   ],
+   "familiar_knowledge": [
+    23,
+    24
+   ],
+   "total": [
+    139,
+    160
+   ],
+   "note": "each printed one-decimal cell of Table 4 has a unique integer pre-image; 139/160 = 86.875 -> 86.9. Used as the reference counts because item-level original outputs were never released."
+  },
+  "deviations_and_findings": [
+   "protocol.messages in this card paraphrases the user message as 'You should answer using ONLY [Output (a)] or [Output (b)]'. The repository template (prompt/llmbar.py) says '\"Output (a)\"' and the parser regex is (?:^|\n) ?Output \\(a\\), so a bracketed reply parses as label 4 = incorrect. The repository text is used verbatim; the card's protocol.messages field stays as the human summary it is.",
+   "module.py imports torch, transformers, vllm, fastchat and openai at module level although the OpenAI/biasbench path uses none of them; vllm and fastchat are not installable here, so the adapter stubs them to reach InferenceModule.",
+   "run_bench.py opens its JSON files with the platform default encoding; on a cp949 Windows locale the repository's own data loader raises UnicodeDecodeError, so the adapter forces UTF-8 text mode around the repository's calls.",
+   "biasbench rows bypass run_bench.make_data_row: they carry no id and are not stripped, so item identity is positional (subset + index)."
+  ]
+ },
+ "status": "done",
+ "user_checks": [
+  "Keep the card at EvalBiasBench only (160 samples, ~USD 1.2), or add the Table 1 + Table 2 LLMBar/HHH rows (+~USD 7)? MT-Bench (+~USD 85) is assumed out.",
+  "3 seeds at temperature 0 as house rule, or a single greedy pass as the paper ran?",
+  "Accept the repo's own scorer (run_bench.py regex parse; unparsed = label 4 = incorrect) as the judgment pipeline without modification?"
+ ],
+ "domain_notes": "EvalBiasBench holds 80 hand-written pairs covering six judge biases (length, concreteness, empty reference, content continuation, nested instruction, familiar knowledge), each scored in both orders to expose position bias. The repository fully determines the protocol for the live arm: config/gpt-4o.yaml pins gpt-4o-2024-05-13, temperature 0, max_tokens 20 and the llmbar prompt, which resolves the Tier B triage gap (which prompt template the proprietary baseline received). No Tier B config was written for this paper (data/tierA_pass2_cards.csv in_tierb = False), so this card is the first executable specification for it: relative to the triage plan it changes nothing except pinning the prompt from code instead of defaulting to Appendix B.1. Contamination note: EvalBiasBench has been public since 2024, so successor arms may have seen it.",
+ "judgment_provisional": {
+  "value": "생존 (survived)",
+  "cost_usd": 1.069,
+  "run_date": "2026-09-19",
+  "source": "runs/W4404781910/run_meta.json"
+ }
+}

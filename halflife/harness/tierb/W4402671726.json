@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402671726",
+  "title": "To Generate or to Retrieve? On the Effectiveness of Artificial Contexts for Medical Open-Domain Question Answering",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 6 (RAGAS metrics): 'We utilize gpt-4-turbo-2024-04-09. Due to the high API costs, we limit our evaluation to a sample of MedQA'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (RAGAS library prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "RAGAS context relevance (judge output)",
+    "value": 93.4,
+    "n_items": 150,
+    "location": "Table 4, row CR, column G",
+    "task_type": "other",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MedQA-USMLE (150 random test instances)"
+  },
+  "cost": {
+    "est_calls": 450,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is the RAGAS evaluator only; subjects are open models (Zephyr-beta, Flan-T5) requiring code."
+}

@@ -1,0 +1,56 @@
+{
+  "wid": "W4404314294",
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLMs in Disaster Response",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.817,
+  "original_location": "Table II (Results from No Prompting), row GPT-4 Turbo, column 1st Index (81.70%)",
+  "reexecution": {
+    "mean_over_seeds": 0.8404558404558404,
+    "per_seed": {
+      "0": {
+        "value": 0.8404558404558404,
+        "n": 707,
+        "ci95": [
+          0.811965811965812,
+          0.8675213675213675
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 5
+  },
+  "prepare": {
+    "wid": "W4404314294",
+    "n_items": 707,
+    "n_requests": 707,
+    "seeds": 1,
+    "est_usd": 0.3,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.817,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Temperature 0.0 instead of the (unstated, presumably default) sampling temperature used to obtain five distinct completions; 'first index' = the single completion per seed.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4404314294"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.8404558404558404,
+    "delta": 0.023455840455840482,
+    "original_inside_ci95": true
+  }
+}

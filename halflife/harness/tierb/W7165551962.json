@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7165551962",
+ "title": "Writing creativity, cohesion, and formal linguistic competence in LLMs: A comparative evaluation based on English and Chinese continuation writing",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 1 (\"LLMs used in the present study\"): \"GPT-3.5 gpt-3.5-turbo-0125 / GPT-4 gpt-4-turbo-2024-04-09 / ERNIE 3.0 ERNIE-Bot-turbo 10B version / SparkDesk iFlytekSpark-13B\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Method/Materials (\"阅读以下材料...\" instructions quoted verbatim for both English and Chinese SCWTs); stimulus source texts in supporting information S2 File",
+  "note": "Story Continuation Writing Task (SCWT): each model completes one English story (~150 words) and one Chinese story (~250 words)."
+ },
+ "claim": {
+  "metric": "multi-dimensional writing-quality indices (narrativity, syntactic complexity, word concreteness, cohesion, creativity) -- no single headline number located in the excerpts read",
+  "value": null,
+  "n_items": 1,
+  "location": "Results section / Tables 2+ (not reached in the extracted excerpt); n_items=1 completion per language per model (single fixed stimulus each)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "English SCWT adapted from a 2023 Gaokao test; Chinese SCWT adapted from Zhang [26]; exact stimulus texts in supporting information S2 File"
+ },
+ "cost": {
+  "est_calls": 6,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Marked 'maybe': role/prompt/model are cleanly documented (single fixed English + Chinese continuation stimulus per model), but the paper reports many derived linguistic sub-metrics rather than one headline accuracy number, and the specific results table was not reached in the read excerpt. Very cheap to reproduce (2 completions per model, 1 per language) if a specific target metric is picked from the eventual results tables."
+}

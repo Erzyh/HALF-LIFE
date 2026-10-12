@@ -1,0 +1,307 @@
+{
+  "card_id": "W4400103831",
+  "checked_utc": "2026-09-19T12:54:47.844341+00:00",
+  "python": "3.13.7",
+  "model": "gpt-4-turbo-2024-04-09",
+  "condition": "CSV+CoT",
+  "repository": {
+    "path": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\repos\\W4400103831\\AndyChiangSH__BADGE",
+    "commit": "83a515a2f618e118cebc4f55ae55096f2a4e7560",
+    "license": "MIT",
+    "protocol_from_source": {
+      "writer": {
+        "source": "code/generation/GPT-4.py",
+        "model": "gpt-4-turbo-2024-04-09",
+        "placeholders": [
+          "{CSV}",
+          "{QA}"
+        ],
+        "create_kwargs": [
+          "messages",
+          "model"
+        ],
+        "prompt_paths": [
+          "prompt/generation/{}.txt"
+        ],
+        "criteria": null
+      },
+      "judge": {
+        "source": "code/evaluation/GPT-4.py",
+        "model": "gpt-4-turbo-2024-04-09",
+        "placeholders": [
+          "{Badminton Report}"
+        ],
+        "create_kwargs": [
+          "messages",
+          "model"
+        ],
+        "prompt_paths": [
+          "prompt/evaluation/{}.txt"
+        ],
+        "criteria": [
+          "coherence",
+          "consistency",
+          "fluency",
+          "excitement"
+        ]
+      },
+      "judge_gpt35": {
+        "source": "code/evaluation/GPT-3.5.py",
+        "model": "gpt-4-turbo-2024-04-09",
+        "placeholders": [
+          "{Badminton Report}"
+        ],
+        "create_kwargs": [
+          "messages",
+          "model"
+        ],
+        "prompt_paths": [
+          "prompt/evaluation/{}.txt"
+        ],
+        "criteria": [
+          "coherence",
+          "consistency",
+          "fluency",
+          "excitement"
+        ]
+      },
+      "judge_human": {
+        "source": "code/evaluation/human.py",
+        "model": "gpt-4-turbo-2024-04-09",
+        "placeholders": [
+          "{Badminton Report}"
+        ],
+        "create_kwargs": [
+          "messages",
+          "model"
+        ],
+        "prompt_paths": [
+          "prompt/evaluation/{}.txt"
+        ],
+        "criteria": [
+          "coherence",
+          "consistency",
+          "fluency",
+          "excitement"
+        ]
+      }
+    },
+    "n_games": 10,
+    "games": [
+      "An_Se_Young_Ratchanok_Intanon_YONEX_Thailand_Open_2021_QuarterFinals",
+      "Anders_Antonsen_Viktor_Axelsen_HSBC_BWF_WORLD_TOUR_FINALS_2020_Finals",
+      "Anthony_Sinisuka_Ginting_Rasmus_Gemke_YONEX_Thailand_Open_2021_QuarterFinals",
+      "Carolina_Marin_An_Se_Young_TOYOTA_THAILAND_OPEN_2021_SemiFinals",
+      "Carolina_Marin_Neslihan_Yigit_TOYOTA_THAILAND_OPEN_2021_QuarterFinals",
+      "Carolina_Marin_Pornpawee_Chochuwong_HSBC_BWF_WORLD_TOUR_FINALS_2020_SemiFinals",
+      "Kento_MOMOTA_CHOU_Tien_Chen_Denmark_Open_2018_Finals",
+      "Kento_MOMOTA_Viktor_AXELSEN_Malaysia_Masters_2020_Finals",
+      "Pusarla_V._Sindhu_Pornpawee_Chochuwong_HSBC_BWF_WORLD_TOUR_FINALS_2020_QuarterFinals",
+      "Viktor_Axelsen_Ng_Ka_Long_Angus_YONEX_Thailand_Open_2021_Finals"
+    ],
+    "released_reports": {
+      "human": 10,
+      "gpt35": 10,
+      "gpt4": 10
+    },
+    "released_judge_files": 680
+  },
+  "parser": {
+    "rule": "bare integer, else the last '<criterion> [Score][:] <n>' with markdown bold tolerated, 1-10 enforced, otherwise missing",
+    "regex": "(?i)\\bcoherence\\b\\s*\\**\\s*(?:score)?\\s*\\**\\s*[:\\-]?\\s*\\**\\s*(\\d{1,2})\\b",
+    "card_variant_regex": "(?i)\\bcoherence\\b\\s*[:\\-]?\\s*(\\d{1,2})\\b",
+    "stem_variant_regex": "(?i)\\bcoher\\w*\\s*\\**\\s*(?:score)?\\s*\\**\\s*[:\\-]?\\s*\\**\\s*(\\d{1,2})\\b",
+    "output_formats_table2_subset": {
+      "bare_integer": 51,
+      "labelled": 67,
+      "unparseable": 2
+    },
+    "unparseable": [
+      {
+        "writer": "human",
+        "game": "Carolina_Marin_Pornpawee_Chochuwong_HSBC_BWF_WORLD_TOUR_FINALS_2020_SemiFinals",
+        "criterion": "excitement",
+        "chars": 1859,
+        "tail": "port is informative and somewhat engaging, but it does not completely harness the potential to thrill or intensively excite the reader about the final showdown."
+      },
+      {
+        "writer": "gpt4",
+        "game": "Carolina_Marin_Neslihan_Yigit_TOYOTA_THAILAND_OPEN_2021_QuarterFinals",
+        "criterion": "consistency",
+        "chars": 667,
+        "tail": "ort appears to maintain a high level of fidelity to the likely events of the match.\n\n**Consistency Score** (where 1 is the lowest and 10 is the highest): **10**"
+      }
+    ]
+  },
+  "reaggregated_released_outputs": {
+    "human": {
+      "per_criterion": {
+        "coherence": 7.5,
+        "consistency": 8.9,
+        "excitement": 6.888888888888889,
+        "fluency": 8.5
+      },
+      "avg": 7.947222222222222,
+      "n_matches": 10,
+      "missing": 1
+    },
+    "gpt35": {
+      "per_criterion": {
+        "coherence": 8.4,
+        "consistency": 9.2,
+        "excitement": 8.0,
+        "fluency": 8.9
+      },
+      "avg": 8.625,
+      "n_matches": 10,
+      "missing": 0
+    },
+    "gpt4": {
+      "per_criterion": {
+        "coherence": 8.4,
+        "consistency": 8.0,
+        "excitement": 8.2,
+        "fluency": 9.0
+      },
+      "avg": 8.399999999999999,
+      "n_matches": 10,
+      "missing": 1
+    }
+  },
+  "card_parser_variant_markdown_blind": {
+    "human": {
+      "per_criterion": {
+        "coherence": 7.5,
+        "consistency": 8.9,
+        "excitement": 6.888888888888889,
+        "fluency": 8.444444444444445
+      },
+      "avg": 7.933333333333334,
+      "n_matches": 10,
+      "missing": 2
+    },
+    "gpt35": {
+      "per_criterion": {
+        "coherence": 8.4,
+        "consistency": 9.125,
+        "excitement": 8.0,
+        "fluency": 8.9
+      },
+      "avg": 8.60625,
+      "n_matches": 10,
+      "missing": 2
+    },
+    "gpt4": {
+      "per_criterion": {
+        "coherence": 8.4,
+        "consistency": 8.0,
+        "excitement": 8.2,
+        "fluency": 9.0
+      },
+      "avg": 8.399999999999999,
+      "n_matches": 10,
+      "missing": 1
+    }
+  },
+  "criterion_stem_variant": {
+    "human": {
+      "per_criterion": {
+        "coherence": 7.5,
+        "consistency": 8.9,
+        "excitement": 6.8,
+        "fluency": 8.5
+      },
+      "avg": 7.925,
+      "n_matches": 10,
+      "missing": 0
+    },
+    "gpt35": {
+      "per_criterion": {
+        "coherence": 8.4,
+        "consistency": 9.2,
+        "excitement": 8.0,
+        "fluency": 8.9
+      },
+      "avg": 8.625,
+      "n_matches": 10,
+      "missing": 0
+    },
+    "gpt4": {
+      "per_criterion": {
+        "coherence": 8.4,
+        "consistency": 8.0,
+        "excitement": 8.2,
+        "fluency": 9.0
+      },
+      "avg": 8.399999999999999,
+      "n_matches": 10,
+      "missing": 1
+    }
+  },
+  "published_table2": {
+    "human": {
+      "coherence": 7.5,
+      "consistency": 8.9,
+      "excitement": 6.8,
+      "fluency": 8.5,
+      "avg": 7.925
+    },
+    "gpt35": {
+      "coherence": 8.4,
+      "consistency": 9.2,
+      "excitement": 8.0,
+      "fluency": 8.9,
+      "avg": 8.625
+    },
+    "gpt4": {
+      "coherence": 8.6,
+      "consistency": 9.4,
+      "excitement": 8.2,
+      "fluency": 9.1,
+      "avg": 8.825
+    }
+  },
+  "targets_confirmed": {
+    "gpt35_row_matches_table2": true,
+    "gpt4_row_matches_card_recomputed_8_40": true,
+    "gpt4_row_matches_published_8_825": false,
+    "human_row_matches_table2": false,
+    "human_row_matches_card_7_933_markdown_blind": true,
+    "human_row_matches_table2_criterion_stem_variant": true,
+    "stem_variant_changes_only_that_one_cell": true
+  },
+  "decisions": {
+    "adapter": "harness/adapters/badge_W4400103831.py (--check / --dry-run / --run / --analyze)",
+    "primary_arm": "full protocol: regenerate the GPT-4 reports with prompt/generation/CSV+CoT.txt, then judge all three writers' reports with prompt/evaluation/<criterion>.txt. Answers user_check 1.",
+    "secondary_arm": "judge-only on the released reports (reports frozen), which isolates judge drift. The GPT-3.5 and human judge calls are identical in both arms and are issued once, so the secondary arm adds only 10 matches x 4 criteria x seeds calls on the released GPT-4 reports.",
+    "comparison_targets": "the published Table 2 value 8.825 is primary; the 8.40 re-aggregated from the repo's own released judge outputs is reported alongside and is the like-for-like target of the secondary arm. Answers user_check 2.",
+    "score_parser": "bare integer, else the last criterion-labelled number (markdown bold and a trailing 'Score' tolerated), 1-10 enforced, unparseable = missing; logged as a pipeline paraphrase. Answers user_check 3.",
+    "table1_grid": "skipped (user_check 4 declined): only the CSV+CoT condition of Table 2 is run.",
+    "budget": "per-paper cap USD 15, split writer 3 / judge 12; --dry-run 2026-09-19 estimate 510 calls (30 writer + 480 judge) at 3 seeds, ~517k input / ~68k output tokens, ~USD 7.21.",
+    "check_result_2026_09_19": "the primary parser reproduces the Table 2 GPT-3.5 row exactly (8.625) and gives 8.400 for the GPT-4 row (published 8.825). The human row gives 7.947 with one judge reply dropped, and exactly the published 7.925 under a criterion-stem sensitivity variant that reads that reply's renamed criterion ('- Excitiveness: 6') and changes only that 1 of the 120 cells. NOTE: this card's artifacts.notes figure 7.933 for the human row is reproduced only by a markdown-blind parser that additionally drops '- **Fluency**: 9', and that parser breaks the GPT-3.5 row (8.606); all three parsers are computed in runs/W4400103831/environment_check.json so the figure stays traceable. The card's criterion values for the human row (7.5 / 8.9 / 6.8-6.89 / 8.5) are correct; their average is 7.925-7.947, not 7.933."
+  },
+  "prompt_rendering": {
+    "writer": {
+      "game": "An_Se_Young_Ratchanok_Intanon_YONEX_Thailand_Open_2021_QuarterFinals",
+      "template": "prompt/generation/CSV+CoT.txt",
+      "placeholder": "{CSV}",
+      "data": "CSV/An_Se_Young_Ratchanok_Intanon_YONEX_Thailand_Open_2021_QuarterFinals/CSV.txt",
+      "chars": 6055,
+      "text": "You are a reporter for badminton games.\nI will give you the csv table of a badminton game.\nPlease follow the csv table and write a report for this badminton game.\nOnly write a report based on the csv table provided!\n\nLet's think step by step:\n1. Read the csv table carefully and understand this badminton game.\n2. Generate report based on the csv table. Do not be too exaggerate.\n3. Check the accuracy, wonderfulness, coherence, consistency and fluency of your report.\n4. Rewrite and improve the report\n\nCSV table:\nYONEX Thailand Open 2021 QuarterFinals: An Se Young v.s. Ratchanok Intanon\n\nSet 1:\nwin_point_player,win_reason,ball_types,lose_reason,roundscore_A,roundscore_B\nRatchanok Intanon,opponent goes out of bounds,lob,goes out of bounds,0,1\nAn Se Young,opponent hits the net,push,hits the net,1,1\nRatchanok Intanon,wins by landing,smash,opponent wins by landing,1,2\nRatchanok Intanon,opponent hits the net,smash,hits the net,1,3\nRatchanok Intanon,wins by landing,push,opponent wins by landing,1,4\nRatchanok Intanon,opponent goes out of bounds,lob,goes out of bounds,1,5\nRatchanok Intanon,wins by landing,smash,opponent wins by landing,1,6\nAn Se Young,opponent hits the net,net shot,hits the net,2,6\nRatchanok Intanon,opponent hits the net,net shot,hits the net,2,7\nRatchanok Intanon,opponent goes out of bounds,push,goes out of bounds,2,8\nAn Se Young,opponent hits the net,return net,hits the net,3,8\nAn Se Young,opponent fails to clear the net,net shot,fails to clear the net,4,8\nAn Se Young,opponent hits the net,net shot,hits the net,6,8\nAn Se Young,wins by landing,back-court drive,opponent wins by landing,7,8\nRatchanok Intanon,wins by landing,smash,opponent wins by landing,7,9\nRatchanok Intanon,opponent hits the net,net shot,hits the net,7,10\nRatchanok Intanon,opponent fails to clear the net,return net,fails to clear the net,7,11\nAn Se Young,wins by landing,smash,opponent wins by landing,8,11\nAn Se Young,opponent goes out of bounds,push,goes out of bounds,9,11\nRatchanok Intanon,wins by landing,cross-court net shot,opponent wins by landing,9,12\nAn Se Young,opponent goes out of bounds,push,goes out of bounds,10,12\nAn Se Young,opponent hits the net,drop,hits the net,11,12\nAn Se Young,opponent goes out of bounds,smash,goes out of bounds,12,12\nAn Se Young,opponent goes out of bounds,cross-court net shot,goes out of bounds,13,12\nAn Se Young,opponent hits the net,cross-court net shot,hits the net,14,12\nAn Se Young,opponent goes out of bounds,defensive return lob,goes out of bounds,15,12\nRatchanok Intanon,opponent hits the net,net shot,hits the net,15,13\nAn Se Young,wins by landing,drop,opponent wins by landing,16,13\nRatchanok Intanon,opponent hits the net,return net,hits the net,16,14\nRatchanok Intanon,wins by landing,cross-court net shot,opponent wins by landing,16,15\nAn Se Young,opponent hits the net,rush,hits the net,17,15\nRatchanok Intanon,opponent goes out of bounds,defensive return drive,goes out of bounds,17,16\nAn Se Young,wins by landing,smash,opponent wins by landing,18,16\nRatchanok Intanon,wins by landing,lob,opponent wins by landing,18,17\nAn Se Young,wins by landing,push,opponent wins by landing,19,17\nRatchanok Intanon,wins by landing,cross-court net shot,opponent wins by landing,19,18\nAn Se Young,wins by landing,push,opponent wins by landing,20,18\nRatchanok Intanon,opponent goes out of bounds,push,goes out of bounds,20,19\nRatchanok Intanon,opponent fails to clear the net,return net,fails to clear the net,20,20\nAn Se Young,opponent hits the net,net shot,hits the net,21,20\nAn Se Young,opponent fails to clear the net,net shot,fails to clear the net,22,20\n\n\nSet 2:\nwin_point_player,win_reason,ball_types,lose_reason,roundscore_A,roundscore_B\nRatchanok Intanon,opponent goes out of bounds,drop,goes out of bounds,0,1\nAn Se Young,opponent goes out of bounds,smash,goes out of bounds,1,1\nRatchanok Intanon,opponent fails to clear the net,return net,fails to clear the net,1,2\nAn Se Young,opponent hits the net,net shot,hits the net,2,2\nAn Se Young,opponent hits the net,cross-court net shot,hits the net,3,2\nAn Se Young,opponent hits the net,cross-court net shot,hits the net,4,2\nAn Se Young,opponent hits the net,cross-court net shot,hits the net,5,2\nRatchanok Intanon,opponent goes out of bounds,smash,goes out of bounds,5,3\nRatchanok Intanon,opponent fails to clear the net,net shot,fails to clear the net,5,4\nRatchanok Intanon,opponent goes out of bounds,lob,goes out of bounds,5,5\nAn Se Young,opponent hits the net,net shot,hits the net,6,5\nRatchanok Intanon,wins by landing,smash,opponent wins by landing,6,6\nAn Se Young,opponent hits the net,drive,hits the net,7,6\nAn Se Young,opponent goes out of bounds,wrist smash,goes out of bounds,8,6\nRatchanok Intanon,opponent hits the net,smash,hits the net,8,7\nRatchanok Intanon,opponent hits the net,net shot,hits the net,8,8\nAn Se Young,opponent goes out of bounds,smash,goes out of bounds,9,8\nAn Se Young,opponent fails to clear the net,defensive return drive,fails to clear the net,10,8\nRatchanok Intanon,wins by landing,defensive return drive,opponent wins by landing,10,9\nRatchanok Intanon,opponent hits the net,net shot,hits the net,10,10\nAn Se Young,opponent goes out of bounds,push,goes out of bounds,11,10\nRatchanok Intanon,opponent hits the net,defensive return drive,hits the net,11,11\nAn Se Young,opponent hits the net,cross-court net shot,hits the net,12,11\nRatchanok Intanon,opponent goes out of bounds,lob,goes out of bounds,12,12\nAn Se Young,opponent hits the net,net shot,hits the net,13,12\nAn Se Young,opponent goes out of bounds,cross-court net shot,goes out of bounds,14,12\nAn Se Young,wins by landing,smash,opponent wins by landing,15,12\nAn Se Young,wins by landing,smash,opponent wins by landing,16,12\nAn Se Young,opponent hits the net,drop,hits the net,17,12\nAn Se Young,opponent goes out of bounds,smash,goes out of bounds,18,12\nAn Se Young,opponent hits the net,net shot,hits the net,19,12\nAn Se Young,opponent goes out of bounds,push,goes out of bounds,20,12\nAn Se Young,opponent hits the net,net shot,hits the net,21,12\n\n\nReport:"
+    },
+    "judge": {
+      "game": "An_Se_Young_Ratchanok_Intanon_YONEX_Thailand_Open_2021_QuarterFinals",
+      "writer": "gpt4",
+      "template": "prompt/evaluation/coherence.txt",
+      "placeholder": "{Badminton Report}",
+      "report": "generation/An_Se_Young_Ratchanok_Intanon_YONEX_Thailand_Open_2021_QuarterFinals/GPT-4/CSV+CoT.txt",
+      "chars": 4197,
+      "text": "Task Introduction:\n\nYou are a reviewer of the badminton reports.\nI will give a badminton report, please follow the Evaluation Steps to score this badminton report based on the Evaluation Criteria.\nPlease make sure you read and understand these instructions carefully.\nPlease keep this document open while reviewing, and refer to it as needed.\nPlease score fairly, openly, and stablely.\n\nEvaluation Criteria:\n\n- Coherence (1-10): the collective quality of all sentences. We align this dimension with the DUC quality question of structure and coherence whereby \"the summary should be well-structured and well-organized. The summary should not just be a heap of related information, but should build from sentence to a coherent body of information about a topic.\"\n\nEvaluation Steps:\n\n1. **Read for Structure and Organization**: Begin by reading through the badminton report to assess its overall structure and organization. Look for clear introductory and concluding sections, as well as logical transitions between different points or sections. Pay attention to how the information flows from one paragraph to the next, and evaluate whether the report builds a coherent narrative about the topic of badminton.\n2. **Sentence-Level Analysis**: Break down the report into individual sentences and assess the coherence of each sentence. Consider factors such as clarity, conciseness, and relevance to the main topic. Evaluate whether each sentence contributes meaningfully to the overall coherence of the report, or if any sentences seem disjointed or out of place. Assign a score to each sentence based on its effectiveness in conveying information and maintaining coherence within the text.\n3. **Overall Coherence Assessment**: Step back and consider the report as a whole, taking into account both its structural organization and the coherence of individual sentences. Reflect on how well the report meets the criteria of presenting information in a well-structured and logically organized manner. Finally, Assign a score on a scale of 1 to 10, where 1 is the lowest and 10 is the highest based on the Evaluation Criteria.\n\nBadminton Report:\n\n**Report on YONEX Thailand Open 2021 QuarterFinals: An Se Young vs. Ratchanok Intanon**\n\nIn a thrilling quarterfinal match at the YONEX Thailand Open 2021, the badminton encounter between South Korea's An Se Young and Thailand's Ratchanok Intanon kept spectators on the edge of their seats. The match went over two intense sets demonstrating high-level performances from both athletes.\n\nIn the first set, Ratchanok Intanon made a strong start, taking an early advantage with a score of 5-1, showcasing excellent control and precision with smash shots and well-placed lobs that sent the shuttle beyond Young’s reach, marking a series of out-of-bounds mistakes from Young. However, An Se Young steadily found her rhythm and fought back to close the gap. Utilizing a series of net shots and hard-hitting smashes, Young made a remarkable comeback. After a head-to-head battle for points, she clinched the first set 22-20 in a dramatic fashion, with Ratchanok failing twice to clear the net at crucial junctures.\n\nThe second set saw Young carrying forward her momentum, relentlessly advancing with aggressive play. Ratchanok tried her best to recover, equalizing occasionally. Despite Intanon’s attempts to wrest control, Young's defensive skills and sharp net shots saw her leading the scoreboard. Dominantly, Young managed several winning streaks that distanced her score from Intanon’s. Ultimately, An Se Young sealed the set at 21-12, consolidating her victory mainly due to her opponent's array of mistakes, including net errors and failure to keep the shuttle in play.\n\nThis victory led An Se Young to progress to the semifinal stage of the tournament, marking it as another significant achievement in her career against a seasoned player like Ratchanok Intanon, who showed resilience but couldn't overcome the formidability of Young on this occasion. \n\nThis quarterfinal highlighted not only the rising talent of An Se Young but also the intense competitiveness of women’s badminton on an international scale.\n\nEvaluation Form (scores ONLY):\n\n- Coherence:"
+    }
+  },
+  "notes": [
+    "the released judge outputs are one pass of gpt-4-turbo-2024-04-09 at the API default temperature 1.0",
+    "evaluation/<game>/GPT-4|GPT-3.5/ uses 'csv+...' for 9 games and 'CSV+...' for Kento_MOMOTA_CHOU_Tien_Chen: the lookup is case-insensitive",
+    "human reports are third-party news text (card: non-redistributable); this file embeds only a GPT-4 report prompt"
+  ]
+}

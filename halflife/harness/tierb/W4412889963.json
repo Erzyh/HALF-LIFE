@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4412889963",
+  "title": "Improving Automatic Evaluation of Large Language Models (LLMs) in Biomedical Relation Extraction via LLMs-as-the-Judge",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (LLM-Generator)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 3: 'we regenerate the response using GPT-4-Turbo ... in both unstructured and structured format'; Table 2 caption: 'All the responses are generated using GPT-4-Turbo as the LLM-Generator.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.1 (structured-output prompt for the generator)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (judge EM/RMSE against human annotation of GPT-4-Turbo outputs)",
+    "value": null,
+    "n_items": null,
+    "location": "Table 2 reports judges (e.g. GPT-4o-mini EM 67.20 on BC5CDR structured); no score of GPT-4-Turbo itself",
+    "task_type": "extraction",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "BC5CDR, DDI, KD-DTI (public); code https://github.com/tahmedge/llm_judge_biomedical_re"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "mid"
+  },
+  "blockers": [
+    "human_outcome",
+    "no_number"
+  ],
+  "notes": "Ground truth for the judge study is two human annotators' counts of correct relations in GPT-4-Turbo responses; judges run at temperature 1.0. Snapshot not stated."
+}

@@ -1,0 +1,49 @@
+{
+  "wid": "W4400065264",
+  "title": "Following Length Constraints in Instructions",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 49.3,
+  "original_location": "Table 2, row 'GPT4 Turbo (gpt-4-turbo-2024-04-09)', AlpacaEval-LI Vlt(%) column",
+  "reexecution": {
+    "mean_over_seeds": 0.5336658354114713,
+    "per_seed": {
+      "0": {
+        "value": 0.5336658354114713,
+        "n": 802,
+        "ci95": [
+          0.49875311720698257,
+          0.5685785536159601
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4400065264",
+    "n_items": 802,
+    "n_requests": 802,
+    "seeds": 1,
+    "est_usd": 10.14,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 49.3,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "decoding parameters are assumed (see params_source); the paper's own generations are not published, so only the aggregate Vlt% can be compared.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 53.36658354114713,
+    "delta": 4.066583541147132,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416034648",
+  "title": "Bringing Pedagogy into Focus: Evaluating Virtual Teaching Assistants’ Question-Answering in Asynchronous Learning Environments",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano",
+    "role": "B",
+    "evidence": "Section 6.2: 'We use GPT-4.1-nano to generate pairs of student forum posts and VTA responses, each aligned with a specific pedagogical level score' (synthetic training data)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix E (synthetic-data generation description), Appendix C (classifier prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1 of classifiers fine-tuned on the synthetic data (not a GPT-4.1-nano output metric)",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 3-5",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Forum data under FERPA/IRB agreements: 'the dataset cannot be made publicly available'; code at https://github.com/Columbia-NLP-Lab/VTA_qa_evaluation"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number"
+  ],
+  "notes": "The live model is only a synthetic-data generator; reported numbers belong to downstream classifiers on closed data."
+}

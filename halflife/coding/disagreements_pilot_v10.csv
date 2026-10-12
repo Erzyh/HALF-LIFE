@@ -1,0 +1,67 @@
+﻿num,openalex_id,item,code_A,code_B,code_C,code_D,tie_breaker,title
+1,W4387075046,Q3 실행시점,,없음,연월,없음,,Probing the Moral Development of Large Language Models through Defining Issues Test
+1,W4387075046,Q6 확신도,,높음,높음,낮음,,Probing the Moral Development of Large Language Models through Defining Issues Test
+1,W4387075046,역할:text-davinci-002,인용·언급,실행,실행,인용·언급,,Probing the Moral Development of Large Language Models through Defining Issues Test
+3,W4405354535,Q2 버전표기,,별칭·계열명,날짜 스냅숏,별칭·계열명,,Euclid: Supercharging Multimodal LLMs with Synthetic High-Fidelity Visual Descriptions
+4,W4399400519,Q1 접근경로,,해당없음,혼합,API,,Guiding ChatGPT to Generate Salient Domain Summaries
+4,W4399400519,Q2 버전표기,,해당없음,별칭·계열명,별칭·계열명,,Guiding ChatGPT to Generate Salient Domain Summaries
+4,W4399400519,Q3 실행시점,,해당없음,연월,연월,,Guiding ChatGPT to Generate Salient Domain Summaries
+4,W4399400519,Q6 확신도,,높음,높음,낮음,,Guiding ChatGPT to Generate Salient Domain Summaries
+4,W4399400519,역할:text-davinci-003,실행,인용·언급,인용·언급,실행,,Guiding ChatGPT to Generate Salient Domain Summaries
+5,W4404475837,Q2 버전표기,,해당없음,해당없음,별칭·계열명,,Research on Code Generation Technology based on LLM Pre-training
+5,W4404475837,Q3 실행시점,,해당없음,없음,해당없음,,Research on Code Generation Technology based on LLM Pre-training
+5,W4404475837,역할:claude-3-5-sonnet,실행,인용·언급,인용·언급,인용·언급,,Research on Code Generation Technology based on LLM Pre-training
+6,W4414587831,Q1 접근경로,,해당없음,혼합,로컬,,Which Data Attributes Stimulate Math and Code Reasoning? An Investigation via Influence Functions
+6,W4414587831,Q2 버전표기,,해당없음,날짜 스냅숏,별칭·계열명,,Which Data Attributes Stimulate Math and Code Reasoning? An Investigation via Influence Functions
+6,W4414587831,Q3 실행시점,,해당없음,없음,없음,,Which Data Attributes Stimulate Math and Code Reasoning? An Investigation via Influence Functions
+6,W4414587831,역할:o1-preview,인용·언급,인용·언급,인용·언급,못찾음,,Which Data Attributes Stimulate Math and Code Reasoning? An Investigation via Influence Functions
+7,W4406775495,Q1 접근경로,,해당없음,혼합,API,,ViDDAR: Vision Language Model-Based Task-Detrimental Content Detection for Augmented Reality
+7,W4406775495,Q2 버전표기,,해당없음,날짜 스냅숏,날짜 스냅숏,,ViDDAR: Vision Language Model-Based Task-Detrimental Content Detection for Augmented Reality
+7,W4406775495,Q3 실행시점,,해당없음,없음,없음,,ViDDAR: Vision Language Model-Based Task-Detrimental Content Detection for Augmented Reality
+7,W4406775495,역할:claude-1,인용·언급,못찾음,못찾음,못찾음,,ViDDAR: Vision Language Model-Based Task-Detrimental Content Detection for Augmented Reality
+8,W7115176063,Q1 접근경로,,불명,해당없음,불명,,Zero-Shot Detection of Jailbreaking Attempts in LLMs
+8,W7115176063,Q2 버전표기,,별칭·계열명,해당없음,별칭·계열명,,Zero-Shot Detection of Jailbreaking Attempts in LLMs
+8,W7115176063,Q3 실행시점,,해당없음,없음,없음,,Zero-Shot Detection of Jailbreaking Attempts in LLMs
+8,W7115176063,Q5 열람,,초록만,전문,전문,,Zero-Shot Detection of Jailbreaking Attempts in LLMs
+8,W7115176063,Q6 확신도,,낮음,낮음,높음,,Zero-Shot Detection of Jailbreaking Attempts in LLMs
+8,W7115176063,역할:gemini-1.5-pro,실행,판단불가,못찾음,못찾음,,Zero-Shot Detection of Jailbreaking Attempts in LLMs
+9,W7134290757,Q1 접근경로,,불명,불명,혼합,,Enhancing Tool Calling in LLMs with the International Tool Calling Dataset
+9,W7134290757,Q6 확신도,,높음,높음,낮음,,Enhancing Tool Calling in LLMs with the International Tool Calling Dataset
+9,W7134290757,역할:gemini-1.5-pro,실행,실행,실행,못찾음,,Enhancing Tool Calling in LLMs with the International Tool Calling Dataset
+9,W7134290757,역할:o1-mini,실행,실행,실행,못찾음,,Enhancing Tool Calling in LLMs with the International Tool Calling Dataset
+10,W7155245004,Q1 접근경로,,불명,불명,혼합,,When Choices Become Risks: Safety Failures of Large Language Models under Multiple-Choice Constraints
+10,W7155245004,Q2 버전표기,,날짜 스냅숏,날짜 스냅숏,별칭·계열명,,When Choices Become Risks: Safety Failures of Large Language Models under Multiple-Choice Constraints
+11,W4410768297,Q1 접근경로,,API,API,혼합,,Ontology-conformal recognition of materials entities using language models
+12,W4392669748,Q1 접근경로,,API,API,혼합,,Transformers Go for the LOLs: Generating (Humourous) Titles from Scientific Abstracts End-to-End
+12,W4392669748,Q2 버전표기,,날짜 스냅숏,날짜 스냅숏,별칭·계열명,,Transformers Go for the LOLs: Generating (Humourous) Titles from Scientific Abstracts End-to-End
+12,W4392669748,Q6 확신도,,낮음,높음,높음,,Transformers Go for the LOLs: Generating (Humourous) Titles from Scientific Abstracts End-to-End
+12,W4392669748,역할:gpt-3.5-turbo-0613,못찾음,실행,실행,실행,,Transformers Go for the LOLs: Generating (Humourous) Titles from Scientific Abstracts End-to-End
+13,W4410447952,Q6 확신도,,낮음,높음,높음,,Comparative Analysis of ChatGPT-4 for Automated Mapping of Local Medical Terminologies to SNOMED CT
+14,W4403160720,Q3 실행시점,,없음,없음,해당없음,,The Future of Open Human Feedback
+14,W4403160720,역할:claude-2,실행,인용·언급,인용·언급,인용·언급,,The Future of Open Human Feedback
+15,W4399834307,역할:claude-2,인용·언급,인용·언급,인용·언급,못찾음,,
+16,W4416450183,역할:o4-mini,실행,실행,실행,못찾음,,Don't Judge Code by Its Cover: Exploring Biases in LLM Judges for Code Evaluation
+17,W4402670321,역할:claude-2,실행,인용·언급,인용·언급,못찾음,,FinTral: A Family of GPT-4 Level Multimodal Financial Large Language Models
+17,W4402670321,역할:gpt-4-turbo,인용·언급,실행,실행,실행,,FinTral: A Family of GPT-4 Level Multimodal Financial Large Language Models
+18,W7133570306,Q2 버전표기,,날짜 스냅숏,날짜 스냅숏,별칭·계열명,,A Neuropsychologically Grounded Evaluation of LLM Cognitive Abilities
+18,W7133570306,역할:claude-3-5-sonnet,실행,인용·언급,못찾음,못찾음,,A Neuropsychologically Grounded Evaluation of LLM Cognitive Abilities
+19,W4400260578,Q3 실행시점,,연도만,연월,연월,,"Diagnostic performances of GPT-4o, Claude 3 Opus, and Gemini 1.5 Pro in “Diagnosis Please” cases"
+19,W4400260578,역할:gpt-4-turbo,인용·언급,인용·언급,인용·언급,못찾음,,"Diagnostic performances of GPT-4o, Claude 3 Opus, and Gemini 1.5 Pro in “Diagnosis Please” cases"
+20,W4404518327,Q1 접근경로,,혼합,혼합,불명,,LLM Voting: Human Choices and AI Collective Decision-Making
+20,W4404518327,역할:gpt-4-1106-preview,못찾음,실행,실행,실행,,LLM Voting: Human Choices and AI Collective Decision-Making
+21,W7169664766,역할:gpt-4-turbo,실행,실행,못찾음,실행,,Mitigating Model Biases via Multi-LLM Consensus Aggregation in Pun Detection
+22,W4416034702,Q1 접근경로,,불명,혼합,혼합,,Harry Potter is Still Here! Probing Knowledge Leakage in Targeted Unlearned Large Language Models
+22,W4416034702,Q2 버전표기,,별칭·계열명,날짜 스냅숏,별칭·계열명,,Harry Potter is Still Here! Probing Knowledge Leakage in Targeted Unlearned Large Language Models
+23,W4415986153,Q1 접근경로,,해당없음,로컬,로컬,,Beyond Accuracy: Evaluating and Explaining the Capability Boundaries of Large Language Models in Syntax-Preserving Code Translation
+23,W4415986153,Q2 버전표기,,해당없음,날짜 스냅숏,날짜 스냅숏,,Beyond Accuracy: Evaluating and Explaining the Capability Boundaries of Large Language Models in Syntax-Preserving Code Translation
+24,W7138889969,Q1 접근경로,,불명,혼합,혼합,,GEM: Generative Entropy-Guided Preference Modeling for Few-Shot Alignment of LLMs
+24,W7138889969,Q2 버전표기,,별칭·계열명,날짜 스냅숏,별칭·계열명,,GEM: Generative Entropy-Guided Preference Modeling for Few-Shot Alignment of LLMs
+25,W7159733944,Q1 접근경로,,불명,서드파티,API,,Beyond Screenshots: Evaluating VLMs' Understanding of UI Animations
+26,W4403783611,Q1 접근경로,,불명,혼합,불명,,Enhancing LLM-based Autonomous Driving Agents to Mitigate Perception Attacks
+26,W4403783611,Q2 버전표기,,별칭·계열명,날짜 스냅숏,별칭·계열명,,Enhancing LLM-based Autonomous Driving Agents to Mitigate Perception Attacks
+26,W4403783611,역할:gpt-4-turbo,못찾음,실행,실행,실행,,Enhancing LLM-based Autonomous Driving Agents to Mitigate Perception Attacks
+27,W4391948454,Q1 접근경로,,불명,불명,혼합,,In Search of Needles in a 11M Haystack: Recurrent Memory Finds What LLMs Miss
+28,W4417012680,Q5 열람,,초록만,초록만,전문,,A large language model-based framework for automated phenotypic characterization in myeloproliferative neoplasms
+28,W4417012680,Q6 확신도,,낮음,높음,높음,,A large language model-based framework for automated phenotypic characterization in myeloproliferative neoplasms
+29,W7144391352,Q1 접근경로,,서드파티,서드파티,혼합,,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Korean Law
+30,W7154369554,역할:o3-mini,인용·언급,실행,실행,실행,,

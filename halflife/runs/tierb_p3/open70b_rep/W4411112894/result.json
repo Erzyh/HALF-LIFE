@@ -1,0 +1,66 @@
+{
+  "wid": "W4411112894",
+  "title": "The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Case Study on Media Bias Detection",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 0.683,
+  "original_location": "Table 1, row GPT-4 Turbo, column '0-shot + sys prompt'",
+  "reexecution": {
+    "mean_over_seeds": 0.6552302635436578,
+    "per_seed": {
+      "0": {
+        "value": 0.6544797426636113,
+        "n": 2283,
+        "ci95": [
+          0.6260963938584092,
+          0.6830870981240185
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.6559807844237042,
+        "n": 2283,
+        "ci95": [
+          0.6222389853829838,
+          0.6842386260208339
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411112894",
+    "n_items": 2283,
+    "n_requests": 4566,
+    "seeds": 2,
+    "est_usd": 2.0,
+    "subset_note": "cost cap $1.0: seeded random subset of 2283 items (seed 20260907); repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 0.683,
+    "cap_usd": 4.26,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4411112894"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the paper's 'openai/gpt-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (run date not given)",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W4411112894"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.6552302635436578,
+    "delta": -0.027769736456342287,
+    "original_inside_ci95": true
+  }
+}

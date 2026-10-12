@@ -1,0 +1,163 @@
+{
+  "card_id": "W4412887943",
+  "openalex_id": "https://openalex.org/W4412887943",
+  "title": "MEDEC: A Benchmark for Medical Error Detection and Correction in Clinical Notes",
+  "doi": "10.18653/v1/2025.findings-acl.1159",
+  "paper": {
+    "authors": "Ben Abacha, Yim, Fu, Sun, Yetisgen, Xia, Lin (Microsoft Health & Life Sciences AI / University of Washington)",
+    "year": 2025,
+    "repo": "https://github.com/abachaa/MEDEC (dataset) + https://github.com/abachaa/MEDIQA-CORR-2024 (evaluation scripts)",
+    "repo_note": "Scaffold had cloned only third-party tools (philter, QuickUMLS); the paper's own repos were cloned for this card. 'medec-exps' in MEDEC is a PNG, not code.",
+    "repo_commit": "MEDEC e9173f861b39706946b6a127394992c00535b1e3; MEDIQA-CORR-2024 4b87cb01c34d22bdef2423206305b2bedb1fe893",
+    "repo_license": "MEDEC: CC BY 4.0 (README); MEDIQA-CORR-2024: none"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The benchmark paper's central result is how well LLMs detect/correct injected errors relative to two medical doctors; all model rows in Tables 2-4 are LLM outputs scored automatically."
+  },
+  "claim": {
+    "statement": "On the 925-note MEDEC test set with the zero-shot prompt P#1, GPT-4o reached error-flag accuracy 0.6584 and error-sentence accuracy 0.5665 (correction AggregateScore 0.4682) and GPT-4 0.6573 / 0.5568 (0.5751); the best LLM (Claude 3.5 Sonnet, 0.7016 / 0.6562) stayed below both medical doctors (0.7961 / 0.6588 and 0.7161 / 0.6677) - 'recent LLMs are still outperformed by medical doctors' (Table 2).",
+    "claim_type": "capability_limit",
+    "metric": "accuracy of error-flag prediction (subtask A) and error-sentence identification (subtask B) over 925 test texts; correction quality on flagged texts via ROUGE-1, BERTScore (deberta-xlarge-mnli), BLEURT, their AggregateScore, and MIST/MIST-COMB",
+    "original_values": {
+      "test_n": 925,
+      "test_ms": 597,
+      "test_uw": 328,
+      "test_with_errors_pct": 51.3,
+      "gpt4o_P1": {
+        "err_flag_acc": 0.6584,
+        "err_sentence_acc": 0.5665,
+        "rouge1": 0.5517,
+        "bertscore": 0.5373,
+        "bleurt": 0.5852,
+        "aggscore": 0.4682,
+        "mist": 0.6751,
+        "mist_comb": 0.6345
+      },
+      "gpt4o_P2": {
+        "err_flag_acc": 0.6368,
+        "err_sentence_acc": 0.5449,
+        "aggscore": 0.5743
+      },
+      "gpt4_P1": {
+        "err_flag_acc": 0.6573,
+        "err_sentence_acc": 0.5568,
+        "aggscore": 0.5751
+      },
+      "gpt4_P2": {
+        "err_flag_acc": 0.6519,
+        "err_sentence_acc": 0.5773,
+        "aggscore": 0.6387
+      },
+      "gpt4o_mini_P1": {
+        "err_flag_acc": 0.6086,
+        "err_sentence_acc": 0.4757,
+        "aggscore": 0.5292
+      },
+      "claude35_sonnet_P1": {
+        "err_flag_acc": 0.7016,
+        "err_sentence_acc": 0.6562,
+        "aggscore": 0.2795
+      },
+      "o1_preview_P1": {
+        "err_flag_acc": 0.6746,
+        "err_sentence_acc": 0.614,
+        "aggscore": 0.6976
+      },
+      "doctor1": {
+        "err_flag_acc": 0.7961,
+        "err_sentence_acc": 0.6588
+      },
+      "doctor2": {
+        "err_flag_acc": 0.7161,
+        "err_sentence_acc": 0.6677
+      },
+      "doctors_iaa_pct": {
+        "err_flag": 69.01,
+        "err_sentence": 57.85
+      }
+    },
+    "original_source": "Table 2 (full 925-text test set; * = P#2 prompt); Table 3 (MS/UW split - reported only for Claude 3.5 Sonnet and o1-preview); Table 4 (recall by error type); Section 5.4"
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13 (primary live arm); 'GPT-4' snapshot unspecified",
+    "model_note": "gpt-4o-2024-05-13 is the only dated live snapshot in the paper, but Section 5.1 attaches it to 'GPT-4o-mini (gpt-4o-2024-05-13)' - it is ambiguous whether it denotes the GPT-4o row or the GPT-4o-mini row of Table 2. 'GPT-4' is cited via the docs page 'gpt-4-turbo-and-gpt-4' (accessed 03/2024) with no snapshot; the scaffold's 'gpt-4-turbo' is inferred, not stated. Also used: o1-mini-2024-09-12 and o1-preview-2024-09-12 (dead), Claude 3.5 Sonnet 2024-10-22 (dead), Gemini 2.0 Flash, DeepSeek-R1 (Azure AI Foundry), Phi-3-7B, ChatGPT.",
+    "model_status": "gpt-4o-2024-05-13 dying 2026-10-23; gpt-4-turbo dying 2026-10-23 (unverified as the paper's 'GPT-4')",
+    "endpoint": "OpenAI chat completions (provider/route not stated for OpenAI models; DeepSeek-R1 via Azure AI Foundry)",
+    "prompt_source": "Paper Section 4, verbatim P#1 ('The following is a medical narrative about a patient. You are a skilled medical doctor reviewing the clinical text. The text is either correct or contains one error ... If the text is correct return the following output: CORRECT. If the text has a medical error ... return the sentence id ... followed by a space, and then a corrected version of the sentence ...') and P#2 (P#1 + one randomly selected training example, quoted in the paper)",
+    "params": {
+      "temperature": "not reported",
+      "max_tokens": "not reported",
+      "seed": "not reported",
+      "other": "input = note with one sentence per line prefixed by sentence ID; minimal post-processing for Phi-3/Claude formatting"
+    },
+    "n_items": 925,
+    "n_items_note": "597 MS (public) + 328 UW (DUA); Table 2 values are on all 925",
+    "samples_per_item": 1,
+    "evaluation": "Automatic: parse 'CORRECT' vs '<sentence_id> <corrected sentence>'; flag/sentence accuracy; NLG metrics via MEDIQA-CORR-2024/evaluation/mediqa-corr-2024-eval-script-2-all-metrics.py (ROUGE-1, BERTScore, BLEURT, AggregateScore); MIST requires UMLS + scispaCy en_core_sci_scibert"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "prompts_note": "verbatim in the paper (Section 4); not in the repo",
+    "data_path": "MEDEC-MS/MEDEC-MS-TestSet-with-GroundTruth-and-ErrorType.csv (597), MEDEC-MS/MEDEC-MS-ValidationSet-with-GroundTruth-and-ErrorType.csv (574), MEDEC-MS/MEDEC-Full-TrainingSet-with-ErrorType.csv (2,189); UW subsets by DUA (melihay@uw.edu)",
+    "eval_path": "MEDIQA-CORR-2024/evaluation/mediqa-corr-2024-eval-script-1-acc-rouge.ipynb, mediqa-corr-2024-eval-script-2-all-metrics.py",
+    "data_public": "partial",
+    "data_license": "CC BY 4.0 (MEDEC-MS); UW under Data Use Agreement",
+    "redistributable": "MS: true; UW: false",
+    "notes": "MS notes are MedQA-derived vignettes with injected errors (possibly seen in pre-training); UW notes are real de-identified hospital notes never released publicly. A cleaned copy exists at huggingface.co/datasets/mkieffer/MEDEC (authors recommend the original for comparisons)."
+  },
+  "blockers": [
+    "Table 2 reference values are on the full 925-note test set; the 328 UW notes require a UW DUA - without it only the 597-note MS subset can be run, and MS-only reference values for GPT-4/GPT-4o are not reported (Table 3 covers only Claude and o1-preview)",
+    "model snapshot ambiguity: gpt-4o-2024-05-13 is labelled 'GPT-4o-mini' in the paper text; 'GPT-4' has no snapshot",
+    "generation parameters (temperature, max tokens) not reported",
+    "MIST metric needs a UMLS licence and scispaCy models; BLEURT/BERTScore checkpoints must be pinned"
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4o-2024-05-13",
+      "second_arm_unverified": "gpt-4-turbo-2024-04-09 (if 'GPT-4' = GPT-4 Turbo)"
+    },
+    "successors": [
+      "gpt-5-2025-08-07",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated snapshot)",
+      "gemini (current dated snapshot)",
+      "deepseek-r1 / llama-3.x (open weights, hash-pinned)",
+      "qwen3 (open weights, hash-pinned)"
+    ]
+  },
+  "budget": {
+    "est_calls": 1791,
+    "est_tokens_in": 1160000,
+    "est_tokens_out": 143000,
+    "est_cost_usd": 8,
+    "pricing_usd_per_1m": {
+      "gpt-4o": {
+        "input": 5.0,
+        "output": 15.0
+      },
+      "gpt-4-turbo": {
+        "input": 10.0,
+        "output": 30.0
+      }
+    },
+    "assumptions": "MS test only (597 notes) x 3 seeds for gpt-4o-2024-05-13; ~650 input tokens (note + P#1) and ~80 output tokens. A second gpt-4-turbo arm adds ~USD 16 (total ~USD 24); running the full 925 with the UW DUA scales by 1.55x (~USD 37 for both arms)."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1: for the live arm, error-flag and error-sentence accuracy within +/- 0.05 of the Table 2 values (bootstrap CI over notes) - flagged 'subset' if only MS is available; the direction claim 'best LLM < both doctors on flag accuracy' (0.70 vs 0.72-0.80) must hold with successor arms; correction AggregateScore judged by direction only.",
+    "notes": "Chance level for error-flag accuracy is ~0.5 (51.3% of notes have errors); doctors' IAA was only 69% (flag) / 58% (sentence)."
+  },
+  "status": "done",
+  "user_checks": [
+    "Which Table 2 row is gpt-4o-2024-05-13 - 'GPT-4o' (0.6584 / 0.5665) or 'GPT-4o-mini' (0.6086 / 0.4757)? The paper text conflates them; ask abenabacha@microsoft.com.",
+    "Apply for the UW DUA to match the 925-note test set, or accept MS-only (597) with an explicit 'subset' flag in the judgment?",
+    "Treat 'GPT-4' as gpt-4-turbo-2024-04-09 at all, given the paper never names the snapshot?"
+  ],
+  "domain_notes": "Each note is either correct or contains exactly one injected error of five types (diagnosis, management, treatment, pharmacotherapy, causal organism); MS notes were built by rewriting MedQA board-exam vignettes with a plausible wrong answer, UW notes by medical students editing real diagnosis-support notes. The human ceiling is noisy (doctor IAA 69%/58%), and o1-preview showed very high recall but hallucinated errors (low precision), so 'LLM vs doctor' comparisons hinge on accuracy, not recall. The MS/UW gap for o1-preview (73% vs 58% flag accuracy) suggests MedQA-derived notes are partly memorised - a contamination caveat for any GPT-4-class arm.",
+  "decisions_2026_09_18": [
+    "Table 2 row 'GPT-4o' (0.6584 / 0.5665) is the primary comparison for gpt-4o-2024-05-13; the 'GPT-4o-mini' row is recorded as an alternative cell",
+    "MS test subset only (597 notes), judgment flagged 'subset'; no UW DUA",
+    "the unpinned 'GPT-4' arm is not run; the card has one live model, gpt-4o-2024-05-13"
+  ]
+}

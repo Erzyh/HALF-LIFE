@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4402345509",
+  "title": "LAB-Bench: Measuring Capabilities of Language Models for Biology Research",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Supplementary Table 1 (columns Human, claude-3-5-sonnet-20240620, claude-3-opus-20240229, gemini-1.5-pro-001, gpt-4o, gpt-4-turbo, ...): 'LitQA2 0.70 0.06 0.06 0.10 0.27 0.12 0.27 0.35'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D.1 'Prompting strategy' (zero-shot chain-of-thought prompt template)",
+    "note": "answers parsed by regex; Claude 2 (dead) was the fallback parser for unparsable outputs"
+  },
+  "claim": {
+    "metric": "accuracy (correct/all), LitQA2",
+    "value": 0.12,
+    "n_items": 248,
+    "location": "Supplementary Table 1, row LitQA2, column gpt-4-turbo (mean of three runs)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "LAB-Bench, https://huggingface.co/datasets/futurehouse/lab-bench (80% public split); reported numbers average public and private splits"
+  },
+  "cost": {
+    "est_calls": 744,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: reported accuracies include the private 20% split (public-only numbers appear only in Supplemental Figure 6); the gpt-4-turbo snapshot is not stated (paper dated July 2024, resolved by the alias rule). TableQA/FigQA need image inputs.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Gap is a private split: Supplementary Table 2 averages the public 80% and a withheld 20% of every subtask, and only the public part is on HF. Run the public LitQA2 split (about 199 of 248 items) three times with the Appendix D.1 zero-shot CoT template, random option permutation and the extra 'Insufficient information' option, parse the [ANSWER] tag by regex, and compare mean accuracy with 0.12 at the set level. Appendix B.1 / Figure 6 report that public and private mean accuracies differ by under 5 points, so the comparison is approximate but bounded.",
+    "approximation": "20% of items unavailable; Claude 2 fallback parser replaced by regex-only (or a live parser); gpt-4-turbo snapshot assumed 2024-04-09.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

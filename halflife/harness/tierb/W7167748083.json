@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7167748083",
+ "title": "Teaming Up with AI: Coordination and Cooperation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Case study 3 (citing Saig et al. 2026): \"...a more refined measure of quality...requires activating a costly advanced model (GPT-4 Turbo) to generate a 'reference.'\" -- summarizes another paper's experiment, not this chapter's own work."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none of this paper's own (the 14% adaptive-contract utility figure belongs to Saig et al. 2026, cited secondhand)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AlpacaEval 2.0 (used in the cited Saig et al. experiment, not run by this chapter's authors)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A short economics/AI perspective book chapter; GPT-4 Turbo appears only while summarizing a figure from a different paper (Saig et al. 2026), not as something these authors ran themselves."
+}

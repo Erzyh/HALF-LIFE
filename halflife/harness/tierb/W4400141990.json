@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4400141990",
+  "title": "AI Benchmark Half-Life in Recursive Corpora: A Theory of Validity Decay under Semantic Leakage and Regeneration",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (also gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"gpt-4o-2024-05-13 52.6 49.4 52.4 68.2 50.0 46.0 49.6\" and \"gpt-4-turbo-2024-04-09 49.6 49.0 51.3 60.8 44.3 42.7 49.5\" (Table 2, LiveBench results across 40 models)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 12 (instruction-following task prompts); other task prompts are embedded in the released questions",
+    "note": ""
+  },
+  "claim": {
+    "metric": "LiveBench score (average of 6 category scores)",
+    "value": 52.6,
+    "n_items": null,
+    "location": "Table 2, row gpt-4o-2024-05-13, column LiveBench Score",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "LiveBench questions and code (https://github.com/livebench/livebench; HF livebench), ~1,000 questions across 18 tasks"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Note: the CSV title ('AI Benchmark Half-Life...') does not match the text, which is LiveBench (ICLR 2025, arXiv 2406.19314, matching the DOI). Soft gaps: scoring uses task-specific parsers and code execution from the released repo; the exact question release version (monthly updates) must be matched. Temperature 0.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Table 2 was computed after the two completed monthly updates, i.e. on the 1,000-question release described in Sec. 2.7; the questions embed the task prompts and are on HF (huggingface.co/livebench). Scoring needs the repository's task-specific scorers (regex/exact-match parsers, code execution for the coding tasks, instruction-following checkers), so pin that release, run gpt-4o-2024-05-13 single-turn at temperature 0, score every task with the repo functions, and average tasks -> categories -> overall.",
+    "approximation": "Release-version matching is by description (two updates, 1,000 questions), not by an explicit date in the paper; later question refreshes must be excluded.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/livebench/livebench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

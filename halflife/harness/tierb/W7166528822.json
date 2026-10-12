@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W7166528822",
+  "title": "Identifying Implicit Research Data References in Paper Citations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "Sec. 4.2: 'GPT-4.1 series (GPT-4.1-nano, GPT-4.1-mini, and GPT-4.1) ... We set the temperature to 0.0'; responses constrained to Yes/No via Structured Outputs."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A: Figure 5 (system prompt), Figure 6 (user prompt Con + Cite), Figure 7 (user prompt Con + Cite + Bib)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1 (Con + Cite setting)",
+    "value": 0.181,
+    "n_items": 783,
+    "location": "Table 1, row GPT-4.1-nano, Con + Cite columns (accuracy 0.757, F1 0.181)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "783 citation tags from 10 papers of the public GSAP-NER dataset (Otto et al., 2023); the authors' data-reference labels (191 positives) are not stated as released"
+  },
+  "cost": {
+    "est_calls": 783,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Preliminary experiment; GPT-4.1-nano is the weakest GPT model in the table (headline rows are GPT-5.2 and GPT-5-mini). Label availability is the soft gap.",
+  "resolution": {
+    "gap": "unreleased",
+    "plan": "The 783 citation contexts come from the public GSAP-NER papers, but the authors' 191 implicit-data-reference labels are not released (no URL or availability statement in the paper), so F1 cannot be computed; re-annotating would not reproduce the paper's labels.",
+    "approximation": "n/a",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

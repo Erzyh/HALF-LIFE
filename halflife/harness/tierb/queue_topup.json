@@ -1,0 +1,44 @@
+[
+ {
+  "wid": "W4417257719",
+  "cap": 27,
+  "force": true,
+  "model": "gpt-5-2025-08-07",
+  "note": "finish the 90 items left at the cap"
+ },
+ {
+  "wid": "W4399317891",
+  "cap": 30,
+  "force": true,
+  "model": "gpt-4-turbo-2024-04-09",
+  "note": "finish the 194 requests left at the cap, judge them"
+ },
+ {
+  "wid": "W4416035248",
+  "cap": 63,
+  "force": true,
+  "model": "gpt-4-turbo-2024-04-09",
+  "note": "finish the 3,557 items left at the cap"
+ },
+ {
+  "wid": "W4403556032",
+  "cap": 62,
+  "force": true,
+  "model": "gpt-4-turbo-2024-04-09",
+  "note": "full set 1,272 (was a 823-item subset)"
+ },
+ {
+  "wid": "W4403443823",
+  "cap": 60,
+  "force": true,
+  "model": "gpt-4-turbo-2024-04-09",
+  "note": "full set 3,737 (was a 2,586-item subset)"
+ },
+ {
+  "wid": "W4411119263",
+  "cap": 34,
+  "force": true,
+  "model": "gpt-4o-2024-05-13",
+  "note": "full set 2,060 (was a 2,030-item subset)"
+ }
+]

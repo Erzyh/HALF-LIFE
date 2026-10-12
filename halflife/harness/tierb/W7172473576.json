@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7172473576",
+  "title": "Can LLMs Really Understand Item Difficulty Levels? Implications for Automated Item Generation Using LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "Table 2 (zero-shot): 'GPT 4.1-nano 0.123 0.369 0.229 0.026 0.509 0.208'; GPT-o4-mini appears in the persona-based tables"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (zero-shot prompt), Appendix B (full prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "quadratic weighted kappa, zero-shot difficulty prediction",
+    "value": 0.123,
+    "n_items": 217,
+    "location": "Table 2, row GPT 4.1-nano, column QWK (test split of 217 items)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "1,443 MC items from a proprietary college-admission reading and writing test (SAT-style), not released"
+  },
+  "cost": {
+    "est_calls": 651,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "o4-mini (o4-mini-2025-04-16) also evaluated under persona prompting (Tables 4-5)."
+}

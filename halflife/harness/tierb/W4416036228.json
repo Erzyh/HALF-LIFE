@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036228",
+  "title": "Multi-perspective Analysis of Large Language Model Domain Specialization: An Experiment in Accounting Audit Procedures Generation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "For the evaluation models, we used GPT-4-turbo-2024-04-09 for comprehensiveness and specificity, as GPT-4-turbo is commonly used for LLM-as-a-judge tasks (Section 3.8.2)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix (evaluation prompts referenced; judge scoring rubric described)",
+    "note": ""
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (live model is the judge; subjects are fine-tuned Llama-3.1-8B variants)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Audit-procedure dataset built from public sources; code at https://github.com/nororo/"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4o-2024-08-06 judges relevance; GPT-4o-mini extracts rationales. Live model only scores outputs."
+}

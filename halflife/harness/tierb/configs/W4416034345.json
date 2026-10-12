@@ -1,0 +1,123 @@
+{
+  "wid": "W4416034345",
+  "title": "Unlocking Legal Knowledge: A Multilingual Dataset for Judicial Summarization in Switzerland",
+  "status": "ready",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "temperature": null,
+      "max_tokens": 4096,
+      "top_p": null,
+      "seed": 2025,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Appendix F.1 (o3-mini-2025-01-31) and F.3 (temperature 0.7, top_p 0.8, seed 2025 requested; the OpenAI reasoning API accepts only the seed); reasoning effort not stated, default medium",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 978,
+    "subset_rule": "paper-defined split: test split of all nine decision-headnote language pairs (de_de 207, de_fr 207, de_it 207, fr_de 107, fr_fr 107, fr_it 107, it_de 12, it_fr 12, it_it 12)",
+    "approximation": "o3-mini ignores the temperature/top_p the authors requested and the runner does not pass seed 2025 to reasoning models (reasoning_effort medium assumed); ROUGE-L re-implemented after rouge_score defaults (rougeL, not rougeLsum)"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "ipst/slds",
+    "config_or_split": "configs de_de, de_fr, de_it, fr_de, fr_fr, fr_it, it_de, it_fr, it_it / test (and one_shot_examples, 1 row each)",
+    "filter": null,
+    "fields": {
+      "input": "decision",
+      "label": "gold",
+      "id": "sample_id",
+      "language": "language",
+      "pair": "pair"
+    },
+    "license": "cc (as stated on the HF card)",
+    "access_checked": true,
+    "size_mb": 40,
+    "hf": {
+      "dataset": "ipst/slds",
+      "configs": [
+        "de_de",
+        "de_fr",
+        "de_it",
+        "fr_de",
+        "fr_fr",
+        "fr_it",
+        "it_de",
+        "it_fr",
+        "it_it"
+      ],
+      "split": "test",
+      "one_shot_split": "one_shot_examples"
+    },
+    "hf_configs_all": [
+      "de_de",
+      "de_fr",
+      "de_it",
+      "fr_de",
+      "fr_fr",
+      "fr_it",
+      "it_de",
+      "it_fr",
+      "it_it"
+    ],
+    "fields_prose": {
+      "input": "decision",
+      "label": "headnote",
+      "language": "headnote_language (de/fr/it -> German/French/Italian)",
+      "id": "sample_id"
+    },
+    "label_map": null,
+    "hf_verified": "Hub parquet listing: configs default, de_de, de_fr, de_it, fr_de, fr_fr, fr_it, it_de, it_fr, it_it, each with splits train/validation/test/one_shot_examples"
+  },
+  "prompt": {
+    "system": "You are a legal expert specializing in Swiss Federal Supreme Court decisions with extensive knowledge of legal terminology and conventions in German, French, and Italian. Your task is to generate a headnote for a provided leading decision. A headnote is a concise summary that captures the key legal points and significance of the decision. It is not merely a summary of the content but highlights the aspects that make the decision \"leading\" and important for future legislation.\n\nWhen generating the headnote:\n1. Focus on the core legal reasoning and key considerations that establish the decision's significance.\n2. Include any relevant references to legal articles (prefixed with \"Art.\") and considerations (prefixed with \"E.\" in German or \"consid.\" in French/Italian).\n3. Use precise legal terminology and adhere to the formal and professional style typical of Swiss Federal Supreme Court headnotes.\n4. Ensure clarity and coherence, so the headnote is logically structured and easy to understand in the specified language.\n\nYour response should consist solely of the headnote in the language specified by the user prompt.",
+    "user_template": "Leading decision:\n```{decision}```\n\nGenerate a headnote in {language} for the leading decision above.",
+    "placeholders": {
+      "decision": "items.decision",
+      "language": "items.language"
+    },
+    "few_shot": "k=1: the one_shot_examples row of the same language pair, given as a preceding user turn (Prompt 3 filled with the example decision) and assistant turn (its gold headnote), lighteval style (Appendix F.2, H.2)",
+    "source_location": "Appendix H, Prompt 2 (system) and Prompt 3 (user); one-shot procedure in Appendix F.2 and H.2",
+    "verbatim": "full (arrow line-wrap glyphs removed)",
+    "placeholders_prose": {
+      "decision": "items.decision (inserted directly from the dataset column)",
+      "language": "headnote_language written out: German, French or Italian"
+    },
+    "placeholders_note": "the language word is fixed per config (de_* -> German, fr_* -> French, it_* -> Italian): staged for de_de; a value map (headnote_language de/fr/it -> German/French/Italian) is not expressible for the 'default' config"
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "strip; ROUGE-L F1 x 100 with rouge_score default settings (whitespace tokenisation, no stemming), as in Appendix E"
+  },
+  "metric": {
+    "name": "rouge_l",
+    "definition": "ROUGE-L F1 x 100 per language pair, macro-averaged over the nine decision-headnote language pairs",
+    "judge": "none",
+    "original_value": 18.21,
+    "original_location": "Table 2, row o3-mini one-shot, column ROUGE-L (+/- 0.67)",
+    "bootstrap_unit": "item",
+    "scale": 100,
+    "alternative_cell": "appendix per-pair table, row o3-mini one-shot: de_de 18.18 (n = 207) for the staged config"
+  },
+  "cost": {
+    "est_calls": 978,
+    "est_usd": 12.49,
+    "tier": "high",
+    "est_usd_prepare": 12.49,
+    "est_usd_dryrun_max_tokens": 25.82,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens"
+  },
+  "open_points": [],
+  "notes": "Decisions average 3.6K tokens; with the one-shot example each call carries ~8K input tokens plus reasoning (~$0.02 per call at o3-mini prices). Per-pair o3-mini ROUGE-L values are in the appendix table (e.g. de_de 18.18, fr_fr 23.58) for a finer check. The JUDGE column uses an LLM judge and is not targeted. || [hook 2026-09-07] load_items() reads the test split of all nine pairs plus each pair's one_shot_examples row; render() builds the lighteval-style one-shot chat (system = Prompt 2; user = Prompt 3 with the example decision; assistant = its gold headnote; user = Prompt 3 with the target decision; language word from headnote_language); score() = rougeL F1 with rouge_score's default tokenizer (lowercase, non-[a-z0-9] runs become separators, no stemming) per item, macro-averaged over the nine pairs (per-pair means printed against the appendix table). Runner bootstrap CI is over items (micro), the paper's standard error is lighteval's bootstrap.",
+  "hook": {
+    "path": "harness/tierb/hooks/W4416034345.py",
+    "functions": [
+      "load_items",
+      "render",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

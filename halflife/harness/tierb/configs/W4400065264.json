@@ -1,0 +1,82 @@
+{
+  "wid": "W4400065264",
+  "title": "Following Length Constraints in Instructions",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "params_source": "assumed (the paper gives no decoding parameters for the AlpacaEval-LI runs; Appendix E states temperature 0.7 only for MT-Bench-LI, where sampling was used to expand the set). max_tokens 1024 is ours: the largest target length in the released file is 764 words.",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 802,
+    "subset_rule": "all 802 AlpacaEval-LI prompts (805 AlpacaEval 2 instructions minus the 3 that already carry an explicit length constraint, Sec. 3.2)",
+    "approximation": "decoding parameters are assumed (see params_source); the paper's own generations are not published, so only the aggregate Vlt% can be compared."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "AlpacaEval-LI release of the paper (facebookresearch/RAM, projects/length_instruct README): length_instructed_alpaca_baseline.json",
+    "config_or_split": "single file, 802 rows",
+    "filter": null,
+    "fields": {
+      "input": "instruction",
+      "label": "max_len",
+      "id": null
+    },
+    "license": "MIT (facebookresearch/RAM LICENSE); the underlying AlpacaEval 2 prompts are CC BY-NC 4.0 (tatsu-lab/alpaca_eval)",
+    "access_checked": true,
+    "size_mb": 1.3,
+    "file_url": "https://dl.fbaipublicfiles.com/length_instruct/v1/data/AlpacaEval-LI/length_instructed_alpaca_baseline.json",
+    "fields_prose": {
+      "input": "instruction = the length-instructed prompt (Figure 1 template already applied: 'Answer the following instruction using <MAX_LEN> words or less.\\n\\n<ORIGINAL_INSTRUCTION>')",
+      "label": "max_len = target word limit for that prompt (minimum generation length of GPT-4 Turbo 11/06, Claude 3 Opus 02/29 and Mistral Large 24/02 on the original prompt, Sec. 3.1.1)",
+      "id": "none in the file; the runner numbers the rows"
+    },
+    "download": {
+      "date": "2026-09-19",
+      "check": "GET, 1,358,975 bytes, application/json; 802 rows, every row has an integer max_len (range 1-764) and an instruction starting with 'Answer the following instruction using '",
+      "downloaded_to_repo": false
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{instruction}",
+    "placeholders": {
+      "instruction": "items.instruction"
+    },
+    "few_shot": "none",
+    "source_location": "Figure 1 (length-instruction template) + Sec. 3.2; the released AlpacaEval-LI file stores the already-augmented prompt",
+    "verbatim": "full (the template of Figure 1 is 'Answer the following instruction using <MAX_LEN> words or less.\\n\\n<ORIGINAL_INSTRUCTION>'; the released items.instruction field is exactly that string with the two slots filled, so the prompt is taken from the release rather than re-assembled)",
+    "placeholders_paper": {
+      "instruction": "the length-instructed prompt of Figure 1"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "none (the whole reply is the response whose words are counted)",
+    "parse_paper": "none: the full generation is scored"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Vlt% = percentage of the 802 responses whose word count exceeds that prompt's max_len; the word count is Appendix A's function (nltk.word_tokenize, tokens that are pure punctuation dropped). Implemented in harness/tierb/hooks/W4400065264.py.",
+    "judge": "rule",
+    "original_value": 49.3,
+    "original_location": "Table 2, row 'GPT4 Turbo (gpt-4-turbo-2024-04-09)', AlpacaEval-LI Vlt(%) column",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 802,
+    "est_usd": 25.15,
+    "tier": "high",
+    "est_usd_prepare": 10.14,
+    "prepare_note": "runner --prepare --dry-run 2026-09-19: prepare's own figure is $10.14 (400 output tokens assumed per call), the battery dry run reports $25.15 because it bills the full max_tokens=1024; real spend will sit between the two (802 items, 0 unrenderable)."
+  },
+  "open_points": [],
+  "notes": "Only the Vlt% cell is re-executed. The Win% column of the same table needs the AlpacaEval 2 pairwise judge against the released baseline answers (field `output` of the same file) and is a separate, judge-dependent run. nltk's punkt/punkt_tab data must be present for the hook's word count (nltk.download('punkt_tab')); it was installed on 2026-09-19 on this machine. Seeds 1 because the paper's cost tier is high; the item bootstrap gives the CI."
+}

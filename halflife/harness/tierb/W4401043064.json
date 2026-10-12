@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4401043064",
+ "title": "JGU Mainz's Submission to the AmericasNLP 2024 Shared Task on the Creation of Educational Materials for Indigenous Languages",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec 3.3: \"we leverage the gpt-4-turbo-2024-04-09 version of GPT-4\", used with ICL (k=20) matching the Mixtral prompt style."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Figure 2 (1-shot prompt example; GPT-4 explicitly \"maintain[s] consistency in example selection and prompt style with Mixtral 8x7B\")",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none isolated to GPT-4 alone",
+  "value": null,
+  "n_items": null,
+  "location": "Table 2 only reports ensembles: (1) LSTMs+Mixtrals+GPT4s vs. (2) LSTMs+Mixtrals vs. (3) LSTMs vs. (4) Mixtrals; GPT-4 never appears as its own row",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AmericasNLP 2024 shared task data (Bribri, Guarani, Maya; sizes in Table 1)"
+ },
+ "cost": {
+  "est_calls": 630,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo-2024-04-09 is pinned, role S, prompt fully shown, and data is public, but the paper only reports majority-vote ensemble accuracies that blend GPT-4 with two other systems; the sole isolatable signal is that ensemble (1) (with GPT-4) beats ensemble (2) (without it) only on Guarani (dev 49.36->53.16 acc., test 23.08->34.62 acc.), which is not a standalone GPT-4 accuracy figure."
+}

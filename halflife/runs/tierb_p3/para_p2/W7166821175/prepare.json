@@ -1,0 +1,33 @@
+{
+  "wid": "W7166821175",
+  "n_items": 585,
+  "n_requests": 585,
+  "seeds": 1,
+  "est_usd": 13.91,
+  "subset_note": "paraphrase p2: 4 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [585, 585, 585, 585]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 60.1,
+  "cap_usd": 10.92,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7166821175",
+  "paraphrase": "p2",
+  "pairs": [
+    [
+      "You are an expert biomedical engineer and patent analyst.",
+      "Act as an experienced biomedical engineer who also analyses patents."
+    ],
+    [
+      "Task: Determine if the Medical Device likely uses the technology described in the Patent.",
+      "Task: Decide whether it is likely that the Medical Device makes use of the technology described in the Patent."
+    ],
+    [
+      "1. **Core Match**: Do they share the same SPECIFIC device type or unique mechanism? (e.g., \"Drug-eluting Stent\" matches \"Bioabsorbable Scaffold\").\n2. **Ignore Generics**: Do NOT link based solely on generic terms like \"catheter\", \"sensor\", or \"needle\" unless the context is identical.\n3. **Semantic Check**: Look for synonyms (e.g., \"Atrial Fibrillation\" == \"Arrhythmia\").",
+      "1. **Core Match**: Check whether both involve the same SPECIFIC device type or unique mechanism (e.g., \"Drug-eluting Stent\" matches \"Bioabsorbable Scaffold\").\n2. **Ignore Generics**: A shared generic term like \"catheter\", \"sensor\" or \"needle\" is not enough for a link unless the context is identical.\n3. **Semantic Check**: Treat synonyms as matches (e.g., \"Atrial Fibrillation\" == \"Arrhythmia\")."
+    ],
+    [
+      "Provide a JSON object with a \"reasoning\" field (for your internal thought process) and a \"linked\" field.",
+      "Give a JSON object with two fields: \"reasoning\" (your internal thinking) and \"linked\"."
+    ]
+  ]
+}

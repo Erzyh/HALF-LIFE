@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4417144639",
+  "title": "LLM Harms: A Taxonomy and Discussion",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 2: 'GPT-4o is a natively multimodal, real-time model that matches GPT-4-Turbo on English text/code'."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Taxonomy/discussion paper based on a literature survey"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Position/taxonomy paper without experiments."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4412585228",
+ "title": "Grading University Students with LLMs: Performance and Acceptance of a Canvas-Based Automation",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (footnote: gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "footnote 1: \"Specifically gpt-4o-2024-05-13.\"; \"GPT-4o and human graders agreed perfectly in 80% of 6345 evaluated student answers.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 2 (prompt composition described: task + example solution + student answer + rubric); full prompts stated as released alongside code",
+  "note": ""
+ },
+ "claim": {
+  "metric": "grading agreement rate with human graders",
+  "value": 80.33,
+  "n_items": 6345,
+  "location": "Sec. 3.2 (6345 = 47 students x 135 questions)",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Assignments/rubrics/prompts stated as released by the authors; underlying student answers likely not publicly shared"
+ },
+ "cost": {
+  "est_calls": 6345,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Prompts embed the full task, rubric, and example solution (longer than a 'short call'), so real cost likely exceeds the low-tier heuristic despite gpt-4o's low per-token price. Reproducing the exact 6345-item evaluation needs the original (likely private) student submissions even though the task/rubric/prompt scaffolding is public."
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4400375186",
+  "title": "CEB: Compositional Evaluation Benchmark for Fairness in Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Appendix C.1: 'for GPT-4, we use the checkpoint gpt-4-turbo-2024-04-09' ... 'We set the temperature as 0 for all tasks except Continuation and Conversation'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.2.1 (exemplar prompts for CEB-Recognition and CEB-Selection); Appendix A.1 (existing datasets)",
+    "note": "Short single-turn classification templates printed verbatim with an example item; output is a single number."
+  },
+  "claim": {
+    "metric": "micro-F1 (%)",
+    "value": 69.5,
+    "n_items": 100,
+    "location": "Table 6, row GPT-4, block CEB-Recognition-S, column Gen. (Gender)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CEB datasets, github.com/SongW-SW/CEB (CEB-Recognition-S has 400 items across 4 social groups, Table 8)"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Per-group n is ~100 (400 items / 4 groups); the whole CEB-Recognition-S is 400 calls. max_tokens 512, temperature 0. Continuation/Conversation tasks use GPT-4 as a bias scorer at temperature 0.8; avoid those. Items are stereotype/toxicity sentences, not jailbreaks."
+}

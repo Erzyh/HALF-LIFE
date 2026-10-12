@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7128554909",
+  "title": "ST-BiBench: Benchmarking Multi-Stream Multimodal Coordination in Bimanual Embodied Tasks for MLLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "\"GPT-5 OpenAI gpt-5-2025-08-07\" (Appendix Table 1, full model names); Table 2 row GPT-5: Sparse 94.73, Dense 95.13, Cluttered 92.97, Avg. 94.28"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix F (Listings 3-7: spatial grounding, planning and low-level control prompt templates)",
+    "note": "Planning and control prompts are used inside a closed-loop simulator with feedback steps."
+  },
+  "claim": {
+    "metric": "success score, Foundational Spatial Grounding, average over 3 scenario settings",
+    "value": 94.28,
+    "n_items": null,
+    "location": "Table 2, row GPT-5, column Avg.",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "ST-BiBench simulation benchmark (project page https://bimanibench.github.io/); release of rendered observations/item counts not stated in the text"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Item counts are not given for any tier. The planning and control tiers require the RoboTwin-style simulator (agentic loop). Only the spatial-grounding tier could be re-run statically if the images were released, which the text does not confirm."
+}

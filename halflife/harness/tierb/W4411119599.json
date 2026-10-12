@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4411119599",
+  "title": "Evaluating Bias in LLMs for Job-Resume Matching: Gender, Race, and Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"The models selected for evaluation include OpenAI's GPT-3.5-turbo, GPT-4-turbo, and GPT-4o\" (Sec. 3.5); \"newer models ... perform on par with GPT-4-turbo and GPT-4o\" (Sec. 4.1, reading values off Figure 2)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. 3 (matching-decision task described), Appendix C (name substitutions)", "note": "Resume/job-description matching prompt is described but not quoted verbatim."},
+  "claim": {
+    "metric": "none printed for GPT-4-turbo specifically (ROC AUC and gender/race bias % are read off Figure 2, given only as rounded approximations like ~0.90 for a group of models)", "value": null, "n_items": null, "location": "Figure 2(a)-(c); no per-model numeric table",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "Synthetic resumes/job descriptions with substituted names across 8 locales (Sec. 3.4); dataset construction described but release not confirmed"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "NAACL 2025 industry track. All GPT-4-turbo/GPT-4o bias and matching results are reported only as approximate figure readings (e.g. 'around 0.90'); the only precise percentages in prose (60%, 80%, 20%, 40%) are for LLaMA-1, not the live models."
+}

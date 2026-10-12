@@ -1,0 +1,96 @@
+{
+ "wid": "W4407570954",
+ "title": "Beyond the Lens: Quantifying the Impact of Scientific Documentaries through Amazon Reviews",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 32
+  },
+  "params_source": "paper Sec. 4.1 (\"Temperature was set to 0 for all model experiments for maximum consistency\"); max_tokens assumed (the prompt asks for a single label)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 386,
+  "subset_rule": "paper-defined split: the 30% stratified test split of the 1,286 annotated sentences (stratified on the impact label)",
+  "approximation": "BLOCKING - neither the split nor the review context is published (see open_points)."
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "huggingface.co/datasets/scidoc/websci2025 (file final_annotations.json)",
+  "config_or_split": "single train split of 1,286 rows; the paper's own 70/30 stratified split is not recorded in the file",
+  "filter": null,
+  "fields": {
+   "input": "sentence",
+   "label": "impact",
+   "id": null,
+   "context": "full_review"
+  },
+  "label_map": {
+   "Attitudes Toward the Film": "Engagement with Film",
+   "Shift in Cognition": "Shift in Knowledge"
+  },
+  "license": "apache-2.0 (dataset card)",
+  "access_checked": true,
+  "size_mb": 1,
+  "hf": {
+   "dataset": "scidoc/websci2025",
+   "config": "default",
+   "split": "train"
+  },
+  "file_url": "https://huggingface.co/datasets/scidoc/websci2025/resolve/main/final_annotations.json",
+  "local_files": {
+   "dir": "external/data/tierb_items/W4407570954/",
+   "file": "final_annotations.json"
+  },
+  "download": {
+   "date": "2026-09-19",
+   "bytes": 380711,
+   "sha256": "7941355adc6571622b4d1445f75a5052150ad2ae17e6955b172d6c388f4bd3c2",
+   "structure": "1,286 records with sentence, sentiment, impact, film_title, duplicated, sentiments, impacts. Impact counts: Attitudes Toward the Film 801, Not applicable 204, Shift in Cognition 140, Interest with Science Topic 97, Impersonal Report 44. There is NO full_review column: the dataset card lists it as \"currently not in dataset, to be uploaded later (as of 02/26/2025)\" and it is still absent."
+  }
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "Instruction: This is impact classification task, classifying the kind of impact that watching a movie had on the viewer. Label the impact class for the target sentence using the context text and definitions of impact classes provided for you. The output labels are one of these: 'Engagement with Film', 'Shift in Knowledge', 'Interest with Science Topic', 'Impersonal Report', 'Not applicable'. The output format should be only one of these 5 labels\nHere are the definitions of labels:\n\n    Engagement with Film: Indicates experience, association with film itself (quality, storytelling, narrator, etc)\n    Shift in Knowledge: Indicate they learned from the film or they disagree with information presented in film, or they state that they did not learn from the film\n    Interest with Science Topic: Relating to interest in film topics (space, black holes, dark matter, telescope, etc)\n    Impersonal Report: Explain details included in film without including personal opinion\n    Not applicable: No relation to film contents or film itself\n\n  Constraint: Only return the impact class as a single label (Engagement with Film, Shift in Knowledge, Interest with Science Topic, Impersonal Report, Not applicable), and no other text\n  Task:\n  Provide the best label for the target sentence using the context text and definitions of labels.\n\n    The following text is provided as context:\n    \"{context}\"\n\n    Based on this context, classify the following sentence:\n    \"{target_sentence}\"\n",
+  "placeholders": {
+   "context": "items.full_review",
+   "target_sentence": "items.sentence"
+  },
+  "few_shot": "none (zero-shot with label definitions)",
+  "source_location": "Appendix B, Figure 3 (\"Prompt used for prediction of impact categories\")",
+  "verbatim": "full, with line-wrapping undone; the indentation of the definition block and the task block is reproduced as printed. The stray quintuple quote the PDF shows after the closing brace is a figure artefact and is dropped."
+ },
+ "output": {
+  "parse": "label from set [Engagement with Film, Shift in Knowledge, Interest with Science Topic, Impersonal Report, Not applicable]",
+  "postprocess": "strip; the longest label matching earliest in the reply wins; an unparsable reply counts as wrong",
+  "parse_paper": "the prompt constrains the output to exactly one of the five labels"
+ },
+ "metric": {
+  "name": "macro_f1",
+  "definition": "F1 over the five impact classes on the test split. The paper reports P 0.73 / R 0.68 / F1 0.69 for this cell but never says whether the average is macro or weighted; with a 62%-majority class, P 0.73 with R 0.68 is most consistent with a weighted (support-weighted) average, which is also scikit-learn's classification_report default that the reported triplet resembles.",
+  "judge": "none",
+  "original_value": 0.69,
+  "original_location": "Table 3, block 'with context', row GPT4, Impact F1 column (the 'w/o context' GPT4 row reports the same 0.69)",
+  "bootstrap_unit": "item",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 1158,
+  "est_usd": 25.0,
+  "tier": "mid",
+  "est_note": "386 sentences x 3 seeds at gpt-4-turbo prices; each call carries a whole Amazon review as context, so input dominates. Not a dry-run number: --prepare cannot fill {context}."
+ },
+ "open_points": [
+  "BLOCKING: the claim cell is the 'with context' row, whose {context} slot takes the full Amazon review. The released dataset has no full_review column - the dataset card promised it \"to be uploaded later (as of 02/26/2025)\" and it is still missing - so this cell cannot be rendered at all.",
+  "The 70/30 stratified split is not released and no split seed is given, so the 386-sentence test set cannot be reconstructed; a seeded stratified redraw would be our own split.",
+  "The metric's averaging (macro vs weighted) is not stated; the two differ substantially here because 62% of the sentences are one class.",
+  "Fallback a human may approve: the 'w/o context' GPT4 row of the same table reports the SAME Impact F1 0.69 and needs only the sentence, so it is runnable from the released file today with the {context} block removed from the prompt. That is a different cell and needs an explicit go."
+ ],
+ "notes": "Label names differ between the taxonomy and the prompt: the gold labels are 'Attitudes Toward the Film' and 'Shift in Cognition' while the prompt asks for 'Engagement with Film' and 'Shift in Knowledge'; items.label_map converts the gold side. The annotator-level 'impacts' lists in the released file already use the prompt's names, which confirms the mapping. || 1,296 sentences were annotated, 8 ended with no majority agreement and emoji/punctuation-only sentences were dropped, leaving the 1,286 released rows; 30% of 1,286 is 386.",
+ "runner_gaps": [
+  "items: the context field of the claimed cell is not published"
+ ]
+}

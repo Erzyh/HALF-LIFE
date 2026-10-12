@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4403389951",
+  "title": "OntoDrug: Enhancing Brazilian Health System Interoperability with a National Medication Ontology",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "For the experiments, gpt-4 Turbo models run using OpenAI's cloud (Section 5); Table 2 row 'gpt-4 turbo 0.974 1.000 0.987'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "No prompt printed (prompt count 0 in the text)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1-score for medication recognition in prescriptions",
+    "value": 0.987,
+    "n_items": 203,
+    "location": "Table 2, row gpt-4 turbo",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "203 prescriptions sampled from 3,761 hospital prescriptions (Hospital Sirio-Libanes); not public"
+  },
+  "cost": {
+    "est_calls": 609,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt"
+  ],
+  "notes": "WebMedia 2024 (Oct 2024), no version string; same experiment appears in dissertation W4414004620."
+}

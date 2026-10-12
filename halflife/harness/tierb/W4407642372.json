@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4407642372",
+  "title": "GPT-4 y sus modelos sucesores en la predicción de la complejidad léxica en textos públicos Ecuatorianos mediante Few-Shot Learning",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"los resultados aplicando el modelo GPT-4 Turbo dieron un MAE = 0.2540\"; Tabla 7 (\"Predicciones del modelo GPT-4 Turbo\")."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. Resultados, near Tabla 7",
+    "note": "Authors' own caption: \"el fragmento de código muestra parte del prompt utilizado\" (the code snippet shows PART of the prompt used) -- explicitly a partial excerpt, not the full template."
+  },
+  "claim": {
+    "metric": "MAE (lexical-complexity prediction), few-shot learning",
+    "value": 0.254051,
+    "n_items": null,
+    "location": "Sec. Resultados y discusión (\"GPT-4 Turbo un MAE de 0.254051\")",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Ecuadorian public-institution documents (e.g. ATM and other agencies); corpus size/release not confirmed in the reviewed text"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "GPT-4 (non-Turbo) is the best performer (MAE=0.2464) and GPT-4o the weakest (MAE=0.3889) in the same three-way comparison; total number of complex-word predictions behind the MAE is not stated in the excerpts reviewed."
+}

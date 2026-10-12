@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4404650190",
+ "title": "The Value of Information from Sell-side Analysts",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo model; ChatGPT-4o model",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"I employ the GPT-4-turbo model to categorize each sentence in a random sample of 100 analyst reports into a single, most relevant topic.\" Prompt 2 (sentence classification) quoted in full."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 2.2: \"Prompt 1\" (topic discovery, ChatGPT-4o) and \"Prompt 2\" (sentence classification into 17 categories, GPT-4-turbo) both quoted verbatim"
+ ,
+  "note": "Both prompts are printed in full, including the JSON-output instruction for Prompt 2."
+ },
+ "claim": {
+  "metric": "none validated for GPT-4-turbo itself; downstream fine-tuned BERT classifier reaches 89% accuracy on GPT-4-turbo-labeled data",
+  "value": null,
+  "n_items": null,
+  "location": "Sec 2.2: BERT test accuracy 89%; \"less than 5%\" fallback rate for the 16 GPT-generated topics; exact number of GPT-4-turbo-labeled sentences not stated as one figure",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Proprietary sell-side analyst reports (6,975,114 sentences total); not released"
+ },
+ "cost": {
+  "est_calls": 100,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Both prompts are fully reproducible text (a real strength), but GPT-4-turbo's own labeling is never checked against independent ground truth -- the paper instead validates the pipeline indirectly via a downstream BERT classifier's accuracy (89%), a low fallback-category rate, and word-cloud coherence, none of which is GPT-4-turbo's own capability score. Undated in text; arXiv id (2411, Nov 2024) places it after the alias cutoffs, so gpt-4-turbo resolves cleanly even though no in-text date string exists."
+}

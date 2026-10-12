@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7133961658",
+  "title": "Overview of AI Agent Applications in Hospital Pharmacy Operations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (triển khai qua framework AutoGen)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Summary table citing Ke et al. 2024: \"GPT-4 Turbo (trien khai qua framework AutoGen)... Do chinh xac chan doan tang tu 0%...len 76%\" -- a cited result, not run here"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This is a review/overview paper; no experiments are run by the authors."
+  },
+  "claim": {
+    "metric": "none (76% figure belongs to the cited Ke et al. 2024 study, not this paper's own work)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Vietnamese-language review/overview of AI agents in hospital pharmacy; GPT-4 Turbo appears only inside a table summarizing other authors' published results (multi-agent clinical decision support via AutoGen), not as an experiment run here."
+}

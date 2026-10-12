@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7152331263",
+  "title": "Classifying Problem and Solution Framing in Congressional Social Media",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano",
+    "role": "B",
+    "evidence": "'We explore two LLMs: GPT-4.1-nano and GPT-4.0 via the Martian API. All results are shown for GPT-4.0, as it produced clearer, more consistent outputs' (Section 4)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 4 (direct and confidence-based classification prompts, with and without explanation, printed)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "weighted F1 (direct classification, GPT-4.0, test set)",
+    "value": null,
+    "n_items": 500,
+    "location": "Section 5 results (500-tweet test set)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "US senator tweets (1.68M collected via Twitter API; 4,203 annotated); availability not stated"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "No number is reported for GPT-4.1-nano; 'GPT-4.0' through the Martian router is unversioned."
+}

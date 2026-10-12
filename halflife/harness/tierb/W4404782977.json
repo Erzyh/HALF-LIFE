@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404782977",
+ "title": "The Computational Anatomy of Humility: Modeling Intellectual Humility in Online Public Discourse",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "'We assessed the effectiveness of these prompts using GPT-3.5-turbo-0125 and GPT-4-turbo-2024-04-09, the most recent versions...at the time of our experiments'; Table 3 row 'C&D-BQ GPT-4 0.70 0.64'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix C.1 (six prompt configurations: Name-Only/Description-Only/Code-and-Description x Binary-Question/Multiple-Selection formats)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "IH/IA/Neutral classification score, best prompt config (Code-and-Description, Binary-Question)",
+  "value": 0.7,
+  "n_items": 194,
+  "location": "Table 3, row 'C&D-BQ GPT-4', IH/IA/NE column; dataset of 194 labeled posts (Table 1/Sec. on dataset statistics, out of 350 posts screened)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Reddit posts from 48 religion-oriented subreddits (Directory of Religion-Related Subreddits), manually annotated by the authors"
+ },
+ "cost": {
+  "est_calls": 582,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Six prompt configurations are each run on the dataset; reproducing just the best config (C&D-BQ) needs ~194 calls per seed. GPT-3.5-turbo-0125 is evaluated in parallel as a weaker comparison model."
+}

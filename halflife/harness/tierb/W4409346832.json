@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4409346832",
+  "title": "AnalogCoder: Analog Circuit Design via Training-Free Code Generation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "We extensively evaluate ... GPT-3.5-turbo (Brown et al. 2020), GPT-4-turbo (Achiam et al. 2023) and GPT-4o (Experiments)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "'Complete prompts can be seen in the Appendix' (Method section); the appendix is not part of this AAAI text",
+    "note": ""
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "Table 3 has no GPT-4-turbo column; only 'fine-tuned GPT-3.5, GPT-4, and GPT-4o, n = 15' is mentioned",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "24 benchmark circuit tasks (Table 2); code at https://github.com/laiyao1/AnalogCoder"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "no_prompt"
+  ],
+  "notes": "No result is reported for GPT-4-turbo in the text and the prompts live in an appendix that is absent from the extracted version."
+}

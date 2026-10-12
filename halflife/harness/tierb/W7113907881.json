@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7113907881",
+ "title": "Readability Comparison of AI-Generated Versus UpToDate Educational Content on Stroke Management: A Cross-Sectional Study",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-4o, accessed May 27, 2025)",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "\"Educational content aimed at medical professionals was generated using ChatGPT (GPT-4o, accessed on May 27, 2025), developed by OpenAI.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Methods: \"The following standardized prompt was used: 'Write an educational guide for medical professionals on stroke, including definition, clinical features, diagnosis, and treatment options.'\"",
+  "note": "\"Default model settings, including temperature, were used\" - via the ChatGPT consumer interface, not the API."
+ },
+ "claim": {
+  "metric": "Flesch Reading Ease Score (FRES) of AI-generated stroke guide",
+  "value": null,
+  "n_items": 1,
+  "location": "Results tables comparing one ChatGPT-generated document to one UpToDate section",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "UpToDate stroke section (subscription resource, but cited/described); single ChatGPT output reproduced in the paper"
+ },
+ "cost": {
+  "est_calls": 1,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "alias_unpinned"
+ ],
+ "notes": "Generated via the ChatGPT consumer web app (\"accessed\", default settings), not the API, and \"GPT-4o\" is undated with an access date (2025-05-27) after the 2024-10-02 cutoff, so it cannot be pinned to gpt-4o-2024-05-13. Only a single generated document (n=1) underlies the readability comparison. GPT-4 Turbo appears elsewhere only as a generic background mention (role C)."
+}

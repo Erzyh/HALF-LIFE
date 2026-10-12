@@ -1,0 +1,13 @@
+{
+  "wid": "W4400611869",
+  "n_items": 990,
+  "n_requests": 990,
+  "seeds": 1,
+  "est_usd": 2.1,
+  "subset_note": "cost cap $2.1: seeded random subset of 990 items (seed 20260907)",
+  "dropped_unrenderable": 0,
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 82.2,
+  "cap_usd": 2.1
+}

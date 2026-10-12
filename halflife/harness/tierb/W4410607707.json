@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4410607707",
+  "title": "The Scope and Limitations of Extant Research into ChatGPT as a Tool for Patient Education: Systematic Review",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Systematic review of ChatGPT patient-education studies; GPT-4 (Turbo) appears only in descriptions of the reviewed studies."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Systematic review; no experiments"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "No experiments."
+}

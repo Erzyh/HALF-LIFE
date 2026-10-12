@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4404187894",
+  "title": "Investigating Open Source LLMs to Retrofit Competency Questions in Ontology Engineering",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (documentation URL only)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "'gpt-3.5 turbo-0613', 'gpt-4-0613' (Table 1); footnote 2: https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 4 (prompt templates with increasing contextual depth described)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "precision of generated competency questions",
+    "value": null,
+    "n_items": null,
+    "location": "Table 2 (per ontology and model; Sentence-BERT matching against baseline CQs)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ontologies with associated CQ datasets (public)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "dead_alias"
+  ],
+  "notes": "Closed models used are gpt-3.5-turbo-0613 and gpt-4-0613 (both retired); 'gpt-4-turbo' appears only inside a documentation URL."
+}

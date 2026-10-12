@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4414494504",
+  "title": "PGxRAG: A Retrieval Augmented Generation supported Pharmacogenomics Assistant",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. Responses: 'generated ... by four LLM models - gpt-4o, gpt-4-turbo, claude-3.5-sonnet, llama3.1'; Table 2: 'gpt-4-turbo 0 - llm - 225 182 80.889'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 1 (example query as sent to the model); no system prompt reported",
+    "note": "The LLM-only condition sends the MCQ-style question directly."
+  },
+  "claim": {
+    "metric": "accuracy (%)",
+    "value": 80.889,
+    "n_items": 225,
+    "location": "Table 2, row gpt-4-turbo / Temperature 0 / Approach llm (182 of 225 correct)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "225 questions with ground truth in Supplementary Table 1; data on huggingface.co Wellytics/PGxRAG"
+  },
+  "cost": {
+    "est_calls": 225,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Soft gaps: the scoring method (option match vs SME check) is not fully described and the gpt-4-turbo snapshot is not stated (Sept 2025 preprint, resolved by the date rule).",
+  "resolution": {
+    "gap": "other",
+    "plan": "The scoring is stated in Methods: accuracy = number of responses whose selected option matches the SME-verified correct option, out of 225. Take the 225 MCQ-style questions with ground truth from Supplementary Table 1 / huggingface.co/datasets/Wellytics/PGxRAG, send each question as-is (Table 1 format, no system prompt) to gpt-4-turbo-2024-04-09 at temperature 0, extract the chosen option and compare with 182/225 (Table 2).",
+    "approximation": "Snapshot by date rule; free-text answers mapped to options by a fixed parser.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

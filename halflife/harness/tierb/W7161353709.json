@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7161353709",
+ "title": "Fine-tuning with Hierarchical Prompting for Robust Propaganda Classification Across Annotation Schemas",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Sec.3.4: \"GPT-4.1-nano (OpenAI, 2023) (release: 2025-04-14) base and fine-tuned\"; Table 3, Ours/Base/Direct row: M0.204 W0.379."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec.3.5 (Direct-High / Main->High strategy description); label descriptions in Appendix D / Tables 8-9",
+  "note": "General template and category-label content are given; the exact instruction wrapper text is only in the paper's GitHub repo (\"example... provided in Github repository\")."
+ },
+ "claim": {
+  "metric": "weighted-F1, zero-shot Direct-High classification, Ours schema",
+  "value": 0.379,
+  "n_items": 200,
+  "location": "Table 3, Ours/Base/Direct row (M0.204, W0.379); golden test set = 200 tweets",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "HQP corpus, https://github.com/verosol/propaganda_ (data/labels/code released)"
+ },
+ "cost": {
+  "est_calls": 200,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Exact release date pinned in text, resolving directly to gpt-4.1-nano-2025-04-14. Soft gap: the exact prompt wrapper text is only in the GitHub repo, though the label taxonomy and strategy description in the paper are enough to reconstruct a close approximation."
+}

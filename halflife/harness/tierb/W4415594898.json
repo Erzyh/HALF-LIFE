@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4415594898",
+ "title": "The AI-Base NDA Catalog",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "Custom GPT (personalized version of GPT-4-turbo)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"This is an example of a Custom GPT, which is a personalized version of OpenAI's GPT-4-turbo model that can be tailored to perform specific tasks...LANL has a subscription service to ChatGPT Enterprise...we utilized the custom GPT feature to create a specialized model for NDA capabilities.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.1 (Context Documents): custom-GPT instructions built from PANDA manual and curated LANL technical reports (up to 20 context documents)",
+  "note": "Configuration/context-document approach is described; the exact custom-GPT system instructions are not printed."
+ },
+ "claim": {
+  "metric": "none found (a Los Alamos National Laboratory technical/design report, not a benchmarked accuracy study)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Passive Nondestructive Assay (PANDA) manual and LANL internal technical reports on nuclear-materials NDA technologies; export-controlled/sensitive institutional documents, hosted on LANL's private 'green network'"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed",
+  "webui"
+ ],
+ "notes": "This is a Los Alamos National Laboratory design report for an internal NDA question-answering tool, built as a ChatGPT-Enterprise Custom GPT (a hosted product configuration, not the open API) over sensitive/controlled nuclear-materials technical documents that cannot be shared or re-hosted outside LANL."
+}

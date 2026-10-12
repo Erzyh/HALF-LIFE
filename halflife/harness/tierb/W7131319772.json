@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7131319772",
+  "title": "Can Large Language Models Replace Human Coders? Introducing ContentBench",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-5 Mini (the screen's 'GPT-4 Turbo' hit is a related-work sentence)",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Table 1: 'GPT-5 Mini OpenAI 99.0 0.990 99.0 5.03'; Methods: 'I evaluated 59 models using a shared classification prompt at temperature 0.0 ... All API calls ... were made in September 2025.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B 'Classification Prompt' (role + five-category codebook + {text} slot; the role line is also the system prompt)",
+    "note": "GPT-5 series run with minimal reasoning effort."
+  },
+  "claim": {
+    "metric": "agreement (%) with jury labels on the combined evaluation set",
+    "value": 99.0,
+    "n_items": 1000,
+    "location": "Table 1, row GPT-5 Mini (agreement 99.0, core macro-F1 0.990, hard-sarcasm recall 99.0)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ContentBench-ResearchTalk v1.0 (core 500 + hard-sarcasm 500 LLM-generated posts with jury labels), https://contentbench.github.io"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The screen's gpt-4-turbo hit is a line-broken citation of prior work ('4 Turbo achieves high overall accuracy...'), role C; GPT-5 Mini is the callable subject and only one snapshot existed in September 2025. Appendix A gives all 59 models (GPT-5 Nano 40.5%)."
+}

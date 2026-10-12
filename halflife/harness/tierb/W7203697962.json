@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7203697962",
+  "title": "ChainSpace: A Chained-Reasoning Paradigm for Spatial Intelligence",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Table 1 (ChainSpace-Bench): 'GPT-5 [25] 0.4825 0.3262'; Table 6 lists 'GPT-5-2025-08-07 [25]' on external spatial benchmarks."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": "Chained multi-round QA protocol is described in Sec. 3 without prompt text."
+  },
+  "claim": {
+    "metric": "average question accuracy, ChainSpace-Bench",
+    "value": 0.4825,
+    "n_items": null,
+    "location": "Table 1, row GPT-5",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "ChainSpace-Bench (simulator-generated videos with chained questions); no release statement found in the text"
+  },
+  "cost": {
+    "est_calls": 3200,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Video/simulator inputs; the benchmark size behind Table 1 is not stated (enlarged version: 800 videos, 3,200 chains). Table 6 proprietary rows may be officially reported results."
+}

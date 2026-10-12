@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7162044740",
+ "title": "Base Models Look Human To AI Detectors",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Appendix A.2: \"Starting from GPT-4.1-nano, we fine-tune the model on the same paired paraphrase dataset D... through the OpenAI fine-tuning API\"; Fig.7 semantic/GPTZero/Pangram scores over 10 rounds."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Fine-tuning supervision format described (\"not a chat template\") but not quoted; iterative paraphrasing prompt not printed."
+ },
+ "claim": {
+  "metric": "none (negative/null result: HIP fine-tuning does not shift GPT-4.1-nano's detector-assigned human-probability)",
+  "value": null,
+  "n_items": 256,
+  "location": "Appendix A.2 (\"same 256-example evaluation set\")",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "self-constructed paired paraphrase dataset D (built from an unspecified \"human corpus\" via the authors' own pipeline); code on GitHub"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [
+  "data_closed",
+  "no_prompt"
+ ],
+ "notes": "Requires fine-tuning gpt-4.1-nano on a self-constructed paired paraphrase dataset D (source human corpus not fully specified/public) and scoring outputs with third-party GPTZero/Pangram detector APIs; no prompt text is printed."
+}

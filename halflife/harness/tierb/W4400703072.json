@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4400703072",
+  "title": "AtomAgents: Alloy design and discovery through physics-aware multi-modal multi-agent artificial intelligence",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 1 agent profiles: '(GPT-4-turbo) Scientist ... (GPT-4-turbo) Planner ... (GPT-4-turbo) Critic'; GPT-4o for assistant, manager and plot analysis."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 1 (agent profile instructions); AutoGen-based multi-agent framework with LAMMPS tools",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (qualitative alloy-design case studies)",
+    "value": null,
+    "n_items": null,
+    "location": "Figures 5-8 (case studies)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/lamm-mit/AtomAgents"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "No benchmark metric; outputs are physics-simulation-driven narratives. Alias resolved by rule (2024-07-13)."
+}

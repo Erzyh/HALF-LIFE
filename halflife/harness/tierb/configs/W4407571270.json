@@ -1,0 +1,88 @@
+{
+ "wid": "W4407571270",
+ "title": "Web Publication of Local Assembly Minutes in Tokachi, Hokkaido, and Regional Issues",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4o-2024-05-13",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 64,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (Sec. 3.3 names only the model: 「使用した LLM は OpenAI API（モデル: gpt-4o-2024-05-13）である」)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 198,
+  "subset_rule": "the 198 utterance sentences containing the common feature word 国立公園 / 国立公園化 (Sec. 3.3)",
+  "approximation": "cannot be fixed: item set, human gold labels and prompt wording are all unavailable (see open_points)"
+ },
+ "items": {
+  "source_type": "url",
+  "source": "PDF assembly minutes published on the websites of 14 Tokachi (Hokkaido) municipalities for Reiwa 1-5, text-extracted with pdfminer.six (-L option), split at 。, then filtered to the sentences containing the TF-IDF feature word 国立公園 (Sec. 2.3 / 3.2 / 3.3)",
+  "config_or_split": "the 198 matching sentences",
+  "filter": null,
+  "fields": {
+   "input": "sentence",
+   "label": "human label, one of the 15 categories of Table 2",
+   "id": "unknown"
+  },
+  "license": "the minutes are public municipal records; the article itself is CC BY 4.0",
+  "access_checked": false,
+  "size_mb": null,
+  "file_url": null,
+  "no_release": "The paper links no repository or data archive; the 198 sentences and their manual labels are published nowhere."
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": null,
+  "few_shot": "unknown",
+  "source_location": "Sec. 3.3",
+  "verbatim": "none. The paper states only 「ラベル名は，表 2 に記載されている 15 ラベルをプロンプトにて指定し」(the 15 labels of Table 2 were specified in the prompt) and that each input was a single sentence split at 。. No prompt text, no output format and no system message are printed.",
+  "labels_from_table_2": [
+   "意向の表明",
+   "費用",
+   "議事進行",
+   "その他",
+   "状況",
+   "指定エリア",
+   "施設計画",
+   "観光整備",
+   "アウトドア事業",
+   "指定管理",
+   "熊害対策",
+   "PR 事業",
+   "構想",
+   "自然環境保護",
+   "広域連携"
+  ]
+ },
+ "output": {
+  "parse": "label from set [the 15 Table 2 categories]",
+  "postprocess": "unknown: the paper does not state the output format; the Table 2 LLM column sums to 194 over 198 sentences, which suggests one label per sentence with a few empty answers"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "per-label F1 = 2PR/(P+R) with recall = matches / human count and precision = matches / LLM count, computed per category as in Table 2",
+  "judge": "none",
+  "original_value": 0.762,
+  "original_location": "Table 2, row 自然環境保護 (human 10, LLM 11, matches 8, R 0.800, P 0.727, F1 0.762)",
+  "bootstrap_unit": "sentence",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 594,
+  "est_usd": 1.0,
+  "tier": "low",
+  "est_note": "hand estimate: 594 calls on gpt-4o-2024-05-13, one short Japanese sentence plus the 15 label names per call. No prepare run: the items do not exist publicly."
+ },
+ "open_points": [
+  "No item source. The 198 sentences are the output of a pipeline the paper describes but does not publish (pdfminer.six extraction from each municipality's PDF minutes, sentence splitting at 。, TF-IDF feature-word selection). The municipalities are named, but the minutes files, the extracted sentences and the 198-sentence selection are not released.",
+  "No gold labels. The manual labels Table 2 scores against are not published.",
+  "No prompt. Only the fact that the 15 category names were placed in the prompt is stated; the instruction text, the output format and whether a sentence may carry several labels are unknown.",
+  "Fragile cell. Per-category F1 in Table 2 ranges from 0.000 to 0.889 on counts as small as 1-4 items; the chosen 0.762 rests on 8 matches against 10 human and 11 LLM labels."
+ ],
+ "notes": "Four-page Japanese short note (知能と情報 Vol.37 No.1, 2025). The cell is a genuine capability number for gpt-4o-2024-05-13 as a Japanese classifier, but nothing needed to run it is public."
+}

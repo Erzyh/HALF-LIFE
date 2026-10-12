@@ -1,0 +1,29 @@
+﻿wid,status,model,task,n_items,est_usd,title,config_path
+W4404792825,needs_download_check,gpt-4o-2024-05-13,other,10,0.2,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,halflife/harness/tierb/configs/W4404792825.json
+W7134094238,ready,gpt-4o-2024-05-13,generation,30,0.5,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,halflife/harness/tierb/configs/W7134094238.json
+W7166799942,ready,gpt-4.1-nano-2025-04-14,classification,2610,1.0,CMTD: Cognitive Modeling with Traits and Distortions for Mul,halflife/harness/tierb/configs/W7166799942.json
+W7135428702,ready,gpt-4.1-nano-2025-04-14,mcq,1024,2.0,SommBench: Assessing Sommelier Expertise of Language Models,halflife/harness/tierb/configs/W7135428702.json
+W4404990976,needs_download_check,gpt-4-turbo-2024-04-09,mcq,50,3.0,Thai Financial Domain Adaptation of THaLLE -- Technical Repo,halflife/harness/tierb/configs/W4404990976.json
+W4416339332,ready,o3-mini-2025-01-31,classification,66,3.0,"""As Eastern Powers, I will veto."" : An Investigation of Nati",halflife/harness/tierb/configs/W4416339332.json
+W7131319772,ready,gpt-5-mini-2025-08-07,classification,1000,5.0,Can Large Language Models Replace Human Coders? Introducing ,halflife/harness/tierb/configs/W7131319772.json
+W4414494504,needs_download_check,gpt-4-turbo-2024-04-09,mcq,225,7.0,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,halflife/harness/tierb/configs/W4414494504.json
+W4414758400,ready,gpt-4-turbo-2024-04-09,generation,600,8.0,Mitigation of Gender and Ethnicity Bias in AI-Generated Stor,halflife/harness/tierb/configs/W4414758400.json
+W4415196225,needs_download_check,gpt-4-turbo-2024-04-09,classification,286,9.0,Hummus: A Dataset of Humorous Multimodal Metaphor Use,halflife/harness/tierb/configs/W4415196225.json
+W4404782508,needs_download_check,gpt-4o-2024-05-13,other,700,10.5,ToolBeHonest: A Multi-level Hallucination Diagnostic Benchma,halflife/harness/tierb/configs/W4404782508.json
+W4399911213,ready,gpt-4-turbo-2024-04-09,classification,240,15.0,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,halflife/harness/tierb/configs/W4399911213.json
+W4399598180,needs_download_check,gpt-4o-2024-05-13,classification,3200,16.0,HalluDial: A Large-Scale Benchmark for Automatic Dialogue-Le,halflife/harness/tierb/configs/W4399598180.json
+W4416034345,ready,o3-mini-2025-01-31,generation,978,20.0,Unlocking Legal Knowledge: A Multilingual Dataset for Judici,halflife/harness/tierb/configs/W4416034345.json
+W4403882451,ready,gpt-4-turbo-2024-04-09,other,600,22.0,Planning in Strawberry Fields: Evaluating and Improving the ,halflife/harness/tierb/configs/W4403882451.json
+W7134885605,ready,gpt-5-2025-08-07,classification,200,24.0,More Signal vs. More Noise - Comparing Full Text and Abstrac,halflife/harness/tierb/configs/W7134885605.json
+W7166808082,ready,o3-2025-04-16,generation,102,25.0,TURTLEAI: Benchmarking Multimodal Models for Visual Programm,halflife/harness/tierb/configs/W7166808082.json
+W7140099019,ready,o4-mini-2025-04-16,other,601,27.0,When Does Auxiliary Modality Matter in Solving Geometric Pro,halflife/harness/tierb/configs/W7140099019.json
+W7164447524,needs_download_check,gpt-5-2025-08-07,generation,339,30.0,KCSAT-ML: Probing Reasoning Models with Nationwide-Cohort Hu,halflife/harness/tierb/configs/W7164447524.json
+W4410110677,ready,o1-2024-12-17,classification,250,38.0,Large Language Models for Supporting Clear Writing and Detec,halflife/harness/tierb/configs/W4410110677.json
+W4404783148,needs_download_check,gpt-4-turbo-2024-04-09,mcq,1240,45.0,VIVA: A Benchmark for Vision-Grounded Decision-Making with H,halflife/harness/tierb/configs/W4404783148.json
+W7197053912,needs_download_check,gpt-5-mini-2025-08-07,extraction,3211,48.0,ANCHOR-RE: An Agentic Neuro-Symbolic Framework for Grounded ,halflife/harness/tierb/configs/W7197053912.json
+W4403322813,needs_download_check,gpt-4-turbo-2024-04-09,mcq,2000,60.0,KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA,halflife/harness/tierb/configs/W4403322813.json
+W4399317891,ready,gpt-4-turbo-2024-04-09,classification,1319,79.0,OR-Bench: An Over-Refusal Benchmark for Large Language Model,halflife/harness/tierb/configs/W4399317891.json
+W4411112894,ready,gpt-4-turbo-2024-04-09,classification,3121,94.0,The Promises and Pitfalls of LLM Annotations in Dataset Labe,halflife/harness/tierb/configs/W4411112894.json
+W4410280647,needs_download_check,o3-mini-2025-01-31,other,2150,108.0,Humanity's Last Exam,halflife/harness/tierb/configs/W4410280647.json
+W4411120335,ready,gpt-4-turbo-2024-04-09,generation,109,130.0,Does Liking Yellow Imply Driving a School Bus? Semantic Leak,halflife/harness/tierb/configs/W4411120335.json
+W4404783788,ready,gpt-4o-2024-05-13,generation,1930,500.0,Retrieval Augmented Generation or Long-Context LLMs? A Compr,halflife/harness/tierb/configs/W4404783788.json

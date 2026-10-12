@@ -1,0 +1,57 @@
+{
+  "wid": "W4403882451",
+  "title": "Planning in Strawberry Fields: Evaluating and Improving the Planning and Scheduling Capabilities of LRM o1",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 40.1,
+  "original_location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+  "reexecution": {
+    "mean_over_seeds": 0.37333333333333335,
+    "per_seed": {
+      "0": {
+        "value": 0.37333333333333335,
+        "n": 600,
+        "ci95": [
+          0.33666666666666667,
+          0.41333333333333333
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403882451",
+    "n_items": 600,
+    "n_requests": 600,
+    "seeds": 1,
+    "est_usd": 29.4,
+    "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+    "dropped_unrenderable": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 40.1,
+    "cap_usd": 5.34,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4403882451"
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 12
+  },
+  "approximation": "GPT-4 Turbo snapshot/decoding of the paper's column unknown (only 27/600 of our temperature-0 replies are identical to the released ones); plan extraction = the repository's rule-based text_to_plan_blocksworld (current version, strips markdown '*'); the paper's own 241/600 came from the pre-fix version of that extractor (reproduces the released extracted plans 600/600), which scores the released replies 241 vs 254 for the current version",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\drift_ctrl\\W4403882451"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 37.333333333333336,
+    "delta": -2.7666666666666657,
+    "original_inside_ci95": true
+  }
+}

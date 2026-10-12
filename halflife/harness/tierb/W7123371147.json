@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7123371147",
+ "title": "Analysing Differences in Persuasive Language in LLM-Generated Text: Uncovering Stereotypical Gender Patterns",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-5-2025-08-07, GPT-5-MINI-2025-08-07",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "Sec 4.1: \"GPT-5-2025-08-07, GPT-5-MINI-2025-08-07\" among 13 LLMs tested; \"GPT-5 shows a significantly larger Gender Gap GT than GPT-4.1 in message [setup]\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix A.1 (Paired Prompt Construction) and Appendix E",
+  "note": "150 test prompts for the message-generation scale; GPT-5/GPT-5-mini were excluded from the separate 'argument' setup (high refusal) but fully responded in 'message'."
+ },
+ "claim": {
+  "metric": "Total Gender Gap (message-generation setup)",
+  "value": null,
+  "n_items": 150,
+  "location": "Fig. 4 (\"Total Gender Gap across models\"); exact digit for GPT-5/GPT-5-mini not given as text, only relative ordering and significance vs. GPT-4.1",
+  "task_type": "generation",
+  "judge": "llm:unresolved"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LLM-generated paired persuasive-message/argument prompts (framework's own construction, detailed in Appendix A.1/E)"
+ },
+ "cost": {
+  "est_calls": 450,
+  "tier": "low"
+ },
+ "blockers": [
+  "alias_unpinned"
+ ],
+ "notes": "Judge model is \"GPT-4O\" with no date given; this 2026 paper post-dates 2024-10-02, so per the undated-gpt-4o rule it resolves to \"unresolved\" with blocker alias_unpinned, capping the verdict at maybe even though GPT-5/GPT-5-mini themselves are cleanly dated and well-documented (full prompts, n=150, pre-registered significance tests)."
+}

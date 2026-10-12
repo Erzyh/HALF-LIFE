@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119916",
+  "title": "Stronger Models are Not Always Stronger Teachers for Instruction Tuning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (1106)",
+    "resolved": "dead-preview",
+    "role": "B",
+    "evidence": "\"AE2 and AH use GPT-4-Turbo (1106) and GPT-4-0314 as the baselines to assess the performance of instruction-tuned models\" (AlpacaEval2/Arena-Hard baseline description)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "GPT-4-Turbo(1106) is used only as the fixed reference response in the external AlpacaEval2 win-rate protocol, not prompted directly by these authors with a task-specific prompt."
+  },
+  "claim": {
+    "metric": "none (dead preview snapshot)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AlpacaEval 2 (805 instructions) and Arena-Hard (500 queries)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "GPT-4-Turbo-1106-preview is retired; the paper's own response generators/teachers are Qwen2/2.5, Llama 3/3.1, Gemma 2, Phi-3, and GPT-4 (undated), none of which is this row's live id."
+}

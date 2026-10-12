@@ -1,0 +1,99 @@
+{
+  "wid": "W4410280647",
+  "title": "Humanity's Last Exam",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 16384,
+      "top_p": 1.0,
+      "reasoning_effort": "high"
+    },
+    "params_source": "paper Appendix C.5 Table 4 (o3-mini supports only temperature 1.0); Table 1 row O3-MINI (HIGH) -> reasoning_effort=high; max tokens not stated (use max_completion_tokens 16384); top_p not configurable; machine form: reasoning_effort high added (Table 1 row O3-MINI (HIGH)); the runner drops temperature/top_p for o3-mini and sends max_completion_tokens 16384",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 2150,
+    "subset_rule": "paper-defined: text-only questions (empty image field) of the 2,500-question release; ~14% are multi-modal (Sec. 3.1), so about 2,150 items - pin the HF revision of Feb 2025",
+    "approximation": "Exact text-only count and the release revision must be confirmed from the parquet; the judge is o3-mini-2025-01-31 with structured decoding as in the paper."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "cais/hle (gated: accept terms; also https://lastexam.ai)",
+    "config_or_split": "default / test (2,500 rows on the card; parquet data/test-00000-of-00001.parquet 274 MB)",
+    "filter": "image == ''",
+    "fields": {
+      "input": "question",
+      "label": "answer",
+      "answer_type": "answer_type",
+      "id": "id",
+      "image": "image"
+    },
+    "license": "mit",
+    "access_checked": true,
+    "size_mb": 274,
+    "hf": {
+      "dataset": "cais/hle",
+      "config": "default",
+      "split": "test"
+    },
+    "fields_prose": {
+      "input": "question",
+      "label": "answer",
+      "answer_type": "answer_type (exactMatch | multipleChoice) selects the system prompt",
+      "id": "id"
+    },
+    "label_map": null,
+    "filter_prose": "image == '' (text-only)",
+    "access_note": "Hub parquet listing exists (default/test, one file, 274 MB) but answers 401 without an accepted-terms token; not downloaded (gated and > 100 MB)"
+  },
+  "prompt": {
+    "system": "Your response should be in the following format:\nExplanation: {your explanation for your final answer}\nExact Answer: {your succinct, final answer}\nConfidence: {your confidence score between 0% and 100% for your answer}",
+    "user_template": "{question}",
+    "placeholders": {
+      "question": "items.question"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix C.1.1 'Evaluation' (system prompts for exact-match and multiple-choice questions; judge prompt)",
+    "verbatim": "full (the braces inside the system prompt are literal text as printed, not slots)",
+    "placeholders_prose": {
+      "question": "items.input as the user message; for answer_type == multipleChoice use the multiple-choice system prompt given in notes"
+    },
+    "system_by_answer_type": {
+      "exactMatch": "Your response should be in the following format:\nExplanation: {your explanation for your final answer}\nExact Answer: {your succinct, final answer}\nConfidence: {your confidence score between 0% and 100% for your answer}",
+      "multipleChoice": "Your response should be in the following format:\nExplanation: {your explanation for your answer choice}\nAnswer: {your chosen answer}\nConfidence: {your confidence score between 0% and 100% for your answer}"
+    }
+  },
+  "output": {
+    "parse": "regex (?i)Exact Answer:\\s*(.+)",
+    "postprocess": "none",
+    "parse_prose": "judge output fields: correct (yes/no), extracted_final_answer, confidence"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of text-only questions judged 'yes' (correct) by the o3-mini judge; RMS calibration error (80) from the confidence field is secondary",
+    "judge": "llm:o3-mini-2025-01-31 with structured decoding, prompt Appendix C.1.1 (verbatim in notes)",
+    "original_value": 13.4,
+    "original_location": "Table 1, row O3-MINI (HIGH) (text-only subset); identical in Appendix C.2 Table 2",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 4300,
+    "est_usd": 108.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "data: cais/hle is gated (401 without an accepted-terms token) and the parquet is 274 MB with embedded images; a human must accept the terms, download the Feb-2025 revision of data/test-00000-of-00001.parquet (or export a text-only jsonl with id, question, answer, answer_type, image) and place it under external/data/tierb_items/W4410280647/ - the hook then loads it and keeps the text-only rows.",
+    "everything else is in the hook: system prompt selected by answer_type, 'Exact Answer:' parse, o3-mini-2025-01-31 judge stage with the Appendix C.1.1 prompt and structured decoding (run with --judge), accuracy = share judged 'yes'. The judge model is live (dying 2026-10-23), not dead."
+  ],
+  "notes": "Multiple-choice system prompt: Your response should be in the following format:\nExplanation: {your explanation for your answer choice}\nAnswer: {your chosen answer}\nConfidence: {your confidence score between 0% and 100% for your answer} || Judge prompt (verbatim): Judge whether the following [response] to [question] is correct or not based on the precise and unambiguous [correct_answer] below.\n[question]: {question}\n[response]: {response}\nYour judgement must be in the format and criteria specified below:\nextracted_final_answer: The final exact answer extracted from the [response]. Put the extracted answer as 'None' if there is no exact, final answer to extract from the response.\n[correct_answer]: {correct_answer}\nreasoning: Explain why the extracted_final_answer is correct or incorrect based on [correct_answer], focusing only on if there are meaningful differences between [correct_answer] and the extracted_final_answer. Do not comment on any background to the problem, do not attempt to solve the problem, do not argue for any answer different than [correct_answer], focus only on whether the answers match.\ncorrect: Answer 'yes' if extracted_final_answer matches the [correct_answer] given above, or is within a small margin of error for numerical problems. Answer 'no' otherwise, i.e. if there if there is any inconsistency, ambiguity, non-equivalency, or if the extracted answer is incorrect.\nconfidence: The extracted confidence score between 0% and 100% from [response]. Put 100 if there is no confidence score available. || The HLE dataset has been revised after this paper version; use the HF revision closest to Feb 2025 (commit history readable only with an authenticated token). o3-mini calls at high effort cost ~$0.04 each. || [hooks_4 2026-09-07] hook self-tested on synthetic rows; --prepare stops with the data message until the local copy exists.",
+  "runner_gaps": [
+    "metric: LLM judge stage",
+    "prompt: system prompt selected by an item field",
+    "items: gated HF datasets (token)"
+  ],
+  "hook": "harness/tierb/hooks/W4410280647.py: load_items (local gated copy, text-only filter), render (system_by_answer_type), parse, judge_requests (o3-mini-2025-01-31, json_schema), score_with_judge (accuracy; per-item 0/1)"
+}

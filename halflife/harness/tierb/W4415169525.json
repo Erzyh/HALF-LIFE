@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4415169525",
+  "title": "Decolonizing Archival Narratives: Exploring Digital Bias in the Catalogs of Portuguese-Colonized African Territories",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT (GPT-4-turbo)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"We compared six of the most advanced LLM models currently available: ChatGPT (GPT-4-turbo), Claude (Claude Sonnet 4), DeepSeek (DeepSeek-R1), Grok (Grok 3)\" (before Table 1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Level 1-3 prompt templates printed before Table 1 (Figure 5 caption)",
+    "note": "Term X and context Y substituted per item"
+  },
+  "claim": {
+    "metric": "author-assigned points (0-3) for correct term meaning",
+    "value": null,
+    "n_items": 8,
+    "location": "Table 1, column ChatGPT",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "8 Kimbundu terms with meanings printed in Table 1; textual contexts from the Caculo Cangola Collection"
+  },
+  "cost": {
+    "est_calls": 72,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "human_outcome"
+  ],
+  "notes": "Consumer chat apps (ChatGPT, Claude, Gemini, Meta AI, Grok, DeepSeek); correctness scored by the authors; NER experiment (Fig. 4) also via chat apps."
+}

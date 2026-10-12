@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416756553",
+ "title": "Сохранение сайтов раннего интернета для междисциплинарных исследований на примере сайтов хостинга «Narod.ru» (2000–2013)",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "o3-mini-2025-01-31",
+  "resolved": "o3-mini-2025-01-31",
+  "role": "B",
+  "evidence": "\"Языковая модель o3-mini продемонстрировала удовлетворительные результаты, корректно выделив тематические группы\" -- model used to merge/name 30->25 BERTopic clusters from a ranked-keyword JSON input"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Main text, cluster-merging subsection (footnote 7)",
+  "note": "Describes the input format (JSON of top-50 c-TF-IDF keywords per cluster) but does not quote the instruction text given to the model; no appendix with the full prompt."
+ },
+ "claim": {
+  "metric": "none (qualitative assessment only: \"satisfactory results\", correctly identified thematic groups)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Narod.ru hosting-site corpus (Internet Archive derived); own web-archiving corpus, public availability of the exact 25/30-cluster keyword lists unclear from the text"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "o3-mini is a genuine methodology step (topic-cluster consolidation and naming for a website-archiving study), correctly dated to o3-mini-2025-01-31 in the text, but the paper reports only a qualitative judgment of its output quality, with no accuracy/precision figure or item count."
+}

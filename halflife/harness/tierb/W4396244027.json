@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4396244027",
+  "title": "Large Language Model Agent as a Mechanical Designer",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "C",
+    "evidence": "Sec. 3: 'Attempts were also made to evaluate performance on GPT-4.1-nano; however, the quality of ...' (no results reported); experiments use gpt-4.1-2025-04-14 and gpt-4.1-mini-2025-04-14"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 (few-shot prompt templates described)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Truss design specifications printed (Table 1); FEM evaluation code required"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Subjects GPT-4.1 / GPT-4.1-mini (2025-04-14) are not in the catalog live list; iterative design loop with FEM feedback."
+}

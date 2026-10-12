@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7125649495",
+  "title": "Word-level Annotation of GDPR Transparency Compliance in Privacy Policies using Large Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 3, block (1) Baseline: 'gpt-4.1-nano 0.496 0.659 0.566 0.414 0.583 0.484 0.768 0.709 0.737 0.379 0.098 0.156'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B.2 (passage-level classifier) and B.3 (annotator LLM), plus B.1 detector and B.4 reviewer prompts",
+    "note": "Printed prompts are for the GDPR Art. 13/14 label scheme; the OPP-115 variant with a different label set is not printed."
+  },
+  "claim": {
+    "metric": "passage-level F1 (standalone annotator, GDPR-Transparency-200)",
+    "value": 0.566,
+    "n_items": 200,
+    "location": "Table 3, block (1) Baseline, row gpt-4.1-nano, GDPR-Transparency-200 passage-level F1",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "GDPR-Transparency-200 (200 manually annotated app privacy policies, 25,260 annotations; release not stated in the text); OPP-115 public; annotator tool https://github.com/tomcory/privacy-policy-annotator"
+  },
+  "cost": {
+    "est_calls": 20000,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "gpt-4-turbo in live_ids appears only in the related-work table (prior studies). Soft gap: availability of the 200-policy ground truth; OPP-115 experiment (F1 0.737) uses an unprinted prompt variant. Span-level F1 0.484 uses a 0.7 similarity threshold.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The GDPR-Transparency-200 corpus (200 policies, 25,260 annotations) has no release statement in the text; check the annotator repository for it. If present, run the Appendix B.3 annotator prompt standalone with gpt-4.1-nano-2025-04-14 and compute passage-level F1 vs Table 3 (0.566). Fallback: the OPP-115 experiment (F1 0.737) uses public data, but its label-scheme prompt variant is also only in the repository; if neither is there the record becomes data_closed.",
+    "approximation": "Snapshot assumed 2025-04-14; ~20k nano calls.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/tomcory/privacy-policy-annotator",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

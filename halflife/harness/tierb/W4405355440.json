@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4405355440",
+  "title": "Neptune: The Long Orbit to Benchmarking Long Video Understanding",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Section 5.2: 'For GPT-4o we use the public API4'; footnote 4: 'Version gpt-4o-2024-05-13'. Table 4 row 'GPT-4o RGB (8 frames) + ASR 80.23'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.5.6 'GPT-4o prompts' (open-ended and multiple-choice, with/without transcript)",
+    "note": "System-style instruction plus {video_frames}, {transcript}, {question}, {choices}; output format '[CHOICE]: [REASON]'."
+  },
+  "claim": {
+    "metric": "MCQ accuracy",
+    "value": 80.23,
+    "n_items": 3268,
+    "location": "Table 4, row GPT-4o (RGB 8 frames + ASR), NEPTUNE-FULL Acc. %",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "https://github.com/google-deepmind/neptune (annotations for 2,405 YouTube videos; frames at 1 fps and ASR must be re-extracted)"
+  },
+  "cost": {
+    "est_calls": 9804,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Videos are YouTube-hosted (availability drift); exact 8-frame sampling and image resolution not specified. Cost is driven by 8 images plus transcript per call.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The C.5.6 multiple-choice-with-transcript prompt is printed with {video_frames}, {transcript}, {question}, {choices}; the paper states '8 frames + ASR' for GPT-4o but not the sampling rule (the other 8-frame baselines use uniform sampling). Download the NEPTUNE-FULL videos listed in the release (github.com/google-deepmind/neptune; 3,268 MCQs on 2,405 YouTube videos), take 8 uniformly spaced frames, use the released transcript if included or Whisper otherwise, call gpt-4o-2024-05-13, parse '[CHOICE]' and compute accuracy; compare with 80.23 (Table 4) on the videos still available.",
+    "approximation": "Uniform 8-frame sampling and default image detail assumed; ASR engine may differ; removed YouTube videos shrink the set (report coverage).",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

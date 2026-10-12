@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7163598027",
+ "title": "Efficient Exploration for Iterative Nash Preference Optimization",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "Table 1: \"AE2 columns are length-controlled (LC) win-rates (%) under gpt-4o-mini and gpt-4-turbo respectively\"; \"Arena-Hard win-rate vs. gpt-4-0314 under gpt-4o-mini\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - AlpacaEval-2/Arena-Hard's own standard judge templates are used, cited by name rather than reprinted",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none tied to gpt-4-turbo's own capability; Table 1 reports the authors' own INPO/XPO/ENPO policy win-rates (e.g. ENPO_1/4 = 60.0 AE2-mini), as judged by gpt-4o-mini and gpt-4-turbo",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (Iteration-3 endpoints across judges)",
+  "task_type": "generation",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "yes",
+  "source": "UltraFeedback, AlpacaEval-2, MT-Bench, Arena-Hard (public benchmarks)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-4-turbo is used only as one of several automatic judges (role A) scoring the authors' own new RLHF policies (INPO/XPO/ENPO); its own capability is never the subject of a claim. gpt-4-0314 (a dead preview) is separately used as the Arena-Hard reference model."
+}

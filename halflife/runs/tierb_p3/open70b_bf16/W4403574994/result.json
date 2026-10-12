@@ -1,0 +1,58 @@
+{
+  "wid": "W4403574994",
+  "title": "Measuring Spiritual Values and Bias of Large Language Models",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "custom",
+  "original_value": 52.97,
+  "original_location": "Table 4 (Appendix C), row 'GPT4 Turbo', column 'Religious'",
+  "reexecution": {
+    "mean_over_seeds": 57.30088495575221,
+    "per_seed": {
+      "0": {
+        "value": 57.30088495575221,
+        "n": 133,
+        "ci95": [
+          32.73050589577786,
+          76.63822205551388
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403574994",
+    "n_items": 133,
+    "n_requests": 133,
+    "seeds": 1,
+    "est_usd": 0.02,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 52.97,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4403574994",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "The paper treats the LLM as a questionnaire taker; each statement is asked in a separate, stateless call (the paper's Figure 1 shows one statement per prompt). Decoding parameters for GPT-4-turbo are not reported.",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W4403574994"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 57.30088495575221,
+    "delta": 4.330884955752211,
+    "original_inside_ci95": true
+  }
+}

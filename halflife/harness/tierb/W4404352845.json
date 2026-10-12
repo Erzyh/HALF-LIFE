@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404352845",
+ "title": "EcoAct: Economic Agent Determines When to Register What Action",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 1 (Comparison of ReAct with EcoAct on ToolBench): \"GPT-4-turbo ReaAct 16.2 6.3 18.5 8.1 13.2 11.5 16.0 8.6\" (Pass Rate %% and Cost cents per G1/G2/G3 subset and Average)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.1/3.2 and Appendix A: agent reasoning follows the public ToolBench/ReAct prompting setup; pass-rate evaluation \"applying the same prompts as those used in ToolBench\"",
+  "note": "Prompts are the established public ToolBench/ReAct templates plus the paper's own tool-name-registration meta-tool instruction (Sec. 2); not independently re-quoted verbatim in the main text."
+ },
+ "claim": {
+  "metric": "pass rate (%), GPT-4-turbo backbone with vanilla ReAct (no EcoAct), Average across G1-G3",
+  "value": 16.0,
+  "n_items": 632,
+  "location": "Table 1, row 'GPT-4-turbo ReaAct', Average PR column; n from the six filtered ToolBench subsets used in the paper (115+132+142+107+98+38=632 queries, Sec 3.1)",
+  "task_type": "agentic",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ToolBench (Qin et al. 2023), filtered per AnyTool (Du et al. 2024); https://github.com/gkamradt/LLMTest_NeedleInAHaystack referenced for a related probe"
+ },
+ "cost": {
+  "est_calls": 3000,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "GPT-4-turbo is one of two backbone LLMs (with GPT-4o) run as the ReAct tool-use agent on ToolBench, both with and without the paper's EcoAct tool-registration method; GPT-4-turbo is also separately used as the pass-rate judge (self-judging its own ReAct runs, applying ToolBench's standard evaluation prompts). Cost is agentic (multiple tool-call rounds per query), so likely several thousand calls across 632 queries -- high tier even at gpt-4-turbo's per-call price."
+}

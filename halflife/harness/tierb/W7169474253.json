@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7169474253",
+ "title": "Beyond Binary Detection: A Multi-Dimensional Taxonomy of Cancer Misinformation on Reddit",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "Footnote: \"GPT-4.1-nano[April 14, 2025]\"; results row \"GPT-4.1-nano 0.82 0.79 0.79 0.91 0.70\" under header \"Model K P R F1 TPR TNR\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 4 (zero-/few-shot, k in [1,4] labeled examples, chain-of-thought); no verbatim template located among Tables A1-A11",
+  "note": ""
+ },
+ "claim": {
+  "metric": "F1 (misinformation-taxonomy classification, best shot setting)",
+  "value": 0.79,
+  "n_items": 62,
+  "location": "Sec 5 results table; evaluated against 62 expert-annotated posts (Sec 4)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "134,219 Reddit posts (Table A1); \"anonymized data will be released\""
+ },
+ "cost": {
+  "est_calls": 62,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Main comparison spans few-shot k=1..4 across 22+ models on a >130K-post Reddit corpus, but the accuracy-bearing evaluation set is the 62 expert-annotated posts. Soft gap: no verbatim prompt template was found in the text or the appendix table list."
+}

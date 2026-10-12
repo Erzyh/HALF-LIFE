@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404781208",
+ "title": "Cactus: Towards Psychological Counseling Conversations using Cognitive Behavioral Theory",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "A",
+  "evidence": "Table 5: \"Non-expert 0.51 0.17 0.15 0.09 0.08 0.07 / GPT-4o 0.60 0.19 0.16 0.65 0.65 0.61\" -- correlation of GPT-4o (as an LLM judge) with expert ratings of counseling quality"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "G-Eval-style evaluation prompt for scoring counseling dialogues is not quoted verbatim in the extracted excerpt."
+ },
+ "claim": {
+  "metric": "none for gpt-4o as subject; Table 5's correlations describe its reliability AS a judge of others' dialogues, not a task it is scored on",
+  "value": null,
+  "n_items": 100,
+  "location": "Sec. 4.4 Expert Evaluation (100 evaluation instances: 50 dialogues each from Psych-LLaMA3 and CAMEL-LLaMA3)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "CACTUS dataset, CAMEL model and code publicly released (per Abstract, footnote 1)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This EMNLP 2024 Findings paper's main contribution is the CACTUS counseling-dialogue dataset and the CAMEL model trained on it; gpt-4o-2024-05-13 is used to help select CBT techniques during data synthesis and as an automated judge (correlated with human experts, Table 5), but role A means no benchmarked subject claim is attributable to gpt-4o itself."
+}

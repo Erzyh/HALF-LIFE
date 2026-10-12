@@ -1,0 +1,56 @@
+{
+  "wid": "W4403882451",
+  "title": "Planning in Strawberry Fields: Evaluating and Improving the Planning and Scheduling Capabilities of LRM o1",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 40.1,
+  "original_location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+  "reexecution": {
+    "mean_over_seeds": 1.0,
+    "per_seed": {
+      "0": {
+        "value": 1.0,
+        "n": 432,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403882451",
+    "n_items": 432,
+    "n_requests": 432,
+    "seeds": 1,
+    "est_usd": 9.39,
+    "subset_note": "cost cap $9.4: seeded random subset of 432 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 40.1,
+    "cap_usd": 9.4
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "GPT-4 Turbo snapshot/decoding of the paper's column unknown (only 27/600 of our temperature-0 replies are identical to the released ones); plan extraction = the repository's rule-based text_to_plan_blocksworld (current version, strips markdown '*'); the paper's own 241/600 came from the pre-fix version of that extractor (reproduces the released extracted plans 600/600), which scores the released replies 241 vs 254 for the current version",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4403882451"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 100.0,
+    "delta": 59.9,
+    "original_inside_ci95": false
+  }
+}

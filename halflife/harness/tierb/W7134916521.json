@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7134916521",
+ "title": "Analysing Environmental Efficiency in AI for X-Ray Diagnosis",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4.1-Nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "\"The LLMs used in this study (GPT-4.5-Preview, GPT-4.1-Nano, o4-Mini, and Claude-3.5 Sonnet via GenAI)\"; Table: GPT-4.1-Nano accuracy 52.8%."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec.3 (\"the context of a positive diagnosis and recommended next steps are provided within the prompt\")",
+  "note": "Prompt content is described qualitatively, not quoted verbatim; models are accessed through Mendix's \"GenAI\" low-code connector rather than a raw OpenAI API call."
+ },
+ "claim": {
+  "metric": "accuracy, COVID-19 X-ray binary classification",
+  "value": 52.8,
+  "n_items": 400,
+  "location": "Table 2, row GPT-4.1-Nano, Accuracy column; Covidx CXR-3 test subset (200 negative + 200 positive)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Covidx CXR-3 (Pavlova et al. 2022), open-source benchmark"
+ },
+ "cost": {
+  "est_calls": 400,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4.1-nano has only one tracked snapshot, so the alias resolves directly. Soft gap: exact prompt wording is not quoted, and the model is called through Mendix's \"GenAI\" low-code layer, which may inject its own formatting not fully disclosed."
+}

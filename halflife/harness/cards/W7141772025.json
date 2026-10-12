@@ -1,0 +1,149 @@
+{
+  "card_id": "W7141772025",
+  "openalex_id": "https://openalex.org/W7141772025",
+  "title": "Qworld: Question-Specific Evaluation Criteria for LLMs",
+  "doi": null,
+  "paper": {
+    "authors": "Gao, Su, Sui, Ginder, Zitnik (Harvard Medical School / Brigham and Women's / Kempner / Broad)",
+    "year": 2026,
+    "venue": "COLM 2026 (arXiv 2603.23522v2, 2026-08-19); no DOI in p0_pool",
+    "repo": "https://github.com/mims-harvard/Qworld",
+    "repo_commit": "9f342a638d1624dd9a717936e835d3d8624f53f7 (2026-08-17; shallow clone under external/repos/W7141772025/mims-harvard__Qworld)",
+    "repo_license": "MIT",
+    "other_artifacts": "PyPI package qworld 0.1.2; agentic skill skills/qworld-criteria-generation/SKILL.md (also at qworld.openscientist.ai/skill.md); Hugging Face dataset suyc21/qworld with the released GPT-4.1-generated criteria (healthbench 4,992 rows, hle 2,500 rows; licence tagged 'other'); demo space suyc21/qworld-demo"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "In the carded claim the retiring snapshot is the criteria generator itself: Table 3 (right) reports how criteria quality falls when the Qworld backbone is scaled down from GPT-4.1 to GPT-4.1-mini to GPT-4.1-nano. Every number is a property of the generator's outputs, scored by a second LLM (GPT-4.1) against HealthBench physician criteria. The nano-generated criteria were not released, so the arm must be regenerated."
+  },
+  "claim": {
+    "statement": "Criteria quality scales monotonically with the strength of the Qworld generator backbone: with the same recursive expansion tree (w1=3 scenarios, w2=4 perspectives, w3=3 criteria), the same 1,000-question HealthBench subset and the same GPT-4.1 judge, GPT-4.1-nano as backbone yields Coverage 0.75 and Uniqueness 0.68, against 0.84 / 0.77 for GPT-4.1-mini and 0.89 / 0.79 for GPT-4.1 (Table 3, right; Section 4.3 'Scalability with generator strength').",
+    "claim_type": "capability_level",
+    "metric": "Coverage = proportion of the expert (HealthBench physician) criteria for a question that are judged covered by at least one generated criterion; Uniqueness = proportion of generated criteria judged not represented in the expert set. Both in [0,1], judged by GPT-4.1 with the CriteriaAlignmentJudger and ModelUniqueCriteriaJudger prompts, macro-averaged over questions.",
+    "original_values": {
+      "table3_right_scaling": {
+        "gpt-4.1-nano": {
+          "coverage": 0.75,
+          "uniqueness": 0.68
+        },
+        "gpt-4.1-mini": {
+          "coverage": 0.84,
+          "uniqueness": 0.77
+        },
+        "gpt-4.1": {
+          "coverage": 0.89,
+          "uniqueness": 0.79
+        }
+      },
+      "table1_reference_full_backbone": {
+        "Qworld": {
+          "coverage": 0.89,
+          "uniqueness": 0.79,
+          "insight": 0.83,
+          "granularity": 0.85
+        },
+        "Qworld_ret": {
+          "coverage": 0.9,
+          "uniqueness": 0.82
+        },
+        "best_single_call_baseline_EvalAgent": {
+          "coverage": 0.83,
+          "uniqueness": 0.5
+        }
+      },
+      "secondary_gpt41nano_as_evaluated_model": {
+        "healthbench_official_score_pct": 33.9,
+        "sQworld_pct": 18.1,
+        "hle_official_score_pct": 4.5,
+        "hle_sQworld_pct": 3.6,
+        "rank": 10
+      },
+      "authors_measured_cost": {
+        "calls_per_question_full_qworld": 56.4,
+        "usd_per_question_gpt41_backbone": 0.38,
+        "usd_per_question_judging_top5_criteria": 0.02
+      }
+    },
+    "original_source": "Table 3 (right) and the 'Scalability with generator strength' paragraph in Section 4.3; the secondary values are Table 2 (row 10 in both panels); the cost figures are the 'Cost and latency' paragraph in Section 4.3."
+  },
+  "protocol": {
+    "model": "gpt-4.1-nano-2025-04-14",
+    "model_status": "dying, OpenAI shutdown 2026-10-23",
+    "model_usage_verified": "alias inference - the paper and repo write the undated alias 'gpt-4.1-nano' (README example, CriteriaGenerator(model=...)). gpt-4.1-nano has only ever resolved to the single snapshot gpt-4.1-nano-2025-04-14, so the alias is unambiguous; re-execution must pin the dated id explicitly. See user_checks.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions, via openai.OpenAI (or AzureOpenAI when AZURE_OPENAI_API_KEY is set, api_version 2024-12-01-preview); structured output through client.beta.chat.completions.parse with the Pydantic schemas in qworld/schemas.py. Judge arm uses the same endpoint with gpt-4.1-2025-04-14. Embeddings: POST /v1/embeddings, text-embedding-3-small.",
+    "prompt_source": "qworld/prompts.py - ten generation-stage templates (ScenarioAnalyzer, ScenarioExpander, PerspectiveAnalyzer, PerspectiveExpander, PerspectiveReviewer, CriteriaGenerator, CriteriaExpander, CriteriaReviewer, NegativeCriteriaChecker/polarity, CriteriaScoreAssigner) plus the two judge templates used for this claim's metrics (CriteriaAlignmentJudger = Coverage, ModelUniqueCriteriaJudger = Uniqueness). All twelve are verbatim in the repo.",
+    "params": {
+      "temperature": 0.4,
+      "temperature_source": "CriteriaGenerator default and paper Appendix A ('For all non-reasoning evaluated models, we set temperature to 0.4')",
+      "max_tokens": "not set for OpenAI-compatible providers (32768 is set only on the Claude and Gemini paths)",
+      "seed": "not set",
+      "n_scenario_expands": 3,
+      "n_perspective_expands": 4,
+      "n_criteria_expands": 3,
+      "dedup_threshold": "0.6 in qworld/client.py, but the README parameter table says 0.7 - an unresolved repo inconsistency that changes how many criteria survive deduplication",
+      "embedding_model": "text-embedding-3-small (cosine dedup of criteria)",
+      "context_window": "min(16384, model maximum) per Appendix A",
+      "structured_output": "Pydantic response_format via beta.chat.completions.parse; on failure falls back to markdown-fenced JSON extraction"
+    },
+    "n_items": "1,000 HealthBench questions (the paper's criteria-quality subset, also used for all baselines and ablations); drawn from the 5,000-conversation HealthBench (the authors' released split carries 4,992 rows)",
+    "samples_per_item": 1,
+    "calls_per_item": "~56 generation calls per question (authors' own measurement: 56.4), plus 2 judge calls (Coverage, Uniqueness)",
+    "evaluation": "Coverage and Uniqueness as defined above, macro-averaged over questions; judge = gpt-4.1-2025-04-14 with the two judger prompts and their schemas (ExpertCoverageResponse, ModelAlignmentResponse). The driver that loops the judgers over expert-vs-generated criteria is NOT in the repo and must be written (about 20 lines on top of CriteriaGenerator._call_llm).",
+    "environment": "pip install qworld (pydantic>=2, numpy, scikit-learn, tqdm, openai, python-dotenv, anthropic, google-genai); OPENAI_API_KEY only"
+  },
+  "artifacts": {
+    "prompts_path": "qworld/prompts.py (generation + both judges); qworld/schemas.py (structured-output schemas)",
+    "data_path": "external: HealthBench (OpenAI, distributed with openai/simple-evals, MIT) supplies the questions and the physician-authored expert criteria; the authors' released GPT-4.1 criteria are on Hugging Face suyc21/qworld (healthbench 4,992 / hle 2,500). No HealthBench copy and no question-id list is in the repo.",
+    "eval_path": "partial - qworld/agents.py run_pipeline() and qworld/client.py cover generation end to end; the Coverage/Uniqueness computation has prompts and schemas but no runner, and nothing in the repo implements the HealthBench response-scoring protocol behind Table 2.",
+    "data_public": true,
+    "data_license": "HealthBench MIT (via openai/simple-evals); Qworld code MIT; suyc21/qworld dataset licence tagged 'other'",
+    "redistributable": "yes for code and HealthBench; the released criteria dataset carries no explicit open licence",
+    "notes": "The released HF criteria are GPT-4.1-generated only (scenario x3, perspective x4, criteria x3), so they serve as the reference row of Table 3 right but cannot substitute for the nano arm, which has to be regenerated. The exact 1,000-question subset is not published as an id list."
+  },
+  "blockers": [
+    "No Coverage/Uniqueness driver in the repo: the two judge prompts and their schemas ship, but no code pairs expert criteria with generated criteria, calls the judges and aggregates the two rates. Re-execution must add that glue and declare it as a pipeline paraphrase (the prompts themselves stay verbatim).",
+    "The 1,000-question HealthBench subset is not identified (no id list, no sampling seed), so the re-run samples its own 1,000 and inherits subset variance on top of model variance.",
+    "The nano-generated criteria of Table 3 right were not released (the HF dataset holds only the GPT-4.1 run), so nothing can be checked without spending the generation budget.",
+    "dedup_threshold is 0.6 in code and 0.7 in the README; the value changes the size of the criteria set and therefore both metrics.",
+    "Cost: the full 1,000-question protocol with 3 seeds is ~USD 231 including the GPT-4.1 judge, dominated by the judge (~75%)."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "purpose": "live baseline (P0): the weakest backbone of the scaling ablation, the only retiring snapshot in the claim (gpt-4.1 and gpt-4.1-mini rows stay alive and serve as the in-run reference)"
+    },
+    "successors": [
+      "gpt-5.6-luna (vendor-designated replacement for gpt-4.1-nano) and gpt-4.1-2025-04-14 (GPT-4.1-class comparator, which is also the paper's own top row and the fixed judge)"
+    ]
+  },
+  "budget": {
+    "est_calls": 175200,
+    "est_tokens_in": 285000000,
+    "est_tokens_out": 92100000,
+    "est_cost_usd": 231,
+    "pricing_usd_per_1m": {
+      "gpt-4.1-nano-2025-04-14": {
+        "input": 0.1,
+        "output": 0.4
+      },
+      "gpt-4.1-2025-04-14": {
+        "input": 2.0,
+        "output": 8.0
+      }
+    },
+    "assumptions": "Generation arm: 1,000 questions x 3 seeds x 56.4 calls (authors' measured call count) = 169,200 calls; per question ~85k input and ~26k output tokens, back-solved from the authors' own USD 0.38 per question at GPT-4.1 prices - at nano prices that is USD 0.019 per question, so ~USD 57 for 3 seeds. Judge arm: 2 gpt-4.1 calls per question x 3 seeds = 6,000 calls at ~10k in / ~4.7k out per question, ~USD 0.058 per question, ~USD 174. Temperature 0.4 makes 3 seeds substantive rather than nominal. A 200-question subsample costs ~USD 46 for the same 3 seeds."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary numbers: Coverage and Uniqueness of the gpt-4.1-nano-2025-04-14 backbone (original 0.75 / 0.68), median over 3 seeds. Survival = both rates fall inside the bootstrap 95% CI over questions of the original (n=1,000 gives roughly +/-2.5 pp per rate) AND the ordering claim holds, i.e. nano < mini < full on Coverage in the same run. Partial = the ordering holds but a level moves outside the CI. Death = the monotonic ordering breaks (nano matching or beating mini/full), which would undo the 'stronger generators produce better criteria' conclusion. Because the subset is unidentified, judge the ordering within our own sampled subset first and treat the absolute levels as secondary.",
+    "notes": "Two confounds must be held fixed across arms: the judge (gpt-4.1-2025-04-14, prompts verbatim from the repo) and dedup_threshold. Run the alive gpt-4.1 and gpt-4.1-mini backbones on the same subset so the ordering is measured within one run rather than against the paper's numbers; that also gives a subset-effect estimate for free."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Alias inference: paper and repo say 'GPT-4.1-nano'; we pin gpt-4.1-nano-2025-04-14 (its only snapshot). Confirm.",
+    "Core claim = Table 3 right (nano as generator backbone, Coverage/Uniqueness) as drafted, or Table 2 row 10 (nano as an evaluated model, sHealthBench 33.9 / sQworld 18.1), which would additionally need the unreleased HealthBench scoring driver?",
+    "Scope: full 1,000-question subset x 3 seeds (~USD 231, of which ~USD 174 is the GPT-4.1 judge) or a 200-question subsample (~USD 46)?",
+    "Accept writing the missing Coverage/Uniqueness driver ourselves (repo prompts verbatim, our loop), and set dedup_threshold to the code value 0.6 rather than the README's 0.7?"
+  ],
+  "domain_notes": "HealthBench (OpenAI) pairs each of 5,000 health conversations with physician-authored, question-level rubric items; Qworld replaces that fixed rubric with a generated one by expanding each question into scenarios, then evaluation perspectives, then binary criteria with signed point weights, deduplicating by embedding similarity and consolidating. Coverage asks how much of the physicians' rubric the generated set recovers and Uniqueness how much it adds, so the scaling claim is really about whether a small model can still enumerate the evaluation space. The paper is medically framed but nothing here touches patient data; HealthBench conversations are synthetic. Note that the released package deliberately exposes only the generation half - the model-benchmarking pipeline behind Table 2 and the human-rating protocol behind Insight/Granularity are not code."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403346616",
+ "title": "Stereotype or Personalization? User Identity Biases Chatbot Recommendations",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-mini-2024-07-18 / gpt-4o-2024-08-06",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "\"gpt-4o-mini-2024-07-18\" and \"gpt-4o-2024-08-06\" (model-version footnotes); \"then querying gpt-4o-mini to label a subset of the user...\" and \"GPT-4o-mini to parse the output into JSON\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none tied to a still-callable snapshot (both dated OpenAI models actually used, gpt-4o-mini-2024-07-18 and gpt-4o-2024-08-06, are off the tracked live list)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "User-chatbot interaction data (details not fully confirmed in excerpt)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The CSV linker's 'gpt-4-turbo' hint was not found anywhere in this paper's text; the only OpenAI models actually run are gpt-4o-mini-2024-07-18 and gpt-4o-2024-08-06, both dated but neither on the still-callable/retiring-soon list tracked by this project."
+}

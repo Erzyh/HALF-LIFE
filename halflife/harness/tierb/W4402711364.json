@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4402711364",
+  "title": "A Survey on Evaluating Large Language Models in Code Generation Tasks",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"GPT-4-turbo performs better than other models but still lags behind human-written solutions, with an average execution time 1.69 times\" (Sec. 3.2.1, discussing EffiBench's reported results)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "Survey summarizing benchmarks (EffiBench, Mercury, etc.); no prompts of its own."},
+  "claim": {
+    "metric": "none for this survey (cites EffiBench's execution-time ratio for GPT-4-turbo)", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (survey of code-generation evaluation benchmarks)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "arXiv survey paper. GPT-4-turbo numbers are quoted from the EffiBench benchmark paper, not produced by this survey; no original run."
+}

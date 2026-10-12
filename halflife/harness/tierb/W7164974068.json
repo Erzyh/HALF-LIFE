@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7164974068",
+  "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07 / o3-2025-04-16 / o4-mini",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "C",
+    "evidence": "Appendix: 'OpenAI: gpt-4o-2024-11-20, gpt-5-2025-08-07, o3-2025-04-16' as normalized model-ID examples; Table 5 counts runs per model (o4-mini 473, GPT-5 452, o3 398)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not applicable (schema/repository paper)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Every Eval Ever repository"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The live IDs are identifiers inside an evaluation-results schema; no experiment run by the authors."
+}

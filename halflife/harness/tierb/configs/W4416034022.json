@@ -1,0 +1,75 @@
+{
+ "wid": "W4416034022",
+ "title": "CoTD-PO: Chain-of-Thought Distillation with Preference Optimization",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4o-2024-05-13",
+  "params": {
+   "temperature": null,
+   "max_tokens": null,
+   "top_p": null
+  },
+  "params_source": "not stated. The paper gives no decoding parameters for the teacher-model row; AlpacaEval's own model configs would supply them, but which config produced this row is not said.",
+  "seeds": 1
+ },
+ "task": {
+  "type": "generation",
+  "n_items": 805,
+  "subset_rule": "all 805 AlpacaEval 2.0 instructions",
+  "approximation": "cannot be fixed: the reported number is a length-controlled win rate produced by the AlpacaEval pipeline, not a per-item score the runner can compute (see open_points)"
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "tatsu-lab/alpaca_eval (805 AlpacaEval 2.0 instructions); Arena-Hard-Auto (500) and MT-Bench (160) are the other two columns of the same table",
+  "config_or_split": "alpaca_eval, the 805-instruction evaluation set",
+  "filter": null,
+  "fields": {
+   "input": "instruction",
+   "label": "none - the metric is a pairwise win rate against reference outputs, not a gold answer",
+   "id": "dataset + index"
+  },
+  "license": "CC BY-NC 4.0 (dataset card)",
+  "access_checked": true,
+  "size_mb": 2,
+  "hf": {
+   "dataset": "tatsu-lab/alpaca_eval",
+   "config": null,
+   "split": "eval"
+  },
+  "access_note": "HF dataset API returns 200, not gated (checked 2026-09-19)"
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": null,
+  "few_shot": "none",
+  "source_location": "n/a",
+  "verbatim": "none. The paper prints no prompt: GPT-4o is scored on the standard public AlpacaEval 2.0 instruction set, and the judge prompt belongs to the AlpacaEval package (weighted_alpaca_eval_gpt4_turbo), not to this paper."
+ },
+ "output": {
+  "parse": "free text (the model's answer to the instruction)",
+  "postprocess": "the answer is compared with the AlpacaEval reference output by the annotator model, which returns a preference probability; those probabilities feed the length-controlled regression"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "AlpacaEval 2.0 length-controlled win rate (%): a GLM removes the length effect from the annotator's per-instruction preference probabilities against the reference outputs (Dubois et al., 2024)",
+  "judge": "llm:gpt-4-turbo-2024-04-09 (AlpacaEval's default annotator, 'employing GPT-4-turbo for automated win rate calculation'); prompt location: not in this paper - it is the weighted_alpaca_eval_gpt4_turbo template of the alpaca_eval package",
+  "original_value": 57.5,
+  "original_location": "Table 1, row 'GPT-4o (2024-05-13) (teacher-model)', column AlpacaEval 2 (LC) (Arena-Hard 79.2; MT-Bench blank)",
+  "bootstrap_unit": "instruction",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 805,
+  "est_usd": 26.0,
+  "tier": "mid",
+  "est_note": "hand estimate: 805 gpt-4o generations (~$10) plus 805 gpt-4-turbo annotator calls over answer pairs (~$16). No prepare run: the metric needs the AlpacaEval pipeline."
+ },
+ "open_points": [
+  "Judge prompt not printed. This study allows an LLM-judged metric only when the judge model is still callable AND its prompt is printed. gpt-4-turbo-2024-04-09 is callable, but the annotator template lives in the AlpacaEval package and the paper does not say which annotator version was used.",
+  "The metric is not a per-item score. The length-controlled win rate is fitted by AlpacaEval's GLM over per-instruction preference probabilities against a fixed set of reference outputs; reproducing it means adopting the AlpacaEval library (generation config, annotator, reference outputs, GLM), which is a decision rather than a runner config.",
+  "The row may be quoted rather than measured. 57.5 is also the published AlpacaEval 2.0 leaderboard value for GPT-4o (2024-05-13); the paper does not say whether the teacher was re-run or the leaderboard copied, which changes what a re-execution would test.",
+  "No generation parameters: neither temperature, max tokens nor the answer template for the teacher row is stated."
+ ],
+ "notes": "GPT-4o-2024-05-13 appears only as a black-box reference row among the baselines; the paper's own contribution is a distilled student. Both subject and annotator are live snapshots, which is why triage kept it eligible, but the missing judge prompt and the external GLM make it a human decision."
+}

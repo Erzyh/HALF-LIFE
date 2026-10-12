@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4399911213",
+  "title": "WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09 (subject and judge); GPT-4o-2024-05-13 (judge only)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "App. D: 'we tested ... Llama3-70b-instruct, and GPT-4-turbo-2024-04-09 ... temperature = 0, max_tokens = 250, seed = 5'; Table 3: 'GPT-4 86.7 76.1' (judge Acc / Macro-F)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C 'Further Details on the Judge LLM Prompt' (system prompt printed); Section 3 prompt templates 1-5 printed",
+    "note": "judge labels a response correct / partially correct / incorrect against the answer list"
+  },
+  "claim": {
+    "metric": "judge accuracy vs human labels on prompt-template-5 responses",
+    "value": 86.7,
+    "n_items": 240,
+    "location": "Table 3, row GPT-4, column Acc (240 responses from five LLMs in WikiContradict_HumanEval)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "WikiContradict (253 instances) and WikiContradict_HumanEval (1,200 human-judged samples), released on GitHub / HuggingFace"
+  },
+  "cost": {
+    "est_calls": 720,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Claim chosen is the meta-evaluation of GPT-4-turbo as judge (human labels are gold, no LLM judge needed). The main Table 2 numbers for GPT-4-turbo as a subject (e.g. 60.4% correct or partially correct under template 1, 48 instances) need human judging."
+}

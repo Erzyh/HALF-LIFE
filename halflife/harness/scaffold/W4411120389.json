@@ -1,0 +1,23 @@
+{
+  "openalex_id": "https://openalex.org/W4411120389",
+  "title": "The Good, The Bad, and The Greedy: Evaluation of LLMs Should Not Ignore Non-Determinism",
+  "doi": "https://doi.org/10.18653/v1/2025.naacl-long.211",
+  "field": "Computer Science",
+  "year": "2025",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/Yifan-Song793/GoodBadGreedyour",
+    "github.com/tatsu-lab/alpaca_eval",
+    "github.com/tatsu-lab/alpaca_eval.Bill"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/Yifan-Song793/GoodBadGreedyour",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4411120389.txt",
+  "paper_text_status": "pdf"
+}

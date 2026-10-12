@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7124872485",
+ "title": "Incorporação do ChatGPT em Ambientes Educacionais: Oportunidades, Obstáculos e Questões Éticas. Uma revisão bibliográfica",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"GPT-4 Turbo aprimorou a exatidão em tarefas como programação...\" (GPT-4 Turbo improved accuracy in programming tasks) -- historical narrative"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (this is a Portuguese-language systematic bibliographic review of ChatGPT-in-education literature; GPT-4 Turbo is discussed only as part of a historical timeline, not run by these authors)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (no experiment; PRISMA-style bibliographic review limited to the terms \"ChatGPT\" and \"Educação\")"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Portuguese-language systematic review (also published with Spanish/English abstracts). No in-text experiment; GPT-4 Turbo is mentioned only while narrating the historical development of GPT/ChatGPT models."
+}

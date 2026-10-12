@@ -1,0 +1,96 @@
+{
+  "wid": "W4402345509",
+  "title": "LAB-Bench: Measuring Capabilities of Language Models for Biology Research",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent); gpt-4-turbo snapshot resolved by the alias rule (record)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 199,
+    "subset_rule": "paper-defined split: public LitQA2 subset (HF config LitQA2, 199 of the 248 items behind Supplementary Table 1)",
+    "approximation": "20% private items unavailable (Appendix B.1: public/private accuracies differ by under 5 points); Claude 2 fallback parser replaced by regex-only parsing; option order permuted with a fixed seed per item"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "futurehouse/lab-bench",
+    "config_or_split": "LitQA2 / train (199 rows)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "answers",
+      "label": "gold_letter",
+      "id": "id"
+    },
+    "license": "cc-by-sa-4.0",
+    "access_checked": true,
+    "size_mb": 0.2,
+    "hf": {
+      "dataset": "futurehouse/lab-bench",
+      "config": "LitQA2",
+      "split": "train"
+    },
+    "fields_prose": {
+      "input": "question",
+      "options": "ideal + distractors (list) + the extra option 'Insufficient information to answer the question.'",
+      "label": "ideal",
+      "id": "id"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "The following is a multiple choice question about biology.\nPlease answer by responding with the letter of the correct answer.\nThink step by step.\nQuestion: {question}\nOptions:\n{answers}\nYou MUST include the letter of the correct answer within the following tags:\n[ANSWER] and [/ANSWER]. For example, '[ANSWER]<answer>[/ANSWER]',\nwhere <answer> is the correct letter. Always answer in exactly this format\nof a single letter between the two tags, even if you are unsure.\nWe require this because we use automatic parsing.",
+    "placeholders": {
+      "question": "items.question",
+      "answers": "items.answers"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix D.1 'Prompting strategy'",
+    "verbatim": "full (typographic apostrophes normalised)",
+    "placeholders_prose": {
+      "question": "items.question",
+      "answers": "ideal, distractors and 'Insufficient information to answer the question.' randomly permuted (seed 20260907 + item index), one per line as 'A) text' (letter format not printed; the eval harness passes letter-prefixed choices)"
+    }
+  },
+  "output": {
+    "parse": "regex \\[ANSWER\\]\\s*([A-Z])\\s*\\[/ANSWER\\]",
+    "postprocess": "take the first match; compare with the letter assigned to ideal; no match or the 'Insufficient information' letter counts as incorrect (accuracy keeps them in the denominator, Appendix D.4)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "number of correct multiple-choice answers divided by the total number of questions (Appendix D.4), mean over the three runs",
+    "judge": "none",
+    "original_value": 0.12,
+    "original_location": "Supplementary Table 1, row LitQA2, column gpt-4-turbo (mean of three runs over public and private splits)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 597,
+    "est_usd": 8.33,
+    "tier": "low",
+    "est_usd_prepare": 8.33,
+    "est_usd_dryrun_max_tokens": 19.5,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens"
+  },
+  "open_points": [],
+  "notes": "Set-level comparison only: the reported 0.12 averages public and private splits. Whether the 'Insufficient information' option is permuted with the others or appended last is not stated; it is permuted here. Some LitQA2 questions ask about specific papers without retrieval, so low accuracy is expected. || [hook 2026-09-07] load_items() composes ideal + distractors + 'Insufficient information to answer the question.' per item, permutes with seed 20260907 + row index, letters 'A) ...' and derives the gold letter; parse() reads the [ANSWER]X[/ANSWER] letter (a mangled closing tag as in the paper's own examples is accepted); score() = accuracy over all 199 public LitQA2 questions (coverage/precision printed).",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": {
+    "path": "harness/tierb/hooks/W4402345509.py",
+    "functions": [
+      "load_items",
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

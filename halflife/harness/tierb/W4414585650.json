@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4414585650",
+  "title": "When Ethics and Payoffs Diverge: LLM Agents in Morally Charged Social Dilemmas",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini (OpenAI, 2024)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Table 3: \"o3-mini Azure OpenAI o3-mini-2025-01-31 $0.266\"; Table 1 row o3-mini: cooperation (Context)=46.9, survival (Context)=69.3"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section F (Listings 1, 6, 11, 16, 21, 26: full system prompts for PGG/PD games across moral contexts)",
+    "note": "Reproducibility Statement: \"section F reproduces all prompt templates and round-level scaffolding verbatim.\""
+  },
+  "claim": {
+    "metric": "avg. cooperation rate m_i (contextualized setting)",
+    "value": 46.9,
+    "n_items": 160,
+    "location": "Table 1, row o3-mini, Context column; n_items = 32 configurations x 5 seeds (Sec. E.2/B, base experiments)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Procedurally generated PD/PGG game scenarios from authors' own templates; code and prompts stated as shared (Appendix B, Reproducibility Statement)"
+  },
+  "cost": {
+    "est_calls": 96,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Cost estimated at 3 seeds (96 of the original 160 runs) x $0.266/run (Table 3) = ~$25.5. o3-mini is the sole model run without temperature=0 (API does not support it). Baselines include gpt-4o-2024-08-06 and gpt-4o-mini-2024-07-18 (not on the live list) plus Claude/Deepseek/Qwen/Llama models, out of scope for this row."
+}

@@ -1,0 +1,108 @@
+{
+  "wid": "W4404783788",
+  "title": "Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding); max_tokens 512 covers the longest LongBench generation budget",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1930,
+    "subset_rule": "all: LongBench narrativeqa 200, qasper 200, multifieldqa_en 150, hotpotqa 200, 2wikimqa 200, musique 200, qmsum 200; InfiniteBench longbook_qa_eng 351, longbook_choice_eng 229 (Table 6)",
+    "approximation": "Contexts longer than the 128k window are middle-truncated (LongBench convention; the paper says inputs are truncated to the context limit); per-dataset scores use the LongBench / InfiniteBench reference metrics."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "zai-org/LongBench (formerly THUDM/LongBench; data.zip) for the 7 LongBench sets and xinrongzhang2022/InfiniteBench for En.QA (longbook_qa_eng.jsonl) and En.MC (longbook_choice_eng.jsonl)",
+    "config_or_split": "LongBench configs narrativeqa, qasper, multifieldqa_en, hotpotqa, 2wikimqa, musique, qmsum (split test); InfiniteBench splits longbook_qa_eng, longbook_choice_eng",
+    "filter": null,
+    "fields": {
+      "input": "input",
+      "context": "context",
+      "label": "answers",
+      "id": "_id",
+      "options": "all_classes"
+    },
+    "license": "LongBench: MIT (GitHub release; no tag on the dataset card); InfiniteBench: Apache-2.0",
+    "access_checked": true,
+    "size_mb": 900,
+    "hf": null,
+    "file_url": null,
+    "fields_prose": {
+      "input": "input (question/query) + context",
+      "options": "options (En.MC) / all_classes",
+      "label": "answers (LongBench list) / answer (InfiniteBench list)",
+      "id": "_id (LongBench) / id (InfiniteBench)"
+    },
+    "label_map": null,
+    "access_note": "zai-org/LongBench: loading script + data.zip (114 MB, zip is not a supported format; Hub parquet API answers 400); xinrongzhang2022/InfiniteBench: longbook_qa_eng.jsonl 298 MB and longbook_choice_eng.jsonl 186 MB (> 100 MB each; not downloaded)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are given a story, which can be either a novel or a movie script, and a question. Answer the question as concisely as you can, using a single phrase if possible. Do not provide any explanation. If the question cannot be answered based on the information in the article, write \"unanswerable\". Story: {context} Now, answer the question based on the story as concisely as you can, using a single phrase if possible. Do not provide any explanation. If the question cannot be answered based on the information in the article, write \"unanswerable\". Question: {input} Answer:",
+    "placeholders": {
+      "context": "items.context",
+      "input": "items.input"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix C, Table 9 (Prompts for each dataset)",
+    "verbatim": "full (Qasper row: the extraction dropped the braces around 'input', restored to {input}; line breaks inside the prompts follow the LongBench/InfiniteBench release files from which Table 9 was adapted); machine form: user_template holds the NarrativeQA block, all nine blocks (unchanged) are in user_template_by_dataset",
+    "user_template_by_dataset": {
+      "NarrativeQA": "You are given a story, which can be either a novel or a movie script, and a question. Answer the question as concisely as you can, using a single phrase if possible. Do not provide any explanation. If the question cannot be answered based on the information in the article, write \"unanswerable\". Story: {context} Now, answer the question based on the story as concisely as you can, using a single phrase if possible. Do not provide any explanation. If the question cannot be answered based on the information in the article, write \"unanswerable\". Question: {input} Answer:",
+      "Qasper": "You are given a scientific article and a question. Answer the question as concisely as you can, using a single phrase or sentence if possible. If the question cannot be answered based on the information in the article, write \"unanswerable\". If the question is a yes/no question, answer \"yes\", \"no\", or \"unanswerable\". Do not provide any explanation. Article: {context} Answer the question based on the above article as concisely as you can, using a single phrase or sentence if possible. If the question cannot be answered based on the information in the article, write \"unanswerable\". If the question is a yes/no question, answer \"yes\", \"no\", or \"unanswerable\". Do not provide any explanation. Question: {input} Answer:",
+      "MultiFieldQA": "Read the following text and answer briefly. {context} Now, answer the following question based on the above text, only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". Question: {input} Answer:",
+      "HotpotQA": "Answer the question based on the given passages. Only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". The following are given passages. {context} Answer the question based on the given passages. Only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". Question: {input} Answer:",
+      "2WikiMQA": "Answer the question based on the given passages. Only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". The following are given passages. {context} Answer the question based on the given passages. Only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". Question: {input} Answer:",
+      "MuSiQue": "Answer the question based on the given passages. Only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". The following are given passages. {context} Answer the question based on the given passages. Only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". Question: {input} Answer:",
+      "QMSum": "You are given a meeting transcript and a query containing a question or instruction. Answer the query in one or more sentences. If the question cannot be answered based on the information in the article, write \"unanswerable\". Transcript: {context} Now, answer the query based on the above meeting transcript in one or more sentences. If the question cannot be answered based on the information in the article, write \"unanswerable\". Query: {input} Answer:",
+      "En.QA": "Read the book and answer the question. Be very concise in your answer. If the question cannot be answered based on the information in the article, write \"unanswerable\". {context} Question: {input} Only give me the answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". Answer:",
+      "En.MC": "Read the book and answer the question. If the question cannot be answered based on the information in the article, write \"unanswerable\". {context} Question: {input} {all_classes} Only output the letter of the correct answer and do not output any other words. If the question cannot be answered based on the information in the article, write \"unanswerable\". The letter of the correct answer is"
+    },
+    "placeholders_prose": {
+      "context": "items.context, middle-truncated to fit the 128k window with the prompt",
+      "input": "items.input (question or query)",
+      "all_classes": "En.MC only: the four options formatted 'A. ...\\nB. ...\\nC. ...\\nD. ...'",
+      "_note": "one template per dataset, separated by '=== <dataset> ===' headers"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "strip; LongBench normalization (lowercase, remove punctuation/articles) inside the F1 scorer",
+    "parse_prose": "free text (QA/summarization); En.MC: regex first letter A-D"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "unweighted mean over the 9 datasets of the per-dataset score: token-level QA F1 (LongBench qa_f1_score) for NarrativeQA, Qasper, MultiFieldQA, HotpotQA, 2WikiMQA, MuSiQue and En.QA, ROUGE-L for QMSum, accuracy for En.MC; each x100.",
+    "judge": "none",
+    "original_value": 48.67,
+    "original_location": "Table 1, GPT-4O block, row 2-1 LC, column Avg",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1930,
+    "est_usd": 500.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "runner gap: nine datasets, each with its own template and source (per-field / per-dataset template selection and a list of sources).",
+    "runner gap: per-dataset metrics (LongBench token-F1 with its normalisation for 7 sets, ROUGE-L for QMSum, accuracy for En.MC) averaged - only rouge_l/exact_match exist; gold 'answers' is a LIST of references (max over references) which the runner's scorers do not handle.",
+    "runner gap: middle-truncation of contexts to the 128k window is not available (no truncation rule).",
+    "sources: LongBench ships as data.zip (114 MB) behind a loading script and InfiniteBench files exceed 100 MB - not downloaded.",
+    "cost: ~$500 at one seed (Table 1 GPT-4O LC row); a human must approve or subset per dataset.",
+    "hook download limit: LongBench data.zip (114 MB) and the InfiniteBench files (298 MB, 186 MB) exceed the 100 MB per-file limit for hook downloads; a human must stage the nine test files locally (items.file_url per dataset) before a per-dataset template/metric hook can run"
+  ],
+  "notes": "InfiniteBench contexts average ~150k words (>128k tokens) so ~580 calls run at the full 128k window; LongBench contexts average 4-18k words. Per-dataset values in Table 1 (32.78, 44.54, 55.28, 62.42, 70.69, 41.65, 21.92, 32.36, 76.42) allow a per-dataset check.",
+  "runner_gaps": [
+    "prompt: template selected by an item field",
+    "items: several sources / zip archives / truncation",
+    "metric: token-F1 with a list of references"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "wid": "W4410110677",
+  "title": "Large Language Models for Supporting Clear Writing and Detecting Spin in Randomized Controlled Trials in Oncology",
+  "status": "ready",
+  "model": {
+    "id": "o1-2024-12-17",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 2048,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Methods (API calls with temperature 1; o1 ignores the parameter); max_completion_tokens and reasoning effort (default 'medium') assumed; machine form: max_tokens 2048 is sent as max_completion_tokens (runner rule for o1), reasoning_effort medium = API default, temperature is dropped by the runner for reasoning models",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 249,
+    "subset_rule": "all 250 annotated oncology RCT abstracts (146 positive / 104 negative)",
+    "approximation": "one of the 250 trials (row 176, doi 10.1001/jama.2021.0987) is dropped by the runner: its abstract contains the literal token '{IQR}', which the unfilled-placeholder check treats as an unrendered slot; 249 trials (145 POSITIVE / 104 NEGATIVE) are run"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "windisch-paul/positive_negative, file trials_with_predictions.csv (header verified: doi, journal, date, title, abstract, abstract_introduction, abstract_methods, abstract_results, abstract_conclusions, Annotation_accept, Annotation_disagreement, Disagreement_reason, <model>_temp100_<round>_response_raw columns incl. o1_temp100_title_abstract_response_raw)",
+    "config_or_split": "trials_with_predictions.csv (250 rows)",
+    "filter": null,
+    "fields": {
+      "input": "abstract",
+      "title": "title",
+      "label": "Annotation_accept",
+      "id": "doi"
+    },
+    "license": "unknown (repository license not read)",
+    "access_checked": true,
+    "size_mb": 1,
+    "file_url": "https://raw.githubusercontent.com/windisch-paul/positive_negative/main/trials_with_predictions.csv",
+    "fields_prose": {
+      "input": "title + abstract (round four: title and full abstract)",
+      "label": "Annotation_accept (positive / negative)",
+      "id": "doi"
+    },
+    "label_map": null,
+    "columns_verified": "250 rows; Annotation_accept = POSITIVE 146 / NEGATIVE 104 (upper case); doi unique; title and abstract non-empty"
+  },
+  "prompt": {
+    "system": "You will be provided with the title and abstract of a randomized controlled oncology trial. Your task will be to classify if the trial was positive, i.e. if it met its primary endpoint, or negative, i.e. if it did not meet its primary endpoint. Your response should be either the word POSITIVE (in all caps) or NEGATIVE (in all caps).",
+    "user_template": "{title}\n\n{abstract}",
+    "placeholders": {
+      "title": "items.title",
+      "abstract": "items.abstract"
+    },
+    "few_shot": "none",
+    "source_location": "Methods (system prompt quoted verbatim; user prompt = the respective title and abstract)",
+    "verbatim": "full for the system prompt; the user message layout (title, blank line, abstract) is not specified and is assumed; machine form: the {section} slot of the system prompt is pre-filled with 'title and abstract' (round four) because the runner substitutes placeholders in the user template only",
+    "system_prose": "You will be provided with the {section} of a randomized controlled oncology trial. Your task will be to classify if the trial was positive, i.e. if it met its primary endpoint, or negative, i.e. if it did not meet its primary endpoint. Your response should be either the word POSITIVE (in all caps) or NEGATIVE (in all caps).",
+    "placeholders_prose": {
+      "section": "'title and abstract' (round four)",
+      "title": "items.title",
+      "abstract": "items.abstract (full abstract)"
+    }
+  },
+  "output": {
+    "parse": "label from set [POSITIVE, NEGATIVE]",
+    "postprocess": "case-insensitive whole-word match; if both words occur the set order (POSITIVE first) decides; a reply with neither word is unparsed and scored as wrong",
+    "parse_prose": "label from set [POSITIVE, NEGATIVE]: first occurrence (case-insensitive) in the reply"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 250 trials whose POSITIVE/NEGATIVE label equals the human annotation (Table 1 reports accuracy 0.97 = the F1 of the positive class 0.97 for this cell; the runner has no positive-class F1, so the accuracy cell is compared)",
+    "judge": "none",
+    "original_value": 0.97,
+    "original_location": "Table 1, block 'Title + abstract', row o1, column Accuracy (0.97; F1-Score 0.97, precision 0.98, recall 0.97; 95% CI 0.95-0.99)",
+    "bootstrap_unit": "item",
+    "name_prose": "micro_f1",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 250,
+    "est_usd": 38.0,
+    "tier": "high"
+  },
+  "open_points": [],
+  "notes": "The CSV stores the paper's raw o1 responses (o1_temp100_title_abstract_response_raw), which give a direct response-level comparison. The other three input rounds use abstract_conclusions / abstract_methods / abstract_results with the matching {section} string. Annotation_accept value strings (positive/negative) to be mapped at load time. Machine fields added 2026-09-07. --prepare 2026-09-07: 249 items, est $33.25 at one seed.",
+  "runner_gaps": [
+    "metric: binary (positive-class) F1 not available - accuracy cell used",
+    "render: the unfilled-slot check scans the rendered text, so an item containing '{word}' is silently dropped (row 176 here)"
+  ]
+}

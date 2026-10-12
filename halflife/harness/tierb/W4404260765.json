@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404260765",
+  "title": "Intelligent Computing Social Modeling and Methodological Innovations in Political Science in the Era of Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Footnote (Sec. 4): 'In June 2024, we conducted experiments based on GPT-4-Turbo and Qwen-Max models using the same prompt. The average difference in results was 0.007'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary materials",
+    "note": ""
+  },
+  "claim": {
+    "metric": "average difference between two models",
+    "value": 0.007,
+    "n_items": null,
+    "location": "Footnote to the 2020 US election simulation case (Sec. 4)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Simulated voter samples (300 per state) compared with ABM benchmarks"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Methodological/position paper; the live model only appears in a stability footnote; no evaluable number with n."
+}

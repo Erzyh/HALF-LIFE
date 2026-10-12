@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4415312658",
+  "title": "Treasure Hunt: Real-time Targeting of the Long Tail using Training-Time Markers",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "A",
+    "evidence": "'We used gpt-4o-2024-05-13 as our judge model' (footnote 2, Section 5)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C (few-shot marker-annotation prompt for Command A); judge prompt not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "pairwise win rate vs baseline (GPT-4o judge)",
+    "value": null,
+    "n_items": null,
+    "location": "Section 5 figures",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-05-13"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Cohere training and evaluation sets (Command R+ based models)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is the pairwise judge; subjects are trained Cohere models."
+}

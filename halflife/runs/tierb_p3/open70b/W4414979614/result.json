@@ -1,0 +1,56 @@
+{
+  "wid": "W4414979614",
+  "title": "Overcoming Language Barriers: Multilingual Analysis of the 2023 Swiss Privacy Law's Impact",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 0.93,
+  "original_location": "Sec. 4 Results / Figure 1, practice contr, language English (artifact Results_GPT5/eval_metrics.csv gives 0.9285714285714286, with accuracy 0.9333, precision 0.8667, recall 1.0)",
+  "reexecution": {
+    "mean_over_seeds": 0.787878787878788,
+    "per_seed": {
+      "0": {
+        "value": 0.787878787878788,
+        "n": 30,
+        "ci95": [
+          0.5925925925925926,
+          0.9118181818181816
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4414979614",
+    "n_items": 30,
+    "n_requests": 30,
+    "seeds": 1,
+    "est_usd": 0.13,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 0.93,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper's call pins seed=123 and forces the answer through a strict json_schema response_format; the runner treats any gpt-5* id as a reasoning model and sends neither, so the JSON comes only from the prompt's own '### OUTPUT ###' instruction. The paper ran one pass; we run three seeds. Otherwise identical: same system prompt, same codebook user prompt, same anonymized policy text as a second user message.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-5-2025-08-07",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4414979614"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.787878787878788,
+    "delta": -0.1421212121212121,
+    "original_inside_ci95": false
+  }
+}

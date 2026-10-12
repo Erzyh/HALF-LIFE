@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4409854784",
+  "title": "Leveraging Large Language Models for Accurate Retrieval of Patient Information From Medical Reports: Systematic Evaluation Study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Methods: 'GPT-4o ... shows superior performance compared to GPT-4 Turbo'; the model run is the 'GPT-4o-2024-08-06 version' via the OpenAI API."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Methods (LangChain prompt_template code snippet with category placeholders)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "overall accuracy (%), GPT-4o",
+    "value": 91.4,
+    "n_items": null,
+    "location": "Abstract/Results: 'GPT-4o achieving the highest overall performance (91.4% accuracy)'",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Anonymized Spanish medical reports (PDF) from hospitals; not released"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "data_closed"
+  ],
+  "notes": "Subject model gpt-4o-2024-08-06 is not in the live_ids column; GPT-4 Turbo is a comparison mention only."
+}

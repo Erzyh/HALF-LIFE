@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4417143091",
+ "title": "Large Language Models in Medicine: Application Status and Challenges",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"The study by Perlis et al. showed that GPT-4 turbo achieved an accuracy of [diagnostic accuracy]...\" - a citation of another paper's finding within a narrative review."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - this is a narrative literature review",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none run by these authors; all figures (GPT-4 turbo, GPT-4o, GPT o1 Pro 83.4%, DeepSeek-R1/V3, AMIE, etc.) are drawn from cited external studies",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (survey of LLM applications in medicine) and narrative text",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "n/a (review of published literature)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A narrative review of LLM applications and challenges in medicine; the authors run no experiments themselves. GPT-4 turbo, o1-pro and o3-mini (also in the CSV's live_ids) each appear only as citations of other groups' reported results."
+}

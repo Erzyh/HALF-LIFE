@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412945659",
+  "title": "SCALE: Towards Collaborative Content Analysis in Social Science with Large Language Model Agents and Human Intervention",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 5.1: 'The identifiers for GPT-4o and GPT-4o-mini are gpt-4o-2024-05-13 and gpt-4o-mini-2024-07-18, respectively.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D.1-D.6 (persona, coding, discussion, codebook-evolution, human-intervention, CoT/ToT prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "coding accuracy (average over 7 tasks)",
+    "value": 0.72,
+    "n_items": 492,
+    "location": "Table 2, row GPT-4o, column Avg.",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Five custom content-analysis corpora (BCD, CES, CN, FWPE, PIS; Table 1); no release statement; code at github.com/ChengshuaiZhao0/SCALE"
+  },
+  "cost": {
+    "est_calls": 5000,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Multi-agent coding with discussion rounds and optional human intervention. n = number of texts in Table 1 (92+40+60+100+200) coded for 7 variables. The corpora look like private social-science data; verify the repo before reconsidering."
+}

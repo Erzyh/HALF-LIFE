@@ -1,0 +1,81 @@
+{
+ "wid": "W4407425826",
+ "title": "Verifying LLM-Generated Code in the Context of Software Verification with Ada/SPARK",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4o-2024-05-13",
+  "params": {
+   "temperature": 1.0,
+   "max_tokens": 4096,
+   "top_p": 1.0,
+   "n": 12
+  },
+  "params_source": "assumed (the paper states no temperature, top-p or max tokens; it only notes that the N-Solutions samples are \"in most cases distinct\" because of the temperature parameter, so the OpenAI default 1.0 is taken). n is the N-Solutions parameter of Sec. 5.2; max_tokens must hold a whole .adb file, 4096 assumed.",
+  "seeds": 3
+ },
+ "task": {
+  "type": "generation",
+  "n_items": 71,
+  "subset_rule": "all 71 benchmark cases (Table 2: All pragmas 14, Last invariant all loops 12, One assert 7, All pragmas one loop 16, Last invariant one loop 22)",
+  "approximation": "BLOCKING - not a single-call battery: each case is an (n, r) loop in which GNATprove must compile and verify every candidate, extract its medium messages and feed them into the next retry."
+ },
+ "items": {
+  "source_type": "github",
+  "source": "the Marmaragan release (Sec. 3.1 prints the tool name followed by a '[GitHub]' hyperlink whose URL the PDF extraction dropped); the 16 source programs come from the Argu repository (Cramer 2023), the SPARK tutorial and the spark-by-example repository",
+  "config_or_split": "five pragma-removal schemas over the 16 programs -> 71 cases",
+  "filter": null,
+  "fields": {
+   "input": "package_body",
+   "label": "gnatprove verdict",
+   "id": "benchmark case",
+   "dependencies": "specification and dependency files"
+  },
+  "license": "unknown (repository URL not recoverable from the extracted text)",
+  "access_checked": false,
+  "size_mb": null,
+  "file_url": null,
+  "fields_note": "Each item is a whole SPARK project: the .ads specification plus dependencies ({dependencies}) and the pragma-stripped .adb body ({package_body}). Neither the stripped bodies nor the removal schemas are printed in the paper."
+ },
+ "prompt": {
+  "system": "You are a Spark2014 / ADA programmer with strong logical reasoning abilities.\nYou will be given an Implementation of a program, a specification of the program and the mediums that GnatProve raised for it.\nYou must complete the package body of the given program, inserting one or multiple pragma statements.\nYou must not modify the code in any other way, except to add for loops and if statements that enclose only pragma statements, and do not modify the functionality.",
+  "user_template": "Try to solve the following problem logically and step by step. The final answer should then be delimited in the following way:\n```ada\ncode here\n```\nThe following are the specifications and dependencies of a Spark2014 / ADA project:\n{dependencies}\nThis is the package body (implementation):\n{package_body}\nAdd one or multiple pragma statements\n(e.g. pragma Loop_Invariant, pragma Assert) to the package body, so that the code runs error and medium free.\nMake use of the mediums provided in the prompt to guide your solution.\nYou must not modify the code in any other way, except to add \"for\" loops and \"if\" statements that enclose only pragma statements.\nDo not modify the functionality in any way. Return the entire implementation file with the required additions.",
+  "placeholders": {
+   "dependencies": "items.dependencies",
+   "package_body": "items.package_body"
+  },
+  "few_shot": "none",
+  "source_location": "Listing 2 (\"The base prompt used to query the LLM\", Sec. 3.4.2) and Listing 3 (\"The system message passed to the LLM\")",
+  "verbatim": "full, with two repairs of PDF listing damage: the spaces the listing inserts before punctuation are removed and the typographic code fence is restored to ```ada / ```. The medium-in-prompt feature (Sec. 3.4.3) appends GNATprove medium messages to this base prompt; that appendix appears only as Figure 2 (an image), so its layout is unknown."
+ },
+ "output": {
+  "parse": "regex ```ada\\s*(.*?)```",
+  "postprocess": "take the fenced Ada block as the new package body; the paper also post-processes LLM output before compiling (Stage 3 of Figure 1), details unpublished",
+  "parse_paper": "extract the ```ada fenced block, write it back as the .adb file and run GNATprove"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "correct-annotation rate: a case counts as solved when at least one of the n(r+1) candidates makes GNATprove report neither errors nor mediums; 36 of 71 cases were solved across the five (n, r) experiments.",
+  "judge": "none - the verdict is GNATprove (formal verification), not an LLM",
+  "original_value": 50.7,
+  "original_location": "Abstract and Sec. 6.1 (\"correct annotations for 36 out of 71 (50.7%) of the benchmark cases\"); per-benchmark breakdown in Table 2",
+  "bootstrap_unit": "benchmark case",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 2556,
+  "est_usd": 120.0,
+  "tier": "low",
+  "est_note": "71 cases x 12 candidates = 852 completions for ONE (n, r) configuration; x3 seeds = 2,556. A rough gpt-4o-2024-05-13 figure at ~4k input / ~1.5k output tokens per call, not a dry-run number: --prepare cannot build these items. seeds 3 follows the low-tier rule, but the paper's own N-Solutions parameter already draws 12 samples per prompt, so a human may prefer seeds 1."
+ },
+ "open_points": [
+  "Scoring needs a local formal-verification toolchain: correctness is 'GNATprove reports no error and no medium'. The runner has no such metric and a reply cannot be scored without installing GNAT/SPARK and compiling each candidate. A human must decide whether to stand that up.",
+  "Protocol is not a single call: the N-Solutions x Retries combinations (12,0), (6,1), (4,2), (3,3), (2,5) feed GNATprove output from attempt k into attempt k+1, an interactive loop the battery cannot drive.",
+  "Items unavailable: the Marmaragan repository URL is lost in the PDF extraction and the 71 pragma-stripped cases are not printed, so {dependencies} and {package_body} cannot be filled.",
+  "The reported 50.7% is the union over five experiments (a case counts as solved if any configuration solved it), not one run's score; the single-experiment totals in Table 1 are 20/24/24/20/18, i.e. 25-34%. Which number a re-run should target is a decision."
+ ],
+ "notes": "Sec. 5.5 reports the authors' own replication of the two best configurations: 24/71 -> 25/71 and 24/71 -> 26/71, so the metric moves by one or two cases between identical runs. || The Argu programs (36 of the 71 cases) post-date the GPT-4o training cutoff and serve as the paper's contamination control.",
+ "runner_gaps": [
+  "scoring: external formal verifier (GNATprove) as the correctness oracle",
+  "protocol: multi-attempt retry loop with tool output fed back into the prompt"
+ ]
+}

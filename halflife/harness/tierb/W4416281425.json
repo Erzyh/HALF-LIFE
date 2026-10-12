@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416281425",
+  "title": "Strategic Business Management in the Banking Sector: Enhancing Operational Efficiency and Growth",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "'various LLM backbones, including gpt-4o, gpt-4-turbo, gpt-3.5-turbo, and llama3-70b ... sampling temperature of 0.0' (Section 4.6); 'AgentPoirot (gpt-4-turbo) 0.30 +/- 0.02' (Table 1)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendix D (Prompt 9 etc.) is referenced but absent from the text",
+    "note": ""
+  },
+  "claim": {
+    "metric": "ROUGE-1 / LLaMA-3-Eval on InsightBench (AgentPoirot agent)",
+    "value": 0.3,
+    "n_items": null,
+    "location": "Table 1, row AgentPoirot (gpt-4-turbo): 0.30, 0.56, 0.35, 0.35 (five seeds)",
+    "task_type": "agentic",
+    "judge": "llm:LLaMA-3-70b (LLaMA-3-Eval)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "InsightBench (ServiceNow-derived tables; 100 datasets)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Body text reproduces the InsightBench/AgentPoirot data-analytics study despite the banking title; the agent executes generated code and needs the original framework."
+}

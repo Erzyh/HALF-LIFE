@@ -1,0 +1,21 @@
+{
+  "wid": "W4416034777",
+  "n_items": 100,
+  "n_requests": 100,
+  "seeds": 1,
+  "est_usd": 3.79,
+  "subset_note": "paraphrase p2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [100]",
+  "dropped_unrenderable": null,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 0.107,
+  "cap_usd": 2.03,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416034777",
+  "paraphrase": "p2",
+  "pairs": [
+    [
+      "You are playing the Rock-Paper-Scissors game. You should first reason about the Nash equilibrium of this game, and then choose one action from {Rock, Paper, Scissors} based on your reasoning. Please choose an exact action.",
+      "This is a game of Rock-Paper-Scissors. First think through the Nash equilibrium of the game; then, guided by your analysis, select one action from {Rock, Paper, Scissors}. State exactly one action."
+    ]
+  ]
+}

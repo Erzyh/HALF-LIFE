@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7168987768",
+ "title": "Associations between multidimensional fatigue and wearable-derived cardio-respiratory variables in post-COVID-19 patients: an observational study",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-4-turbo, OpenAI, 2025)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Generative AI statement: \"We acknowledge the use of ChatGPT (GPT-4-turbo, OpenAI, 2025) via the ChatGPT web interface to assist with improving the clarity and readability of the manuscript text and to generate or refine minor sections of code...The model did not generate or analyze study data, nor did it make any scientific or clinical interpretations.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Manuscript-editing disclosure only."
+ },
+ "claim": {
+  "metric": "none (clinical study of fatigue and wearable cardio-respiratory data; the LLM played no role in the reported science)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Standard AI-assisted-writing disclosure (web interface, manuscript text and minor data-processing code only); the paper's actual research (post-COVID fatigue vs. wearable cardio-respiratory variables) does not involve the LLM at all."
+}

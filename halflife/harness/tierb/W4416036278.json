@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036278",
+  "title": "HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "\"we also run HydraRAG with GPT-4-Trubo, Deepseek-v3, Llama-3.1-70B, and Llama-3.1-8B ... temperature to 0.4 during evidence exploration ... 0 during ... answer generation\" (App. C)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix E: HydraRAG component templates (question analysis, source selector, path refinement, CoT answering); IO baseline prompt not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Hits@1 accuracy, IO baseline, AdvHotpotQA",
+    "value": 46.4,
+    "n_items": 308,
+    "location": "Table 2, column GPT-4-Turbo / IO, row AdvHotpotQA",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AdvHotpotQA (308), WebQSP (1,639), CWQ (1,000 sampled), ZeroShot RE"
+  },
+  "cost": {
+    "est_calls": 924,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Headline HydraRAG numbers (e.g. 67.9 on AdvHotpotQA) need Freebase SPARQL, live web search and Wikipedia retrieval; not light. Version string not printed."
+}

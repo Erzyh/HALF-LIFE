@@ -1,0 +1,11 @@
+{
+  "wid": "W7166852552",
+  "n_items": 8345,
+  "n_requests": 25035,
+  "seeds": 3,
+  "est_usd": 0.48,
+  "subset_note": null,
+  "model": "gpt-4.1-nano",
+  "metric": "accuracy",
+  "original_value": 46.51
+}

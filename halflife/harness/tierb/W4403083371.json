@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4403083371",
+  "title": "The Impact of ChatGPT on Higher Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Lately, OpenAI introduced GPT-4 Turbo, a more important... GPT-4 Turbo can accept images and textbook...\" (general-discussion prose, no experiment)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "No prompts or experiments; the paper is a discursive overview citing tech-news articles."},
+  "claim": {
+    "metric": "none", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (opinion overview, no dataset)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Published in International Journal of Computer Applications. GPT-4 Turbo is only described in background prose (citing tech blogs like tech.co and gizmochina); no original evaluation is run."
+}

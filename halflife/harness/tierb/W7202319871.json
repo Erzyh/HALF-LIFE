@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7202319871",
+ "title": "Automated Generation of Complexity-Validated Decision Scenarios Using Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (undated); \"GPT-4 Turbo\" only in a background architectural-lineage sentence",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "\"DeepSeek Chat V3 (n=1,070), GPT-4o (n=890), and a two-scenario GPT-5.2 pilot\"; \"GPT-4o was severely biased (p<.001)\"; Table row \"GPT-4o 584.724 2.07x10^-126 890 Biased\" (chi-square domain-imbalance test)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method (scenario-generation pipeline across models); exact prompt template not located in the retrieved excerpt",
+  "note": ""
+ },
+ "claim": {
+  "metric": "chi-square test of domain imbalance across generated decision scenarios, GPT-4o",
+  "value": 584.724,
+  "n_items": 890,
+  "location": "Results table: \"GPT-4o 584.724 2.07x10^-126 890 Biased\"",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Author-generated decision-scenario corpus across multiple LLMs (890 GPT-4o scenarios, 1,070 DeepSeek, etc.); release not confirmed in retrieved text"
+ },
+ "cost": {
+  "est_calls": 890,
+  "tier": "low"
+ },
+ "blockers": [
+  "alias_unpinned"
+ ],
+ "notes": "GPT-4o is run directly as a scenario generator (n=890) with clean statistics on domain-coverage bias, but is never dated in-text; the paper is dated 2026-08-09 (alias_note), well past the undated-GPT-4o cutoff, so it resolves to 'unresolved' per the dating rule rather than gpt-4o-2024-05-13. 'GPT-4 Turbo' elsewhere in the text is only a background mention of model lineages, not this paper's own experiment."
+}

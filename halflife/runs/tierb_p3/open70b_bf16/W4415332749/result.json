@@ -1,0 +1,58 @@
+{
+  "wid": "W4415332749",
+  "title": "J4R: Learning to Judge with Equivalent Initial State Group Relative Policy Optimization",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "custom",
+  "original_value": 73.1,
+  "original_location": "Table 6 (Appendix C.2), row 'o1', Avg. column (splits 77.59 / 90.38 / 58.15 / 65.33 over 598 / 260 / 325 / 300 samples micro-average to 73.09)",
+  "reexecution": {
+    "mean_over_seeds": 0.44,
+    "per_seed": {
+      "0": {
+        "value": 0.44,
+        "n": 100,
+        "ci95": [
+          0.3,
+          0.58
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4415332749",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 0.18,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 73.1,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4415332749",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "The paper ran the OpenAI Batch API; we call the same snapshot synchronously. The per-paper cost cap will cut the item set (see cost.prepare_note): the metric is then computed on the surviving samples and is no longer the full-benchmark number.",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "o1-2024-12-17",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W4415332749"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 44.0,
+    "delta": -29.099999999999994,
+    "original_inside_ci95": false
+  }
+}

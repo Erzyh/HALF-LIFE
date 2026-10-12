@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4401201931",
+ "title": "Smart Language Agents in Real-World Planning",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec 4.1: \"We decided to use GPT-4 Turbo as the base travel-planning agent model due to its high performance... its easy accessibility through its API.\"; Table 1 row \"GPT-4 Turbo Baseline\" Final Pass Rate 5.55."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 4.3 (\"we used their zero-shot prompt, with unstructured reference data\" - TravelPlanner's own published prompt, cited via GitHub, not reprinted in this paper)",
+  "note": "The paper's own 'Manually Modified' and 'GPT-4o Generated' prompts are described only qualitatively and are not reconstructable from the text."
+ },
+ "claim": {
+  "metric": "Final Pass Rate, TravelPlanner sole-planning (zero-shot baseline)",
+  "value": 5.55,
+  "n_items": 180,
+  "location": "Table 1, row 'GPT-4 Turbo Baseline' (TravelPlanner validation split)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "TravelPlanner benchmark (Xie et al. 2024); authors' fork at github.com/llv22/TravelPlanner_forward"
+ },
+ "cost": {
+  "est_calls": 180,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "This baseline number is essentially a re-run of TravelPlanner's own published zero-shot GPT-4-Turbo result, using their public eval scripts. The paper's actual contribution (human-in-the-loop refined prompt, final pass rate up to 12.78) is not reproducible since its exact prompt content is only described qualitatively. GPT-4o is used separately, only to auto-generate prompt rules, not as the plan-generation agent."
+}

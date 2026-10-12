@@ -1,0 +1,156 @@
+{
+  "card": "W4402565126",
+  "model": "gpt-4-turbo-2024-04-09",
+  "label": "re-execution",
+  "n_calls": 10800,
+  "n_rows": 1080,
+  "dropped_rows": [],
+  "nulls_by_item": {},
+  "projection_residual": 5.1958437552457326e-14,
+  "original": {
+    "default_point": [
+      2.7519387399861985,
+      -0.5683363124966192
+    ],
+    "default_variant_spread": 0.7546233009405083,
+    "n_default_variants": 10,
+    "n_countries_default": 107,
+    "mean_distance_default": 2.7062114535105235,
+    "closest_default": {
+      "New Zealand": 0.125,
+      "Australia": 0.323,
+      "Iceland": 0.381,
+      "Great Britain": 0.535,
+      "Canada": 0.541
+    },
+    "closest_default_regions": [
+      "English-Speaking",
+      "English-Speaking",
+      "Protestant Europe",
+      "English-Speaking",
+      "English-Speaking"
+    ],
+    "farthest_default": {
+      "Jordan": 4.195,
+      "Moldova": 4.168,
+      "Tunisia": 4.108,
+      "Libya": 4.052,
+      "Zimbabwe": 4.044
+    },
+    "n_countries_paired": 107,
+    "mean_distance_cp": 1.7721067194506253,
+    "mean_distance_default_paired": 2.7062114535105235,
+    "mean_reduction": 0.9341047340598979,
+    "mean_reduction_ci95": [
+      0.7065728865164034,
+      1.1379761755621791
+    ],
+    "share_improved": 0.8130841121495327,
+    "n_improved": 87,
+    "wilcoxon_stat": 805.0,
+    "wilcoxon_p": 9.350466083117634e-11,
+    "largest_cp_distance": {
+      "Taiwan ROC": 3.292,
+      "Georgia": 3.093,
+      "Finland": 2.841
+    },
+    "verdict": "survival"
+  },
+  "original_reported": {
+    "mean_default": 2.71,
+    "mean_cp": 1.77,
+    "share_improved": 0.813,
+    "wilcoxon_p": "<0.001",
+    "closest_default_text": {
+      "Netherlands": 0.21,
+      "Switzerland": 0.28,
+      "Iceland": 0.31
+    },
+    "farthest_default_text": {
+      "Jordan": 4.34,
+      "Libya": 4.22,
+      "Tunisia": 4.16
+    }
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "fingerprints": [
+      "fp_0334fb4582",
+      "fp_386f92a16c",
+      "fp_5b6a502ecb",
+      "fp_8785c138c8",
+      "fp_9df61e0122",
+      "fp_a50a1fba2d",
+      "fp_c887018854",
+      "fp_d933513d40",
+      "fp_f2f751a792",
+      "fp_fadb1d6b2a"
+    ]
+  },
+  "reexecution": {
+    "default_point": [
+      2.580747660139869,
+      -0.36793802137805937
+    ],
+    "default_variant_spread": 0.7512290911076726,
+    "n_default_variants": 10,
+    "n_countries_default": 107,
+    "mean_distance_default": 2.5233783055814234,
+    "closest_default": {
+      "Australia": 0.112,
+      "New Zealand": 0.209,
+      "Great Britain": 0.277,
+      "Canada": 0.323,
+      "Switzerland": 0.4
+    },
+    "closest_default_regions": [
+      "English-Speaking",
+      "English-Speaking",
+      "English-Speaking",
+      "English-Speaking",
+      "Protestant Europe"
+    ],
+    "farthest_default": {
+      "Jordan": 4.053,
+      "Moldova": 3.931,
+      "Tunisia": 3.923,
+      "Libya": 3.92,
+      "Zimbabwe": 3.868
+    },
+    "n_countries_paired": 107,
+    "mean_distance_cp": 1.5903084711057849,
+    "mean_distance_default_paired": 2.5233783055814234,
+    "mean_reduction": 0.933069834475639,
+    "mean_reduction_ci95": [
+      0.7109273668504316,
+      1.1404791342495615
+    ],
+    "share_improved": 0.7850467289719626,
+    "n_improved": 84,
+    "wilcoxon_stat": 773.0,
+    "wilcoxon_p": 4.8148122897477586e-11,
+    "largest_cp_distance": {
+      "Yemen": 3.377,
+      "Luxembourg": 2.779,
+      "Romania": 2.662
+    },
+    "verdict": "survival"
+  },
+  "paired_cp_distance": {
+    "n": 107,
+    "mean_abs_diff": 0.2988234064568239,
+    "spearman": 0.8768392797664532
+  },
+  "closest_overlap_top5": [
+    "Australia",
+    "Canada",
+    "Great Britain",
+    "New Zealand"
+  ],
+  "item_agreement_with_archived": {
+    "n_cells": 10200,
+    "share_identical": 0.87
+  }
+}

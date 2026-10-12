@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7164395320",
+ "title": "Revolutionizing Legal Literacy Through Generative AI",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "Abstract (Zenodo record): \"Responses are generated with GPT-4-turbo, and the web interface includes a voice mode with speech-to-text and text-to-speech for accessibility.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a (only a Zenodo landing-page abstract was retrievable, not the full MSc dissertation text)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none extractable (evaluation metrics named narratively: precision/recall/MRR/MAP/nDCG/F1, human assessment; no values given in the retrieved text)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "FIRE 2019 AILA track (Indian Supreme Court precedents); full dissertation not retrieved"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Retrieved text is a Zenodo landing-page abstract only, not the full MSc dissertation; no tables, appendix, or prompt text are available to extract a concrete claim."
+}

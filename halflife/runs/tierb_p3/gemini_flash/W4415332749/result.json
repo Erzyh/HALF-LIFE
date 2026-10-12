@@ -1,0 +1,56 @@
+{
+  "wid": "W4415332749",
+  "title": "J4R: Learning to Judge with Equivalent Initial State Group Relative Policy Optimization",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 73.1,
+  "original_location": "Table 6 (Appendix C.2), row 'o1', Avg. column (splits 77.59 / 90.38 / 58.15 / 65.33 over 598 / 260 / 325 / 300 samples micro-average to 73.09)",
+  "reexecution": {
+    "mean_over_seeds": 0.92,
+    "per_seed": {
+      "0": {
+        "value": 0.92,
+        "n": 100,
+        "ci95": [
+          0.84,
+          0.98
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4415332749",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 0.46,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 73.1,
+    "cap_usd": 2.79
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper ran the OpenAI Batch API; we call the same snapshot synchronously. The per-paper cost cap will cut the item set (see cost.prepare_note): the metric is then computed on the surviving samples and is no longer the full-benchmark number.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "o1-2024-12-17",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4415332749"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 92.0,
+    "delta": 18.900000000000006,
+    "original_inside_ci95": false
+  }
+}

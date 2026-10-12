@@ -1,0 +1,29 @@
+{
+  "wid": "W4415270561",
+  "n_items": 1000,
+  "n_requests": 1000,
+  "seeds": 1,
+  "est_usd": 0.64,
+  "subset_note": "paraphrase p1: 3 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [1000, 1000, 1000]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4.1-nano-2025-04-14",
+  "metric": "exact_match",
+  "original_value": 0.38,
+  "cap_usd": 1.3,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4415270561",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "You are a helpful assistant.",
+      "You are an assistant that helps with coding tasks."
+    ],
+    [
+      "You need to write a code that is a result of applying the following diff in unified diff format to the following code snippet:",
+      "Write the code that results from applying the following diff, given in unified diff format, to the code snippet below:"
+    ],
+    [
+      "Use triple backtick formatting for you answer (e.g., ```python...```).",
+      "Format your answer with triple backticks (for example ```python...```)."
+    ]
+  ]
+}

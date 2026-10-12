@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7142805250",
+ "title": "MOCKAI- A Personalized Voice-Interactive Interview Simulation System Using LLMS and Real-Time Speech Analytics",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"The system sends the job role, skills, and experience data to the LLM (e.g., GPT-4-turbo) through an API call\" (system architecture description, question-generation section)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt text is shown for question generation or feedback scoring; the LLM choice is only given as an illustrative example ('e.g.')."
+ },
+ "claim": {
+  "metric": "none (only candidate-facing feedback dashboards are shown; no benchmark of the LLM itself)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a; system-description paper with screenshots of a deployed app, no released dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "System/demo paper (IJRASET) describing an AI mock-interview platform; GPT-4-turbo is named only as an example backend choice, with no reproducible accuracy/quality number reported for it."
+}

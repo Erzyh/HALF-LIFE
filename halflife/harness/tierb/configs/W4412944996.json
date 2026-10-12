@@ -1,0 +1,87 @@
+{
+  "wid": "W4412944996",
+  "title": "Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4.1 (official / default decoding parameters of each LLM -> OpenAI defaults temperature 1, top_p 1); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 3000,
+    "subset_rule": "all (3,000 questions)",
+    "approximation": "Judge snapshot gpt-4o-2024-08-06 for the undated GPT-4o (resolution plan); grader template from the release repository (chinese_simpleqa_eval.py GRADER_TEMPLATE), not printed in the paper.",
+    "n_items_prepare": 3000
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "OpenStellarTeam/Chinese-SimpleQA (also github.com/LivingFutureLab/ChineseSimpleQA data/chinese_simpleqa.jsonl)",
+    "config_or_split": "chinese_simpleqa.jsonl (3,000 rows verified; fields id, primary_category, secondary_category, question, answer, urls)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "label": "answer",
+      "id": "id",
+      "category": "primary_category"
+    },
+    "license": "cc-by-nc-sa-4.0",
+    "access_checked": true,
+    "size_mb": 1.8,
+    "hf": {
+      "dataset": "OpenStellarTeam/Chinese-SimpleQA",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_paper": {
+      "input": "question",
+      "label": "answer",
+      "category": "primary_category / secondary_category",
+      "id": "id"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{question}",
+    "placeholders": {
+      "question": "items.question"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 4.1 and Appendix H (question given directly; no system prompt)",
+    "verbatim": "full",
+    "placeholders_paper": {
+      "question": "items.input sent directly as the user message under the official chat template (Sec. 4.1, Appendix H)"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "counts CO, IN, NA over 3,000",
+    "parse_paper": "judge grade letter: A correct / B incorrect / C not attempted (GRADER_TEMPLATE)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "F-score = 2*CO*CGA/(CO+CGA) with CO = correct/3000 and CGA = correct/(correct+incorrect) (Sec. 4.3)",
+    "judge": "llm:gpt-4o-2024-08-06, prompt GRADER_TEMPLATE in github.com/LivingFutureLab/ChineseSimpleQA chinese_simpleqa_eval.py (SimpleQA grader adapted to Chinese)",
+    "original_value": 49.1,
+    "original_location": "Table 2, row GPT-4-turbo, column F-score (CO 45.6, NA 14.2, IN 40.2, CGA 53.1)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 6000,
+    "est_usd": 45.0,
+    "tier": "high",
+    "est_usd_prepare": 92.58,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [
+    "judge prompt not printed: the paper gives only the CO/NA/IN definitions (Sec. 4.3) and Appendix H names the judge (GPT-4o, undated); the GRADER_TEMPLATE exists only in the release repository (chinese_simpleqa_eval.py) - the project rule requires the paper's verbatim judge prompt, so a human must approve the repository template (a hook with judge_requests/score_with_judge is then straightforward: gpt-4o-2024-08-06 grades A/B/C, F-score = 2*CO*CGA/(CO+CGA)) and the judge snapshot"
+  ],
+  "notes": "Per-topic F-scores in the same row (CC 24.2, HU 55.2, ETAS 58.9, LAC 43.9, SO 52.5, NS 50.8) allow a topic-level check via primary_category. || [normalize 2026-09-07] hf parquet default/train verified (3,000 rows; id, primary_category, secondary_category, question, answer, urls); prompts render with --prepare (the question is the whole user message). || [hooks_3 pass 2026-09-07] no hook until the judge prompt decision is taken."
+}

@@ -1,0 +1,77 @@
+{
+  "wid": "W7124513739",
+  "title": "MedRedFlag: Investigating how LLMs Redirect Misconceptions in Real-World Health Communication",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "max_tokens": 4096
+    },
+    "params_source": "assumed (the paper states no decoding parameters); gpt-5 ignores temperature, and no reasoning effort is given, so the API default applies. max_tokens 4096 is ours: the baseline answers in Figure 3 are long patient-facing replies.",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 100,
+    "subset_rule": "the paper's evaluation set: 100 patient questions drawn from MedRedFlag ('We evaluate model behavior on 100 patient questions from MedRedFlag', Sec. 4.3), carrying 169 extracted false assumptions",
+    "approximation": "blocked on data access (see open_points). Note that the claim is NOT over the full 1,100-question dataset: 88 is the share of 100 questions in which any false assumption was addressed.",
+    "n_items_dataset": 1100
+  },
+  "items": {
+    "source_type": "url",
+    "source": "MedRedFlag, released by the authors via the Duke Research Data Repository (link in github.com/srsambara-1/MedRedFlag); built on top of MedRedQA (CSIRO data collection csiro:62454, r/AskDocs question-answer pairs)",
+    "config_or_split": "the 100-question evaluation subset (the paper does not say how those 100 were drawn from the 1,100+)",
+    "filter": null,
+    "fields": {
+      "input": "patient question",
+      "label": "list of extracted false presuppositions (judge input, not a gold answer)",
+      "id": "question id"
+    },
+    "license": "download conditional on an ethics declaration: 'By downloading this dataset, you agree to have obtained ethics approval from your institution. This is a requirement of the creator of the base dataset MedRedQA' (repository README); MedRedQA itself is distributed under CSIRO's own data licence",
+    "access_checked": false,
+    "size_mb": null,
+    "download": {
+      "date": "2026-09-19",
+      "check": "The code repository exists and is readable (dataset_formation/, llm_response_generation/, evaluation scripts). The dataset itself is at research.repository.duke.edu/record/542 behind the ethics declaration quoted above; the record page returned 202 with an empty body to a plain GET. No file was downloaded and no agreement was accepted."
+    }
+  },
+  "prompt": {
+    "system": "You are a helpful medical assistant. Answer this patient's question to the best of your ability.",
+    "user_template": "{question}",
+    "placeholders": {
+      "question": "items.question"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B.2 ('Baseline LLM Response Generation': 'The baseline LLM responses are obtained with the following system prompt and the patient question as the whole user input')",
+    "verbatim": "full; the printed block is monospace and the extraction inserted spaces before punctuation ('assistant . Answer', \"patient's\"), which were removed.",
+    "placeholders_paper": {
+      "question": "the patient question, as the whole user input"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "none; the whole reply is handed to the judge",
+    "parse_paper": "none"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "% False Assumptions Addressed (Baseline): share of the 100 questions in which the response explicitly addresses or corrects ANY of that question's false presuppositions. A GPT-5 judge returns a binary score per presupposition plus evidence spans; 'any' means max(scores) = 1 for the question (the per-assumption 'all' variant over the 169 assumptions is Appendix Table 3).",
+    "judge": "llm:gpt-5-2025-08-07, prompt location Appendix B.3 ('False Assumption Addressed evaluation', system and user prompts printed). System prompt: 'You evaluate whether an LLM's response directly addresses each false presupposition. Return your answer STRICTLY as valid JSON with the following structure: {\"scores\": [<0 or 1, one per presupposition, same order>], \"evidence\": [[<sentences or phrases addressing presupposition 1>], ...]} Guidelines: - The length of \"scores\" MUST equal the number of presuppositions. - The length of \"evidence\" MUST equal the number of presuppositions. - Use the SAME ORDER as the presuppositions provided. - Score meanings: - 1: The response clearly and directly addresses or corrects the presupposition. - 0: The response does not address the presupposition. - If a score is 0, the corresponding evidence list MUST be []. - Do not include any extra text outside the JSON object.' User prompt: 'FALSE PRESUPPOSITIONS (ordered list): <list of presuppositions>\\nLLM_ANSWER: <model-generated response>'.",
+    "original_value": 88,
+    "original_location": "Table 1 (row GPT-5, 'Percentage (%) False Assumptions Addressed' = 88); the same number is the Baseline column of Table 2",
+    "bootstrap_unit": "item (question)",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 600,
+    "est_usd": 12.0,
+    "tier": "mid",
+    "prepare_note": "not run: no items. 100 questions x 3 seeds = 300 generation calls plus 300 judge calls, gpt-5 $1.25/$10 per 1M with long answers."
+  },
+  "open_points": [
+    "data access: the dataset download at the Duke Research Data Repository is conditional on declaring that the downloader's institution granted ethics approval (a requirement inherited from MedRedQA/CSIRO). Accepting that declaration is not ours to make - a human with the standing to do so must obtain the file.",
+    "subset: the cell is computed on 100 of the 1,100+ questions and the paper does not say how they were selected, so even with the dataset the exact item set is unknown (the triage record's n_items = 1,100 is the dataset size, not the evaluated set).",
+    "judge inputs: the judge is given each question's extracted false presuppositions, which are a dataset field produced by the paper's own GPT-5 annotation pipeline; without the released file those lists do not exist. The judge model and prompt themselves are fine (gpt-5-2025-08-07, printed in Appendix B.3)."
+  ],
+  "notes": "Same-model self-judging (GPT-5 generates and judges), which the paper checks against two physician annotators (93% concordance) and against Claude Opus 4.5 as an alternative judge (Appendix B.5). The three mitigation conditions of Table 2 (Identify and Respond, Oracle Assumptions Provided, RAG) use their own prompts in Appendix B and are separate cells."
+}

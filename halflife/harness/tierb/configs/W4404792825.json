@@ -1,0 +1,112 @@
+{
+  "wid": "W4404792825",
+  "title": "Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.1,
+      "max_tokens": 256,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4.2 (temperature 0.1); max_tokens and top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 10,
+    "subset_rule": "10 administrations of the 10-item General Self-Efficacy scale without any pressure prompt (Sec. 4.2: GPT models run 10 times per prompt and placement); one call per administration",
+    "approximation": "the baseline Likert instruction is not printed (Table 12 holds only the pressure prompts); a minimal Instruction-Induction style format line is written; item wording and order follow the published scale"
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "General Self-Efficacy Scale, English version (Schwarzer & Jerusalem 1995), https://userpage.fu-berlin.de/~health/engscal.htm; the 10 items are reproduced in prompt.user_template",
+    "config_or_split": "n/a",
+    "filter": null,
+    "fields": {
+      "id": "id"
+    },
+    "license": "free for non-commercial research and teaching use (scale authors' statement)",
+    "access_checked": false,
+    "size_mb": 0,
+    "inline": [
+      {
+        "id": "1"
+      },
+      {
+        "id": "2"
+      },
+      {
+        "id": "3"
+      },
+      {
+        "id": "4"
+      },
+      {
+        "id": "5"
+      },
+      {
+        "id": "6"
+      },
+      {
+        "id": "7"
+      },
+      {
+        "id": "8"
+      },
+      {
+        "id": "9"
+      },
+      {
+        "id": "10"
+      }
+    ],
+    "source_type_prose": "url",
+    "fields_prose": {
+      "input": "the 10 GSE items (fixed)",
+      "label": "none (score = sum of the 10 ratings, range 10-40)",
+      "id": "administration index 1..10"
+    },
+    "label_map": null
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Please rate how true each of the following statements is for you.\n\n1. I can always manage to solve difficult problems if I try hard enough.\n2. If someone opposes me, I can find the means and ways to get what I want.\n3. It is easy for me to stick to my aims and accomplish my goals.\n4. I am confident that I could deal efficiently with unexpected events.\n5. Thanks to my resourcefulness, I know how to handle unforeseen situations.\n6. I can solve most problems if I invest the necessary effort.\n7. I can remain calm when facing difficulties because I can rely on my coping abilities.\n8. When I am confronted with a problem, I can usually find several solutions.\n9. If I am in trouble, I can usually think of a solution.\n10. I can usually handle whatever comes my way.\n\nUse the following scale: 1 = Not at all true, 2 = Hardly true, 3 = Moderately true, 4 = Exactly true.\nAnswer with the item number followed by your rating (1-4) for each of the 10 items, one per line, and nothing else.",
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Sec. 4.2 (GSE and ES administered in Likert format with an Instruction Induction line); Appendix C.1 Table 12 (pressure prompts, not used in the baseline)",
+    "verbatim": "partial: the instruction and answer-format lines are reconstructed (not printed); the 10 items are the published GSE scale, not printed in the paper"
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "sum of the 10 ratings per administration; administrations with fewer than 10 parsable ratings are discarded and counted",
+    "parse_prose": "regex per line '^\\s*(\\d{1,2})\\D+([1-4])\\b' giving 10 (item, rating) pairs"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "mean over administrations of the GSE total score (sum of 10 Likert ratings, 10-40)",
+    "judge": "none",
+    "original_value": 31.36,
+    "original_location": "Table 2, column GPT-4o, row Base, GSE (ES 5.63)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 30,
+    "est_usd": 0.15,
+    "tier": "low",
+    "est_usd_prepare": 0.15,
+    "est_usd_dryrun_max_tokens": 0.15,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens"
+  },
+  "open_points": [],
+  "notes": "Check the item wording against the published scale page before the run (the page did not answer automated requests). The Empathy Scale baseline (5.63) can be added with the same format line. || [hook 2026-09-07] parse() sums the ten per-line ratings (administrations with fewer than ten parsable ratings are discarded and counted); score() = mean total over administrations, no gold (target 31.36). || [triage 2026-09-09] DEVIATION (instruction line reconstructed): all 30 archived replies (10 administrations x 3 seeds, one system fingerprint) are byte-identical - '1. 3 / 2. 2 / 3. 3 / 4. 3 / ... / 10. 3' = total 29 - so the degenerate CI [29, 29] is a property of the sample (zero variance at temperature 0.1), not a bootstrap-unit error. The unit is the paper's: one administration = one 10-item questionnaire scored 10-40 (Sec. 4.2: GSE on a 40-point scale, 10 runs per prompt and placement for the GPT models; Table 2 Base 31.36). The paper's decimal mean implies varying replies under its unprinted instruction line; ours is deterministic. Delta -2.36 on the 10-40 scale. Trying another instruction wording would need new calls: not run.",
+  "hook": {
+    "path": "harness/tierb/hooks/W4404792825.py",
+    "functions": [
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

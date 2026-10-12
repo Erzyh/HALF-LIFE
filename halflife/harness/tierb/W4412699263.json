@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4412699263",
+  "title": "Performance of the ChatGPT-4o Language Model in Solving the Ophthalmology Specialization Exam",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT-4o (web app); 'GPT-4 Turbo (2023)' only as background",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "Methods: 'This study was conducted from 01.06.2025 to 07.06.2025, using the GPT-4o model ... All questions were input into ChatGPT, and each interaction with the model was documented.'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Methods describe familiarizing the model with the exam rules and asking for a 1-5 confidence rating; no verbatim prompt",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (correct answers)",
+    "value": 78.3,
+    "n_items": 120,
+    "location": "Results: '94 correct answers (78.3%)'; Table 1",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "PES ophthalmology exam (CEM Lodz archive), Polish; questions not printed"
+  },
+  "cost": {
+    "est_calls": 360,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_prompt"
+  ],
+  "notes": "ChatGPT web interface with an unpinned model; gpt-4-turbo is mentioned only in the introduction (role C)."
+}

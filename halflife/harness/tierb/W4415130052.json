@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4415130052",
+ "title": "Evaluating AI performance in infectious disease education: a comparative analysis of ChatGPT, Google Bard, Perplexity AI, Microsoft Copilot, and Meta AI",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"Microsoft Copilot (powered by GPT-4 Turbo)\" - named only as Copilot's backend; comparison is of consumer products (ChatGPT 3.5, Bard/Gemini, Perplexity, Copilot, Meta AI)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "numerical accuracy of 'Copilot' (backend nominally GPT-4 Turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Consumer chat-interface comparison (ChatGPT 3.5 scored highest at 65.6% numerical accuracy); no API/version/date control for any tool."
+}

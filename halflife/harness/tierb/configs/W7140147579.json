@@ -1,0 +1,75 @@
+{
+  "wid": "W7140147579",
+  "title": "Taxation Perspectives from Large Language Models: A Case Study on Additional Tax Penalties",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 4096,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4.1 (reasoning models: temperature not supported, three independent runs) and footnote 13 (o3-2025-04-16); reasoning effort not stated; placeholders for temperature/top_p",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 100,
+    "subset_rule": "all (PLAT-MC: 100 precedents, 36 easy + 64 hard)",
+    "approximation": "English run: the authors' GPT-4o English translation of the precedents (plat-eng-mc) with the printed English translation of the prompt (Figure 3); the paper ran the Korean originals with the (unprinted) Korean prompt. o3 reasoning effort at the API default (not stated)."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "sma1-rmarud/plat-kor-mc (Korean) and sma1-rmarud/plat-eng-mc (English translation); fields case_no, case_info, facts, claims, reasoning, decision, lawfulness",
+    "config_or_split": "default / test (100 rows; columns case_no, case_info, facts, claims, reasoning, decision, lawfulness verified on both plat-eng-mc and plat-kor-mc)",
+    "filter": "none",
+    "fields": {
+      "input": "precedent",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "cc-by-nc-sa-4.0",
+    "access_checked": true,
+    "size_mb": 1,
+    "hf": {
+      "dataset": "sma1-rmarud/plat-eng-mc",
+      "config": "default",
+      "split": "test"
+    }
+  },
+  "prompt": {
+    "system": "You are a tax expert chatbot that provides friendly and logical answers to users’ questions.",
+    "user_template": "Please read the background and materials related to the imposed penalty tax presented above.\nDetermine whether the penalty tax is “Legitimate”, “Not legitimate”, or, if a clear conclusion cannot be reached, answer “don’t know\". Then, provide an explanation for your choice.\nProblem description: {precedent}",
+    "placeholders": {
+      "precedent": "items.precedent"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix D.1, Figure 3 (Vanilla prompt; 'Korean is translated to English using GPT-4o')",
+    "verbatim": "partial (English translation of the Korean prompt actually used)",
+    "placeholders_prose": {
+      "precedent": "items.precedent (hook: facts + blank line + claims; Table 10 columns Facts / Claim from Plaintiff / Claim from Defendant; case_info, reasoning, decision withheld)"
+    }
+  },
+  "output": {
+    "parse": "hook: earliest of 'Not legitimate' / 'Legitimate' / \"don't know\" in the reply; none -> unanswered",
+    "postprocess": "'don't know' = unanswered (n_u)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "hook: F1 = 2PR/(P+R) with P = n_o/(n_o+n_x), R = (n_o+n_x)/100 (Eqs. 1-2); no per-item CI; seeds give the run spread",
+    "judge": "none",
+    "original_value": 0.79,
+    "original_location": "Table 1, row o3, column F1 (+/- 0.03 over three runs)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 300,
+    "est_usd": 24.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "Approve the English-translation run (plat-eng-mc + Figure 3 English prompt) as the re-execution of the Korean experiment, or supply a Korean prompt for plat-kor-mc (the Korean prompt is not printed) - everything else is resolved: {precedent} = facts + claims (Table 10), reasoning effort = API default, hook complete and prepare verified (100 items x 3 seeds)."
+  ],
+  "notes": "Korean inputs are long (several thousand tokens), so o3 calls cost ~$0.08 each. F1-easy 0.83 / F1-hard 0.77 are the split cells. || [hooks_2 2026-09-07] hook complete (prepare verified); status stays needs_human only for the language approximation approval.",
+  "hook": "harness/tierb/hooks/W7140147579.py: load_items (plat-eng-mc, precedent = facts + claims), parse (label), score (F1 of Eqs. 1-2)"
+}

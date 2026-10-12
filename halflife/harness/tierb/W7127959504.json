@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7127959504",
+ "title": "Clinical Validation of Medical-based Large Language Model Chatbots on Ophthalmic Patient Queries with LLM-based Evaluation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "Abstract: \"Responses were evaluated by three ophthalmologists...and by GPT-4-Turbo using the S.C.O.R.E. framework...Spearman rho of 0.80\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Extracted text is only the arXiv abstract/listing page (title, authors, abstract, submission history, 'References & Citations' footer) -- not the paper body, so no prompt text is available to inspect."
+ },
+ "claim": {
+  "metric": "none extractable for GPT-4-Turbo as subject (it is the automated grader, not one of the 4 medical LLMs under test)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "not determinable from the extracted text (abstract only)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "ANOMALY: external/papers_tierb/W7127959504.txt contains only the arXiv abstract/landing page for arXiv:2602.05381 (submitted 5 Feb 2026), not the full paper text -- no Methods/Appendix/Table content is available to extract a prompt or verify n_items beyond what the abstract states (180 queries x 4 small medical LLMs -> 2160 responses; GPT-4-Turbo used only as an S.C.O.R.E.-framework grader alongside 3 human ophthalmologists, Spearman rho=0.80 vs clinicians). Even if the full text were available, GPT-4-Turbo's role here is judge/grader (A), not the subject under test, so the paper's headline claims belong to the 4 small open medical LLMs, not to GPT-4-Turbo."
+}

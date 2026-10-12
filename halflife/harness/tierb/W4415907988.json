@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415907988",
+ "title": "Cancer-Myth: Evaluating Large Language Models on Patient Questions with False Presuppositions",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"responses from frontier LLMs GPT-4-Turbo (OpenAI, 2023), Gemini-1.5-Pro...\"; \"While GPT-4-Turbo is the best model for providing factual and helpful medical responses (Figure 2)\"; Figure 6 (Category-wise Presupposition Correction Score per model, includes GPT-4-Turbo)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 4.2 (\"all models are evaluated in a zero-shot setup\"); Appendix figures (e.g. Figure 10, 13) show generator/verifier prompts for GPT-4o specifically",
+  "note": "Zero-shot protocol is stated; the subject-model query prompt itself (patient question) is the Cancer-Myth item text, but the exact wrapper instruction given to each subject model is not clearly isolated for GPT-4-Turbo in the retrieved text."
+ },
+ "claim": {
+  "metric": "Presupposition Correction Rate (PCR), GPT-4-Turbo (value only shown graphically)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 5a/Figure 6 (graphical only); text states numeric PCR only for GPT-5 (42.1%), Gemini-2.5-Pro (41.4%), Claude-4-Sonnet (40.0%), Gemini-1.5-Pro (27.2%) and GPT-4o (5.8%) -- GPT-4-Turbo's PCR is not stated as a number in prose",
+  "task_type": "generation",
+  "judge": "llm:gpt-4o-2024-05-13"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Cancer-Myth benchmark (patient questions with false presuppositions); paper states dataset construction via GPT-4o + RAG, release status not confirmed in retrieved text"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-Turbo is tested as a subject model under the same zero-shot protocol as GPT-5/Gemini/Claude, but its headline Presupposition Correction Rate/Score is only shown in bar charts (Figures 2, 5a, 6), never as a table or prose number, so no reproducible target value could be extracted. The paper's judge/verifier throughout is GPT-4o (gpt-4o-2024-05-13), validated against human annotations (Table 2, Appendix C.1.1: 71.1% agreement on the 3-point scale)."
+}

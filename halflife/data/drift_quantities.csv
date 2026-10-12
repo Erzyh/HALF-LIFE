@@ -1,0 +1,11 @@
+﻿quantity,original,rerun,delta_pts
+News: domains refused,41.2202578758474,35.429407072587075,-5.7908508032603265
+News: Spearman rho x100 vs experts,62.418425191157,62.940060604394276,0.5216354132372771
+"MedAbstain: abstains, no CoT, abstain option",0.0,2.5,2.5
+"MedAbstain: abstains, no CoT, + distractor",0.0,3.2,3.2
+"MedAbstain: abstains, CoT, abstain option",0.0,14.099999999999998,14.099999999999998
+"MedAbstain: abstains, CoT, + distractor",0.0,14.6,14.6
+Cultural bias: countries improved,81.30841121495327,78.50467289719626,-2.803738317757009
+Tag Questions: tag effect,-7.5,-10.208333333333334,-2.708333333333334
+"BlindingLLMs: r x100, 60-shot",42.9,37.6,-5.299999999999997
+"BlindingLLMs: r x100, 1000-shot",75.6,76.6,1.0

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4407570954",
+ "title": "Beyond the Lens: Quantifying the Impact of Scientific Documentaries through Amazon Reviews",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT4 (gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Sec.4.1: \"GPT4 (gpt-4-turbo-2024-04-09) [69]\"; Table 3 \"with context\" row GPT4: Impact P0.73 R0.68 F1 0.69, Sentiment P0.86 R0.84 F1 0.85."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix B, Figure 3",
+  "note": "\"Instruction: This is impact classification task... The output labels are one of these: 'Engagement with Film', ...\" with {context}/{target_sentence} slots."
+ },
+ "claim": {
+  "metric": "F1, Impact classification, with context",
+  "value": 0.69,
+  "n_items": 386,
+  "location": "Table 3, row GPT4, \"with context\" block, Impact F1 column; test split is 30% of 1,286 sentences",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "\"we release a dataset containing...\" (Sec.1)"
+ },
+ "cost": {
+  "est_calls": 386,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Exact snapshot pinned in text (no date-rule guesswork needed). One of 5 LLM baselines (plus BERT/RoBERTa/SVM/etc.) compared against a GPT-4o fine-tuned model; full-review context is included in each prompt, so per-call token cost is higher than a short classification call."
+}

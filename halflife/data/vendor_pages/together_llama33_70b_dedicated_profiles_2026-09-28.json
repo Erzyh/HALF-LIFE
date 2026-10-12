@@ -1,0 +1,51 @@
+{
+ "source": "GET https://api.together.ai/v2/supported-models (public catalog of models deployable on Together dedicated endpoints), read 2026-09-28",
+ "note": "The only certified deployment profile for Llama 3.3 70B Instruct is BF16 on 4x NVIDIA H100 (TP4). The serverless model used in the open-weight condition, meta-llama/Llama-3.3-70B-Instruct-Turbo, is Together's FP8 build; the v1 hardware listing on 2026-09-28 quoted 4x_nvidia_h100_80gb_sxm at 36 cents/min and the v2 instance-type table quotes 4xnvidia-h100-80gb at 1596 cents/hour.",
+ "entry": {
+  "id": "arch_CcqavqNJtov9XTbZfYRyi",
+  "name": "meta-llama/Llama-3.3-70B-Instruct",
+  "displayName": "Llama 3.3 70B Instruct",
+  "description": "Llama 3.3 70B Instruct is a Meta open model for chat, reasoning, coding, and general-purpose text generation.",
+  "inputModalities": [
+   "MODALITY_TEXT"
+  ],
+  "outputModalities": [
+   "MODALITY_TEXT"
+  ],
+  "products": [
+   "PRODUCT_DEDICATED",
+   "PRODUCT_FINE_TUNING"
+  ],
+  "features": [
+   "FEATURE_TOOL_CALLING",
+   "FEATURE_STRUCTURED_OUTPUT"
+  ],
+  "capabilities": [
+   "CAPABILITY_CHAT"
+  ],
+  "contextLength": "131072",
+  "publisher": "Meta",
+  "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+  "displayType": "chat",
+  "baseModelId": "ml_CbRhw8mpNRf5F5N7qCqhj",
+  "baseModel": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CbRhw8mpNRf5F5N7qCqhj",
+  "deploymentProfiles": [
+   {
+    "profileId": "profile-673475cdc8b2",
+    "certifiedConfigRevisionId": "cr_CeQCoAptnvmqstTfm31QM",
+    "certifiedModelRevisionId": "rv_CbRmp3nCG9tti5xUAKXiv",
+    "gpuType": "NVIDIA-H100",
+    "gpuCount": 4,
+    "quantization": "BF16",
+    "performanceBenchmarks": {},
+    "config": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/configs/cr_CeQCoAptnvmqstTfm31QM",
+    "model": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CbRhw8mpNRf5F5N7qCqhj/revisions/rv_CbRmp3nCG9tti5xUAKXiv",
+    "parallelism": "TP4",
+    "modelName": "meta-llama/Llama-3.3-70B-Instruct-BF16"
+   }
+  ],
+  "createdAt": "2026-07-09T01:05:29.040702Z",
+  "updatedAt": "2026-08-27T18:02:30.403259Z",
+  "tags": []
+ }
+}

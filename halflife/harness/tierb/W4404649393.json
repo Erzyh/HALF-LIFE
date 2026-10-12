@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404649393",
+  "title": "Towards Specification-Driven LLM-Based Generation of Embedded Automotive Software",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we try to generate functionally equivalent code by using two different LLMs, namely gpt-3.5 and gpt-4-turbo\" (Sec. 1); results tables in Sec. 6"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A (prompt template with ACSL / natural-language specification slots)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Frama-C WP proved goals, ACSL-only specification, case study 1",
+    "value": 33,
+    "n_items": 33,
+    "location": "Sec. 6 results table, row GPT-4-turbo / ACSL ('33 / 33')",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Three Scania proprietary ECU software modules and their specifications"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Version not printed; date rule (Nov 2024). Verification requires Frama-C and the industrial headers."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411119056",
+ "title": "Poetry in RAGs: Modern Greek interwar poetry generation using RAG and contrastive training",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"In total we had 8 poet/theme pairs using GPT4-turbo with two poems each for base, RAG-assisted, and RAG-assisted contrastive generation (total of 48 poems)\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. on RAG architecture (Fig. 1): prompt structure described (\"enhanced prompt structure that explicitly guides the LLM to follow the stylistic patterns...while avoiding...contrasting examples\")",
+  "note": "Prompt construction is described narratively; no appendix with the literal prompt template text was found."
+ },
+ "claim": {
+  "metric": "inter-annotator Spearman correlation among 3 expert evaluators rating GPT-4-turbo generated poems (style/theme/versification/creativity)",
+  "value": 0.4,
+  "n_items": 48,
+  "location": "Sec. 5 (\"moderate agreement...Spearman correlation (approx. 0.4)\"); Fig. 2 gives per-condition standard/relativized correlation bars for GPT-4 Turbo (3 evaluators)",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Modern Greek interwar poetry corpus (target/contrastive poets); exact release status of the corpus and generated poems not stated"
+ },
+ "cost": {
+  "est_calls": 144,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "48 poems (8 poet/theme pairs x 2 poems x 3 generation conditions) is a clear n, and GPT-4-turbo's role as the generator is unambiguous, but the paper's main reported numbers are inter-evaluator agreement coefficients rather than a direct poem-quality score, and the prompt is only described, not quoted verbatim."
+}

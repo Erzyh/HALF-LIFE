@@ -1,0 +1,68 @@
+{
+  "wid": "W4403370432",
+  "title": "An Evaluation of Requirements Modeling for Cyber-Physical Systems via LLMs",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. IV.D / V.D (greedy sampling, temperature 0); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 2633,
+    "subset_rule": "all (2,633 requirement sentences = the union of the ten released test folds, each with its own train fold)",
+    "approximation": "None beyond the model alias: folds and retrieved shots are the authors' own released files, the prompt is the release's prompt/ner.txt assembled exactly as src/llm/gpt_inference.py (3 shots, single user turn, temperature 0); max_tokens assumed."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/publicsubmission/CPSBench (public mirror of the CPSBench replication package, pushed 2024-08-03): prompt/ner.txt, data/dataset/10-fold/fold_k/{train,test}_data.json (2,633 sentences, KFold seed 42), input/fold_k/shot.json (SimCSE-retrieved shot ids), src/llm/gpt_inference.py, src/eval.py",
+    "config_or_split": "all sentences; 10-fold sentence-level CV (seed 20260907)",
+    "filter": "none",
+    "fields": {
+      "input": "text",
+      "label": "entity",
+      "id": "id"
+    },
+    "license": "unknown (no LICENSE file in the mirror)",
+    "access_checked": true,
+    "size_mb": 13,
+    "file_url": "https://raw.githubusercontent.com/publicsubmission/CPSBench/main/data/dataset/10-fold/total.json"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "## Task Description\nYou are an expert specialising in building problem diagrams and entity extraction. \nGiven the sentence from a software requirements specification, extract all entities that match the schema definition and return an empty list for non-existent entity types.\nPlease answer in the format of a JSON string. \n\n## Schema Definition\n['Machine Domain', 'Physical Device', 'Environment Entity', 'Design Domain', 'Requirements', 'Shared Phenomena']\n'Machine Domain': is the system or software.\n'Physical Device': is a device in the real world, which can be used to get/send/receive data/information. \n'Environment Entity': is an entity in the real world. Here are some examples: the patient, the sun, the old.\n'Design Domain': is a manually designed domain that can store data messages. Here are some examples: a database, a magnetic stripe card, a tap, hard disk.\n'Requirements': is the aim and purpose of the system to be developed. \n'Shared Phenomena': is a set of shared events, states and values between the connected entities.\n{examples}\n## Test\nInput:{input_req}\nAnswer:",
+    "placeholders": {
+      "examples": "hook: '\\n## Examples\\n' + 'Input:<text>\\nAnswer:<entity dict repr>\\n' for the first three ids of input/fold_k/shot.json",
+      "input_req": "items.text"
+    },
+    "few_shot": "k=3 retrieved from the training folds by SimCSE cosine similarity (Sec. V.D 'Shot Retrieval')",
+    "source_location": "Fig. 4 and the release file prompt/ner.txt; assembly in src/llm/gpt_inference.py (get_ner_prompt)",
+    "verbatim": "full (release prompt/ner.txt; the four definitions missing from Fig. 4 come from the same file)"
+  },
+  "output": {
+    "parse": "json field: the first {...} dict in the completion, keys = entity types, values = lists of entity strings (single-quoted Python-dict style accepted)",
+    "postprocess": "strip and lowercase entity strings, collapse whitespace; unparsable output counted as an empty prediction"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "micro P/R/F1 over entity mentions of all six types with exact string match, TP/FP/FN summed over all sentences (src/eval.py compute_f1 = Eq. 5, 'Entity Ave' column); reported x100",
+    "judge": "none",
+    "original_value": 48,
+    "original_location": "TABLE III, block 3-shot, row gpt-4, column Entity Ave (P/R/F1 = 43/54/48)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 7899,
+    "est_usd": 80.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "The triage tier is 'low' but 2,633 sentences x 3 seeds is about 7.9k calls with 3-shot prompts. || [hooks_4 2026-09-07] the anonymous.4open.science link is dead but github.com/publicsubmission/CPSBench carries the full package; hook rebuilds the authors' 3-shot prompts from it. gpt_inference.py writes only fold_0 by default; the paper reports 10-fold CV, so all ten test folds are items.",
+  "hook": "harness/tierb/hooks/W4403370432.py: load_items (folds + shots + template from the mirror, cached under external/data/tierb_items/W4403370432/), render (single user turn), parse (first {...} dict via ast/json), score (entity-level micro-F1; no per-item list)"
+}

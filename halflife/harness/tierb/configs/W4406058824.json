@@ -1,0 +1,84 @@
+{
+  "wid": "W4406058824",
+  "title": "SciCode: A Research Coding Benchmark Curated by Scientists",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; the released inspect_ai command runs with temperature 0)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 338,
+    "subset_rule": "all 338 subproblems of the 80 test problems (standard setup: no background, generated solutions to previous subproblems carried over)",
+    "approximation": "none beyond the local Python execution environment"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "SciCode1/SciCode, file problems_test.jsonl (80 problems); numeric test targets test_data.h5 from the Google Drive folder linked in https://github.com/scicode-bench/SciCode",
+    "config_or_split": "problems_test.jsonl",
+    "filter": null,
+    "fields": {
+      "input": "problem_description_main",
+      "label": "sub_steps",
+      "id": "problem_id"
+    },
+    "license": "Apache-2.0 (Hugging Face tag and GitHub repository)",
+    "access_checked": true,
+    "size_mb": 2,
+    "file_url": "https://huggingface.co/datasets/SciCode1/SciCode/resolve/main/problems_test.jsonl",
+    "fields_paper": {
+      "input": "problem_description_main, sub_steps[].step_description_prompt, sub_steps[].function_header, required_dependencies",
+      "label": "sub_steps[].test_cases (+ test_data.h5 targets), sub_steps[].return_line, general_tests",
+      "id": "problem_id + step_number"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "PROBLEM DESCRIPTION:\nYou will be provided with problem steps along with background knowledge necessary for solving the problem. Your task will be to develop a Python solution focused on the next step of the problem-solving process.\nPROBLEM STEPS AND FUNCTION CODE:\nHere, you'll find the Python code for the initial steps of the problem-solving process. This code is integral to building the solution.\n{problem_steps_str}\nNEXT STEP - PROBLEM STEP AND FUNCTION HEADER:\nThis part will describe the next step in the problem-solving process. A function header will be provided, and your task is to develop the Python code for this next step based on the provided description and function header.\n{next_step_str}\nDEPENDENCIES:\nUse only the following dependencies in your solution. Do not include these dependencies at the beginning of your code.\n{dependencies}\nRESPONSE GUIDELINES:\n1. Start with the scientific background required for the next step, formatted as a comment.\n2. Then write the complete and executable Python program for the next step in a single block.\n3. Your response should focus exclusively on implementing the solution for the next step, adhering closely to the specified function header and the context provided by the initial steps.\n4. DO NOT include previous function code, example usage or test code in your response.\n5. Ensure your response is in the format of ```python``` and includes the necessary background as a comment at the top.\nExample:\n```python\n# Background: [Here, insert the necessary scientific knowledge required for the next step.]\n[Insert the Python code here based on the provided function header and dependencies.]\n```",
+    "placeholders": {
+      "problem_steps_str": "previous sub-steps + the model's own earlier generations (sequential dependency; not expressible)",
+      "next_step_str": "sub_steps[k].step_description_prompt + sub_steps[k].function_header (per sub-step; list indexing not expressible)",
+      "dependencies": "items.required_dependencies"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix Table 4 (Prompt w/o Background); A.1",
+    "verbatim": "full (the extraction rendered ```python``` as curly quotes and dropped the code fence and '# ' marker of the Example block; restored following the released template)",
+    "placeholders_paper": {
+      "problem_steps_str": "previous subproblem descriptions each followed by the model's own generated code for that step (standard setup); empty for the first step",
+      "next_step_str": "step_description_prompt + function_header of the current subproblem",
+      "dependencies": "required_dependencies import lines"
+    }
+  },
+  "output": {
+    "parse": "regex ```python\\n(.*?)``` (first fenced block) -> function code",
+    "postprocess": "prepend dependencies; execute with the subproblem's test_cases and test_data.h5 targets; no fenced block = fail"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "subproblem pass@1 = share of the 338 subproblems whose single generated function passes all of its test cases.",
+    "judge": "none",
+    "original_value": 22.9,
+    "original_location": "Table 2, row GPT-4-Turbo, column Subproblem",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 338,
+    "est_usd": 15.0,
+    "tier": "high",
+    "prepare_note": "runner --prepare failed: placeholder spec not machine-readable: \"previous sub-steps + the model's own earlier generations (sequential dependency; not expressible)\""
+  },
+  "open_points": [
+    "Protocol beyond one main stage: each sub-step prompt embeds the model's own code for the previous sub-steps (sequential, stateful calls per problem), which the runner's single-stage battery cannot express.",
+    "pass@1 needs the generated functions executed against sub_steps[].test_cases with the test_data.h5 targets (Google Drive) in a scientific-Python sandbox; no code execution in the runner or hooks.",
+    "problems_test.jsonl holds 65 problems / 291 sub-steps; the paper's 80 / 338 add the 15 dev problems (problems_dev.jsonl) - confirm which set the Table 2 column uses."
+  ],
+  "notes": "Generated code is executed locally with scientific Python dependencies; test_data.h5 (Google Drive) size was not checked. Field names verified from the first record of problems_test.jsonl (problem_name, problem_id, problem_description_main, problem_io, required_dependencies, sub_steps[step_number, step_description_prompt, function_header, test_cases, return_line, step_background], general_tests, problem_background_main). Prompts grow with carried-over code (~3k tokens). || [normalize 2026-09-07] source_type hf -> url so the runner reads problems_test.jsonl directly (65 problems / 291 sub-steps in the HF file; the paper's 80 / 338 add the dev problems); the sub-step prompts cannot be expressed (see open_points). || [hook pass 2026-09-07] no hook: multi-call protocol + execution sandbox."
+}

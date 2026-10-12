@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406840425",
+  "title": "A Layered Multi-Expert Framework for Long-Context Mental Health Assessments",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'Table II highlights the performance of GPT-3.5-turbo and GPT-4-turbo across training, testing, and validation splits'; 'GPT-4-turbo Baseline 0.77 0.67 0.74 ...' (Table II, Testing)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Fig. 2 'SMMR Prompt for DAIC-WOZ Dataset' and Fig. 3 (figure images; text not extracted)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (PHQ-8 >= 10 classification, DAIC-WOZ testing split, single-model baseline)",
+    "value": 0.77,
+    "n_items": null,
+    "location": "Table II, row Testing / GPT-4-turbo Baseline (F1 0.67, ROC AUC 0.77, MAE 3.21)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "DAIC-WOZ (187 interviews; license agreement required, described by the authors as 'a private dataset') and 48 curated case studies (not released)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Split sizes and temperature not printed; prompt only as figure images."
+}

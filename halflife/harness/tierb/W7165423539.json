@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7165423539",
+  "title": "Dual-Agent Framework for Cross-Model Verified Translation of Natural-Language Protocols into Robotic Laboratory Platform",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (gpt-5-2025-08-07); o4-mini (o4-mini-2025-04-16); GPT-4.1-nano (gpt-4.1-nano-2025-04-14)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Table 1: 'GPT-5 Parser; Validator OpenAI Cloud API gpt-5 (gpt-5-2025-08-07)'; Sec. 3.3: 'The cloud-hosted models are GPT-5, GPT-4.1, o4-mini, GPT-4.1-mini, and GPT-4.1-nano'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 2-3 and Fig. 3 describe a 'constrained interpretation prompt' with a <MANUAL>/<INSTRUMENT> tag structure; the text is not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "1st Pass proportion (Parser output accepted by the Claude Sonnet 4.6 Validator)",
+    "value": 0.85,
+    "n_items": 30,
+    "location": "Sec. 4 / Fig. 8b: 'GPT-5, GPT-4.1, and o4-mini reached 1st Pass proportions of about 0.85 or above'",
+    "task_type": "extraction",
+    "judge": "llm:claude-sonnet-4-6"
+  },
+  "data": {
+    "public": "no",
+    "source": "30 ELISA protocols selected from 1,000 web-collected protocols; not released (public benchmark announced as future work)"
+  },
+  "cost": {
+    "est_calls": 90,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Exact per-model values are readable only from Figs. 7-8. Validator pool also includes GPT-5 and Llama-4-Maverick; Parameter Accuracy uses expert ground truth on two layers."
+}

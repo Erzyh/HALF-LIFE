@@ -1,0 +1,56 @@
+{
+  "wid": "W4416339332",
+  "title": "\"As Eastern Powers, I will veto.\" : An Investigation of Nation-level Bias of Large Language Models in International Relations",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 65,
+  "original_location": "Table 2, row o3-mini, column U.S.",
+  "reexecution": {
+    "mean_over_seeds": 0.565872927562034,
+    "per_seed": {
+      "0": {
+        "value": 0.565872927562034,
+        "n": 66,
+        "ci95": [
+          0.42674507342400503,
+          0.6942966494941227
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416339332",
+    "n_items": 66,
+    "n_requests": 66,
+    "seeds": 1,
+    "est_usd": 0.16,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 65,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "weighted F1 computed per repetition and averaged over the three seeds (the paper does not say how its three repetitions were aggregated); resolutions where the United States has no recorded vote are skipped",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "o3-mini-2025-01-31",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4416339332"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 56.5872927562034,
+    "delta": -8.412707243796604,
+    "original_inside_ci95": true
+  }
+}

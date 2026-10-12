@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4404313204",
+  "title": "First-Person Fairness in Chatbots",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Section 4: 'We evaluate the following language models: GPT-3.5 turbo, GPT-4 turbo, GPT-4o, GPT-4o mini, o1-preview and o1-mini ... GPT-4o is used as our LMRA throughout.'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 5 / Appendix: system messages for ChatGPT-4o and ChatGPT-4o-mini; LMRA instructions in Figure 20 (Appendix E)",
+    "note": "Per-model results appear only as bars in Figure 8 (harmful gender stereotype ratings)."
+  },
+  "claim": {
+    "metric": "mean harmful gender stereotype rating (LMRA-rated)",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 8 (bars per model; no table values)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (version unspecified)"
+  },
+  "data": {
+    "public": "no",
+    "source": "Main analysis on private ChatGPT prompts; public-prompt variant uses LMSYS-Chat-1M and WildChat first user messages"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number"
+  ],
+  "notes": "Snapshot not named (OpenAI internal runs at temperature 0.8/1). The GPT-4t number is figure-only and depends on an unspecified GPT-4o LMRA."
+}

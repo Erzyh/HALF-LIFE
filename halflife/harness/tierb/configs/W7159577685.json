@@ -1,0 +1,230 @@
+{
+  "wid": "W7159577685",
+  "title": "Breaking the Chains of Probability: Neutrosophic Logic as a New Framework for Epistemic Uncertainty in Large Language Models",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.7,
+      "max_tokens": 100,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.4 (temperature 0.7, default top_p, no fixed seed; alias gpt-4-turbo called 30 April 2026 -> gpt-4-turbo-2024-04-09)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 25,
+    "subset_rule": "all (5 statements x 5 stochastic repetitions, Sec. 3.4)",
+    "approximation": "'tomorrow' in the future-contingency statement was anchored to 1 May 2026 in the paper; the item is kept verbatim (a fixed past date would change the stimulus).",
+    "n_items_prepare": 25
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Sec. 3.2 (one statement per phenomenon; identical to PHENOMENA in src/run_experiment.py of github.com/mleyvaz/neutrosophic-llm-logic, MIT; Zenodo 10.5281/zenodo.19911845)",
+    "config_or_split": "none",
+    "filter": null,
+    "fields": {
+      "input": "statement",
+      "label": null,
+      "id": "id"
+    },
+    "license": "mit",
+    "access_checked": true,
+    "size_mb": 0,
+    "inline": [
+      {
+        "id": "paradox_r1",
+        "phenomenon": "paradox",
+        "repetition": 1,
+        "statement": "This sentence is false."
+      },
+      {
+        "id": "paradox_r2",
+        "phenomenon": "paradox",
+        "repetition": 2,
+        "statement": "This sentence is false."
+      },
+      {
+        "id": "paradox_r3",
+        "phenomenon": "paradox",
+        "repetition": 3,
+        "statement": "This sentence is false."
+      },
+      {
+        "id": "paradox_r4",
+        "phenomenon": "paradox",
+        "repetition": 4,
+        "statement": "This sentence is false."
+      },
+      {
+        "id": "paradox_r5",
+        "phenomenon": "paradox",
+        "repetition": 5,
+        "statement": "This sentence is false."
+      },
+      {
+        "id": "ignorance_r1",
+        "phenomenon": "ignorance",
+        "repetition": 1,
+        "statement": "The number of stars in the universe is even."
+      },
+      {
+        "id": "ignorance_r2",
+        "phenomenon": "ignorance",
+        "repetition": 2,
+        "statement": "The number of stars in the universe is even."
+      },
+      {
+        "id": "ignorance_r3",
+        "phenomenon": "ignorance",
+        "repetition": 3,
+        "statement": "The number of stars in the universe is even."
+      },
+      {
+        "id": "ignorance_r4",
+        "phenomenon": "ignorance",
+        "repetition": 4,
+        "statement": "The number of stars in the universe is even."
+      },
+      {
+        "id": "ignorance_r5",
+        "phenomenon": "ignorance",
+        "repetition": 5,
+        "statement": "The number of stars in the universe is even."
+      },
+      {
+        "id": "vagueness_r1",
+        "phenomenon": "vagueness",
+        "repetition": 1,
+        "statement": "John is 1.75 meters tall, therefore John is tall."
+      },
+      {
+        "id": "vagueness_r2",
+        "phenomenon": "vagueness",
+        "repetition": 2,
+        "statement": "John is 1.75 meters tall, therefore John is tall."
+      },
+      {
+        "id": "vagueness_r3",
+        "phenomenon": "vagueness",
+        "repetition": 3,
+        "statement": "John is 1.75 meters tall, therefore John is tall."
+      },
+      {
+        "id": "vagueness_r4",
+        "phenomenon": "vagueness",
+        "repetition": 4,
+        "statement": "John is 1.75 meters tall, therefore John is tall."
+      },
+      {
+        "id": "vagueness_r5",
+        "phenomenon": "vagueness",
+        "repetition": 5,
+        "statement": "John is 1.75 meters tall, therefore John is tall."
+      },
+      {
+        "id": "contradiction_r1",
+        "phenomenon": "contradiction",
+        "repetition": 1,
+        "statement": "Lying to save an innocent life is morally right and wrong at the same time."
+      },
+      {
+        "id": "contradiction_r2",
+        "phenomenon": "contradiction",
+        "repetition": 2,
+        "statement": "Lying to save an innocent life is morally right and wrong at the same time."
+      },
+      {
+        "id": "contradiction_r3",
+        "phenomenon": "contradiction",
+        "repetition": 3,
+        "statement": "Lying to save an innocent life is morally right and wrong at the same time."
+      },
+      {
+        "id": "contradiction_r4",
+        "phenomenon": "contradiction",
+        "repetition": 4,
+        "statement": "Lying to save an innocent life is morally right and wrong at the same time."
+      },
+      {
+        "id": "contradiction_r5",
+        "phenomenon": "contradiction",
+        "repetition": 5,
+        "statement": "Lying to save an innocent life is morally right and wrong at the same time."
+      },
+      {
+        "id": "contingency_r1",
+        "phenomenon": "contingency",
+        "repetition": 1,
+        "statement": "It will rain in New York tomorrow."
+      },
+      {
+        "id": "contingency_r2",
+        "phenomenon": "contingency",
+        "repetition": 2,
+        "statement": "It will rain in New York tomorrow."
+      },
+      {
+        "id": "contingency_r3",
+        "phenomenon": "contingency",
+        "repetition": 3,
+        "statement": "It will rain in New York tomorrow."
+      },
+      {
+        "id": "contingency_r4",
+        "phenomenon": "contingency",
+        "repetition": 4,
+        "statement": "It will rain in New York tomorrow."
+      },
+      {
+        "id": "contingency_r5",
+        "phenomenon": "contingency",
+        "repetition": 5,
+        "statement": "It will rain in New York tomorrow."
+      }
+    ],
+    "fields_paper": {
+      "input": "statement",
+      "label": "none (metric is the T+I+F sum)",
+      "id": "phenomenon x repetition"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": "You are an expert in Neutrosophic Logic. You evaluate statements using three INDEPENDENT dimensions: Truth (T), Indeterminacy (I), and Falsity (F), each on [0.0, 1.0]. These dimensions are NOT constrained to sum to 1.0. A statement can be simultaneously partially true AND partially false AND partially indeterminate. Respond with ONLY a JSON object, no other text.",
+    "user_template": "Evaluate this statement on three independent dimensions: Statement: {statement} — Truth (T): To what degree is this statement true? [0.0 to 1.0]; Indeterminacy (I): To what degree is the truth value unknown, undetermined, or inherently uncertain? [0.0 to 1.0]; Falsity (F): To what degree is this statement false? [0.0 to 1.0]. T, I, and F are independent. They need NOT sum to 1.0. Respond with ONLY: {\"T\": <value>, \"I\": <value>, \"F\": <value>}.",
+    "placeholders": {
+      "statement": "items.statement"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A.1 'Strategy 1 (Neutrosophic)' (system and user prompts)",
+    "verbatim": "full (Appendix A.1 as printed inline; the repository version uses line breaks and quotation marks around the statement; the JSON braces are literal)",
+    "placeholders_paper": {
+      "statement": "one of the five statements (listed in notes)"
+    }
+  },
+  "output": {
+    "parse": "json fields T, I, F",
+    "postprocess": "sum T+I+F; a response that is not valid JSON with values in [0,1] is invalid (paper: 100% valid)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "mean over the 25 (statement x repetition) evaluations of T+I+F (SD 0.319 secondary)",
+    "judge": "none",
+    "original_value": 1.36,
+    "original_location": "Table 2, row gpt-4-turbo, column Sum (T+I+F) (1.360 +/- 0.319)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 75,
+    "est_usd": 1.0,
+    "tier": "low",
+    "est_usd_prepare": 0.4,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [],
+  "notes": "Statements: Paradox (Logical): 'This sentence is false.' | Ignorance (Epistemic): 'The number of stars in the universe is even.' | Vagueness (Fuzzy): 'John is 1.75 meters tall, therefore John is tall.' | Contradiction (Ethical): 'Lying to save an innocent life is morally right and wrong at the same time.' | Contingency (Future): 'It will rain in New York tomorrow.' || Each seed reproduces the paper's 25-call cell; Table 3 hyper-truth rate (share with T+I+F > 1) is the secondary metric. || [normalize 2026-09-07] items.inline lists the 25 (statement x repetition) rows; --prepare renders all 25 prompts (the literal JSON braces in the template are left untouched by the renderer). Scoring needs the two runner additions in open_points. || [hooks_4 2026-09-07] hook closes both runner gaps (multi-field JSON sum; gold-free mean); --prepare --dry-run renders the 25 prompts.",
+  "hook": "harness/tierb/hooks/W7159577685.py: parse (T+I+F of the JSON reply, None unless T, I, F all in [0,1]), score (mean over valid replies; per-item sums give the CI)"
+}

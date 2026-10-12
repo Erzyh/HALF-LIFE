@@ -1,0 +1,7 @@
+{
+  "_note": "Temperature sensitivity check (proposed 2026-10-02): the prompt-level papers whose paper is silent on decoding, for which the configuration assumed temperature 0, and whose task is generation or free text (selection rule and numbers in scripts/temperature_queues.py). Variant t1 re-sends the baseline's seed-0 request bodies to the same pinned model with temperature 1.0, the API default that an unstated setting most plausibly means, as many independent calls per item as the baseline had seeds; nothing else changes. Prepared by harness/tierb_runner.py prepare_paraphrase with an empty replacement list and the parameter below.",
+  "W4406058562": {"t1": {"pairs": [], "params": {"temperature": 1.0}}},
+  "W4411120580": {"t1": {"pairs": [], "params": {"temperature": 1.0}}},
+  "W4416034248": {"t1": {"pairs": [], "params": {"temperature": 1.0}}},
+  "W4416683695": {"t1": {"pairs": [], "params": {"temperature": 1.0}}}
+}

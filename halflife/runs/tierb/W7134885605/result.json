@@ -1,0 +1,67 @@
+{
+  "wid": "W7134885605",
+  "title": "More Signal vs. More Noise - Comparing Full Text and Abstract as Inputs for Large Language Model-based Classification of Oncology Trial Eligibility Criteria",
+  "model": "gpt-5-2025-08-07",
+  "metric": "accuracy",
+  "original_value": 0.86,
+  "original_location": "Table 1, 'Based on Abstract', row Localized disease, Accuracy (95% CI 0.81-0.91)",
+  "reexecution": {
+    "mean_over_seeds": 0.89,
+    "per_seed": {
+      "0": {
+        "value": 0.89,
+        "n": 200,
+        "ci95": [
+          0.85,
+          0.93
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.89,
+        "n": 200,
+        "ci95": [
+          0.845,
+          0.93
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.89,
+        "n": 200,
+        "ci95": [
+          0.8498749999999999,
+          0.93
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7134885605",
+    "n_items": 200,
+    "n_requests": 600,
+    "seeds": 3,
+    "est_usd": 6.69,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-2025-08-07",
+    "metric": "accuracy",
+    "original_value": 0.86,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-5-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Paper used a single batch run; the structured-output schema is not printed (a list of the allowed strings is enforced here); the abstract arm only (full texts are paywalled although the CSV carries a text column). The model reply is parsed by a regex instead of a structured-output schema.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.89,
+    "delta": 0.030000000000000027,
+    "original_inside_ci95": true
+  }
+}

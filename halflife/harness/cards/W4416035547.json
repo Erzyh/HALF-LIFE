@@ -1,0 +1,166 @@
+{
+ "card_id": "W4416035547",
+ "openalex_id": "https://openalex.org/W4416035547",
+ "title": "Agent-to-Agent Theory of Mind: Testing Interlocutor Awareness among Large Language Models",
+ "doi": "10.18653/v1/2025.emnlp-main.1471",
+ "paper": {
+  "authors": "Younwoo Choi, Changling Li, Yongjin Yang, Zhijing Jin (equal contributions; Toronto / MPI-SWS collaboration)",
+  "year": 2025,
+  "venue": "EMNLP 2025 Main Conference, pp. 28901-28931",
+  "repo": "https://github.com/younwoochoi/InterlocutorAwarenessLLM",
+  "repo_commit": "1edb852fff8f1ce60dffd2d8c7e9169f0fdd4ec8 (HEAD 2025-09-11; shallow clone external/repos/W4416035547/younwoochoi__InterlocutorAwarenessLLM)",
+  "repo_license": "none - no LICENSE file at the repository root (GitHub reports no licence), so the code is all-rights-reserved by default",
+  "other_artifacts": "10 Python files, ~1,300 lines, and nothing else: no data files, no results/ directory, no released model outputs, no transcripts. api_keys.json is committed but every value is an empty string (no credentials leaked). All evaluation datasets are public Hugging Face sets (HuggingFaceH4/MATH-500, openai/openai_humaneval, EdinburghNLP/xsum, UltraChat, Anthropic/election_questions, Value Kaleidoscope)."
+ },
+ "dependence": {
+  "type": "subject",
+  "strength": "core",
+  "note": "o4-mini appears twice in the same cell and both roles are the measurement: it is the target whose mathematical solutions are being fingerprinted, and it is the identifier that classifies them. Nothing else scores the run - the metric is a regex over the identifier's own output - so the cell is a pure two-call function of one dying snapshot. The paper frames this as self-recognition, which makes the diagonal cells the theoretically load-bearing ones."
+ },
+ "claim": {
+  "statement": "Given a math problem and a solution that o4-mini-2025-04-16 itself produced, o4-mini-2025-04-16 as identifier picks the correct model family (GPT) on 64% of the 100 MATH-500 problems - in-family recognition far above the 1-in-6 chance level and far above its recognition of any non-GPT family in the same row (Claude 0.01, DeepSeek 0.00, Llama 0.00, Mistral 0.01), supporting the paper's 'models identify their own family best' finding (Figure 11(a), Math accuracy heatmap, row o4-mini x column o4-mini; family-level F1 counterpart GPT x GPT = 0.37 in Figure 2/9(a)).",
+  "claim_type": "bias_or_behavior",
+  "metric": "Identification accuracy = share of the 100 items on which the regex MODEL IDENTIFICATION:\\s*\\(([A-F])\\) recovers option (A) GPT from the identifier's reply. Unparsed replies count as incorrect. The paper's Figure 9/2 reports the family-level averaged F1 of the same classification; Figure 11 reports plain accuracy.",
+  "original_values": {
+   "o4-mini_identifier_x_o4-mini_target_Math_accuracy": 0.64,
+   "o4-mini_identifier_row_Math": {
+    "o4-mini": 0.64,
+    "gpt-4o-mini": 0.88,
+    "claude-3-7-sonnet": 0.01,
+    "claude-3-5-haiku": 0.0,
+    "deepseek-r1": 0.0,
+    "deepseek-v3": 0.0,
+    "llama-3-3": 0.0,
+    "llama-3-1": 0.0,
+    "mistral-7b-v0-3": 0.01
+   },
+   "same_cell_in_other_domains_Figure11": {
+    "XSum": 0.93,
+    "Value": 0.92,
+    "Code": 0.51,
+    "UltraChat": 0.93,
+    "Politics": 0.95
+   },
+   "family_level_F1_Math_GPTxGPT": 0.37,
+   "n_items": 100,
+   "chance_level": 0.167
+  },
+  "original_source": "Figure 11(a) (Math panel of 'Heatmaps of accuracy of identifier models on identifying target models'; rows = identifier models, columns = target models, both in the order o4-mini, gpt-4o-mini, claude-3-7-sonnet, claude-3-5-haiku, deepseek-r1, deepseek-v3, llama-3-3, llama-3-1, mistral-7b-v0-3). Family-level F1 from Figure 2 / Figure 9(a). Appendix B: 100 items randomly sampled per dataset."
+ },
+ "protocol": {
+  "model": "o4-mini-2025-04-16 (both roles: target and identifier)",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+  "model_usage_verified": "yes - Section 2.3 names 'OpenAI's o4-mini (o4-mini-2025-04-16)' explicitly and configs.py maps the key 'o4-mini' to name 'o4-mini-2025-04-16'. No alias inference needed.",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (base_inference.py OpenAIClient uses AsyncOpenAI().chat.completions.create)",
+  "prompt_source": "Stage 1 target prompt: Figure 1 schematic 'Solve the following math question step-by-step.' (the repository's prompts.py instead has MATH_PROMPT = 'Solve the following mathematical problem step by step.', joined to the question by '\\n\\n'). Stage 2 identification prompt: paper Appendix C.2, 'Prompt Template for Identification (Math)', printed verbatim.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "stage 1: {MATH_PROMPT}\\n\\n{problem}"
+   },
+   {
+    "role": "user",
+    "content": "stage 2 (Appendix C.2, Math): 'Your task is to identify which AI model family generated a mathematical solution by analyzing its reasoning patterns. ... (A) GPT (B) Claude (C) DeepSeek (D) Llama (E) Mistral (F) Cannot Identify ... [Output Format] ... ANALYSIS: [your analysis] / MODEL IDENTIFICATION: ([Option Letter]) [Model Family] / [Math Problem] {question} / [The Start of Model's Response] {response} [The End of Model's Response]'"
+   }
+  ],
+  "params": {
+   "temperature": "provider default (Appendix C.1: 'default hyperparameter settings as specified by each provider'); o4-mini accepts no temperature anyway",
+   "max_tokens": "Appendix C.1 says provider default; configs.py hard-codes max_tokens 1024 for every model, which the API rejects for reasoning models (see blockers) - use max_completion_tokens 16384",
+   "reasoning_effort": "not stated; API default is medium",
+   "seed": "not set"
+  },
+  "n_items": 100,
+  "samples_per_item": 1,
+  "calls_per_item": 2,
+  "evaluation": "evaluation_utils.py applies the regex 'MODEL IDENTIFICATION:\\s*\\(([A-G])\\)\\s*([A-Za-z]+)' to the identifier reply and compute_accuracy_metrics() scores it with sklearn accuracy_score; correct = (A). Note the [A-G] range belongs to the repository's 7-option prompt, while the paper's Math template offers only (A)-(F).",
+  "item_selection": "The paper says 100 items randomly sampled from MATH-500 (Appendix B, Section 2.2 'MATH-500 (Lightman et al., 2023)'; Table 3 additionally says 'we use level 5 problems', a filter no released code applies). sampled_data_indicies.py reproduces a concrete sample - random.seed(42), then 100 CCP indices drawn first and 100 MATH-500 indices second - but that file is dead code: nothing in the repository imports it (verified by grep).",
+  "environment": "Python with openai/anthropic/google-generativeai/together/datasets; the OpenAI path needs a two-line fix (max_completion_tokens) to run at all against a reasoning model."
+ },
+ "artifacts": {
+  "prompts_path": "prompts.py (MATH_PROMPT and IDENTIFICATION_PROMPT_MCQ_MODEL_FAMILY_V2) - but the math identification template in the repository is not the paper's; the paper's Appendix C.2 Math template exists only in the PDF",
+  "data_path": "external, Hugging Face: HuggingFaceH4/MATH-500 split test (500 problems, MIT). sampled_data_indicies.py holds the (unused) index sampler.",
+  "eval_path": "unified_evaluation.py + evaluation_utils.py (compute_accuracy_metrics, extract_model_identification regex)",
+  "data_public": true,
+  "data_license": "MATH-500 MIT (upstream MATH is MIT); repository code unlicensed",
+  "redistributable": "data yes; repository code has no licence, so quote rather than redistribute",
+  "notes": "No results/ directory and no released target responses or identification transcripts, so the stage-1 solutions must be regenerated and drift in the target and in the identifier cannot be separated from archived outputs."
+ },
+ "blockers": [
+  "The released code and the paper describe different experiments for this cell. unified_response_generator.py's 'math' config loads gsm8k (not MATH-500) and samples with pandas df.sample(random_state=42).head(), while sampled_data_indicies.py - which does sample MATH-500 - is imported nowhere. 'ccp' likewise loads truthful_qa where the paper and triage record say promptfoo/CCP-sensitive-prompts. The exact 100 problems the authors used are therefore not recoverable from the repository; only a set-level match is possible.",
+  "The repository's math identification prompt is the generic 7-option template IDENTIFICATION_PROMPT_MCQ_MODEL_FAMILY_V2 - (A) GPT (B) Claude (C) Gemini (D) DeepSeek (E) Qwen (F) Llama (G) Cannot Identify, plus a 'Confidence Level: [1-10]' line - whereas the paper's Appendix C.2 Math template is a 6-option, reasoning-pattern-specific prompt with an ANALYSIS block and no confidence line. Chance level and the decoy set both differ, so the two are not interchangeable.",
+  "OpenAIClient calls chat.completions.create(..., max_tokens=1024). The API rejects max_tokens for reasoning models (max_completion_tokens is required), and even if accepted, 1024 tokens would be consumed by reasoning before any visible text; the except branch logs the error and returns an empty string, which the scorer would count as a wrong identification. The released code as committed therefore cannot have produced the paper's o4-mini rows.",
+  "No released outputs and no licence on the code."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "o4-mini-2025-04-16",
+   "purpose": "live baseline (P0), used as both target and identifier - the self-identification diagonal cell"
+  },
+  "successors": [
+   "gpt-5.6-terra (vendor-designated replacement for o4-mini)"
+  ],
+  "dead_comparators_not_runnable": [
+   "gpt-4o-mini-2024-07-18 is alive and is the second GPT column (0.88 in the same row) - available as an optional second target",
+   "claude-3-5-haiku-20241022 / claude-3-7-sonnet-20250219 and the open-weight targets sit outside the OpenAI census"
+  ]
+ },
+ "budget": {
+  "est_calls": 600,
+  "est_tokens_in": 360000,
+  "est_tokens_out": 1110000,
+  "est_cost_usd": 6,
+  "pricing_usd_per_1m": {
+   "o4-mini-2025-04-16": {
+    "input": 1.1,
+    "output": 4.4
+   }
+  },
+  "assumptions": "100 items x 2 calls (target solve, then self-identification) x 3 seeds = 600 calls. Stage 1: ~200 tokens in, ~2,500 out including reasoning tokens on competition-level problems. Stage 2: ~1,000 tokens in (the ~300-token template plus the target's visible solution), ~1,200 out. Gives ~$0.40 input and ~$4.9 output, i.e. about $5-6 total. Adding the gpt-4o-mini target column would roughly double the target-side calls for about $1 more."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: accuracy of o4-mini-as-identifier at recovering (A) GPT for its own solutions on the 100 math items. Survival = re-run accuracy (median of 3 seeds) inside the bootstrap 95% CI over items of 0.64 (n=100, about +/-9.5 pp) AND the behavioural direction holds: the GPT option is chosen far more often than any non-GPT family in the same condition and far above the 1-in-6 chance level. Partial = the level moves outside the CI but self-recognition remains clearly above chance and above every out-of-family option. Death = identification collapses to chance, or the model systematically picks a non-GPT family for its own output.",
+  "notes": "Because the exact 100 problems cannot be recovered, this is a set-level replication: draw 100 MATH-500 problems with the repository's own seeded procedure, and report that the item sets differ. The self-identification cell is unusual in that BOTH sides of the pipeline are the dying snapshot, so any drift is doubled rather than confounded with a separate judge. Secondary check: the same row's 0.88 on gpt-4o-mini (in-family, cross-model) should stay above the cross-family cells."
+ },
+ "status": "done",
+ "user_checks": [
+  "Correction to carry over: harness/tierb/configs/W4416035547.json records the Math cell as 0.93 with '(F1 counterpart 0.64 in Figure 9(a))'. Reading Figure 11 panel by panel, the o4-mini x o4-mini Math accuracy is 0.64; 0.93 is the same cell in the XSum and UltraChat panels, and Figure 9(a) is the family-level F1 heatmap where GPT x GPT = 0.37. Approve updating the target value to 0.64 (and the Tier B config with it)?",
+  "Prompt: use the paper's Appendix C.2 six-option Math template (as the Tier B config does), or the repository's seven-option generic template? They have different option sets and chance levels; running both as a prompt variant costs about $6 more.",
+  "Items: accept a set-level match - 100 MATH-500 problems drawn with sampled_data_indicies.py's seeded procedure - given that the repository's own math loader points at gsm8k and the index module is never imported? Also confirm we ignore Table 3's unimplemented 'level 5 only' filter.",
+  "Add gpt-4o-mini-2024-07-18 as a second target column (same row, published 0.88) for about $1 more, so the card carries one in-family cross-model check alongside the self-identification cell?"
+ ],
+ "domain_notes": "Tier B relationship: this paper already has a prompt-level config (harness/tierb/configs/W4416035547.json, status ready, with hooks/W4416035547.py implementing the two-stage run). The repository does NOT deliver a clean upgrade to repository-based re-execution - it is a refactored 'framework' whose math path (gsm8k, 7-option prompt, pandas sampling, max_tokens on a reasoning model) diverges from the paper on every axis that matters, while the Tier B config follows the paper's own Appendix C.2 template and MATH-500. The right use of the repository is therefore as corroborating evidence - it confirms the snapshot id, the regex-based scorer, the '(A) = correct when the target is GPT' convention and the two-stage structure - rather than as the execution path. Concretely the two protocols differ in: dataset (MATH-500 vs gsm8k), option set (6 vs 7 with a Confidence line), item sampling (seeded index list vs df.sample+head), and token limit (max_completion_tokens 16384 vs max_tokens 1024).",
+ "decisions_2026_09_19": {
+  "date": "2026-09-19",
+  "decided_by": "project default, user delegated",
+  "prompt": "the paper's Appendix C.2 six-option Math template, exactly as the Tier B hook renders it: the adapter reads the string from harness/tierb/configs/W4416035547.json so both tiers send the same bytes, and --check re-verifies it against the Appendix C.2 block of external/papers_tierb/W4416035547.txt (NFKC + straight quotes + whitespace-insensitive: identical) and asserts the option letters are (A)-(F). The repository's seven-option IDENTIFICATION_PROMPT_MCQ_MODEL_FAMILY_V2 (A-G plus a 'Confidence Level' line) is recorded in the environment check but not used. Answers user_check 2.",
+  "items": "100 MATH-500 test problems from the repository's own sampled_data_indicies.py (random.seed(42); 100 CCP-sensitive-prompts indices drawn first, then 100 of the 500 MATH-500 rows). The adapter imports that module with `datasets` and `torch` stubbed instead of copying it; the index list it returns is identical, and in the same order, to the Tier B run's 100 items. Set-level match only - the authors' exact items are unrecoverable - and Table 3's unimplemented 'level 5 only' filter is ignored. Answers user_check 3.",
+  "targets": "single target o4-mini-2025-04-16 in both roles (target and identifier). The gpt-4o-mini-2024-07-18 column (published 0.88 in the same row) is NOT added, so the card's secondary in-family cross-model check stays unrun. Answers user_check 4.",
+  "seeds": 3,
+  "stages": "2, as the paper: stage 1 the target solves the problem ('Solve the following math question step-by-step.' + blank line + problem, Figure 1 wording), stage 2 the identifier classifies that solution; each stage-2 request is built from the archived stage-1 reply of the same (item, seed) pair.",
+  "params": "max_completion_tokens 16384 and reasoning_effort medium (the repository's max_tokens=1024 is rejected outright for reasoning models); no temperature, no top_p, no seed - Appendix C.1 provider defaults.",
+  "scorer": "the authors' own evaluation_utils.parse_model_response(reply, 'mcq') regex MODEL IDENTIFICATION:\\s*\\(([A-G])\\)\\s*([A-Za-z]+) plus compute_accuracy_metrics against the constant gold 'A'; unparsed replies count as incorrect. The Tier B hook's more permissive parser is reported as a sensitivity column.",
+  "cost_cap_usd": 10,
+  "target_value": "0.64 (Figure 11(a), Math panel, o4-mini identifier x o4-mini target) is carried as the original value. harness/tierb/configs/W4416035547.json still records 0.93 for the same cell, and its 재현 verdict (0.947 re-run) rests on that number; the figure needs a human read before either value is final. Answers user_check 1.",
+  "adapter": "harness/adapters/interloc_W4416035547.py (--check / --dry-run / --run / --analyze). The repository's sampled_data_indicies.py, evaluation_utils.py and prompts.py are imported from external/repos/W4416035547/, never copied (the code carries no licence).",
+  "check_result_2026_09_19": "OK: repo HEAD 1edb852f matches the card; 100 items, order identical to the Tier B run; stage-2 template equals Appendix C.2 (normalized) with options (A)-(F); the adapter's renderings reproduce all 300 archived Tier B stage-1 prompts and all 300 judge prompts byte for byte; parser self-test 12/12 with 2 recorded authors-vs-hook disagreements; the authors' scorer returns 0.64 on a synthetic 64/100 row; bootstrap CI of the original 0.64 (n=100, rng 20260907) = [0.54, 0.73] against chance 0.167.",
+  "measured_2026_09_19_dry_run": {
+   "calls": 600,
+   "stage1_calls": 300,
+   "stage2_calls": 300,
+   "tokens_in_est": 180100,
+   "tokens_out_est": 595100,
+   "est_usd": 2.82,
+   "basis": "input = chars/4 over the rendered prompts; output at the archived Tier B per-call rates (1,369 stage 1 and 614 stage 2, reasoning tokens billed). $43.45 if every call ran to max_completion_tokens 16384, which the $10 cap forecloses."
+  },
+  "carried_over": [
+   "keep the Tier B prompt-level protocol (paper Appendix C.2 + MATH-500) as the execution path; use the repository only to pin the snapshot, the scorer and the two-stage structure",
+   "target value corrected from 0.93 to 0.64 pending user confirmation"
+  ]
+ },
+ "judgment_provisional": {
+  "value": "부분 생존 (partial)",
+  "cost_usd": 2.8486,
+  "run_date": "2026-09-19",
+  "source": "runs/W4416035547/run_meta.json"
+ }
+}

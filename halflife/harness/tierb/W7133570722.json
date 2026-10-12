@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7133570722",
+  "title": "Sustainable Code Generation Using Large Language Models: A Systematic Literature Review",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (listed among models used in reviewed studies)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 5: 'Mistral-Large-2407 (123B), Pixtral-Large-2411 (124B), OpenAI GPT-3.5 Turbo, OpenAI GPT-4 Turbo, OpenAI GPT-4o,' (models appearing in the reviewed literature)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Systematic literature review; no experiments"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Systematic literature review; no experiments."
+}

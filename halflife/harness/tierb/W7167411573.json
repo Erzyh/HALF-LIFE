@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7167411573",
+  "title": "ChatGPT's pedagogical approach and the potential for hidden curriculum through school context proxies",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT-4 (OpenAI, 2023; GPT-4-turbo)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "'We selected ChatGPT-4 (OpenAI, 2023; GPT-4-turbo) because of its prominence'; 45 lesson plans generated via ChatGPT under three prompt conditions."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Methods (baseline prompt and two school-context variants described)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": 45,
+    "location": "",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Prompts are the inputs; 45 generated lesson plans analyzed qualitatively"
+  },
+  "cost": {
+    "est_calls": 45,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "human_outcome"
+  ],
+  "notes": "ChatGPT interface; outcomes are qualitative pedagogical codings."
+}

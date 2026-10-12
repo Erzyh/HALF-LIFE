@@ -1,0 +1,73 @@
+{
+  "wid": "W7140124165",
+  "title": "MEENA (PersianMMMU): Multimodal-Multilingual Educational Exams for N-level Assessment",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 3067,
+    "subset_rule": "paper-defined split: the bilingual English subset (3,067 questions: 547 online-sourced + 2,520 Pellekan Yadgiri), zero-shot with image",
+    "approximation": "Answer extraction falls back to an undated gpt-4o-mini judge (paper Sec. 4.3) when the regex stage fails; decoding parameters assumed."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "raia-center/meena (gated, manual approval; CC-BY-ND-4.0); code at https://github.com/raia-center/meena",
+    "config_or_split": "English subset (3,067 questions)",
+    "filter": "language == English",
+    "fields": {
+      "input": "question text + image",
+      "options": "four choices",
+      "label": "correct option (1-4)",
+      "id": "question id"
+    },
+    "license": "CC-BY-ND-4.0 (Hugging Face tag)",
+    "access_checked": true,
+    "size_mb": 300
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{image}Below, you can see multiple-choice questions (with answers).\nQuestion: {mcq_question}\nChoices:\n1) {choice_1}\n2) {choice_2}\n3) {choice_3}\n4) {choice_4}\nAnswer:",
+    "placeholders": {
+      "image": "the question image",
+      "mcq_question": "items.question (English)",
+      "choice_1": "option 1",
+      "choice_2": "option 2",
+      "choice_3": "option 3",
+      "choice_4": "option 4"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix E, 'English Zero-Shot and Wrong-Image Prompt'",
+    "verbatim": "full (the printed template lists the choice numbers 1)-4) with the option texts filled from the item)"
+  },
+  "output": {
+    "parse": "regex stage: patterns such as 'correct answer is option (\\d)' / 'answer[: ]+(\\d)' -> option 1-4; fallback judge: gpt-4o-mini with the Appendix E 'LLM as a Judge (Answer Extraction)' prompt returning 1-4 / no_image / cannot_understand / wrong_image / unknown",
+    "postprocess": "strip; non-numeric outcomes counted as incorrect"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 3,067 English questions whose extracted option equals the gold option.",
+    "judge": "llm:gpt-4o-mini (answer extraction fallback only), prompt location Appendix E 'LLM as a Judge (Answer Extraction)'",
+    "original_value": 0.44,
+    "original_location": "Table 2, MEENA English Dataset, row GPT-4-Turbo, column Zero Shot (0.440)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 3067,
+    "est_usd": 46.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Request access to the gated raia-center/meena dataset (manual approval) and confirm that its licence (CC-BY-ND-4.0) permits the run; field names cannot be checked before access.",
+    "Confirm that the 'MEENA English Dataset' rows of Table 2 cover all 3,067 bilingual questions (n is not printed)."
+  ],
+  "notes": "Image inputs make each call ~1k tokens. The gpt-4o-mini fallback snapshot is undated in the paper."
+}

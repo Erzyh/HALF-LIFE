@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405933891",
+ "title": "Responsible Use of LLM Models for Labor Market Foresight: The Experience of a Vocational Education and Training Institution",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (\"GPT-4\" in Project 1)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec. 2: \"...sent the inputs to the GPT-4 Turbo, GPT-4o, or Claude 2 APIs...\"; Sec. 2.1: \"the accuracy rate increased from 71% to 81%...partly due to GPT-4's limitations.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "footnote 1 (external link: bit.ly/prompts_laai); Sec. 2 (prompt structure described)",
+  "note": "Final prompt is only available via an external bit.ly link, not quoted in the paper itself."
+ },
+ "claim": {
+  "metric": "accuracy rate vs. human review, Project 1 (Automation Impact), round 2",
+  "value": 81,
+  "n_items": 101,
+  "location": "Sec. 2.1",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "SENAC's internal 2,100 Courses Curricular Indicators (CCI) database; not released"
+ },
+ "cost": {
+  "est_calls": 1050,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Project 2 (Future Economies) instead uses undated GPT-4o on an internal 143k-activity classification task, reaching 91% agreement with humans on a final 150-item check; both projects rely on SENAC-internal institutional data that is not printed or released."
+}

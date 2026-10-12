@@ -1,0 +1,58 @@
+{
+  "wid": "W4414494504",
+  "title": "PGxRAG: A Retrieval Augmented Generation supported Pharmacogenomics Assistant",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "accuracy",
+  "original_value": 80.889,
+  "original_location": "Table 2, row gpt-4-turbo / Temperature 0 / Approach llm (182 of 225 correct)",
+  "reexecution": {
+    "mean_over_seeds": 0.7288888888888889,
+    "per_seed": {
+      "0": {
+        "value": 0.7288888888888889,
+        "n": 225,
+        "ci95": [
+          0.6666666666666666,
+          0.7866666666666666
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 18
+  },
+  "prepare": {
+    "wid": "W4414494504",
+    "n_items": 225,
+    "n_requests": 225,
+    "seeds": 1,
+    "est_usd": 0.1,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 80.889,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4414494504",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "LLM-only condition, no retrieval; free-text answers mapped to an option letter by a fixed parser instead of SME checking",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W4414494504"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 72.88888888888889,
+    "delta": -8.00011111111111,
+    "original_inside_ci95": false
+  }
+}

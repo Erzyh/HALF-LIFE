@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4414137518",
+  "title": "Sudden cardiac death in the young: single-center study of Bari autopsy cases",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"In this manuscript, ChatGPT, version GPT-4-turbo, developed by OpenAI ... was used for proofreading in English\" (Generative AI statement, back matter)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "No prompts; model used only for English proofreading of the manuscript text, unrelated to the study's forensic-pathology findings."},
+  "claim": {
+    "metric": "none", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (autopsy case series; GPT-4-turbo not used on the study data)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Forensic-pathology autopsy study. GPT-4-turbo appears only in the mandatory Generative-AI-use disclosure (proofreading), not as part of the research method."
+}

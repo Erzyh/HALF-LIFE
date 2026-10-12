@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4417170236",
+ "title": "Fane at SemEval-2025 Task 10: Zero-Shot Entity Framing with Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "O1(o1-2024-12-17)",
+  "resolved": "o1-2024-12-17",
+  "role": "S",
+  "evidence": "Sec 6.2: \"for our official SemEval submission, we employed a Full-Text + Expert Persona + Multi-Step setup using O1(o1-2024-12-17) as our model\"; Table 5: EMR 0.345, MRA 0.894."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Figure 2 (modular template structure) + Appendix D (\"exact phrasing\" per experimental setting, per Sec. 4 cross-reference)",
+  "note": "Codebase and prompts stated to be publicly released as well."
+ },
+ "claim": {
+  "metric": "Exact Match Ratio (EMR) / Main Role Accuracy (MRA), official SemEval-2025 Task 10 test set",
+  "value": 0.345,
+  "n_items": null,
+  "location": "Table 4 (official test results) and Table 5 (EMR 0.345, MRA 0.894, using O1)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "SemEval-2025 Task 10 shared-task dataset (English); codebase and prompts stated to be publicly available"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Official shared-task test-set size (N) is not stated in the paper text (only team-level EMR/MRA scores are reported), so cost/n_items are approximate; this is the soft gap behind the 'maybe' verdict. Paper also reports an 'Improved' post-SemEval configuration reaching EMR 0.349 with GPT-4o (not o1) at far lower token price ($2.50/$10 per 1M vs O1's $15/$60)."
+}

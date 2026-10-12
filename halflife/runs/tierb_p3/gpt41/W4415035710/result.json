@@ -1,0 +1,56 @@
+{
+  "wid": "W4415035710",
+  "title": "Do LLMs have a Gender (Entropy) Bias?",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 2.0,
+  "original_location": "Table 4, row ChatGPT-4-turbo, Education Recommendations, Shannon Entropy column (t = 2.00, p = 0.04)",
+  "reexecution": {
+    "mean_over_seeds": -0.08133640208146957,
+    "per_seed": {
+      "0": {
+        "value": -0.08133640208146957,
+        "n": 158,
+        "ci95": [
+          -2.16468684909885,
+          1.9739132579156462
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4415035710",
+    "n_items": 158,
+    "n_requests": 158,
+    "seeds": 1,
+    "est_usd": 0.55,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 2.0,
+    "cap_usd": 1.5
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 50
+  },
+  "approximation": "one iteration gives one t-statistic (paper Table 4 is a single iteration); questions sent in shuffled order in fresh contexts as in Algorithm 1, without the one-minute delay Entropy is computed over the character distribution of each reply in bits: this reproduces the released shannonentropy_* columns to three decimals (Sec. 3.1 writes the formula with words, Algorithm 2 line 11 says characters).",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4415035710"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": -0.08133640208146957,
+    "delta": -2.0813364020814697,
+    "original_inside_ci95": false
+  }
+}

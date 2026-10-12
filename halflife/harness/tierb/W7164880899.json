@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7164880899",
+ "title": "GOVERNANÇA NO TRIBUNAL DE CONTAS NA ERA DIGITAL: O PAPEL DA INTELIGÊNCIA ARTIFICIAL NA PROMOÇÃO DE ACCOUNTABILITY E TRANSPARÊNCIA",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"...hospedada na nuvem Microsoft Azure, baseada no GPT-4 Turbo e capaz de consultar jurisprudência...\" (citing Silva et al. 2024, an internal Court chatbot, secondhand)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is mentioned only as the backend of an internal Brazilian federal audit court chatbot, described via a secondary citation (Silva et al. 2024); no prompt, run, or metric from this paper's own work."
+}

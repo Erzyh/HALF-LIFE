@@ -1,0 +1,66 @@
+{
+  "wid": "W7140084705",
+  "title": "Quantifying Data Contamination in Psychometric Evaluations of LLMs",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "metric": "macro_f1",
+  "original_value": 0.92,
+  "original_location": "Table 1, row gpt-4.1-nano, column Item-Dimension Mapping (F1) (0.92 +/- 0.07); per inventory Tables 3-6",
+  "reexecution": {
+    "mean_over_seeds": 0.9128095125436625,
+    "per_seed": {
+      "0": {
+        "value": 0.9177566484606463,
+        "n": 138,
+        "ci95": [
+          0.8495641485539185,
+          0.9617303171040384
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.9277801572053828,
+        "n": 138,
+        "ci95": [
+          0.8589425589306945,
+          0.969847061151409
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.8928917319649585,
+        "n": 138,
+        "ci95": [
+          0.8129890174455897,
+          0.9430617628677092
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7140084705",
+    "n_items": 138,
+    "n_requests": 414,
+    "seeds": 3,
+    "est_usd": 0.01,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-nano-2025-04-14",
+    "metric": "macro_f1",
+    "original_value": 0.92
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 9
+  },
+  "approximation": "The released sd3.json has 24 items (psychopathy 6) versus 27 in the paper; the {dimensions} list format is not printed (comma-separated labels from the JSON meta_data); runner macro-F1 is pooled over all 23 dimension labels (the paper averages per-inventory macro-F1 over the four inventories); the runner's label match is a word-bounded substring match rather than the repository's exact string equality",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.9128095125436625,
+    "delta": -0.0071904874563375465,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403578684",
+  "title": "Exploring LLM Cryptocurrency Trading Through Fact-Subjectivity Aware Reasoning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Appendix / related work: 'in the FinMem Backbone Algorithm Comparison (Yu et al., 2024), GPT-4-Turbo ...'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Tables 2-8 (agent prompt examples)",
+    "note": "Evaluated models are unversioned GPT-3.5-turbo, GPT-4, GPT-4o and o1-mini."
+  },
+  "claim": {
+    "metric": "total return (%)",
+    "value": null,
+    "n_items": null,
+    "location": "Table 1 (GPT-4o etc.)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "CoinMarketCap prices and news (Appendix E-F)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Trading backtest with news; the live model appears only in related work."
+}

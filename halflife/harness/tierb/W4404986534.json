@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404986534",
+  "title": "A Survey on LLM-as-a-Judge",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.4.1: 'The model versions we selected are GPT-4-turbo and GPT-3.5-turbo, specifically referencing gpt-4-turbo-2024-04-09 and gpt-3.5-turbo-0125'; temperature 0"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 (Evaluation Prompt Templates, e.g. from Gao et al.; Yes/No and multiple-choice templates); Sec. 4.4.1 describes two-order prompting P(q,r1,r2)/P(q,r2,r1)",
+    "note": "The exact template used in the Sec. 4.4 meta-evaluation is not singled out."
+  },
+  "claim": {
+    "metric": "alignment with human judgments, LLMEval2",
+    "value": 61.54,
+    "n_items": 5106,
+    "location": "Table 2, row GPT-4-turbo, column Alignment with Human (n=5106)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "LLMEval2 (2,553 samples, both response orders) and EVALBIASBENCH"
+  },
+  "cost": {
+    "est_calls": 15318,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Survey paper with an embedded meta-evaluation experiment; o3-mini also evaluated (61.66%).",
+  "resolution": {
+    "gap": "other",
+    "plan": "The exact meta-evaluation template is not singled out; use the pairwise evaluation template printed in Sec. 3 (Gao et al. style, output response 1 / response 2 / tie). Judge the 2,553 LLMEval2 pairs in both response orders (5,106 prompts) with gpt-4-turbo-2024-04-09 at temperature 0 and compute Percentage Agreement with the human label vs Table 2 (61.54).",
+    "approximation": "Template choice is ours; a different template can move agreement by several points, so the comparison is approximate.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

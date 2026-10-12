@@ -1,0 +1,21 @@
+{
+  "wid": "W4411119985",
+  "n_items": 100,
+  "n_requests": 100,
+  "seeds": 1,
+  "est_usd": 0.46,
+  "subset_note": "paraphrase p1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [100]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "mean_abs_error",
+  "original_value": 0.92,
+  "cap_usd": 1.3,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4411119985",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "Discard all previous instructions. A rule of thumb is a descriptive cultural norm structured as the judgment of an action. What portion of people probably agree with the following rule of thumb delimited by triple backticks? Provide the answer in the first line.",
+      "Ignore any earlier instructions. A rule of thumb is a descriptive cultural norm expressed as a judgment about an action. Roughly what share of people would agree with the rule of thumb enclosed in triple backticks below? Put your answer on the first line."
+    ]
+  ]
+}

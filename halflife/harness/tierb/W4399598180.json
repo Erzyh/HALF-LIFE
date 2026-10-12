@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4399598180",
+  "title": "HalluDial: A Large-Scale Benchmark for Automatic Dialogue-Level Hallucination Evaluation",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "'GPT-4o-2024-05-13 72.66 85.01 80.64 81.42 77.92 78.84' (Table 2); 'For the other LLMs, the evaluation instructions are detailed in Table 15' (Section 3.1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix F.3, Table 15 (Instruction of hallucination detection); Table 16 (localization, with three in-context examples)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (dialogue-level hallucination detection, HalluDial test set)",
+    "value": 80.64,
+    "n_items": null,
+    "location": "Table 2, row GPT-4o-2024-05-13, column Acc. (Macro F1 78.84)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/FlagOpen/HalluDial (146,856 samples; 6:4 train/test split)"
+  },
+  "cost": {
+    "est_calls": 176226,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "The exact number of test instances used for the API baselines is not printed (full test split would be ~58.7k; localization used a 3,200 subset); temperature for detection not stated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n is not printed because the number is on the full released test split (40% of 146,856 samples, github.com/FlagOpen/HalluDial). Take the test split from the repository, prompt gpt-4o-2024-05-13 with the Table 15 detection instruction at temperature 0, and compute accuracy and macro F1 against Table 2 (80.64 / 78.84). To control cost, run a seeded random subset of 3,200 test instances (the size the paper uses for localization) and compare at set level.",
+    "approximation": "Seeded 3,200-item subset instead of the ~58.7k test split; detection temperature not stated (0.0 is the paper's annotation setting); comparison is approximate.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

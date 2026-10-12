@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405693132",
+  "title": "Revolutionizing Healthcare Delivery: Evaluating the Impact of Google's Gemini AI as a Virtual Doctor in Medical Services",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT 4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Discussion: \"...how the Gemini Pro fared in contrast to other models, such as the GPT 3.5 Turbo and GPT 4 Turbo...\" (citing a separate prior comparison study)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "No prompt for GPT-4 Turbo; the paper's own live subject model is Gemini, evaluated as a virtual-doctor chatbot."
+  },
+  "claim": {
+    "metric": "none for the live id (mention only, inside a discussion of a different cited study)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "not applicable to the GPT-4 Turbo mention"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The paper's own experiment evaluates Google Gemini as a virtual doctor; GPT-4 Turbo (and GPT-3.5 Turbo) appear only once, in a Discussion paragraph summarizing an unnamed prior comparison study, never as models the authors ran."
+}

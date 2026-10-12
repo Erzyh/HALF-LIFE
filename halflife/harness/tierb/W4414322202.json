@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4414322202",
+  "title": "Development of a RAG-based Expert LLM for Clinical Support in Radiation Oncology",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 4.1: 'four OpenAI large language models (GPT-4-turbo, GPT-4o, GPT-4.1, and GPT-5) across two answer generation strategies: direct response and retrieval-augmented generation'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplemental Table 1 (not in the main text); 'reproducible scripts are available upon request'",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (%) on the 2021 ACR TXIT exam, RAG with textbook + NCCN",
+    "value": 77.32,
+    "n_items": null,
+    "location": "Sec. 4.2 text (GPT-4-turbo 77.32% textbook+NCCN; 79.38% with PMC); direct-answer value only in Figure 3",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "ACR TXIT 2021 in-training exam (text questions) and a copyrighted textbook + NCCN knowledge base"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Direct-answer accuracy for GPT-4-turbo appears only in Figure 3 ('increased by over 5 percentage points' with RAG). Exam items and the retrieval corpus are not redistributable; question count not stated."
+}

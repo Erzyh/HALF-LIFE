@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7119058023",
+  "title": "Artificial Intelligence and Consciousness: Limits and Modern Perspectives",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "'a brief comparison was made using three major language models: GPT-5, Gemini 2.5, and Deepseek-V3.2. Each model was asked three questions' (Section 5.1.1)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 5.1.1 (three questions printed); full answers in the appendix",
+    "note": "Questions on Goedel's theorem plus a few reasoning puzzles; no system prompt or settings."
+  },
+  "claim": {
+    "metric": "none (qualitative)",
+    "value": null,
+    "n_items": 3,
+    "location": "Section 5.1.1 and Appendix (verbatim answers)",
+    "task_type": "other",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "questions printed in the paper"
+  },
+  "cost": {
+    "est_calls": 9,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "Review/position paper; GPT-5 used interactively without a version string or any metric."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404569958",
+  "title": "A Novel MLLM-based Approach for Autonomous Driving in Different Weather Conditions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (model-attribute comparison table); GPT-4o (driving agent)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 3 table: 'Attribute GPT-4o GPT-4 GPT-4 Turbo GPT-3.5'; Sec. 4: 'we opt for GPT-4o [23], an optimized version of GPT-4'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Fig. 3 / Sec. 4.B (example GPT-4o system prompt: 'You are GPT-4o ... act as a mature driving assistant')",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "GPT-4 Turbo only in a feature-comparison table; GPT-4o results are closed-loop CARLA/LimSim++ driving scores",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "CARLA + LimSim++ simulation scenarios; code https://github.com/SondaFourati/..."
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4o snapshot not stated; outcomes are simulator driving scores."
+}

@@ -1,0 +1,56 @@
+{
+  "wid": "W7160514285",
+  "title": "Large Language Models Show Metacognitive Sensitivity in Medical Reasoning",
+  "model": "gpt-5.6-luna",
+  "metric": "accuracy",
+  "original_value": 0.935,
+  "original_location": "Table 2 ('Overall performance for gpt-4.1-nano'), row 'Forced-choice accuracy'",
+  "reexecution": {
+    "mean_over_seeds": 0.6574074074074074,
+    "per_seed": {
+      "0": {
+        "value": 0.6574074074074074,
+        "n": 108,
+        "ci95": [
+          0.5648148148148148,
+          0.7407407407407407
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7160514285",
+    "n_items": 108,
+    "n_requests": 108,
+    "seeds": 1,
+    "est_usd": 0.1,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-luna",
+    "metric": "accuracy",
+    "original_value": 0.935,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-luna"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper calls the Responses API; the harness calls Chat Completions with the same strict json_schema response format, the same system instruction and the same prompt text. The paper's model id is the undated alias gpt-4.1-nano, so the snapshot served may differ from the pilot's.",
+  "arm": {
+    "model": "gpt-5.6-luna",
+    "config_model": "gpt-4.1-nano",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W7160514285"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.6574074074074074,
+    "delta": -0.2775925925925926,
+    "original_inside_ci95": false
+  }
+}

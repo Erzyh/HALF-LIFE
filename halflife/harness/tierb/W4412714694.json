@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4412714694",
+ "title": "LA-RCS: LLM-agent-based Robot Control System",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"we selected the GPT-4-Turbo and GPT-4 models as control baselines...we directed the models to provide step-by-step guidance...A human operator subsequently executed the steps\"; Table 1 row \"GPT-4 Turbo (Human Surrogate) 9.5 45\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 3 (\"LLM agent with several shot-prompting methods\", system-message framing described); exact system prompt text not printed",
+  "note": "Approach (few-shot prompting through a system message) is described; literal template not quoted in the retrieved text."
+ },
+ "claim": {
+  "metric": "success rate (%), GPT-4 Turbo (Human Surrogate) baseline",
+  "value": 45,
+  "n_items": 20,
+  "location": "Table 1 (Performance comparison achieved by LA-RCS), row 'GPT-4 Turbo (Human Surrogate)': avg step count 9.5, success rate 45%; benchmark of 20 user requests (5 per domain x 4 domains, Sec 4.1), each tested 3x and best run kept",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Authors' own 20-request benchmark across 4 domains (object detection, command execution, obstacle navigation, situational awareness); project site https://la-rcs.github.io (dataset itself not confirmed released)"
+ },
+ "cost": {
+  "est_calls": 60,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "The 'Human Surrogate' condition is the cleanest prompt-level target: GPT-4-Turbo is simply asked for step-by-step guidance and a human executes it (no robot/CAROBO integration code required to reproduce). The full 'LA-RCS (GPT-4 Turbo)' agentic condition (60% success, Table 1) is also available but needs the robot-interface scaffold, so it is not the basis for this record's claim. Each of the 20 requests was run 3x and the best kept; cost estimate is 20x3=60 calls for this baseline condition."
+}

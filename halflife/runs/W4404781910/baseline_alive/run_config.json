@@ -1,0 +1,29 @@
+{
+  "card_id": "W4404781910",
+  "model": "gpt-4o-2024-05-13",
+  "prompt": "llmbar",
+  "temperature": 0,
+  "max_tokens": 20,
+  "seeds": 3,
+  "calls": 480,
+  "cap_usd": 3.0,
+  "benchmark": "EvalBiasBench (biasbench.json, 80 pairs x 2 orders)",
+  "repo_commit": "0bd16e4ac935315999ed23480c69673b675884b0",
+  "estimate": {
+    "calls": 480,
+    "tokens_in": 208044,
+    "tokens_out_expected": 1920,
+    "tokens_out_max": 9600,
+    "encoding": "o200k_base",
+    "usd_expected": 1.06902,
+    "answer_tokens": 4,
+    "pricing": {
+      "input": 5.0,
+      "output": 15.0
+    },
+    "usd_max_tokens_bound": 1.18422,
+    "mean_tokens_in": 433.425
+  },
+  "built_utc": "2026-09-19T12:46:14.758422+00:00",
+  "decisions": "card key decisions_2026_09_19"
+}

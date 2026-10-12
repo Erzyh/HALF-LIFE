@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7134093983",
+ "title": "Using Vision + Language Models to Predict Item Difficulty",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "\"We used the GPT-4.1-nano model via the OpenAI API, leveraging its multimodal capabilities.\" (three modeling approaches: text-only, vision-only, multimodal)"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 2.2 (Modeling Approach): system-prompt content described per approach (feature list for text-only, vision-only, and multimodal conditions); Pydantic-structured JSON output",
+  "note": "The features each system prompt instructs the model to consider are listed; the literal system-prompt string is paraphrased, not quoted."
+ },
+ "claim": {
+  "metric": "mean absolute error (MAE) between predicted and actual item easiness, multimodal (vision+text) model",
+  "value": 0.224,
+  "n_items": 154,
+  "location": "Abstract/Sec 2.1: \"the multimodal approach...yields the lowest mean absolute error (MAE) (0.224), outperforming the unimodal vision-only (0.282) and text-only (0.338) approaches\"; N=154 validation subset",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Data-visualization-literacy item-response dataset (Verma and Fan 2025), items from WAN/GGR/BRBF/VLAT/CALVI assessments"
+ },
+ "cost": {
+  "est_calls": 154,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Small, cheap, well-specified single-author study; GPT-4.1-nano is called directly via the OpenAI API with structured (Pydantic/JSON) output for 3 feature-set conditions over a 154-item validation subset, plus a held-out test set (MSE 0.10805) for the best multimodal model."
+}

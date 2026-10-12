@@ -1,0 +1,67 @@
+{
+  "wid": "W7144391352",
+  "title": "CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Korean Law",
+  "model": "gpt-5-2025-08-07",
+  "metric": "accuracy",
+  "original_value": 0.754,
+  "original_location": "Table 1, row GPT-5* (l), Type-ISR Avg (Suff. 0.973, Insuff. 0.756, Part. 0.651)",
+  "reexecution": {
+    "mean_over_seeds": 0.7634408602150539,
+    "per_seed": {
+      "0": {
+        "value": 0.7670250896057348,
+        "n": 279,
+        "ci95": [
+          0.7168458781362007,
+          0.8172043010752689
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7670250896057348,
+        "n": 279,
+        "ci95": [
+          0.7132616487455197,
+          0.8136200716845878
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.7562724014336918,
+        "n": 279,
+        "ci95": [
+          0.7025089605734767,
+          0.8028673835125448
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7144391352",
+    "n_items": 279,
+    "n_requests": 837,
+    "seeds": 3,
+    "est_usd": 5.54,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-2025-08-07",
+    "metric": "accuracy",
+    "original_value": 0.754,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-5-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "direct OpenAI API instead of OpenRouter; GPT-5 is not deterministic under a seed; the Korean prompt assembly (instruction, question, options) follows the repository items and the Appendix A.2.2 layout",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7634408602150539,
+    "delta": 0.009440860215053859,
+    "original_inside_ci95": true
+  }
+}

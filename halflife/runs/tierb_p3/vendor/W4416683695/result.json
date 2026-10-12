@@ -1,0 +1,56 @@
+{
+  "wid": "W4416683695",
+  "title": "AI Self-preferencing in Algorithmic Hiring: Empirical Evidence and Insights",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 93.0,
+  "original_location": "Figure 3a ('LLM-vs-Human Statistical Parity Self-preference Bias'), GPT-4-turbo bar: 93.0% (GPT-4o-mini 93.6%, GPT-4o 97.6%); Sec. 5.1.1 gives the range 26% to 98% over the nine models",
+  "reexecution": {
+    "mean_over_seeds": 0.13214285714285715,
+    "per_seed": {
+      "0": {
+        "value": 0.13214285714285715,
+        "n": 560,
+        "ci95": [
+          0.05,
+          0.21785714285714286
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416683695",
+    "n_items": 560,
+    "n_requests": 560,
+    "seeds": 1,
+    "est_usd": 12.36,
+    "subset_note": "cost cap $12.5: seeded random subset of 560 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 93.0,
+    "cap_usd": 12.5
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper does not describe how it isolated the executive summary, so the section is located here through the Resume_html section id SECTION_SUMM and cut out of Resume_str; the section heading stays in place and only the body is replaced, which makes the counterfactual differ from the original in exactly that one block (Sec. 4.2.1). The reconstruction lands on 2,243 resumes with summary length mean 68.8 words and quartiles 31 / 48 / 82 against the paper's Table 1 mean 70.74 and quartiles 32 / 50 / 84. Which side is shown as Resume A is our choice (fixed per resume by sha256(id + 20260907) parity); the paper does not say. Both stages use gpt-4-turbo-2024-04-09, as the self-preference design requires (generator and evaluator are the same model).",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4416683695"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 13.214285714285715,
+    "delta": -79.78571428571428,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7165378143",
+  "title": "Embodied GPT-5.1: Evidence of a World Model?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Related work: \"Sikorski et al. [13] use general-purpose LLMs (GPT-4-Turbo and quantized LLaMA-2) on a desktop to interpret spoken commands...\" -- describing a different, cited paper's setup"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This paper's own experiments use GPT-5.1 as an MLLM backbone, not GPT-4-Turbo."
+  },
+  "claim": {
+    "metric": "none (GPT-4-Turbo is only mentioned via a related-work citation)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The paper's own subject model is GPT-5.1 in an embodied-robotics world-model study; GPT-4-Turbo appears only when summarizing Sikorski et al.'s unrelated desktop-robot work."
+}

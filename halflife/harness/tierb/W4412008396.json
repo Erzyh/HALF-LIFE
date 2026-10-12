@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4412008396",
+  "title": "DİN EĞİTİMİNDE CHATGPT’NİN ROLÜ: TEFSİR VE KELAM ÇERÇEVESİNDE DOĞRULUK VE TUTARLILIK ANALİZİ",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (model history) / ChatGPT interface",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "GPT-4 Turbo is mentioned only in the background section on OpenAI model releases (\"GPT-4o ... GPT-4 Turbo ile karsilastirildiginda iki kat daha hizli\"); the study uses ChatGPT"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none for the live id",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "Turkish tafsir/kalam questions posed in the ChatGPT interface; answers assessed by the author"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "Qualitative accuracy/consistency analysis of ChatGPT answers in religious education; no API model, no printed metric table."
+}

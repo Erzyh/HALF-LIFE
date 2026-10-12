@@ -1,0 +1,11 @@
+# Analysis and figure scripts (no API access needed). Versions are those used for the paper (Python 3.13).
+pandas==3.0.1
+numpy==2.3.5
+scipy==1.17.1
+statsmodels==0.14.6
+matplotlib==3.10.8
+openpyxl==3.1.5
+pyarrow==24.0.0
+pypdf==6.13.2
+# Only for the dedicated-endpoint teardown script (scripts/together_dedicated_teardown.py)
+together==2.37.0

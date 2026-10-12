@@ -1,0 +1,12 @@
+[
+ {
+  "wid": "W7126280993",
+  "cap": 3.0,
+  "seeds": 1,
+  "arm": "open70b",
+  "arm_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "model": "o3-2025-04-16",
+  "force": true,
+  "note": "second refill: 16 items still missing after the $2 cap; archived calls reused"
+ }
+]

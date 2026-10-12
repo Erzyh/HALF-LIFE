@@ -1,0 +1,105 @@
+{
+  "per_dataset": {
+    "llmbar_natural": {
+      "acc": 95.5,
+      "acc_normal": 95.0,
+      "acc_swap": 96.0,
+      "self_agreement_acc": 91.0,
+      "krippendorff_alpha_orders": 0.8178211779066219,
+      "krippendorff_alpha_vs_human": 0.9085079524252551,
+      "n_pairs": 100,
+      "parse_fails": {
+        "normal": 0,
+        "swap": 0
+      },
+      "parse_fail_rate": 0.0,
+      "missing_calls": 0,
+      "original": 95.5,
+      "delta": 0.0,
+      "metric_code": "repo meta_eval.pairwise_meta_eval"
+    },
+    "llmbar_adversarial": {
+      "acc": 80.564,
+      "acc_normal": 78.37,
+      "acc_swap": 82.759,
+      "self_agreement_acc": 89.342,
+      "krippendorff_alpha_orders": 0.7853943717796275,
+      "krippendorff_alpha_vs_human": 0.6093859600397984,
+      "n_pairs": 319,
+      "parse_fails": {
+        "normal": 0,
+        "swap": 0
+      },
+      "parse_fail_rate": 0.0,
+      "missing_calls": 0,
+      "original": 80.7,
+      "delta": -0.136,
+      "metric_code": "repo meta_eval.pairwise_meta_eval"
+    },
+    "mtbench": {
+      "acc": 80.75,
+      "acc_normal": 80.0,
+      "acc_swap": 81.5,
+      "self_agreement_acc": 86.5,
+      "krippendorff_alpha_orders": 0.7305065666041275,
+      "krippendorff_alpha_vs_human": 0.6146795209761241,
+      "n_pairs": 200,
+      "parse_fails": {
+        "normal": 0,
+        "swap": 0
+      },
+      "parse_fail_rate": 0.0,
+      "missing_calls": 0,
+      "original": 79.5,
+      "delta": 1.25,
+      "metric_code": "repo meta_eval.pairwise_meta_eval"
+    },
+    "instrusum": {
+      "acc": 79.805,
+      "acc_normal": 78.589,
+      "acc_swap": 81.022,
+      "self_agreement_acc": 89.294,
+      "krippendorff_alpha_orders": 0.769323116219668,
+      "krippendorff_alpha_vs_human": 0.5815455983822939,
+      "n_pairs": 411,
+      "parse_fails": {
+        "normal": 0,
+        "swap": 0
+      },
+      "parse_fail_rate": 0.0,
+      "missing_calls": 0,
+      "original": 80.3,
+      "delta": -0.495,
+      "metric_code": "repo meta_eval.pairwise_meta_eval"
+    }
+  },
+  "macro_mean": 84.155,
+  "bootstrap": {
+    "per_dataset_ci95": {
+      "llmbar_natural": [
+        92.5,
+        98.0
+      ],
+      "llmbar_adversarial": [
+        76.803,
+        84.326
+      ],
+      "mtbench": [
+        75.994,
+        85.006
+      ],
+      "instrusum": [
+        76.153,
+        83.455
+      ]
+    },
+    "macro_ci95": [
+      82.157,
+      86.083
+    ],
+    "n_boot": 1000,
+    "seed": 0,
+    "unit": "pair, stratified by dataset"
+  },
+  "judgment": "생존 (survived)"
+}

@@ -1,0 +1,146 @@
+{
+ "note": "USD per 1M tokens, OpenAI list prices as recorded 2026-09-07 for cost tracking; actual spend is reconciled against the OpenAI usage dashboard. Keys are dated snapshots; aliases resolve by prefix match in battery.pricing_for(). Successor prices (gpt-5.6 family, gpt-5.1-5.5, gpt-4o-2024-11-20) added 2026-09-18 from developers.openai.com/api/docs/pricing; gpt-4o-2024-11-20 assumed equal to the gpt-4o alias. Together AI hosted open-weight models (Llama 3.3 70B Instruct Turbo, Llama 3.1 70B Instruct Turbo, Qwen2.5 72B Instruct Turbo) added 2026-09-20 from together.ai/pricing; served through the OpenAI-compatible endpoint api.together.xyz. Gemini (Google AI Studio, OpenAI-compatible endpoint) added 2026-09-21 from ai.google.dev/gemini-api/docs/pricing: gemini-3.1-pro-preview $2/$12 (prompts <= 200k tokens), gemini-3.8-flash $0.75/$3.75 (promotional price through 2026-12-31); thinking tokens are billed as output tokens and the compatible endpoint reports them only inside total_tokens, so cost_usd() prices total - prompt as output.",
+ "usd_per_1m": {
+  "gpt-4-turbo-2024-04-09": {
+   "input": 10.0,
+   "output": 30.0
+  },
+  "gpt-4-turbo": {
+   "input": 10.0,
+   "output": 30.0
+  },
+  "gpt-4o-2024-05-13": {
+   "input": 5.0,
+   "output": 15.0
+  },
+  "gpt-4o-mini-2024-07-18": {
+   "input": 0.15,
+   "output": 0.6
+  },
+  "gpt-4.1-nano-2025-04-14": {
+   "input": 0.1,
+   "output": 0.4
+  },
+  "gpt-4.1-nano": {
+   "input": 0.1,
+   "output": 0.4
+  },
+  "gpt-4.1-mini-2025-04-14": {
+   "input": 0.4,
+   "output": 1.6
+  },
+  "gpt-4.1-2025-04-14": {
+   "input": 2.0,
+   "output": 8.0
+  },
+  "o1-2024-12-17": {
+   "input": 15.0,
+   "output": 60.0
+  },
+  "o1-pro-2025-03-19": {
+   "input": 150.0,
+   "output": 600.0
+  },
+  "o3-mini-2025-01-31": {
+   "input": 1.1,
+   "output": 4.4
+  },
+  "o4-mini-2025-04-16": {
+   "input": 1.1,
+   "output": 4.4
+  },
+  "o3-2025-04-16": {
+   "input": 2.0,
+   "output": 8.0
+  },
+  "o3-pro-2025-06-10": {
+   "input": 20.0,
+   "output": 80.0
+  },
+  "gpt-5-2025-08-07": {
+   "input": 1.25,
+   "output": 10.0
+  },
+  "gpt-5-mini-2025-08-07": {
+   "input": 0.25,
+   "output": 2.0
+  },
+  "gpt-5-nano-2025-08-07": {
+   "input": 0.05,
+   "output": 0.4
+  },
+  "gpt-4o-2024-08-06": {
+   "input": 2.5,
+   "output": 10.0
+  },
+  "gpt-5.6-sol": {
+   "input": 4.0,
+   "output": 20.0
+  },
+  "gpt-5.6-terra": {
+   "input": 2.0,
+   "output": 12.0
+  },
+  "gpt-5.6-luna": {
+   "input": 0.2,
+   "output": 1.2
+  },
+  "gpt-5.5-2026-04-23": {
+   "input": 5.0,
+   "output": 30.0
+  },
+  "gpt-5.5": {
+   "input": 5.0,
+   "output": 30.0
+  },
+  "gpt-5.4-2026-03-05": {
+   "input": 2.5,
+   "output": 15.0
+  },
+  "gpt-5.4-mini-2026-03-17": {
+   "input": 0.75,
+   "output": 4.5
+  },
+  "gpt-5.4-nano-2026-03-17": {
+   "input": 0.2,
+   "output": 1.25
+  },
+  "gpt-5.2-2025-12-11": {
+   "input": 1.75,
+   "output": 14.0
+  },
+  "gpt-5.1-2025-11-13": {
+   "input": 1.25,
+   "output": 10.0
+  },
+  "gpt-4o-2024-11-20": {
+   "input": 2.5,
+   "output": 10.0
+  },
+  "meta-llama/Llama-3.3-70B-Instruct-Turbo": {
+   "input": 0.88,
+   "output": 0.88
+  },
+  "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo": {
+   "input": 0.88,
+   "output": 0.88
+  },
+  "Qwen/Qwen2.5-72B-Instruct-Turbo": {
+   "input": 1.2,
+   "output": 1.2
+  },
+  "gemini-3.1-pro-preview": {
+   "input": 2.0,
+   "output": 12.0
+  },
+  "gemini-3.8-flash": {
+   "input": 0.75,
+   "output": 3.75
+  },
+  "erzyh34-1842/halflife-bf16": {
+   "input": 0.0,
+   "output": 0.0,
+   "note": "Together dedicated endpoint for the BF16 check (2026-09-28): billed per minute (36 cents), not per token"
+  }
+ }
+}

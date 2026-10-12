@@ -1,0 +1,109 @@
+Snapshot of https://ai.google.dev/gemini-api/docs/deprecations (served in Korean, ?hl=ko; page states "last updated 2026-09-24 UTC"), page text as rendered in the built-in browser on 2026-09-28 (KST). Column labels: 모델 = model, 출시일 = release date, 종료일 = shutdown date, 권장 교체 = recommended replacement, 종료 날짜 미정 = shutdown date not set, 프리뷰 모델 = preview models. The page lists Gemini 2.0 and later; the Gemini 1.5 series, gemini-1.0-pro and text-bison used in the census are not on this page (their dates in target_models.json come from the Gemini API changelog and Vertex AI release notes, read 2026-09-02 and 2026-09-15).
+
+Notes on the page: "shutdown dates in the table are the earliest dates on which a model may be discontinued"; deprecation notices are posted on the release-notes page. For the Gemini 2.5 Pro and 2.5 Flash sections the page says access is limited to users who actively used the 2.5 models in the past; these models are not deprecated and remain available until further notice.
+
+Gemini 3 models (model | release | shutdown | replacement)
+gemini-3.8-flash-tts | 2026-09-22 | not set |
+gemini-3.8-flash-lite-tts | 2026-09-22 | not set |
+gemini-3.8-live | 2026-09-15 | not set |
+gemini-3.8-live-extended-thinking | 2026-09-15 | not set |
+gemini-3.8-flash | 2026-09-02 | not set |
+gemini-3.7-flash | 2026-08-13 | not set |
+gemini-3.6-flash | 2026-07-21 | not set |
+gemini-3.5-flash-lite | 2026-07-21 | not set |
+gemini-3.5-flash | 2026-05-19 | not set |
+gemini-3.1-flash-image | 2026-05-28 | not set |
+gemini-3-pro-image | 2026-05-28 | not set |
+gemini-3.1-flash-lite | 2026-05-07 | 2027-05-07 | gemini-3.5-flash-lite
+Preview: gemini-3.1-flash-tts-preview | 2026-02-26 | not set | gemini-3.8-flash-tts or gemini-3.8-flash-lite-tts
+Preview: gemini-3.1-flash-image-preview | 2026-02-26 | 2026-06-25 | gemini-3.1-flash-image
+Preview: gemini-3.1-pro-preview | 2026-02-19 | not set |
+Preview: gemini-3-pro-image-preview | 2025-11-20 | 2026-06-25 | gemini-3-pro-image
+Preview: gemini-3-flash-preview | 2025-12-17 | not set | gemini-3.6-flash
+Preview: gemini-3-pro-preview | 2025-11-18 | 2026-03-09 | gemini-3.1-pro-preview
+Preview: gemini-3.1-flash-lite-preview | 2026-03-03 | 2026-05-25 | gemini-3.1-flash-lite
+
+Gemini 2.5 Pro models
+gemini-2.5-pro | 2025-06-17 | not set |
+Preview: gemini-2.5-pro-preview-03-25 | 2025-03-03 | 2025-12-02 | gemini-3.1-pro-preview
+Preview: gemini-2.5-pro-preview-05-06 | 2025-05-06 | 2025-12-02 | gemini-3.1-pro-preview
+Preview: gemini-2.5-pro-preview-06-05 | 2025-06-05 | 2025-12-02 | gemini-3.1-pro-preview
+
+Gemini 2.5 Flash models
+gemini-2.5-flash | 2025-06-17 | not set |
+gemini-2.5-flash-image | 2025-10-02 | 2026-10-02 | gemini-3.1-flash-image-preview
+gemini-2.5-flash-lite | 2025-07-22 | not set |
+Preview: gemini-2.5-flash-lite-preview-09-2025 | 2025-09-25 | 2026-03-31 | gemini-3.1-flash-lite
+Preview: gemini-2.5-flash-preview-05-20 | 2025-05-20 | 2025-11-18 | gemini-3.6-flash
+Preview: gemini-2.5-flash-image-preview | 2025-05-07 | 2026-01-15 | gemini-2.5-flash-image
+Preview: gemini-2.5-flash-preview-09-25 | 2025-09-25 | 2026-02-17 | gemini-3.6-flash
+
+Gemini 2.0 models
+gemini-2.0-flash | 2025-02-05 | 2026-06-01 | gemini-3.6-flash
+gemini-2.0-flash-001 | 2025-02-05 | 2026-06-01 | gemini-3.6-flash
+gemini-2.0-flash-lite | 2025-02-25 | 2026-06-01 | gemini-3.1-flash-lite
+gemini-2.0-flash-lite-001 | 2025-02-25 | 2026-06-01 | gemini-3.1-flash-lite
+Preview: gemini-2.0-flash-preview-image-generation | 2025-05-07 | 2025-11-14 | gemini-2.5-flash-image
+Preview: gemini-2.0-flash-lite-preview | 2025-02-05 | 2025-12-09 | gemini-2.5-flash-lite
+Preview: gemini-2.0-flash-lite-preview-02-05 | 2025-02-05 | 2025-12-09 | gemini-2.5-flash-lite
+
+Live API models
+gemini-3.8-live | 2026-09-15 | not set |
+gemini-3.8-live-extended-thinking | 2026-09-15 | not set |
+gemini-3.5-transcribe-live | 2026-08 | not set |
+gemini-2.0-flash-live-001 | 2025-04-09 | 2025-12-09 | gemini-3.8-live
+Preview: gemini-3.5-live-translate-preview | 2026-06 | not set |
+Preview: gemini-3.1-flash-live-preview | 2026-03-11 | not set | gemini-3.8-live
+Preview: gemini-2.5-flash-native-audio-preview-12-2025 | 2025-12-12 | not set | gemini-3.8-live
+Preview: gemini-live-2.5-flash-preview | 2025-06-17 | 2025-12-09 | gemini-3.8-live
+
+Audio models
+gemini-3.5-transcribe | 2026-08 | not set |
+Preview: gemini-2.5-flash-preview-tts | 2025-05-20 | not set | gemini-3.8-flash-tts or gemini-3.8-flash-lite-tts
+Preview: gemini-2.5-pro-preview-tts | 2025-05-20 | not set | gemini-3.8-flash-tts or gemini-3.8-flash-lite-tts
+
+Embedding models
+gemini-embedding-2 | 2026-04-22 | not set |
+gemini-embedding-001 | 2025-07-14 | 2028-05-14 | gemini-embedding-2
+text-embedding-004 | 2024-04-09 | 2026-01-14 | gemini-embedding-2
+Preview: embedding-2-preview | 2026-03-10 | 2026-08-10 | gemini-embedding-2
+Preview: embedding-001 | 2024-04-09 | 2025-10-30 | gemini-embedding-2
+Preview: embedding-gecko-001 | | 2025-10-30 | gemini-embedding-2
+Preview: gemini-embedding-exp | | 2025-10-30 | gemini-embedding-2
+Preview: gemini-embedding-exp-03-07 | | 2025-10-30 | gemini-embedding-2
+
+Imagen models
+imagen-4.0-generate-001 | 2025-06-24 | 2026-08-17 | gemini-3.1-flash-image
+imagen-4.0-ultra-generate-001 | 2025-06-24 | 2026-08-17 | gemini-3.1-flash-image
+imagen-4.0-fast-generate-001 | 2025-06-24 | 2026-08-17 | gemini-3.1-flash-image
+imagen-3.0-generate-002 | 2025-02-06 | 2025-11-10 | imagen-4.0-generate-001
+Preview: imagen-4.0-generate-preview-06-06 | 2025-06-24 | 2026-02-17 | imagen-4.0-generate-001
+Preview: imagen-4.0-ultra-generate-preview-06-06 | 2025-06-24 | 2026-02-17 | imagen-4.0-ultra-generate-001
+
+Veo models
+veo-3.0-generate-001 | 2025-09-09 | 2026-06-30 | veo-3.1-generate-preview or the GA model on Gemini Enterprise Agent Platform
+veo-3.0-fast-generate-001 | 2025-09-09 | 2026-06-30 | veo-3.1-fast-generate-preview or the GA model on Gemini Enterprise Agent Platform
+veo-2.0-generate-001 | 2025-04-09 | 2026-06-30 | veo-3.1-generate-preview or the GA model on Gemini Enterprise Agent Platform
+Preview: veo-3.1-lite-generate-preview | 2026-03-31 | not set |
+Preview: veo-3.1-generate-preview | 2025-10-15 | not set |
+Preview: veo-3.1-fast-generate-preview | 2025-10-15 | not set |
+Preview: veo-3.0-generate-preview | 2025-07-31 | 2025-11-12 | veo-3.1-generate-preview
+Preview: veo-3.0-fast-generate-preview | 2025-07-31 | 2025-11-12 | veo-3.1-fast-generate-preview
+
+Gemini Omni Flash models
+gemini-omni-1.1-flash | 2026-08-27 | not set |
+Deprecated: gemini-omni-flash-preview | 2026-06-30 | 2026-09-30 | gemini-omni-1.1-flash
+
+Lyria models
+lyria-3.5 | 2026-09-03 | not set |
+Preview: lyria-3-clip-preview | 2026-03-25 | not set |
+Preview: lyria-3-pro-preview | 2026-03-25 | not set | lyria-3.5
+Preview: lyria-realtime-exp | 2025-05-20 | not set |
+
+Robotics models
+Preview: gemini-robotics-er-1.6-preview | 2026-04-14 | 2026-08-31 | gemini-robotics-er-2-preview
+Preview: gemini-robotics-er-1.5-preview | 2025-09-25 | 2026-04-30 | gemini-robotics-er-1.6-preview
+
+Managed agents
+Preview: antigravity-preview-09-2026 | 2026-09-17 | not set |
+Preview: antigravity-preview-05-2026 | 2026-05-19 | 2026-10-05 | antigravity-preview-09-2026

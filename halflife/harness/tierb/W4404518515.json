@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404518515",
+  "title": "Automating Transparency Mechanisms in the Judicial System Using LLMs: Opportunities and Challenges",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo model (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Model and Experimental Details: 'we use OpenAI's GPT-4 Turbo model (gpt-4-turbo-2024-04-09) ... we conduct five iterations to account for stochasticity'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 1 (zero-shot prompt per task)",
+    "note": "Input is the OCR'd full transcript or filing; temperature not stated."
+  },
+  "claim": {
+    "metric": "accuracy (%), Selected Juror Names, 50 cases x 5 iterations",
+    "value": 81.6,
+    "n_items": 250,
+    "location": "Table 3, Jury Selection, task Selected Juror Names (81.6 +/- 4.8)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "APM Reports Mississippi jury-selection case files (raw files public at features.apmreports.org; anonymized juror dataset); Summers and Steil eviction dataset (Massachusetts) not stated as public"
+  },
+  "cost": {
+    "est_calls": 250,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Reproduction needs OCR of long trial transcripts (the authors' preprocessing) and the APM juror ground truth; eviction tasks depend on another group's dataset.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "From the public APM 'In the Dark' case files (features.apmreports.org source notes), select the cases that have both a strike sheet and a final jury roll call in the transcript (the paper's criterion; 50 cases), OCR the scanned transcripts, and run the Table 1 'Selected Juror Names' zero-shot prompt with gpt-4-turbo-2024-04-09 five times per case. Score against the selected juror names read from the strike sheets and compare with Table 3 (81.6 +/- 4.8).",
+    "approximation": "Heavy: own case selection and OCR (Adobe Acrobat in the paper) and hand-built ground truth from the public strike sheets; temperature not stated; comparison is approximate.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

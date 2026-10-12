@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4414787361",
+  "title": "MACD: Multi-Agent Clinical Diagnosis with Self-Learned Knowledge for LLM",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (gpt-5-2025-08-07)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Methods: 'Qwen3 (235B, qwen3-235b-a22b), and GPT-5 (gpt-5-2025-08-07)'; Results: 'the gap between Llama3.1-70B (84.5%) and GPT-5 (86.6%) decreases'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "All prompt templates are in Supplementary Information S14-S18",
+    "note": ""
+  },
+  "claim": {
+    "metric": "diagnostic accuracy (%) with MACD self-learned knowledge",
+    "value": 86.6,
+    "n_items": null,
+    "location": "Results text / Fig. 4: 'Llama3.1-70B (84.5%) and GPT-5 (86.6%)'",
+    "task_type": "classification",
+    "judge": "llm:gpt-4.1 (difference-report judge agent)"
+  },
+  "data": {
+    "public": "no",
+    "source": "MIMIC-IV v2.2 derived cohorts (credentialed PhysioNet access; DUA forbids sending data to OpenAI's public API)"
+  },
+  "cost": {
+    "est_calls": 2000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed",
+    "tos"
+  ],
+  "notes": "Multi-agent pipeline (diagnostician, judge, summariser) over MIMIC-IV notes; test-set sizes per disease not in the extracted text."
+}

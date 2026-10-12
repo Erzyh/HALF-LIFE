@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4400434332",
+  "title": "DotaMath: Decomposition of Thought with Code Assistance and Self-correction for Mathematical Reasoning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 3: training-data synthesis 'from the gpt-4-turbo-2024-04-09 api'; Appendix D prompts instruct GPT-4 to generate and correct solutions"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D (generative, augmentation and correction prompts for data synthesis)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "DotaMathQA (GitHub); MATH, GSM8K"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model only synthesizes training data; subjects are fine-tuned open models."
+}

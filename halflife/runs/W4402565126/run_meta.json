@@ -1,0 +1,97 @@
+{
+  "card_id": "W4402565126",
+  "run_date_utc": "2026-09-07",
+  "target_paper": {
+    "title": "Cultural bias and cultural alignment of large language models",
+    "doi": "10.1093/pnasnexus/pgae346",
+    "repo": "https://osf.io/7sj3w/",
+    "original_source": "OSF wide tables / coordinates_on_map for gpt-4-turbo-2024-04-09 and PNAS Nexus Datasets S5-S6, re-scored with the projection recovered from the released tables (residual 5e-14)"
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10,
+    "parameters": "temperature 0, max_tokens 256, top_p 1 (Part1/Part2 generation pipelines); district names passed with underscores as the authors did",
+    "battery": "10 questions x 10 descriptor variants x (1 default + 107 districts) = 10,800 calls, 1 pass"
+  },
+  "results": {
+    "original": {
+      "default_point": [
+        2.7519387399861985,
+        -0.5683363124966192
+      ],
+      "mean_distance_default": 2.7062114535105235,
+      "mean_distance_cp": 1.7721067194506253,
+      "mean_reduction": 0.9341047340598979,
+      "mean_reduction_ci95": [
+        0.7065728865164034,
+        1.1379761755621791
+      ],
+      "share_improved": 0.8130841121495327,
+      "n_improved": 87,
+      "wilcoxon_p": 9.350466083117634e-11,
+      "closest_default": {
+        "New Zealand": 0.125,
+        "Australia": 0.323,
+        "Iceland": 0.381,
+        "Great Britain": 0.535,
+        "Canada": 0.541
+      },
+      "farthest_default": {
+        "Jordan": 4.195,
+        "Moldova": 4.168,
+        "Tunisia": 4.108,
+        "Libya": 4.052,
+        "Zimbabwe": 4.044
+      }
+    },
+    "reexecution": {
+      "default_point": [
+        2.580747660139869,
+        -0.36793802137805937
+      ],
+      "mean_distance_default": 2.5233783055814234,
+      "mean_distance_cp": 1.5903084711057849,
+      "mean_reduction": 0.933069834475639,
+      "mean_reduction_ci95": [
+        0.7109273668504316,
+        1.1404791342495615
+      ],
+      "share_improved": 0.7850467289719626,
+      "n_improved": 84,
+      "wilcoxon_p": 4.8148122897477586e-11,
+      "closest_default": {
+        "Australia": 0.112,
+        "New Zealand": 0.209,
+        "Great Britain": 0.277,
+        "Canada": 0.323,
+        "Switzerland": 0.4
+      },
+      "farthest_default": {
+        "Jordan": 4.053,
+        "Moldova": 3.931,
+        "Tunisia": 3.923,
+        "Libya": 3.92,
+        "Zimbabwe": 3.868
+      }
+    },
+    "item_cells_identical_to_archive": {
+      "n_cells": 10200,
+      "share_identical": 0.87
+    },
+    "cost_usd": 13.2,
+    "calls": 10800,
+    "errors": 0,
+    "judgment": "생존 (survived)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN §1; human double-coding pending",
+    "note": "Cultural prompting reduces the mean distance by 0.933 (CI95 [0.711, 1.14]) vs 0.934 [0.707, 1.138] originally; 78.5% of countries improve (81.3% originally); Wilcoxon p 5e-11. The default position drifted slightly toward the origin (2.523 vs 2.706 mean distance) but stays in the English-speaking / Protestant-Europe region. 87% of the 10,200 answer cells are identical to the 2024 archive at temperature 0."
+  },
+  "reproducibility_frictions_observed": [
+    "IVS microdata (WVS/EVS) is registration-only and absent from OSF; the map projection was recovered as an affine map from the released wide tables and country coordinates, reproducing Datasets S5-S6 exactly",
+    "the Results text's closest/farthest countries (Netherlands 0.21, Switzerland 0.28, Iceland 0.31; Jordan 4.34) do not match the paper's own Dataset S5 (New Zealand 0.125, Australia 0.323, Iceland 0.381; Jordan 4.195); the card's original values were re-based on Dataset S5",
+    "6 of 107 districts have no raw response file on OSF (wide tables cover them)",
+    "same dated snapshot served by 10 backend fingerprints; 13% of cells changed at temperature 0"
+  ]
+}

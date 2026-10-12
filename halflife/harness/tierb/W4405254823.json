@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405254823",
+  "title": "PyraNet: A Multi-Layered Hierarchical Dataset for Verilog",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "'surpassing GPT-4 Turbo by 19.9% in syntactic' (related work citation); dataset ranking 'queried GPT-4o-mini 10 times for each prompt using different temperature values'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Fig. 3 (example ranking prompt and response for GPT-4o-mini)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "pass@1 (VerilogEval, fine-tuned code models)",
+    "value": null,
+    "n_items": null,
+    "location": "Table (VerilogEval Machine/Human pass@k)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-mini (quality ranking)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/bnadimi/PyraNet-Verilog"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live id only in a citation; GPT-4o-mini (unversioned) is the labeler."
+}

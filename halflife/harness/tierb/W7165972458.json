@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7165972458",
+ "title": "Legal Reasoning Is Not Lawyering: Rethinking Legal Benchmarks for Pro Se Access to Justice",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "\"we are comparing three different models (GPT-4.1-mini, GPT-4.1-nano, and GPT-4o-mini)\" on 100 LEXam MCQs under typo/context-dilution perturbations; results only in Figure 2 / Figure 4 charts."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 5 (typo/padding perturbation design described); original LEXam MCQ prompt \"untouched\"",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none printed (accuracy shown only as charts, Figures 2 and 4; no numeric value given in the running text)",
+  "value": null,
+  "n_items": 100,
+  "location": "Figures 2 and 4 (chart only)",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LEXam legal-reasoning benchmark (public)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A small robustness \"primer\" (self-described) perturbing 100 LEXam MCQs with typos and padding; all accuracy results for GPT-4.1-nano are shown only as figures, with no accuracy value printed as text."
+}

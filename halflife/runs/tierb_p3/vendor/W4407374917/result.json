@@ -1,0 +1,56 @@
+{
+  "wid": "W4407374917",
+  "title": "Large language models possess some ecological knowledge, but how much?",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 78.0,
+  "original_location": "Table 1, row GPT-4o, Task 1a Mean Acc. (78.0 +/- 11.9 %, 0 invalid)",
+  "reexecution": {
+    "mean_over_seeds": 0.8160000000000001,
+    "per_seed": {
+      "0": {
+        "value": 0.8160000000000001,
+        "n": 100,
+        "ci95": [
+          0.791,
+          0.8400000000000002
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4407374917",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 1.77,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 78.0,
+    "cap_usd": 2.4
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none (species, locations and ground truth are released; the model snapshot is the paper's)",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4407374917"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 81.60000000000001,
+    "delta": 3.6000000000000085,
+    "original_inside_ci95": false
+  }
+}

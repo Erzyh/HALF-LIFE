@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4417529853",
+ "title": "Ev-Trust: An Evolutionarily Stable Trust Mechanism for Decentralized LLM-Based Multi-Agent Service Economies",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "\"agents driven by heterogeneous LLMs (gpt-5-nano, gpt-4.1-nano, gpt-4o-mini)\" (Sec. 5.1); Table 3 reports Ev-Trust's malicious-participation rates for the mixed population"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix F (per-agent-role prompts); Appendix A (parameter configuration)",
+  "note": "Prompts are role-specific (provider/requestor, honest/masquerade), not per-backend-model."
+ },
+ "claim": {
+  "metric": "malicious-agent participation rate under Ev-Trust (system-wide, across the 3 heterogeneous LLM backends)",
+  "value": 10.18,
+  "n_items": 100,
+  "location": "Table 3, Ev-Trust row, Pm1 column (10.18%); Fig. 10 caption states averages are 'across all 100 rounds'",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "TruthfulQA (817 items, Lin et al. 2022) plus TriviaQA for scale, used as the underlying service-task pool"
+ },
+ "cost": {
+  "est_calls": 2000,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Agents are driven by 3 different LLM backends (gpt-5-nano, gpt-4.1-nano, gpt-4o-mini) acting simultaneously within the same simulated economy; Table 1 assigns behavioral types (honest/masquerade) but the paper does not decompose Table 3/4 results per backend model, so the reported numbers are an emergent property of the mixed population rather than a number obtainable from gpt-4.1-nano alone. est_calls is a rough per-backend share (~1/3 of total agent-decisions over 100 rounds x 3 seeds); gpt-4.1-nano is inexpensive so even a full-grid reproduction likely stays low/mid tier."
+}

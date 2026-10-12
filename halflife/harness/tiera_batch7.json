@@ -1,0 +1,18 @@
+[
+ {
+  "name": "AIRepr DiscoveryBench run (cap fixed in the adapter: 80)",
+  "group": "airepr",
+  "args": [
+   "airepr_W4416034576.py",
+   "--run"
+  ]
+ },
+ {
+  "name": "AIRepr DiscoveryBench analyze",
+  "group": "airepr",
+  "args": [
+   "airepr_W4416034576.py",
+   "--analyze"
+  ]
+ }
+]

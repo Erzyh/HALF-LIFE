@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7140142791",
+ "title": "Transformação Digital e Desigualdades Regionais",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"recursos de inteligência artificial generativa (GPT-4-turbo e Claude 3.7 Sonnet) para auxiliar na filtragem, padronização e visualização gráfica dos resultados\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (GPT-4-turbo is a data-processing/visualization utility for a regional digital-transformation-index study, not the subject of evaluation)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Instagram posts from municipal candidates, manually coded by the research team (IPê/UnB)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Portuguese-language social-science paper on digital transformation and regional inequality in Brazil; GPT-4-turbo/Claude 3.7 Sonnet are analysis-support tools (filtering/standardizing/visualizing results already coded by human researchers), not a benchmarked subject."
+}

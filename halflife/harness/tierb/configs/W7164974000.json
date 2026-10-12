@@ -1,0 +1,73 @@
+{
+  "wid": "W7164974000",
+  "title": "WorkBench Revisited: Workplace Agents Two Years On",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 2.1 ('temperature set to zero where the model permits it'); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 690,
+    "subset_rule": "all 690 WorkBench tasks (Table 1: 'Completion and side effects are over all 690 tasks')",
+    "approximation": "BLOCKED, not runnable by this harness. One task is an episode: the agent gets the task text and the schemas of all 26 tools and takes up to 20 steps, each step a native tool call executed against the benchmark's sandbox databases (email, calendar, analytics, a 300-item project board), after which the final database state is compared with the answer key. The runner issues one stateless chat completion per item, has no tool-execution loop and no sandbox, and hooks may not call an API."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "WorkBench (Styles et al., COLM 2024), https://github.com/olly-styles/WorkBench - 690 tasks, 26 tools, sandbox databases. The revised benchmark and harness this paper describes ('We release the updated benchmark and harness') are not linked in the text.",
+    "config_or_split": "all 690 tasks of the corrected 2026 version",
+    "filter": null,
+    "fields": {
+      "input": "task text",
+      "options": "the 26 tool schemas, re-sent on every call (about 7,000 tokens with the system prompt)",
+      "label": "the answer key: the database actions the task requires",
+      "id": "task id"
+    },
+    "license": "WorkBench: MIT (original repository)",
+    "access_checked": true,
+    "size_mb": null,
+    "file_url": null,
+    "access_note": "The 2024 repository answers with HTTP 200 (2026-09-19), but the corrected task set, answer keys and prompts that produced Table 1 are a revision documented only in this paper's Appendix A; no URL for it appears in the extracted text."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": null,
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Sec. 2.1 'Agent harness' describes the protocol (native tool calling, task + all 26 tools, up to 20 steps, temperature 0); Appendix A lists the prompt corrections made to the benchmark",
+    "verbatim": "none: the paper describes the harness but prints no system prompt, no tool schema and no task text except the two failure examples quoted in Appendix B. The prompts live in the released harness.",
+    "placeholders_paper": {}
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "tool calls are executed; the benchmark scores the resulting database state, with no second model in judgment (Sec. 1)",
+    "parse_paper": "native tool-calling (structured output), validated against the tool schema"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "Successful task completion: share of the 690 tasks whose final sandbox state matches the answer key. The companion column is the harmful-side-effect rate (a wrong action taken).",
+    "judge": "none (outcome-checked against the sandbox databases)",
+    "original_value": 61.3,
+    "original_location": "Table 1, row 'GPT-4-turbo': 61.3% completion, 22.3% side effects, $0.307 cost per task",
+    "bootstrap_unit": "task",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 5000,
+    "est_usd": 212.0,
+    "tier": "high",
+    "cost_note": "The paper's own figure: $0.307 per task x 690 tasks = $212 for one pass, which it calls an upper bound because the 7,000-token system prompt and tool schema are re-sent uncached on every step."
+  },
+  "open_points": [
+    "harness: a 20-step native tool-calling loop over a stateful sandbox is outside this runner. Reproducing the cell means running the authors' harness with our key, which is a separate arm and a human decision.",
+    "benchmark version: the 61.3% is measured on a corrected version of WorkBench (Appendix A documents scoring, ground-truth and prompt fixes plus tool changes). The paper says the updated benchmark and harness are released but prints no link, so the exact task set behind the number would have to be located first; running the 2024 public version instead would reproduce a different benchmark.",
+    "contamination: the authors note WorkBench has been public since 2024 with no held-out split, so any re-execution inherits the same caveat."
+  ],
+  "notes": "One of the cleanest comparison targets in this batch on paper - a single model, one number, 690 fixed tasks, no LLM judge - and blocked purely by the agent loop and the unlinked revision. GPT-4-turbo is 1 of 24 models run under an identical harness, so the row is directly comparable within the paper."
+}

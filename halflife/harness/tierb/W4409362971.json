@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4409362971",
+ "title": "WebPilot: A Versatile and Autonomous Multi-Agent System for Web Task Execution with Strategic Exploration",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (footnote: GPT-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "footnote: \"GPT-3.5-turbo-0125, GPT-4o-2024-05-13\"; \"In WebArena, WebPilot with GPT-4o demonstrates a remarkable 93% relative increase in SR...achieving a 37.2% SR.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method section (planning/ReAct-style prompting for the multi-agent controller)",
+  "note": "Parts of this extracted text resist plain-text search (encoding artifacts), so a formal prompt appendix could not be fully confirmed or ruled out."
+ },
+ "claim": {
+  "metric": "Success Rate (SR) on WebArena",
+  "value": 37.2,
+  "n_items": null,
+  "location": "Experiments section (WebArena results)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "WebArena (public web-agent benchmark)"
+ },
+ "cost": {
+  "est_calls": 500,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "WebArena's standard task count is not explicitly restated in the extracted text, so n_items is left unclear; each task is a multi-step web-navigation episode, so per-task call count exceeds 1."
+}

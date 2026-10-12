@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412889683",
+  "title": "Assessing Reliability and Political Bias In LLMs’ Judgements of Formal and Material Inferences With Partisan Conclusions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Intro: \"state-of-the-art LLMs such as GPT-4-Turbo are influenced in their prediction of logical validity...by the order of the premises\" (general remark, not this paper's own model roster)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "GPT-4-Turbo is not among the models actually tested; the tested OpenAI models are gpt-4o-2024-08-06 and gpt-4o-mini-2024-07-18 (Table of models, Appendix)."
+  },
+  "claim": {
+    "metric": "none for GPT-4-Turbo (mention only)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "German/English logical-inference dataset built by the authors, but not applicable to the GPT-4-Turbo mention"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The paper's own experiments run gpt-4o-2024-08-06 and gpt-4o-mini-2024-07-18 (Table of model versions), neither of which is on the still-callable list; GPT-4-Turbo itself appears only once, in an introductory generalization about known LLM ordering biases."
+}

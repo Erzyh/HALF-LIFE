@@ -1,0 +1,65 @@
+{
+  "wid": "W4414494504",
+  "title": "PGxRAG: A Retrieval Augmented Generation supported Pharmacogenomics Assistant",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 80.889,
+  "original_location": "Table 2, row gpt-4-turbo / Temperature 0 / Approach llm (182 of 225 correct)",
+  "reexecution": {
+    "mean_over_seeds": 0.7881481481481482,
+    "per_seed": {
+      "0": {
+        "value": 0.7822222222222223,
+        "n": 225,
+        "ci95": [
+          0.7288888888888889,
+          0.8355555555555556
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7955555555555556,
+        "n": 225,
+        "ci95": [
+          0.7422222222222222,
+          0.8488888888888889
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.7866666666666666,
+        "n": 225,
+        "ci95": [
+          0.7333333333333333,
+          0.84
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 22
+  },
+  "prepare": {
+    "wid": "W4414494504",
+    "n_items": 225,
+    "n_requests": 675,
+    "seeds": 3,
+    "est_usd": 8.9,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 80.889
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "LLM-only condition, no retrieval; free-text answers mapped to an option letter by a fixed parser instead of SME checking",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 78.81481481481481,
+    "delta": -2.0741851851851862,
+    "original_inside_ci95": true
+  }
+}

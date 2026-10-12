@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4399911093",
+ "title": "Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo (gpt-4-turbo-2024-04-09); also gpt-4o (gpt-4o-2024-05-13) and gpt-4-turbo-preview (gpt-4-0125-preview) compared in validation",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"three commercial models, gpt-4-turbo-preview (gpt-4-0125-preview), gpt-4o (gpt-4o-2024-05-13), and gpt-4-turbo (gpt-4-turbo-2024-04-09) via the OpenAI API...we select the best-performing model, gpt-4-turbo, for the evaluation of the corpora...F-scores of 90.24% +/- 0.55% for Spanish and 84.43% +/- 0.30% for Valencian.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.2/Appendix C (\"LLM-based method\" for gender/referent classification of nouns and pronouns); validation results detailed in Appendix C",
+  "note": "Method is named and validated in detail; the exact prompt template text was not located in the retrieved excerpt."
+ },
+ "claim": {
+  "metric": "F-score (%), gender/referent classification, Spanish validation set",
+  "value": 90.24,
+  "n_items": 100,
+  "location": "Sec 4.2: \"F-scores of 90.24% +/- 0.55% for Spanish and 84.43% +/- 0.30% for Valencian\"; 100 manually annotated Spanish sentences (Europarl) and 100 Valencian sentences, 5 independent runs each",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Europarl, CCAligned, Global Voices, WMT-News (English/Spanish); Valencian datasets including BOUA; Aitana-6.3B model card at https://huggingface.co/gplsi/Aitana-6.3B"
+ },
+ "cost": {
+  "est_calls": 1000,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "gpt-4-turbo-2024-04-09 is validated as an annotator for grammatical-gender/referent classification against 100 manually labeled sentences per language, 5 runs each (F-score is a genuine, reproducible capability number, not merely a downstream tool artifact). The paper also uses gpt-4o-2024-05-13 in the same comparison and explicitly flags gpt-4-turbo-preview as the dead 0125-preview snapshot (not selected). Full corpus-level bias analysis (Table 2 etc.) reuses the same gpt-4-turbo annotator at larger scale."
+}

@@ -1,0 +1,21 @@
+{
+  "wid": "W4411119490",
+  "n_items": 3000,
+  "n_requests": 3000,
+  "seeds": 1,
+  "est_usd": 8.01,
+  "subset_note": "paraphrase p2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [3000]",
+  "dropped_unrenderable": null,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 22.7,
+  "cap_usd": 12.84,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4411119490",
+  "paraphrase": "p2",
+  "pairs": [
+    [
+      "Given a question, its choices, and the ground truth answer, classify the question as either ‘ok’ or ‘not ok’.\n- ‘ok’ means that the question and the choices are understandable, and the ground truth answer is correct.\n- ‘not ok’ means that the ground truth answer is incorrect, or the question and the choices are not well presented.\nClassify with ‘ok’ or ‘not ok’ WITHOUT PROVIDING ANY REASONING",
+      "For the question below, with its choices and the ground truth answer, decide whether it is ‘ok’ or ‘not ok’.\n- ‘ok’ applies when the question and its choices make sense and the ground truth answer is correct.\n- ‘not ok’ applies when the ground truth answer is incorrect or the question and choices are badly presented.\nOutput only ‘ok’ or ‘not ok’, WITHOUT any explanation"
+    ]
+  ]
+}

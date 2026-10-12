@@ -1,0 +1,101 @@
+{
+  "wid": "W4400611869",
+  "title": "Lynx: An Open Source Hallucination Evaluation Model",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 600
+    },
+    "params_source": "assumed (the paper gives no decoding parameters for the API baselines; Appendix B.1 states greedy decoding and max_new_tokens = 600 for the self-hosted models, so max_tokens 600 mirrors the paper's own answer budget and temperature 0 is the ANALYSIS_PLAN default)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1000,
+    "subset_rule": "paper-defined split: the FinanceBench subset of HaluBench (all 1,000 rows, 500 PASS / 500 FAIL)",
+    "approximation": "none; the same zero-shot prompt is used for every model and task (Sec. 4.1), and the FinanceBench column of Table 3 is scored over the whole released subset."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "PatronusAI/HaluBench",
+    "config_or_split": "default/test (14,900 rows; source_ds == 'FinanceBench' gives 1,000)",
+    "filter": "source_ds == 'FinanceBench'",
+    "fields": {
+      "input": "question",
+      "options": null,
+      "label": "label",
+      "id": "id"
+    },
+    "license": "cc-by-nc-2.0 (dataset card)",
+    "access_checked": true,
+    "size_mb": 7.5,
+    "hf": {
+      "dataset": "PatronusAI/HaluBench",
+      "config": "default",
+      "split": "test"
+    },
+    "fields_paper": {
+      "input": "QUESTION (question) and DOCUMENT (passage) and ANSWER (answer)",
+      "label": "PASS = faithful / FAIL = hallucinated",
+      "id": "HaluBench uuid"
+    },
+    "columns_checked": [
+      "id",
+      "passage",
+      "question",
+      "answer",
+      "label",
+      "source_ds"
+    ],
+    "download": {
+      "date": "2026-09-19",
+      "url": "https://huggingface.co/api/datasets/PatronusAI/HaluBench/parquet/default/test/0.parquet",
+      "bytes": 7510000,
+      "local": "external/data/tierb_items/W4400611869/test.parquet",
+      "note": "downloaded only to read the column names, the subset counts and the passage lengths; the runner re-fetches it through the Hub parquet API"
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Given the following QUESTION, DOCUMENT and ANSWER you must analyze the provided answer and determine whether it is faithful to the contents of the DOCUMENT. The ANSWER must not offer new information beyond the context provided in the DOCUMENT. The ANSWER also must not contradict information provided in the DOCUMENT. Output your final verdict by strictly following this format: \"PASS\" if the answer is faithful to the DOCUMENT and \"FAIL\" if the answer is not faithful to the DOCUMENT. Show your reasoning.\n\n--\nQUESTION (THIS DOES NOT COUNT AS BACKGROUND INFORMATION):\n{question}\n\n--\nDOCUMENT:\n{context}\n\n--\nANSWER:\n{answer}\n\n--\n\nYour output should be in JSON FORMAT with the keys \"REASONING\" and \"SCORE\":\n{\"REASONING\": <your reasoning as bullet points>, \"SCORE\": <your final score>}",
+    "placeholders": {
+      "question": "items.question",
+      "context": "items.passage",
+      "answer": "items.answer"
+    },
+    "few_shot": "none (zero-shot; Sec. 4.1 'We used the same zero-shot prompt for all models and tasks')",
+    "source_location": "Appendix A.2 'Evaluation' ('We use the following prompt for instruction fine-tuning as well as for evaluation of models', User Prompt)",
+    "verbatim": "full, with two repairs: (a) the extraction's hard line wraps inside sentences were rejoined; (b) the appendix prints the closing JSON example with doubled braces ({{\"REASONING\": ...}}), which is the Python format-string escape for a single pair of braces, so the single-brace form the model actually received is used here. Nothing else was altered.",
+    "placeholders_paper": {
+      "question": "items.question",
+      "context": "items.passage (the retrieved DOCUMENT)",
+      "answer": "items.answer (the response under evaluation)"
+    }
+  },
+  "output": {
+    "parse": "regex (?is)[\"']?SCORE[\"']?\\s*:\\s*[\"']?\\s*(PASS|FAIL)",
+    "postprocess": "strip, case-insensitive; a reply with no SCORE key counts as incorrect",
+    "parse_paper": "read the JSON key \"SCORE\" (PASS / FAIL). The regex is used instead of the runner's 'json field SCORE' because the REASONING bullet points frequently contain unescaped quotes and newlines that break a strict json.loads of the whole reply, while the SCORE key itself is unambiguous."
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 1,000 FinanceBench items whose parsed verdict equals the gold label (PASS = faithful, FAIL = hallucinated).",
+    "judge": "none",
+    "original_value": 82.2,
+    "original_location": "Table 3, row GPT-4-Turbo, column FinanceBench (the Overall column across all six HaluBench subsets is 85.0%)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 78.84,
+    "tier": "mid",
+    "est_usd_prepare": 78.84,
+    "prepare_note": "runner --prepare --dry-run 2026-09-19 (chars/4 input tokens, max_tokens 600 counted as output per call); gpt-4-turbo at $10/$30 per 1M dominates, the inputs are only ~630 tokens per item"
+  },
+  "open_points": [],
+  "notes": "The other five columns of Table 3 (HaluEval, RAGTruth, DROP, CovidQA, PubMedQA, and the Overall average) use the very same prompt and the same HaluBench release, so sibling configs are a filter change away; FinanceBench is the cleanest single cell because it is balanced 500/500 and is not one of the subsets the caption flags as containing semantically perturbed samples. || [check 2026-09-19] Hub parquet listing default/test resolves; 14,900 rows with columns id/passage/question/answer/label/source_ds, source_ds == 'FinanceBench' selects exactly 1,000 rows (500 PASS, 500 FAIL, ids unique) and the mean question+passage+answer length is ~630 tokens."
+}

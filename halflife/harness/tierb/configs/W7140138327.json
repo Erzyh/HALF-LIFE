@@ -1,0 +1,84 @@
+{
+  "wid": "W7140138327",
+  "title": "ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks?",
+  "status": "ready",
+  "model": {
+    "id": "gpt-5-mini-2025-08-07",
+    "params": {
+      "reasoning_effort": "low",
+      "max_completion_tokens": 4096,
+      "max_tokens": 4096
+    },
+    "params_source": "paper Sec. 4.2 (low reasoning effort for GPT-5-mini; default temperature/top-k for reasoner models; single inference run per example); max_tokens 4096 duplicates max_completion_tokens for the runner (it maps max_tokens -> max_completion_tokens for reasoning models)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 1259,
+    "subset_rule": "paper-defined split: ReMedQA medqa_mcq (MedQA USMLE test after filtering, 1,259)",
+    "approximation": "none"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "disi-unibo-nlp/ReMedQA (fields id, question, options, answer, prompt, prompt_think; 21 splits)",
+    "config_or_split": "config default, split medqa_mcq (1,259 rows)",
+    "filter": null,
+    "fields": {
+      "input": "prompt_think",
+      "options": "options",
+      "label": "answer",
+      "id": "id"
+    },
+    "license": "unknown (no license on the dataset card)",
+    "access_checked": true,
+    "size_mb": 4,
+    "hf": {
+      "dataset": "disi-unibo-nlp/ReMedQA",
+      "config": "default",
+      "split": "medqa_mcq"
+    },
+    "fields_prose": {
+      "input": "prompt_think (the rendered reasoner prompt: instruction + question + options + boxed instruction)",
+      "options": "options (dict string A-D)",
+      "label": "answer (letter)",
+      "id": "id"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{prompt_think}",
+    "placeholders": {
+      "prompt_think": "items.prompt_think"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B, Table 10 (prompts for reasoner models), row Standard; released as the prompt_think field",
+    "verbatim": "full: the user message is the dataset's released prompt_think field, i.e. the Table 10 'Standard' reasoner template with the question and lettered options filled in (differs from the printed template only in whitespace and quote glyphs); the printed template is kept in user_template_paper",
+    "user_template_paper": "You are given a multiple choice question about medical knowledge. Answer by returning the correct option’s letter. Question: “{QUESTION}”\nEnclose your final answer within \\boxed{}.",
+    "placeholders_prose": {
+      "QUESTION": "the question followed by its options as rendered in items.prompt_think (use prompt_think verbatim as the user message; it is the released rendering of this template)"
+    }
+  },
+  "output": {
+    "parse": "regex (?s).*\\\\boxed\\{\\s*\\(?([A-D])\\)?\\s*\\}",
+    "postprocess": "uppercase; no letter -> incorrect",
+    "parse_prose": "regex '\\\\boxed\\{\\s*\\(?([A-D])\\)?\\s*\\}' (last match); fallback: last standalone letter A-D"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 1,259 MedQA items whose boxed letter equals answer",
+    "judge": "none",
+    "original_value": 94.4,
+    "original_location": "Appendix F, Table 5, block GPT-5-mini, row Standard, column MedQA",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3777,
+    "est_usd": 19.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Sec. 4.2 (iv) gives the 'You are a medical expert' persona only to generalist non-reasoner models, so no system prompt is used for GPT-5-mini (the triage note mentioning the persona refers to Table 9). Reasoning tokens at low effort keep calls near $0.005. The other perturbation splits (medqa_fixed_pos, ...) reuse the same template.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4415230395",
+  "title": "What Comes After Harm? Mapping Reparative Actions in AI Through Justice Frameworks",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "\"We used GPT-4 Turbo, accessed via the OpenAI API, to assist with this multi-label classification task\" (coding 1,060 AIAAIC incidents against a reparative-action taxonomy); validated against 200 human-annotated incidents, \"the LLM achieved 87% accuracy on actions and 79% on stakeholders\""
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix C (example of the final prompt), Appendix D (summary statistics and prompt details)", "note": "Two-step prompting pipeline: extract stakeholder-action pairs, then classify presence/absence of each taxonomy category."},
+  "claim": {
+    "metric": "none for the paper's own contribution (the taxonomy/mapping of reparative actions); the 87%/79% validation accuracy is an internal QA check on the coding tool, not the paper's benchmarked subject", "value": null, "n_items": 200,
+    "location": "Sec. \"Analyzing Reparative Actions At Scale\" (validation on 200 incidents, 20 per action category)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {"public": "partial", "source": "AIAAIC incident database (1,060 incidents; public repository of AI harm reports)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "AIES 2025. GPT-4 Turbo is an auxiliary qualitative-coding tool used to scale up the authors' own taxonomy across a harms database, not the paper's object of study, matching the role-A pattern used elsewhere in this batch (e.g. W4412886885, W4416034827) despite a clean validation accuracy being available."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7160862948",
+ "title": "Skill as Memory, Not Document: A Database-Native Substrate for Agent Skill Catalogs",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"exceeding GPT-4 Turbo 128K and Claude 3.7 200K windows entirely\" (Results section, context-window size comparison only; no experiment run)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Paper reports the authors' own YantrikDB retrieval-substrate benchmarks; no prompt to GPT-4 Turbo is shown or implied."
+ },
+ "claim": {
+  "metric": "none for the live id (used only as a context-window size reference)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Authors' own 5,000-skill corpus and 70-item adversarial admission set (paper states a public reproducible corpus); unrelated to the GPT-4 Turbo mention"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The paper's actual measurements (token counts, retrieval latency, admission rate) are about the authors' own skill-storage substrate, not about running GPT-4 Turbo; the model is cited only for its 128K context-window size as a comparison point."
+}

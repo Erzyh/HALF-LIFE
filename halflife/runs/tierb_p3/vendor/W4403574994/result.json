@@ -1,0 +1,56 @@
+{
+  "wid": "W4403574994",
+  "title": "Measuring Spiritual Values and Bias of Large Language Models",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 52.97,
+  "original_location": "Table 4 (Appendix C), row 'GPT4 Turbo', column 'Religious'",
+  "reexecution": {
+    "mean_over_seeds": 55.720338983050844,
+    "per_seed": {
+      "0": {
+        "value": 55.720338983050844,
+        "n": 133,
+        "ci95": [
+          40.596543702226654,
+          70.65062361818705
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403574994",
+    "n_items": 133,
+    "n_requests": 133,
+    "seeds": 1,
+    "est_usd": 1.71,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 52.97,
+    "cap_usd": 3.6
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper treats the LLM as a questionnaire taker; each statement is asked in a separate, stateless call (the paper's Figure 1 shows one statement per prompt). Decoding parameters for GPT-4-turbo are not reported.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4403574994"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 55.720338983050844,
+    "delta": 2.7503389830508453,
+    "original_inside_ci95": true
+  }
+}

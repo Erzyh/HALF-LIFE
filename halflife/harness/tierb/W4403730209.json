@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4403730209",
+  "title": "Assessing the Performance of ChatGPT in Answering Patients’ Questions Regarding Congenital Bicuspid Aortic Valve",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"one of the many versions of the ChatGPT (GPT-4o-2024-05-13) was used in the current study\" (Limitations); \"A free version of ChatGPT (model version: gpt-4o-2024-05-13) ... was used\" (Methods)"
+  },
+  "prompt": {"verbatim": "full", "location": "Table 1 (the 5 questions posed to ChatGPT)", "note": "Only 5 fixed questions were asked once each."},
+  "claim": {
+    "metric": "Author/physician quality score (qualitative rubric) for ChatGPT's answer to Question 1", "value": null, "n_items": 5,
+    "location": "Table 2 (subjective scoring of the 5 answers)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {"public": "no", "source": "5 author-written clinical questions about bicuspid aortic valve, printed in Table 1"},
+  "cost": {"est_calls": 15, "tier": "low"},
+  "blockers": ["webui"],
+  "notes": "Cureus case-report-style paper. Explicitly the free/consumer ChatGPT web interface (not API); only 5 questions total, each scored subjectively by the author against her own clinical judgment (no fixed numeric answer key)."
+}

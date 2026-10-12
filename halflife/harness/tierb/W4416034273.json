@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4416034273",
+  "title": "FigEx: Aligned Extraction of Scientific Figures and Captions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1 nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "\"We further compare FigEx-7B with GPT-4.1 nano and GPT-4.1 mini on both datasets in Figure 5\" (Sec. 5, results only plotted, not tabulated)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a for the nano/mini baseline; Appendix A only covers the separate GPT-4.1 caption-splitting tool used to build BioSci-Fig", "note": "Table 4 (the only numeric results table) covers only FigEx-7B ablations, not the GPT-4.1 nano/mini baselines."},
+  "claim": {
+    "metric": "none printed (GPT-4.1 nano/mini scores on MedICaT and BioSci-Fig, BLEU/ROUGE/METEOR/SPICE/BERTScore, are shown only as bars in Figure 5)", "value": null, "n_items": null, "location": "Figure 5 (bar chart only)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "MedICaT (2,089 figures) and BioSci-Fig (7,174 figures, released by the authors)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "EMNLP Findings 2025. GPT-4.1 nano/mini appear only as bars in Figure 5 with no accompanying results table; a separate, undated 'GPT-4.1' (role A, not nano/mini) is used with an Appendix-A prompt only to help build the BioSci-Fig dataset, not as a benchmarked subject."
+}

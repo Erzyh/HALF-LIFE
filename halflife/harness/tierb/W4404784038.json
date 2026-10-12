@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404784038",
+  "title": "TransAgents: Build Your Translation Company with Language Agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-TURBO (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 4.1: 'the backbone of the language agents in TRANSAGENTS is GPT-4-TURBO. We compare TRANSAGENTS with NLLB-200-3.3B, GOOGLETRANS, GPT-4-TURBO, and GPT-4O.' footnote 2: 'gpt-4-turbo-2024-04-09'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Baseline translation prompt not printed; agent role prompts only described",
+    "note": ""
+  },
+  "claim": {
+    "metric": "d-BLEU, literary test set",
+    "value": 47.8,
+    "n_items": 240,
+    "location": "Table 1, row GPT-4-TURBO, column Literary",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Literary set from Wang et al. (2023b) (240 web-novel chapters, public); legal and financial sets are in-house"
+  },
+  "cost": {
+    "est_calls": 720,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Winning-rate results (Table 2) rely on human preference; d-BLEU on the literary set is automatic but the baseline prompt and chunking are unspecified. Chapters average 1,400 words, so calls are long."
+}

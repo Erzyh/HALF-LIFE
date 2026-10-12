@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7203859208",
+ "title": "Automating scientific annotations for open transcriptomic profiles via multi-stage agents",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1 nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "\"GPT-4.1 nano had the lowest estimated API cost but did not produce complete outputs for all benchmark samples\"; excluded from the 5 models chosen for prospective evaluation."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (GPT-4.1 nano did not complete the benchmark and was dropped before the accuracy/concordance evaluation; only cost/runtime is reported for it)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 5 (cost/runtime scatter only)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "GEO Series transcriptomic profiles (public GEO records); the internal 118-sample benchmark/annotation set itself not confirmed released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "22 frontier LLMs were screened on cost/runtime/completeness; GPT-4.1 nano is flagged as failing to complete all benchmark samples and was dropped before the accuracy/concordance evaluation, so no capability number exists for it."
+}

@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7166856799",
+  "title": "MetaScale: Test-Time Scaling with Evolving Meta-Thoughts",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09 (leaderboard row); GPT-4-Turbo (Arena-Hard judge)",
+    "resolved": "dead-preview",
+    "role": "A",
+    "evidence": "Table 2 (Arena-Hard leaderboard rows): \"gpt-4-turbo-2024-04-09 74.4 71.9 76.5 662\"; Appendix D: responses \"are compared with those from the baseline model GPT-4-0314, which is judged by GPT-4-Turbo\"."
+  },
+  "prompt": {"verbatim": "partial", "location": "Appendix (meta-thought prompts for GPT-4o and Llama-3.1-8B)", "note": "Prompts are for the METASCALE models, not for GPT-4 Turbo."},
+  "claim": {
+    "metric": "none tied to a run of the live model by the authors", "value": null, "n_items": null, "location": "Table 2 rows are reference win rates copied from the Arena-Hard leaderboard",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-1106-preview"
+  },
+  "data": {"public": "yes", "source": "Arena-Hard, MMLU-Pro, GSM8K; code at the GitHub link in footnote 1"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["dead_alias", "aux_model_dead"],
+  "notes": "The Arena-Hard judge called GPT-4-Turbo is the benchmark's default gpt-4-1106-preview, a dead preview; the gpt-4-turbo-2024-04-09 string is a leaderboard comparison row, not an experiment. Experiments themselves use GPT-4o (2024-08-06) and Llama-3.1-8B."
+}

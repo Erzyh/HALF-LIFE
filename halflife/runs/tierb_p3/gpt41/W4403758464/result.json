@@ -1,0 +1,56 @@
+{
+  "wid": "W4403758464",
+  "title": "LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's o1 on PlanBench",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 40.1,
+  "original_location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+  "reexecution": {
+    "mean_over_seeds": 0.36333333333333334,
+    "per_seed": {
+      "0": {
+        "value": 0.36333333333333334,
+        "n": 600,
+        "ci95": [
+          0.32666666666666666,
+          0.4017083333333331
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403758464",
+    "n_items": 600,
+    "n_requests": 600,
+    "seeds": 1,
+    "est_usd": 2.44,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 40.1,
+    "cap_usd": 2.8
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 15
+  },
+  "approximation": "the paper's GPT-4 Turbo column carries no snapshot or decoding parameters and may aggregate runs made before 2024-04-09 (temperature 0 assumed); plan extraction mirrors the repository's rule-based extractor after stripping markdown emphasis (the o1-paper pipeline also offers an LLM-based translator; which one produced the GPT-4 Turbo cell is not stated); VAL replaced by an exact domain simulator",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4403758464"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 36.333333333333336,
+    "delta": -3.7666666666666657,
+    "original_inside_ci95": true
+  }
+}

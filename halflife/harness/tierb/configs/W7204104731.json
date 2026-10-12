@@ -1,0 +1,99 @@
+{
+ "wid": "W7204104731",
+ "title": "Using Human-LLM Disagreement to Improve Checklist-Based Quality Appraisal",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-5-mini-2025-08-07",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 4096
+  },
+  "params_source": "paper Sec. 2.3 ('all responses were generated using deterministic decoding (temperature = 0), with a fixed maximum output length of 1500 tokens'); gpt-5-mini is a reasoning model and ignores temperature, so only max_completion_tokens is sent, raised from 1500 to 4096 to leave room for hidden reasoning tokens",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 798,
+  "subset_rule": "paper-defined: 38 PTSD studies x 21 GRoLTS v1 checklist items = 798 independent document-question pairs",
+  "approximation": "the retrieval stage (PDF -> markdown -> 1,000-word chunks with 50-word overlap -> Qwen3-Embedding-8B -> top-10 chunks) is not re-run: the authors' released batch files already contain the rendered prompt with the retrieved context for every pair, so only the final model call would be repeated"
+ },
+ "items": {
+  "source_type": "url",
+  "source": "OSF project osf.io/kw8a7, folder Prompts, file Qwen_Qwen3-Embedding-8B_generic_ptsd_1000_0.jsonl (43,265,162 bytes; direct link https://osf.io/download/65vyt/). One JSON object per document-question pair in OpenAI batch format: {custom_id: '<paper_id>_<question_id>', method, url, body:{model, messages:[system, user]}}. The suffix _0 is question set 0 = the original GRoLTS checklist (p1 in src/grolts_questions.py of github.com/timovdk/grolts-llm), i.e. v1; _4 is the revised v2.",
+  "config_or_split": "ptsd, chunk size 1000, question set 0 (GRoLTS v1); 798 records",
+  "filter": null,
+  "fields": {
+   "input": "body.messages[1].content (the rendered QUESTION + CONTEXT user message)",
+   "label": "human expert YES/NO for that study and checklist item",
+   "id": "custom_id"
+  },
+  "license": "OSF project terms not read (files are publicly downloadable without login)",
+  "access_checked": true,
+  "size_mb": 43.3,
+  "file_url": "https://osf.io/download/65vyt/",
+  "gold_source": "not released - see open points. The human GRoLTS v1 ratings of the 38 PTSD studies exist as osf.io/vw3t7 'Appendix C - screening papers with GRoLTS - final.xlsx' (51,602 bytes, 38 study rows x 21 binary item columns, downloaded to external/data/tierb_items/W7204104731/grolts_appendixC.xlsx), but the ordering that turns them into the pipeline's paper_id 0..37 is not published.",
+  "gold_column_map": {
+   "comment": "0-based question_id -> 0-based column index of the xlsx (verified against the p1 question texts)",
+   "map": [
+    2,
+    6,
+    10,
+    9,
+    11,
+    15,
+    18,
+    22,
+    25,
+    27,
+    31,
+    35,
+    39,
+    57,
+    60,
+    64,
+    68,
+    69,
+    70,
+    72,
+    78
+   ]
+  }
+ },
+ "prompt": {
+  "system": "You are evaluating whether an academic paper reports specific methodological or statistical information.\n\nAnswer the QUESTION using only the given CONTEXT, which is markdown-formatted text from a single academic paper.\n\nOutput exactly in the following format:\n\nREASONING:\nExplain briefly how the answer follows from the CONTEXT. Use only information explicitly stated or logically implied. Do not speculate or rely on typical practices in the field.\n\nEVIDENCE:\n- Quote exact phrases or sentences from the CONTEXT that support the reasoning, one per line.\n- Quotes must be verbatim excerpts from the CONTEXT.\n- If no direct quotes support the conclusion, leave this section empty.\n\nANSWER:\nYES or NO\n\nRules:\n- Use only the provided CONTEXT. Do not use outside knowledge.\n- Treat references to supplements, appendices, datasets, or URLs mentioned in the CONTEXT as valid and available.\n- Answer YES only when explicit evidence is present in the CONTEXT.\n- If the information is missing, unclear, or only implied by general practice, answer NO.\n- Do not add any text before or after the specified format.\n",
+  "user_template": "\nQUESTION: {question}\n\nCONTEXT: {context}\n",
+  "placeholders": {
+   "question": "the GRoLTS v1 checklist item (p1[question_id] of src/grolts_questions.py)",
+   "context": "the top-10 retrieved 1,000-word chunks of the study's markdown, joined with a blank line"
+  },
+  "few_shot": "none",
+  "source_location": "Appendix C ('Prompt Template', SYSTEM_PROMPT and USER_PROMPT)",
+  "verbatim": "full - Appendix C as printed, and byte-identical to SYSTEM_PROMPT / USER_PROMPT in src/generate_batches.py of the authors' repository and to the system message of every record in the released batch file"
+ },
+ "output": {
+  "parse": "regex (?s)ANSWER:\\s*(YES|NO)",
+  "postprocess": "strip, uppercase; map YES -> 1 and NO -> 0 to match the human labels",
+  "parse_paper": "'Binary responses were extracted programmatically from the structured outputs' (Sec. 2.3); the released result CSVs store answer as 0/1"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "mean item-level exact-match accuracy between the model's binary answer and the human expert label, averaged over the 21 checklist items (each item's accuracy is taken over the 38 studies)",
+  "judge": "none",
+  "original_value": 0.75,
+  "original_location": "Figure 5, bottom row, PTSD (v1), gpt-5-mini (mean accuracy over the GRoLTS v1 items); the per-item values are in Appendix D",
+  "bootstrap_unit": "item (study x checklist item)",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 2394,
+  "est_usd": 13.0,
+  "tier": "low"
+ },
+ "open_points": [
+  "gold labels not released: the evaluation needs eval/human_labels/ptsd.csv (paper_id + one column per checklist item), and that directory in github.com/timovdk/grolts-llm holds only a .gitkeep; the OSF project releases prompts, generations and result CSVs but no PTSD human labels (its Case studies folder has achievement.csv and delinquency.csv only).",
+  "paper_id mapping unrecoverable: src/generate_batches.py sets custom_id = '<pdf filename>_<question_id>' and the released ids are plain integers 0..37, so the PDFs were named 0.pdf..37.pdf and nothing in the release says which study each number is. Reconstructing the gold from the original GRoLTS ratings (osf.io/vw3t7, Appendix C xlsx, 38 rows) therefore needs that ordering. Checked on 2026-09-19: scoring the authors' own released gpt-5-mini answers against the xlsx in row order gives 0.665 rather than the reported 0.75, and the per-item values match theirs exactly only for the items whose gold is near-constant - i.e. the column mapping above is right and the row order is a permutation we cannot recover. A human has to supply the study ordering (or the authors' label file, from the public record).",
+  "scope of the reported mean: some figures in the authors' notebook drop question_id 12 before averaging; which convention produced the 0.75 in Figure 5 should be fixed before comparing.",
+  "hook needed: items come from a 43 MB JSONL of pre-rendered messages, so load_items (and render, which just replays body.messages) must be a hook; it is only worth writing once the gold is available."
+ ],
+ "notes": "Everything except the gold labels is reproducible: the retrieved context is frozen in the released batch file, so a re-run measures exactly the generation step the paper measured. The paper's own outputs are also public (Generations/Qwen_Qwen3-Embedding-8B_gpt-5-mini_ptsd_1000_0.jsonl, Results/..._ptsd_1000_0.csv, 798 rows of paper_id/question_id/reasoning/evidence/answer), which makes this an unusually clean candidate once the label ordering is settled. The four locally hosted models in the same figure (Llama 3.3 70B, Qwen3 30B/80B, Magistral Small) are out of scope."
+}

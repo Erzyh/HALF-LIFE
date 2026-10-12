@@ -1,0 +1,94 @@
+{
+  "card_id": "W4399425290",
+  "openalex_id": "https://openalex.org/W4399425290",
+  "title": "Unveiling the Potential of AI for Nanomaterial Morphology Prediction",
+  "doi": "10.48550/arxiv.2406.02591",
+  "paper": {
+    "authors": "Dubrovsky, Dmitrenko, Dmitrenko, Serov, Vinogradov (ITMO)",
+    "year": 2024,
+    "venue": "ICML 2024 (PMLR 235); arXiv 2406.02591",
+    "repo": "https://github.com/acid-design-lab/Nanomaterial_Morphology_Prediction (data, classical ML, results_llm.xlsx) + https://github.com/acid-design-lab/LLM_classifier (the few-shot LLM code referenced from the README)",
+    "repo_commit": "Nanomaterial_Morphology_Prediction e19cf36e39ec728d33f4f71216927a1f4abeb161 (2024-05-24); LLM_classifier 75fd6b176c133cfa7f0396f6ce2e0d3fceb99830; shallow clones under external/repos/W4399425290/ (PDF link extraction appended 'AcknowledgementsThe' to the repo name)",
+    "repo_license": "none - neither repository contains a LICENSE file (all rights reserved by default)",
+    "other_artifacts": "Dataset/synthesis_conditions_dataset.xlsx, Dataset/dataset_labeled.xlsx, Dataset/procedure_patterns.txt (text templates), SEM images; LLM_dataset_preparation/GPT_dataset_creation.ipynb and per-run metrics under LLM_dataset_preparation/results/model_selection/<engine>_<N>_<test_size>_<sampler>_<format>/gpt/<rep>/; summary results_llm.xlsx"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "Section 5.2 evaluates 6 LLMs as few-shot classifiers of nanoparticle shape; the headline LLM result (GPT-4 0.81 average accuracy beating Random Forest 0.80, Table 4) is entirely LLM output. GPT-3.5 was also used auxiliarily to paraphrase the synthesis-text templates (frozen in the repo)."
+  },
+  "claim": {
+    "statement": "With 8 in-context examples drawn only from the target class and syntheses presented as text, GPT-4 (gpt-4-0613) predicts calcium-carbonate nanoparticle shapes with 0.81 +/- 0.07 average accuracy (Cube 0.71, Stick 0.68, Sphere 0.88, Flat 0.90, Amorphous 0.87), exceeding the best classical model (Random Forest 0.80), whereas 'GPT-4-turbo' (gpt-4-0125-preview) reaches only 0.69 +/- 0.11 with a collapse on spheres (0.44) (Table 4; Section 5.2.3).",
+    "claim_type": "capability_level",
+    "metric": "Per-shape accuracy of presence/absence prediction on a held-out test subset (balanced per shape), mean +/- SD over 5 repeated random draws of the in-context examples; average over the 5 shapes.",
+    "original_values": {
+      "gpt-4-0613": { "cube": 0.71, "stick": 0.68, "sphere": 0.88, "flat": 0.90, "amorphous": 0.87, "average": 0.81, "sd": 0.07 },
+      "gpt-4-0125-preview (paper label GPT-4-turbo)": { "cube": 0.60, "stick": 0.61, "sphere": 0.44, "flat": 0.91, "amorphous": 0.88, "average": 0.69, "sd": 0.11 },
+      "gpt-3.5-turbo-1106": { "average": 0.73, "sd": 0.13 },
+      "random_forest_average_accuracy": 0.80
+    },
+    "original_source": "Paper Table 4 (also reproduced verbatim in the repo README) and Table 2; Table 8 gives GPT-4 accuracy vs N examples and test-subset size; results_llm.xlsx in the repo"
+  },
+  "protocol": {
+    "model": "NONE ALIVE - the paper's arms are gpt-4-0125-preview (labelled 'GPT-4-turbo'), gpt-4-0613 ('GPT-4'), gpt-3.5-turbo-1106 and Mistral medium/small/tiny. The scaffold's live-arm hit 'gpt-4-turbo' is the paper's LABEL for gpt-4-0125-preview (Section 5.2.2: 'GPT-4-turbo (gpt-4-0125-preview)'); LLM_classifier's engine name is 'gpt-4-turbo-preview' (alias that resolved to 0125-preview). gpt-4-turbo-2024-04-09 was never an experimental arm.",
+    "model_status": "gpt-4-0125-preview: dead (2026-03-26); gpt-4-0613: dead (2024-09-13); gpt-3.5-turbo-1106: dead alias; Mistral medium/small/tiny 2024 versions: retired by Mistral",
+    "endpoint": "OpenAI chat completions via LLM_classifier/classifier/providers/openai_provider.py (system template + k user/assistant example turns + question)",
+    "prompt_source": "LLM_classifier/classifier/templates.py zero_shot_template['chemistry'] (system prompt, identical to paper Section 5.2.2 / Appendix A.3); few-shot turns built from Dataset/procedure_patterns.txt templates filled with synthesis parameters",
+    "messages": [
+      { "role": "system", "content": "You are an expert in the synthesis of nanomaterials. You analyze the conditions for obtaining a nanomaterial and predict what particle shapes will be present in the synthesized material. There are five particle shapes: 'Cube', 'Stick', 'Sphere', 'Flat' and 'Amorphous'. A nanomaterial can contain particles of different shapes. If you cannot say exactly what it is, list the forms that have the highest probability in those conditions." },
+      { "role": "user", "content": "<synthesis text of training example i>" },
+      { "role": "assistant", "content": "<'Cube, Stick' etc.>  (x N=8, all from the target class: 'strict' sampler)" },
+      { "role": "user", "content": "<synthesis text of the test sample>" }
+    ],
+    "params": {
+      "temperature": "not reported; not set in openai_provider.py (API default 1.0 presumed)",
+      "max_tokens": "not reported",
+      "n_examples": 8,
+      "sampler": "only target classes in prompt ('strict'); textual format",
+      "repeats": 5,
+      "test_subset_size": "0.15 / 0.20 / 0.33 explored (Table 8); Table 4 configuration not stated explicitly",
+      "seed": "config 'seed' field; values not published"
+    },
+    "n_items": "not stated for Table 4; 314 labelled examples (215 syntheses) in total; test subset = 15-33% -> ~47-104 test examples per shape task",
+    "samples_per_item": 5,
+    "evaluation": "Automatic: parse the shape list in the reply; per-shape binary accuracy vs the labelled shape set; average over shapes; mean +/- SD over 5 repeats.",
+    "environment": "Python 3.11 (match statements), LLM_classifier package, tiktoken; no GPU"
+  },
+  "artifacts": {
+    "prompts_path": "LLM_classifier/classifier/templates.py; Nanomaterial_Morphology_Prediction/Dataset/procedure_patterns.txt; LLM_dataset_preparation/GPT_dataset_creation.ipynb",
+    "data_path": "Nanomaterial_Morphology_Prediction/Dataset/synthesis_conditions_dataset.xlsx, Dataset/dataset_labeled.xlsx",
+    "eval_path": "LLM_dataset_preparation/results/model_selection/* (per-run metrics CSVs), results_llm.xlsx; classical ML in Classical_ML/",
+    "data_public": true,
+    "data_license": "none stated (no LICENSE in either repo; ICML paper text says data and code are 'available for reproducibility')",
+    "redistributable": "unknown",
+    "notes": "Per-run metric CSVs exist for gpt-3.5-turbo-1106 configurations in the repo tree; whether gpt-4 / gpt-4-turbo-preview per-run files and raw responses are included could not be confirmed from the shallow listing (blob-size filter)."
+  },
+  "blockers": [
+    "Live model not an experimental arm: the only gpt-4-turbo in the paper is gpt-4-0125-preview (dead 2026-03-26); the GPT-4 arm is gpt-4-0613 (dead). No living baseline exists - card cannot be a P0 live-arm re-execution.",
+    "No license on either repository (data and code usable only under fair-use assumptions; redistribution unclear).",
+    "Sampling parameters (temperature, seeds, exact test split for Table 4) not reported; original variance is high (SD 0.07-0.17)."
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "purpose": "not available - all original arms dead; nearest surviving sibling gpt-4-turbo-2024-04-09 could serve only as a successor-type arm (P3), not a baseline" },
+    "successors": [ "gpt-4-turbo-2024-04-09 (nearest sibling of the dead 0125-preview; dying)", "gpt-5 family (gpt-5-2025-08-07 / gpt-5-mini / gpt-5-nano)", "claude (current Anthropic release)", "gemini (current Google release)", "llama (open weights, hash-pinned)", "qwen (open weights, hash-pinned)" ]
+  },
+  "budget": {
+    "est_calls": 0,
+    "est_tokens_in": 0,
+    "est_tokens_out": 0,
+    "est_cost_usd": 0,
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09 (hypothetical sibling run)": { "input": 10.0, "output": 30.0 } },
+    "assumptions": "Blocked - no live baseline. If run as a successor-only (P3) study with gpt-4-turbo-2024-04-09: 5 shapes x ~100 test items x 5 repeats x 3 seeds ~ 7,500 calls x ~3,000 input tokens (Table 9: average prompt ~3,000 tokens) ~ 22M input tokens ~ $225 + negligible output; a single-repeat pilot ~ $45."
+  },
+  "judgment": {
+    "rule": "Not applicable for P0 (blocked). If a P3 successor-only run is approved: survival of the qualitative claim 'few-shot LLM >= Random Forest (0.80) average accuracy' judged by direction and whether the successor's 5-shape mean lies within the paper's SD band of the dead gpt-4-0613 result (0.81 +/- 0.07).",
+    "notes": "Census-level implication: the paper's 'GPT-4-turbo' is the dead 0125-preview snapshot; treat as fully dead for survival analysis."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm classification: blocked because 'gpt-4-turbo' in the paper denotes gpt-4-0125-preview (dead), so no live arm exists - move this paper to the dead stratum of the census?",
+    "Is a successor-only (P3) run with gpt-4-turbo-2024-04-09 as 'nearest sibling' worth ~$45-225, given the paper reported wide SDs and unreported sampling parameters?",
+    "Should we ask the authors for a license statement for the dataset (needed if their data is to be redistributed in our logs)?"
+  ],
+  "domain_notes": "The dataset is 215 calcium-carbonate co-precipitation syntheses with SEM-derived shape labels (cube/stick/sphere/flat/amorphous, multi-label). The few-shot 'strict' sampler puts only same-class examples in the prompt, so the reported accuracies partly measure the model's tendency to copy the demonstrated label ('confirmation experiment' framing in Section 5.2.2) rather than genuine synthesis-to-morphology reasoning. Sphere accuracy of GPT-4-turbo (0.44) vs GPT-4 (0.88) with identical prompts illustrates large between-snapshot variance in this setting."
+}

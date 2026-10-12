@@ -1,0 +1,14 @@
+{
+  "label": "W4412888118",
+  "calls": 0,
+  "errors": 20,
+  "cost_usd": 0.0,
+  "tokens_in": 0,
+  "tokens_out": 0,
+  "cap_usd": 5.0,
+  "stopped_at_cap": false,
+  "started": "2026-09-28T08:21:28.037275+00:00",
+  "updated": "2026-09-28T08:21:29.273826+00:00",
+  "last_error": "HTTP 400: {\"error\":{\"message\":\"top_p: Validation error: top_p must be in (0, 1] - greater than 0.0 and at most 1.0 [{\\\"value\\\": Number(0.0)}]\",\"type\":\"invalid_request_error\",\"code\":400}}",
+  "stopped_on_errors": true
+}

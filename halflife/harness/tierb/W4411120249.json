@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411120249",
+  "title": "From Introspection to Best Practices: Principled Analysis of Demonstrations in Multimodal In-Context Learning",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Footnote 2: 'We use the version gpt-4o-2024-05-13 in this paper.' Table 1: GPT-4o 0-shot Visual Hallucination 28.2, Counting Characters 77.4"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 4 Implementation Details ('Describe the image:' for captioning; 'Question: the <question> Answer:' for other tasks); demonstration formats described",
+    "note": ""
+  },
+  "claim": {
+    "metric": "performance (%) on the Counting Characters task, 0-shot",
+    "value": 77.4,
+    "n_items": null,
+    "location": "Table 1, column GPT-4o, block Counting Characters, row 0-shot",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/luka-group/MultimodalICLBestPractice (code and datasets)"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Test-set sizes for the two constructed tasks are not stated in the text (values step by 0.2, suggesting 500 items); demonstration-selection strategies need the repo's retrievers. Main findings concern open-weight models; GPT-4o is a comparison.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The Counting Characters test set (500 word images rendered black-on-white with character-count answers, Sec. 6.2) is authored by the paper and shipped in the repository. With it, run the 0-shot prompt 'Question: <question> Answer:' with gpt-4o-2024-05-13 and compute accuracy vs Table 1 (77.4).",
+    "approximation": "Decoding settings not stated; n = 500 per Sec. 6.2 (not printed in the table).",
+    "needs_repo": true,
+    "repo_url": "https://github.com/luka-group/MultimodalICLBestPractice",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

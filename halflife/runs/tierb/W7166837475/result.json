@@ -1,0 +1,49 @@
+{
+  "wid": "W7166837475",
+  "title": "Large Language Models Require Curated Context for Reliable Political Fact-Checking—Even with Reasoning and Web Search",
+  "model": "o3-mini-2025-01-31",
+  "metric": "macro_f1",
+  "original_value": 0.27,
+  "original_location": "Table A2, row o3-mini, k = 0, column F1 (macro)",
+  "reexecution": {
+    "mean_over_seeds": 0.26033292449573203,
+    "per_seed": {
+      "0": {
+        "value": 0.26033292449573203,
+        "n": 4412,
+        "ci95": [
+          0.24624254286733524,
+          0.27347526695815566
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7166837475",
+    "n_items": 5602,
+    "n_requests": 5602,
+    "seeds": 1,
+    "est_usd": 20.0,
+    "subset_note": "cost cap $20.0: seeded random subset of 5602 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "o3-mini-2025-01-31",
+    "metric": "macro_f1",
+    "original_value": 0.27,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "o3-mini-2025-01-31"
+    ],
+    "n_fingerprints": 7
+  },
+  "approximation": "Structured-output schema (label + justification) not printed; NEI predictions excluded from macro-F1 as in the paper; malformed outputs re-parsed with gpt-4o-mini-2024-07-18 in the paper. Re-execution uses all 6153 claims of the released 0.25-per-year sample (the paper's 6,137 are those with valid outputs across all models; that filter is not reproducible). The paper's structured output (JSON schema label/justification via response_format) is not passed by the runner for reasoning models; the hook parses JSON first and falls back to the label named in the text.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.26033292449573203,
+    "delta": -0.009667075504267986,
+    "original_inside_ci95": true
+  }
+}

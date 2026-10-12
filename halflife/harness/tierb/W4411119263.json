@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4411119263",
+  "title": "ReIFE: Re-evaluating Instruction-Following Evaluation",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-24-05-13 / gpt-4o-2024-05-13 (gpt-4-turbo mention only)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Table 2 (evaluation accuracy of base LLM-evaluators): 'gpt-4o-24-05-13 95.5 80.7 79.5 80.3 84.0'; Appendix B Table 12 lists gpt-4o-2024-05-13"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.1 'Prompt for Base Evaluation Protocol' (LLMBar base pairwise prompt)",
+    "note": "pairwise comparison; evaluator accuracy measured against human preference labels"
+  },
+  "claim": {
+    "metric": "evaluation accuracy vs human preference, average over 4 datasets (%)",
+    "value": 84.0,
+    "n_items": 1030,
+    "location": "Table 2, row gpt-4o-24-05-13, column Avg.",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "LLMBar-Natural (100), LLMBar-Adversarial (319), MTBench (200), InstruSum (411); https://github.com/yale-nlp/ReIFE"
+  },
+  "cost": {
+    "est_calls": 6180,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Live model is the evaluator under meta-evaluation, so its accuracy is the reported number. est_calls assumes both response orders per pair. GPT-4-Turbo is only named as the model WildBench used to write checklists (role C)."
+}

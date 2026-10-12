@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166872551",
+ "title": "Post Hoc Agentic Refinement for Improving Precision in Multilingual Clinical Text De-identification",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-5 (gpt-5-2025-08-07)",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "Sec.3: \"initial set of PHI/PII annotations produced by GPT-5 (gpt-5-2025-08-07) in a few-shot setting\"; Table 1, \"Original GPT-5 Annotations\", WikiPII-EN: P83.03 R96.85 F1 89.41."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix A.1 (initial few-shot annotation prompt, entity class-specific guidelines)",
+  "note": "A second GPT-5 refiner pass (Appendix A.2) is the paper's main contribution but is not needed to reproduce the original-annotation headline number."
+ },
+ "claim": {
+  "metric": "F1, original PHI/PII annotation, WikiPII-EN",
+  "value": 89.41,
+  "n_items": 24145,
+  "location": "Table 1, \"Original GPT-5 Annotations\", row WikiPII-EN (24,145 Total PII)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "CARMEN-ES (Farre Maduell et al. 2024), Transcripts-DE, WikiPII-EN; clinical PHI corpora typically require a data-use agreement even when citable"
+ },
+ "cost": {
+  "est_calls": 24145,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Exact snapshot pinned. WikiPII-EN (Wikipedia info-boxes) is the least likely of the three datasets to require restricted access; CARMEN-ES/Transcripts-DE are clinical PHI corpora that may need a DUA, hence data.public=partial overall."
+}

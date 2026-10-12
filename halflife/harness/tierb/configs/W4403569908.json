@@ -1,0 +1,80 @@
+{
+ "wid": "W4403569908",
+ "title": "EmbodiedCity: A Benchmark Platform for Embodied Agent in Real-world City Environment",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 512,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (the paper states no decoding parameters for any of the four evaluated models); max_tokens sized for a paragraph-length scene description",
+  "seeds": 1
+ },
+ "task": {
+  "type": "generation",
+  "n_items": 12200,
+  "subset_rule": "the 12.2k scene-understanding cases of Table 2",
+  "approximation": "BLOCKING - the prompt is not printed and the runner cannot attach the nine images each case needs."
+ },
+ "items": {
+  "source_type": "url",
+  "source": "the EmbodiedCity platform, https://embodied-city.fiblab.net (footnote 1: \"All of the software, Python library, codes, datasets, tutorials, and real-time online service are available on this website\"); the simulator is built on Unreal Engine with an AirSim-based API (github.com/microsoft/AirSim)",
+  "config_or_split": "embodied first-view scene understanding, 12.2k cases (Table 2)",
+  "filter": null,
+  "fields": {
+   "input": "nine RGB observations",
+   "label": "reference scene description",
+   "id": "case id"
+  },
+  "license": "unknown",
+  "access_checked": false,
+  "size_mb": null,
+  "file_url": null,
+  "access_note": "A plain GET of https://embodied-city.fiblab.net from this machine fails TLS verification (self-signed certificate), so neither the dataset files nor a licence could be read; the host must be checked by hand.",
+  "fields_note": "Figure 10 states that each case shows eight directions (forward, forward-left, left, rear-left, rear, rear-right, right, forward-right) plus one top-down view, i.e. nine images per call. References were drafted by a VLM and then manually reviewed and corrected (Appendix A.3, Table 8)."
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": {
+   "images": "NOT EXPRESSIBLE: nine RGB observations per case, attached to the user message"
+  },
+  "few_shot": "none",
+  "source_location": "Sec. 5 describes the task input/output only in prose (\"the input of scene understanding [is a set of RGB images] and the output is the textual description for the given scene images\"); Appendix A.3 says \"For each case, the prompts are fixed and can therefore be designed manually\" without printing them, and Figure 9 / Figure 10 are images.",
+  "verbatim": "none - the prompt string is not printed anywhere in the paper. Writing one would be our own instrument."
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "none",
+  "parse_paper": "the whole reply is the candidate description"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "BLEU-1: corpus (or averaged sentence) 1-gram precision of the generated description against the reference, with brevity penalty; the paper reports it as a percentage.",
+  "judge": "none",
+  "original_value": 54.01,
+  "original_location": "Table 3, row GPT-4 Turbo, column BLEU-1 (Claude 3 leads with 57.38)",
+  "bootstrap_unit": "item",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 12200,
+  "est_usd": 1500.0,
+  "tier": "high",
+  "est_note": "12,200 cases x 9 images x 1 seed at gpt-4-turbo prices; image tokens alone are of the order of $0.10 per call. Not a dry-run number: --prepare cannot build these items. Any run would have to be a heavily capped subset."
+ },
+ "open_points": [
+  "The prompt is not printed. Appendix A.3 only says the prompts are fixed and manually designed; Figures 9 and 10 are images and the extraction holds their captions only. Reproducing the cell would require inventing the prompt.",
+  "runner gap: image input; each case sends nine RGB observations and the runner sends text only.",
+  "Items unverified: https://embodied-city.fiblab.net serves a self-signed certificate, so the dataset files, their size and their licence could not be checked. It is also unconfirmed whether all 12.2k cases were actually sent to the commercial APIs or only a cost-limited subset.",
+  "Metric gap: BLEU-1 is not implemented in the runner (it has rouge_l but no BLEU), so a scoring hook would be needed, plus a decision on corpus vs sentence BLEU and on the tokenizer."
+ ],
+ "notes": "Table 3 is one of four evaluation tables for GPT-4 Turbo on this platform (question answering Table 4, dialogue, and vision-language navigation), all with the same image-input and prompt-availability problems. || The references themselves were VLM-drafted and human-corrected, so BLEU against them measures agreement with a model-authored style as much as scene understanding.",
+ "runner_gaps": [
+  "prompt: not published",
+  "prompt: image attachment placeholder (nine per call)",
+  "metric: BLEU-1 not implemented"
+ ]
+}

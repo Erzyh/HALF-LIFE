@@ -1,0 +1,33 @@
+{
+  "wid": "W4407571428",
+  "n_items": 200,
+  "n_requests": 200,
+  "seeds": 1,
+  "est_usd": 13.0,
+  "subset_note": "paraphrase p1: 4 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [200, 200, 200, 200]",
+  "dropped_unrenderable": null,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 41.3,
+  "cap_usd": 14.66,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4407571428",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "You will be playing a game:\nYou are given several examples. Each example consists of an ``input grid'' and an ``output grid'' of numbers from 0-9, where each number corresponds to a color.\nYour task if try to find the common patterns from the examples and abstract the meanings of the patterns in the physical or mathematics world.\nBased on the recognized meaning, please select the most close description of the common pattern from the provided options.",
+      "We are going to play a game:\nSeveral examples are given, each made of an ``input grid'' and an ``output grid'' of numbers from 0-9, where every number stands for a color.\nYour task is to find the pattern the examples have in common and to abstract what that pattern means in the physical or mathematical world.\nUsing the meaning you identified, pick from the options provided the description that fits the common pattern best."
+    ],
+    [
+      "Lets play a game where you are transforming an input grid of numbers into an output grid of numbers.\nThe numbers represent different colors:",
+      "Let's play a game in which an input grid of numbers is transformed into an output grid of numbers.\nEach number stands for a color:"
+    ],
+    [
+      "Here are examples of input grids and its corresponding output grids:",
+      "Below are example input grids with their corresponding output grids:"
+    ],
+    [
+      "Your response should end with your choice of answer.",
+      "End your response with the answer you choose."
+    ]
+  ]
+}

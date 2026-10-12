@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4413064782",
+ "title": "Perspective Chapter: Artificial Intelligence-Driven Customer Experience Analytics in Banking",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT 4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"The latest versions of these technologies are GPT 4-Turbo and its specialised version, GPT-4o for Microsoft Azure...\" (background/product description)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 6 (\"the prompt is 'Summarise the text provided into five main points and give them a title'\")",
+  "note": "This prompt is used in the paper's illustrative use case, but with an unspecified GenAI tool (\"GPT\" generically), not confirmed to be GPT-4-Turbo specifically; the pricing discussion later cites GPT-4o rates."
+ },
+ "claim": {
+  "metric": "none quantitative for a specific GPT version (only a qualitative business KPI: \"a 60% reduction in calls and chats with agents\")",
+  "value": null,
+  "n_items": 1,
+  "location": "Sec 4-7 (single illustrative case study, one bank, unspecified sample size 'm' feedbacks)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Proprietary customer-feedback data from an unnamed bank (\"whose name is withheld for privacy reasons\")"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number",
+  "data_closed"
+ ],
+ "notes": "GPT-4-Turbo itself only appears in background text; the illustrative use case runs an unspecified \"GPT\" version (pricing discussion suggests GPT-4o) on a single, non-public banking dataset, and reports only a qualitative business outcome, not a model-accuracy figure."
+}

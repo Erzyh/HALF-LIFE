@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411120459",
+  "title": "When2Call: When (not) to Call Tools",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-04-09 (subject in Table 4; also LLM-as-judge)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 4: 'GPT-4-Turbo-04-09 64.6 64.3% 22% 63.8% 35.6%' (When2Call F1, Acc, Tool Hall%, BFCL AST, BFCL Irr.); Sec. 4: 'LLM-as-judge, specifically GPT-4-Turbo-04-09'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C Table 9 (tool-use classification prompt); Table 8 (evaluation prompt format shown for Qwen); multiple-choice prompt structure described in Sec. 3 / Appendix A",
+    "note": "target model is prompted as in the multiple-choice setting but answers free-form; judge maps output to 4 categories"
+  },
+  "claim": {
+    "metric": "F1 over four answer categories, LLM-as-judge evaluation",
+    "value": 64.6,
+    "n_items": 400,
+    "location": "Table 4, row GPT-4-Turbo-04-09, column When2Call F1 (100 representative examples per category)",
+    "task_type": "classification",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "When2Call test set, https://github.com/nvidia/When2Call (HuggingFace release)"
+  },
+  "cost": {
+    "est_calls": 2400,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Judge and subject are the same live model. The generic evaluation prompt for closed models is described rather than printed verbatim, and the 100-per-category subset is not identified in the text.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The LLM-as-judge subset (100 representative examples for each of the tool-call, follow-up and unable-to-answer categories, Table 2; 300 items) and the judge's classification prompt are not printed; take both from the repository/HF release. Prompt gpt-4-turbo-2024-04-09 with the Table 7 minimal system prompt plus tools and question, classify the free-form answer into the four categories with gpt-4-turbo-2024-04-09, and compute F1 vs Table 4 (64.6). Fallback: a seeded 100-per-category sample and a judge prompt written from Sec. 4.",
+    "approximation": "Judge and subject are the same model; the fallback subset and judge wording differ from the authors'.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/nvidia/When2Call",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

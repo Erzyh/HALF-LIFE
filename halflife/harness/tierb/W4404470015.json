@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404470015",
+  "title": "Comparative Performance of Claude and GPT Models in Basic Radiological Imaging Tasks",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 3 columns 'gpt-4-turbo-2024-04-09 gpt-4o-mini-2024-07-18 gpt-4o-2024-05-13'; row Total: '100/100 (100) 78/100 (78.0)'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 2 (system prompts for MURAv1.1 and ROCOv2)",
+    "note": "Default temperature."
+  },
+  "claim": {
+    "metric": "anatomical region identification accuracy, ROCOv2 subset",
+    "value": 78.0,
+    "n_items": 100,
+    "location": "Table 3, column gpt-4-turbo-2024-04-09, row Total, Anat Id (%)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "ROCOv2 (public) 100-image subset manually screened, image list not given; MURAv1.1 300-image subset manually selected"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "gpt-4o-2024-05-13 also run (73/100). Image inputs.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "The 100 ROCOv2 images are an unlisted, manually screened subset whose strata are given in Table 1 (CT 40: abdomen/pelvis 15, chest 14, brain 10, spine 1; MRI 31: brain 15, spine 16; X-ray 29: chest 10, abdomen 3, skeletal 16), with modality/region ground truth from the dataset CSV metadata. Draw a seeded stratified sample matching Table 1 from the public ROCOv2 release, drop images with burnt-in annotations or poor quality, send each with the Table 2 ROCOv2 system prompt to gpt-4-turbo-2024-04-09 at default temperature, and score anatomical-region accuracy; compare with 78/100 (Table 3).",
+    "approximation": "Different images and screening; set-level comparison (binomial spread of roughly +/-8 points at n=100).",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

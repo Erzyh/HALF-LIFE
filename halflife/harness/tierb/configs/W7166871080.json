@@ -1,0 +1,85 @@
+{
+ "wid": "W7166871080",
+ "title": "100,000+ Movie Reviews from Kazakhstan: Russian, Kazakh, and Code-Switched Texts",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4.1-nano-2025-04-14",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 4,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (the paper states no decoding parameters); max_tokens 4 because the prompt allows exactly one digit",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 100502,
+  "subset_rule": "all: the full released corpus (Table 1 total = 100,502 reviews; ru 96,749 / kk 2,639 / code-switched 1,114)",
+  "approximation": "at 3 seeds this is 301,506 calls; the runner's per-paper cap will cut a seeded random subset unless the cap is raised for this paper"
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "huggingface.co/datasets/yeshpanovrustem/100k_movie_reviews_from_kz (the paper's own release, footnote 7)",
+  "config_or_split": "config full, split train (100,502 rows, 26.0 MB parquet)",
+  "filter": null,
+  "fields": {
+   "input": "review_text",
+   "label": "review_sentiment",
+   "id": "movie_id"
+  },
+  "label_map": {
+   "negative": "0",
+   "neutral": "1",
+   "positive": "2"
+  },
+  "license": "cc-by-4.0 (dataset card)",
+  "access_checked": true,
+  "size_mb": 26.0,
+  "hf": {
+   "dataset": "yeshpanovrustem/100k_movie_reviews_from_kz",
+   "config": "full",
+   "split": "train"
+  },
+  "gated": "auto - huggingface.co/api/datasets/... reports gated='auto'; anonymous file reads return HTTP 401 and a token for this project's account returns HTTP 403, i.e. the dataset terms have not been accepted for that account",
+  "fields_source": "the columns are read from the dataset card's dataset_info (review_text, review_date, review_user_id, review_language, review_user_score, review_sentiment, movie_id, movie_title_ru, movie_title_en, movie_theatrical_release_year, movie_genre, movie_director, movie_duration_min, movie_age_rating, movie_production_country, annotation_note)"
+ },
+ "prompt": {
+  "system": "You are a sentiment classifier for movie reviews (Russian or Kazakh). Return one digit only: 2 - clearly positive / recommends the movie; 1 - neutral, mixed, or unclear; 0 - clearly negative / does not recommend. Always choose one digit; never output anything else.",
+  "user_template": "{review}",
+  "placeholders": {
+   "review": "items.review_text"
+  },
+  "few_shot": "none",
+  "source_location": "Sec. 3, inline ('The model was instructed as follows: ...')",
+  "verbatim": "full for the system prompt (printed inline in Sec. 3; the printed en-dashes after each digit are kept as hyphens). The user message is assumed to be the review text alone - the paper does not print it.",
+  "placeholders_paper": {
+   "review": "the review text of the row"
+  }
+ },
+ "output": {
+  "parse": "label from set [0, 1, 2]",
+  "postprocess": "strip; a reply that is not one of the three digits counts as incorrect",
+  "parse_paper": "the model is instructed to emit a single digit"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the 100,502 reviews whose predicted digit equals the single annotator's sentiment label (negative=0, neutral=1, positive=2)",
+  "judge": "none",
+  "original_value": 89.54,
+  "original_location": "Sec. 3, inline ('GPT-generated labels achieved 89.54% accuracy relative to the single-annotator labels over the full corpus, with substantial agreement (Cohen's kappa = 0.78)')",
+  "bootstrap_unit": "item",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 301506,
+  "est_usd": 7.0,
+  "tier": "mid"
+ },
+ "open_points": [
+  "gated dataset: yeshpanovrustem/100k_movie_reviews_from_kz is gated with auto-approval, so a human has to open the dataset page with the project's Hugging Face account and accept the terms once. Until then every file read is 401/403 and --prepare cannot fetch the rows.",
+  "label vocabulary: the three review_sentiment values are taken to be 'negative' / 'neutral' / 'positive' from the column headers of Table 1; the actual strings in the parquet could not be read because of the gate, so items.label_map must be checked on the first successful download.",
+  "cost cap: the full corpus at 3 seeds is 301,506 calls (about USD 7 at gpt-4.1-nano prices but far above the usual per-paper cap); decide whether to run the full corpus, a single seed, or a seeded subsample with the CI carried through."
+ ],
+ "notes": "gpt-4.1-nano is used in the paper as a second annotation pass rather than for a headline result, but the 89.54% / kappa 0.78 comparison against the single-annotator labels is a complete, fully specified classification claim over a released corpus. Cohen's kappa is a second reproducible quantity from the same outputs (not one of the runner's metrics; it would need a hook)."
+}

@@ -1,0 +1,131 @@
+{
+  "card_id": "W4411120327",
+  "openalex_id": "https://openalex.org/W4411120327",
+  "title": "Investigating the Shortcomings of LLMs in Step-by-Step Legal Reasoning",
+  "doi": "https://doi.org/10.18653/v1/2025.findings-naacl.435",
+  "paper": {
+    "authors": "Mishra, Pathiraja, Parmar, Chidananda, Srinivasa, Liu, Payani, Baral (Arizona State University / Cisco Research)",
+    "year": 2025,
+    "venue": "Findings of NAACL 2025, pp. 7810-7841 (earlier arXiv 2502.05675)",
+    "repo": "https://github.com/VenkyMishra/legal_reasoning (redirects to VenkyMishra/Legal-Reasoning)",
+    "repo_commit": "9b763456c6940a586c1991ff9582fb9d0ed544eb (2026-04-22, 'Update citation format in README.md'; shallow clone at external/repos/W4411120327/VenkyMishra__legal_reasoning)",
+    "repo_license": "none declared (no LICENSE file in the repository)",
+    "other_artifacts": "Data source repository https://github.com/trusthlt/legal-argument-reasoning-task (Apache-2.0 code, cloned alongside): its data/raw and data/processed directories are empty by .gitignore and it carries forms/Legal-Argument-Reasoning-Request-Form.docx - the corpus itself is distributed only on request under non-commercial, no-redistribution, delete-after-use terms, and rebuilding it requires the copyrighted 'Glannon Guide to Civil Procedure' (4th ed.)."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The accuracy column measures the subject LLM's own answers. The soundness and correctness columns additionally depend on a GPT-4o auto-evaluator, and the paper validates that evaluator against human annotation of 120 reasoning chains (Table 6, Appendix A) - so the auxiliary model is a component of the metric, not just of the analysis."
+  },
+  "claim": {
+    "statement": "On the 175-scenario Civ. Pro. dataset under zero-shot chain-of-thought prompting, GPT-4-Turbo answers 72.5% of the legal MCQs correctly (A) while only 41.7% of its reasoning chains are fully correct (C) at a soundness of 0.738 (S) - a ~31-point accuracy-to-correctness drop that, averaged over the five LLMs (~27 points), is the paper's central evidence that LLMs reach right legal answers through unsound intermediate steps (Table 4, Sec. 5).",
+    "claim_type": "capability_limit",
+    "metric": "Accuracy A = share of the 175 scenarios whose final chosen option matches the expert answer; Soundness S = sound premises / total premises averaged per chain; Correctness C = 1 only if S = 1 and the conclusion is the gold option. All three are read off the GPT-4o auto-evaluator's conclusion- and premise-level error labels.",
+    "original_values": {
+      "GPT-4-turbo": {
+        "S": 0.738,
+        "A": 0.725,
+        "C": 0.417
+      },
+      "GPT-4o": {
+        "S": 0.784,
+        "A": 0.737,
+        "C": 0.445
+      },
+      "GPT-3.5-turbo": {
+        "S": 0.607,
+        "A": 0.417,
+        "C": 0.217
+      },
+      "Llama-3-8B-Instruct": {
+        "S": 0.493,
+        "A": 0.451,
+        "C": 0.137
+      },
+      "n_items": 175,
+      "mean_A_minus_C_drop_pct": 27,
+      "largest_drop_model": "Llama-3-8B-Instruct (31.4 pp)"
+    },
+    "original_source": "Table 4 (soundness, accuracy, correctness for all LLMs on Civ. Pro.); Sec. 4.1 model list; Sec. 4.2 metric definitions; Sec. 5 'Accuracy vs. Correctness Score'."
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "model_status": "dying, OpenAI shutdown 2026-10-23",
+    "model_usage_verified": "INFERRED, not printed. Sec. 4.1 names only 'GPT-4-Turbo' and says 'OpenAI API and Gemini API were used'; no snapshot string appears anywhere in the paper or the repository. Date rule: NAACL 2025 camera-ready (arXiv 2502.05675, Feb 2025), no preview string, so the undated gpt-4-turbo alias resolves to gpt-4-turbo-2024-04-09.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (openai SDK; the repo's notebooks use client.chat.completions.create)",
+    "prompt_source": "Legal-Reasoning-zero-shot-prompt-for-LLM-inference.py (exact zero-shot CoT layout: a 'Task:' line carrying the system sentence, then 'Legal Context:', 'Question:', 'Options:', then the two bracketed format lines). The paper prints only the lower half of this in Figure 2, with an example in Figure 18.",
+    "prompt_note": "The released script is a documentation snippet, not runnable: its f-string interpolates {system-prompt}, which is not a valid Python identifier, and legal_context / question / options are empty strings. The system sentence it carries - 'You are a helpful legal assistant. Choose the correct option by performing legal reasoning while strictly adhering to the legal context below.' - is not printed in the paper.",
+    "params": {
+      "temperature": "not stated for the subject arm (paper silent; the released inference script sets nothing). ANALYSIS_PLAN section 3 default: 0.",
+      "max_tokens": "not stated",
+      "top_p": "not stated",
+      "seed": "not stated for the subject arm; the auto-evaluator notebooks use seed = 42",
+      "system_message": "sent inside the user prompt as the 'Task:' line in the released script; the auto-evaluator calls instead use a real system role"
+    },
+    "n_items": 175,
+    "samples_per_item": 1,
+    "evaluation": "Two stages in the repo. (1) Legal-Reasoning-Auto-Evaluator-Pipeline.ipynb runs premise-level detectors (misinterpretation, factual hallucination, irrelevant premise) and a conclusion-level classifier with model='gpt-4o', temperature=0, seed=42, frequency_penalty=0, presence_penalty=0. (2) Legal_Reasoning_Metrics_Calculation.ipynb derives the numbers: Soundness = 1 - premise_errors/(steps-1), Correctness and ACCURACY both from regex hits on the conclusion label ('Correct Conclusion Score' = Conclusion Errors contains 'CORRECT CONCLUSION'). Accuracy is therefore auto-evaluator-derived, not a direct string match on the model's final option.",
+    "environment": "Python 3.10; requirements.txt lists only jupyter, openai, dotenv. Every input/output path in both notebooks is an empty string to be filled in by the user."
+  },
+  "artifacts": {
+    "prompts_path": "Legal-Reasoning-zero-shot-prompt-for-LLM-inference.py (subject); Legal-Reasoning-Auto-Evaluator-Pipeline.ipynb and Legal_Reasoning_Metrics_Calculation.ipynb (all evaluator system prompts inline); mitigation/feedback_{generic,long,short}.txt",
+    "data_path": null,
+    "data_path_note": "Absent by design. The repo's only instruction is to obtain the Civ. Pro. corpus through trusthlt/legal-argument-reasoning-task; the notebooks expect a CSV with columns Context, Question, Options, Analysis and Response(LLM X).",
+    "eval_path": "Legal-Reasoning-Auto-Evaluator-Pipeline.ipynb; Legal_Reasoning_Metrics_Calculation.ipynb",
+    "data_public": false,
+    "data_license": "request-form terms from the TU Darmstadt corpus holders: non-commercial only, no sharing with third parties, delete after the experiments; derived from the copyrighted Glannon Guide to Civil Procedure (4th ed.)",
+    "redistributable": false,
+    "notes": "No model outputs are released - neither the 175 reasoning chains nor the evaluator labels - so nothing about the original run can be checked offline. The mitigation/ scripts (baseline, plan-and-solve, self-correct, self-discovery, each with three feedback variants) target Llama weights and are outside this claim."
+  },
+  "blockers": [
+    "DATA GATE: the 175 Civ. Pro. items are not public. They come from the SemEval-restricted trusthlt corpus, released only against a signed request form under non-commercial, no-redistribution, delete-after-use terms, and derive from a copyrighted textbook. Without that file nothing can be rendered.",
+    "The auto-evaluator backbone is the undated 'gpt-4o' alias in a paper finalised in early 2025, which by the date rule resolves to gpt-4o-2024-08-06 - retired. Since the repo derives ACCURACY (not just soundness/correctness) from the evaluator's conclusion label, reproducing the A column exactly is impossible; it needs either a substituted evaluator snapshot or a documented switch to a strict regex on the '[Final Answer ...]' line.",
+    "Subject-arm decoding is entirely unreported (no temperature, max_tokens, top_p or seed), and the released inference script is a non-executable snippet, so every generation setting is an assumption.",
+    "No original outputs are published, so comparison is only possible at the three aggregate Table 4 numbers."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4-turbo-2024-04-09",
+      "purpose": "live baseline (P0) for the Table 4 GPT-4-turbo row"
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for gpt-4-turbo per the OpenAI deprecations page)",
+      "gpt-4.1-2025-04-14 (GPT-4-class reference arm)"
+    ]
+  },
+  "budget": {
+    "est_calls": 525,
+    "est_tokens_in": 790000,
+    "est_tokens_out": 370000,
+    "est_cost_usd": 19,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      },
+      "gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      }
+    },
+    "assumptions": "Subject arm only: 175 items x 3 seeds = 525 calls, ~1,500 input tokens (Glannon-style legal context plus four options - estimated, since the corpus is not in hand) and ~700 output tokens for a numbered step-by-step chain. If the user wants the A column produced the repo's way, the accuracy slice of the auto-evaluator (correct-option extractor, conclusion extractor, conclusion-level classifier: ~3 calls per item) adds ~1,575 calls and roughly USD 19 more at gpt-4o-2024-05-13 prices; the full soundness/correctness pipeline is 12-15 evaluator calls per item and several times that."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary number: accuracy of gpt-4-turbo-2024-04-09 on the 175 items (median of 3 seeds) against 0.725. Survival = within the item-bootstrap 95% CI of the original (n = 175, about +/-6.6 pp) AND the paper's direction holds, i.e. correctness stays far below accuracy (original gap 30.8 pp). Partial = accuracy moves outside the CI while the accuracy-correctness gap survives. Death = the gap closes, which would overturn the paper's claim rather than merely shift its level. Because the correctness column needs the retired evaluator, the gap test should be run with a single evaluator snapshot applied to BOTH the archived-equivalent and the new chains, and the evaluator substitution reported as a deviation."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Does the project already hold the Civ. Pro. corpus under the trusthlt terms? Without it this card cannot be scheduled.",
+    "Prompt: use the repository version with the 'Task:' system line (exact, but not printed in the paper) or the paper-only Figure 2 layout the Tier B config used?",
+    "Accuracy scoring: strict regex on the '[Final Answer ...]' line (cheap, deviates from the repo) or a substituted evaluator snapshot reproducing the repo's GPT-4o conclusion classifier (about USD 19 more)?",
+    "Subject temperature: ANALYSIS_PLAN default 0, or 1.0 to match an unset API default, given the paper reports nothing?"
+  ],
+  "tierb_relation": {
+    "in_tierb": true,
+    "tierb_config": "harness/tierb/configs/W4411120327.json (status needs_human)",
+    "upgrade": "The repository settles both Tier B open points and adds one the triage missed. (1) The exact zero-shot prompt is now known, including the 'Task:' line and its system sentence, which the Tier B template reconstructed from Figure 2 and explicitly flagged as absent. (2) The scoring is not a regex: accuracy in the repo is derived from a GPT-4o conclusion-level classifier, so the Tier B parse rule (regex on '[Final Answer ...]') is a deviation rather than a faithful copy. (3) Decoding for the subject arm is confirmed unreported - the repo sets nothing either - so the Tier B 'assumed temperature 0 / max_tokens 1024' remains an assumption.",
+    "protocol_differences": "Tier B: paper-only prompt, regex parse, temperature 0, 3 seeds, 525 calls, USD 8. Repository protocol: repo prompt with the Task line, LLM-extractor scoring, unreported decoding, and an evaluator stage the Tier B config deliberately left out ('Soundness and correctness columns need the GPT-4o auto-evaluator and are not targeted').",
+    "unchanged": "The data gate is unchanged and still decisive: the Tier B note 'no hook: the Civ. Pro. items are released only on request' remains the top blocker."
+  },
+  "domain_notes": "Civ. Pro. items are college-level US civil-procedure MCQs taken from a law-school study guide, each with a long fact pattern, a question, lettered options and an expert analysis that doubles as the gold reasoning chain. That expert analysis is what makes the soundness/correctness metrics possible and is also what makes the corpus copyright-encumbered. The paper's finding is a decomposition claim rather than a level claim, so a re-execution is informative even if the absolute accuracy drifts: what must be preserved for survival is the gap between getting the answer right and getting the reasoning right."
+}

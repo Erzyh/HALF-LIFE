@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4410973253",
+  "title": "Enhancing supply chain resilience with artificial intelligence a bibliometric analysis and systematic literature review",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (Natural Language Processing model)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"The authors then utilized GPT-4 Turbo (Natural Language Processing model)... to analyze the content and filter out articles not relevant\" -- removed 62 of 158 articles"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "No filtering prompt or instruction text is quoted."
+  },
+  "claim": {
+    "metric": "none (article-filtering outcome is a workflow count, not validated against a gold-standard relevance label)",
+    "value": null,
+    "n_items": 158,
+    "location": "Sec 2.2: 158 articles screened by the GPT-4 Turbo API, 62 removed, 96 remaining (76 after manual review)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "183 articles from Google Scholar and Science Direct search (PRISMA-based selection, Fig. 1)"
+  },
+  "cost": {
+    "est_calls": 158,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo is used as a literature-screening tool within a systematic review pipeline, not evaluated against any accuracy/precision ground truth; no prompt is given for the relevance-filtering step."
+}

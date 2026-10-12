@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403045779",
+ "title": "Physician- and Large Language Model-Generated Hospital Discharge Summaries: A Blinded, Comparative Quality and Safety Study",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (model GPT-4-turbo-128K)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"prompted GPT-4 Turbo (model GPT-4-turbo-128K, temperature = 0)\" via HIPAA-compliant Versa API on Azure; \"n=100 sample was selected for GPT-4 Turbo summarization.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (structured summarization task described); exact prompt text not confirmed in the excerpt reviewed",
+  "note": ""
+ },
+ "claim": {
+  "metric": "comprehensiveness score, LLM-generated discharge summaries (blinded physician rating)",
+  "value": 3.72,
+  "n_items": 100,
+  "location": "Abstract/Results (\"less comprehensive (3.72 [SD 0.58]...) than their physician-generated counterparts\"); 100 encounters, 22 physician reviewers",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "100 real hospital discharge encounters from a named academic medical center (HIPAA-protected, not released)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Confirmed real API use (Versa/Azure, temperature=0, exact snapshot named), not webui, with clean human-rated outcome scores (comprehensiveness, conciseness, error counts, harm potential) — otherwise a strong candidate, blocked only by the private clinical source data."
+}

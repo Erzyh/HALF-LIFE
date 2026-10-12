@@ -1,0 +1,87 @@
+{
+  "wid": "W4412888351",
+  "title": "HumanEval Pro and MBPP Pro: Evaluating Large Language Models on Self-invoking Code Generation Task",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4 (temperature 0.2 for all API models; greedy only for open-source models); max_tokens/top_p assumed; API name Table 10",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 164,
+    "subset_rule": "all (HumanEval Pro, 164 problems)",
+    "approximation": "pass@1 from one sample per item per seed at temperature 0.2, as in the paper.",
+    "n_items_prepare": 164
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "CodeEval-Pro/humaneval-pro (from github.com/CodeEval-Pro/CodeEval-Pro, MIT)",
+    "config_or_split": "default / train (164 rows verified; fields id, raw_problem, new_problem, raw_solution, new_solution, test_code)",
+    "filter": null,
+    "fields": {
+      "input": "raw_problem",
+      "label": "test_code",
+      "id": "id"
+    },
+    "license": "mit",
+    "access_checked": true,
+    "size_mb": 0.3,
+    "hf": {
+      "dataset": "CodeEval-Pro/humaneval-pro",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_paper": {
+      "input": "raw_problem (base problem) + new_problem (self-invoking problem)",
+      "label": "test_code (assert statements run against the generated file)",
+      "id": "id"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions. Write a solution of python file to the following problems, the solution of the second problem requires single or multiple calls to the first\n@@ Instruction\n{base_problem}\n{self_invoking_problem}\n@@ Response",
+    "placeholders": {
+      "base_problem": "items.raw_problem",
+      "self_invoking_problem": "items.new_problem"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix H.2 'Prompts for Evaluation', 'Prompt of 0-shot'",
+    "verbatim": "full (sent as one user message)",
+    "placeholders_paper": {
+      "base_problem": "items.raw_problem",
+      "self_invoking_problem": "items.new_problem"
+    }
+  },
+  "output": {
+    "parse": "regex ```python\\n(.*?)```",
+    "postprocess": "execute test_code in a sandbox; pass if every assert passes",
+    "parse_paper": "python code block(s) extracted from the response (CodeEval-Pro sanitizer); the file must define both functions"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "pass@1 = share of the 164 problems whose generated file passes all test_code asserts (one sample)",
+    "judge": "rule: execution of test_code with the CodeEval-Pro evalpro harness",
+    "original_value": 72.0,
+    "original_location": "Table 2, row GPT-4-Turbo, column HumanEval Pro (0-shot)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 492,
+    "est_usd": 5.0,
+    "tier": "mid",
+    "est_usd_prepare": 31.63,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [
+    "no hook: pass@1 requires executing the model-generated Python file against test_code (CodeEval-Pro evalpro harness) - an execution sandbox for untrusted code; prompt and generation are otherwise machine-ready (--prepare renders the 164 prompts)."
+  ],
+  "notes": "MBPP Pro 0-shot (69.3, n=378) and the 1-shot columns are alternative cells; the harness reports pass_k_of_output and a sanitized variant - use the sanitized one as in the repo README. || [normalize 2026-09-07] hf parquet default/train verified (164 rows; id, raw_solution, test_code, raw_problem, new_solution, new_problem); prompts render with --prepare."
+}

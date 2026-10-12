@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4403280389",
+  "title": "Enhancing abstractive summarization of scientific papers using structure information",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (footnote URL only)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"For GPT-4 (gpt-4-0613), we used the API provided by OpenAI, and input the source article with the prompt 'Summarize the following scientific paper no more than 300 words'\" (Sec. 4.3)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 4.3 (GPT-4 summarization prompt quoted)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "ROUGE-1, PubMed",
+    "value": null,
+    "n_items": null,
+    "location": "Table 7, row GPT-4",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Authors' arXiv/PubMed dataset at github.com/tongbao96/code-for-SFR-AS"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "no_number"
+  ],
+  "notes": "The live ID appears only in a footnote URL; the summarizer actually used is gpt-4-0613 (retired). LLM evaluation uses G-Eval with GPT-4."
+}

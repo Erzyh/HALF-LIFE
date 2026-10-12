@@ -1,0 +1,93 @@
+{
+  "wid": "W7166799942",
+  "title": "CMTD: Cognitive Modeling with Traits and Distortions for Multimodal Emotion Recognition in Conversations",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; zero-shot setting stated in Sec. 4)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 2610,
+    "subset_rule": "all (MELD test set: 2,610 utterances in 280 dialogues; one call per dialogue)",
+    "approximation": "the printed Text-only prompt gives no label set or output format: the reply is parsed for one of the seven MELD labels per numbered utterance (synonyms mapped), unlabelled utterances count as wrong; conversation rendered as numbered 'Speaker: utterance' lines (rendering not printed)"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/declare-lab/MELD, file data/MELD/test_sent_emo.csv (also in the HF mirror zrr1999/MELD_Text)",
+    "config_or_split": "test_sent_emo.csv",
+    "filter": null,
+    "fields": {
+      "input": "conversation",
+      "label": "gold",
+      "id": "id",
+      "group_source": "Dialogue_ID",
+      "order_source": "Utterance_ID"
+    },
+    "license": "gpl-3.0 (declare-lab/MELD)",
+    "access_checked": true,
+    "size_mb": 0.5,
+    "file_url": "https://raw.githubusercontent.com/declare-lab/MELD/master/data/MELD/test_sent_emo.csv",
+    "fields_prose": {
+      "input": "Utterance, Speaker (grouped by Dialogue_ID, ordered by Utterance_ID)",
+      "label": "Emotion (neutral, joy, surprise, anger, sadness, disgust, fear)",
+      "id": "Dialogue_ID + Utterance_ID"
+    },
+    "label_map": null,
+    "columns_verified": "Sr No., Utterance, Speaker, Emotion, Sentiment, Dialogue_ID, Utterance_ID, Season, Episode, StartTime, EndTime (2,610 rows, 280 dialogues; Emotion counts neutral 1256, joy 402, anger 345, surprise 281, sadness 208, disgust 68, fear 50)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation.\nThe conversation is as follows: {conversation}",
+    "placeholders": {
+      "conversation": "items.conversation"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix Table 6, row Text-only",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "conversation": "all utterances of the dialogue as numbered 'Speaker: utterance' lines"
+    }
+  },
+  "output": {
+    "parse": "label from set [neutral, joy, surprise, anger, sadness, disgust, fear]",
+    "postprocess": "lowercase; map synonyms (happy -> joy, sad -> sadness, angry -> anger, surprised -> surprise, disgusted -> disgust, scared/afraid -> fear); missing labels count as wrong",
+    "parse_prose": "label from set [neutral, joy, surprise, anger, sadness, disgust, fear] per utterance: for each numbered utterance take the first label word on its line, else in order of appearance"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 2,610 test utterances whose predicted emotion equals the gold Emotion, in percent",
+    "judge": "none",
+    "original_value": 42.45,
+    "original_location": "Table 2, MELD block, row gpt-4.1-nano, column Text-only ACC (weighted F1 39.34)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 840,
+    "est_usd": 0.02,
+    "tier": "low",
+    "est_usd_prepare": 0.02,
+    "est_usd_dryrun_max_tokens": 0.36,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens"
+  },
+  "open_points": [
+    "[triage 2026-09-09 g1] Scoring of free-text emotion phrases is unreported by the paper: choose a mapping rule (offline, no API calls; strict 13.2% vs extended synonym map about 31% vs paper 42.45), or accept as a protocol gap. A prompt carrying the label set would be our design, not the paper's (840 calls x 3 seeds, about USD 0.02-0.36)."
+  ],
+  "notes": "The repository (Shaun-le/CMTD, prompts/text_only.txt) may carry an output-format line that the paper's Table 6 omits; the paper version is used. Calls are per dialogue (280 x 3 seeds); bootstrap over utterances as the paper's accuracy unit. Weighted F1 (39.34) is a free second check. || [hook 2026-09-07] load_items() groups the 2,610 MELD test utterances into 280 dialogues (numbered 'Speaker: utterance' lines, gold = list of Emotion labels); parse() reads one label per numbered line (synonyms mapped) or the labels in order of appearance; score() = per-utterance accuracy (bootstrap over utterances), weighted F1 printed. n_items = 2,610 utterances scored from 280 calls per seed. || [triage 2026-09-09 g1] MIXED / protocol gap. The printed Text-only prompt is identical to prompts/text_only.txt in Shaun-le/CMTD (checked 2026-09-09: no label set, no output format). gpt-4.1-nano-2025-04-14 (pinned) answers with free emotion phrases per numbered utterance ('Curious or inquisitive', 'Encouragement / Support', 'Excitement / happiness', 'Neutral / informative'); the 7-label + small-synonym parse leaves 1,705 of 2,610 utterances unlabelled -> 13.2% (per seed 13.4/12.9/13.3; 27 of 280 replies fully unparsed per seed). Sensitivity with an extended deterministic synonym map (scratch script, not in the hook): 31.2/29.9/31.8%, 111 unlabelled. Paper 42.45. The paper does not state how free text was mapped to the MELD labels.",
+  "hook": {
+    "path": "harness/tierb/hooks/W7166799942.py",
+    "functions": [
+      "load_items",
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

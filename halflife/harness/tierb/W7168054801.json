@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7168054801",
+  "title": "When LLMs Agree, Are They Right? Auditing Self-Consistency and Cross-Model Agreement as Confidence Signals",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Axis A model tier (nano vs. mini, zero-shot) ... at temperature=1.0, K=50, on the gpt-4.1 family (Design); 'Exact model snapshots and run timestamps were not logged'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendix B: canonical zero-shot/CoT prompts 'documented with the released code'; runners wrote their own prompts",
+    "note": "Prompt wording varied across 53 runners by design."
+  },
+  "claim": {
+    "metric": "majority-vote correctness M (GPQA Diamond)",
+    "value": 0.4,
+    "n_items": 178,
+    "location": "Table 1, row 'gpt-4.1-nano (A) GPQA', column M; case count from Table 3",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "GPQA Diamond (gated on Hugging Face) and AIME 2024"
+  },
+  "cost": {
+    "est_calls": 26700,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Snapshot resolved to the only gpt-4.1-nano release. Number is a cell mean over runners with heterogeneous prompts; not reproducible from a single printed prompt."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7127594524",
+ "title": "Can LLMs Do Rocket Science? Exploring the Limits of Complex Reasoning with GTOC 12",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Abstract: \"models, ranging from GPT-4-Turbo to...Gemini 2.5 Pro, and o3...score has nearly doubled...(rising from 9.3 to 17.2 out of 26)\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a (only the arXiv abstract/landing page was extracted, not the PDF body or appendix)",
+  "note": "Abstract states the paper includes \"a new appendix\"; the actual prompt text was not captured by extraction."
+ },
+ "claim": {
+  "metric": "strategic viability score (LLM-as-a-Judge rubric across 5 structural categories, out of 26), GTOC 12 asteroid-mining mission design",
+  "value": 9.3,
+  "n_items": null,
+  "location": "Abstract only; \"rising from 9.3 to 17.2\" -- 9.3 is inferred to be GPT-4-Turbo's score from the sentence's low-to-high ordering, not explicitly labeled",
+  "task_type": "agentic",
+  "judge": "llm:unspecified"
+ },
+ "data": {
+  "public": "yes",
+  "source": "GTOC 12 (12th Global Trajectory Optimization Competition) problem statement; MLE-Bench framework (public)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Extracted text is only the arXiv abstract page (plus site furniture like CatalyzeX/DagsHub/HuggingFace widgets), not the actual paper PDF, so the prompt appendix, exact per-model score, and n_items (number of independent runs/trials) could not be confirmed. The abstract describes a genuine, well-specified experiment (AIDE-based agent, rubric-scored by an LLM judge); this would very plausibly be eligible if the full PDF were available."
+}

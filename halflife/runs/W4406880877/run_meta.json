@@ -1,0 +1,286 @@
+{
+  "card_id": "W4406880877",
+  "run_date_utc": "2026-09-19",
+  "target_paper": {
+    "title": "People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text",
+    "doi": "10.48550/arxiv.2501.15654",
+    "repo": "https://github.com/jenna-russell/human_detectors",
+    "repo_commit": "afcf03d14d2da4a038d8d0fafa5ec779dd858181",
+    "repo_license": "MIT",
+    "original_source": "Table 2, section (C), Detector LLM O1-2024-12-17, row ZERO-SHOT + COT",
+    "original_values": {
+      "tpr": {
+        "gpt-4o": 83.3,
+        "claude": 53.3,
+        "paraphrased_gpt-4o": 96.7,
+        "o1-pro": 20.0,
+        "humanized_o1-pro": 16.7
+      },
+      "fpr": {
+        "gpt-4o": 6.7,
+        "claude": 3.3,
+        "paraphrased_gpt-4o": 3.3,
+        "o1-pro": 3.3,
+        "humanized_o1-pro": 3.3
+      },
+      "overall": {
+        "tpr": 54.0,
+        "fpr": 4.0
+      },
+      "counts": {
+        "tpr_k": 81,
+        "fpr_k": 6,
+        "n": 150,
+        "n_block": 30
+      },
+      "expert_majority_vote": {
+        "tpr": 99.3,
+        "fpr": 0.0
+      },
+      "source": "Table 2, section (C), Detector LLM O1-2024-12-17, row ZERO-SHOT + COT"
+    }
+  },
+  "generation": {
+    "model_requested": "o1-2024-12-17",
+    "model_served": [
+      "o1-2024-12-17"
+    ],
+    "n_fingerprints": 3,
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (raw HTTPS, harness/openai_client.py)",
+    "parameters": "one user message; seed 42; no temperature, no max_tokens, no reasoning_effort (models.ChatGPT.obtain_response o1 branch; API default reasoning effort 'medium' = footnote 22)",
+    "prompt_template_source": "external/repos/W4406880877/jenna-russell__human_detectors/prompts/detector_prompts/classify_zero_shot_cot.txt @ afcf03d1, loaded and formatted by models.Detector",
+    "parser": "models.Detector.detect: re.search(r'<answer>(.*?)</answer>', re.DOTALL).strip(); None when the tag is missing",
+    "battery": "300 archived calls in baseline_alive/calls.jsonl; 1 seed(s) x 300 articles",
+    "run_config": {
+      "card_id": "W4406880877",
+      "model": "o1-2024-12-17",
+      "n_items": 300,
+      "n_seeds": 1,
+      "calls": 300,
+      "api_seed": 42,
+      "temperature": null,
+      "max_tokens": null,
+      "reasoning_effort": null,
+      "params_source": "models.ChatGPT.obtain_response o1 branch; reasoning_effort unset -> API default 'medium' (footnote 22)",
+      "prompt_source": "external/repos/W4406880877/jenna-russell__human_detectors/prompts/detector_prompts/classify_zero_shot_cot.txt @ afcf03d1",
+      "cap_usd": 50.0,
+      "built_utc": "2026-09-19T14:10:30.944812+00:00",
+      "decisions": "decisions_2026_09_19 in harness/cards/W4406880877.json"
+    },
+    "budget_cap_usd": 50.0
+  },
+  "results": {
+    "reexecution": {
+      "primary_seed": 0,
+      "per_seed": {
+        "0": {
+          "tpr": {
+            "k": 83,
+            "n": 150,
+            "pct": 55.3333,
+            "ci95": [
+              47.3431,
+              63.0572
+            ]
+          },
+          "fpr": {
+            "k": 6,
+            "n": 150,
+            "pct": 4.0,
+            "ci95": [
+              1.8459,
+              8.4513
+            ]
+          },
+          "tpr_by_block": {
+            "gpt-4o": {
+              "k": 24,
+              "n": 30,
+              "pct": 80.0,
+              "ci95": [
+                62.6943,
+                90.4949
+              ]
+            },
+            "claude": {
+              "k": 18,
+              "n": 30,
+              "pct": 60.0,
+              "ci95": [
+                42.3204,
+                75.4094
+              ]
+            },
+            "paraphrased_gpt-4o": {
+              "k": 27,
+              "n": 30,
+              "pct": 90.0,
+              "ci95": [
+                74.3789,
+                96.54
+              ]
+            },
+            "o1-pro": {
+              "k": 9,
+              "n": 30,
+              "pct": 30.0,
+              "ci95": [
+                16.6647,
+                47.8758
+              ]
+            },
+            "humanized_o1-pro": {
+              "k": 5,
+              "n": 30,
+              "pct": 16.6667,
+              "ci95": [
+                7.3365,
+                33.5644
+              ]
+            }
+          },
+          "fpr_by_block": {
+            "gpt-4o": {
+              "k": 3,
+              "n": 30,
+              "pct": 10.0,
+              "ci95": [
+                3.46,
+                25.6211
+              ]
+            },
+            "claude": {
+              "k": 1,
+              "n": 30,
+              "pct": 3.3333,
+              "ci95": [
+                0.5909,
+                16.6704
+              ]
+            },
+            "paraphrased_gpt-4o": {
+              "k": 0,
+              "n": 30,
+              "pct": 0.0,
+              "ci95": [
+                0.0,
+                11.3513
+              ]
+            },
+            "o1-pro": {
+              "k": 0,
+              "n": 30,
+              "pct": 0.0,
+              "ci95": [
+                0.0,
+                11.3513
+              ]
+            },
+            "humanized_o1-pro": {
+              "k": 2,
+              "n": 30,
+              "pct": 6.6667,
+              "ci95": [
+                1.8477,
+                21.3235
+              ]
+            }
+          }
+        }
+      },
+      "answers": {
+        "HUMAN-WRITTEN": 211,
+        "AI-GENERATED": 89
+      },
+      "unparsed": 0,
+      "prompt_rerender_mismatches": 0,
+      "ci_method": "Wilson score 95% (n=150 overall, n=30 per block)"
+    },
+    "original": {
+      "tpr": {
+        "gpt-4o": 83.3,
+        "claude": 53.3,
+        "paraphrased_gpt-4o": 96.7,
+        "o1-pro": 20.0,
+        "humanized_o1-pro": 16.7
+      },
+      "fpr": {
+        "gpt-4o": 6.7,
+        "claude": 3.3,
+        "paraphrased_gpt-4o": 3.3,
+        "o1-pro": 3.3,
+        "humanized_o1-pro": 3.3
+      },
+      "overall": {
+        "tpr": 54.0,
+        "fpr": 4.0
+      },
+      "counts": {
+        "tpr_k": 81,
+        "fpr_k": 6,
+        "n": 150,
+        "n_block": 30
+      },
+      "expert_majority_vote": {
+        "tpr": 99.3,
+        "fpr": 0.0
+      },
+      "source": "Table 2, section (C), Detector LLM O1-2024-12-17, row ZERO-SHOT + COT"
+    },
+    "comparison": {
+      "tpr_delta_pp": 1.333,
+      "fpr_delta_pp": 0.0,
+      "tpr_by_block_delta_pp": {
+        "gpt-4o": -3.3,
+        "claude": 6.7,
+        "paraphrased_gpt-4o": -6.7,
+        "o1-pro": 10.0,
+        "humanized_o1-pro": -0.03
+      },
+      "fpr_by_block_delta_pp": {
+        "gpt-4o": 3.3,
+        "claude": 0.03,
+        "paraphrased_gpt-4o": -3.3,
+        "o1-pro": -3.3,
+        "humanized_o1-pro": 3.37
+      },
+      "tierb_tpr_ai_half": 54.666666666666664,
+      "evasion_gradient_pp": 50.0,
+      "gradient_holds": true,
+      "far_below_expert_majority_vote": true,
+      "original_tpr_ci95": [
+        46.0238,
+        61.7764
+      ],
+      "tpr_inside_original_ci": true,
+      "fpr_no_blowout": true,
+      "original_fpr_ci95": [
+        1.8459,
+        8.4513
+      ]
+    },
+    "cost_usd": 28.213,
+    "calls": 300,
+    "errors": 0,
+    "call_log_stats": {
+      "http_200": 300,
+      "finish_reasons": {
+        "stop": 300
+      },
+      "tokens_in": 328493,
+      "tokens_out": 388089
+    },
+    "judgment": "생존 (survived)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN Sec. 1 as the card instantiates it: survived = overall TPR inside the original's 95% CI AND at least 20 pp below the expert majority vote (99.3) AND the evasion blocks at least 20 pp below the clean blocks AND FPR <= 20; partial = level or FPR moves while the gradient holds; dead = the gradient disappears; human double-coding pending",
+    "note": "TPR 55.33 [47.3, 63.1] (83/150) vs paper 54.0; FPR 4.00 [1.8, 8.5] (6/150) vs paper 4.0; evasion gradient 50.0 pp; unparsed 0"
+  },
+  "reproducibility_frictions_observed": [
+    "the released record's own 'id' field is not unique (61 distinct values for 150 articles); items are keyed on the dict index '0'-'299' instead - the Tier B run mis-paired 89 replies before the responses were re-matched by request hash",
+    "models.Detector.__init__ opens the prompt files by relative path and without an encoding: the adapter chdirs into the repository and defaults open() to UTF-8, without which prompts/detection_guide.txt raises UnicodeDecodeError on a non-UTF-8 locale",
+    "models.py imports torch, transformers and anthropic at module level although the OpenAI detector path uses none of them (~25 s import)",
+    "the repository ships no scoring script: TPR/FPR aggregation per Table 2 block is ours",
+    "the release gold strings are 'AI-generated' / 'Human-written'; the README example and the Tier B config say 'Machine-generated'",
+    "helpers.model_call in the same repository hard-codes reasoning_effort='high' for o1, contradicting footnote 22; that path is not the detector path and models.py sends no reasoning_effort at all (API default 'medium')",
+    "a reply without an <answer> tag yields None in the authors' parser; such a reply is not a label and is reported separately, not folded into HUMAN-WRITTEN (the Tier B runner folded it)"
+  ]
+}

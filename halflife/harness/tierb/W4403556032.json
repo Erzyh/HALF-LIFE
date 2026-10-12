@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403556032",
+  "title": "Enhancing Healthcare LLM Trust with Atypical Presentations Recalibration",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "We use a variety of commercial LLMs that includes GPT-3.5-turbo (OpenAI, 2023), GPT-4-turbo (OpenAI, 2024), Claude3-sonnet and Gemini 1.0 Pro (Section 4, Models); Table 2 block 'gpt-4-turbo'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B, Table 3 (complete prompts for Atypical Scenario and Atypical Presentations); Table 1 (vanilla prompt)",
+    "note": "Vanilla prompt appears only as a one-line illustration in Table 1; the two recalibration prompts are complete."
+  },
+  "claim": {
+    "metric": "accuracy (Atypical Presentations prompt, MedQA)",
+    "value": 0.751,
+    "n_items": 1272,
+    "location": "Table 2, block gpt-4-turbo, row 'Atypical presentations', MedQA Acc (ECE 0.114 in the same row)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MedQA dev (n=1272), MedMCQA dev (n=2816), PubMedQA (n=500); public"
+  },
+  "cost": {
+    "est_calls": 3816,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "arXiv Sept 2024, no preview string. Headline metric is ECE (0.114 vs vanilla 0.133) parsed from verbalized confidence; accuracy is the robust check. Decoding parameters not stated. Code: github.com/jeremy-qin/."
+}

@@ -1,0 +1,90 @@
+{
+  "wid": "W4411120335",
+  "title": "Does Liking Yellow Imply Driving a School Bus? Semantic Leakage in Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": [
+        0.0,
+        0.5,
+        1.0,
+        1.5
+      ],
+      "max_tokens": 30,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.1 (temperatures 0, 0.5, 1, 1.5; 10 runs per prompt); max_tokens assumed (generations are truncated after the first period)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 109,
+    "subset_rule": "all: 109 test prompts with their 30 matched control prompts; 10 samples at each of 4 temperatures for every prompt",
+    "approximation": "max_tokens is not stated; the BERTScore backbone follows the evaluate-metric default (roberta-large); test and control samples are paired by sample index within a temperature."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "https://gonenhila.github.io/files/semantic_leakage_prompts.txt (footnote 2; 139 lines: 109 test prompts + 30 control prompts, each prefixed 'Complete the sentence:')",
+    "config_or_split": "all lines",
+    "filter": null,
+    "fields": {
+      "input": "line",
+      "id": "line_no"
+    },
+    "license": "unknown (author's website)",
+    "access_checked": true,
+    "size_mb": 0.01,
+    "file_url": "https://gonenhila.github.io/files/semantic_leakage_prompts.txt",
+    "fields_prose": {
+      "input": "prompt line (test) and its control line",
+      "label": "concept (the inserted clause, e.g. 'koalas'; derived by diffing test and control)",
+      "id": "line number"
+    },
+    "label_map": null,
+    "filter_prose": "control prompt = the first line of each block (the variant without the concept clause); every following line of the block is a test prompt matched to it; in the idiom section each literal/idiom pair is (control, test)",
+    "structure_verified": "plain text, 140 lines (109 test + 30 control prompts + blank separators), e.g. 'Complete the sentence: His favorite food is' (control) followed by 'Complete the sentence: He likes koalas. His favorite food is' (tests)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{prompt_line}",
+    "placeholders": {
+      "prompt_line": "items.line (NOT expressible: .txt is not a supported table format)"
+    },
+    "few_shot": "none",
+    "source_location": "Section 3 / footnote 2 (prompt file) and Table 1 examples",
+    "verbatim": "full (prompt file served by the author's site; the paper's examples omit the 'Complete the sentence:' prefix that the file carries)",
+    "placeholders_prose": {
+      "prompt_line": "the full line from the file, e.g. 'Complete the sentence: He likes koalas. His favorite food is' (test) or 'Complete the sentence: His favorite food is' (control)"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "strip",
+    "parse_prose": "free text: remove a repeated prompt, truncate after the first period (Sec. 3.1)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Leak-Rate (BERTScore): for each test prompt, temperature and sample index i, score 1 if BERTScore-F1(concept, test generation_i) > BERTScore-F1(concept, control generation_i), 0 if smaller, 0.5 if equal; average over the 109 x 4 x 10 instances, x100 (Eq. 1; Table 2 caption).",
+    "judge": "none",
+    "original_value": 70.8,
+    "original_location": "Table 2, row GPT4, column BS",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 26160,
+    "est_usd": 130.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "Parameter sweep: four temperatures x 10 samples per prompt cannot be expressed (model.params is one parameter set; a hook cannot change the request body), and the Leak-Rate needs BERTScore-F1 with roberta-large (torch/transformers), outside the stdlib/numpy/pandas hook rules. The plain-text prompt file itself would be a trivial load_items (139 lines: 30 control + 109 test prompts, concept = the clause that differs)."
+  ],
+  "notes": "Per seed: (109 + 30) prompts x 4 temperatures x 10 samples = 5,560 short calls (est_calls counts 3 seeds; the temperature-0 replicates are near-duplicates). bootstrap item = test prompt (40 instances each). Footnote 13 notes that temperature 0 still varies across API calls. || [hooks_2 2026-09-07] reviewed for a per-paper hook: parameter sweep + BERTScore; no hook written.",
+  "runner_gaps": [
+    "items: plain-text line file",
+    "model: parameter sweeps (temperature list)",
+    "metric: paired BERTScore leak rate"
+  ],
+  "hook": "none (needs_human: parameter sweep + BERTScore)"
+}

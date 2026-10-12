@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4411119926",
+  "title": "Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we can easily build an effective automatic bencher using GPT-4-turbo as the evaluation model, achieving a Spearman's rho of over 0.90\"; Table 2 row \"gpt-4-turbo 0.9112 1 0.9381 2\" (Alpaca Eval / Arena Hard rho, base pairwise + Bradley-Terry); footnote resolves gpt-4-turbo to gpt-4-turbo-2024-04-09"
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix (pairwise/pointwise judge prompt templates, e.g. line \"You are a helpful assistant in evaluating the quality of the outputs...\")", "note": "Meta-evaluation of automatic 'benchers': the live model scores/ranks 18 candidate systems' outputs on the Alpaca Eval and Arena Hard input sets, correlated against Chatbot Arena human rankings."},
+  "claim": {
+    "metric": "Spearman's rho with Chatbot Arena human ranking, Alpaca Eval input set, base pairwise + Bradley-Terry aggregation", "value": 0.9112, "n_items": 14490,
+    "location": "Table 2, row gpt-4-turbo, Alpaca Eval rho column; 18 systems x ~805 Alpaca Eval instructions (exact counts in Appendix C)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Alpaca Eval and Arena Hard input sets, Chatbot Arena human rankings (all public leaderboards/benchmarks)"},
+  "cost": {"est_calls": 43470, "tier": "high"},
+  "blockers": [],
+  "notes": "NAACL 2025 Findings. n_items is an estimate (systems x instructions for a base-pairwise-vs-reference judge design); exact per-combination call counts are in Appendix C. gpt-4o also appears in the same table but is undated in text; gpt-4-turbo is used here because it is explicitly pinned to gpt-4-turbo-2024-04-09 elsewhere in the paper."
+}

@@ -1,0 +1,93 @@
+{
+  "wid": "W7144391352",
+  "title": "CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Korean Law",
+  "status": "ready",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "temperature": null,
+      "max_tokens": 2048,
+      "top_p": null,
+      "reasoning_effort": "low",
+      "seed": 20260907
+    },
+    "params_source": "paper Sec. 4.1 / Table 1 (GPT-5* (l) = reasoning effort low, three runs with a fixed seed via OpenRouter); seed value not printed, max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 279,
+    "subset_rule": "all Type-ISR items (279 questions over the Sufficient / Insufficient / Partial conditions)",
+    "approximation": "direct OpenAI API instead of OpenRouter; GPT-5 is not deterministic under a seed; the Korean prompt assembly (instruction, question, options) follows the repository items and the Appendix A.2.2 layout",
+    "n_items_prepare": 279
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/jhCOR/CALRKBench, file dataset/calrk_type2.jsonl",
+    "config_or_split": "calrk_type2.jsonl (Type-ISR, 279 lines)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "choices",
+      "label": "answer",
+      "id": "id",
+      "condition": "meta.category"
+    },
+    "license": "unknown (no license file in the repository)",
+    "access_checked": true,
+    "size_mb": 0.5,
+    "file_url": "https://raw.githubusercontent.com/jhCOR/CALRKBench/main/dataset/calrk_type2.jsonl",
+    "fields_paper": {
+      "input": "instruction, question",
+      "options": "choices (dict A-D)",
+      "label": "answer letter (key name unverified)",
+      "id": "id (encodes case, condition and variant, e.g. 0_c1_s0_v0; condition key unverified)"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{instruction}\n\n[Question]\n{question}\n\n[Options]\nA) {a}\nB) {b}\nC) {c}\nD) {d}",
+    "placeholders": {
+      "instruction": "items.instruction",
+      "question": "items.question",
+      "a": "items.choices.A",
+      "b": "items.choices.B",
+      "c": "items.choices.C",
+      "d": "items.choices.D"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A.2.2 (Type-ISR example, English translation of the Korean item: instruction, [Question], [Options] A)-D), 'You must output only one letter among A/B/C/D as the answer.')",
+    "verbatim": "partial (the prompts are the released Korean items themselves; the paper prints translated examples only)",
+    "placeholders_paper": {
+      "instruction": "items.instruction (Korean; ends with the instruction to output only one of A/B/C/D)",
+      "question": "items.question",
+      "a/b/c/d": "items.choices[A..D]"
+    }
+  },
+  "output": {
+    "parse": "letter",
+    "postprocess": "strip; unparsable counts as incorrect",
+    "parse_paper": "letter (A-D): first standalone letter A-D in the reply"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "item-weighted accuracy over all 279 Type-ISR items, mean over the three runs; this equals the Table 1 'Avg' (the per-condition values 0.973 / 0.756 / 0.651 weighted by the condition sizes 49 / 123 / 107 give 0.754, whereas their plain mean is 0.793)",
+    "judge": "none",
+    "original_value": 0.754,
+    "original_location": "Table 1, row GPT-5* (l), Type-ISR Avg (Suff. 0.973, Insuff. 0.756, Part. 0.651)",
+    "bootstrap_unit": "item",
+    "name_paper": "custom",
+    "scale": 1,
+    "definition_paper": "accuracy per condition (Sufficient, Insufficient, Partial), averaged over the three conditions (Table 1 Type-ISR Avg), mean over the three runs"
+  },
+  "cost": {
+    "est_calls": 837,
+    "est_usd": 25.0,
+    "tier": "mid",
+    "est_usd_prepare": 17.52,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [],
+  "notes": "Items carry statute texts (~1K tokens); ~$0.03 per gpt-5 call with low reasoning effort. The 'GPT-5* (m)' row (minimal effort, 0.762) is an alternative target. || [normalize 2026-09-07] calrk_type2.jsonl verified (279 rows; id, instruction, question, choices {A,B,C,D}, answer A-D, meta {case, variant, category}). Conditions: meta.category need_law = case 1 (123 rows, Insufficient), no_need_law = case 2 (49 rows, Sufficient), need_law_partial = case 3 (107 rows, Partial); 49 ids have no '_s' segment. The Table 1 Avg is reproduced exactly by item-weighted accuracy, so metric.name is 'accuracy' (was 'custom'). The runner sends reasoning_effort=low and max_completion_tokens=2048 for gpt-5 and drops temperature/top_p/seed."
+}

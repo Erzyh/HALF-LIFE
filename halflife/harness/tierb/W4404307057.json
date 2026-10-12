@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404307057",
+  "title": "Smart ETL and LLM-based contents classification: the European Smart Tourism Tools Observatory experience",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo-powered Copilot Precise mode",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "\"only Microsoft Copilot in Precise Mode was employed to define the necessary prompts ... the GPT-4 Turbo-powered Copilot Precise mode was considered one of the top-performing models\" (Sec. 4.3)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Box 4 (needle-in-a-haystack prompt) and classification prompt boxes in Sec. 4.3",
+    "note": ""
+  },
+  "claim": {
+    "metric": "total F1 of Copilot classification, testing dataset A, run 1",
+    "value": 0.76,
+    "n_items": null,
+    "location": "Table 9, row 1/A, Total F1",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Smart tourism tool descriptions extracted from Spanish and Portuguese catalogs (ETL pipeline described; release not stated)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui"
+  ],
+  "notes": "Model accessed through the Microsoft Copilot chat interface, not an API; the underlying snapshot is unknown. Item counts per testing dataset are not stated."
+}

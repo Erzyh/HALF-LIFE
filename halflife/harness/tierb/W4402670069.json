@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402670069",
+  "title": "Learning to Generate Instruction Tuning Datasets for Zero-Shot Task Adaptation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Section 7: 'For reproducibility, we use GPT-4o-2024-05-13' to generate answers compared with Bonito; 'we ask humans if GPT-4o and Bonito produce the same' (Table 5)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B.1 / Section 7 (generation prompt for GPT-4o)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "human-judged agreement between GPT-4o and Bonito outputs",
+    "value": null,
+    "n_items": null,
+    "location": "Table 5",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/BatsResearch/bonito (PubMedQA, SQuADShifts, ContractNLI subsets)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "human_outcome"
+  ],
+  "notes": "The only GPT-4o number is a human-annotated agreement rate in a side study; the paper's subject is the Bonito model."
+}

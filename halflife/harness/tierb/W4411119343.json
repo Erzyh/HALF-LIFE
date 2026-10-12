@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411119343",
+ "title": "Are LLM-Judges Robust to Expressions of Uncertainty? Investigating the effect of Epistemic Markers on LLM-based Evaluation",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Line 109: \"3.5-turbo, GPT-4-turbo, GPT-4o, Llama-3-8B-...\" among evaluated judges; Table 14, row GPT-4-turbo, Reader=GPT-4 (450 Correct samples), QAS Acc.=83.8."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 12 (QA evaluation prompt, printed in full), Table 13 (instruction-following evaluation prompt, printed in full)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Accuracy (QAS, reference-guided correctness judgment), GPT-4-turbo as judge, Natural Questions correct-answer subset",
+  "value": 83.8,
+  "n_items": 450,
+  "location": "Table 14, row GPT-4-turbo, Reader=GPT-4 (450 Correct samples) column",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "EMBER benchmark (built on Natural Questions / TriviaQA and LLMBlender outputs; release status not confirmed in the excerpt reviewed)"
+ },
+ "cost": {
+  "est_calls": 1350,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "This is a judge-robustness study: GPT-4-turbo's own judging accuracy under epistemic-marker manipulations (weakened/neutral/strengthened answer framing, EMBER Table 11 totals 7,488 instruction-following judgments) is the object of study, analogous to a detector-benchmarking role. Table 15 gives a parallel TriviaQA-subset row for GPT-4-turbo (Acc. 98.0 on one cell)."
+}

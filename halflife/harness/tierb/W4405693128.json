@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405693128",
+  "title": "Exploring LLMS, A Systematic Review with SWOT Analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Threats section: 'most sophisticated LLMs, such as GPT-4 Turbo, may not be ...' (single mention)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "No experiments",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a (literature review)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Systematic review / SWOT analysis without experiments."
+}

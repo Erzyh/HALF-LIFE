@@ -1,0 +1,66 @@
+{
+  "wid": "W4399911093",
+  "title": "Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 90.24,
+  "original_location": "Table 4, row gpt-4-turbo, column F-score (%) = 90.24 +/- 0.55 (accuracy 89.40, precision 89.53, recall 90.96); also quoted in Sec. 4.2",
+  "reexecution": {
+    "mean_over_seeds": 0.9471397538015931,
+    "per_seed": {
+      "0": {
+        "value": 0.947139753801593,
+        "n": 100,
+        "ci95": [
+          0.9326098618865424,
+          0.9619316343240407
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.9471397538015931,
+        "n": 100,
+        "ci95": [
+          0.9306698835919943,
+          0.9606328944777337
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911093",
+    "n_items": 100,
+    "n_requests": 200,
+    "seeds": 2,
+    "est_usd": 4.42,
+    "subset_note": "repeat of the vendor condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 90.24,
+    "cap_usd": 3.66,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\vendor\\W4399911093"
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "3 harness seeds instead of the paper's 5 runs. The released notebook is parameterised for gpt-4o-2024-11-20; the model id is set to the snapshot Table 4 names as the selected model (gpt-4-turbo = gpt-4-turbo-2024-04-09 per Sec. 4.2). Everything else - prompt pattern, five priming examples, skip list, answer parser, count definitions and the pooled F-score - is the authors' own released code.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor_rep\\W4399911093"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 94.71397538015931,
+    "delta": 4.473975380159317,
+    "original_inside_ci95": false
+  }
+}

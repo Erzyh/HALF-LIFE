@@ -1,0 +1,68 @@
+{
+  "wid": "W4410417118",
+  "title": "ChatGPT Is Still Not Good Enough at Giving Care-Seeking Advice, or Is It?",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; calls went through OpenRouter with unstated parameters, and the ten-trial variability design suggests default sampling, see open_points)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 450,
+    "subset_rule": "all: 45 vignettes x 10 trials, each trial in a fresh context (the ten trials are the paper's repeats, so seeds = 1)",
+    "approximation": "vignette texts and physician gold standards taken from the cited source publications; direct OpenAI API instead of OpenRouter; the two-model NLP classification plus manual adjudication of the free-text advice is replaced by a fixed classifier"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "45 validated case vignettes from Kopka et al. 2024, Sci Rep 14:30614 (DOI 10.1038/s41598-024-83844-z, RepVig framework; supplementary material) and Kopka & Feufel 2024, Front Digit Health 6 (DOI 10.3389/fdgth.2024.1411924; supplementary material)",
+    "config_or_split": "the 45-vignette set (2 emergency, 30 non-emergency, 13 self-care cases)",
+    "filter": "none",
+    "fields": {
+      "input": "vignette text",
+      "label": "physician gold-standard urgency (emergency / non-emergency / self-care)",
+      "id": "vignette number"
+    },
+    "license": "unknown (open-access articles; supplementary terms not checked)",
+    "access_checked": false,
+    "size_mb": 0
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Please give a triage classification for the following vignette. The criteria for triage classifications are presented below: Emergency: Call 911 or go directly to the emergency room; Non-Emergency: Try to see a doctor, but the symptoms do not require immediate attention at an emergency room. For example, you can see a doctor in the next week. Self-care: Let the health issue get better on its own and review the situation in a few days again. {case_vignette}",
+    "placeholders": {
+      "case_vignette": "items.input"
+    },
+    "few_shot": "none",
+    "source_location": "Methods, Outcome Evaluation paragraph (prompt quoted verbatim)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "free text mapped to label from set [emergency, non-emergency, self-care]",
+    "postprocess": "rule: match the first explicit urgency term (Emergency / Non-Emergency / Self-care, case-insensitive) in the reply; ambiguous replies go to the zero-shot classifier named in metric.judge; compare with the gold standard"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "proportion of correctly classified cases across all 450 trials (45 vignettes x 10 trials)",
+    "judge": "llm:gpt-4.1-nano-2025-04-14 (zero-shot classification of the advice into the three urgency levels; the classifier prompt is not printed and must be written)",
+    "original_value": 44,
+    "original_location": "Results text: 44% of cases solved correctly (196/450); Figure 1",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 900,
+    "est_usd": 1.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "items not in the paper: the 45 vignettes and physician gold standards must be taken by a human from the Kopka et al. 2024 Sci Rep supplementary / Zenodo record 10.5281/zenodo.12805048 (the RepVig study data; the Zenodo API and record page answer 403 to scripted access) and from the Kopka & Feufel 2024 Front Digit Health supplementary, and the 45-case set (2 emergency / 30 non-emergency / 13 self-care) confirmed",
+    "decoding: the paper ran ten trials to measure variability, which implies default sampling (temperature 1.0) rather than 0; choose before running",
+    "the zero-shot classifier prompt used to map free-text advice to an urgency level is not printed; write one or rely on the rule-based mapping (hook parse), which the paper's manual adjudication would not have needed"
+  ],
+  "notes": "Cheap (~$0.0005 per call). Bootstrap over vignettes (45) rather than trials would be the honest unit for a CI; the paper reports the 450-trial proportion. || [hooks_3 pass 2026-09-07] no hook: the item source needs a human download and set confirmation; once a 45-row CSV (vignette, gold) is staged, the runner's 'label from set' parse and accuracy suffice."
+}

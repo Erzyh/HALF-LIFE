@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7138900817",
+ "title": "CCD-Bench: Probing Cultural Conflict in Large Language Model Decision-Making",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "OpenAI o3-2025-04-16",
+  "resolved": "o3-2025-04-16",
+  "role": "A",
+  "evidence": "instructing a state-of-the-art reasoning model (OpenAI o3-2025-04-16) to generate one response per cluster in a single call"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method section (multi-cluster prompting description); 'A detailed prompt structure is provided on GitHub'",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for o3 itself (it only generates CCD-Bench's 2,182 answer-option dilemmas; the paper's evaluation results table scores other models, e.g. undated gpt-4o and gpt-4.1, against the benchmark)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "CCD-Bench (2,182 GLOBE-framework cultural-dilemma items); full prompt spec on GitHub"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "o3-2025-04-16 is used only as a role-A benchmark-construction generator; the paper's own results table evaluates other (undated, off-list) models such as gpt-4o and gpt-4.1 on the resulting benchmark."
+}

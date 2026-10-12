@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402698368",
+  "title": "XMainframe: A Large Language Model for Mainframe Modernization",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo / GPT 4",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "Section 4: 'we use OpenAI GPT-4-turbo to generate more than 200 sub-topics' and for quality filtering; Table 2 baseline 'GPT-4 73.90' (MCQ accuracy) with no version given."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 4 prints the GPT-4 data-quality prompt; the zero-shot evaluation prompt for Tables 2-4 is not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "MCQ accuracy (MainframeBench)",
+    "value": 73.9,
+    "n_items": null,
+    "location": "Table 2, row GPT-4",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MainframeBench (https://github.com/FSoft-AI4Code/XMainframe; HuggingFace datasets)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "The baseline is named only 'GPT 4' and may be gpt-4-0613 (retired) rather than the GPT-4-turbo used for data generation; evaluation prompt not printed."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412945277",
+  "title": "Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 3: 'GPT-4-turbo 84.4 61.3 - -' (decision accuracy on MetaTool, w/ ctx and w/o ctx); caption: 'GPT-4-turbo uses the Naive decision-making strategy'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 5 says 'Exact prompt templates are detailed in Appendix D', but Appendix D covers probe training; Appendix C lists prompting strategies only",
+    "note": "'With context' prompts include five randomly sampled in-context examples."
+  },
+  "claim": {
+    "metric": "decision accuracy (MetaTool, w/o ctx)",
+    "value": 61.3,
+    "n_items": null,
+    "location": "Table 3, row GPT-4-turbo, column w/o ctx",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "MetaTool (public, 1,040 queries); MeCa-Tool/MeCa-RAG release not stated"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "n_items for the GPT-4-turbo reference run is not reported and the tool-use prompt template is not printed where referenced. Alias resolved by rule (2025 paper)."
+}

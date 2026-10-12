@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4407176798",
+  "title": "Preference Leakage: A Contamination Problem in LLM-as-a-judge",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-11-20",
+    "resolved": "gpt-4o-2024-11-20 (dated snapshot, not on the still-callable list)",
+    "role": "S",
+    "evidence": "\"We choose three powerful LLMs as data generator/judge models. They are GPT-4o-2024-11-20 ... Gemini-1.5-flash ... and LLaMA-3.3-70B-Instruct-turbo\" (Sec. 4.1 Experiment Setup)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. 4.1 (pairwise judging on Arena-Hard/AlpacaEval 2.0 templates), Appendix", "note": "Standard Arena-Hard / AlpacaEval 2.0 pairwise-judge prompting; exact wording not quoted in the main text."},
+  "claim": {
+    "metric": "Preference Leakage Score (PLS, %), GPT-4o judge/data-generator vs. Gemini-1.5 pair, Mistral student, AlpacaEval 2.0", "value": 28.7, "n_items": 805,
+    "location": "Sec. 4.2 results (\"GPT-4o & Gemini-1.5 28.7% 18.4% 23.6%\"); AlpacaEval 2.0 = 805 questions (Sec. 4.1)",
+    "task_type": "classification",
+    "judge": "llm:gpt-4o-2024-11-20"
+  },
+  "data": {"public": "yes", "source": "Arena-Hard (500 questions), AlpacaEval 2.0 (805 questions), UltraFeedback (30,000 sampled prompts) -- all public"},
+  "cost": {"est_calls": null, "tier": "high"},
+  "blockers": ["aux_model_dead"],
+  "notes": "ICLR 2026. The judge/data-generator model is pinned to gpt-4o-2024-11-20, a dated snapshot that is not among the still-callable identifiers (only gpt-4o-2024-05-13 is tracked), so the paper's central claim cannot be re-run on a live model as specified. Full pipeline also requires supervised fine-tuning of student models on 30k generated responses before judging, adding further cost beyond simple prompting."
+}

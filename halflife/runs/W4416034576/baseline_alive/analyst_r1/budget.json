@@ -1,0 +1,12 @@
+{
+  "label": "analyst-r1",
+  "calls": 1434,
+  "errors": 0,
+  "cost_usd": 7.707623000000009,
+  "tokens_in": 3085770,
+  "tokens_out": 980290,
+  "cap_usd": 27.0,
+  "stopped_at_cap": false,
+  "started": "2026-09-19T13:47:23.287105+00:00",
+  "updated": "2026-09-19T14:09:29.720084+00:00"
+}

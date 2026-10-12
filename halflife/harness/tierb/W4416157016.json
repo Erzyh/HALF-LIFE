@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416157016",
+  "title": "LLMs Do Not See Age: Assessing Demographic Bias in Automated Systematic Review Synthesis",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "\"GPT (OpenAI/gpt-4.1-nano) ...: a proprietary model accessed via the OpenAI API\" (Sec. 4.1); Table 5: temperature 0, max tokens 750"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 3 (regular prompt; bold sentence added for the age-aware prompt)",
+    "note": "Input = concatenated primary-study abstracts of each review"
+  },
+  "claim": {
+    "metric": "BERTScore, regular prompt, child reviews",
+    "value": 0.84,
+    "n_items": 15,
+    "location": "Table 4, Regular Prompt, Child, row GPT, column BERT",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "DemogSummary: PubMed IDs and code at github.com/Favour-Yahdii/lllms_dont_see_age; abstracts re-fetched from PubMed"
+  },
+  "cost": {
+    "est_calls": 264,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "44 reviews x 2 prompts x 3 seeds. Entity metrics (ERS/HP/omission) need the Appendix C entity pipeline; BERTScore/BLEU are standard."
+}

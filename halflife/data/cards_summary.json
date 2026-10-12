@@ -1,0 +1,68 @@
+{
+  "n": 70,
+  "status": {
+    "done": 25,
+    "blocked": 33,
+    "needs-user-check": 10,
+    "draft": 2
+  },
+  "claim_type": {
+    "capability_level": 20,
+    "bias_or_behavior": 15,
+    "capability_limit": 14,
+    "method_effect": 13,
+    "tool_validity": 8
+  },
+  "cost_total_known": 4929.7,
+  "n_cost_known": 56,
+  "blockers_top": [
+    [
+      "assigned live arm gpt-4-turbo not an experimental ",
+      2
+    ],
+    [
+      "e",
+      2
+    ],
+    [
+      "Figure-level analysis code (Spearman/t-test/aggreg",
+      1
+    ],
+    [
+      "live model not an experimental arm: the paper's GP",
+      1
+    ],
+    [
+      "original GPT-4 Turbo snapshot unpinned and, by dat",
+      1
+    ],
+    [
+      "Exact original snapshot (gpt-4-1106-preview) is de",
+      1
+    ],
+    [
+      "live arm is a same-line pr",
+      1
+    ],
+    [
+      "live model not an experimental arm: the paper's an",
+      1
+    ],
+    [
+      "Judge model is dead: the P1/P5/P0 scores were prod",
+      1
+    ],
+    [
+      "live model not an experimental arm: Table 1 pins '",
+      1
+    ],
+    [
+      "Live model not an experimental arm: the only gpt-4",
+      1
+    ],
+    [
+      "No numeric table for Figure 3: the paper prints on",
+      1
+    ]
+  ]
+}

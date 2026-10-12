@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W7124309492",
+  "title": "Code Generation by Large Language Models: A Comparative Analysis of ChatGPT, Claude, and DeepSeek",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"a comprehensive comparison of three leading AI models -- ChatGPT GPT-4-turbo, Claude Sonnet, and DeepSeek-V3 -- for automated code generation\" (Abstract); Table VII row \"ChatGPT GPT-4-turbo ... ET(S) 69.77\""
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. III.A-B (model/prompt design described), Fig. 1", "note": "Sorting-algorithm code-generation prompts described but not quoted verbatim; also mentions ChatGPT o1, o3-mini and GPT-5 elsewhere in background discussion only."},
+  "claim": {
+    "metric": "Execution time (s), sorting-algorithm code generation, averaged across tasks", "value": 69.77, "n_items": null,
+    "location": "Table VII (Results Summary), ChatGPT GPT-4-turbo column, ET(S) row",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "Custom set of sorting-algorithm prompts (count not stated); generated code evaluated with standard Python profiling tools"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["webui"],
+  "notes": "International Journal of Electrical and Electronic Engineering and Telecommunications, 2026. Consistently refers to 'ChatGPT GPT-4-turbo' / 'ChatGPT' rather than the API, with no temperature, token, or endpoint details anywhere, indicating the consumer ChatGPT interface. Number of sorting tasks behind the averaged metrics is not stated."
+}

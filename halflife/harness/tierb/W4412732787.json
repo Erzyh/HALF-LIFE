@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412732787",
+ "title": "Evaluating the accuracy of generative artificial intelligence models in dental age estimation based on the Demirjian's method",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-4-turbo)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"The ChatGPT model GPT-4-turbo (OpenAI)...all of which were offered free, were used in this study.\" Full prompt quoted (Demirjian maturity-score question); tests run Mar-Apr 2025."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec \"Prompt design and LLM\" (question quoted in full: \"Provide the estimated dental age based on the Demirjian's method...\")",
+  "note": "27 evaluations per scenario (3 computers x 3 evaluations/day x 3 days)."
+ },
+ "claim": {
+  "metric": "MAE / RMSE / R2 / Bias vs. chronological age",
+  "value": null,
+  "n_items": null,
+  "location": "Statistical analysis section (values not captured in this excerpt)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "in-house dental radiographs; Demirjian staging performed by examiners, not released as a dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui"
+ ],
+ "notes": "\"ChatGPT\" + \"offered free\" indicates the consumer chat interface rather than a pinned API snapshot, so the exact backing model behind the free-tier \"GPT-4-turbo\" selector in March-April 2025 cannot be guaranteed to be gpt-4-turbo-2024-04-09. The prompt itself is fully reproducible if resolved via API instead."
+}

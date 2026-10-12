@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414897496",
+  "title": "MLA-Trust: Benchmarking Trustworthiness of Multimodal LLM Agents in GUI Environments",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "We first include advanced proprietary models: GPT-4o [1], GPT-4-turbo, Gemini-2.0-flash [2], Gemini-2.0-pro and Claude-3-7-sonnet [3] (Section III.D)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendices A-E give task descriptions and examples; agent system prompts are not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on website truthfulness task T.1 (E-commerce)",
+    "value": 52.0,
+    "n_items": null,
+    "location": "Table IV, row GPT-4-turbo, column E-comm (T.1)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://mla-trust.github.io (code and resources)"
+  },
+  "cost": {
+    "est_calls": 10000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Tasks run inside web and mobile GUI environments (Android emulator, websites), which cannot be reconstructed from the paper; per-task item counts are not given in the text; judging method per task not verified. June 2025 arXiv with no preview string."
+}

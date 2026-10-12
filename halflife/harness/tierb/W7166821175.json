@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166821175",
+ "title": "From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiovascular Device Traceability",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "'We prompt state-of-the-art models...(chain-of-thought; Appendix E): GPT-4-turbo, GPT-4...'; Table 2: 'GPT-4-turbo -- 60.1 28.6% --'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix E (structured chain-of-thought prompt for device-patent relevance classification)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "R@Gold (recall on gold standard, %)",
+  "value": 60.1,
+  "n_items": 585,
+  "location": "Table 2, Group B, row GPT-4-turbo, R@Gold column (FPR 28.6%); '585 expert-verified device-patent pairs' (Table 2 caption)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FDA regulatory-approval records and USPTO patents (585 expert-verified device-patent pairs, balanced evaluation set)"
+ },
+ "cost": {
+  "est_calls": 585,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4 (undated, separate row) and GPT-4-turbo are both evaluated; GPT-4-turbo is the live-listed one. The paper's own Bridge-MedDevKG framework (Group C) substantially outperforms this LLM zero-shot baseline."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7135428876",
+  "title": "Large Language Models for Biomedical Article Classification",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano-2025-04-14",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "Sec. 3.10: 'gptna: the best variant ... with the GPT-4.1 nano model (version: gpt-4.1-nano-2025-04-14)'; Table 11 column gptna, row Avg 0.439 (AUPRC)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A, Tables 12-14 (prompt templates); Table 14 few-shot prompt B used for the final comparison",
+    "note": "3-shot examples are selected per abstract by L2 similarity in all-distilroberta-v1 embedding space; class probabilities from top-20 token logprobs."
+  },
+  "claim": {
+    "metric": "macro-averaged AUPRC over 15 DCR datasets",
+    "value": 0.439,
+    "n_items": 16483,
+    "location": "Table 11, column gptna, row Avg",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "DCR drug-class systematic review datasets (Cohen et al. 2006), abstracts from PubMed; Table 2 sizes"
+  },
+  "cost": {
+    "est_calls": 49449,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "GPT-4 Turbo appears only in related work (role C). Temperature 0; needs logprobs and embedding-based example retrieval.",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "Table 14 prompt B has {topic} and {text} slots plus three example slots; fill the examples per abstract with the three L2-nearest training abstracts in all-distilroberta-v1 embedding space from the training folds of a stratified 5-fold CV (Sec. 3.7-3.8), using PubMed abstracts fetched by the DCR PMIDs. Run gpt-4.1-nano-2025-04-14 at temperature 0 with the JSON-prefixed assistant message, derive class probabilities from the top-20 first-token logprobs, and compute AUPRC per DCR dataset, macro-averaged over the 15 datasets (0.439).",
+    "approximation": "CV fold seed differs; some PubMed abstracts may be missing or revised; about 49k calls.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

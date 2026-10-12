@@ -1,0 +1,21 @@
+{
+  "openalex_id": "https://openalex.org/W4396768794",
+  "title": "Assessing DxGPT: Diagnosing Rare Diseases with Various Large Language Models",
+  "doi": "https://doi.org/10.1101/2024.05.08.24307062",
+  "field": "Biochemistry, Genetics and Molecular Biology",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gemini-1.5-pro|gpt-4-0613",
+  "flags": "",
+  "all_links": [
+    "github.com/foundation29org/dxgpt_testi"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/foundation29org/dxgpt_testi",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4396768794.txt",
+  "paper_text_status": "pdf"
+}

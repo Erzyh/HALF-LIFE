@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7167746866",
+  "title": "MIRAGE: Defending Long-Form RAG Against Misinformation Pollution",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "A",
+    "evidence": "\"We further evaluate 600 claims ... using GPT-5-mini, GPT-4.1-nano, GPT-4o, and GPT-5.5 (OpenAI, 2026), obtaining a mean agreement of 92.33% with VeriScore\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "GPT-4.1-nano is one of four external judges checking VeriScore label agreement; no per-model number or prompt is given for this role."
+  },
+  "claim": {
+    "metric": "mean agreement with VeriScore across 4 judge models (not isolated per model)",
+    "value": null,
+    "n_items": 600,
+    "location": "Sec. \"VeriScore labels validation\": mean agreement 92.33% across GPT-5-mini/GPT-4.1-nano/GPT-4o/GPT-5.5",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "LongFact, Biography, AlpacaFact (public long-form QA benchmarks); VeriScore factuality labels"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The paper's own backbones (main Table 1 results) are GPT-4o-mini and GPT-5-mini, neither of which is this row's live id. GPT-4.1-nano contributes only to a 4-way judge-agreement average with no per-model breakdown."
+}

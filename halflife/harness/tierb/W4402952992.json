@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4402952992",
+  "title": "Classification of Safety Events at Nuclear Sites using Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Conclusion: 'transitioning to GPT-4 Turbo, which offers a larger context window allowing for handling extensive SCRs without the need for summarization'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sections describing system-prompt revisions (Prompt 4 / Prompt 5)",
+    "note": "The model version used in the experiments is not specified."
+  },
+  "claim": {
+    "metric": "accuracy (%)",
+    "value": 77.1,
+    "n_items": null,
+    "location": "Figure 10 / text (Prompt 5 with classification threshold 70)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "100,000 internal safety condition reports from nuclear sites"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo is mentioned only as future work; the SCR dataset is proprietary; the number reported belongs to an unspecified GPT model."
+}

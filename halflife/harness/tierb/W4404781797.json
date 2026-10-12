@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404781797",
+ "title": "Vector Poetics: Parallel Couplet Detection in Classical Chinese Poetry",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "Sec 4.5: 'state-of-the-art AI in the form of GPT-4o model (gpt-4o-2024-05-13) accessed over OpenAI API'; Table 1 row 'GPT-4o (2-shot) 79.0 70.7 68.4 69.5'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix (2-shot prompt, original Chinese and translation, per Sec. 4.5)",
+  "note": "10-shot variant reuses the same template with more examples; not separately printed."
+ },
+ "claim": {
+  "metric": "Accuracy (%), 2-shot couplet-parallelism classification",
+  "value": 79.0,
+  "n_items": null,
+  "location": "Table 1, row 'GPT-4o (2-shot)', Accuracy column",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Public classical Chinese poetry couplet collections (270k positive/negative pairs used for the SikuBERT baseline; a shared held-out test set of couplets is evaluated by all Table 1 methods)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Exact size of the shared 'test couplets' set evaluated by all Table 1 methods (including GPT-4o) was not located in the excerpt read; a separate PCA visualization samples 600 couplets but that appears to be a distinct analysis. The 10-shot variant scores similarly (79.6% accuracy, Table 1)."
+}

@@ -1,0 +1,57 @@
+{
+  "wid": "W4414979614",
+  "title": "Overcoming Language Barriers: Multilingual Analysis of the 2023 Swiss Privacy Law's Impact",
+  "model": "gpt-5-2025-08-07",
+  "metric": "custom",
+  "original_value": 0.93,
+  "original_location": "Sec. 4 Results / Figure 1, practice contr, language English (artifact Results_GPT5/eval_metrics.csv gives 0.9285714285714286, with accuracy 0.9333, precision 0.8667, recall 1.0)",
+  "reexecution": {
+    "mean_over_seeds": 0.9285714285714286,
+    "per_seed": {
+      "0": {
+        "value": 0.9285714285714286,
+        "n": 30,
+        "ci95": [
+          0.8,
+          1.0
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 1
+  },
+  "prepare": {
+    "wid": "W4414979614",
+    "n_items": 30,
+    "n_requests": 30,
+    "seeds": 1,
+    "est_usd": 1.19,
+    "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-2025-08-07",
+    "metric": "custom",
+    "original_value": 0.93,
+    "cap_usd": 1.0,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4414979614"
+  },
+  "served": {
+    "models": [
+      "gpt-5-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper's call pins seed=123 and forces the answer through a strict json_schema response_format; the runner treats any gpt-5* id as a reasoning model and sends neither, so the JSON comes only from the prompt's own '### OUTPUT ###' instruction. The paper ran one pass; we run three seeds. Otherwise identical: same system prompt, same codebook user prompt, same anonymized policy text as a second user message.",
+  "arm": {
+    "model": "gpt-5-2025-08-07",
+    "config_model": "gpt-5-2025-08-07",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\drift_ctrl\\W4414979614"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.9285714285714286,
+    "delta": -0.0014285714285714457,
+    "original_inside_ci95": true
+  }
+}

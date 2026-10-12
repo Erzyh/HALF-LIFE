@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404311505",
+  "title": "MaCTG: Multi-Agent Collaborative Thought Graph for Automatic Programming",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "OpenAI-o1-2024-12-17 / OpenAI-o3-mini-2025-01-31",
+    "resolved": "o1-2024-12-17",
+    "role": "B",
+    "evidence": "Table 1: 'OpenAI-o1-2024-12-17 [31] 80.00% 62.00% 60.00% 67.78% 93.33% 74.00% 80.00% 81.11%' (Pass@1 simple/medium/hard/overall, then Pass@5)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 4.1: single-LLM baselines receive the BCVPP requirement plus 'Write a set of Python code to finish the project.'",
+    "note": "Requirement texts (input image, expected operations, expected outputs) live in the BCVPP dataset in the repo."
+  },
+  "claim": {
+    "metric": "Pass@1 overall (execution-output match on BCVPP)",
+    "value": 67.78,
+    "n_items": 90,
+    "location": "Table 1, row OpenAI-o1-2024-12-17, Pass@1 Overall",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "BCVPP dataset (90 image-processing projects: 30 simple, 50 medium, 10 hard), https://github.com/MaCTG2025/MaCTG"
+  },
+  "cost": {
+    "est_calls": 1350,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Scoring is execution-based (generated code run on the input image, output compared with the expected output), so a runner plus the repo's expected outputs are needed; Pass@5 needs 5 samples per project. o3-mini-2025-01-31 (Pass@1 63.33%) is a cheaper alternative (mid). Repo contents not verified offline.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 90 BCVPP requirements (input image, expected operations, expected outputs) and the expected output images exist only in the repository; the baseline prompt is the requirement plus 'Write a set of Python code to finish the project.' (Sec. 4.1). Pull the projects from the repo, run o1-2024-12-17 once per project, execute the generated code on the input image, compare with the expected output using the repo checker, and report Pass@1 over 90 (30/50/10).",
+    "approximation": "Output-match tolerance follows the repo checker; o1 has no temperature control.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/MaCTG2025/MaCTG",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

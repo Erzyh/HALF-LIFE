@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416035964",
+  "title": "Rust-doctor: Enhanced Feature for Rust Ownership and Lifetime Repair with Balanced Training Data Generation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 5 Compared Techniques: 'GPT-4-0613, GPT-4-turbo-2024-04-09, GPT-4o-2024-08-06, GPT-4o-mini-2024-07-18 ... A temperature of 0.5 was consistently applied across all models'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 4 (repair prompt with function and compiler-error placeholders)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Pass@1 (%), Rust ownership/lifetime repair",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 4 only (bar chart); no per-baseline number in the text or tables",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Rust OLE repair benchmark from the authors (sites.google link in Sec. 1)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Baseline scores appear only graphically; Pass@K also needs rustc compilation of the patches."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7204232084",
+  "title": "Who is the Agent to Blame? Localizing Faithfulness and Citation Mistakes in Agentic Deep Research",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "A",
+    "evidence": "Sec. 4.2.1: 'The LLM used as the judge is gpt-5-mini-2025-08-07 (Singh et al., 2026). The full prompts are provided in Section B.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (judge prompts for span extraction, citation identification, entailment)",
+    "note": "Prompts belong to the error-localization judge, not to a subject model."
+  },
+  "claim": {
+    "metric": "judge vs arbitrated human labels: exact match (%)",
+    "value": 76,
+    "n_items": 50,
+    "location": "Sec. 4.3 Results: '76% exact matches and kappa=0.62' on 50 AI-Q sentences",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "DeepResearch Bench (Apache-2.0) English examples 51-100; DR outputs, tracing logs and annotations released with the code (https://github.com/eranhirs/)"
+  },
+  "cost": {
+    "est_calls": 500,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is the judge (role A). GPT-5 mini also runs as reporter/researcher inside MS-Agent, but those reports depend on live web search (Tavily) and the agent framework, so no subject-role number is re-runnable without code."
+}

@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7155245470",
+  "title": "Same Verdict, Different Reasons: LLM-as-a-Judge and Clinician Disagreement on Medical Chatbot Completeness",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "\"We evaluated three backbone LLM Judges: Llama 3.3-70B, OpenBioLLM-70B, and GPT-5 Mini (gpt-5-mini-2025-08-07)\" (Sec. 3.1); \"GPT-5 Mini was run at the default temperature of 1.0\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Table 9 (Analytical-Rubric grading prompt), Tables 7-8, 10 (General-Likert and FSS variants), Tables 4-6 (Dynamic-Checklist)", "note": "Full grading prompts printed in Appendix D tables; structured JSON output, max 4,096 tokens."},
+  "claim": {
+    "metric": "F1 for the Incomplete class vs clinician ground truth (HealthBench, Analytical-Rubric)", "value": 0.76, "n_items": 1281, "location": "Table 1, HealthBench block, row Analytical-Rubric, GPT-5 Mini columns (F1 0.76, Prec 0.86, Rec 0.68, AUC 0.66)",
+    "task_type": "classification",
+    "judge": "llm:gpt-4.1"
+  },
+  "data": {"public": "yes", "source": "HealthBench (Arora et al., 2025), filtered to 1,281 single-turn English conversations with fine-grained rubric and ideal answer (Sec. 3.2, App. B.2); MedExpert (108 questions) also used"},
+  "cost": {"est_calls": 5100, "tier": "mid"},
+  "blockers": [],
+  "notes": "Ground truth is not a released label: it is built by grading each HealthBench ideal answer against its clinician-written positive rubric criteria with GPT-4.1 (75% threshold), so re-execution needs one GPT-4.1 pass plus the GPT-5 Mini judge pass. gpt-4-turbo in live_ids is only a citation of prior work (Sec. 2). Default temperature 1.0 adds variance."
+}

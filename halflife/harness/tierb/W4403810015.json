@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403810015",
+ "title": "PropaInsight: Toward Deeper Understanding of Propaganda in Terms of Techniques, Appeals, and Intent",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "'zero-shot GPT-4-Turbo achieves relatively low...one-shot GPT-4-Turbo shows an 80.8% improvement...on PTC-Gaze'; results rows 'GPT-4-Turbo0s 0.073 0.097 0.152 0.226 0.124 0.068' / 'GPT-4-Turbo1s 0.132 0.145 0.183 0.269 0.165 0.171'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix C ('The specific prompts used for each sub-task are given in Appendix C')",
+  "note": "Appendix B covers the benchmark-construction prompts; Appendix C covers the zero-/few-shot evaluation prompts."
+ },
+ "claim": {
+  "metric": "F1 score, propaganda technique/appeal identification, one-shot setting",
+  "value": 0.171,
+  "n_items": null,
+  "location": "Results table, row 'GPT-4-Turbo1s', final column",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "PropaGaze / RUWA-Gaze / PTC-Gaze datasets (Table 1 gives dataset statistics); paper appears to introduce and describe these for release"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Exact n_items (dataset size) and the precise column-to-subtask mapping for the six-number result rows were not resolved from the flattened text dump; a quick PDF check of Tables 2-3 would firm this up. Fine-tuning prompts also exist (Appendix C) for a separate, non-live-model experiment."
+}

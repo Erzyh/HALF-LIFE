@@ -1,0 +1,21 @@
+{
+  "openalex_id": "https://openalex.org/W4405468527",
+  "title": "A recent evaluation on the performance of LLMs on radiation oncology physics using questions of randomly shuffled options",
+  "doi": "https://doi.org/10.3389/fonc.2025.1557064",
+  "field": "Medicine",
+  "year": "2025",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gemini-1.5-pro|o1-preview",
+  "flags": "",
+  "all_links": [
+    "github.com/Mayo-Clinic-RadOnc-Foundation-Models/Radiation-Oncology-NLP-Database.Author"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/Mayo-Clinic-RadOnc-Foundation-Models/Radiation-Oncology-NLP-Database.Author",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4405468527.txt",
+  "paper_text_status": "pdf"
+}

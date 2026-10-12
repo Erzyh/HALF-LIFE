@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4412889641",
+ "title": "HiAgent: Hierarchical Working Memory Management for Solving Long-Horizon Agent Tasks with Large Language Model",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 (gpt-4-turbo)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec. 4.1: \"We employ GPT-4 (gpt-4-turbo) as the LLM backbone for our experiments, serving both as the agent policy and the observation summarization model...utilized via OpenAI API.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix B (detailed prompt examples)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Overall Success Rate, HIAGENT vs. STANDARD baseline",
+  "value": 42.0,
+  "n_items": null,
+  "location": "Table 1 (Overall row; STANDARD=21.00, HIAGENT=42.00)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AgentBoard (Ma et al. 2024), 5 long-horizon tasks (Blocksworld, Gripper, Tyreworld, Barman, Jericho)"
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Per-environment episode counts are not restated in the visible text (only percentages, several suspiciously round, e.g. 30.00/60.00/10.00), so exact n_items is inferred rather than quoted from the paper."
+}

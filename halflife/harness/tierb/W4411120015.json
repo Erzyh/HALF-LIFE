@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411120015",
+ "title": "Exploring Large Language Models for Effective Rumor Detection on Social Media",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"LLMs were tested: gpt-4o-2024-05-13, GPT-3.5-turbo-0125...SePro with gpt-4o-2024-05-13 achieved...an accuracy of 96.7%.\" (Sec Limitation, Fig. 11)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix: \"Prompt 1: Chain of Clues\", \"Prompt 2: System Prompt\", Table 4 (input system-prompt template)",
+  "note": "Zero-shot baselines with the same LLMs are also reported (line ~867-868)."
+ },
+ "claim": {
+  "metric": "accuracy, SePro framework with gpt-4o-2024-05-13 backbone",
+  "value": 96.7,
+  "n_items": null,
+  "location": "Sec Limitation (foundation-model generalization experiment, Figure 11)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Twitter15+16 (Ma et al. 2017) and Weibo (Ma et al. 2018b) rumor-detection benchmarks (public)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4o-2024-05-13 is also tested zero-shot (no SePro graph augmentation) as a baseline in the same figure, giving a second, framework-independent claim if a cleaner isolated-model number is wanted. Soft note: the exact number of test instances behind the 96.7% figure is not stated in the excerpted text, though Twitter15/16 and Weibo are standard, well-documented public splits."
+}

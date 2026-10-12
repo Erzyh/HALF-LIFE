@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7165658898",
+  "title": "Avaliação de Modelos de Linguagem para o Suporte à Decisão Médica na Atenção Primária Brasileira",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 (gpt-4-turbo)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Modelo Fechado (SaaS): GPT-4 (gpt-4-turbo), operado via API\"; Tabela 3: Acuracia Diagnostica GPT-4=92%+-2.1, Conformidade SUS=84%+-3.4 (n=5 execucoes)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 3.3: same Chain-of-Thought System Prompt for both models, defining the agent's role (APS physician in Brazil) and RENAME 2024/Cadernos de Atencao Basica constraints, T=0.2",
+    "note": "System prompt is described but not quoted verbatim; short paper with no appendix."
+  },
+  "claim": {
+    "metric": "Acuracia Diagnostica (%, agreement with official answer key)",
+    "value": 92.0,
+    "n_items": 20,
+    "location": "Tabela 3, GPT-4 column; dataset = 20 clinical cases (Sec 3.1), each run 5x",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "20 clinical cases from official Brazilian Residencia Medica exams plus anonymized real cases; not stated as released"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Judged blind by 2 family-medicine physicians with a third as tiebreaker (Cohen's Kappa). Llama-3-70B run identically for comparison (Acc=71%+-4.5). Short conference paper (no appendix), so the exact system-prompt wording is not recoverable from the text."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7133241402",
+  "title": "The Brittle Compass: Navigating LLM Prompt Sensitivity in Slovak Migration Media Discourse",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano",
+    "role": "S",
+    "evidence": "\"gpt-4.1-nano full 0.7310\" (Table 3, prompt-ablation study); \"we have utilized for these experiments GPT-4.1 and GPT-4.1-nano models\" (Sec. 4.1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 2 (prompt structure), Figures 10-12 (Slovak CoT, migration vector extraction, geographical relevance prompts), Appendix F",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Macro F1 with the full prompt (ablation task)",
+    "value": 0.731,
+    "n_items": null,
+    "location": "Table 3, row gpt-4.1-nano / full",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Slovak media corpus subsets (2,736 theme-relevance and 1,652 location-extraction annotated samples); no release statement"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Annotated Slovak news sentences from a 1.8M-article corpus; no repository or license for the dataset is given. The task behind Table 3 and its item count are not clearly stated."
+}

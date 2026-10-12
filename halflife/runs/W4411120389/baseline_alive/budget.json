@@ -1,0 +1,12 @@
+{
+  "label": "W4411120389 top_p=1.0",
+  "calls": 5740,
+  "errors": 0,
+  "cost_usd": 30.127800000000132,
+  "tokens_in": 880845,
+  "tokens_out": 710645,
+  "cap_usd": 50.0,
+  "stopped_at_cap": false,
+  "started": "2026-09-18T09:35:11.992952+00:00",
+  "updated": "2026-09-18T10:45:44.412715+00:00"
+}

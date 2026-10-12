@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7166809268",
+  "title": "UNH @ Rag4Reports: A Broad Exploration of LLM-Judges for RAG",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14 (alias; snapshot not stated)",
+    "role": "S",
+    "evidence": "Sec. 3.2 Retrieval Quality: 'LLM: gpt-4.1-nano (used for both nugget generation and grading)'; Table 1 row RETRIEVALQUALITY: 0.613 0.452 0.468"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 3.2 (Nugget Creation prompt, Retrieval Grading prompt); Section 3.3 claim-extraction prompt",
+    "note": "short prompts printed inline; post-processing rules described"
+  },
+  "claim": {
+    "metric": "Kendall tau between judge-induced system ranking and official Rag4Reports ranking",
+    "value": 0.468,
+    "n_items": null,
+    "location": "Table 1, row RETRIEVALQUALITY, column Rag4Rep. Kendall",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "TREC 2025 RAGTIME / Rag4Reports Task A participant runs and NIST reference ranking; TREC AutoJudge Pilot v0.2 dev set"
+  },
+  "cost": {
+    "est_calls": 5000,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Inputs are shared-task system outputs plus NIST assessments; public availability not stated. Effective n is the number of ranked runs (~20, Table 2). Authors note closed-weight non-determinism. gpt-4.1-nano snapshot not given.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Inputs are shared-task artifacts: the anonymized Rag4Reports participant runs and NIST's official system ranking from the TREC 2025 RAGTIME track, plus the TREC AutoJudge Pilot v0.2 dev set (autojudge-starterkit); no URL is printed. With the track archive, run the Sec. 3.2 nugget-creation and retrieval-grading prompts with gpt-4.1-nano over every system report per topic, rank systems by RETRIEVALQUALITY and compute Kendall tau vs Table 1 (0.468) over the ~20 ranked runs.",
+    "approximation": "Snapshot assumed 2025-04-14; nondeterministic judge; n is the number of ranked runs.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

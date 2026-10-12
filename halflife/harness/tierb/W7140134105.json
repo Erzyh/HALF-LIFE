@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7140134105",
+  "title": "RoD-TAL: A Benchmark for Answering Questions in Romanian Driving License Exams",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o4-mini",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Table 10: 'o4-mini (medium) undisclosed 200k o4-mini-2025-04-16'; Table 6 row '(7) o4-mini + CoT + BP w/o RAG 64.3 63.3 82.3' (exact match)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B.4 'LLM Prompts' (English translations of the QA/VQA prompts); Romanian originals in the GitHub repository",
+    "note": "Better prompt (BP) with CoT; o4-mini run without temperature/seed control (Appendix)."
+  },
+  "claim": {
+    "metric": "exact match",
+    "value": 82.3,
+    "n_items": 131,
+    "location": "Table 6, row (7) o4-mini + CoT + BP w/o RAG, Split 2 (Test)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/unstpb-nlp/ (RoD-QA splits, Table 4); https://github.com/vladman-25/RoD-TAL"
+  },
+  "cost": {
+    "est_calls": 393,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The headline RAG number (86.3/91.4 on Split 1) needs the retrieval pipeline and fine-tuned embeddings; the no-RAG row is the light option. Prompts in the paper are translations.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Appendix B.4 gives only English translations of the Romanian QA prompts; the Romanian originals of the better prompt (BP) with CoT are in the repository. Take the prompt from the repo, run o4-mini-2025-04-16 on the 131 Split 2 test questions from the HF unstpb-nlp release without RAG, and score exact match on the selected option (82.3).",
+    "approximation": "o4-mini ran without temperature/seed control (Appendix); back-translating the English prompt would not reproduce the original wording.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/vladman-25/RoD-TAL",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4399837631",
+  "title": "Judging the Judges: Evaluating Alignment and Vulnerabilities in LLMs-as-Judges",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 3: \"GPT-4 Turbo gpt-4-turbo-2024-04-09 N/A\"; Figure 1 caption: \"Llama3 70B, Llama3.1 70B and GPT-4 Turbo have Scott's pi coefficient that are indicative of excellent alignment\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix M (all judge prompts), Appendix G (human guidelines)", "note": "Judge prompt asks whether an exam-taker answer to a TriviaQA question is correct."},
+  "claim": {
+    "metric": "Scott's pi alignment with human judges, averaged over 9 exam-taker models", "value": null, "n_items": 3600, "location": "Figure 1b (bar chart) and Appendix J table; 400 TriviaQA questions x 9 exam-taker models",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {"public": "partial", "source": "TriviaQA (mandarjoshi/trivia_qa) is public; the 400-question sample, the exam-taker model outputs and the human correctness annotations are not linked to any release"},
+  "cost": {"est_calls": 10800, "tier": "high"},
+  "blockers": ["data_closed"],
+  "notes": "The judge under study is the live model, but alignment is computed against per-answer human annotations of nine exam-taker outputs; no repository or data link appears in the text, so the reference labels cannot be obtained from the public record. The exact Scott's pi value for GPT-4 Turbo is only readable from a figure."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7154538978",
+  "title": "From GPT-3 to GPT-5: Mapping their capabilities, scope, limitations, and consequences",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"We present the progress of the GPT family from GPT-3 through GPT-3.5, GPT-4, GPT-4 Turbo, GPT-4o, GPT-4.1, and the GPT-5 family\" (a historical/comparative survey)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This is a narrative survey of the GPT model family's public documentation; no experiments are run."
+  },
+  "claim": {
+    "metric": "none (survey paper, no first-party experiment)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "A qualitative history/comparison of GPT-3 through GPT-5 drawn from papers, model pages, release notes and system cards; GPT-4 Turbo (and every other model named) is discussed only descriptively, never run by the authors."
+}

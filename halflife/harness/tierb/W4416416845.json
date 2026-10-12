@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416416845",
+ "title": "The Effects of Artificial Intelligence Adoption in the Romanian Energy Sector: A Firm-Level and Sectoral Analysis",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"we confirmed on the lemmas using GPT-4 Turbo, in order to eliminate ambiguous or marginally related terms and include only recognised AI terms\" (Sec. 2.2, Methodology, lexicon construction)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Term-filtering instruction is described narratively, not quoted."
+ },
+ "claim": {
+  "metric": "none (GPT-4 Turbo is a preprocessing utility for building an AI-terms dictionary; the paper's headline result is a media-coverage-based 'AI Adoption Score' for energy firms, not an LLM benchmark)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "2,399 most-cited AI abstracts from Web of Science; AFINN sentiment lexicon"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is used only to filter a term dictionary during preprocessing (role A); no accuracy/agreement number is reported for this filtering step."
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4417152279",
+  "title": "Performance of reasoning large language models on nephrology multiple-choice questions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o1-pro",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "For example, o1 pro achieved 81.3% answer accuracy compared with 51.2% for GPT-4 on nephrology board renewal multiple-choice questions [14] (Discussion, citing the authors' prior study)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 2.2: 'We will now present a nephrology-related question. Please provide your answer and explanation.' (Japanese)",
+    "note": "Prompt belongs to the GPT-5/GPT-4o/Gemini runs, not to o1-pro."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a for o1-pro; GPT-5 (recorded as 'gpt-5-2025-04-16', evaluated Aug 2025) scored 183/209",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "SAQ-NBR nephrology board renewal questions (209); proprietary, cannot be shared"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "data_closed"
+  ],
+  "notes": "o1-pro is cited from prior work only. The subject GPT-5 carries a malformed snapshot string; the question set is proprietary regardless."
+}

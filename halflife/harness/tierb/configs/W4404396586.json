@@ -1,0 +1,77 @@
+{
+  "wid": "W4404396586",
+  "title": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (the paper names the model - 'the default multimodal LLM we use for all agents (except the ComputerTerminal) is gpt-4o-2024-05-13' - but reports no decoding parameters; the released AutoGen code would decide them)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 390,
+    "subset_rule": "the authors' own WebArena test split: MD5 of each task's template id, the 422 tasks whose hash starts with a digit 0-7 go to validation, the remaining 390 to test (Sec. 5.1). The split is reproducible from the rule; the paper reports 30.5% (119 of 390) on it.",
+    "approximation": "BLOCKED, not runnable by this harness. A WebArena task is a multi-step episode inside five self-hosted websites (shopping, shopping admin, Postmill forum, GitLab, maps plus a Wikipedia mirror) that must be deployed from the benchmark's Docker images and reset between tasks; Magentic-One is a multi-agent loop (Orchestrator, WebSurfer, FileSurfer, Coder, ComputerTerminal) that issues many model calls per step, and success is decided by the benchmark's per-task evaluation scripts run against the live site state. The runner sends one stateless chat completion per item and hooks may not call an API."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "WebArena (Zhou et al. 2024), https://github.com/web-arena-x/webarena - 812 tasks plus the site images and per-task evaluators; Magentic-One is released at https://aka.ms/magentic-one (AutoGen 0.4)",
+    "config_or_split": "the 390 test tasks of the authors' MD5 split",
+    "filter": "md5(template_id) does not start with 0-7",
+    "fields": {
+      "input": "task intent",
+      "options": "the sites the task targets",
+      "label": "the task's evaluation script (string match, URL match or program-checked site state)",
+      "id": "task_id"
+    },
+    "license": "WebArena: Apache-2.0; Magentic-One / AutoGen: MIT (CC-BY-4.0 for the paper)",
+    "access_checked": false,
+    "size_mb": null,
+    "file_url": null,
+    "access_note": "Not fetched: the benchmark is a set of Docker site images plus evaluation scripts, not a table of items, and its images are far over the 50 MB download limit for this batch. Both repositories are public and named in the paper."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{task_intent}\n\n[This website is] a Postmill forum populated with a large sample of data crawled from Reddit. Postmill is similar to Reddit, but the UI is distinct, and 'subreddits' begin with /f/ rather than /r/",
+    "placeholders": {
+      "task_intent": "the WebArena task, e.g. 'Tell me the count of comments that have received more downvotes than upvotes for the user who made the latest post on the Showerthoughts forum.'"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 5.1 'Implementation Details' (the Postmill clarification text, quoted verbatim) and the example task quoted in the same section",
+    "verbatim": "partial: only the Postmill clarification is printed, and the paper says 'We include similar prompts for the three other WebArena sites' without printing them. The per-agent system prompts, the Orchestrator's ledger prompts and the benchmark-specific final-answer prompt are in the released code, not in the paper. The typographic quotes around the quoted passage are the paper's; the opening bracket of '[This website is]' is the authors' own insertion.",
+    "placeholders_paper": {
+      "task_intent": "the WebArena task description"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the orchestrator's final answer is compared by the task's own evaluator; intermediate steps change the state of the website",
+    "parse_paper": "WebArena's per-task evaluation scripts"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Task completion rate: share of tasks whose WebArena evaluator passes (exact or fuzzy answer match plus the required end state of the site).",
+    "judge": "none (program-checked; some WebArena evaluators use a model-based fuzzy match)",
+    "original_value": 30.5,
+    "original_location": "Sec. 5.2: '35.1% of tasks (148 of 422), falling to 30.5% (119 of 390) for the test set'; Table 1 reports 32.8% over all 812 tasks",
+    "bootstrap_unit": "task",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 20000,
+    "est_usd": 400.0,
+    "tier": "high",
+    "cost_note": "Order of magnitude only: 390 tasks x tens of agent steps, each step a multimodal call carrying a screenshot and the accessibility tree. The paper gives no token or cost figure for WebArena."
+  },
+  "open_points": [
+    "harness: WebArena has to be deployed (five site containers plus a Wikipedia mirror, reset between tasks) and Magentic-One has to be run against it from the released AutoGen code with our own key. That is a separate arm, not something this runner can express; a human must decide whether it is in scope.",
+    "prompts: only one of the four site clarification prompts is printed, and none of the agent prompts are, so the input would come from the repository rather than the paper.",
+    "the o1-preview configuration of Magentic-One is not reproducible at all (dead preview model), which is why only the GPT-4o WebArena cell was triaged; GAIA and AssistantBench results in Table 1 use the GPT-4o + o1-preview combination."
+  ],
+  "notes": "The test split is well defined (MD5 of the template id) and the paper is unusually careful about it, so the comparison target itself is clean - the obstacle is purely that the benchmark is a live environment plus a multi-agent loop. Table 1's 32.8% is over all 812 tasks; the 30.5% cell used here is the held-out split the authors say they evaluated only once."
+}

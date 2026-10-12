@@ -1,0 +1,56 @@
+{
+  "wid": "W7166852552",
+  "title": "LexGenius: An Expert-Level Benchmark for Large Language Models in Legal General Intelligence",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 46.51,
+  "original_location": "Table 2, row GPT-4.1 nano, column Overall Nai. (CoT: 54.62)",
+  "reexecution": {
+    "mean_over_seeds": 0.5553025763930497,
+    "per_seed": {
+      "0": {
+        "value": 0.5553025763930497,
+        "n": 8345,
+        "ci95": [
+          0.5445146794487716,
+          0.5663271420011983
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W7166852552",
+    "n_items": 8345,
+    "n_requests": 8345,
+    "seeds": 1,
+    "est_usd": 1.07,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 46.51,
+    "cap_usd": 4.59
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "our own two seeded shuffles (seed 20260907 + item index); the way the Naive instruction and the question/options are joined is not printed; single pass in the released option order (the runner has no seeded option shuffle; the paper averages two shuffled passes)",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4.1-nano",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7166852552"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 55.53025763930497,
+    "delta": 9.020257639304972,
+    "original_inside_ci95": false
+  }
+}

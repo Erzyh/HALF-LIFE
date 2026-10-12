@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403585459",
+  "title": "Instruct-SkillMix: A Powerful Pipeline for LLM Instruction Tuning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (2024-04-09 checkpoint)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Footnote 3: 'We use GPT-4-Turbo for our main experiments (2024-04-09 checkpoint unless specified otherwise)'; Sec. 4.4: 'used GPT-4-Turbo as the teacher, and ... GPT-4-Turbo as the grader'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix (skill-extraction and query/response generation prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none: reported numbers (AlpacaEval 2.0 win rates, MT-Bench) belong to Mistral/Llama students fine-tuned on GPT-4-Turbo-generated data",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 1-4 (student models); no direct GPT-4-Turbo metric",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo (AlpacaEval grader)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Instruct-SkillMix data released on GitHub; AlpacaEval 2.0 and MT-Bench public"
+  },
+  "cost": {
+    "est_calls": 4000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is the data generator (teacher) and grader; reproducing any number requires fine-tuning a student model, which is outside Tier B."
+}

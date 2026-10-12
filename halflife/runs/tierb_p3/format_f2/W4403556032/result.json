@@ -1,0 +1,68 @@
+{
+  "wid": "W4403556032",
+  "title": "Enhancing Healthcare LLM Trust with Atypical Presentations Recalibration",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 0.751,
+  "original_location": "Table 2, block gpt-4-turbo, row 'Atypical presentations', MedQA Acc",
+  "reexecution": {
+    "mean_over_seeds": 0.9587798845836768,
+    "per_seed": {
+      "0": {
+        "value": 0.9587798845836768,
+        "n": 1213,
+        "ci95": [
+          0.9472382522671063,
+          0.9703215169002474
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403556032",
+    "n_items": 1213,
+    "n_requests": 1213,
+    "seeds": 1,
+    "est_usd": 61.79,
+    "subset_note": "paraphrase f2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [1213]; model field rewritten from gpt-4-turbo-2024-04-09 to gpt-5.6-sol in 1213 bodies; parameters added {'reasoning_effort': 'none'}; items restricted to the 1213 items of the vendor arm",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "source_model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 0.751,
+    "cap_usd": 19.49,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4403556032",
+    "paraphrase": "f2",
+    "pairs": [
+      [
+        "Then, provide your response in the following format:",
+        "Then, provide your response in the following format, as plain text without any markdown formatting (no asterisks or bold):"
+      ]
+    ],
+    "params_added": {
+      "reasoning_effort": "none"
+    }
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Options rendered as 'A. ...' lines inside {question} (format not printed); the printed prompt keeps the optional Difficulty line (Appendix B says it is optional and was used for analysis only).",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\format_f2\\W4403556032"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.9587798845836768,
+    "delta": 0.2077798845836768,
+    "original_inside_ci95": false
+  }
+}

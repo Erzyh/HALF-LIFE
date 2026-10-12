@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4400724976",
+ "title": "Artificial Intelligence: the dichotomy of technology development",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (версія GPT-4-turbo)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Використаний запит: «Оформи цей список літератури у стилі Vancouver»\" (used once, via ChatGPT, to format the manuscript's own reference list in Vancouver style)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Main text (the single formatting query is quoted verbatim)",
+  "note": "A one-off bibliography-formatting utility use, not a research experiment."
+ },
+ "claim": {
+  "metric": "none (single manuscript-preparation utility use; no evaluation or benchmark)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Ukrainian-language paper on AI's societal impact; GPT-4-turbo (via ChatGPT) is used once, incidentally, to reformat the paper's own bibliography -- not a study of the model and not a reportable research claim."
+}

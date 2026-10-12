@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4401202384",
+  "title": "A Study on the Implementation Method of an Agent-Based Advanced RAG System Using Graph",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Section 4.1 component list: 'LLM: OpenAI GPT-4-turbo Model' inside a LangChain/LangGraph agent-based RAG implementation walkthrough."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Code walkthrough only; no evaluation prompt",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (implementation demonstration)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Not specified"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Implementation-method paper without a quantitative evaluation. Alias resolved by rule (2024-07-29)."
+}

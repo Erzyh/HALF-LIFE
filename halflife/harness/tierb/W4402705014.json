@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4402705014",
+ "title": "Multilingual Arbitrage: Optimizing Data Pools to Accelerate Multilingual Progress",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"we use a separate reward model for routing from the model that we use for our LLM-as-a-judge evaluation...(GPT-4-Turbo) given the known biases incurred by using the same model for both\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "GPT-4-Turbo is used only as the fixed win-rate judge over the authors' own student-model outputs; no prompt specific to it is given."
+ },
+ "claim": {
+  "metric": "none for the live id (win rates of 51.8% etc. describe the authors' trained student models, judged by GPT-4-Turbo, not GPT-4-Turbo's own performance)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Dolly-15k (translated), Aya, XCOPA and other public multilingual benchmarks"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A rich multilingual knowledge-distillation paper (teacher-routing for student training) with GPT-4-Turbo used solely as the LLM-as-a-judge for win-rate evaluation; the paper's headline numbers characterize its own student/router models, not GPT-4-Turbo."
+}

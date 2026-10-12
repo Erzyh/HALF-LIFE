@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415199754",
+ "title": "Informed Forecasting: Leveraging Auxiliary Knowledge to Boost LLM Performance on Time Series Forecasting",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Table 1 (related-work summary row): \"(Tang et al., 2025) GPT-3.5-turbo, GPT-4-turbo, Gemini-Pro, LLaMA-2-13B\" - a citation of another paper's model choices."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a for GPT-4-turbo specifically",
+  "note": "This paper's own prompt templates (Table 2) are fully given, but only for GPT-4o-mini, the model these authors actually run."
+ },
+ "claim": {
+  "metric": "none for GPT-4-turbo (this paper's own experiments, Sec 5.1: \"We evaluate our approach with OpenAI's GPT-4o-mini model on three real-world datasets\", use a different, untracked model)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1, related-work row only",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Three real-world time series datasets (healthcare, service operations, air passengers)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "\"GPT-4-turbo\" appears only inside a literature-review table citing Tang et al. (2025)'s model choices. The paper's own new experiments (MAE/MAPE/RMSE on three datasets, Table 3+) run GPT-4o-mini exclusively, which is not one of the project's tracked still-callable identifiers."
+}

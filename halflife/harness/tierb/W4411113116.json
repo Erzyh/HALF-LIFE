@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411113116",
+ "title": "Multilingual Blending: Large Language Model Safety Alignment Evaluation with Language Mixture",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13 (GPT-4o)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"The experiments are primarily conducted using two models: gpt-3.5-turbo-0125 (GPT-3.5) and gpt-4o-2024-05-13 (GPT-4o)... The temperature is set to 0\" (Sec. 4.1)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix F (system prompt and additional examples); Appendix D (jailbreak dataset details)",
+  "note": "Prompts are malicious queries from AdvBench/JailbreakHub across six harmful-intent categories, mixed/translated across languages."
+ },
+ "claim": {
+  "metric": "bypass rate (%) of malicious queries evading safety alignment, English single-language baseline",
+  "value": 0.0,
+  "n_items": 120,
+  "location": "Table 1, Bypass GPT-4o column, English row; 120 malicious queries across 12 single-language baselines",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AdvBench / JailbreakHub (120 malicious queries, 6 categories, Appendix D); Google Translate API for language mixing"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "tos"
+ ],
+ "notes": "This is a jailbreak/safety-alignment evaluation: prompts are deliberately harmful requests (paper carries its own content warning) translated and mixed across languages specifically to bypass GPT-4o's safety alignment. Blocked under the ToS rule regardless of otherwise strong documentation (prompt in Appendix F, gpt-4o-2024-05-13 explicitly dated, data public, clear numeric claims in Tables 1-2). Generated content is scored by the Perspective API (external toxicity classifier), not an LLM judge. A bare 'gpt-4-turbo' string elsewhere is only descriptive ('GPT-4o achieves GPT4-Turbo-level performance'), not an experiment."
+}

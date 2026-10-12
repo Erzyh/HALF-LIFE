@@ -1,0 +1,49 @@
+{
+  "wid": "W4411119343",
+  "title": "Are LLM-Judges Robust to Expressions of Uncertainty? Investigating the effect of Epistemic Markers on LLM-based Evaluation",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 83.8,
+  "original_location": "Table 14 (Natural Questions subset), row GPT-4-turbo, Acc., column block Reader = GPT-4 (394 Correct samples), column QA_S",
+  "reexecution": {
+    "mean_over_seeds": 0.8274111675126904,
+    "per_seed": {
+      "0": {
+        "value": 0.8274111675126904,
+        "n": 394,
+        "ci95": [
+          0.7893401015228426,
+          0.8629441624365483
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119343",
+    "n_items": 394,
+    "n_requests": 394,
+    "seeds": 1,
+    "est_usd": 0.83,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 83.8,
+    "cap_usd": 3.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "none",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 82.74111675126903,
+    "delta": -1.0588832487309645,
+    "original_inside_ci95": true
+  }
+}

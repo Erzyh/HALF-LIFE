@@ -1,0 +1,49 @@
+{
+  "wid": "W4417257719",
+  "title": "EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Financial Statements",
+  "model": "gpt-5-2025-08-07",
+  "metric": "custom",
+  "original_value": 0.65,
+  "original_location": "Table 6, block GPT-5, row Summary+BS+CF+PL+Text, column Earnings Forecasting ROC-AUC (0.65 +/- 0.01, mean of 3 runs)",
+  "reexecution": {
+    "mean_over_seeds": 0.6812470211014342,
+    "per_seed": {
+      "0": {
+        "value": 0.6812470211014342,
+        "n": 451,
+        "ci95": [
+          0.6317965921733821,
+          0.7276060297375112
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 1
+  },
+  "prepare": {
+    "wid": "W4417257719",
+    "n_items": 451,
+    "n_requests": 451,
+    "seeds": 1,
+    "est_usd": 9.26,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-2025-08-07",
+    "metric": "custom",
+    "original_value": 0.65,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-5-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Concatenation order and section labels of the five report items are not printed (items appended in the order Summary, BS, CF, PL, Text with their field names as headers); reasoning effort unstated.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.6812470211014342,
+    "delta": 0.03124702110143418,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4407091825",
+  "title": "Offline Learning for Combinatorial Multi-armed Bandits",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Appendix (LLM cache experiment): 'we experiment with another variant, GPT-4-turbo, which employs the \"cl100k base\" encoding (OpenAI, 2025)'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "normalized suboptimality gap",
+    "value": null,
+    "n_items": null,
+    "location": "Fig. 4 (LLM cache experiment)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "100 SciQ prompts"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Only the tokenizer of GPT-4-turbo is used to count tokens for a cache simulation; no model responses are evaluated."
+}

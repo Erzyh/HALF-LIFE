@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7172473915",
+ "title": "Safety, or Just Capability? A Validity Audit of Agent-Safety Benchmarks",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o3-mini",
+  "resolved": "o3-mini-2025-01-31",
+  "role": "S",
+  "evidence": "\"We assemble a compute-light, API-only panel of up to 22 [models]... through the same API harness\"; Table 1: \"o3-mini 0.97 0.87 0.77 77.2\" (R-Judge spec., InjecAgent robust., AgentHarm safety, GPQA)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "n/a (uses the three benchmarks' own published task formats: R-Judge, InjecAgent, AgentHarm)",
+  "note": "The audit paper itself does not reprint a prompt template; it reuses the exact test items and formats of three pre-existing public benchmarks."
+ },
+ "claim": {
+  "metric": "R-Judge specificity",
+  "value": 0.97,
+  "n_items": 571,
+  "location": "Table 1, row o3-mini, R-Judge column; \"R-Judge labels 52.7% of its 571 items unsafe\"",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "R-Judge, InjecAgent, AgentHarm, GPQA (all public benchmarks); \"reproducibility package contains the analysis scripts and frozen inputs\""
+ },
+ "cost": {
+  "est_calls": 571,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "gpt-4.1-nano is also live-called in this paper (Table 1, 0.79/0.94/0.42/50.3) but o3-mini has the cleaner standalone narrative (\"the panel's highest-specificity model\"). Soft gap: prompts come from the three source benchmarks' own public releases, not reprinted verbatim in this paper."
+}

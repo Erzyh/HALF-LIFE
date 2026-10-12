@@ -1,0 +1,56 @@
+{
+  "wid": "W4399911213",
+  "title": "WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 86.7,
+  "original_location": "Table 3, row GPT-4, column Acc (Macro-F 76.1)",
+  "reexecution": {
+    "mean_over_seeds": 0.85,
+    "per_seed": {
+      "0": {
+        "value": 0.85,
+        "n": 240,
+        "ci95": [
+          0.8083333333333333,
+          0.8958333333333334
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911213",
+    "n_items": 240,
+    "n_requests": 240,
+    "seeds": 1,
+    "est_usd": 0.44,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 86.7,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none (Appendix C labels the instruction plus the eight examples 'System prompt'; the testing instance is sent as the user message)",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4399911213"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 85.0,
+    "delta": -1.7000000000000028,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166847291",
+  "title": "Teaching Through Analogies: A Modular Pipeline for Educational Analogy Generation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "\"We evaluate 12 LLMs across six families: OpenAI's GPT-4.1 (mini, nano) ... All models were run at temperature 0.2\" (Sec. 3.2); Table 1 row GPT-4.1-nano"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D (DSPy signatures for explanation generation), B (reranker), E (judge); the sub-concept matching prompt is hand-crafted + DSPy CoT and not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "sub-concept matching system accuracy, without background (-BG)",
+    "value": 0.46,
+    "n_items": 400,
+    "location": "Table 1, row GPT-4.1-nano, column Matching -BG",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SCAR (400 analogies, Yuan et al. 2023) and ParallelPARC (310)"
+  },
+  "cost": {
+    "est_calls": 1200,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Prompts are DSPy-generated; exact text depends on the DSPy version. Claude Sonnet 4.6 judge is used only for quality ratings."
+}

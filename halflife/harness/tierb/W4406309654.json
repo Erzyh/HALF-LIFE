@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406309654",
+  "title": "Publicly-Detectable Watermarking for Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec 4.2: \"we use zero-shot prompting of GPT-4 Turbo [Ope23]\" to rate text-completion quality 0-100; Figure 2 aggregates these judge scores per protocol"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 4.2: \"our prompt template asks the model to: (a) rate the text completion ... 0 (worst) to 100 (best), and (b) give reasoning ... in list form\"",
+    "note": "This is the judge prompt for scoring watermarking-protocol outputs; GPT-4 Turbo is not the text-generation subject (Mistral-7B/Llama-2 are)."
+  },
+  "claim": {
+    "metric": "GPT-4 Turbo quality score (0-100), by protocol",
+    "value": null,
+    "n_items": 250,
+    "location": "Figure 2 (bar chart only): \"the mean score falls between 27 and 40 for all protocols\"; 250 prompt completions per bar",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "C4 dataset (news-like subset) prompts; code at github.com/jfairoze/publicly-detectable-watermark"
+  },
+  "cost": {
+    "est_calls": 250,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo is the auxiliary judge, not the paper's studied system (Mistral 7B / Llama 2 generate the watermarked text). Only a chart and a text range (27-40) are given; no exact per-protocol mean is printed."
+}

@@ -1,0 +1,110 @@
+{
+  "wid": "W4411080278",
+  "title": "Temperature-Driven Variability in Emergency Diagnostic Accuracy by a Leading Language Model",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 256,
+      "top_p": 1.0
+    },
+    "params_source": "paper Methods (temperature 0.0 is the evaluated condition; internet/tools disabled); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1000,
+    "subset_rule": "all: 4 cases x 250 iterations (hook load_items replicates each case; id = case_iteration) at temperature 0.0, with physical exam",
+    "approximation": "Case vignettes transcribed from Table 1 (field separators assumed); the leading diagnosis is the first listed item of the reply (parser ours)."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Table 1 of the paper (four FoEM cases), transcribed 2026-09-07 from halflife/external/papers_tierb/W4411080278.txt lines 515-640 into items.inline; vitals joined with ', ' and PMH/PSH as 'PMH: x; PSH: y' (separators not printed)",
+    "config_or_split": "4 cases (myxedema coma, ascending cholangitis, carbon monoxide poisoning, cryptococcal meningitis)",
+    "filter": "none",
+    "fields": {
+      "input": "chief_complaint, vitals, hpi, pmh_psh, physical_exam",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "paper content (CC-BY-NC-ND 4.0 preprint); cases adapted from the login-protected FoEM curriculum",
+    "access_checked": true,
+    "size_mb": 0,
+    "inline": [
+      {
+        "case": "myxedema_coma",
+        "diagnosis": "Myxedema Coma",
+        "chief_complaint": "Altered mental status",
+        "vitals": "HR 58, BP 90/66, RR 9, Sat 96, T 35.5",
+        "hpi": "A 62-year-old female who lives alone was found lying in bed by her neighbor after she hadn't been seen for the past 4 days. Neighbor reports that he is unsure of her medical history but knows that she sees multiple doctors. Further history and ROS is limited by the patient's altered mental status.",
+        "pmh_psh": "PMH: unknown; PSH: unknown",
+        "physical_exam": "General: wakes to voice but immediately falls back asleep; HEENT: normal; Chest: nontender; Lungs: normal; Heart: bradycardic, no murmurs; Abdomen: normal; Rectal: normal; Extremities: 2+ non-pitting edema of the legs; Back: normal; Neuro: oriented to self only, follows simple commands, falls asleep easily, otherwise non-focal; Skin: dry skin."
+      },
+      {
+        "case": "ascending_cholangitis",
+        "diagnosis": "Ascending Cholangitis",
+        "chief_complaint": "Altered mental status",
+        "vitals": "HR 110, BP 100/58, RR 20, Sat 93, T 35.8",
+        "hpi": "This is an 81-year-old female who presents with fatigue, malaise, and vomiting overnight. The nurse at the patient's nursing facility noticed that she was more confused than usual and unable to get out of bed. She had an additional episode of non-bloody, nonbilious emesis right before EMS arrived. At baseline, she is a pleasant, ambulatory woman who is typically oriented to self but not time or place. ROS is otherwise negative.",
+        "pmh_psh": "PMH: hypertension; PSH: hysterectomy",
+        "physical_exam": "General: cachectic, fatigued; HEENT: dry mucous membranes, mild scleral icterus; Neck: normal; Heart: tachycardic, no murmurs, 1+ distal pulses; Lungs: normal breath sounds bilaterally; Abdomen: soft, mildly distended, patient grimaces with palpation of the right upper quadrant; Rectal: normal; Extremities: normal; Back: normal; Neuro: mumbling incoherently, oriented x 0, eyes open, moving all extremities and localizing to pain; Skin: jaundice, cool skin, 3 cm pressure ulcer (stage 1) to sacrum; Lymph: normal."
+      },
+      {
+        "case": "carbon_monoxide_poisoning",
+        "diagnosis": "Carbon Monoxide Poisoning",
+        "chief_complaint": "Headache",
+        "vitals": "HR 110, BP 90/50, RR 24, Sat 94, T 37.0",
+        "hpi": "A 45-year-old male presents with headache, dizziness, and nausea. He reports he has been wearing extra layers to stay warm this winter. He reports that the headache is mild and diffuse, throbbing with slight nausea. He denies any neck stiffness, fever or head injuries. ROS is otherwise negative.",
+        "pmh_psh": "PMH: none; PSH: none",
+        "physical_exam": "General: awake and alert, malodorous, no acute distress; HEENT: normal; Neck: normal; Chest: nontender; Heart: tachycardic, otherwise normal; Lungs: tachypneic, otherwise normal; Abdomen: normal; Extremities: normal; Back: normal; Neuro: slightly ataxic gait, otherwise normal; Skin: normal."
+      },
+      {
+        "case": "cryptococcal_meningitis",
+        "diagnosis": "Cryptococcal Meningitis",
+        "chief_complaint": "Headache",
+        "vitals": "HR 106, BP 97/52, RR 16, Sat 98, T 37.7",
+        "hpi": "A 27-year-old male presents with a frontal headache and intermittent chills for the past 3 days. This headache is unlike prior headaches, came on gradually and is now 8/10 in intensity. He also reports myalgias and vomiting that started after the headache. He also notes chronic diarrhea for several months with associated weight loss. ROS is otherwise negative.",
+        "pmh_psh": "PMH: none; PSH: none",
+        "physical_exam": "General: thin male, mildly confused on interview, appears uncomfortable and fatigued; HEENT: dry mucous membranes, no thrush, otherwise normal; Neck: supple; Heart: tachycardic, otherwise normal; Lungs: normal; Abdomen: normal; Genital: normal; Extremities: normal; Back: normal; Neuro: awake and alert, oriented to person and place, but disoriented to year, no focal neuro deficits; Skin: warm and clammy, otherwise normal."
+      }
+    ]
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are a Large Language Model (LLM) assisting with emergency department diagnostic evaluations. You will be provided with patient data (chief complaint, vitals, history of present illness (HPI), past medical/surgical history (PMH/PSH), and physical exam) collected during triage evaluation of the patient.\n\nYour task is to produce exactly three differential diagnoses for the most likely underlying condition, including a leading diagnosis and two additional differential diagnoses. Diagnoses should be as specific as possible. Do not use imprecise terms such as delirium, sepsis or shock - such conditions should have an underlying source. A diagnosis of \"Delirium secondary to urinary tract infection\" should just be \"urinary tract infection\", representing the underlying cause. Do not use terms such as \"possible\" or \"probable\" in the diagnoses. Each diagnosis should be a single condition without qualifiers.\n\nChief Complaint: {chief_complaint}\n\nVitals: {vitals}\n\nHistory of Present Illness: {hpi}\n\nPast Medical/Surgical History: {pmh_psh}\n\nPhysical Examination: {physical_exam}",
+    "placeholders": {
+      "chief_complaint": "items.chief_complaint",
+      "vitals": "items.vitals",
+      "hpi": "items.hpi",
+      "pmh_psh": "items.pmh_psh",
+      "physical_exam": "items.physical_exam"
+    },
+    "few_shot": "none",
+    "source_location": "Supplement 1 (Diagnostic assistant prompt header); Table 1 (case details)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "hook: the diagnosis named in the first listed item (numbered / bulleted / 'Leading diagnosis:' line): a leading bold segment, else the text before the first ': ' (the appended explanation is not searched), lowercased",
+    "postprocess": "lowercase; keyword search (case-insensitive) for: myxedema; cholangitis; 'carbon monoxide' or 'co'; 'cryptococcal meningitis', 'cryptococcal meningoencephalitis' or 'cryptococcal encephalitis'"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "hook: leading-diagnosis accuracy = share of the 1,000 outputs (4 cases x 250) whose leading diagnosis contains a predefined keyword (myxedema | cholangitis | 'carbon monoxide' or whole-word 'co' | cryptococcal meningitis / meningoencephalitis / encephalitis), Methods 'Outcome Measures'",
+    "judge": "rule",
+    "original_value": 100,
+    "original_location": "Results 'Diagnostic Accuracy' / Figure 2 (temperature 0.0, with physical exam; 4 cases x 250 iterations)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 15.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "[triage 2026-09-09 g1] Leading diagnoses are the broader parents of the gold labels (hypothyroidism / cholecystitis / meningitis) and the paper's keyword rule scores them incorrect (25.0%); whole-line scoring with the explanation included gives 50.1% - report both, no re-run needed."
+  ],
+  "notes": "bootstrap item = (case, iteration) output; with temperature 0.0 the 250 iterations are near-duplicates, so the informative unit is the case. Secondary claim: overall accuracy 89.4% at temperature 1.0. The 'co' keyword is matched as a whole word to avoid substring hits. || [hooks_2 2026-09-07] vignettes transcribed; hook added; prepare verified (1,000 rows x 3 seeds). || [triage 2026-09-09 g1] MIXED. (1) Parse leniency: the hook searched the whole first line, so 'Hypothyroidism: ... potentially myxedema coma' scored correct through its explanation (50.1%); restricted to the diagnosis name -> 25.0% on all 3 seeds (per case: myxedema 0/750, leading diagnosis 'hypothyroidism' 750/750; cholangitis 0/750, '(acute) cholecystitis' 750/750; CO 750/750, 'carbon monoxide poisoning'; cryptococcal 0/750, 'meningitis' 749/750 and 'hiv/aids' 1). (2) The remaining gap is the model's output: the broader parent condition as leading diagnosis plus an explanation per item despite the 'single condition without qualifiers' instruction; snapshot pinned (gpt-4o-2024-05-13, 3 fingerprints), so sensitivity to the Table 1 transcription (separators assumed) cannot be excluded. Before/after: result_before_triage.json / result.json.",
+  "hook": "harness/tierb/hooks/W4411080278.py: load_items (4 cases x 250), parse (leading diagnosis), score (keyword accuracy)"
+}

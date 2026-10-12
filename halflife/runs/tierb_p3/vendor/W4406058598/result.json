@@ -1,0 +1,56 @@
+{
+  "wid": "W4406058598",
+  "title": "Halu-J: Critique-Based Hallucination Judge",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 0.83,
+  "original_location": "Table 1, row GPT-4o, column ME-FEVER",
+  "reexecution": {
+    "mean_over_seeds": 0.9008073817762399,
+    "per_seed": {
+      "0": {
+        "value": 0.9008073817762399,
+        "n": 867,
+        "ci95": [
+          0.8811707035755479,
+          0.9215686274509803
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4406058598",
+    "n_items": 867,
+    "n_requests": 867,
+    "seeds": 1,
+    "est_usd": 22.6,
+    "subset_note": "cost cap $22.6: seeded random subset of 867 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 0.83,
+    "cap_usd": 22.6
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the order in which the golden, partially irrelevant, completely irrelevant and misleading evidences are numbered is not stated; a seeded shuffle per instance (seed 20260907) is used; zero-shot Table 11 prompt without the in-context critique demonstrations used for the evidence-matching experiment",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4406058598"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.9008073817762399,
+    "delta": 0.07080738177623991,
+    "original_inside_ci95": false
+  }
+}

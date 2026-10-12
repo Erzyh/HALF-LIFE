@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7134885605",
+  "title": "More Signal vs. More Noise - Comparing Full Text and Abstract as Inputs for Large Language Model-based Classification of Oncology Trial Eligibility Criteria",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Methods: 'GPT-5 ... with snapshot \"gpt-5-2025-08-07\", temperature set to 1, and reasoning level set to high'; 'produced in a single batch run (without repetition) across all 200 trials'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods, 'LLM-based Classification' (system prompt printed verbatim; user prompt = the abstract or full text)",
+    "note": "Structured output enforced (Python list with 'LOCAL'/'METASTATIC')."
+  },
+  "claim": {
+    "metric": "accuracy for the LOCAL (localized-disease eligibility) label, abstract input",
+    "value": 0.86,
+    "n_items": 200,
+    "location": "Table 1, abstract row for LOCAL: accuracy 0.86 (95% CI 0.81-0.91), F1 0.90",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "https://github.com/JuliaWy/Full-text-vs-Abstract (code, labels, dataset); abstracts public via PubMed, full-text PDFs paywalled"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Use the abstract arm (public inputs); the full-text arm (accuracy 0.92) needs licensed PDFs. Single run at temperature 1 with high reasoning effort."
+}

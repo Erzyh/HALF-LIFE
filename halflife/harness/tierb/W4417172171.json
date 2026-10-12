@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4417172171",
+ "title": "JaccDiv: A Metric and Benchmark for Quantifying Diversity of Generated Marketing Text in the Music Industry",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-1106 (via G-Eval)",
+  "resolved": "dead-preview",
+  "role": "A",
+  "evidence": "'We choose G-Eval [17], a chain-of-thought driven prompt-based metric that uses GPT-4.' footnote 5: 'GPT-4-turbo-1106'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "G-Eval-style CoT prompt for Engagingness/Fluency/Naturalness/Informativeness scoring (method described; exact G-Eval template is a known published prompt)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none reproducible (the underlying judge model is a retired preview snapshot)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "llm:gpt-4-turbo-1106"
+ },
+ "data": {
+  "public": "partial",
+  "source": "359 manually filtered band/artist marketing-text samples with human-written references"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias"
+ ],
+ "notes": "The paper pins its GPT-4 judge to the November 2023 preview snapshot 'gpt-4-turbo-1106', which is a dead preview, not one of the still-callable identifiers; GPT-4 here is only ever a role-A G-Eval judge, not the generation subject (generation baselines use Llama.cpp-hosted open models)."
+}

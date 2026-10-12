@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4405561711",
+ "title": "Rethinking Comprehensive Benchmark for Chart Understanding: A Perspective from Scientific Literature",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"3 proprietary models: GPT-4o, GPT-4-turbo, and GPT-4o-mini\" (Experiment Setting); Table 2/3 rows \"GPT-4-turbo 50.16 73.75...69.97\" / \"62.21 71.31...61.84\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Figures 5-7 (question-generation prompt templates); Figures 9-14 (example MC/TF administrations)",
+  "note": "Figs 5-7 are prompts to generate QA pairs from images, not the exact wrapper shown to tested models; Figs 9-14 show sample Q+answer outputs."
+ },
+ "claim": {
+  "metric": "Avg MC (multiple-choice accuracy, scored objectively, no judge)",
+  "value": 62.21,
+  "n_items": 5600,
+  "location": "Table 3 (data-chart), row GPT-4-turbo, Avg MC column; Table 1 gives SCI-CQA total Eval.=5.6k (flowchart Table 2 uses the same 14 models, GPT-4-turbo Avg MC=50.16)",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "SCI-CQA, to be released at https://github.com/lydonShen/SCI-CQA"
+ },
+ "cost": {
+  "est_calls": 2000,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Composite Score also folds in an open-ended component judged by undated GPT-4o (Fig. 8); citing objectively-scored Avg MC avoids that dependency. The 5.6k eval count is the flowchart+data-chart total; the MC-only subset size isn't separately printed, so n_items is approximate -- the soft gap behind maybe."
+}

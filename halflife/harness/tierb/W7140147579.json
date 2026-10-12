@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7140147579",
+  "title": "Taxation Perspectives from Large Language Models: A Case Study on Additional Tax Penalties",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3 (o3-2025-04-16)",
+    "resolved": "o3-2025-04-16",
+    "role": "S",
+    "evidence": "Footnote 13: 'gpt-4o-2024-11-20, gpt-4.1-2025-04-14, o1-2024-12-17, o3-2025-04-16, o3-mini-2025-01-31'; Sec. 4.1: reasoning models run three times"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B, Figure 3 (system prompt + Vanilla user prompt for PLAT-MC)",
+    "note": "Labels: Legitimate / Not legitimate / don't know, followed by an explanation."
+  },
+  "claim": {
+    "metric": "F1",
+    "value": 0.79,
+    "n_items": 100,
+    "location": "Table 1, row o3, column F1 (mean of 3 runs, +/-0.03)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PLAT dataset on Hugging Face (36 easy + 64 hard cases, Appendix A)"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Korean tax precedents; long inputs. Precision/recall are computed over answered items because refusals are allowed. o3-mini (F1 0.69) and o1 (0.75) are cheaper alternatives in the same table."
+}

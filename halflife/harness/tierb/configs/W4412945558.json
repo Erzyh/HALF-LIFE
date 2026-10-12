@@ -1,0 +1,83 @@
+{
+  "wid": "W4412945558",
+  "title": "Beyond Facts: Evaluating Intent Hallucination in Large Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.3,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "params_source": "paper Sec. 6 ('For all baselines, we set the temperature tau = 0.3'); footnote 1 pins the snapshot ('We refer to gpt-4o-2024-05-13'). max_tokens 1024 is ours - the answers are open-ended Fact QA responses.",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": null,
+    "subset_rule": "paper-defined split: the Culture / Easy cell of the Fact QA (Open Answer) task. Table 8 puts 500 Easy Culture problems in the benchmark, but Sec. 6 says 'We evaluate LLMs on the test set (150 randomly sampled questions) of FAITHQA across every single category and difficulty due to monetary costs', so the Table 4 cell rests on a sample whose size per cell is not stated.",
+    "approximation": "NOT DETERMINED - neither the queries nor the sampled test set exist publicly (see open points)."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "FAITHQA, Fact QA (Omission) task, Culture topic, Easy difficulty. Built by extracting 3,000 concepts from Wikidata and generating the queries with GPT-4, then filtering with an LLM-as-judge answerability check and human verification (Appendix E.1).",
+    "config_or_split": "Fact QA / Culture / Easy",
+    "filter": null,
+    "fields": {
+      "input": "query",
+      "label": null,
+      "id": null
+    },
+    "inline": [],
+    "license": "unknown",
+    "access_checked": false,
+    "size_mb": null,
+    "fields_prose": {
+      "input": "one FAITHQA query, e.g. the Table 2 example 'List three European explorers who circumnavigated the globe before the 18th century and were not born in England or Portugal.'",
+      "label": "none - Perfect is a property of the response, scored by the CONSTRAINT SCORE pipeline, not agreement with a gold answer",
+      "id": "not published"
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "nothing to download. The extracted text of the paper contains no repository, dataset or artifact URL of any kind (a grep for 'http' returns only the source-corpus links of the ethics note: Culture24, WHO News Releases, The Guardian and so on, which are inputs to the Misinterpretation half of the benchmark, not the Fact QA queries)."
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{query}",
+    "placeholders": {
+      "query": "the FAITHQA query, presented to the model as-is"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix D 'Prompt Template' covers the LLM-as-the-judge template (Table 5) and the two CONSTRAINT SCORE stages (Table 6 Intent Constraint Mapping, Table 7 Intent Constraint Scoring); no wrapper around the generation query itself is printed, and Table 2 shows the queries standing alone",
+    "verbatim": "partial: the two scoring templates are printed in full and copied below in the metric notes, but the generation prompt is only implied (the query itself) and the queries are not released"
+  },
+  "output": {
+    "parse": "free text (an open-ended answer)",
+    "postprocess": "none",
+    "parse_paper": "same; the response is passed whole to the scoring stage"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Perfect = the rate of hallucination-free generations, i.e. the share of responses whose CONSTRAINT SCORE equals 10 (Sec. 6). CS(q,y) = (Ws / Wt) x 10, where Wt = sum over g in {mandatory, important, optional} of alpha_g |C_g(q)| and Ws = sum over g of alpha_g sum over c in C_g(q) of S_phi(c,y) (Eqs. 5-7). The constraint sets come from the Intent Constraint Mapping prompt (Table 6, Prefix + Query + Suffix) and the binary satisfaction function S_phi from the Intent Constraint Scoring prompt (Table 7).",
+    "judge": "llm:gpt-4o-2024-05-13 in two stages (mapping then scoring), temperature 0.3 per Sec. 6; prompt location Appendix D.2.1 Table 6 and D.2.2 Table 7. The judge snapshot is still callable and both templates are printed.",
+    "original_value": 0.51,
+    "original_location": "Table 4 (Results for Fact QA setup for FAITHQA), row 'Culture Easy', GPT-4o pair, Perfect column (the paired Fact column is 54.9)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 45.0,
+    "tier": "mid",
+    "prepare_note": "--prepare not run: there are no items. est_calls in the triage record (3,000) counts the Wikidata concept pool, not the evaluated cell; the actual generation count is the Culture/Easy share of a 150-question sample, and each response then needs two more gpt-4o calls (mapping + scoring)."
+  },
+  "open_points": [
+    "NO ITEMS: the FAITHQA queries are GPT-4-generated and human-verified (Appendix E.1) but are not released - the paper carries no repository, dataset or artifact link at all. Without the Culture/Easy queries there is nothing to run. Regenerating queries from Wikidata with GPT-4 would produce a different benchmark.",
+    "EVALUATED SUBSET UNDEFINED: Sec. 6 evaluates 'the test set (150 randomly sampled questions) of FAITHQA across every single category and difficulty', while Table 8 counts 500 Easy Culture problems. How many of the 150 fall in Culture/Easy - and which - is not stated, so even the denominator of the 0.51 is unknown.",
+    "METRIC INCOMPLETE: the importance weights alpha_g for mandatory / important / optional constraints are called 'predefined' (Sec. 4.2) but their values appear nowhere in the paper. Wt and Ws, and therefore CS and Perfect, cannot be computed without them.",
+    "SCORING OUTPUT FORMAT: Table 7 asks the judge for satisfaction ratios per priority group ('[Priority Level]: X/Y'), not the per-constraint binary S_phi of Eq. 6; mapping the printed output back onto the formula is a reconstruction. Table 5's judge is additionally run with a self-consistency loop ('running 2 times. If the results do not match, rerun until the results match'), which is unbounded.",
+    "A HUMAN SHOULD DECIDE whether to drop this paper or to treat a partial re-execution (e.g. CONSTRAINT SCORE on our own Culture/Easy queries) as a separate, clearly-labelled experiment rather than a reproduction of 0.51."
+  ],
+  "notes": "The judge side is in better shape than the data side: the judge model gpt-4o-2024-05-13 is still callable and Tables 5/6/7 print the mapping, scoring and LLM-as-judge templates in full, so the machinery could be rebuilt if the queries and the alpha weights ever became available. || GPT-4o-mini, LLaMA3-70B/8B, Claude-3.5/3 and Mistral-7B are run on the same cells (Tables 3/4) and share every blocker. || The Misinterpretation half of the benchmark (Response Evaluation, Relationship Analysis) is built on 200 public news reports whose sources are listed in the ethics note, but those are the RAG articles, not the Fact QA queries this claim needs."
+}

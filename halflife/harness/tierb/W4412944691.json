@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412944691",
+  "title": "REPRO-Bench: Can Agentic AI Systems Assess the Reproducibility of Social Science Research?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4.2: 'All three agents use gpt-4o-2024-05-13 (OpenAI, 2024). Following the original settings of all three agents, we terminate the agents if they incur API costs of over $4 per task.'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Agent scaffolds (AutoGPT, CORE-Agent, SWE-Agent) plus benchmark task descriptions; no prompt text printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (% of tasks with correct reproducibility score)",
+    "value": 21.4,
+    "n_items": 112,
+    "location": "Table 3, row CORE-Agent",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "REPRO-Bench (112 tasks: paper PDF + reproduction package averaging 4.2 GB), GitHub release stated in the abstract"
+  },
+  "cost": {
+    "est_calls": 336,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Agentic: needs the three third-party agent frameworks, a sandbox with Stata/MATLAB/LaTeX and multi-GB reproduction packages (~$2 per task run); not a light re-execution."
+}

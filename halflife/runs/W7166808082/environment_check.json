@@ -1,0 +1,126 @@
+{
+  "card_id": "W7166808082",
+  "checked_utc": "2026-09-19T13:10:57.232915+00:00",
+  "model_for_the_arm": "o3-2025-04-16",
+  "python": "3.13.7",
+  "repo": {
+    "path": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\repos\\W7166808082\\machine-teaching-group__acl2026-turtleai",
+    "commit": "d916dab0bcf6a0d0647e17cab4089d70d0b402d1",
+    "prompt_file": "src/turtleai/prompts/template_code_synthesis.md",
+    "prompt_chars": 2586,
+    "prompt_words": 364,
+    "prompt_sha256": "d79d432d51521bbfafc0e9e16de100d772ca1bfdb2c0ddff4c4e4659a6c0c71a"
+  },
+  "items": {
+    "n": 102,
+    "source": "dsreal",
+    "metadata_rows": 823,
+    "image_px_width_range": [
+      47,
+      846
+    ],
+    "image_px_height_range": [
+      47,
+      527
+    ],
+    "image_modes": {
+      "RGB": 102
+    },
+    "categories": {
+      "basic_geometry": 39,
+      "composite": 22,
+      "translation": 20,
+      "rotation": 16,
+      "scaling": 4,
+      "spiral": 1
+    },
+    "difficulties": {
+      "easy": 80,
+      "medium": 22
+    },
+    "data_url_mean_chars": 2069,
+    "loader": "metadata.jsonl + PIL.Image.open (what load_dataset('imagefolder') does internally)"
+  },
+  "example_request": {
+    "item_id": "midi_10a",
+    "file_name": "images/midi_10a.png",
+    "body": {
+      "model": "o3-2025-04-16",
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "You are a Turtle Graphics programmer tasked with creating Python code to replicate a specified geometric pattern using the Turtle Graphics library.\n\n### Task Overview:\n\nAnalyze the provided image of a geometric pattern. Carefully break down the pattern into individual shapes, colors, angles, and layout components. Using this information, write Python code within a function called `draw(t)`, where `t` is a Turtle object. Assume:\n\n- The turtle starts at the center of the screen at coordinates `(0, 0)`.\n- The turtle initially faces east (to the right).\n\nThe goal is for your `draw(t)` function to accurately recreate the pattern shown in the image, including its positioning, angles, colors, and details.\n\n### Requirements:\n\n1. **Code Structure**:\n   - Place all code inside the `draw(t)` function.\n   - The function takes a turtle object `t` as input.\n   - Format your code using triple backticks with the 'python' language specifier, i.e., ```python```.\n\n   Example format:\n   ```python\n   def draw(t):\n       # Your code here\n   ```\n\n2. **Color Accuracy**:\n   - Match colors in the image exactly, both for fills and outlines.\n\n3. **Pattern Precision**:\n   - Reproduce the pattern as accurately as possible, maintaining symmetry, shapes, and angles.\n\n4. **Self-Contained**:\n   - Do not include code outside the `draw(t)` function.\n   - All necessary imports, variables, and helper functions should be inside `draw(t)`.\n\n### Execution Context:\n\nYour `draw(t)` function will be called in the following manner:\n\n```python\nimport turtle\n\ndef draw(t):\n    # Describe the drawing steps here\n    pass\n\nt = turtle.Turtle()\ndraw(t)\n```\n\n### Example Outputs:\n\n- **Example 1 - Drawing a Rectangle**:\n```python\ndef draw(t):\n    \"\"\"Draw a rectangle.\"\"\"\n    def draw_rectangle(t):\n        # Draw a rectangle with side length 10\n        for _ in range(4):\n            t.forward(10)\n            t.right(90)\n    draw_rectangle(t)\n```\n\n- **Example 2 - Drawing a circle**:\n```python\ndef draw(t):\n    \"\"\"Draw a circle.\"\"\"\n    import math\n\n    def draw_circle(t, radius):\n        circumference = 2 * math.pi * radius\n        step_length = circumference / 360\n        step_angle = 1      \n\n        for _ in range(360):\n            t.forward(step_length)\n            t.left(step_angle)\n\n    draw_circle(t, 50)\n```\n\n*Note:* The examples are simplified. Your final code may require nested loops or additional logic to fully replicate complex patterns.\n\nNow, write the code for the `draw(t)` function to recreate the pattern shown in the image as closely as possible in terms of shape, color, and structure."
+            },
+            {
+              "type": "image_url",
+              "image_url": {
+                "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJIAAACRCAIAAACnjXZ3AAABe0lEQVR4nO3a0QnDQAwFQSuk/5... (606 chars)"
+              }
+            }
+          ]
+        }
+      ],
+      "reasoning_effort": "medium",
+      "max_completion_tokens": 8192
+    },
+    "body_sha256": "d9a33167d2fde14435606094c65a3c72e47d9c0a68f6eb082ae6827b30dfd6f9",
+    "source": "examples/common.py:generate_code (text part then image part) + App. F.3 params"
+  },
+  "scorer": {
+    "api": "turtleai.evaluate(code=..., ref_code=..., method='symbolic')",
+    "per_response_rule": "all fenced blocks (extract_python_code_from_text); success if ANY executes and matches (src/turtleai/eval/eval_responses.py, paper App. F.3) - NOT examples/eval_model_dataset.py's codes[0]",
+    "isolation": "fresh interpreter per response (subprocess -I, cwd=temp dir, OPENAI_API_KEY stripped), timeout 120.0s",
+    "tk_available": true,
+    "eps_rasterised_counts": {
+      "False": 102
+    },
+    "ghostscript_shim": "Ghostscript absent: emulator.convert_img_to_base64 (EPS -> PNG raster) replaced by a placeholder. The symbolic metric compares recorded turtle states, never that raster, so the score is unaffected; every other emulator check still runs.",
+    "seconds_for_306_scorings": 0.0,
+    "workers": 6
+  },
+  "reference_solutions": {
+    "passed": 102,
+    "n": 102,
+    "pct": 100.0,
+    "failures": {}
+  },
+  "deliberately_wrong_program": {
+    "code": "def draw(t):\n    t.setheading(37)\n    for i in range(9):\n        t.forward(17 + 5 * i)\n        t.right(113)\n",
+    "successes": 0,
+    "n": 102,
+    "execution_status": {
+      "success": 102
+    }
+  },
+  "permutation_control": {
+    "description": "each task's reference scored against the NEXT task's reference",
+    "successes": 0,
+    "n": 102
+  },
+  "fenced_block_roundtrip": {
+    "matches": 102,
+    "n": 102,
+    "rule": "extract_python_code_from_text('```python\\n<code>\\n```') == [<code>.strip()] (the repo extractor uses ```python([^`]*)``` and strips each block)"
+  },
+  "paper": {
+    "dsreal_symbolic_pct": 40.2,
+    "dsreal_embedding_pct": 44.12,
+    "implied_successes_of_102": 41,
+    "dscraft_symbolic_pct": 8.82,
+    "dssyn_symbolic_pct": 10.18,
+    "comparators_dsreal_symbolic_pct": {
+      "o4-mini-2025-04-16": 36.27,
+      "gpt-5-2025-08-07 (medium)": 27.45,
+      "gpt-4o-2024-11-20": 26.47,
+      "gpt-4-turbo-2024-04-09": 15.69
+    },
+    "source": "Table 1 (p. 6724) row o3, columns TURTLEAI-DSReal Sym./Emb.; App. F.2 version table; Sec. 5.2"
+  },
+  "original_item_bootstrap_band_95": [
+    31.37,
+    49.02
+  ]
+}

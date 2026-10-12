@@ -1,0 +1,331 @@
+[
+ {
+  "wid": "W4399911213",
+  "est_usd": 1.75,
+  "n_calls": 240,
+  "title": "WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl",
+  "reason": "240 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4399911276",
+  "est_usd": 0.99,
+  "n_calls": 250,
+  "title": "Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti",
+  "reason": "250 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4399912745",
+  "est_usd": 5.25,
+  "n_calls": 907,
+  "title": "ALiiCE: Evaluating Positional Fine-grained Citation Generati",
+  "reason": "907 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4400065264",
+  "est_usd": 5.46,
+  "n_calls": 802,
+  "title": "Following Length Constraints in Instructions",
+  "reason": "802 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4400434899",
+  "est_usd": 3.26,
+  "n_calls": 800,
+  "title": "Are Large Language Models Strategic Decision Makers? A Study",
+  "reason": "800 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4400611869",
+  "est_usd": 2.55,
+  "n_calls": 328,
+  "title": "Lynx: An Open Source Hallucination Evaluation Model",
+  "reason": "328 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4401545735",
+  "est_usd": 8.62,
+  "n_calls": 2264,
+  "title": "Designing Heterogeneous LLM Agents for Financial Sentiment A",
+  "reason": "2264 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4402345509",
+  "est_usd": 0.81,
+  "n_calls": 199,
+  "title": "LAB-Bench: Measuring Capabilities of Language Models for Bio",
+  "reason": "199 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4403370432",
+  "est_usd": 7.44,
+  "n_calls": 1383,
+  "title": "An Evaluation of Requirements Modeling for Cyber-Physical Sy",
+  "reason": "1383 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4403556032",
+  "est_usd": 11.24,
+  "n_calls": 1272,
+  "title": "Enhancing Healthcare LLM Trust with Atypical Presentations R",
+  "reason": "1272 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4403758464",
+  "est_usd": 4.43,
+  "n_calls": 600,
+  "title": "LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of",
+  "reason": "600 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4403786592",
+  "est_usd": 4.04,
+  "n_calls": 1000,
+  "title": "A Comprehensive Evaluation of Large Language Models on Menta",
+  "reason": "1000 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4403882451",
+  "est_usd": 7.43,
+  "n_calls": 600,
+  "title": "Planning in Strawberry Fields: Evaluating and Improving the ",
+  "reason": "600 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4403885225",
+  "est_usd": 8.33,
+  "n_calls": 1000,
+  "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+  "reason": "1000 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4404314294",
+  "est_usd": 3.37,
+  "n_calls": 707,
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLM",
+  "reason": "707 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4404573318",
+  "est_usd": 3.33,
+  "n_calls": 295,
+  "title": "Chat Bankman-Fried: an Exploration of LLM Alignment in Finan",
+  "reason": "295 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4404781158",
+  "est_usd": 1.42,
+  "n_calls": 300,
+  "title": "MultiPragEval: Multilingual Pragmatic Evaluation of Large La",
+  "reason": "300 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4404782525",
+  "est_usd": 2.18,
+  "n_calls": 500,
+  "title": "Characterizing LLM Abstention Behavior in Science QA with Co",
+  "reason": "500 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4404985489",
+  "est_usd": 4.82,
+  "n_calls": 589,
+  "title": "Variable Extraction for Model Recovery in Scientific Literat",
+  "reason": "589 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4406058598",
+  "est_usd": 9.05,
+  "n_calls": 1238,
+  "title": "Halu-J: Critique-Based Hallucination Judge",
+  "reason": "1238 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4406880877",
+  "est_usd": 3.68,
+  "n_calls": 150,
+  "title": "People who frequently use ChatGPT for writing tasks are accu",
+  "reason": "150 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4407571428",
+  "est_usd": 2.51,
+  "n_calls": 200,
+  "title": "The Stochastic Parrot on LLM's Shoulder: A Summative Assessm",
+  "reason": "200 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4410110677",
+  "est_usd": 2.13,
+  "n_calls": 249,
+  "title": "Large Language Models for Supporting Clear Writing and Detec",
+  "reason": "249 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4411080278",
+  "est_usd": 6.68,
+  "n_calls": 1000,
+  "title": "Temperature-Driven Variability in Emergency Diagnostic Accur",
+  "reason": "1000 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4411112894",
+  "est_usd": 7.57,
+  "n_calls": 1027,
+  "title": "The Promises and Pitfalls of LLM Annotations in Dataset Labe",
+  "reason": "1027 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4411119343",
+  "est_usd": 1.53,
+  "n_calls": 394,
+  "title": "Are LLM-Judges Robust to Expressions of Uncertainty? Investi",
+  "reason": "394 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4411119711",
+  "est_usd": 3.51,
+  "n_calls": 750,
+  "title": "FaithBench: A Diverse Hallucination Benchmark for Summarizat",
+  "reason": "750 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4411120580",
+  "est_usd": 29.65,
+  "n_calls": 7658,
+  "title": "QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",
+  "reason": "projected $29.65 exceeds the per-paper cap $25"
+ },
+ {
+  "wid": "W4414494504",
+  "est_usd": 1.37,
+  "n_calls": 225,
+  "title": "PGxRAG: A Retrieval Augmented Generation supported Pharmacog",
+  "reason": "225 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4415270561",
+  "est_usd": 8.27,
+  "n_calls": 1000,
+  "title": "Diff-XYZ: A Benchmark for Evaluating Diff Understanding",
+  "reason": "1000 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4416034223",
+  "est_usd": 1.52,
+  "n_calls": 216,
+  "title": "When Instructions Multiply: Measuring and Estimating LLM Cap",
+  "reason": "216 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4416034248",
+  "est_usd": 1.64,
+  "n_calls": 204,
+  "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ",
+  "reason": "204 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4416036063",
+  "est_usd": 3.94,
+  "n_calls": 480,
+  "title": "sudoLLM: On Multi-role Alignment of Language Models",
+  "reason": "480 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4416036577",
+  "est_usd": 1.57,
+  "n_calls": 400,
+  "title": "Cross-domain Rumor Detection via Test-Time Adaptation and La",
+  "reason": "400 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W4416037849",
+  "est_usd": 7.53,
+  "n_calls": 389,
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme",
+  "reason": "389 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7131319772",
+  "est_usd": 4.35,
+  "n_calls": 1000,
+  "title": "Can Large Language Models Replace Human Coders? Introducing ",
+  "reason": "1000 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7134885605",
+  "est_usd": 2.21,
+  "n_calls": 200,
+  "title": "More Signal vs. More Noise - Comparing Full Text and Abstrac",
+  "reason": "200 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7135428702",
+  "est_usd": 3.95,
+  "n_calls": 1024,
+  "title": "SommBench: Assessing Sommelier Expertise of Language Models",
+  "reason": "1024 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7140084705",
+  "est_usd": 0.54,
+  "n_calls": 138,
+  "title": "Quantifying Data Contamination in Psychometric Evaluations o",
+  "reason": "138 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7140138327",
+  "est_usd": 7.32,
+  "n_calls": 1259,
+  "title": "ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks",
+  "reason": "1259 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7140953907",
+  "est_usd": 14.9,
+  "n_calls": 1000,
+  "title": "How Utilitarian Are OpenAI's Models Really? Replicating and ",
+  "reason": "1000 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7144391352",
+  "est_usd": 2.73,
+  "n_calls": 279,
+  "title": "CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor",
+  "reason": "279 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7164614711",
+  "est_usd": 48.75,
+  "n_calls": 12780,
+  "title": "I Understand How You Feel: Enhancing Deeper Emotional Suppor",
+  "reason": "projected $48.75 exceeds the per-paper cap $25"
+ },
+ {
+  "wid": "W7166799942",
+  "est_usd": 1.88,
+  "n_calls": 280,
+  "title": "CMTD: Cognitive Modeling with Traits and Distortions for Mul",
+  "reason": "280 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7166821175",
+  "est_usd": 3.76,
+  "n_calls": 585,
+  "title": "From Regulatory Approvals to Patents: Cross-Domain Linking f",
+  "reason": "585 calls exceed the per-paper limit 133 set for the daily request quota"
+ },
+ {
+  "wid": "W7166852552",
+  "est_usd": 36.62,
+  "n_calls": 8345,
+  "title": "LexGenius: An Expert-Level Benchmark for Large Language Mode",
+  "reason": "projected $36.62 exceeds the per-paper cap $25"
+ },
+ {
+  "wid": "W7166872685",
+  "est_usd": 4.16,
+  "n_calls": 432,
+  "title": "Machine Behavior in Relational Moral Dilemmas: Moral Rightne",
+  "reason": "432 calls exceed the per-paper limit 133 set for the daily request quota"
+ }
+]

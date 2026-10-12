@@ -1,0 +1,56 @@
+{
+  "wid": "W7131319772",
+  "title": "Can Large Language Models Replace Human Coders? Introducing ContentBench",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 99.0,
+  "original_location": "Table 1, row GPT-5 Mini, column Agreement (%) (core macro-F1 0.990, hard-sarcasm recall 99.0)",
+  "reexecution": {
+    "mean_over_seeds": 0.998,
+    "per_seed": {
+      "0": {
+        "value": 0.998,
+        "n": 1000,
+        "ci95": [
+          0.995,
+          1.0
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7131319772",
+    "n_items": 1000,
+    "n_requests": 1000,
+    "seeds": 1,
+    "est_usd": 2.22,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 99.0,
+    "cap_usd": 4.08
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-5-mini-2025-08-07",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W7131319772"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 99.8,
+    "delta": 0.7999999999999972,
+    "original_inside_ci95": false
+  }
+}

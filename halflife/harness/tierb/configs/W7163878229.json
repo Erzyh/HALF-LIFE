@@ -1,0 +1,76 @@
+{
+  "wid": "W7163878229",
+  "title": "The quantified immune-aging dysregulation index: a large-language model-powered method for annotating and quantifying systems-level dysregulation",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano",
+    "params": {
+      "temperature": 0.2,
+      "max_tokens": 200,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 2.2 ('GPT-4.1-nano was used with default settings, with a sampling temperature of 0.2 and a maximum response length of 200 tokens'); top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 38,
+    "subset_rule": "the 38 significantly enriched Reactome pathways (FDR < 0.05) of transcriptional module TM1 from Sparks et al. (2024), scored serially in the five DIRES categories, repeated for n = 100 workflow iterations",
+    "approximation": "Blocked before an approximation can be chosen - see open_points. Note also that the prompt is a BATCH prompt ('Output exactly N lines, where N = number of input terms'), so one call scores all 38 terms at once - the runner's one-item-per-call model does not fit without a hook that batches and then splits the reply."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Enrichr/Reactome enrichment of the TM1 gene module of Sparks et al. (2024); the paper says the prompts and the 100-run TENSE values are in Supplementary File 1 / Supplementary material 1",
+    "config_or_split": "TM1 (Type I interferon module), significantly enriched terms only (FDR < 0.05), npathway = 38",
+    "filter": null,
+    "fields": {
+      "input": "pathway term (one Reactome term per line)",
+      "options": null,
+      "label": "the author's own manual DIRES annotation (the 'human consensus')",
+      "id": null
+    },
+    "license": "unknown",
+    "access_checked": false,
+    "size_mb": null,
+    "inline": null,
+    "label_map": null,
+    "access_note": "Table 1 of the paper prints only a 7-row EXAMPLE of the DIRES output (Immune System, Innate Immune System, Neutrophil Degranulation, Keratinization, Cytokine Signaling in the Immune System, Signaling by Interleukins, RAC1 GTPase Cycle); the 38 TM1 terms and their Enrichr combined scores are not listed anywhere in the paper text."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are a strict binary classifier.\nOUTPUT CONTRACT (MANDATORY):\n- Output exactly N lines, where N = number of input terms.\n- Each line MUST be exactly ONE character: either 0 or 1.\n- No spaces, no punctuation, no text.\n- Multi-digit outputs like 10, 01, 00 are INVALID.\nIf any rule is violated, correct it before responding.\nSELF-CHECK (DO NOT PRINT):\nVerify: (1) line count == N, (2) each line is exactly one character and is 0 or 1.\nTASK:\nReturn 1 ONLY if the pathway term directly reflects DNA damage, genotoxic stress, or genomic instability (damage presence/consequences). Else 0.\nDEFINITION (DNA damage):\nProcesses indicating DNA lesions, genome instability, or cellular responses that signal damage presence (NOT the repair execution mechanisms).\nPOSITIVE ANCHORS (strong evidence to score as 1):\n- DNA damage\n- genomic instability\n- genotoxic stress\n- DNA lesion(s)\n- replication stress (as damage/stress)\n- DNA strand break(s) (if not explicitly 'repair')\n- p53-mediated damage response / p53 signaling in response to damage\n- ATM/ATR checkpoint signaling in response to DNA damage (signaling/checkpoint, not repair execution)\n- oxidative DNA damage / ROS-induced DNA damage\nOVERRIDE RULE (ALWAYS 1 if present - highest priority):\nIf the term contains any of these tokens (case-insensitive), output 1:\nDNA damage, genotoxic, genomic instability, replication stress, DNA lesion, strand break, double-strand break (DSB) (unless explicitly 'repair'), single-strand break (SSB) (unless explicitly 'repair'), p53 (when clearly damage-related), ATM, ATR (when clearly damage/checkpoint related).\nNEGATIVE ANCHORS (strong evidence to score as 0):\n- DNA repair mechanisms\n- RNA damage response mechanisms\n- Nucleic acid sensing mechanisms\n- Immune processes not directly triggered by DNA damage\n- General cell cycle/replication without damage context\nIf uncertain, output 0.\nINPUT TERMS (one term per line):\n{terms}",
+    "placeholders": {
+      "terms": "the N enriched Reactome terms, one per line - UNAVAILABLE, see items"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 2.2, 'An example of a D node prompt is the following, delivered to an LLM prompter node via a KNIME Expression Node'",
+    "verbatim": "partial. The D-category prompt is copied in full (extraction repairs only: 'Yo u' -> 'You', 'INV ALID' -> 'INVALID', 'ALW AYS' -> 'ALWAYS', the typographic quotes kept, PDF line breaks inside list items rejoined, and the prompt's own leading/closing quotation marks dropped). The I, R, E and S prompts - four fifths of the semantic layer - are NOT in the paper: Sec. 2.2 says only that the scheme 'is performed independently for each D, I, R, E, S category and serially', with the prompts 'available in the online version of the workflow and from Supplementary File 1'."
+  },
+  "output": {
+    "parse": "regex ^([01])$ per line",
+    "postprocess": "the reply is N lines of 0/1, one per input term, which must be split back onto the terms in order and pivoted into the DIRES table"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Bias of the Mean (BM) = mean TENSE (LLM, over 100 workflow iterations) - human-consensus TENSE (Sec. 2.5.1). TENSE itself is the deterministic layer's five-step aggregate: standardized D/I/R/E/S = category count / [0.2 * total enriched pathways], weighted by the Enrichr combined-score means with 1/k multi-membership weighting, normalized by dividing by 5.",
+    "judge": "none (the human consensus is the author's own manual DIRES annotation of the same pathways, not a judge model)",
+    "original_value": -0.006,
+    "original_location": "Table 2 ('TENSE calculations following 100 iterations of GPT-4.1-nano'): Reference TENSE 0.248, LLM mean TENSE 0.242, SD 0.015, BM -0.006, relative BM -0.027, CV 0.042",
+    "bootstrap_unit": "workflow iteration (not item: TENSE is one number per 100-term-scoring run, so there are 100 values, not 38)",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 1540,
+    "est_usd": 1.0,
+    "tier": "low",
+    "est_usd_prepare": null,
+    "prepare_note": "not prepared - no item list. The paper's own call accounting is internally inconsistent: it states '100x5x38 = 1,540 total prompt iterations', but 100 x 5 x 38 = 19,000; 1,540 is what 100 x 5 batched calls plus overhead would look like if each call carries all 38 terms at once, which is what the batch prompt implies. Either way the cost is small at gpt-4.1-nano rates."
+  },
+  "open_points": [
+    "Four of the five category prompts are not printed. Only the D (DNA damage) prompt is quoted; I, R, E and S are in Supplementary File 1 / the online KNIME workflow. TENSE is computed from all five categories, so the claim cell cannot be reproduced from the paper text.",
+    "The item list is not printed. The 38 significantly enriched Reactome terms for TM1, and the Enrichr combined scores that weight them in step 3 of the deterministic layer, appear nowhere; Table 1 shows only a 7-row example. Recovering them means re-running Enrichr over the TM1 gene list from Sparks et al. (2024), which is itself not reproduced here - a separate bioinformatics pipeline, not a dataset download.",
+    "The metric is a workflow-level aggregate against the authors' own reference value. BM compares the mean of 100 TENSE scores with a human-consensus TENSE of 0.248 that one of the authors produced by annotating the same pathways by hand. There is no per-item gold, no released annotation, and the bootstrap unit is the workflow iteration rather than the item, so the runner's scoring path does not apply at all - a hook would have to re-implement the five deterministic steps.",
+    "Model id is an alias, not a snapshot: the paper says 'GPT-4.1-nano' with no date (the triage resolved it to the bare alias). Which snapshot the KNIME node served in March 2026 is not recorded, so a re-execution cannot pin the same weights."
+  ],
+  "notes": "The one prompt that is printed is unusually complete - output contract, self-check, task, definition, positive anchors, an override rule and negative anchors - and the paper even shows the 'Eidetic Layer' rationale for a worked term ('Immune System' -> 0). That makes the D classifier alone re-executable and would be a reasonable reduced arm if someone wanted a cheap signal, but it is not the Table 2 cell. The paper also benchmarks Claude Haiku 4.5 as an alternative classifier at the same temperature, which is outside this study's OpenAI scope."
+}

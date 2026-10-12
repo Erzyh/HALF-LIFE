@@ -1,0 +1,56 @@
+{
+  "wid": "W4399911276",
+  "title": "Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 19.6,
+  "original_location": "Table 1, row Direct, column MNIST",
+  "reexecution": {
+    "mean_over_seeds": 0.152,
+    "per_seed": {
+      "0": {
+        "value": 0.152,
+        "n": 250,
+        "ci95": [
+          0.108,
+          0.196
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911276",
+    "n_items": 250,
+    "n_requests": 250,
+    "seeds": 1,
+    "est_usd": 0.9,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 19.6,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 54
+  },
+  "approximation": "Different 250 items from the paper's unlisted draw and no manual answerability filter (resolution plan); frequency_penalty 0.05 must be passed as an extra API parameter; multiple-choice options removed as in the paper; gold is the target_scores dict; items.label_map maps each of its ten string forms to the digit (runner has no argmax-of-dict facility); item ids are positions in the seeded subset; the paper's frequency_penalty 0.05 is listed in model.params but the runner does not forward it",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4399911276"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 15.2,
+    "delta": -4.400000000000002,
+    "original_inside_ci95": true
+  }
+}

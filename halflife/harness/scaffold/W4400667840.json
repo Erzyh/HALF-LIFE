@@ -1,0 +1,21 @@
+{
+  "openalex_id": "https://openalex.org/W4400667840",
+  "title": "Leveraging large language models for nano synthesis mechanism explanation: solid foundations or mere conjectures?",
+  "doi": "https://doi.org/10.48550/arxiv.2407.08922",
+  "field": "Materials Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-4-0125-preview",
+  "flags": "",
+  "all_links": [
+    "github.com/Dandelionym/llm"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/Dandelionym/llm",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4400667840.txt",
+  "paper_text_status": "pdf"
+}

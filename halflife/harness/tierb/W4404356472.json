@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404356472",
+ "title": "VERITAS: A Unified Approach to Reliability Evaluation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Sec 6: \"In the generative models category, we selected GPT-4 Turbo as the closed-source baseline due to its competitive performance across various LLM-as-judge benchmarks.\"; Table 3 row \"GPT4 Turbo 76.1 86.8 73.9 85.6 76.0 69.2 77.9\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Appendix A/B only cover input formatting and instruction templates for the authors' own fine-tuned classifier/generative models (DeBERTa, LLaMA); no prompt or template is given anywhere for the GPT-4 Turbo baseline itself",
+  "note": ""
+ },
+ "claim": {
+  "metric": "LLM-as-judge classification score, VERITAS Bench (NLI/QA/Dialog average)",
+  "value": 77.9,
+  "n_items": null,
+  "location": "Table 3, row GPT4 Turbo, Average column (built from LLM AggreFact, PubMedQA, FinanceBench, HaluEvalQA, HalluDial, HaluEval Dialog)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Ten public datasets underlying VERITAS Bench (LLM AggreFact, PubMedQA, FinanceBench, HaluEvalQA, HalluDial, HaluEval Dialog, etc.); Table 5 additionally uses two proprietary enterprise datasets, not used for this claim"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Role (baseline, B) and the numeric claim are otherwise clean, but no prompt or instruction template for querying GPT-4 Turbo as a judge appears anywhere in the paper (Appendices A-B only cover the authors' own fine-tuned models), so the claim cannot be re-executed at prompt level. Table 5 (enterprise data) is closed and would add a data_closed blocker if used instead."
+}

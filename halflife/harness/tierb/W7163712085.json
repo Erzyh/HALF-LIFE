@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7163712085",
+ "title": "Comparative analysis of the performance of large language models in answering endodontics questions on the dental specialty exam",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-5)",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "'compare the accuracy of ChatGPT (GPT-5), Gemini (Gemini 2.5 Pro), and Grok (SuperGrok) on Dental Specialty Exam (DUS) endodontics questions'; 'Overall accuracy was...85.8% (109/127) for ChatGPT'"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "'Questions were submitted to each model using default settings with one response per item'; exam questions themselves are not reprinted."
+ },
+ "claim": {
+  "metric": "overall accuracy (%)",
+  "value": 85.8,
+  "n_items": 127,
+  "location": "Abstract/Results (109/127 correct; 122 text-based + 5 figure-based questions)",
+  "task_type": "mcq",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "Turkish ÖSYM Dental Specialty Exam (DUS) endodontics questions, 2012-2021 (proprietary national licensing exam)"
+ },
+ "cost": {
+  "est_calls": 127,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "'ChatGPT (GPT-5)' is not confirmed as the pinned gpt-5-2025-08-07 snapshot (no API/version detail given, and this genre of paper typically uses the consumer web app). A separate GPT-4-Turbo mention elsewhere in the paper (via 'Copilot Pro (GPT-4 Turbo)') is a citation to a different cited study, not this paper's own experiment."
+}

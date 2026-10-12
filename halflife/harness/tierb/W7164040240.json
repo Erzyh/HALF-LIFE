@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7164040240",
+ "title": "Protecting collective worth: pride in European parliament campaigns in Germany, Hungary, and Poland",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"Underrepresented categories were augmented with synthetic examples generated using OpenAI's GPT-4-turbo in a 10-shot prompting setting.\"; Generative AI statement: \"OpenAI GPT-4-turbo was used to generate synthetic examples for data augmentation during the development of the multilingual emotion classifier.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - only described as \"10-shot prompting\", no template or example reproduced",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for GPT-4-turbo itself; the reported 72% accuracy / 0.72 macro F1 belongs to a separately fine-tuned XLM-RoBERTa pride-detection classifier",
+  "value": null,
+  "n_items": null,
+  "location": "Classifier development and validation section",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Widmann and Wich (2023) German emotion dataset (public); MORES project Facebook-post corpus and expert annotations (not stated as released)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo is only a synthetic-data generator (role A) for training-set balancing; the paper's headline accuracy is that of a downstream fine-tuned XLM-RoBERTa classifier, not of GPT-4-turbo."
+}

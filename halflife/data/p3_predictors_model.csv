@@ -1,0 +1,22 @@
+﻿term,odds_ratio,ci_lo,ci_hi,p
+Intercept,0.24,0.02,3.09,0.274
+arm[T.gpt41],0.77,0.33,1.77,0.539
+arm[T.open70b],1.99,0.92,4.31,0.082
+arm[T.gemini_flash],1.73,1.09,2.75,0.021
+task[T.multiple choice],0.99,0.32,3.08,0.993
+task[T.generation],0.36,0.09,1.46,0.153
+task[T.extraction],0.31,0.06,1.53,0.151
+task[T.other / agentic],2.68,0.85,8.45,0.092
+field[T.life science],0.96,0.23,4.1,0.961
+field[T.medicine],2.2,0.61,7.95,0.231
+field[T.engineering],1.55,0.44,5.47,0.496
+field[T.computer science],0.66,0.16,2.66,0.557
+metric[T.other metric],0.77,0.27,2.16,0.619
+baseline[T.close],3.47,0.54,22.31,0.19
+baseline[T.deviated],2.81,0.94,8.44,0.065
+family[T.gpt-4o],1.82,0.62,5.35,0.273
+family[T.gpt-4.1-nano],5.79,0.71,47.23,0.101
+"family[T.reasoning (o-series, gpt-5)]",0.96,0.3,3.05,0.944
+original_10,0.88,0.73,1.06,0.179
+log_items,2.13,0.89,5.08,0.088
+model,,,,"n = 247 results from 74 papers; logistic regression, robust SE clustered by paper; pseudo R2 0.18; reference levels: vendor arm, classification, social science, accuracy, baseline reproduced, gpt-4-turbo"

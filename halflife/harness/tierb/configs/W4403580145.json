@@ -1,0 +1,77 @@
+{
+ "wid": "W4403580145",
+ "title": "Unearthing Skill-Level Insights for Understanding Trade-Offs of Foundation Models",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4o-2024-05-13",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 2048,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (the paper states only 'by GPT-4o, we always mean GPT-4o 2024-05-13'); max_tokens assumed - the reply is a multi-step rationale ending in 'ANSWER: X'",
+  "seeds": 1
+ },
+ "task": {
+  "type": "mcq",
+  "n_items": 14232,
+  "subset_rule": "all 14,232 SEEDBench instances (the count printed in the Table 2 header)",
+  "approximation": "cannot be run by this harness: every instance carries an image (see open_points)"
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "SEEDBench (Li et al. 2023); this paper's own rationales and skill annotations are released at github.com/microsoft/skill-slice-insights",
+  "config_or_split": "SEEDBench, the 14,232-instance evaluation set of Table 2",
+  "filter": null,
+  "fields": {
+   "input": "question",
+   "options": "choices A-D",
+   "label": "answer letter",
+   "id": "question_id",
+   "image": "one image per instance"
+  },
+  "license": "CC BY-NC 4.0 (AILab-CVC/SEED-Bench card)",
+  "access_checked": true,
+  "size_mb": null,
+  "hf": {
+   "dataset": "AILab-CVC/SEED-Bench",
+   "config": null,
+   "split": "test"
+  },
+  "access_note": "AILab-CVC/SEED-Bench and lmms-lab/SEED-Bench both return 200 and are not gated (checked 2026-09-19); neither was downloaded - the image archives are far above this study's 50 MB ceiling."
+ },
+ "prompt": {
+  "system": "Detailed Step-by-Step Response with Skills Labeled\n\nObjective: List the skills and evidence for each step to solve the given question. Do so by responding to each question in a detailed, step-by-step manner, where each step utilizes only a single skill. Clearly state the skill being used and the evidence applied at each step.\n\nGuidelines:\n1. Single Skill Per Step: Ensure each step involves only one skill. Skills can be categorized with multiple names, each getting more specific. [the Knowledge / Perception / Reasoning example lists follow verbatim in Appendix C]\n2. State the Skill: Clearly identify and state the skill being used in each step.\n3. List all pieces of relevant evidence: Specify the evidence used in each step. This could include: Information from the question (e.g., a specific phrase). Data or findings from previous steps. List these findings clearly if they are required context for the claim of the step! Regions in an attached image, if applicable, clearly stating WHERE in the image the information is being extracted from.\n4. State the Conclusion of the Step.\n5. List your final answer after your step-by-step explanation in a new line formatted as 'ANSWER:{}'\n\nHere is an example of the desired response structure given a question. [the sheet-music example question and its six-step example response ending 'ANSWER: A' follow verbatim in Appendix C part 2]\n\nFinal Note: Ensure that the skills are described in detail: LIST AT LEAST THREE NAMES FOR EACH SKILL.",
+  "user_template": null,
+  "placeholders": null,
+  "few_shot": "k=1 in-context example, printed in full in Appendix C part 2 (the sheet-music question and the six-step example response)",
+  "source_location": "Appendix C ('We present the prompt used to generate rationales below'), parts 1 and 2",
+  "verbatim": "full for the system prompt and the in-context example, which Appendix C prints completely (the guideline bullet lists are abbreviated in the field above with an explicit marker, not paraphrased). What is NOT printed is the user message: how the instance's question, its options and its image are laid out in the call."
+ },
+ "output": {
+  "parse": "regex ANSWER:\\s*\\{?([A-D])\\}?",
+  "postprocess": "the final line 'ANSWER: {}' of the rationale carries the answer letter (Guideline 5 of the prompt)"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the 14,232 SEEDBench instances answered correctly, read off the final ANSWER line of the rationale",
+  "judge": "none",
+  "original_value": 70.62,
+  "original_location": "Table 2, row GPT-4o, column SEEDBench (# of instances 14232); the same row gives MMVet 62.84 on 218 instances",
+  "bootstrap_unit": "instance",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 14232,
+  "est_usd": 320.0,
+  "tier": "high",
+  "est_note": "hand estimate: 14,232 gpt-4o calls with one image and a long rationale each. No prepare run: the runner cannot send images."
+ },
+ "open_points": [
+  "Multimodal inputs. Every SEEDBench instance is an image plus a text question, and the prompt explicitly asks the model to cite regions of the attached image. The Tier B runner builds text-only chat messages (prompt.system plus one rendered user string), so image content parts cannot be expressed; adding them is a harness change and a human decision.",
+  "User message not specified. Appendix C prints the system prompt and the in-context example but not how question, options and image are assembled into the user turn.",
+  "Scale and download limit. 14,232 instances at one long rationale each is the largest item set in this group, and the SEEDBench image archives are well above the study's 50 MB download ceiling, so the items were not fetched.",
+  "Cheaper alternative in the same row: MMVet (218 instances, GPT-4o 62.84) - but MMVet's own scoring convention needs an LLM judge this paper does not describe, so it does not remove the blocker."
+ ],
+ "notes": "The rationale-generating call is the same call that answers the instance, so Table 2's accuracies are a genuine capability claim for gpt-4o-2024-05-13 under this paper's prompt. GPT-4 Turbo 2024-04-09 ('GPT-4v') appears only as one of three post-hoc verifier models."
+}

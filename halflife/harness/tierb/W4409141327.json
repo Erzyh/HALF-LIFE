@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4409141327",
+  "title": "impact of LLaMA fine tuning on hallucinations for name entity extraction in legal documents",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"large language models (LLaMA-2 7b, 70b, LLaMA-3 8b, and GPT-4 Turbo) are applied with prompting...for entity extraction\"; \"GPT-4 Turbo achieves the highest accuracy at 86.1%\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 2 (RAG-based labelling/extraction pipeline)",
+    "note": "Segments are retrieved and passed with the extraction instruction; exact prompt wording not quoted."
+  },
+  "claim": {
+    "metric": "entity-extraction accuracy",
+    "value": 86.1,
+    "n_items": null,
+    "location": "Results (\"GPT-4 Turbo achieves the highest accuracy at 86.1%\")",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "legal-document corpus (rulings); public court-record status and release not confirmed in the reviewed text"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "GPT-4 Turbo is also used (via RAG) to produce the initial gold-standard labels for the same database, so the 86.1% baseline and the labels it is compared against are not fully independent. Exact test-set size (n) was not located in the reviewed text."
+}

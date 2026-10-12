@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404783055",
+  "title": "PsyGUARD: An Automated System for Suicide Detection and Risk Assessment in Psychological Counseling",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "\"The model we use is GPT-4o (gpt-4o-2024-05-13).\" (Figure 3 caption, automated risk-assessment framework); no GPT-4o row in Table 4"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 12 (screening questions), Figures 11-16 (framework dialogue examples), Figures 6-9 (classification prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (GPT-4o only powers the risk-assessment demo; the classification benchmark uses other models)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a (Table 4 rows: BERT, RoBERTa, ChatGLM2-LoRA, GPT-3.5/GPT-4 previews)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PsySUICIDE dataset (https://github.com/qiuhuachuan/ ...; sensitive counseling data)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Numeric results are for fine-tuned classifiers and for gpt-3.5-turbo-0125, gpt-4-1106-preview and gpt-4-0613 (dead), at temperature/top_p 1.0 with three generations. GPT-4o has no reported metric."
+}

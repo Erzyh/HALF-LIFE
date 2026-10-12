@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7155452393",
+  "title": "Structured Scaling of AI Discovery Across Diverse Scientific Domains",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Results table: 'Scaling law-lr&bsz Extrapolation R2 (up) SLDAgent (o4-mini) [43] 0.611 0.712' (baseline copied from [43])"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "R2",
+    "value": 0.611,
+    "n_items": null,
+    "location": "Table 1 / Figure 5d baseline row (cited)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "28 discovery problems; all new runs use gpt-oss-120b"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "All new experiments use the open-weight gpt-oss-120b; o4-mini and GPT-5 numbers are copied from prior work."
+}

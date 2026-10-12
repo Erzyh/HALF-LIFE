@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7131248021",
+  "title": "Evaluating the AI Potential as a Safety Net for Diagnosis: A Novel Benchmark of Large Language Models in Correcting Diagnostic Errors",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5-2025-08-07; GPT-o1-2024-12-17",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "'Open AI (GPT-4o-2024-08-06, GPT-4.5-preview-2025-02-27, GPT-5-2025-08-07, GPT-o1-2024-12-17)' via API, 'temperature to 0.0 or the minimum possible value' (Methods)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods: 'Do you agree with the physician diagnosis? Yes, or No. If No, suggest the most likely diagnosis.' (zero-shot, new session per case)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "diagnostic correction rate",
+    "value": 0.38,
+    "n_items": 200,
+    "location": "Table 1, row 8 'GTP-5 (HR)': 76/200 (38%) corrected, error detection 134 (67%); row 6 GPT-o1: 74/200 (37%)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "200 misdiagnosis vignettes (20 diseases x 10); 'Subset of the data is released as part of the benchmark in GitHub'; full data on request (Johns Hopkins policy)"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "human_outcome"
+  ],
+  "notes": "Responses were classified into agree/correct/incorrect categories by the authors (no automatic judge described); only a sample of cases is public."
+}

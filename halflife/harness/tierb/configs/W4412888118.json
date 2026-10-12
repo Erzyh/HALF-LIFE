@@ -1,0 +1,84 @@
+{
+  "wid": "W4412888118",
+  "title": "Nunchi-Bench: Benchmarking Language Models on Cultural Reasoning with a Focus on Korean Superstition",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 0.0,
+      "max_tokens": 64
+    },
+    "params_source": "paper Appendix B (greedy decoding, temperature = 0, top-p = 0); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 31,
+    "subset_rule": "all 31 English MCQs",
+    "approximation": "none",
+    "n_items_prepare": 31
+  },
+  "items": {
+    "source_type": "url",
+    "source": "koreankiwi99/Nunchi-Bench, file nunchi_mcq.csv (columns ID, culture, kor_contents, eng_contents, eng_question, kor_question, eng_choices, kor_choices, label); mirror github.com/koreankiwi99/Nunchi-Bench",
+    "config_or_split": "nunchi_mcq.csv, English columns",
+    "filter": null,
+    "fields": {
+      "input": "eng_question",
+      "options": "eng_choices",
+      "label": "label",
+      "id": "ID"
+    },
+    "license": "CC (dataset card lists 'cc')",
+    "access_checked": true,
+    "size_mb": 0.1,
+    "file_url": "https://huggingface.co/datasets/koreankiwi99/Nunchi-Bench/resolve/main/nunchi_mcq.csv",
+    "fields_paper": {
+      "input": "eng_question",
+      "options": "eng_choices (multi-line 'A. ...' block)",
+      "label": "label (letter)",
+      "id": "ID"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Please answer the following questions. Note that only one option is correct. Do not provide reasons.\nQuestion: {QUESTION}\nOptions: {OPTIONS}",
+    "placeholders": {
+      "QUESTION": "items.eng_question",
+      "OPTIONS": "items.eng_choices"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B, Table 9 (English MCQ prompt)",
+    "verbatim": "full",
+    "placeholders_paper": {
+      "QUESTION": "items.eng_question",
+      "OPTIONS": "items.eng_choices verbatim (lines 'A. ...' to 'D. ...')"
+    }
+  },
+  "output": {
+    "parse": "letter",
+    "postprocess": "strip, uppercase; refusals or non-English/Korean replies counted as incorrect (Sec. 3.2)",
+    "parse_paper": "letter (A-D): first standalone capital letter A-D in the reply; fallback: option text match"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 31 English MCQs answered with the labelled option",
+    "judge": "none",
+    "original_value": 96.7,
+    "original_location": "Appendix E, Table 15, row GPT-4o, column English MCQ (30 of 31; Korean 93.5)",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 93,
+    "est_usd": 0.5,
+    "tier": "low",
+    "est_usd_prepare": 0.13,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [],
+  "notes": "If the API rejects top_p = 0, use top_p = 0.01 (greedy is already fixed by temperature 0). Only 31 items, so the CI is wide; the Korean version (kor_question / kor_choices with the Korean Table 9 prompt) can be added for 93.5. || [normalize 2026-09-07] source_type hf -> url: the Hub has no parquet conversion of this CSV repo, so the runner reads nunchi_mcq.csv directly (31 rows; columns '', ID, culture, kor_contents, eng_contents, eng_question, kor_question, eng_choices, kor_choices, label; labels A/B/C letters; eng_choices already holds the 'A. ..' lines, one per line)."
+}

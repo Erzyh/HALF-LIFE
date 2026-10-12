@@ -1,0 +1,14 @@
+{
+  "wid": "W4416037849",
+  "n_items": 389,
+  "n_requests": 389,
+  "seeds": 1,
+  "est_usd": 6.97,
+  "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+  "dropped_unrenderable": null,
+  "model": "o3-mini-2025-01-31",
+  "metric": "custom",
+  "original_value": 71.22,
+  "cap_usd": 3.98,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416037849"
+}

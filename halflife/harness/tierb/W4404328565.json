@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404328565",
+ "title": "Association between different GLP-1 receptor agonists and acute pancreatitis: case series and real-world pharmacovigilance analysis",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"We acknowledge the use of OpenAI's ChatGPT (version: GPT-4, model: gpt-4-turbo) for language editing and refinement of the manuscript.\" (Acknowledgments)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Writing-assistance acknowledgment only; no research prompt exists."
+ },
+ "claim": {
+  "metric": "none (GPT-4 Turbo used only for manuscript language editing, not as a research method)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FDA FAERS database, Jan 2005-Sep 2023 (pharmacovigilance disproportionality analysis: ROR/PRR/BCPNN/MGPS)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is a clinical case-series / FAERS disproportionality-analysis paper; GPT-4 Turbo appears only in the acknowledgments as a manuscript writing aid. Bare 'gpt-4-turbo' mention post-dates the 2024-07-01 GA cutoff with no preview string nearby, so it resolves to gpt-4-turbo-2024-04-09 by the alias rule, but there is no experiment to attach it to."
+}

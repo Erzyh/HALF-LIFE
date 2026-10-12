@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7134286727",
+ "title": "Using AI in healthcare education: a rapid review and commentary",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo-Sora",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"successive model releases-from GPT-1 in 2018 through GPT-4 Turbo-Sora in 2024-demonstrated exponential growth\" (background timeline figure narrative)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Rapid review/commentary; no experiment of any kind."
+ },
+ "claim": {
+  "metric": "none (historical background narrative about OpenAI's release timeline)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Frontiers in Rehabilitation Sciences rapid review; \"GPT-4 Turbo\" appears only inside an informal historical timeline of OpenAI product releases (grouped loosely with Sora), not as a model the authors tested."
+}

@@ -1,0 +1,69 @@
+{
+  "wid": "W4416034538",
+  "title": "FinEval-KR: A Financial Domain Evaluation Framework for Large Language Models' Knowledge and Reasoning",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "temperature": null,
+      "max_tokens": 8192,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Sec. 5.3 (temperature 1, three independent runs); o3-mini ignores temperature, reasoning_effort not stated (API default medium assumed); max_completion_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 625,
+    "subset_rule": "all released items (the repository provides a 625-instance sample covering the 22 subfields; the paper's set has 9,782 questions), three runs each",
+    "approximation": "Only the 625-item public sample is available instead of the full 9,782 questions (set-level comparison at best); the judge is self-hosted Qwen2.5-72B-Instruct; reasoning effort unstated."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/SUFE-AIFLM-Lab/FinEval-KR (22 per-subfield JSONL files, 625 instances in total)",
+    "config_or_split": "all *.jsonl files",
+    "filter": "none",
+    "fields": {
+      "input": "instruction (Chinese question)",
+      "label": "gt (reference step-by-step solution and final answer)",
+      "id": "file name + line index",
+      "options": "point (knowledge points), per_step, classification, subcategory"
+    },
+    "license": "CC BY-NC 4.0 (repository LICENSE)",
+    "access_checked": true,
+    "size_mb": 1
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "你是一名金融学专家，你需要用中文解答以下题目，并给出完整的解题过程。\n请一步一步想，解题过程中仅考虑题目中的情景，不要额外补充信息。\n题目：{question}",
+    "placeholders": {
+      "question": "items.instruction"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix F, Figure 15 (Stage 1 prompt template, original Chinese with English translation: 'You are a financial expert, and you need to answer the following question in Chinese and provide the complete solution process. Please think step-by-step, and only consider the scenario described in the problem during the solution process; do not add extra information. Question: {Given Financial Reasoning Problem}')",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "free text (unconstrained solution); correctness decided by the judge",
+    "postprocess": "none"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "Acc = share of questions whose Stage-1 solution the judge marks as reaching the correct final answer (Sec. 4.2.1 / Eq. for Acc), averaged over the three runs.",
+    "judge": "llm:Qwen2.5-72B-Instruct (self-hosted), prompt location Appendix F, Figure 14 (structured CoT judge prompt, Chinese)",
+    "original_value": 0.8207,
+    "original_location": "Table 3, row o3-mini, column Acc (std in Table 7)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 1875,
+    "est_usd": 30.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "The judge is a self-hosted Qwen2.5-72B-Instruct with the Figure 14 CoT prompt; the battery calls OpenAI models only, so the judge stage cannot run inside the runner (aux model not callable).",
+    "The public release holds 625 of the 9,782 evaluation questions; a 625-item set-level comparison must be accepted before spending."
+  ],
+  "notes": "The three runs are the paper's protocol (mean reported), counted in est_calls; a full 9,782-question run would be ~29k calls (~USD 450). || [hook pass 2026-09-07] no hook: judge model not callable through the battery."
+}

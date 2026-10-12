@@ -1,0 +1,13 @@
+{
+  "label": "W4399317891",
+  "calls": 294,
+  "errors": 1,
+  "cost_usd": 4.256104000000001,
+  "tokens_in": 7916,
+  "tokens_out": 211222,
+  "cap_usd": 5.95,
+  "stopped_at_cap": false,
+  "started": "2026-09-19T00:18:05.850194+00:00",
+  "updated": "2026-09-19T00:31:02.178599+00:00",
+  "last_error": "HTTP 400: {\n  \"error\": {\n    \"message\": \"This content was flagged for possible cybersecurity risk. If this seems wrong, try rephrasing your request. To get authorized for security work, join the Trusted Access for Cyber program: https://chatgpt.com/cyber\",\n    \"type\": \"invalid_request_error\",\n    \"p"
+}

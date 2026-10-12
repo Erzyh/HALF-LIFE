@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7161091627",
+ "title": "Political Plasticity: An Analysis of Ideological Adaptability in Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-5-mini (gpt-5-mini-2025-08-07) / GPT-5-nano (gpt-5-nano-2025-08-07)",
+  "resolved": "gpt-5-mini-2025-08-07",
+  "role": "S",
+  "evidence": "\"GPT-5-mini (gpt-5-mini-2025-08-07) and GPT-5-nano (gpt-5-nano-2025-08-07) were also analyzed\"; results given only qualitatively, shown solely in Figures 2A-D/A.1."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.3 (system-prompt vs. user-prompt bias induction described, Figure 1 schematic); \"the generated questionnaire will be publicly released after acceptance\"",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none printed (ideological shift magnitude for GPT-5-mini/nano is shown only as bar charts, Figures 2A-D and A.1, no numeric value given in text)",
+  "value": null,
+  "n_items": 200,
+  "location": "Figures 2A-D, A.1 (chart only)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "200-question ideology test corpus (100/axis), \"will be publicly released after acceptance\""
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Both GPT-5-mini and GPT-5-nano are explicitly dated and directly queried (10 repeats at max temperature to estimate p(yes), since OpenAI does not expose logprobs), but every result is reported only as a figure; no numeric shift value is printed in the running text for either model."
+}

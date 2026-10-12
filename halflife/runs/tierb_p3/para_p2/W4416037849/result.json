@@ -1,0 +1,64 @@
+{
+  "wid": "W4416037849",
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retrieval-Augmented LLMs in Biomedicine",
+  "model": "o3-mini-2025-01-31",
+  "metric": "custom",
+  "original_value": 71.22,
+  "original_location": "Table 7, row o3-mini, column Relevance Precision / SRC (IS 73.99, CE 72.60)",
+  "reexecution": {
+    "mean_over_seeds": 0.6947648624667259,
+    "per_seed": {
+      "0": {
+        "value": 0.6947648624667259,
+        "n": 389,
+        "ci95": [
+          0.6758152555164987,
+          0.7171977322041017
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416037849",
+    "n_items": 389,
+    "n_requests": 389,
+    "seeds": 1,
+    "est_usd": 6.97,
+    "subset_note": "paraphrase p2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [389]",
+    "dropped_unrenderable": null,
+    "model": "o3-mini-2025-01-31",
+    "metric": "custom",
+    "original_value": 71.22,
+    "cap_usd": 5.17,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416037849",
+    "paraphrase": "p2",
+    "pairs": [
+      [
+        "Given the following biomedical query and references, classify each reference as relevant (1) or irrelevant (0) to answering the query. Provide only the classification scores.",
+        "You will see a biomedical query followed by references. Decide for every reference whether it is relevant (1) or irrelevant (0) to answering the query, and output nothing except the classification scores."
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "o3-mini-2025-01-31"
+    ],
+    "n_fingerprints": 5
+  },
+  "approximation": "the paper's per-query 40/60 draw is not listed (seeded draw, set-level comparison); the 'Query:' / 'References:' layout and the expected output format are reconstructed (only the instruction sentence is printed); no item-level CI (F1)",
+  "arm": {
+    "model": "o3-mini-2025-01-31",
+    "config_model": "o3-mini-2025-01-31",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p2\\W4416037849"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 69.4764862466726,
+    "delta": -1.7435137533274059,
+    "original_inside_ci95": true
+  }
+}

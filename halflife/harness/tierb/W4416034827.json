@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4416034827",
+  "title": "Summarize-Exemplify-Reflect: Data-driven Insight Distillation Empowers LLMs for Few-shot Tabular Classification",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "\"For rule summarization in the preprocessing step, we use gpt-4-turbo\" (Implementation); Table 7 \"SumBoost (gpt-4-turbo) 12.3 14.5 15.8 ...\" is a cost-in-USD table, not a task-performance table"
+  },
+  "prompt": {"verbatim": "partial", "location": "Appendix B (baselines in B.2); \"All base prompts are borrowed from TabLLM\"", "note": "gpt-4-turbo is only used to summarize rules for the SumBoost baseline's preprocessing step, not as a directly-scored predictor."},
+  "claim": {
+    "metric": "none: the only GPT-4-turbo-specific numbers are per-dataset USD costs (Table 7), not a task performance metric", "value": null, "n_items": null, "location": "Table 7 (cost table)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Standard tabular classification datasets (Bank, Blood, Calhousing, Car, Creditg, Diabetes, Heart, Income, Jungle)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "The actual few-shot prediction results (Table 6) are reported for gpt-3.5-turbo and mistral-7b, not gpt-4-turbo; gpt-4-turbo is an auxiliary rule-summarization tool for one baseline (SumBoost), and only its dollar cost is reported."
+}

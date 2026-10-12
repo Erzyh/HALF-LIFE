@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4409411269",
+ "title": "Researching Legal AI: The Cambridge Law Corpus and Predicting Decisions of the UK Employment Tribunal",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"By utilising LLMs, specifically the GPT-4-turbo model, we efficiently handled vast quantities of data...\"; \"GPT-4 Zero-Shot Precision: Notably, GPT-4 achieved the highest precision in its zero-shot setting among all baseline models.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - the article states \"We report on this process [prompt design] in more detail in another paper available on SSRN and arXiv\", i.e. deferred to a companion paper not covered by this text",
+  "note": ""
+ },
+ "claim": {
+  "metric": "case-outcome prediction F-score / precision (GPT-4 zero-shot and few-shot 'juris-2')",
+  "value": null,
+  "n_items": null,
+  "location": "Prose only (\"an approximately 19% higher F-score\", \"boosted GPT-4's F-score\"); only T5's numbers are given as actual figures (F-score 0.650 / 0.734)",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Cambridge Law Corpus / CLC-UKET dataset (~19,000 UK Employment Tribunal cases), cited with public NeurIPS 2023 Datasets & Benchmarks and NLLP 2024 papers"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This law-review article narrates GPT-4/GPT-4-turbo results only qualitatively (comparative statements, no printed accuracy/F-score table for the LLMs) and explicitly defers prompt-design details to a separate companion paper on SSRN/arXiv. Only the fine-tuned T5 baseline gets concrete numbers in this text."
+}

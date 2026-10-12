@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7159577685",
+  "title": "Breaking the Chains of Probability: Neutrosophic Logic as a New Framework for Epistemic Uncertainty in Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"four OpenAI models, accessed via the OpenAI Chat Completions API on 30 April 2026: gpt-4o, gpt-4-turbo, gpt-3.5-turbo, and gpt-4o-mini\" (Sec. 3.4); Table 2 gpt-4-turbo sum 1.360 +- 0.319"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (system and user prompts for Strategies 1-3, verbatim)",
+    "note": "Statement stimuli: one printed (ethical contradiction), all five in the repo."
+  },
+  "claim": {
+    "metric": "mean T+I+F (Strategy 1, neutrosophic elicitation)",
+    "value": 1.36,
+    "n_items": 25,
+    "location": "Table 2, row gpt-4-turbo, column T+I+F (mean +- SD)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/mleyvaz/neutrosophic-llm-logic (code, prompts, raw data; MIT) and Zenodo record"
+  },
+  "cost": {
+    "est_calls": 75,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Call date 30 April 2026, no preview string: alias resolves to gpt-4-turbo-2024-04-09. Temperature 0.7, no seed, 5 stochastic repetitions x 5 phenomena; the future-contingency stimulus is anchored to 1 May 2026. Also reported: hyper-truth rate per phenomenon (Table 3)."
+}

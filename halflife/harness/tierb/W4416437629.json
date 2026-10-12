@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416437629",
+  "title": "EngTrace: A Symbolic Benchmark for Verifiable Process Supervision of Engineering Reasoning",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-5 Mini",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Table 13 / Appendix O: 'GPT-5 Mini OpenAI N/A - gpt-5-mini-2025-08-07'; Section 5.2: 1,350 test cases, temperature 0.2, max 4,096 tokens."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix P.1 'Standardized Inference Prompt' (zero-shot system prompt) and P.2 output parsing logic",
+    "note": "Prompt fixes headings Given/Find/Formulae/Solution/Final Answer and the '**Answer:** [value] [units]' format."
+  },
+  "claim": {
+    "metric": "final-answer accuracy",
+    "value": 63.7,
+    "n_items": 1350,
+    "location": "Table 1, row GPT-5 Mini, column Final Answer",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "EngTrace: 90 symbolic templates x 15 seeded instances; 'dataset and associated code will be released under the MIT License' (GitHub/project badges on page 1)"
+  },
+  "cost": {
+    "est_calls": 4050,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Use only the judge-free Final Answer column; Reasoning F1 relies on the AI Tribunal, which includes gemini-3.1-pro-preview. Seeded instances must come from the release.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "Obtain the 90 symbolic templates with the generator and the 15 seeds per template (or the released 1,350 instances) from the EngTrace release announced under the MIT License (page-1 Project/Code badges; URL not in the extracted text). Run gpt-5-mini-2025-08-07 with the Appendix P.1 system prompt zero-shot at temperature 0.2 and max 4,096 tokens, parse '**Answer:** [value] [units]' with the P.2 logic and score final-answer accuracy vs 63.7 (Table 1).",
+    "approximation": "If the seeds are not released, regenerate 15 instances per template with new seeds and compare at the template level; gpt-5-mini may not honour the temperature setting.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

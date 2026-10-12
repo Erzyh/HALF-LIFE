@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7161451968",
+  "title": "ViMU: Benchmarking Video Metaphorical Understanding",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o4-mini",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "B",
+    "evidence": "Table 1: 'o4-mini 2025-04 65.27 59.63 33.21 29.51 31.36 46.91'; 'GPT-4.1-nano 2025-04 50.12 22.31 2.32 9.02 5.67 20.94'; Appendix I: API models via OpenRouter, zero-shot."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix (task prompts with 'Available evidence' / 'Available options' blocks; judge rubric in Appendix B)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "rhetoric mechanism identification score (%), set-based scoring",
+    "value": 33.21,
+    "n_items": 2352,
+    "location": "Table 1, row o4-mini, column RM",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ViMU dataset (588 videos, 2,352 questions; dataset link on the project page)"
+  },
+  "cost": {
+    "est_calls": 588,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Inputs are videos; the frame/audio sampling used for API models is not specified in the text read, which is the soft gap. n_items is the total question count (per-task counts not extracted). OE scores use an LLM judge.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Appendix I defines only the scoring (set-based score, zero if any wrong option is selected); how videos were fed to API models (frame count, sampling, audio/transcript) is not stated, and the Project Page/GitHub/Dataset links are header icons whose URLs did not survive extraction. Recover the links from the PDF, take the frame/transcript packaging from the released evaluation code, run the RM questions (five options, multi-select) on o4-mini-2025-04-16 zero-shot via API, and compare the set-based RM score with 33.21 (Table 1).",
+    "approximation": "Frame sampling follows the released code; OpenRouter vs direct API routing.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

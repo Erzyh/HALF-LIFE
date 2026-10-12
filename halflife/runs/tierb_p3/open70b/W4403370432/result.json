@@ -1,0 +1,56 @@
+{
+  "wid": "W4403370432",
+  "title": "An Evaluation of Requirements Modeling for Cyber-Physical Systems via LLMs",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 48,
+  "original_location": "TABLE III, block 3-shot, row gpt-4, column Entity Ave (P/R/F1 = 43/54/48)",
+  "reexecution": {
+    "mean_over_seeds": 0.47450207922959076,
+    "per_seed": {
+      "0": {
+        "value": 0.47450207922959076,
+        "n": 1391,
+        "ci95": [
+          0.4550698099285607,
+          0.49421295855793984
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403370432",
+    "n_items": 1391,
+    "n_requests": 1391,
+    "seeds": 1,
+    "est_usd": 0.89,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 48,
+    "cap_usd": 1.34
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "None beyond the model alias: folds and retrieved shots are the authors' own released files, the prompt is the release's prompt/ner.txt assembled exactly as src/llm/gpt_inference.py (3 shots, single user turn, temperature 0); max_tokens assumed.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4403370432"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 47.45020792295907,
+    "delta": -0.5497920770409266,
+    "original_inside_ci95": true
+  }
+}

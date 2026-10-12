@@ -1,0 +1,56 @@
+{
+  "wid": "W4406880877",
+  "title": "People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 54.0,
+  "original_location": "Table 2, section (C) prompt-based detectors, Detector LLM O1-2024-12-17, row Zero-shot + CoT, column Overall: 54 (4)",
+  "reexecution": {
+    "mean_over_seeds": 1.0,
+    "per_seed": {
+      "0": {
+        "value": 1.0,
+        "n": 150,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4406880877",
+    "n_items": 150,
+    "n_requests": 150,
+    "seeds": 1,
+    "est_usd": 0.66,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 54.0,
+    "cap_usd": 2.31
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the runner scores TPR only: items.filter keeps the 150 AI-generated articles (gold 'AI-generated' in the release, not 'Machine-generated'), so accuracy x 100 = TPR; the FPR half (150 human articles, gold HUMAN-WRITTEN) is a second run with the filter inverted",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "o1-2024-12-17",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4406880877"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 100.0,
+    "delta": 46.0,
+    "original_inside_ci95": false
+  }
+}

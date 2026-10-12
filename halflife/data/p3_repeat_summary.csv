@@ -1,0 +1,5 @@
+﻿condition,papers,range_median_pts,range_p75_pts,range_max_pts,papers_range_over_2,papers_range_over_5,class_stable_share_pct
+designated replacement,20,0.31,1.23,9.53,2,1,100.0
+gpt-4.1,20,0.3,1.05,2.4,1,0,95.0
+open-weight Llama 3.3 70B,20,0.16,1.28,2.54,2,0,95.0
+Gemini 3.8 Flash,20,0.48,2.01,4.45,5,0,80.0

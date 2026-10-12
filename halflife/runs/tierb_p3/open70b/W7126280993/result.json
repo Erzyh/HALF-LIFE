@@ -1,0 +1,56 @@
+{
+  "wid": "W7126280993",
+  "title": "Semantic Content Determines Algorithmic Performance",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 0.4,
+  "original_location": "Table 1, row o3, column \"Delta_sem with Explicit Separator\" (= 0.9625 cities - 0.5625 chemicals in data/semantic_gap_all_ablations.json, key shuffle_entity_general_entity)",
+  "reexecution": {
+    "mean_over_seeds": 0.33749999999999997,
+    "per_seed": {
+      "0": {
+        "value": 0.33749999999999997,
+        "n": 480,
+        "ci95": [
+          0.23603365384615385,
+          0.4631379245784682
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7126280993",
+    "n_items": 480,
+    "n_requests": 480,
+    "seeds": 1,
+    "est_usd": 1.55,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 0.4,
+    "cap_usd": 2.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none - the archived reports hold the exact prompts the paper sent, so the items are the paper's own, not a regeneration",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "o3-2025-04-16",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7126280993"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.33749999999999997,
+    "delta": -0.06250000000000006,
+    "original_inside_ci95": true
+  }
+}

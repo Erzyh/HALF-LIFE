@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7165792467",
+ "title": "GitHub IntelliSolve: AI-Powered GitHub Ticket Analyzer & Automated Resolver",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (gpt-4-turbo)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec.5.4: \"root cause analysis via GPT-4 Turbo (gpt-4-turbo)\"; Sec.7: \"pilot on 50 SWE-Bench bug tickets shows GPT-4 summaries rated correct/partially correct in 84%\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Prompt only described as \"combining the full preprocessed issue text, extracted code blocks, repository language, and the three most relevant prior resolved issues\"; no literal template."
+ },
+ "claim": {
+  "metric": "human-rated correct-or-partially-correct rate, root-cause summaries",
+  "value": 84,
+  "n_items": 50,
+  "location": "Sec.7 Preliminary Results (\"pilot evaluation on 50 randomly sampled SWE-Bench bug tickets\")",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "SWE-Bench (public benchmark)"
+ },
+ "cost": {
+  "est_calls": 50,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "System-architecture paper (Docker/Kubernetes/FastAPI microservices) for an unreleased tool; the only quantitative result tied to GPT-4 Turbo is a small 50-ticket preliminary pilot with an undisclosed rating protocol, and no verbatim prompt is given."
+}

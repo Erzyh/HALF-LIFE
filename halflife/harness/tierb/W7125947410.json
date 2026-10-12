@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7125947410",
+  "title": "Intelligent 5S Audit: Application of Artificial Intelligence for Continuous Improvement in the Automotive Industry",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo API",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "the operating costs were calculated based on the current prices of the GPT-4 Turbo API (Section on economic analysis); 'Cost per request to the GPT-4 Turbo API (based on March 2025 prices)'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Listing 'Specialized prompt structure for 5S assessment' (Section D; partially reproduced in the text)",
+    "note": "Vision prompt with per-sense 1-5 scoring and J/K/L classification."
+  },
+  "claim": {
+    "metric": "overall classification accuracy vs human auditors",
+    "value": 0.867,
+    "n_items": 75,
+    "location": "Table III (confusion matrix) and 'Metrics Derived from the Matrix: Overall accuracy: 86.7% (65/75)'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "75 daily images of one automotive work sector; not released"
+  },
+  "cost": {
+    "est_calls": 225,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Image inputs from a private plant; model identified only as the GPT-4 Turbo API."
+}

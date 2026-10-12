@@ -1,0 +1,233 @@
+{
+  "card_id": "W4412887747",
+  "run_date_utc": "2026-09-21",
+  "target_paper": {
+    "title": "Rethinking Table Instruction Tuning (TAMA)",
+    "repo": "https://github.com/MichiganNLP/TAMA",
+    "repo_commit": "8d3a2c274a6038f0afbf25ba894a5a04313ca4ca",
+    "original_source": "paper Table 6, rows GPT-3.5 / GPT-4, undaggered cells AIT and Inf (author-run); Appendix A.4 temperature 0"
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13,
+    "substitute_snapshot": "none; gpt-4-turbo-2024-04-09 is the date-rule resolution of the paper's undated 'GPT-4-turbo' (Appendix A.4), recorded as an inference",
+    "parameters": "temperature 0; max_tokens {'aitqa': 64, 'infotabs': 32}; one user message (README alpaca wrapper, sha256 ef4fa13cfb24); no top_p, no seed, no system prompt (none reported)",
+    "battery": "(315 + 500) items x 3 complete seeds of 3; median over seeds; item bootstrap 10000 (seed 20260907) on the seed-averaged credit vector"
+  },
+  "results": {
+    "rows": {
+      "aitqa": {
+        "dataset": "AIT-QA",
+        "n": 315,
+        "scores_median": {
+          "repo_original": 87.9365,
+          "strict": 0.0,
+          "containment": 87.9365
+        },
+        "per_seed": {
+          "0": {
+            "repo_original": 88.254,
+            "strict": 0.0,
+            "containment": 88.254
+          },
+          "1": {
+            "repo_original": 87.619,
+            "strict": 0.0,
+            "containment": 87.619
+          },
+          "2": {
+            "repo_original": 87.9365,
+            "strict": 0.0,
+            "containment": 87.9365
+          }
+        },
+        "ci95_over_items": {
+          "repo_original": [
+            84.2328,
+            91.4286
+          ],
+          "strict": [
+            0.0,
+            0.0
+          ],
+          "containment": [
+            84.2328,
+            91.4286
+          ]
+        },
+        "n_boot": 10000,
+        "boot_seed": 20260907,
+        "original": 88.57,
+        "band": [
+          85.06,
+          92.08
+        ],
+        "preimage": [
+          279
+        ],
+        "judgment_scorer": "repo_original",
+        "scorers_gap": 87.9365,
+        "gap_exceeds_2pp": true,
+        "value": 87.9365,
+        "value_ci95": [
+          84.2328,
+          91.4286
+        ],
+        "inside_original_band": true,
+        "original_inside_our_ci": true,
+        "tama_published": 89.21,
+        "llama_published": 82.54,
+        "ordering_kept": true,
+        "caveat": "strict (0.00) is far below the repository's number (87.94): the replies are verbose rather than bare, so strict equality is measuring format, not table reading. Read the row with containment / repo_original in mind before treating the verdict as final."
+      },
+      "infotabs": {
+        "dataset": "InfoTabs",
+        "n": 500,
+        "scores_median": {
+          "repo_original": 73.0,
+          "strict": 0.0,
+          "startswith": 53.0
+        },
+        "per_seed": {
+          "0": {
+            "repo_original": 73.0,
+            "strict": 0.0,
+            "startswith": 54.0
+          },
+          "1": {
+            "repo_original": 71.6,
+            "strict": 0.0,
+            "startswith": 51.6
+          },
+          "2": {
+            "repo_original": 74.2,
+            "strict": 0.0,
+            "startswith": 53.0
+          }
+        },
+        "ci95_over_items": {
+          "repo_original": [
+            69.1333,
+            76.6667
+          ],
+          "strict": [
+            0.0,
+            0.0
+          ],
+          "startswith": [
+            48.8,
+            56.9333
+          ]
+        },
+        "n_boot": 10000,
+        "boot_seed": 20260907,
+        "original": 58.6,
+        "band": [
+          54.28,
+          62.92
+        ],
+        "preimage": [
+          293
+        ],
+        "judgment_scorer": "repo_original",
+        "scorers_gap": 73.0,
+        "gap_exceeds_2pp": true,
+        "value": 73.0,
+        "value_ci95": [
+          69.1333,
+          76.6667
+        ],
+        "inside_original_band": false,
+        "original_inside_our_ci": false,
+        "tama_published": 64.54,
+        "llama_published": 48.39,
+        "ordering_kept": false,
+        "caveat": "strict (0.00) is far below the repository's number (73.00): the replies are verbose rather than bare, so strict equality is measuring format, not table reading. Read the row with containment / repo_original in mind before treating the verdict as final."
+      }
+    },
+    "cost_usd": 16.49936999999999,
+    "calls": 2445,
+    "errors": 0,
+    "finish_reasons": {
+      "stop": 1537,
+      "length": 908
+    },
+    "empty_completions": 0,
+    "complete_seeds": [
+      0,
+      1,
+      2
+    ],
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as the card instantiates it: AIT-QA inside band, ordering kept; InfoTabs outside band, ordering flipped; human double-coding pending"
+  },
+  "reproducibility_frictions_observed": [
+    "the GPT chat wrapper was never released (only {instruction, input} items), so the envelope is a documented paraphrase - the README alpaca wrapper as one user message",
+    "the paper names 'GPT-4-turbo' with no snapshot and no code in the repository calls OpenAI at all; the snapshot is an inference by the date rule",
+    "aitqa.py credits a 'gpt-4' root_dir once for `gold in pred` and again for `pred == gold`, so the branch that produced 88.57 can exceed 100 and is not the rule TAMA's own checkpoints were scored under",
+    "the evaluation data is absent from the repository (no datasets/tama_instruct/): AIT-QA and InfoTabs must be pulled upstream and re-derived with the repository's seeded scripts",
+    "src/src/evaluation/utils/utils.py hard-codes absolute /code/ paths and one active root_dir",
+    "Table-Syn S1 (80.20) is unreconstructible: process_s1.py consumes a Table-GPT test_All.jsonl that was never released, so only 2 of the 3 author-run GPT cells can be re-executed",
+    "no released generated_predictions.jsonl for any model, so drift is measurable at the accuracy level only",
+    "the gpt-3.5-turbo half of the paper's two-model yardstick is dead (all snapshots retired)"
+  ],
+  "environment_check": "runs\\W4412887747\\environment_check.json",
+  "check_summary": {
+    "item_sets": {
+      "aitqa": {
+        "n": 315,
+        "expected_n": 315,
+        "matches_card": true,
+        "sha256": "390c2e6bfbeb9e68934aefd53cb32a0cf781664f5d92424f32912e67a569a3ae",
+        "mean_input_chars": 1337.0,
+        "mean_output_chars": 5.2,
+        "distinct_golds": 265,
+        "preimage_of_paper_cell": [
+          279
+        ],
+        "original": 88.57,
+        "binomial_band": [
+          85.06,
+          92.08
+        ]
+      },
+      "infotabs": {
+        "n": 500,
+        "expected_n": 500,
+        "matches_card": true,
+        "sha256": "42fe10926ec52772c14b0f6d957517baa53765611b090212732dec124fa25c2f",
+        "mean_input_chars": 1754.8,
+        "mean_output_chars": 7.7,
+        "distinct_golds": 3,
+        "preimage_of_paper_cell": [
+          293
+        ],
+        "original": 58.6,
+        "binomial_band": [
+          54.28,
+          62.92
+        ]
+      }
+    },
+    "data": {
+      "stage": "external\\data\\W4412887747",
+      "downloaded_bytes": 0,
+      "sources": [],
+      "bytes_on_disk": 6620582,
+      "aitqa_files": {
+        "aitqa_questions.jsonl": 118376,
+        "aitqa_tables.jsonl": 137106
+      },
+      "infotabs_tsv": {
+        "infotabs_test_alpha1.tsv": 127372,
+        "infotabs_test_alpha2.tsv": 121471,
+        "infotabs_test_alpha3.tsv": 133467
+      },
+      "infotabs_html_tables": 2720,
+      "under_50mb": true
+    }
+  }
+}

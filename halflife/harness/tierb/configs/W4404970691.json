@@ -1,0 +1,67 @@
+{
+  "wid": "W4404970691",
+  "title": "Zero-Shot Prompting and Few-Shot Fine-Tuning: Revisiting Document Image Classification Using Large Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 32,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4.1 (temperature 0 via the OpenAI API); max_tokens/top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 800,
+    "subset_rule": "seeded: five non-overlapping random draws of 160 test images (10 per class) from the RVL-CDIP test split, seed 20260907 (RVL-CDIP-160x5)",
+    "approximation": "New draws and new OCR output (paper: Amazon Textract, draws not released); expect spread beyond the reported +/-2.0 (resolution plan)."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "aharley/rvl_cdip (data/rvl-cdip.tar.gz ~37 GB; test split 40,000 images)",
+    "config_or_split": "default / test",
+    "filter": "10 images per class x 5 draws",
+    "fields": {
+      "input": "image (OCR text to be produced)",
+      "label": "label 0-15 in the order letter, form, email, handwritten, advertisement, scientific report, scientific publication, specification, file folder, news article, budget, invoice, presentation, questionnaire, resume, memo",
+      "id": "row index"
+    },
+    "license": "other (RVL-CDIP / IIT-CDIP terms)",
+    "access_checked": true,
+    "size_mb": 37000
+  },
+  "prompt": {
+    "system": "Your task is to classify a document’s content based solely on its OCR text. Select one appropriate category for the document from the following 16 options:\n1. letter\n2. form\n3. email\n4. handwritten\n5. advertisement\n6. scientific report\n7. scientific publication\n8. specification\n9. file folder\n10. news article\n11. budget\n12. invoice\n13. presentation\n14. questionnaire\n15. resume\n16. memo\nProvide only the chosen category name from the list as your response, without any additional commentary or explanation.",
+    "user_template": "{ocr_text}",
+    "placeholders": {
+      "ocr_text": "OCR text of the document image (paper: Amazon Textract output, text lines separated by line breaks)"
+    },
+    "few_shot": "none",
+    "source_location": "Figure 2, Prompt 2 (P2), used for all reported results (Sec. 4.2)",
+    "verbatim": "partial (Figure 2 abbreviates the class list to '1. letter 2. form [...] 15. resume 16. memo'; items 3-14 filled from the RVL-CDIP class list of Sec. 2 in dataset order)"
+  },
+  "output": {
+    "parse": "label from set [the 16 class names]; exact match only",
+    "postprocess": "none (Sec. 4.2: responses are not post-processed; any deviation is invalid and counts as incorrect)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "mean over the five 160-image draws of the share of exact-match class names (invalid = wrong); report std over draws",
+    "judge": "none",
+    "original_value": 61.8,
+    "original_location": "Table 3, row '0 OCR GPT-4' (61.8 +/- 2.0; invalid 2.1 +/- 1.2)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 2400,
+    "est_usd": 36.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "Inputs cannot be produced: the paper's OCR text comes from Amazon Textract (paid AWS account) on RVL-CDIP test images that sit in a 37 GB tarball (license 'other'); a Tesseract substitute changes the model input. Nothing in the runner or a hook can close this."
+  ],
+  "notes": "One-shot variant adds 16 (user, assistant) example pairs; image-input rows (GPT-4-Vision 69.9) are alternative cells. || [hooks_2 2026-09-07] reviewed for a per-paper hook: paid OCR service + 37 GB images; no hook written.",
+  "hook": "none (needs_human: paid OCR service + 37 GB images)"
+}

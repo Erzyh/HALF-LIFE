@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416035547",
+  "title": "Agent-to-Agent Theory of Mind: Testing Interlocutor Awareness among Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o4-mini-2025-04-16",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Sec. 3: 'OpenAI's o4-mini (o4-mini-2025-04-16)'; Table 2 lists GPT-o4-mini among evaluated models; Appendix C.1: official APIs with default hyperparameters"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.2 (Prompt Template for Identification: Math/Code/XSum/UltraChat/Politics/Value); C.1 multiple-choice format",
+    "note": "Identifier picks a model family from (A) GPT ... (F) Cannot Identify."
+  },
+  "claim": {
+    "metric": "identification accuracy (identifier o4-mini, target o4-mini, Math)",
+    "value": 0.93,
+    "n_items": 100,
+    "location": "Figure 11(a) Math accuracy heatmap, row o4-mini, column o4-mini (F1 counterpart 0.64 in Figure 9(a))",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MATH (Hendrycks et al.) level-5 problems, 100 random items; code and data released on GitHub (Sec. 1 footnote)"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Value read from a heatmap cell; self-identification needs only o4-mini responses plus o4-mini identification (200 calls per seed). Other cells need the 8 other target models."
+}

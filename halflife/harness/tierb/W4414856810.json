@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4414856810",
+ "title": "Effects of Theory of Mind and Prosocial Beliefs on Steering Human-Aligned Behaviors of LLMs in Ultimatum Games",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "o3-mini (o3-mini-2025-01-31)",
+  "resolved": "o3-mini-2025-01-31",
+  "role": "S",
+  "evidence": "Table 5, condition Greedy-Fair/Vanilla, o3-mini column: \"50 4.9 28.0, 22.0\" (Acceptance rate 50%, Avg. Turns 4.9, Payouts 28.0/22.0), one of 6 LLMs run independently as proposer+responder"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix I (I.1 System Prompts, I.2 Belief Prompt, I.3 Reasoning Prompts, I.4 Proposal and Decision Prompts)",
+  "note": "Full prompt templates with placeholders (e.g. {belief prompt}, {other player}) are printed."
+ },
+ "claim": {
+  "metric": "Acceptance rate (AC), Ultimatum Game, Greedy proposer belief / Fair responder belief, Vanilla reasoning",
+  "value": 50,
+  "n_items": 10,
+  "location": "Table 5, condition 'Greedy-Fair, Vanilla', o3-mini column ('using 10 simulations per condition', Sec. 4/5)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Custom Ultimatum Game protocol; belief conditions, reasoning strategies and game parameters fully specified in Table 1-2 and Appendix"
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Each of 6 LLMs (GPT-4o-mini, GPT-4o, o3-mini, DeepSeek-R1-Distill-Qwen-32B, Llama-3.3-70B, Llama-3.1-8B) plays independently across 9 belief-pairing conditions x 5 reasoning strategies x 10 simulations; est_calls approximates one cell (10 sims x ~5 turns x 2 roles x 3 seeds) at o3-mini pricing (~$0.05/call ~ $15). Reproducing the full Table 5 grid for o3-mini alone would need roughly 45x more calls (still mid/high tier)."
+}

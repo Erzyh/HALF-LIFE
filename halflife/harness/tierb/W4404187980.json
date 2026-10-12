@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4404187980",
+ "title": "Supporting the Digital Autonomy of Elders Through LLM Assistance",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo (OpenAI 2023)",
+  "resolved": "dead-preview",
+  "role": "S",
+  "evidence": "\"The developed assistant-defining prompt is tested on GPT-4-Turbo (OpenAI 2023) and Claude-3-Opus\"; 4-task qualitative experience report"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Main text (SAGE 0.1 assistant-defining instructions quoted in full)",
+  "note": "System prompt is printed verbatim; per-task user messages are paraphrased narratively, not quoted."
+ },
+ "claim": {
+  "metric": "none (narrative comparison of GPT vs Claude responses across 4 pilot tasks; no score, rate, or count reported)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a (\"Experience Report\" and \"Conclusions\" sections are purely qualitative)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "4 ad hoc real-world ICT-skill tasks devised by the authors; not released as a dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias",
+  "no_number"
+ ],
+ "notes": "AAAI Spring Symposium Series 2024 (held March 2024, before GPT-4 Turbo's 2024-04-09 GA); the \"(OpenAI 2023)\" citation and symposium timing both point to the November 2023 preview, a retired snapshot. Independently, the paper reports only qualitative, task-by-task narrative comparisons with no quantitative claim."
+}

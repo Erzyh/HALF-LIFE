@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4414359799",
+  "title": "Are Large Language Models Fluent in Declarative Process Mining?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"All LLMs, except for the GPT-family, were run locally using the ollama project\" (footnote, implying GPT-4-Turbo/GPT-4o were run via API); Figure 4 bar chart, \"models such as GPT-4-Turbo, GPT-4o and LLaMA3.3 demonstrate consistently high proportions\""
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. on Declare templates (Table 1) and task description; exact LLM prompt text not printed", "note": "Task: generate Declare (declarative process mining) formulas from natural-language input specifications."},
+  "claim": {
+    "metric": "none printed (Const-Sim / Semantic Equivalence / Completeness / Soundness proportions for GPT-4-Turbo are shown only as bars in Figure 4, no accompanying table)", "value": null, "n_items": null, "location": "Figure 4 (bar chart only)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "Declare templates and input specifications described in the paper (Table 1); dataset release not confirmed"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "IJCAI 2025. The only table in the paper (Table 1) documents Declare template classes, not results; all GPT-4-Turbo/GPT-4o performance numbers live exclusively in bar-chart figures."
+}

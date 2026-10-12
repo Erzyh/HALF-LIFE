@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412888298",
+  "title": "Social Bias Benchmark for Generation: A Comparison of Generation and QA-Based Evaluations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4-turbo gpt-4-turbo-2024-04-09 seed 42 temperature 0\" (Table 2, model parameters); Table 1 row GPT-4-turbo"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B.2 Table 5 (story-continuation prompts); Tables 3-4 (MRC evaluator prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "neutrality score ntr_gen, EnBBG, mean over 5 evaluation sets",
+    "value": 0.6362,
+    "n_items": 464,
+    "location": "Table 1(a), row GPT-4-turbo, column ntr_gen",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-0613"
+  },
+  "data": {
+    "public": "yes",
+    "source": "BBG (EnBBG 232 templates, KoBBG 286) at jinjh0123.github.io/BBG"
+  },
+  "cost": {
+    "est_calls": 6960,
+    "tier": "high"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Scores are computed by MRC with gpt-4-0613 as the evaluator (Appendix C), which is retired. Generation side is fully specified (seed 42, temperature 0)."
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4412888351",
+  "title": "HumanEval Pro and MBPP Pro: Evaluating Large Language Models on Self-invoking Code Generation Task",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4-Turbo gpt-4-turbo-2024-04-09\" (Table 10, API names); Table 2 row GPT-4-Turbo"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix H.2 'Prompts for Evaluation': 0-shot and 1-shot prompts printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "pass@1 (greedy), HumanEval Pro, 0-shot",
+    "value": 72.0,
+    "n_items": 164,
+    "location": "Table 2, row GPT-4-Turbo, column HumanEval Pro (0-shot)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HumanEval Pro / MBPP Pro at github.com/CodeEval-Pro/CodeEval-Pro"
+  },
+  "cost": {
+    "est_calls": 492,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Execution-based scoring needs the released test harness. MBPP Pro 0-shot 69.3 (n=378) and 1-shot columns tied to the same model."
+}

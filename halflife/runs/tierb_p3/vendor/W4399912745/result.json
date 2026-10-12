@@ -1,0 +1,56 @@
+{
+  "wid": "W4399912745",
+  "title": "ALiiCE: Evaluating Positional Fine-grained Citation Generation",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 47.0,
+  "original_location": "Table 1, ASQA block, row GPT-4 (5-psg), column Correct.",
+  "reexecution": {
+    "mean_over_seeds": 0.4671617161716171,
+    "per_seed": {
+      "0": {
+        "value": 0.4671617161716171,
+        "n": 707,
+        "ci95": [
+          0.4440576379066478,
+          0.4917267798208392
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399912745",
+    "n_items": 707,
+    "n_requests": 707,
+    "seeds": 1,
+    "est_usd": 16.98,
+    "subset_note": "cost cap $17.0: seeded random subset of 707 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 47.0,
+    "cap_usd": 17.0
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Table 7 elides documents after [3] with '...', so the same 'Documents [k] (Title: ...) text' line is assumed for k=4,5; ALCE's str_em normalisation re-implemented from its public definition; temperature-0.5 sampling adds run variance",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4399912745"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 46.71617161716171,
+    "delta": -0.28382838283828704,
+    "original_inside_ci95": true
+  }
+}

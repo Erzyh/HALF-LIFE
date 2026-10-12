@@ -1,0 +1,64 @@
+{
+  "wid": "W4416034777",
+  "title": "The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decision-Making in Rock-Paper-Scissors Games?",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 0.107,
+  "original_location": "Table 1, row GPT-4-turbo (mean TVD)",
+  "reexecution": {
+    "mean_over_seeds": 0.16666666666666669,
+    "per_seed": {
+      "0": {
+        "value": 0.16666666666666669,
+        "n": 100,
+        "ci95": [
+          0.07891015417331207,
+          0.26252417794970984
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 4
+  },
+  "prepare": {
+    "wid": "W4416034777",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 3.79,
+    "subset_note": "paraphrase p1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [100]",
+    "dropped_unrenderable": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 0.107,
+    "cap_usd": 2.03,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416034777",
+    "paraphrase": "p1",
+    "pairs": [
+      [
+        "You are playing the Rock-Paper-Scissors game. You should first reason about the Nash equilibrium of this game, and then choose one action from {Rock, Paper, Scissors} based on your reasoning. Please choose an exact action.",
+        "We are playing Rock-Paper-Scissors. Begin by reasoning about the game's Nash equilibrium, then pick a single action from {Rock, Paper, Scissors} on the basis of that reasoning. Name one definite action."
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 14
+  },
+  "approximation": "the paper's 'GPT-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (EMNLP Findings 2025, no version string)",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p1\\W4416034777"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.16666666666666669,
+    "delta": 0.05966666666666669,
+    "original_inside_ci95": true
+  }
+}

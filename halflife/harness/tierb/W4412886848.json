@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412886848",
+ "title": "Model Extrapolation Expedites Alignment",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"a GPT-4 Turbo evaluator prefers the output of the evaluated model over the GPT-4 baseline\"; \"...bias of the GPT-4 Turbo evaluator (i.e., the prior...)\" (AlpacaEval-style pairwise judge)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Judge is the standard AlpacaEval-style pairwise comparison prompt (external convention); not reproduced in the retrieved text."
+ },
+ "claim": {
+  "metric": "none isolated for GPT-4 Turbo itself (it produces win-rate labels used to score OTHER fine-tuned models, e.g. ExPO-extrapolated checkpoints)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "partial",
+  "source": "GPT-4-annotated preference data (line ~295) and standard alignment benchmarks; specific release not confirmed in retrieved text"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is used purely as an AlpacaEval-style pairwise judge scoring win rates of the paper's own extrapolated (ExPO) model checkpoints against baselines; it is never the subject whose own capability is reported, so there is no reproducible number describing GPT-4 Turbo itself."
+}

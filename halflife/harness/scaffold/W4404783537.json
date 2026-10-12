@@ -1,0 +1,23 @@
+{
+  "openalex_id": "https://openalex.org/W4404783537",
+  "title": "Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Large Language Model Performance.",
+  "doi": "https://doi.org/10.18653/v1/2024.emnlp-industry.91",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "claude-3-haiku|gemini-1.5-flash",
+  "flags": "",
+  "all_links": [
+    "github.com/appier-research/structure-genStandar",
+    "github.com/huggingface/text-generation-inference",
+    "github.com/huggingface/text-generation-inference12190.00.20.40.60.8EM"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/appier-research/structure-genStandar",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4404783537.txt",
+  "paper_text_status": "pdf"
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405095511",
+  "title": "Aya Expanse: Combining Research Breakthroughs for a New Multilingual Frontier",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 4: original Arena-Hard-Auto \"measures win-rate ... from GPT-4-0314 with GPT-4-Turbo as a judge\"; these authors use GPT-4o instead"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "No GPT-4-Turbo prompt is used or printed; the paper's own LLM-judge prompt (footnote 3, following Ustun et al. 2024) is for gpt-4o-2024-08-06."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4-Turbo is only cited as the judge used by the original Arena-Hard-Auto benchmark, not run by these authors)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Multilingual ArenaHard (translated Arena-Hard-Auto, 500 prompts x 22 languages) and Dolly human-edited/machine-translated sets (Table 1)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The only live model these authors actually run as judge is gpt-4o-2024-08-06 (footnote 3), which is also not on the tracked still-callable list (only gpt-4o-2024-05-13 is). GPT-4-Turbo appears solely as a description of a prior benchmark's methodology, cited for contrast."
+}

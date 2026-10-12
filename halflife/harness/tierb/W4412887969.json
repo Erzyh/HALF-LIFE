@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4412887969",
+  "title": "Nested-Refinement Metamorphosis: Reflective Evolution for Efficient Optimization of Networking Problems",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 7 (\"Performance comparison using different LLMs as backbone of NeRM\"): \"GPT-4-Turbo 0.18 0.40 0.55 0.72\" (Gap %, TSP200-500)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.5 (\"Additional generated prompts and algorithms\"); Appendix A.2 (experimental settings)",
+    "note": "NeRM's Mixture-of-Prompts / Mixture-of-Algorithms evolutionary prompting scheme is detailed with example prompts in the appendix."
+  },
+  "claim": {
+    "metric": "optimality gap (%) on TSP200, GPT-4-Turbo backbone",
+    "value": 0.18,
+    "n_items": null,
+    "location": "Table 7, row GPT-4-Turbo, TSP200 column",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TSP/MKP synthetic combinatorial-optimization instances, generation procedure given in Appendix A"
+  },
+  "cost": {
+    "est_calls": 500,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Number of TSP instances per size (200/300/400/500) is not stated in the reviewed excerpt, so n_items and cost are approximate; NeRM is an iterative evolutionary framework (reflection + mutation/crossover over multiple generations), so a single reported cell likely aggregates many LLM calls."
+}

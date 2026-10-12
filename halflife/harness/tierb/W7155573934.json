@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7155573934",
+  "title": "Evaluating Assurance Cases as Text-Attributed Graphs for Structure and Provenance Analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "We generated the linking using GPT-4o only, because we did not have access to GPT-4-turbo at the time of the study (footnote 2, Section 5)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 6 describes a short instruction prompt for link prediction; full prompt in the released artefact",
+    "note": ""
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (GPT-4-turbo was not run)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Zenodo record 10.5281/zenodo.19816940 and public assurance-case collections"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Only GPT-4o (undated) was used to generate data; GPT-4-turbo is mentioned as unavailable."
+}

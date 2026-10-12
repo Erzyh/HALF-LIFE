@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404781124",
+  "title": "ValueScope: Unveiling Implicit Norms and Values via Return Potential Model of Social Interactions",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Table 8 (Appendix E.3.2), index 21: \"gpt-4o-2024-05-13 Few-Shot 0.2 - 0.80 0.88 0.76 0.80 0.84\"; \"these results were based on 100 gold-labels comparing comments between r/askmen and r/askwomen\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 8 (Appendix E.3, few-shot binary pairwise labeling prompt)",
+    "note": "Same few-shot prompt used for all Table 8 rows; temperature 0.2."
+  },
+  "claim": {
+    "metric": "pairwise label accuracy vs human gold, Formality norm",
+    "value": 0.8,
+    "n_items": 100,
+    "location": "Table 8, row 21 (gpt-4o-2024-05-13), columns Formality/Supportiveness/Sarcasm/Politeness/Humor = 0.80/0.88/0.76/0.80/0.84",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "https://github.com/stellali7/valueScope; Reddit comment IDs only are released (Appendix C states comment text will not be released); gold labels from Appendix E.1"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Live model is a secondary labeler compared against gpt-4-0613 (the labeler actually adopted). Re-execution needs the 100 gold-labeled comment pairs: only Reddit IDs are released, so text must be re-fetched and may be deleted; whether the 100 gold labels are in the repo is not stated. One soft gap on data, hence maybe.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 100 gold-labelled r/askmen vs r/askwomen comment pairs (Table 8 caption, Appendix E.1 footnote 11) are released as Reddit comment IDs only (Appendix: text withheld), so the texts must be re-fetched from Reddit by ID; the repository is the only place the pair list and gold labels can be. Then apply the Figure 8 few-shot pairwise prompt with gpt-4o-2024-05-13 at temperature 0.2 and score agreement with the gold labels per norm (Formality 0.80).",
+    "approximation": "Deleted or edited comments shrink n; whether the 100 gold labels are in the repository is not stated in the paper; Reddit fetching is subject to API terms.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/stellali7/valueScope",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

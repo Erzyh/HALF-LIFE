@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7140099019",
+  "title": "When Does Auxiliary Modality Matter in Solving Geometric Problems? A Comprehensive Study of Textual, Formal, and Visual Modalities",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-o4-mini (2025-04-16)",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Sec. 3: 'We used closed LLMs including GPT-o4-mini (2025-04-16) and Gemini 2.5-flash'; Appendix C: 'average accuracy (%) computed over five independent runs'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E, Figure 8 (unified solving prompt: diagram + selected modalities, boxed answer); Figures 4-7 (auxiliary-modality generation)",
+    "note": "The baseline condition uses only the diagram and the problem statement."
+  },
+  "claim": {
+    "metric": "accuracy (%), Geometry3K test, baseline (diagram + problem), mean of 5 runs",
+    "value": 77.9,
+    "n_items": 601,
+    "location": "Appendix Table 1, Geometry3k block, row Baseline, column GPT-o4-mini 2025-04-16",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Geometry3K (Lu et al., 2021) and FormalGeo7K (1,050 held-out) test sets, public"
+  },
+  "cost": {
+    "est_calls": 601,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Answer extraction is a boxed-answer string match with a secondary Gemini-2.0-flash-lite equivalence check for mismatches (auxiliary model, possibly retired). o4-mini FormalGeo7K baseline is 87.7. Geometry3K test size taken from the original split.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Run the Figure 8 solving prompt with only the diagram and problem text on the 601 Geometry3K test problems with o4-mini-2025-04-16, five runs. Extract the \\boxed{} answer, normalize and string-match against ground truth; send residual mismatches to the Figure 7 equivalence prompt on gemini-2.0-flash-lite if still callable, otherwise on any live model or a symbolic check. Compare the five-run mean accuracy with 77.9 (Appendix Table 1).",
+    "approximation": "Substitute equivalence checker for the small residual set; five-run mean.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

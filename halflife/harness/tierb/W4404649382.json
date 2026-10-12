@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404649382",
+  "title": "VideoAutoArena: An Automated Arena for Evaluating Large Multimodal Models in Video Analysis through User Simulation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"In our experiments, we evaluate 11 SOTA LMMs: 1. gpt-4o-2024-05-13, 2. gpt-4o-mini-2024-07-18 ...\" (Appendix B.2); Table 3 GPT-4o vs Sel. 70.98, vs Rej. 94.12, Avg. 82.55"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A, Figures 10-14 (persona generation, question asking, evolution, judging, complexity prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "VideoAutoBench average score vs human-selected/rejected answers",
+    "value": 82.55,
+    "n_items": null,
+    "location": "Table 3, row GPT-4o, column Avg.",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-08-06"
+  },
+  "data": {
+    "public": "partial",
+    "source": "videos from LongVideoBench/VideoMME sources; generated questions and human-selected answers on the project page (https://videoautoarena.github.io/)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Judge, user simulator and evolution model are gpt-4o-2024-08-06, which is not in the project's live list. Video input (up to 64 frames at 512x512 per response) makes cost high; number of battles in VideoAutoBench is not stated (about 300 human-annotated battles)."
+}

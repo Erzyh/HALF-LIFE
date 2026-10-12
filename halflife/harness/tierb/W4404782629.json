@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404782629",
+  "title": "TopViewRS: Vision-Language Models as Top-View Spatial Reasoners",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4V (GPT-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'We use GPT-4-turbo-2024-04-09 of GPT-4V and latest stable gemini-pro-vision 1.0 of Gemini' (footnote 5); temperature 0 (Appendix)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.2, Tables 11-14 (prompt templates per task for realistic and semantic maps)",
+    "note": "Image plus text prompts with <QUESTION> and option placeholders."
+  },
+  "claim": {
+    "metric": "exact-match accuracy (Top-View Recognition, realistic maps)",
+    "value": 69.52,
+    "n_items": 11384,
+    "location": "Table 1, column GPT-4V, Realistic Map, Top-View Recognition EM (Semantic Map EM 97.29); n is the whole benchmark",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "TopViewRS (11,384 MCQs over top-view maps); 'We publicly release (the part of) the dataset and code' at https://github.com/cambridgeltl/topviewrs"
+  },
+  "cost": {
+    "est_calls": 34152,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Multimodal calls; only part of the dataset is stated as released and per-task question counts must be taken from the appendix.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "Only '(the part of) the dataset' is released (footnote 2). Take the released Top-View Recognition questions on realistic maps (per-task counts in Table 9 of the PDF; 587 TVR questions after verification) and the Table 11 template with <QUESTION> and options; call gpt-4-turbo-2024-04-09 with the map image (detail low, 512 px), temperature 0, max_tokens 1024 (Table 10); exact-match accuracy vs 69.52 (Table 1).",
+    "approximation": "The comparison is on the released subset; the record's n_items (11,384) is the whole benchmark while the task-specific n is a few hundred.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/cambridgeltl/topviewrs",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

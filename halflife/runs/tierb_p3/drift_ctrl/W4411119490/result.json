@@ -1,0 +1,57 @@
+{
+  "wid": "W4411119490",
+  "title": "Are We Done with MMLU?",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 22.7,
+  "original_location": "Table 3, row GPT-4 Turbo / Zero-Shot, column F1 (Recall 22.81, F2 23.90)",
+  "reexecution": {
+    "mean_over_seeds": 0.25199645075421473,
+    "per_seed": {
+      "0": {
+        "value": 0.25199645075421473,
+        "n": 3000,
+        "ci95": [
+          0.21854425110995038,
+          0.2807986690019698
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119490",
+    "n_items": 3000,
+    "n_requests": 3000,
+    "seeds": 1,
+    "est_usd": 8.01,
+    "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+    "dropped_unrenderable": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 22.7,
+    "cap_usd": 9.88,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4411119490"
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 12
+  },
+  "approximation": "the input block layout after the '# Task:' text is taken from the code release (src/taxonomy/data_utils.py verbaliser), not from the paper",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\drift_ctrl\\W4411119490"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 25.199645075421472,
+    "delta": 2.4996450754214727,
+    "original_inside_ci95": true
+  }
+}

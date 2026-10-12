@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416037518",
+ "title": "InstaJudge: Aligning Judgment Bias of LLM-as-Judge with Humans in Industry Applications",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "A",
+  "evidence": "Sec. 3: \"Throughout the experiments, gpt-4o-2024-05-13 was used as the backbone LLM [for judging]. Performance was measured using 5-fold cross-validation...\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 3 (Task and Dataset), Table 1 (evaluation-dimension demonstrations)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "F1-score / Pearson correlation vs. business-defined labels",
+  "value": null,
+  "n_items": null,
+  "location": "Table 3 (industrial datasets), Table 4 (JudgeBench)",
+  "task_type": "classification",
+  "judge": "llm:gpt-4o-2024-05-13"
+ },
+ "data": {
+  "public": "no",
+  "source": "Proprietary industrial datasets (Customer Chatbot Conversation, Customer Issue, GenAI, SearchQA); Table 4 additionally uses the public JudgeBench (Tan et al. 2025)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "gpt-4o-2024-05-13 plays the LLM-as-judge role throughout (role A), including on the public JudgeBench table, so it never has an S/B-role capability claim of its own; the paper's main Table 3 results additionally depend on closed business datasets."
+}

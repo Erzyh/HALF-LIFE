@@ -1,0 +1,8 @@
+[
+ {"name": "Interlocutor awareness run (cap 10)", "group": "interloc", "args": ["interloc_W4416035547.py", "--run", "--cap", "10"]},
+ {"name": "Interlocutor awareness analyze", "group": "interloc", "args": ["interloc_W4416035547.py", "--analyze"]},
+ {"name": "TAMA run (cap 25)", "group": "tama", "args": ["tama_W4412887747.py", "--run", "--cap", "25"]},
+ {"name": "TAMA analyze", "group": "tama", "args": ["tama_W4412887747.py", "--analyze"]},
+ {"name": "MedXpertQA run (cap 60)", "group": "medxpert", "args": ["medxpert_W4407012395.py", "--run", "--cap", "60"]},
+ {"name": "MedXpertQA analyze", "group": "medxpert", "args": ["medxpert_W4407012395.py", "--analyze"]}
+]

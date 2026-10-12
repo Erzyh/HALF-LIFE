@@ -1,0 +1,361 @@
+{
+  "card_id": "W4404781910",
+  "run_date_utc": "2026-10-01",
+  "target_paper": {
+    "title": "OffsetBias: Leveraging Debiased Data for Tuning Evaluators",
+    "repo": "https://github.com/ncsoft/offsetbias",
+    "repo_commit": "0bd16e4ac935315999ed23480c69673b675884b0",
+    "original_source": "paper Table 4 (= appendix Table 6), row GPT-4o-0513, n=160"
+  },
+  "generation": {
+    "model_requested": "gpt-5.6-sol",
+    "model_served": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0,
+    "substitute_snapshot": "none - gpt-4o-2024-05-13 is the snapshot the paper itself judged with (config/gpt-4o.yaml, Sec. 5.3)",
+    "parameters": "system + user message from prompt/llmbar.py via module.InferenceModule.make_conversation; temperature 0; max_tokens 20; no top_p and no seed (config/gpt-4o.yaml); endpoint POST https://api.openai.com/v1/chat/completions (harness/openai_client.py, raw HTTPS)",
+    "battery": "EvalBiasBench 160 samples (80 pairs x 2 orders) x 3 complete seeds = 480 archived calls in runs\\W4404781910\\successor_vendor/calls.jsonl; scored by the repository's own run_bench.add_parse_result / get_model_statistics; median over seeds; 95% CI = pair-level bootstrap (10000 resamples, rng 0)"
+  },
+  "results": {
+    "rows": {
+      "length": {
+        "acc": 100.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "orig": 91.2,
+        "orig_counts": [
+          31,
+          34
+        ],
+        "n": 34,
+        "delta": 8.8
+      },
+      "concreteness": {
+        "acc": 100.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "orig": 92.9,
+        "orig_counts": [
+          26,
+          28
+        ],
+        "n": 28,
+        "delta": 7.1
+      },
+      "empty_reference": {
+        "acc": 100.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "orig": 50.0,
+        "orig_counts": [
+          13,
+          26
+        ],
+        "n": 26,
+        "delta": 50.0
+      },
+      "content_continuation": {
+        "acc": 100.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "orig": 100.0,
+        "orig_counts": [
+          24,
+          24
+        ],
+        "n": 24,
+        "delta": 0.0
+      },
+      "nested_instruction": {
+        "acc": 100.0,
+        "per_seed": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "orig": 91.7,
+        "orig_counts": [
+          22,
+          24
+        ],
+        "n": 24,
+        "delta": 8.3
+      },
+      "familiar_knowledge": {
+        "acc": 87.5,
+        "per_seed": [
+          83.3,
+          91.7,
+          87.5
+        ],
+        "ci95": [
+          66.66666666666666,
+          100.0
+        ],
+        "orig": 95.8,
+        "orig_counts": [
+          23,
+          24
+        ],
+        "n": 24,
+        "delta": -8.3
+      },
+      "total": {
+        "acc": 98.1,
+        "per_seed": [
+          97.5,
+          98.8,
+          98.1
+        ],
+        "ci95": [
+          95.0,
+          100.0
+        ],
+        "orig": 86.9,
+        "delta": 11.2,
+        "n": 160,
+        "orig_band_binomial_80_pairs": [
+          79.51,
+          94.29
+        ],
+        "orig_inside_ci": false,
+        "rerun_inside_orig_band": false,
+        "positional_agreement": 100.0,
+        "orig_positional_agreement": "not reported for EvalBiasBench (Table 2 covers LLMBar / HHH / MT-Bench)"
+      }
+    },
+    "per_seed": {
+      "0": {
+        "cells": {
+          "length": 100.0,
+          "concreteness": 100.0,
+          "empty_reference": 100.0,
+          "content_continuation": 100.0,
+          "nested_instruction": 100.0,
+          "familiar_knowledge": 83.3
+        },
+        "counts": {
+          "length": [
+            34,
+            34
+          ],
+          "concreteness": [
+            28,
+            28
+          ],
+          "empty_reference": [
+            26,
+            26
+          ],
+          "content_continuation": [
+            24,
+            24
+          ],
+          "nested_instruction": [
+            24,
+            24
+          ],
+          "familiar_knowledge": [
+            20,
+            24
+          ]
+        },
+        "correct": 156,
+        "n": 160,
+        "total": 97.5,
+        "positional_agreement": 100.0,
+        "pair_agree": 80,
+        "pairs": 80
+      },
+      "1": {
+        "cells": {
+          "length": 100.0,
+          "concreteness": 100.0,
+          "empty_reference": 100.0,
+          "content_continuation": 100.0,
+          "nested_instruction": 100.0,
+          "familiar_knowledge": 91.7
+        },
+        "counts": {
+          "length": [
+            34,
+            34
+          ],
+          "concreteness": [
+            28,
+            28
+          ],
+          "empty_reference": [
+            26,
+            26
+          ],
+          "content_continuation": [
+            24,
+            24
+          ],
+          "nested_instruction": [
+            24,
+            24
+          ],
+          "familiar_knowledge": [
+            22,
+            24
+          ]
+        },
+        "correct": 158,
+        "n": 160,
+        "total": 98.8,
+        "positional_agreement": 100.0,
+        "pair_agree": 80,
+        "pairs": 80
+      },
+      "2": {
+        "cells": {
+          "length": 100.0,
+          "concreteness": 100.0,
+          "empty_reference": 100.0,
+          "content_continuation": 100.0,
+          "nested_instruction": 100.0,
+          "familiar_knowledge": 87.5
+        },
+        "counts": {
+          "length": [
+            34,
+            34
+          ],
+          "concreteness": [
+            28,
+            28
+          ],
+          "empty_reference": [
+            26,
+            26
+          ],
+          "content_continuation": [
+            24,
+            24
+          ],
+          "nested_instruction": [
+            24,
+            24
+          ],
+          "familiar_knowledge": [
+            21,
+            24
+          ]
+        },
+        "correct": 157,
+        "n": 160,
+        "total": 98.1,
+        "positional_agreement": 98.8,
+        "pair_agree": 79,
+        "pairs": 80
+      }
+    },
+    "incomplete_seeds_dropped": {},
+    "comparators": {
+      "offsetbias_8b": 85.0,
+      "llama3_8b_base_data": 66.3,
+      "gpt_3_5_turbo_0613": 45.0,
+      "chance": 50.0
+    },
+    "bootstrap": {
+      "total_ci95": [
+        95.0,
+        100.0
+      ],
+      "n_boot": 10000,
+      "seed": 0,
+      "unit": "pair (80 pairs, both orders resampled together)",
+      "cells_ci95": {
+        "length": [
+          100.0,
+          100.0
+        ],
+        "concreteness": [
+          100.0,
+          100.0
+        ],
+        "empty_reference": [
+          100.0,
+          100.0
+        ],
+        "content_continuation": [
+          100.0,
+          100.0
+        ],
+        "nested_instruction": [
+          100.0,
+          100.0
+        ],
+        "familiar_knowledge": [
+          66.66666666666666,
+          100.0
+        ]
+      }
+    },
+    "cost_usd": 0.9593,
+    "calls": 480,
+    "errors": 0,
+    "call_log_stats": {
+      "finish_reasons": {
+        "stop": 480
+      },
+      "empty_replies": 0,
+      "distinct_fingerprints": 0,
+      "tokens_in": 207564,
+      "tokens_out": 6453
+    },
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as the card instantiates it: survived = median total (3 seeds) inside the binomial band around the original 86.9 over 80 pairs AND far above chance AND at or above OffsetBias-8B 85.0; partial = outside the band but clearly above chance and above the 8B baselines; dead = at or near chance, or the ordering against OffsetBias-8B inverts by more than the CI. The six cells are secondary evidence. Human double-coding pending",
+    "note": "total 98.1 vs paper 86.9 (delta +11.2), 95% CI [95.0, 100.0] over the 80 pairs; original binomial band [79.51, 94.29]; comparators OffsetBias-8B 85.0, GPT-3.5-0613 45.0, chance 50.0; positional agreement 100.0. Empty-reference cell 100.0 (paper 50.0): clearly above chance, a reportable change. clearly above chance and above the 8B baselines, but outside the original band [79.51, 94.29] or below 85.0"
+  },
+  "environment_check": {
+    "file": "runs\\W4404781910\\successor_vendor\\environment_check.json",
+    "repo_head_matches_card": null,
+    "table4_arithmetic_reproduced": null
+  },
+  "reproducibility_frictions_observed": [
+    "item-level original judge outputs were never released (only Table 4 percentages at one decimal), so agreement with the 2024 run can be compared only at the accuracy level; the original per-cell counts used here are reconstructed from the printed percentages, each of which has a unique integer pre-image",
+    "module.py imports torch, transformers, vllm, fastchat and openai at module level although the OpenAI / biasbench path uses none of them; vllm and fastchat are not installable on this machine, so the adapter stubs them to reach InferenceModule's renderer and parser",
+    "run_bench.py opens its JSON files with the platform default encoding; on this Windows locale (cp949) the repository's own data loader raises UnicodeDecodeError, so text mode is forced to UTF-8 around the repository's calls",
+    "requirements.txt is unpinned (the openai SDK version of the original run is unknown); the re-run posts the same chat-completions body over raw HTTPS and logs the served model and system fingerprint",
+    "biasbench rows bypass run_bench.make_data_row, so they carry no id and are not stripped: item identity is positional (subset + index)",
+    "the card's protocol.messages paraphrase quotes '[Output (a)]'; the repository template asks for '\"Output (a)\"' and the parser regex requires 'Output (a)' at the start of a line, so a bracketed reply is label 4 = incorrect",
+    "the empty-reference cell rests on 13 pairs, so one flipped pair moves it by 7.7 pp (observed 100.0 vs 50.0, CI [100.0, 100.0]); it is not judged on its own",
+    "temperature 0 over the API is not deterministic; 3 complete seeds were run and the median is judged (per-seed totals [97.5, 98.8, 98.1])"
+  ]
+}

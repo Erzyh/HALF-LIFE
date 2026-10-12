@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7104423191",
+  "title": "Evaluating LLM-Generated Legal Explanations for Regulatory Compliance in Social Media Influencer Marketing",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-5-nano",
+    "resolved": "gpt-5-nano-2025-08-07",
+    "role": "S",
+    "evidence": "\"we compare gpt-5-nano and gemini-2.5-flash-lite under three prompting strategies\"; Table 2 row \"gpt-5-nano no_article 0.94 0.91 0.92\" (P/R/F1)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (base instruction prompt); Appendix B, Table 4 (worked examples)",
+    "note": "Three prompting strategies vary how much of the regulatory text/legislation titles are included alongside the base instruction."
+  },
+  "claim": {
+    "metric": "F1, no_article prompting strategy, whole dataset",
+    "value": 0.92,
+    "n_items": 1143,
+    "location": "Table 2, row 'gpt-5-nano no_article'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "1,143 Instagram posts collected by the authors; social-media platform ToS makes redistribution of the raw posts uncertain (not confirmed released)"
+  },
+  "cost": {
+    "est_calls": 3429,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "gpt-4.1-nano (also on the still-callable list) is tested too but is reported to consistently underperform and is dropped from further analysis in favor of gpt-5-nano and gemini-2.5-flash-lite. A 35-post subset is separately analyzed for ambiguous/error cases (Tables 5-7)."
+}

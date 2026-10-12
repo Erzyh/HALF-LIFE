@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4417264955",
+ "title": "Co-inference and collaboration: empowering higher education staff and students through a GenAI literacy development framework based on mind-metaphors",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Table 1 (\"OpenAI models: impact on agency over time\"), row \"Mar-23 [sic] OpenAI ChatGPT 4 Turbo\" with qualitative \"Human Agency\"/\"Machine Agency\" descriptors, not benchmark scores."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - conceptual/pedagogical framework paper, no original experiment",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (Table 1 is a qualitative timeline of model releases, not a capability measurement)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is an educational-framework/opinion piece about GenAI literacy (\"mind-metaphors\"); no LLM is queried by the authors. GPT-4 Turbo, GPT-4o and o3-mini all appear only in a descriptive timeline table."
+}

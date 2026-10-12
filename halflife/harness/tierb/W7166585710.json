@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166585710",
+  "title": "Understanding Irony through Explanations and Background Knowledge",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 3.2: 'we included a proprietary model, GPT-4-turbo (gpt-4-turbo-2024-04-09), and two open source models: Mixtral ... and Llama 3'; default temperature, three in-context examples."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (Prompt Template for Explanation); Appendix C (knowledge-extraction prompts)",
+    "note": "Three in-context examples are used with GPT-4 Turbo; default temperature."
+  },
+  "claim": {
+    "metric": "adequacy (human rating, 0-1)",
+    "value": 0.72,
+    "n_items": 80,
+    "location": "Table 2, row GPT-4 Turbo, column Adequacy Avg.",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "iRONNIE test set (HF: Amala3/iRONNIE_EN_evalset, 80 tweets); train set Amala3/iRONNIE_train (50)"
+  },
+  "cost": {
+    "est_calls": 80,
+    "tier": "low"
+  },
+  "blockers": [
+    "human_outcome"
+  ],
+  "notes": "Explanation quality is rated by human annotators (adequacy, human-likeness, ranking). Knowledge-extraction numbers (Tables 4-5) use unsnapshotted GPT-4o with manual soft precision/recall or similarity to human-written knowledge; GPT-4o is not in the live_ids column."
+}

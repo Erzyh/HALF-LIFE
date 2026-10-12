@@ -1,0 +1,70 @@
+{
+  "wid": "W4412714694",
+  "title": "LA-RCS: LLM-agent-based Robot Control System",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (the paper states no decoding parameters for the baseline condition)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 20,
+    "subset_rule": "the 20 benchmark user requests of Sec. 4.1 (5 each for object detection, command execution, obstacle navigation, situational awareness); each request was run three times and the best run kept",
+    "approximation": "The claim is the 'GPT-4 Turbo (Human Surrogate)' baseline: the model is asked for step-by-step guidance and a human operator executes the steps on the CAROBO robot. Only the guidance text can be produced by an API call; whether a request succeeded is decided by running the steps on the robot."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "the 20 user requests are printed in Tables 2-5 (one table per domain); the project site https://la-rcs.github.io exists (HTTP 200) but publishes no dataset file",
+    "config_or_split": "all four domains",
+    "filter": null,
+    "fields": {
+      "input": "request",
+      "label": "success",
+      "id": "request_id"
+    },
+    "license": "unknown (no dataset release)",
+    "access_checked": true,
+    "size_mb": 0,
+    "inline": null
+  },
+  "prompt": {
+    "system": "not printed: Sec. 3 says the LLM agent uses 'several shot-prompting methods' through a system message; Sec. 4.1 says the baselines were 'directed to provide step-by-step guidance'",
+    "user_template": "not printed; the user message is one of the 20 benchmark requests, e.g. 'Move around and search for the location of the refrigerator'",
+    "placeholders": {
+      "request": "items.request"
+    },
+    "few_shot": "unstated ('several shot-prompting methods'; the examples are not printed)",
+    "source_location": "Sec. 3 (system-message framing) and Sec. 4.1 (baseline instruction)",
+    "verbatim": "none"
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the reply is a list of steps for a human operator"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "success rate: the share of the 20 requests a human operator could complete by executing the model's steps on the robot; a request counts as failed when the model declares completion without the task being done or loops on meaningless movements (Sec. 4.1)",
+    "judge": "human operator plus the physical CAROBO robot",
+    "original_value": 45,
+    "original_location": "Table 1, row 'GPT-4 Turbo (Human Surrogate)', column Success rate (%) (average step count 9.5)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 60,
+    "est_usd": 1.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "No prompt text is printed: only the framing (system message, few-shot) is described, and the number and content of the shots are unknown.",
+    "The metric cannot be computed from model output: success is decided by a human operator executing the steps on a physical robot in the authors' environment.",
+    "Best-of-three scoring: each request was run three times and the best run kept, which is not one of the harness's aggregation rules."
+  ],
+  "notes": "The full agentic condition 'LA-RCS (GPT-4 Turbo)' (60% success, Table 1) needs the robot interface as well, so it is no more reproducible than the surrogate baseline. Fig. 3 gives the per-domain rates and Tables 2-5 the per-request outcomes."
+}

@@ -1,0 +1,51 @@
+{
+  "openalex_id": "https://openalex.org/W4402684150",
+  "title": "Evaluating Very Long-Term Conversational Memory of LLM Agents",
+  "doi": "https://doi.org/10.18653/v1/2024.acl-long.747",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gemini-1.0-pro|text-davinci-003",
+  "flags": "agentic/heavy",
+  "all_links": [
+    "github.com/shmsw25/FActScore",
+    "github.com/shmsw25/FActScore13867Write"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/shmsw25/FActScore",
+      "cloned": true,
+      "audit": {
+        "n_files": 18,
+        "ext_top": {
+          ".py": 12,
+          "": 2,
+          ".txt": 2,
+          ".toml": 1,
+          ".md": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 12,
+        "n_data_files": 0,
+        "files_mentioning_prompt": 7,
+        "files_with_eval_terms": 10,
+        "model_ids_in_code": {
+          "gpt-3.5-turbo": 4,
+          "gpt-4": 1,
+          "gpt-3.5-turbo-0301": 1
+        },
+        "readme_head": "# FActScore\n\n[![made-with-python](https://img.shields.io/badge/Made%20with-Python-red.svg)](#python)\n[![arxiv](https://img.shields.io/badge/arXiv-2305.14251-b31b1b.svg)](https://arxiv.org/abs/2305.14251)\n[![PyPI version factscore](https://badge.fury.io/py/factscore.svg)](https://pypi.python.org/pypi/factscore/)\n[![Downloads](https://pepy.tech/badge/factscore)](https://pepy.tech/project/factscore)\n\nThis is the official release accompanying our EMNLP 2023 paper, [FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation](https://arxiv.org/abs/2305.14251). FActScore is available as a PIP package as well.\n\nIf you find FActScore useful, please cite:\n```\n@inproceedings{ factscore,\n    title={ {FActScore}: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation },\n    author={ Min, Sewon and Krishna, Kalpesh and Lyu, Xinxi and Lewis, Mike and Yih, Wen-tau and Koh, Pang Wei and Iyyer, Mohit and Zettlemoyer, Luke and Hajishirzi, Hannaneh },\n    year={ 2023 },\n    booktitle = { EMNLP },\n    url={ https://arxiv.org/abs/2305.14251 }\n}\n```\n\n## Announcement\n* **11/04/2023**: The data we release includes human annotations of factual precision reported in Section 3 of [the paper](https://arxiv.org/abs/2305.14251). If you want to download these human annotated data *only*, without other data, you can download it directly from [this Google Drive link](https://drive.google.com/drive/folders/1kFey69z8hGXScln01mVxrOhrqgM62X7I?usp=sharing)"
+      },
+      "commit": "f28272deffcf33efc1f1117d5479c10bb75221a9"
+    },
+    {
+      "url": "https://github.com/shmsw25/FActScore13867Write",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4402684150.txt",
+  "paper_text_status": "pdf"
+}

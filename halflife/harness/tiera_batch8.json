@@ -1,0 +1,22 @@
+[
+ {
+  "name": "ACCORD run (cap 25)",
+  "group": "accord",
+  "args": [
+   "accord_W4399442646.py",
+   "--run",
+   "--cap",
+   "25",
+   "--workers",
+   "3"
+  ]
+ },
+ {
+  "name": "ACCORD analyze",
+  "group": "accord",
+  "args": [
+   "accord_W4399442646.py",
+   "--analyze"
+  ]
+ }
+]

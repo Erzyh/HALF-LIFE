@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7160514285",
+ "title": "Large Language Models Show Metacognitive Sensitivity in Medical Reasoning",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano",
+  "resolved": "gpt-4.1-nano",
+  "role": "S",
+  "evidence": "Sec. 2.7: \"The primary pilot reported here used gpt-4.1-nano, accessed through the OpenAI Responses API.\" Table 2 reports forced-choice accuracy 0.935."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 2.6 (3 prompt variants P01-P03, required JSON schema fields); full templates released in code repo",
+  "note": "Structure and required JSON fields (diagnosis, confidence, more_information_needed) are described precisely; exact wording not quoted in the paper body."
+ },
+ "claim": {
+  "metric": "forced-choice diagnostic accuracy",
+  "value": 0.935,
+  "n_items": 108,
+  "location": "Table 2 (row gpt-4.1-nano); 135 total trials, 108 forced-choice (Sec. 3.1)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Synthetic vignettes, prompts and code at https://github.com/anazz-dev/medical-llm-metacognition-benchmark"
+ },
+ "cost": {
+  "est_calls": 405,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Exploratory cross-model comparison (Table 8) also runs gpt-4.1-mini, gpt-5-nano, gpt-5, gpt-5.5 (all undated mentions) on the same 135-trial manifest; only gpt-4.1-nano is a clearly resolvable still-callable alias. Small single-author pilot (45 vignettes x 3 prompt variants)."
+}

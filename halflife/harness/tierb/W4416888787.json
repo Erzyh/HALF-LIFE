@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416888787",
+  "title": "Why you shouldn't fully trust ChatGPT: A synthesis of this AI tool's error rates across disciplines and the software engineering lifecycle",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "how its reliability varies by task, domain, and model version (GPT-3.5, GPT-4, GPT-4-turbo, GPT-4o) (Abstract; literature synthesis)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Literature synthesis; no experiments."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "n/a (synthesis of published studies)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Review paper."
+}

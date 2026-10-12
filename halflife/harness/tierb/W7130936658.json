@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7130936658",
+ "title": "Clinical Evaluation of a PACS-Integrated Deep Learning Tool for Intracranial Hemorrhage Severity Assessment: Comparison with LLM-Based Report Interpretation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "'Three LLMs: Claude Sonnet 4, GPT-4 Turbo (gpt-4-turbo-2024-04-09, OpenAI), Gemini 2.0 Flash...API calls Jan 8, 2026...temperature 0.1'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 2.4 (prose): 'standardized prompt instructing it to act as an expert clinician...classify hemorrhage severity into three categories...mild/moderate/severe criteria given'; Figure 3 (pipeline diagram)",
+  "note": "Prompt content/criteria are thoroughly described but not shown as a literal quoted block."
+ },
+ "claim": {
+  "metric": "agreement/classification statistic for GPT-4 Turbo severity classification (specific model-level number not located in the excerpt read)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a (later results tables not reached in the excerpt read)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Institutional radiology reports and CT studies; 'clinical data remaining within the institutional environment throughout the process'"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Model, dating, and temperature are cleanly specified, and the prompt's clinical criteria are described in detail, but the radiology-report inputs are explicitly institutional/non-public data, blocking re-execution regardless of prompt quality."
+}

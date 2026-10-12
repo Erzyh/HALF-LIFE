@@ -1,0 +1,417 @@
+﻿model_string,count
+GPT-4o,26
+GPT-4o-mini,12
+o3-mini,10
+GPT-4,8
+GPT-5,8
+gpt-4-1106-preview,7
+Claude-3.5-Sonnet,6
+GPT-4-Turbo,6
+GPT-5-mini,6
+Gemini-2.5-Pro,6
+Gemini-2.5-Flash,6
+text-davinci-003,5
+gpt-3.5-turbo,5
+Qwen3-Max,5
+gpt-4-0613,5
+gpt-5-2025-08-07,5
+Gemini-1.5-Pro,5
+Qwen2.5-3B-Instruct,5
+Qwen2.5-7B-Instruct,5
+Qwen2.5-Coder-32B,5
+GPT-3,4
+GPT-3.5,4
+gpt-3.5-turbo-0301,4
+gpt-4-0314,4
+Molmo-7B-D,4
+Cambrian-1-8B,4
+Qwen2-VL-7B,4
+Llama-3.2-11B,4
+Qwen2.5-Coder-3B,4
+watt-tool-8B,4
+Functionary-v3.1,4
+Phi-4,4
+Qwen2.5-72B-Instruct,4
+Deepseek-V3,4
+Deepseek-R1,4
+o1-mini,4
+GLM-Zero,4
+gemini-2.0-flash,4
+gemini-2.0-pro,4
+DeepSeek-chat-V3.2,4
+Qwen3-8B,4
+gpt-4-turbo,4
+GPT-o4-mini,4
+GPT-o3,4
+Claude-Sonnet-4,4
+GLM-4.5V,4
+GPT-4-turbo,4
+gemini-3-flash-preview,4
+qwen3-30b-a3b-thinking-2507,4
+o3,4
+GPT-4.1,4
+Pixtral-12B,4
+ChatGPTv1,3
+ChatGPTv2,3
+TinyLlama-1.1B,3
+Qwen2.5-Coder-7B,3
+GPT4o-mini,3
+GPT2,3
+Llama-2-7b-hf,3
+Mistral-7B-v0.1,3
+Vicuna-7B,3
+Mistral-7B-Instruct-v0.1,3
+Llama-2-13b-chat-hf,3
+gemini-1.5-pro,3
+OPT-2.7B,3
+Qwen-2.5-VL-72B,3
+Gemma-1.1-7B,3
+PaLM-2,3
+davinci,3
+Gemini-1.5-Flash,3
+ChatGLM-6b,3
+Qwen-32B-instruct,3
+LLaVA-Next-8b,3
+DeepSeek-Coder-7B-v1.5,3
+DeepSeek-Coder-1.3B,3
+ToolACE-8B,3
+Hammer2.1-7b,3
+Hammer2.0-7b,3
+glm-4-9b-chat,3
+Claude-sonnet-4-20250514,3
+Gemini-3-pro-preview,3
+Qwen3-4B-Instruct-2507,3
+Llama-3.1-8B-Instruct,3
+Mistral-7B-Instruct-v0.3,3
+text-embedding-ada-002,3
+LLaMA-3.1-70B-Instruct,3
+LLaMA-3.1-8B-Instruct,3
+o4-mini-2025-04-16,3
+gpt-3.5-turbo-1106,3
+FinMA-7B,3
+FinMA-7B-full,3
+Gemini-Pro,3
+LLaMA-2 70B (Q8_0),3
+DeepSeek-Coder-V2-Lite-Instruct-16B,3
+llama-3.3-70b-instruct,3
+qwen3-30b-a3b-instruct-2507,3
+Gemma 3 27B Instruct,3
+InternVL2.5 8B MPO,3
+Qwen 3 32B,3
+DeepSeek R1,3
+Mistral Large Instruct,3
+Codestral 22B,3
+미세조정),3
+Llama3-8B-Base,2
+GPT-3.5-Turbo,2
+Llama-3.2-1B,2
+Gemini 1.5 Pro,2
+Qwen2.5-7B,2
+GPT4o,2
+Claude-3.5-sonnet,2
+Claude3.5-sonnet,2
+Gemini,2
+Llama-2-7b-chat-hf,2
+GPT5,2
+Gemini-2.5-pro,2
+GPT-3.5 (text-davinci-003),2
+text-davinci-002,2
+Claude 3.5 Sonnet,2
+Qwen2.5-0.5B-Instruct,2
+Qwen2.5-1.5B-Instruct,2
+LLaMA3-8B-Base,2
+Qwen2.5-Instruct-14B,2
+GPT-4o-2024-08-06,2
+RandomForestClassifier,2
+Qwen2-0.5B,2
+Gemma-2b-it,2
+Yi-1.5-9B-Chat-16K,2
+gpt-35-turbo-0301,2
+bert-base-uncased,2
+gpt-3.5-turbo-0613,2
+ChatGPT,2
+Chat GPT 4o,2
+Google Gemini,2
+gpt-4o-2024-08-06,2
+FinTral-DPO-T&R,2
+FinTral-VL,2
+FinTral-DPO,2
+FinTral-INST,2
+FinMA-7B-trade,2
+QwenVL-Plus,2
+GPT-4V,2
+gpt-4o-2024-05-13,2
+claude-3-opus-20240229,2
+gemini-1.5-pro-latest,2
+GPT-4-1106-preview,2
+gpt-4-turbo-preview,2
+claude-3-opus,2
+LLaMA 2-7B,2
+LLaMA 2-13B,2
+LLaMA 3.1-8B Instruct,2
+ICLM-7B,2
+Mistral-7B,2
+Zephyr-7B,2
+Gemma3-27B,2
+CodeLlama-34B,2
+Llama3.3-70B,2
+DeepSeek-R1-70B,2
+Qwen2.5-72B,2
+Llama-3-8B-Instruct,2
+Llama-3-8B,2
+Mistral-Medium,2
+GPT-4 turbo,2
+Llama 3.1 8B Instruct,2
+GPT-4.1 Mini,2
+Claude,2
+Llama2-Chat (70B),2
+PaLM-2  Llama2-Chat-70B,1
+Pixtral-12B GPT-4o-mini,1
+Gemini-1.5-flash,1
+Gemini-1.5-pro,1
+Claude 3 Haiku,1
+qwen2-0.B,1
+Gemma-27B,1
+Gemini 2.5 Pro preview,1
+gemini 2.5flash,1
+Qwen2.5-3B-Instrcut,1
+ToolAce-8B,1
+Hammer2.1-7B,1
+Hammer2.0-7B,1
+Yi-1.5-9B-Chat-16k,1
+glm-4.9b-chat,1
+GPT-5-mini-,1
+Gemini-2.5-flash,1
+Gemini2.5-Pro,1
+Gemini.3.0-Pro-Preview,1
+Qwen3-8b(no Think),1
+Qwen3-4b-Instruct-2507,1
+Llam-3.1-8-Instruct,1
+Mistral-7B-Instrct-v0.3,1
+claude-sonnet4-20250514,1
+GPT4,1
+Gemini2.0-flash,1
+LLaMa-3.1-70B-Instrct,1
+LLaMa-3.1-8B-Instruct,1
+FInMA-7B-trade,1
+FInMa-7B,1
+Finda-7B-FUll,1
+FInTral_INST,1
+Gpt-3.5-turbo-1106,1
+FInTral-DPO,1
+FInTral-DPO-T&R,1
+Gemini-3-pro,1
+Claide-Sonnet-4,1
+Grok-4.1-fast,1
+Grok-4-Fast,1
+o4-mini,1
+GLM-4.6V,1
+GLM4.5V,1
+Qwen3-VL-235B,1
+Claude-Opus-3,1
+LLaMA-2-70B(Q8_0),1
+LLaMA-2-7B,1
+LLaMA-2-13B,1
+LLaMA-3.1-8B Instruct,1
+4o-mini,1
+"DeepSeek-Coder-V2-Lite-Instruct-16B 
+Qwen2.5-Coder-32B
+CodeLlama-34B
+Llama3.3-70B
+DeepSeek-R1-70B
+Qwen2.5-72B",1
+GPT5-mini,1
+Gemini-.25-flash,1
+LLama-3-8B,1
+Mistral,1
+llama3.3-70b-instruct,1
+qwen3-30b-a3b-instruct-2507.,1
+Llama3.1-8B-Instruct,1
+Gemma-3-27B-Instruct,1
+InternVL2.5-8B-MPO,1
+Qwen3-32B,1
+DeepSeek-R1,1
+Mistral_Large_Instruct,1
+Codestral_22B,1
+GPT-4.1.mini,1
+Llama2-Chat (70B version),1
+BLEURT-20,1
+NUBIA,1
+ConvNeXt Large@512,1
+ConvNeXt XXLarge@512,1
+ViT-g/14@224,1
+ViT-H/14@224,1
+ViT-L/14@224,1
+SigLIP@224 (ViT),1
+DINOv2 Giant@224 (ViT),1
+DINOv2 Large@224 (ViT),1
+sentence-transformers/all-distilroberta-v1,1
+Bart-large,1
+없음,1
+Grounding DINO 1.5,1
+SAM ViT-B,1
+XGBClassifier,1
+LogisticRegression,1
+all-mpnet-base-v2,1
+facebook/bart-large-mnli,1
+Grok-4-Heavy,1
+Grok-4,1
+Grok-3,1
+Grok-2,1
+Gemini 2.5 Pro Preview,1
+Gemini 2.5 Flash,1
+Gemma 3 27B,1
+Qwen2.5-Coder-7B-Instruct,1
+Qwen2.5-Coder-3B-Instruct,1
+m3rg-iitd/matscibert,1
+allenai/scibert_scivocab_uncased,1
+microsoft/deberta-v2-xxlarge,1
+BARTxsum,1
+BARTxsum+pseudo,1
+BARTbase,1
+PEGASUSxsum,1
+BARTcnn,1
+T5,1
+BARTXsum+A,1
+BARTXsum+X,1
+LED+A,1
+LED+X,1
+A2TMetric,1
+wmt20-comet-da,1
+wmt21-comet-qe-mqm,1
+BERTScore,1
+MoverScore,1
+BARTScore,1
+MENLI,1
+직접 실행한 모델 없음,1
+Llama 3,1
+gpt-4o-mini-2024-07-18,1
+gemini-2.0-flash-001,1
+claude-3-5-sonnet-20241022,1
+FinTral,1
+LLaMa-7B-chat,1
+LLaVA Vicuna-7B,1
+InstructBLIP Vicuna-7B,1
+LLaVA-1.5 Vicuna-13B,1
+Qwen-VL-Chat Qwen-7B,1
+LLaVa-NEXT Yi-34B,1
+CLIP,1
+BGE,1
+ELECTRA Finance domain-specific language model,1
+FinBERT.,1
+gemini-3-pro-preview,1
+gemini-2.5-pro,1
+anthropic/claude-sonnet-4,1
+x-ai/grok-4.1-fast,1
+x-ai/grok-4-fast,1
+z-ai/glm-4.6v,1
+z-ai/glm-4.5v,1
+Qwen/Qwen3-VL-235B-A22B-Thinking,1
+Llama3.3-8B,1
+Reward Model,1
+Qwen2.5-VL-72B-Instruct,1
+Qwen2.5-VL 7B Instruct,1
+videollama3-7b-local,1
+llava-video-7b-local,1
+AgentDriver,1
+DiLu,1
+GPT-Driver,1
+LLM-Assist,1
+RMT-Retrieval(137M),1
+RMT(137M),1
+GPT-2 137M,1
+ft:gpt-3.5-turbo-1106:personal:babilong-qa1:8nZsdRrH,1
+ChatGPT (July 2023),1
+ChatGPT (December 2022),1
+Qwen2.5-1.5B-Instruct (Euclid,1
+Qwen-2.5-0.5B,1
+Qwen-2.5-3B,1
+gpt-3.5-turbo (Azure),1
+BART-large (rank 모델 미세조정·SFT 베이스라인),1
+all-distilroberta-v1 (S-BERT),1
+Qwen2.5-14B-Instruct,1
+Qwen2.5-7B-Instruct (미세조정),1
+MatSciBERT,1
+scibert_scivocab_uncased,1
+deberta-v2-xxlarge,1
+BART-xsum (미세조정),1
+BART-base,1
+T5-small,1
+PEGASUS-xsum,1
+BART-cnn,1
+GPT-4 (초록 기준),1
+Gemini-2.0-Flash,1
+Mistral-7B-v0.1 (FinTral,1
+Mistral-7B-Instruct,1
+Llama-2-7b-chat,1
+Llama-2-13b-chat,1
+Gemini 3 Pro,1
+Gemini 2.5 Pro,1
+o4-Mini,1
+Claude Sonnet 4,1
+Grok 4.1 Fast,1
+Grok 4 Fast,1
+GLM 4.6V,1
+GLM 4.5V,1
+Qwen3-VL-235B 외,1
+o3-mini (+ 탐침 대상 unlearned 모델: 미확인),1
+Gemma3-27B (외 평가 모델 4종 미확인),1
+Llama-3-8B-Instruct (미세조정),1
+Llama (버전 미확인),1
+Gemma (버전 미확인),1
+GPT-2 (RMT,1
+Mistral (32k),1
+GPT-4.1 Mini 외,1
+Euclid-ConvNeXt-Large,1
+Euclid-ConvNeXt-XXLarge,1
+Llama-3.2-1B | 추가 탈옥 성공 여부에는 Grok-4,1
+Grok-4 Heavy,1
+Gemini-2.5-Pro 추가 사용,1
+"GPT-4 (gpt-4-1106-preview)
+MatSciBERT (m3rg-iitd/matscibert)
+DeBERTa (deberta-v2-xxlarge)
+BERT (bert-base-uncased)
+SciBERT (scibert_scivocab_uncased)
+GPT-3.5-turbo (gpt-35-turbo-0301)",1
+"BART base
+GPT2
+T5 small
+PEGASUS large
+BART large
+BART large
+gpt-3.5-turbo-0613",1
+Anthropic Claude 3.5 (Sonnet),1
+Llama 3 (Uncensored Dolphin Model),1
+GPT-4o (gpt-4o-2024-08-06),1
+GPT-4o-mini (gpt-4o-mini-2024-07-18),1
+Gemini-2.0-Flash (gemini-2.0-flash-001),1
+Claude-3.5-Sonnet (claude-3-5-sonnet-20241022),1
+o4-mini (o4-mini-2025-04-16),1
+ChatGPT (gpt-3.5-turbo / gpt-3.5-turbo-1106),1
+GPT-4 (gpt-4-0613),1
+LLaMa-7B-chat (Llama-2-7b-chat-hf),1
+GPT-4-Turbo (gpt-4-1106-preview),1
+Qwen-VL-Plus,1
+LLaVa-NEXT (Yi-34B),1
+LLaVA (Vicuna-7B),1
+InstructBLIP (Vicuna-7B),1
+LLaVA-1.5 (Vicuna-13B),1
+Qwen-VL-Chat (Qwen-7B),1
+Llama-70B,1
+Gemini 3 Pro (gemini-3-pro-preview),1
+Gemini 2.5 Pro (gemini-2.5-pro),1
+GPT-5 (gpt-5-2025-08-07),1
+o4-Mini (o4-mini-2025-04-16),1
+Claude Sonnet 4 (anthropic/claude-sonnet-4),1
+Grok 4.1 Fast (x-ai/grok-4.1-fast),1
+Grok 4 Fast (x-ai/grok-4-fast),1
+GLM 4.6V (z-ai/glm-4.6v),1
+GLM 4.5V (z-ai/glm-4.5v),1
+Qwen3-VL-235B (Qwen/Qwen3-VL-235B-A22B-Thinking),1
+GPT-4o (gpt-4o-2024-05-13),1
+Claude 3 Opus (claude-3-opus-20240229),1
+Gemini 1.5 Pro (gemini-1.5-pro-latest),1
+GPT-4 Turbo (gpt-4-1106-preview),1
+GPT-4o mini,1
+OpenAI o3-mini,1
+GPT-2 (137M),1

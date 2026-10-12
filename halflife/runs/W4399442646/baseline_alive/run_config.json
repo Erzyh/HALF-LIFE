@@ -1,0 +1,71 @@
+{
+  "card_id": "W4399442646",
+  "model": "gpt-4o-2024-05-13",
+  "items": 2864,
+  "seeds": 3,
+  "calls": 8592,
+  "cap_usd": 25.0,
+  "max_tokens": 20,
+  "api_seed": 314159,
+  "response_format": "json_object",
+  "temperature": "not sent (OpenAI default 1.0)",
+  "repo_commit": "dd75a4e0429877407b1059c617eee4a45c39fda0",
+  "estimate": {
+    "calls": 8592,
+    "tokens_in": 3758457,
+    "tokens_out_expected": 51552,
+    "tokens_out_max": 171840,
+    "usd_expected": 19.565565,
+    "usd_max_tokens_bound": 21.369885,
+    "tokens_per_word": 1.5205590348577531,
+    "per_size": {
+      "0": {
+        "items": 74,
+        "measured": true,
+        "tokens_in": 8167
+      },
+      "1": {
+        "items": 186,
+        "measured": true,
+        "tokens_in": 45054
+      },
+      "2": {
+        "items": 372,
+        "measured": true,
+        "tokens_in": 116300
+      },
+      "3": {
+        "items": 558,
+        "measured": true,
+        "tokens_in": 219395
+      },
+      "4": {
+        "items": 744,
+        "measured": true,
+        "tokens_in": 350528
+      },
+      "5": {
+        "items": 930,
+        "measured": true,
+        "tokens_in": 513375
+      }
+    },
+    "pricing": {
+      "input": 5.0,
+      "output": 15.0
+    },
+    "encoding": "o200k_base",
+    "seeds": 3,
+    "sizes_measured": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "sizes_extrapolated": []
+  },
+  "built_utc": "2026-09-21T09:50:47.824876+00:00",
+  "decisions": "card key decisions_2026_09_19"
+}

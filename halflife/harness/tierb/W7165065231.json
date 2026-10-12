@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7165065231",
+ "title": "Intelligent Multimodal Retrieval and Reasoning for Geospatial Knowledge Discovery on the I-GUIDE Platform",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "o1-2024-12-17",
+  "resolved": "o1-2024-12-17",
+  "role": "A",
+  "evidence": "Sec 5.2: \"The 170 canonical user-facing questions were first drafted with o1-2024-12-17 in May 2025 to test the behavior of the production pipeline.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt for the o1 question-drafting step is shown; the fixed system prompt quoted (\"You are a geospatial expert assistant...\") is for the RAG baselines being compared, not for o1's role."
+ },
+ "claim": {
+  "metric": "none for o1 (used only to draft candidate benchmark questions, not evaluated itself)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "I-GUIDE knowledge base; 170-question benchmark derived from it plus 100 regenerated + 262 ablation rows (release status not stated in excerpt reviewed)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-5-mini (undated in text) is separately used as a blind LLM-judge scoring the paper's own RAG-pipeline comparison (Faithfulness/Correctness/Completeness, Table 2), with a human calibration check on n=50 (Table 8: judge-human kappa 0.25 faithfulness, 0.52 correctness, 0.69 completeness) — role A judging the paper's own system rather than being a measured subject, and the 50-item audit sample is an internal anonymized set rather than a released dataset."
+}

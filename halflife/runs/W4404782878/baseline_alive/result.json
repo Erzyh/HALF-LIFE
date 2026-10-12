@@ -1,0 +1,234 @@
+{
+  "card": "W4404782878",
+  "model": "gpt-4o-2024-05-13",
+  "run_dir": "runs\\W4404782878\\baseline_alive",
+  "n_calls": 4260,
+  "cost_usd": 15.6188,
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 4
+  },
+  "parse_modes": {
+    "strict": 3896,
+    "subject": 286,
+    "unparsable": 20,
+    "however": 47,
+    "lenient": 9,
+    "tie-words": 1,
+    "line": 1
+  },
+  "finish_reasons": {
+    "stop": 3560,
+    "length": 700
+  },
+  "votes_per_pair": {
+    "6": 710
+  },
+  "order_agreement": 0.6247,
+  "original": {
+    "table1_asr": {
+      "GPT-4o": {
+        "factual_error": 0.06,
+        "gender": 0.16,
+        "reference": 0.32,
+        "rich_content": 0.07,
+        "avg_rank": 2.0
+      },
+      "Claude-3": {
+        "factual_error": 0.08,
+        "gender": 0.13,
+        "reference": 0.7,
+        "rich_content": 0.04
+      },
+      "Human": {
+        "factual_error": 0.21,
+        "gender": 0.06,
+        "reference": 0.37,
+        "rich_content": 0.47
+      },
+      "GPT-4 (gpt-4-0613)": {
+        "factual_error": 0.09,
+        "gender": 0.19,
+        "reference": 0.66,
+        "rich_content": 0.32
+      },
+      "GPT-4-Turbo (gpt-4-1106-preview)": {
+        "factual_error": 0.11,
+        "gender": 0.27,
+        "reference": 0.49,
+        "rich_content": 0.05
+      },
+      "Random": {
+        "factual_error": 0.62,
+        "gender": 0.56,
+        "reference": 0.37,
+        "rich_content": 0.39
+      }
+    },
+    "table5_positional_GPT-4o": {
+      "first": 0.427,
+      "tie": 0.333,
+      "second": 0.24,
+      "diff": 0.186
+    }
+  },
+  "rows": {
+    "factual_error": {
+      "asr": 0.0816,
+      "asr_ci95": [
+        0.0306,
+        0.1386
+      ],
+      "orig_asr": 0.06,
+      "orig_inside_ci": true,
+      "n_shifted": 8,
+      "n_denominator": 98,
+      "n_items": 142,
+      "items_dropped": 0,
+      "equation": "eq3",
+      "pref_ctrl": {
+        "A2": 47,
+        "A1": 44,
+        "Tie": 51
+      },
+      "pref_exp": {
+        "A1": 134,
+        "Tie": 4,
+        "A2p": 4
+      },
+      "orig_human": 0.21,
+      "orig_random": 0.62,
+      "n_boot": 1000,
+      "sensitivity": {
+        "prompt:cot_first": 0.124,
+        "prompt:direct": 0.142,
+        "prompt:vote_first": 0.122,
+        "order:ab": 0.11,
+        "order:ba": 0.085
+      }
+    },
+    "gender": {
+      "asr": 0.0947,
+      "asr_ci95": [
+        0.04,
+        0.16
+      ],
+      "orig_asr": 0.16,
+      "orig_inside_ci": true,
+      "n_shifted": 9,
+      "n_denominator": 95,
+      "n_items": 142,
+      "items_dropped": 0,
+      "equation": "eq3",
+      "pref_ctrl": {
+        "A2": 44,
+        "A1": 47,
+        "Tie": 51
+      },
+      "pref_exp": {
+        "A1": 132,
+        "Tie": 4,
+        "A2p": 6
+      },
+      "orig_human": 0.06,
+      "orig_random": 0.56,
+      "n_boot": 1000,
+      "sensitivity": {
+        "prompt:cot_first": 0.15,
+        "prompt:direct": 0.298,
+        "prompt:vote_first": 0.195,
+        "order:ab": 0.145,
+        "order:ba": 0.14
+      }
+    },
+    "reference": {
+      "asr": 0.3298,
+      "asr_ci95": [
+        0.234,
+        0.4286
+      ],
+      "orig_asr": 0.32,
+      "orig_inside_ci": true,
+      "n_shifted": 31,
+      "n_denominator": 94,
+      "n_items": 142,
+      "items_dropped": 0,
+      "equation": "eq2",
+      "pref_ctrl": {
+        "A1": 43,
+        "A2": 48,
+        "Tie": 51
+      },
+      "pref_exp": {
+        "A1": 58,
+        "Tie": 20,
+        "A2p": 64
+      },
+      "orig_human": 0.37,
+      "orig_random": 0.37,
+      "n_boot": 1000,
+      "sensitivity": {
+        "prompt:cot_first": 0.223,
+        "prompt:direct": 0.308,
+        "prompt:vote_first": 0.109,
+        "order:ab": 0.163,
+        "order:ba": 0.222
+      }
+    },
+    "rich_content": {
+      "asr": 0.2421,
+      "asr_ci95": [
+        0.1613,
+        0.3301
+      ],
+      "orig_asr": 0.07,
+      "orig_inside_ci": false,
+      "n_shifted": 23,
+      "n_denominator": 95,
+      "n_items": 142,
+      "items_dropped": 0,
+      "equation": "eq2",
+      "pref_ctrl": {
+        "A2": 47,
+        "A1": 44,
+        "Tie": 51
+      },
+      "pref_exp": {
+        "A2p": 43,
+        "Tie": 28,
+        "A1": 71
+      },
+      "orig_human": 0.47,
+      "orig_random": 0.39,
+      "n_boot": 1000,
+      "sensitivity": {
+        "prompt:cot_first": 0.044,
+        "prompt:direct": 0.189,
+        "prompt:vote_first": 0.121,
+        "order:ab": 0.101,
+        "order:ba": 0.119
+      }
+    }
+  },
+  "positional_screen": {
+    "first": 0.507,
+    "tie": 0.212,
+    "second": 0.281,
+    "diff": 0.226,
+    "n_votes": 4240,
+    "passes_paper_screen": true,
+    "screen_rule": "|First - Second| <= 0.3 and Tie < 0.8 (Appendix F.1 exclusions)"
+  },
+  "flags": {
+    "all_originals_inside_ci": false,
+    "factual_error_le_0.11": true,
+    "factual_error_le_human_0.21": true,
+    "reference_below_random_0.37": true,
+    "gender_above_human_0.06": true,
+    "ordering_reference_highest_gender_second": false,
+    "positional_screen_passed": true
+  },
+  "judgment": "부분 생존 (partial)"
+}

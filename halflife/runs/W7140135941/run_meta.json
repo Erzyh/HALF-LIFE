@@ -1,0 +1,141 @@
+{
+  "card_id": "W7140135941",
+  "run_date_utc": "2026-09-07",
+  "target_paper": {
+    "title": "Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty",
+    "repo": "https://github.com/sravanthi6m/MedAbstain",
+    "repo_commit": "091e5c22111fffeb51c0c2e69b65d0a21a1e4164",
+    "original_source": "Table 6 (no-CoT) and Table 5 (CoT) rows for gpt-4.1-nano, MedQA"
+  },
+  "generation": {
+    "model_requested": "gpt-4.1-nano-2025-04-14",
+    "model_served": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 9,
+    "parameters": "temperature 0, max_tokens 1, logprobs top_logprobs=n_options (models/openai_model.py); prompt _shared (prompts/prompt_helpers.py)",
+    "battery": "4 dataset variants x zero-shot x {no-CoT, CoT (NA/A/AP)} = 7,049 calls; accuracy on the 70% test split after the 30% calibration split (seed 42)"
+  },
+  "results": {
+    "rows": {
+      "noCoT/NA": {
+        "acc": 0.5418,
+        "acc_ci95": [
+          0.502,
+          0.58
+        ],
+        "orig_acc": 0.5404,
+        "orig_inside_ci": true,
+        "lac": 3.63,
+        "orig_lac": 3.8014,
+        "aps": 4.68,
+        "orig_aps": 4.2426,
+        "abstention": 0.0,
+        "orig_abstention": null
+      },
+      "noCoT/A": {
+        "acc": 0.4113,
+        "acc_ci95": [
+          0.376,
+          0.445
+        ],
+        "orig_acc": 0.4099,
+        "orig_inside_ci": true,
+        "lac": 4.47,
+        "orig_lac": 4.2057,
+        "aps": 5.5,
+        "orig_aps": 4.9021,
+        "abstention": 0.025,
+        "orig_abstention": 0.0
+      },
+      "noCoT/NAP": {
+        "acc": 0.4255,
+        "acc_ci95": [
+          0.39,
+          0.464
+        ],
+        "orig_acc": 0.4511,
+        "orig_inside_ci": true,
+        "lac": 3.83,
+        "orig_lac": 3.7603,
+        "aps": 4.76,
+        "orig_aps": 4.227,
+        "abstention": 0.0,
+        "orig_abstention": null
+      },
+      "noCoT/AP": {
+        "acc": 0.3603,
+        "acc_ci95": [
+          0.325,
+          0.396
+        ],
+        "orig_acc": 0.3688,
+        "orig_inside_ci": true,
+        "lac": 4.17,
+        "orig_lac": 4.5092,
+        "aps": 5.21,
+        "orig_aps": 5.0411,
+        "abstention": 0.032,
+        "orig_abstention": 0.0
+      },
+      "CoT/NA": {
+        "acc": 0.2553,
+        "acc_ci95": [
+          0.223,
+          0.289
+        ],
+        "orig_acc": 0.2496,
+        "orig_inside_ci": true,
+        "lac": 4.8,
+        "orig_lac": 5.0,
+        "aps": 5.0,
+        "orig_aps": 4.8014,
+        "abstention": 0.0,
+        "orig_abstention": null
+      },
+      "CoT/A": {
+        "acc": 0.2468,
+        "acc_ci95": [
+          0.217,
+          0.279
+        ],
+        "orig_acc": 0.227,
+        "orig_inside_ci": true,
+        "lac": 5.46,
+        "orig_lac": 6.0,
+        "aps": 6.0,
+        "orig_aps": 5.5887,
+        "abstention": 0.141,
+        "orig_abstention": 0.0
+      },
+      "CoT/AP": {
+        "acc": 0.2312,
+        "acc_ci95": [
+          0.201,
+          0.264
+        ],
+        "orig_acc": 0.227,
+        "orig_inside_ci": true,
+        "lac": 5.52,
+        "orig_lac": 6.0,
+        "aps": 6.0,
+        "orig_aps": 5.5887,
+        "abstention": 0.146,
+        "orig_abstention": 0.0
+      }
+    },
+    "accuracy_rows_with_original_inside_ci95": "7/7",
+    "cost_usd": 0.181,
+    "calls": 7049,
+    "errors": 0,
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN §1; human double-coding pending",
+    "note": "All seven accuracy rows reproduce (originals inside the 95% CIs; largest gap NAP 0.4255 vs 0.4511). The 'never abstains' claim holds only approximately: 2.5% (A) and 3.2% (AP) of test items pick the abstention option without CoT, 14% under the CoT prompt (paper: 0.0). Conformal set sizes deviate by 0.2-0.5 options in both directions; they depend on the exact logprob values and the calibration split."
+  },
+  "reproducibility_frictions_observed": [
+    "original runs went through the openai SDK with model alias 'gpt-4.1-nano'; the dated snapshot is named only in Appendix E",
+    "calibration/test split is seeded in utils.load_and_split_jsonl (random_state 42) although the card had recorded it as unseeded",
+    "few-shot conditions require text-embedding-ada-002 kNN demonstrations (out of scope here)",
+    "the CoT prompt with max_tokens=1 is a protocol artifact the paper reports as Table 5; reproduced as such"
+  ]
+}

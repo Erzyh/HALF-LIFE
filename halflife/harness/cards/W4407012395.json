@@ -1,0 +1,206 @@
+{
+ "card_id": "W4407012395",
+ "openalex_id": "https://openalex.org/W4407012395",
+ "title": "MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding",
+ "doi": "10.48550/arxiv.2501.18362",
+ "paper": {
+  "authors": "Zuo, Qu, Li, Chen, Zhu, Hua, Zhang, Ding, Zhou (Tsinghua C3I)",
+  "year": 2025,
+  "venue": "ICML 2025 (PMLR 267); arXiv v3 2025-06-06",
+  "repo": "https://github.com/TsinghuaC3I/MedXpertQA",
+  "repo_commit": "f53877b0d35b3c5526dfc0f899a2e902e0910c1d (HEAD 2026-08-30; shallow clone external/repos/W4407012395/TsinghuaC3I__MedXpertQA)",
+  "repo_license": "MIT (LICENSE, TsinghuaC3I 2025)",
+  "other_artifacts": "Dataset on Hugging Face TsinghuaC3I/MedXpertQA (MIT; Text 2,450 test + 5 dev, MM 2,000 test + 5 dev, images.zip); leaderboard https://medxpertqa.github.io; sampled 10% subsets used for o1/o3-mini are shipped in the repo (eval/data/medxpertqa_sampled/input/)"
+ },
+ "dependence": {
+  "type": "subject",
+  "strength": "core",
+  "note": "The paper's contribution is a benchmark; the headline result table (Tables 4/5) is entirely LLM output. LLMs are also used as auxiliary components in benchmark construction (gpt-4o-2024-11-20 / claude-3-5-sonnet-20241022 for rephrasing, option augmentation and reasoning/understanding labels), but the released data is frozen so those do not need re-running. Raw model outputs are NOT published (only the leaderboard numbers)."
+ },
+ "claim": {
+  "statement": "On the seed-42 10% sample of MedXpertQA Text (244 questions: 186 Reasoning, 58 Understanding; 10 options each), o1-2024-12-17 with zero-shot CoT reaches 44.67% accuracy (Reasoning 46.24, Understanding 39.66) - the best of all 18 evaluated models and slightly above the pre-licensed expert baseline (42.60) - while o3-mini-2025-01-31 reaches 37.30% (37.63 / 36.21), showing that even inference-time-scaled models remain far from ceiling on MedXpertQA (Table 5; Table 4 for o1 MM).",
+  "claim_type": "capability_level",
+  "metric": "Accuracy (%) = exact match between the extracted option letter (first A-J letter after the CoT answer trigger, utils.answer_cleansing) and the label; reported overall and by question_type (Reasoning / Understanding) on the sampled subset.",
+  "original_values": {
+   "o1_text_sampled": {
+    "reasoning": 46.24,
+    "understanding": 39.66,
+    "avg": 44.67
+   },
+   "o1_mm_sampled": {
+    "reasoning": 52.78,
+    "understanding": 65.45,
+    "avg": 56.28
+   },
+   "o3mini_text_sampled": {
+    "reasoning": 37.63,
+    "understanding": 36.21,
+    "avg": 37.3
+   },
+   "expert_pre_licensed_text": {
+    "reasoning": 41.74,
+    "understanding": 45.44,
+    "avg": 42.6
+   },
+   "n_items": {
+    "text_sampled": 244,
+    "mm_sampled": 199
+   }
+  },
+  "original_source": "Paper Table 4 (LMMs; o1 marked as sampled subset) and Table 5 (LLMs on Text); sampled subset files eval/data/medxpertqa_sampled/input/medxpertqa_sampled_text_input.jsonl (244 rows, with labels) and ..._mm_input.jsonl (199 rows). Per-question original outputs not released."
+ },
+ "protocol": {
+  "model": "o1-2024-12-17 (primary live arm); o3-mini-2025-01-31 (second live arm, Text only)",
+  "model_status": "both dying, OpenAI shutdown 2026-10-23 (target_models.json; deprecations page checked 2026-09-04)",
+  "model_usage_verified": "yes - eval/scripts/run_o1.sh (o1-2024-12-17, dataset medxpertqa_sampled, tasks text,mm) and run_o3.sh (o3-mini-2025-01-31, text); model ids listed in eval/config/model_info.json",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (original used an OpenAI-compatible proxy base_url; o-series called with max_completion_tokens and no system message)",
+  "prompt_source": "eval/config/prompt_templates.py + eval/main.py zero_shot_cot (paper Appendix G.3 shows a full example)",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Q: {question with 'Answer Choices: (A) ... (J) ...'}\nA: Let's think step by step."
+   },
+   {
+    "role": "assistant",
+    "content": "<stage-1 model response>"
+   },
+   {
+    "role": "user",
+    "content": "Therefore, among A through J, the answer is"
+   }
+  ],
+  "system_prompt": "'You are a helpful medical assistant.' for non-reasoning models; REMOVED for o1/o3-mini (api_agent.py filters role=system, per OpenAI guidance)",
+  "params": {
+   "temperature": "not supported / not sent for o1 and o3-mini (paper Appendix C.2); greedy (temperature 0) for other models",
+   "max_completion_tokens": 8192,
+   "seed": 0,
+   "reasoning_effort": "not set (API default = medium)",
+   "num_threads": "irrelevant to results"
+  },
+  "n_items": 244,
+  "samples_per_item": 1,
+  "evaluation": "Automatic: regex extraction of the first option letter in the stage-2 reply (fallback: split on ' answer is '); correct if letter == label. Accuracy on the whole subset and per question_type computed as in eval/eval.ipynb. No logprobs needed (o-series do not return them).",
+  "environment": "Python 3, openai SDK; images only needed for the optional MM subset (HF images.zip)"
+ },
+ "artifacts": {
+  "prompts_path": "eval/config/prompt_templates.py; eval/main.py (zero_shot_cot)",
+  "data_path": "eval/data/medxpertqa_sampled/input/medxpertqa_sampled_text_input.jsonl (244) and medxpertqa_sampled_mm_input.jsonl (199); full sets eval/data/medxpertqa/input/*.jsonl (2,450 / 2,000); images via HF TsinghuaC3I/MedXpertQA images.zip",
+  "eval_path": "eval/utils.py (answer_cleansing), eval/main.py (set_correctness), eval/eval.ipynb (per-subset accuracy)",
+  "data_public": true,
+  "data_license": "MIT (HF dataset card and repo LICENSE); paper Appendix A asks users NOT to train on the data and NOT to share any example online",
+  "redistributable": "true under MIT, but the authors' leakage-prevention request conflicts with publishing verbatim question text in our public call logs",
+  "notes": "Sampled subsets are exactly the files the authors used (paper: 10% of Reasoning and Understanding, seed 42). Labels present. Original per-question model outputs are not released, so item-level agreement with the original run cannot be computed."
+ },
+ "blockers": [
+  "Cost: o1 output tokens (reasoning billed) dominate - about $125 for the Text subset with 3 seeds; the MM subset (199 items with images) would add roughly $110 and is left optional.",
+  "Log-publication conflict: MedXpertQA Appendix A requests that no example be shared online; our L1 archive of full request/response logs would have to redact question text (store hashes + item ids only) or be access-controlled.",
+  "Original run was a single pass with seed 0 and no temperature control (o-series ignore temperature); run-to-run variance of reasoning models is unknown, so 3 seeds are needed to get a CI.",
+  "Original per-item outputs not published; only aggregate accuracies are comparable."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "o1-2024-12-17 (+ o3-mini-2025-01-31 as second live arm)",
+   "purpose": "live baseline (P0), Text sampled subset"
+  },
+  "successors": [
+   "gpt-5 family (gpt-5-2025-08-07 / gpt-5-mini / gpt-5-nano, reasoning)",
+   "claude (current Anthropic release)",
+   "gemini (current Google release)",
+   "llama (open weights, hash-pinned)",
+   "qwen (open weights, hash-pinned)"
+  ],
+  "dead_comparators_not_runnable": [
+   "claude-3-5-sonnet-20241022",
+   "gemini-1.5-pro-002",
+   "o1-preview (used only in Figure 1 comparisons)"
+  ]
+ },
+ "budget": {
+  "est_calls": 2928,
+  "est_tokens_in": 2050000,
+  "est_tokens_out": 3660000,
+  "est_cost_usd": 134,
+  "pricing_usd_per_1m": {
+   "o1-2024-12-17": {
+    "input": 15.0,
+    "output": 60.0
+   },
+   "o3-mini-2025-01-31": {
+    "input": 1.1,
+    "output": 4.4
+   }
+  },
+  "assumptions": "Text subset only: 244 items x 3 seeds x 2 models; two calls per item (CoT stage + answer-trigger stage). Per item: ~1,400 input tokens (question ~280 tokens + stage-1 reply re-sent) and ~2,500 output tokens (2,000 reasoning+visible at stage 1, ~500 at stage 2). o1 = $125, o3-mini = $9. Optional o1 MM subset (199 items, ~1,000 image tokens each) ~ +$110."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: o1 accuracy on the 244-item Text sample. Survival = median over 3 seeds lies within the binomial/bootstrap 95% CI of 44.67% (n=244, CI about +/-6.2 pp) AND the two directional statements hold: o1 > o3-mini and o1 > expert baseline 42.60. Partial = level within CI but o1 no longer above the expert baseline (or o3-mini within its CI of 37.30 but ordering changed). Death = o1 accuracy outside the CI or o1 < o3-mini.",
+  "notes": "n=244 gives wide CIs; the Reasoning-vs-Understanding gap (46.24 vs 39.66 for o1) is a secondary direction check. Because reasoning-model sampling is uncontrolled, report per-seed spread explicitly."
+ },
+ "decisions_2026_09_19": {
+  "date": "2026-09-19",
+  "decided_by": "project default, user delegated",
+  "scope": "MedXpertQA Text sampled subset only (244 items). The MM subset (199 items, Table 4's o1 56.28) is NOT run - answers user_check 2.",
+  "seeds": "o1-2024-12-17 x 1 seed (~$40) and o3-mini-2025-01-31 x 3 seeds (~$9): the card's own cheaper alternative to 3 seeds on both arms - answers user_check 1. Deviates from ANALYSIS_PLAN section 3 (3 seeds), so the o1 row carries no run-to-run spread and is judged on its single pass.",
+  "rows": "the o3-mini row is a SECOND CLAIM ROW INSIDE THIS CARD with its own judgment, not a separate card - answers user_check 4.",
+  "params": "the paper's own prompt and decoding settings, unchanged: zero-shot CoT in two stages (eval/main.py zero_shot_cot), no system message for o1/o3-mini (api_agent.py filters role=system; paper C.2), no temperature, max_completion_tokens 8192, seed = seed_idx (0 for the first, as the original sent).",
+  "log_policy": "answers user_check 3: the L1 archive keeps item ids, the model's response text and sha256 of the prompt, NOT the question text (paper Appendix A asks that no example be shared online). Implementation: --run builds every request from the local MIT dataset at call time, and after each battery pass (in a finally, so an interrupt is covered) the adapter rewrites baseline_alive/calls.jsonl in place, replacing the stage-1 user text with a redaction marker and adding prompt_sha256 / prompt_chars. The battery's sha_request still hashes the TRUE wire body, so the archive stays verifiable against the public dataset. requests.jsonl and environment_check.json are written already redacted; the assistant turns (model output) are kept in full.",
+  "cost_cap_usd": 60,
+  "adapter": "harness/adapters/medxpert_W4407012395.py (--check / --dry-run / --run / --analyze); the authors' eval code under external/repos/W4407012395/TsinghuaC3I__MedXpertQA is imported, never copied (config.PromptTemplates, utils.answer_cleansing, main.set_correctness). Per-arm cap shares 0.8 / 0.2 so a runaway o1 cannot starve the o3-mini row.",
+  "judgment_instantiation": "per row: median over seeds, compared with the binomial 95% band of the PRINTED value at that n (normal approx; 44.67 +/- 6.24 pp at n=244), with the re-run item-level bootstrap CI (2,000 draws, rng 20260907) reported alongside. o1: 생존 = in band AND o1 > o3-mini AND o1 > 42.60; 부분 생존 = in band and above o3-mini but no longer above the expert baseline; 사망 = outside the band or o1 <= o3-mini. o3-mini: 생존 = in band AND o3-mini < o1; 부분 생존 = in band with the ordering broken; 사망 = outside the band. Secondary (not decisive): o1 Reasoning > Understanding.",
+  "environment_check_2026_09_19": {
+   "result": "OK (all 9 checks pass)",
+   "repo_head": "f53877b0d35b3c5526dfc0f899a2e902e0910c1d (matches the card)",
+   "data": "eval/data/medxpertqa_sampled/input/medxpertqa_sampled_text_input.jsonl = 244 unique Text- ids, 186 Reasoning + 58 Understanding, 10 options and one A-J label each, all present in the full 2,450-item Text file (9.99% / 9.85% of the 1,861 / 589 full splits); MM sampled file 199 rows, not run",
+   "printed_values_are_integer_counts": "o1 86/186, 23/58, 109/244 -> 46.24 / 39.66 / 44.67 and o3-mini 70/186, 21/58, 91/244 -> 37.63 / 36.21 / 37.30, both exact and additive, so Table 5's Avg is the item-weighted accuracy over the 244 sampled items (not the mean of the two subset accuracies)",
+   "prompt": "the rendered stage-1 prompt for item Text-20 is found verbatim in the paper's Appendix G.3 worked example (whitespace- and apostrophe-normalised), as is the rendered trigger 'Therefore, among A through J, the answer is'",
+   "parser": "10/10 synthetic branches match the authors' answer_cleansing + set_correctness; a seeded end-to-end replay of 244 synthetic replies reproduces both printed Table 5 rows exactly",
+   "known_parser_quirk": "answer_cleansing takes the FIRST case-sensitive \b[A-J]\b of the stage-2 reply, so the English words 'A' and 'I' are read as options (a first-person refusal such as 'I cannot determine...' scores as I) and a lower-case letter yields no prediction at all. Kept as released - it is the parser that produced Tables 4 and 5."
+  },
+  "measured_2026_09_19_dry_run": {
+   "calls": 1952,
+   "o1": {
+    "calls": 488,
+    "tokens_in_tiktoken_o200k_base": 194606,
+    "tokens_out_budgeted": 610000,
+    "usd_expected": 39.52,
+    "usd_ceiling_at_max_completion_tokens_8192": 242.78
+   },
+   "o3mini": {
+    "calls": 1464,
+    "tokens_in_tiktoken_o200k_base": 583818,
+    "tokens_out_budgeted": 1830000,
+    "usd_expected": 8.69,
+    "usd_ceiling_at_max_completion_tokens_8192": 53.41
+   },
+   "usd_expected_total": 48.21,
+   "output_budget": "reasoning models bill reasoning tokens as output; budget 2,000 tokens for the stage-1 CoT and 500 for the stage-2 answer per item (the card's own assumption). The 8,192 max_completion_tokens ceiling would cost $296 for both arms, so the battery cap is the real rail.",
+   "note": "the card's budget block assumed ~1,400 input tokens per item; measured 797 per item per seed (265 stage 1 + 532 stage 2) with tiktoken o200k_base. Not launched."
+  },
+  "deviations_from_card": [
+   "o1 gets 1 seed, not 3 (ANALYSIS_PLAN section 3 asks for 3): cost. The o3-mini row keeps 3 seeds.",
+   "no prompt-paraphrase arm (ANALYSIS_PLAN section 3): the claim is a benchmark level under the paper's exact prompt.",
+   "MM subset skipped, so Table 4's o1 56.28 is not checked.",
+   "cap USD 60 instead of the card's est_cost_usd 134 (which assumed 3 seeds on both arms)."
+  ],
+  "open_risks": [
+   "the Expert (Pre-Licensed) row (42.60) is computed on the FULL Text set from aggregated examinee response distributions, not on the 244-item sample and not as an integer count; the card's survival rule compares o1's sampled accuracy against it directly.",
+   "api_agent.py used an OpenAI-compatible proxy (base_url '[BASE_URL]'); this re-run posts to api.openai.com, and the stage-1 user turn is sent as the repo's content-parts list, which cannot be exercised offline.",
+   "the seed parameter is sent as the original did, but OpenAI documents it as best-effort and o-series replies are not deterministic."
+  ]
+ },
+ "status": "done",
+ "user_checks": [
+  "Approve ~$134 for the Text subset (o1 ~$125 + o3-mini ~$9) with 3 seeds? Alternative: 1 seed of o1 (~$42) + 3 seeds of o3-mini, or restrict o1 to the 58 Understanding + a 60-item Reasoning subsample.",
+  "Include the o1 MM subset (199 items with images, +~$110) so that Table 4's 56.28 can be checked, or Text only?",
+  "Log policy: may we publish full logs with MedXpertQA question text (MIT license) despite the authors' 'do not share examples online' request, or should logs store item ids + response text only?",
+  "Should the o3-mini row be treated as a separate claim card (same protocol, separate judgment) for the H2 claim-level analysis?"
+ ],
+ "domain_notes": "Questions are rephrased and option-augmented (10 options) USMLE/COMLEX/specialty-board items; accuracy near 45% is far above chance (10%) but below the pre-licensed expert baseline for Understanding. Option letters run A-J, so the answer extraction regex differs from 4-option MedQA-style benchmarks. The benchmark has since been adopted in vendor model cards (Gemini, Qwen, etc.), so successor models may have been tuned on it; contamination of later models is a plausible confound for the successor arms but not for the live baseline.",
+ "judgment_provisional": {
+  "value": "생존 (survived)",
+  "o3mini_row": "생존 (survived)",
+  "cost_usd": 42.2408,
+  "run_date": "2026-09-20",
+  "source": "runs/W4407012395/run_meta.json"
+ }
+}

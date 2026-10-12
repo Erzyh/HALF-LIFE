@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7168433496",
+  "title": "Heterogeneous Agent Cohorts for Safe Open-Ended Exploration with Runtime Constraint Memory",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (Orchestrator/Broker); gpt-4o (2024-08-06) in the AgentHarm study",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Appendix A: 'Orchestrator/Broker: gpt-4o-2024-05-13 (API context length 128k, output limit 4k)'; Table XI: 'All-GPT-4o Cohort 2.1% 80.2% 92.4'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Prompt templates are referenced to https://github.com/psi-run/cohort-role-design; only a temperature/system-prompt description in Sec. 3",
+    "note": ""
+  },
+  "claim": {
+    "metric": "breach rate (%) on an AgentHarm subset, all-GPT-4o cohort",
+    "value": 2.1,
+    "n_items": 1000,
+    "location": "Table XI, row All-GPT-4o Cohort",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "AgentHarm subset (50 tasks, 1,000 adversarial runs); custom SESS-Lab sandbox and schemas in the repo"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Single-author agentic sandbox (MCTS compiler, Claude 3.5 Sonnet validator, DeepSeek-V3 disrupter, 20 seeds x 150 steps); not re-runnable from the text."
+}

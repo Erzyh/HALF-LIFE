@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7117574209",
+ "title": "MASFIN: A Multi-Agent System for Decomposed Financial Reasoning and Forecasting",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Abstract: \"leverages GPT-4.1-nano...eight-week evaluation, MASFIN delivered a 7.33% cumulative return, outperforming...benchmarks in six of eight weeks\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a (only the arXiv abstract/landing page was extracted, not the PDF body)",
+  "note": "Multi-agent architecture (bias-mitigation protocols, structured metrics + news integration) implies a non-trivial prompting pipeline not visible in the extracted text."
+ },
+ "claim": {
+  "metric": "cumulative return, weekly equity portfolio (15-30 equities)",
+  "value": 7.33,
+  "n_items": 8,
+  "location": "Abstract: eight-week live/backtest evaluation",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "\"structured financial metrics and unstructured news\" (sources unspecified in the abstract); market benchmarks (S&P 500, NASDAQ-100, Dow Jones) are public"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Only the arXiv abstract page was extracted (not the PDF body/appendix), so the prompting pipeline and exact data sources could not be confirmed. gpt-4.1-nano is inexpensive, so even a full multi-agent reproduction over 8 weeks likely stays low/mid tier; NeurIPS 2025 Workshop paper."
+}

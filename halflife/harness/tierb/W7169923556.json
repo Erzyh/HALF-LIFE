@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7169923556",
+  "title": "Frontier AI performance across the business disciplines: a case-grounded benchmark of knowledge work and analytical reasoning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Four-generation trajectory: 'Mean Standard score rises from 63.9% for GPT-4 Turbo (95% CI [62.0, 65.9]) to 87.2% for GPT-5.4 (95% CI [85.8, 88.7])'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "SI Appendix Section B (prompt template), not in the main text",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean Standard (rubric-weighted partial-credit) score, %",
+    "value": 63.9,
+    "n_items": 615,
+    "location": "Figure 4A and text: GPT-4 Turbo 63.9% (95% CI 62.0-65.9); Complete Answer 13.2%",
+    "task_type": "generation",
+    "judge": "llm:gemini-2.5-flash"
+  },
+  "data": {
+    "public": "no",
+    "source": "BusinessCaseBench: publisher-licensed business-school cases with instructor solutions (615 questions)"
+  },
+  "cost": {
+    "est_calls": 1845,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Cases are licensed teaching material and rubrics derive from instructor solutions; judge is Gemini 2.5 Flash (live, unpinned)."
+}

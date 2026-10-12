@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4405783870",
+  "title": "Combining GPT and Code-Based Similarity Checking for Effective Smart Contract Vulnerability Detection",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'We use the GPT-4-turbo model from OpenAI for SimilarGPT' ... Critic, Supporter and Judge at temperature 0, detector at 0.8 (Section IV-A)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "not printed (role descriptions only; Fig. 3 code example)",
+    "note": "Multi-role prompts (Detector/Critic/Supporter/Judge) with retrieved similar code are described, not shown."
+  },
+  "claim": {
+    "metric": "vulnerability detection on real-world cases (F1/recall/precision/accuracy)",
+    "value": null,
+    "n_items": 13,
+    "location": "Table I (13 real-world vulnerabilities) and Fig. 5 (bar chart, values not in text)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "13 vulnerabilities from DeFiHackLabs/CVE (public) plus 67 vulnerable and 71 non-vulnerable functions collected from Solodit (not released)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Agent pipeline with RAG over third-party library code and MiniLM similarity; not a single-prompt run."
+}

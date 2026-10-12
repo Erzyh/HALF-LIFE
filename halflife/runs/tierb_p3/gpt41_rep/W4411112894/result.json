@@ -1,0 +1,66 @@
+{
+  "wid": "W4411112894",
+  "title": "The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Case Study on Media Bias Detection",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 0.683,
+  "original_location": "Table 1, row GPT-4 Turbo, column '0-shot + sys prompt'",
+  "reexecution": {
+    "mean_over_seeds": 0.7007854976976873,
+    "per_seed": {
+      "0": {
+        "value": 0.702619746096408,
+        "n": 1266,
+        "ci95": [
+          0.659823242501993,
+          0.7457591473692198
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.6989512492989667,
+        "n": 1266,
+        "ci95": [
+          0.6546561571864703,
+          0.7400730787962905
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411112894",
+    "n_items": 1266,
+    "n_requests": 2532,
+    "seeds": 2,
+    "est_usd": 8.6,
+    "subset_note": "cost cap $4.3: seeded random subset of 1266 items (seed 20260907); repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 0.683,
+    "cap_usd": 7.78,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4411112894"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 49
+  },
+  "approximation": "the paper's 'openai/gpt-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (run date not given)",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4411112894"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7007854976976873,
+    "delta": 0.017785497697687225,
+    "original_inside_ci95": true
+  }
+}

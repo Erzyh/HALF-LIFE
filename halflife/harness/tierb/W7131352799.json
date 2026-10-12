@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7131352799",
+ "title": "Veszélyes anyagokkal foglalkozó üzemek baleset-megelőzési lehetőségei a mesterséges intelligencia segítségével",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT 4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"[Copilot]...az Open AI GPT 4 es GPT 4 Turbo nagy nyelvi modelljevel dolgozik\" -- background description of Copilot, in a chatbot-tools overview"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Main text: a qualitative case study asks 'ChatGPT', Copilot and Gemini about human-factor risks in a hypothetical Paks nuclear-plant accident scenario",
+  "note": "The GPT-4-Turbo mention is background text about Copilot's underlying models, not a version label for the 'ChatGPT' instance actually queried in the case study."
+ },
+ "claim": {
+  "metric": "none (qualitative, narrative comparison of chatbot answers about accident risk factors; no score or count)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a; ad hoc hypothetical scenario devised by the author"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Hungarian paper on accident-prevention at hazardous-materials plants; includes a genuine but purely qualitative chatbot case study (ChatGPT/Copilot/Gemini asked about a nuclear-accident scenario), with GPT-4-Turbo mentioned only in passing as what Copilot runs on, not clearly the version tested."
+}

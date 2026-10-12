@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4417296658",
+  "title": "Safe for Whom? Rethinking How We Evaluate the Safety of LLMs for Real Users",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "A",
+    "evidence": "Appendix I: 'Model: gpt-4.1-nano Temperature: 0.0 Output: Single first-person clause (string)' (context-clause generation step)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendices F-I (full prompts for each pipeline step)",
+    "note": "The gpt-4.1-nano prompt is a data-generation step."
+  },
+  "claim": {
+    "metric": "safety score",
+    "value": null,
+    "n_items": null,
+    "location": "Results concern the evaluated chat models, not gpt-4.1-nano",
+    "task_type": "generation",
+    "judge": "llm:unspecified"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Reddit-derived advice-seeking questions; release not verified"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-4.1-nano only generates first-person context clauses; gpt-4o / gpt-4o-mini handle other pipeline steps."
+}

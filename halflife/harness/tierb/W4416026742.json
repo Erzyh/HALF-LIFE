@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416026742",
+  "title": "Using language models to label clusters of scientific documents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (ChatGPT4)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "\"ChatGPT4 (gpt-4o-2024-05-13), and ChatGPT4o (gpt-4o-2024-11-20)\" (Sec. 4); Table 4 Plant Biology, ChatGPT4 mean cosine similarity 0.969 vs the ChatGPT4o baseline"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 2 (prompt template and clauses) and Sec. 4 (system prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean cosine similarity of generated cluster labels to the gpt-4o-2024-11-20 baseline (Plant Biology)",
+    "value": 0.969,
+    "n_items": null,
+    "location": "Table 4, Plant Biology, row ChatGPT4",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Clusters of publications from the Dimensions bibliographic database (proprietary), four Fields of Research"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "aux_model_dead"
+  ],
+  "notes": "The metric is relative to labels produced by gpt-4o-2024-11-20 (not in the live list) plus an embedding model; the document clusters come from Dimensions and are not released. Number of clusters per field is not stated in the extracted passages."
+}

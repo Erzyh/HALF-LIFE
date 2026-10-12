@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403707291",
+  "title": "CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13 (also GPT-4o-mini-2024-07-18)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4: 'We ran both AutoGPT and CORE-Agent using GPT-4o-2024-05-13 and GPT-4o-mini-2024-07-18 as LLM backends'; Table 5: 'CORE-Agent GPT-4o 60.00% 57.78% 21.48%'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Task prompts and level-specific hints described in Sec. 3-4; agent system prompts live in the released repository",
+    "note": ""
+  },
+  "claim": {
+    "metric": "pass@1 accuracy on the CORE-Bench-Easy test split (mean of 3 runs)",
+    "value": 60.0,
+    "n_items": 45,
+    "location": "Table 5, row CORE-Agent / GPT-4o, column CORE-Bench-Easy",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CORE-Bench (90 CodeOcean capsules, 270 tasks), https://github.com/siegelz/core-bench"
+  },
+  "cost": {
+    "est_calls": 135,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Each task runs an agent inside a VM with a $4 API cap (successful tasks averaged $0.54); re-execution needs the harness and Docker capsules, not just a prompt. n inferred from 60.00% and 57.78% being multiples of 1/45.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "The CORE-Agent prompts are printed in Appendix D.2, but the number depends on the released harness (per-task VM/Docker capsules, task questions, report grader) and the CORE-Agent code from the repository. Run the 45 CORE-Bench-Easy test tasks three times with gpt-4o-2024-05-13 under the $4 per-task cap and compare pass@1 with Table 5 (60.00%).",
+    "approximation": "Agent trajectories are nondeterministic; capsule environments may have drifted; cost beyond the tier estimate.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/siegelz/core-bench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

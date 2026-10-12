@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404354758",
+  "title": "From Medprompt to o1: Exploration of Run-Time Strategies for Medical Challenge Problems and Beyond",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (Nov 2023)",
+    "resolved": "dead-preview",
+    "role": "B",
+    "evidence": "Sec. 1: 'GPT-4 Turbo (Nov 2023) with various run-time steering strategies'; Table 1 columns 'GPT-4-Turbo** (5 shot)' and 'GPT-4 Turbo** (Medprompt)'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 8.2 (prompt templates)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "MedQA (US 4-option) accuracy, 5-shot",
+    "value": 81.4,
+    "n_items": 1273,
+    "location": "Table 1, row MedQA (US 4-option), column GPT-4-Turbo** (5 shot)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MedQA, MedMCQA, MMLU medical subsets, JMLE-2024"
+  },
+  "cost": {
+    "est_calls": 3819,
+    "tier": "mid"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "November 2023 GPT-4 Turbo = gpt-4-1106-preview (retired)."
+}

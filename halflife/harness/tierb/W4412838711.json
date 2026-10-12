@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412838711",
+ "title": "AI Agents and Their Role in Shaping the Future",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Sec. II-A: \"Transformer models like GPT-4 Turbo and Claude 3 use self-attention to understand long-range dependencies.\" (survey/background discussion, no experiment)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (a cited 98% robotics-task figure and a 14% pay-for-performance utility figure both belong to other papers, not this survey's own experiment)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A general survey/review article on AI agents (IJRASET); GPT-4 Turbo is mentioned only in background discussion, with all quantitative figures attributed to other cited papers rather than original experiments."
+}

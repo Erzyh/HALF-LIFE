@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405173269",
+  "title": "Give me Some Hard Questions: Synthetic Data Generation for Clinical QA",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (HIPAA-compliant Azure deployment)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Sec. 3.3: 'we use a HIPAA-compliant version of GPT-4o, provided through the Microsoft Azure API'; footnote 5: 'gpt-4o-2024-05-13 version'; footnote 8: 'GPT-4o achieves 58.5 F1 and 66.7 RO scores'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix (synthetic QA generation prompts: Direct Instruction, Question Prefix, No Overlap, Summarization)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "zero-shot extractive QA F1 on the MIMIC-QA test set",
+    "value": 58.5,
+    "n_items": null,
+    "location": "Footnote 8 (Sec. 4); main tables report Llama3-8B fine-tuned on GPT-4o-generated data",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "RadQA and MIMIC-QA via PhysioNet (credentialed access; data-use agreement forbids non-compliant APIs)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Main results measure QA models fine-tuned on GPT-4o-generated synthetic questions; the only direct GPT-4o number is a zero-shot footnote on restricted clinical data."
+}

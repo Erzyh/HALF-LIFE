@@ -1,0 +1,63 @@
+{
+  "openalex_id": "https://openalex.org/W4380715567",
+  "title": "Questioning the Survey Responses of Large Language Models",
+  "doi": "https://doi.org/10.48550/arxiv.2306.07951",
+  "field": "Computer Science",
+  "year": "2023",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-3.5-turbo-0613|gpt-4-0613|text-davinci-001|text-davinci-002|text-davinci-003",
+  "flags": "",
+  "all_links": [
+    "github.com/socialfoundations/surveying-language-models",
+    "github.com/socialfoundations/surveying-language-models10https",
+    "github.com/socialfoundations/surveying-language-models1701EntropySEX",
+    "github.com/tatsu-lab/opinions_qa",
+    "github.com/tatsu-lab/opinions_qa11https",
+    "huggingface.co/datasets/Anthropic/llm_global_opinions",
+    "huggingface.co/datasets/Anthropic/llm_global_opinions22GPT2"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/socialfoundations/surveying-language-models",
+      "cloned": true,
+      "audit": {
+        "n_files": 38,
+        "ext_top": {
+          ".py": 20,
+          ".ipynb": 14,
+          ".md": 2,
+          "": 1,
+          ".txt": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 14,
+        "n_py": 20,
+        "n_data_files": 0,
+        "files_mentioning_prompt": 16,
+        "files_with_eval_terms": 20,
+        "model_ids_in_code": {
+          "o3": 5623,
+          "o1": 5306,
+          "o4": 4093,
+          "gpt-4": 8,
+          "gpt-4-turbo": 6,
+          "gpt-3.5-turbo": 5
+        },
+        "readme_head": "# Surveying Large Language Models\n\nCode to reproduce the experiments of the NeurIPS 2024 paper [Questioning the Survey Responses of Large Language Models](https://arxiv.org/abs/2306.07951).\n\nWe survey language models with the American Community Survey. The experiment results can be downloaded from \n[here](https://keeper.mpdl.mpg.de/d/b8090e1c552d45cebb68/). \n\n### Reproducing the figures in the paper\n\nUse the following Jupyter notebooks:\n\n* Main text: [figures.ipynb](figures.ipynb)\n* Appendix: [appendix.ipynb](appendix.ipynb)\n* Prompt ablations: [prompt-ablations/](prompt-ablations/)\n* Survey ablations: [survey-ablations/](survey-ablations/)\n\n### Running the experiments\n\nThe relevant files to reproduce the experiments in the main text are:\n\n * [script_fill_individual.py](experiments/script_fill_individual.py): obtain language models' responses to individual survey questions for language models from HugginFace's model hub.\n * [script_fill_openai.py](experiments/script_fill_openai.py): obtain GPT-3's responses to individual survey questions.\n\n For the sequential generation experiments in the appendix, use:\n * [script_fill_sequential.py](experiments/script_fill_sequential.py): sample language models' responses to entire survey.\nquestionnaires, where questions are presented sequentially while keeping previous answers in-context.\n * [discriminator_test.py](experiments/discriminator_test.py): perform the discriminator test on the model generated data.\n\n### Citation\n\nPlease cite as:\n"
+      },
+      "commit": "2cd2d4cc95f60c9eee85154051c8c45228763404"
+    },
+    {
+      "url": "https://github.com/socialfoundations/surveying-language-models10https",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/socialfoundations/surveying-language-models1701EntropySEX",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4380715567.txt",
+  "paper_text_status": "pdf"
+}

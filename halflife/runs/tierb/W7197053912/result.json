@@ -1,0 +1,67 @@
+{
+  "wid": "W7197053912",
+  "title": "ANCHOR-RE: An Agentic Neuro-Symbolic Framework for Grounded Biomedical Relation Extraction",
+  "model": "gpt-5-mini-2025-08-07",
+  "metric": "custom",
+  "original_value": 0.654,
+  "original_location": "Table 2, row Baseline, SemRepGS block, Micro F1 (bootstrap CI [0.630, 0.677])",
+  "reexecution": {
+    "mean_over_seeds": 0.5749712778398902,
+    "per_seed": {
+      "0": {
+        "value": 0.5696075142569608,
+        "n": 3211,
+        "ci95": [
+          0.5466986443106802,
+          0.5930391082741866
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.5787176905001679,
+        "n": 3211,
+        "ci95": [
+          0.5565891349165821,
+          0.6018392770728185
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.5765886287625418,
+        "n": 3211,
+        "ci95": [
+          0.5537731245001083,
+          0.5997049949222445
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 6
+  },
+  "prepare": {
+    "wid": "W7197053912",
+    "n_items": 3211,
+    "n_requests": 9633,
+    "seeds": 3,
+    "est_usd": 16.43,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-mini-2025-08-07",
+    "metric": "custom",
+    "original_value": 0.654,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-5-mini-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Candidate-relation definitions are not printed; the hook takes them from SemRep_LABEL2DEF in utils/text.py of the code release (the dict the release's decider feeds to the model) and lists the candidates in the release's SEMREP_LABEL_SCHEMA_ORDER plus 'none' before the definition lines - the layout of that slot inside the paper's Appendix A prompt is our choice. Reasoning effort for gpt-5-mini is not stated (API default); temperature/top_p are not sent.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.5749712778398902,
+    "delta": -0.07902872216010981,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4399992121",
+  "title": "Evaluating RAG-Fusion with RAGElo: an Automated Elo-based Framework",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09 (synthetic query generator)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Table 2 caption: 'GPT4 refers to OpenAI's gpt-4-turbo-2024-04-09 model'; Sec. 3: 'our test set contains 100 queries from GPT-4-turbo, 50 from Claude 3 Opus, 30 from Sonnet, and 20 from Haiku'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A (RAGElo retrieval and answer-evaluator prompts); the query-generation prompt is described with few-shot expert questions",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Win rates (Table 5) belong to Infineon RAG/RAGF agents judged by GPT-4o",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (snapshot unstated)"
+  },
+  "data": {
+    "public": "no",
+    "source": "Infineon internal product documents and queries"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number"
+  ],
+  "notes": "The live model only generates evaluation queries; the RAG agent LLM is unspecified."
+}

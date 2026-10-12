@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7134291344",
+  "title": "Reasoning Models Struggle to Control their Chains of Thought",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini; gpt-5-mini-2025-08-07",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Table 2 row \"o4-mini 1.1+-0.1 0.8+-0.1 0.0+-0.0\" (Suppression / Addition / Stylistic Modification); footnote 4: \"We gained access to raw CoTs of OpenAI models through a collaboration with OpenAI.\""
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. 3 (instruction template appended to each question), Figures 13, 20, 21 (IRPAIF feedback and judge prompts)", "note": "Controllability instructions are printed as templates per category; full suite is in the CoT-Control repo."},
+  "claim": {
+    "metric": "CoT controllability score (%), Suppression category", "value": 1.1, "n_items": 14076, "location": "Table 2 (Appendix), row o4-mini, column Suppression; suite has 14,076 test questions (Sec. 3)",
+    "task_type": "other",
+    "judge": "llm:gpt-5-mini-2025-08-07"
+  },
+  "data": {"public": "yes", "source": "https://github.com/YuehHanChen/CoTControl"},
+  "cost": {"est_calls": 42000, "tier": "high"},
+  "blockers": ["data_closed"],
+  "notes": "The metric is computed on raw reasoning traces of o4-mini, which the authors obtained through a collaboration with OpenAI; the public API exposes only reasoning summaries, so the number cannot be regenerated without that access. gpt-5-mini is used only as a judge for the Ignore-question type. o4-mini snapshot not named in the text."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166859602",
+  "title": "Attribution-Based Analysis and Optimization of Modular Agentic Workflows",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (OpenAI, 2023)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We evaluate 9 classic LLMs ... GPT-4-turbo, GPT-4o-mini...\"; Table 4 row gpt-4-turbo, Algebra Acc=83.2%, also called \"gpt-4-turbo-0409\" for Ticket Ordering (Acc=54.37%)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "\"Appendix for Dataset Details\" (Table 3) gives per-task sample counts and capability tags, but no literal agent prompt is printed; no code/prompt repository link found."
+  },
+  "claim": {
+    "metric": "accuracy (%), Mathematics-Algebra task",
+    "value": 83.2,
+    "n_items": 250,
+    "location": "Table 4, row gpt-4-turbo, Algebra Acc(%) column; n from Table 3 Sample Count (Math 250x2)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Custom benchmark of 7 redesigned agent tasks (>1500 instances); no release link found"
+  },
+  "cost": {
+    "est_calls": 250,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "gpt-4-turbo also reported on Geometry (Acc=78.0%) and Ticket Ordering (as \"gpt-4-turbo-0409\", Acc=54.37%); all share the same no_prompt gap since task prompts are described only at the capability level (planning/reasoning/action/reflection), never quoted."
+}

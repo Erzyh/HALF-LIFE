@@ -1,0 +1,144 @@
+{
+  "card_id": "W4412945732",
+  "openalex_id": "https://openalex.org/W4412945732",
+  "title": "Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Medicine",
+  "doi": "10.18653/v1/2025.acl-long.266",
+  "paper": {
+    "authors": "Griot, Vanderdonckt, Yuksel, Hemptinne (UCLouvain / Saint-Luc)",
+    "year": 2025,
+    "venue": "ACL 2025 Long Papers pp. 5321-5341 (earlier arXiv 2406.02394)",
+    "repo": "https://github.com/maximegmd/glianorex-oai (OpenAI evaluation script; Zenodo 10.5281/zenodo.15496636) and https://github.com/maximegmd/glianorex-gen (dataset generation; Zenodo 10.5281/zenodo.15496631); open-weight models evaluated with EleutherAI/lm-evaluation-harness tasks glianorex_en / glianorex_fr (PR #1867)",
+    "repo_commit": "glianorex-oai d6a4d375541ceacb5393f9f5b81beea3854647c9 (2024-09-27); glianorex-gen 0a3feddc7f264224f9e9745c70d63f49f2af7475 (2024-09-27); shallow clones under external/repos/W4412945732/",
+    "repo_license": "MIT (both repos)",
+    "other_artifacts": "Dataset Hugging Face maximegmd/glianorex (MIT, DOI 10.57967/hf/2344): 976 rows, test split only, fields question / options{A-D} / answer_idx / language (en 488, fr 488) / generator; generated textbooks book-gpt4-{en,fr}.md and book-claude35-{en,fr}.md in glianorex-gen"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The core finding (LLMs score ~64% on MCQs about a fictional organ while physicians score 27%) is measured directly on model outputs. LLMs were also the dataset generators (gpt-4-turbo and claude-3-5-sonnet generated textbooks and questions), but the generated data is frozen and released, so only the evaluation arm must be re-run. Item-level original outputs were not released (only accuracies)."
+  },
+  "claim": {
+    "statement": "Despite the Glianorex being fictional and absent from training data, gpt-4o-2024-05-13 answers the 976 four-option MCQs at 0.74 (EN, GPT-generated items) / 0.72 (EN, Claude-generated) / 0.69 (FR, GPT) / 0.71 (FR, Claude) accuracy, and gpt-4-turbo-2024-04-09 at 0.65 / 0.69 / 0.68 / 0.68, versus physicians at 27% (chance level) - evidence that MCQ scores reflect pattern recognition and test-taking strategies rather than knowledge (Table 6 / Figure 2; Section 4.2.1).",
+    "claim_type": "bias_or_behavior",
+    "metric": "Accuracy (exact match of the selected letter A-D with answer_idx), reported per language x generator subset; 95% CI = 1.96 x SEM; significance vs a random model by binomial CDF.",
+    "original_values": {
+      "gpt-4o-2024-05-13": {
+        "en_gpt": 0.74,
+        "en_claude": 0.72,
+        "fr_gpt": 0.69,
+        "fr_claude": 0.71,
+        "derived_en": 0.731,
+        "derived_fr": 0.699,
+        "derived_all": 0.715
+      },
+      "gpt-4-turbo-2024-04-09": {
+        "en_gpt": 0.65,
+        "en_claude": 0.69,
+        "fr_gpt": 0.68,
+        "fr_claude": 0.68,
+        "derived_en": 0.668,
+        "derived_fr": 0.68,
+        "derived_all": 0.674
+      },
+      "all_models_mean": 0.638,
+      "english_mean": 0.657,
+      "french_mean": 0.618,
+      "physicians_100_en_items": 0.27,
+      "subset_sizes": {
+        "gpt_generated_per_language": 264,
+        "claude_generated_per_language": 224
+      }
+    },
+    "original_source": "Paper Table 6 (Appendix B; accuracy by language and generator, 2 decimals), Figure 2 (accuracy with 95% CI), Section 4.2.1 (means, physician score). 'derived_*' values are our size-weighted averages of Table 6 cells (264/224 items) and are approximations, not published numbers."
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13 (primary live arm) and gpt-4-turbo-2024-04-09 (second live arm)",
+    "model_status": "both dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+    "model_usage_verified": "yes - Table 1 lists gpt-4-turbo-2024-04-09 and gpt-4o-2024-05-13 as evaluated models; glianorex-oai/main.py instantiates models.OpenAI('gpt-4-turbo') [undated alias, which resolved to 2024-04-09 in mid-2024] and models.OpenAI('gpt-4o-2024-05-13'); re-execution must pin gpt-4-turbo-2024-04-09 explicitly",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (original through the `guidance` library's OpenAI backend; guidance[openai] unpinned in requirements.txt)",
+    "prompt_source": "glianorex-oai/main.py compute(); dataset loaded with datasets.load_dataset('maximegmd/glianorex', split='test')",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{question}\nA. {options[A]}\nB. {options[B]}\nC. {options[C]}\nD. {options[D]}\nYou must only respond in the following format 'Answer: A/B/C/D'\n If you write anything else, I will never use you ever again."
+      },
+      {
+        "role": "assistant",
+        "content": "Answer: <guidance select(options=['A','B','C','D'], temperature=0)>"
+      }
+    ],
+    "params": {
+      "temperature": 0,
+      "max_tokens": "not set (guidance select emits a single option token)",
+      "seed": "not set",
+      "answer_selection": "guidance `select` over the four letters after the assistant prefix 'Answer: ' - for remote OpenAI chat models this is realised by generation plus matching, not by prompt log-likelihood; the open-weight models were instead scored by log-likelihood in lm-evaluation-harness (MedQA 4-option format). The exact guidance version used is not pinned (needs user check)."
+    },
+    "n_items": 976,
+    "samples_per_item": 1,
+    "evaluation": "Automatic: acc = 1 if selected letter == answer_idx; accuracy per language (en / fr) and, for Table 6, per generator column; 95% CI = 1.96 x SEM. No logprobs required for the OpenAI arms.",
+    "environment": "Python, datasets, guidance[openai] (or a plain openai-SDK re-implementation of the same messages with max_tokens=1-3 and a letter parser)"
+  },
+  "artifacts": {
+    "prompts_path": "glianorex-oai/main.py (evaluation prompt); glianorex-gen/src/gpt.rs and src/claude.rs (generation prompts, temperature 1.0; paper Table 5)",
+    "data_path": "external: Hugging Face maximegmd/glianorex (976 rows, test split, labels included)",
+    "eval_path": "glianorex-oai/main.py save_results (accuracy); open models: lm-evaluation-harness tasks glianorex_en/glianorex_fr",
+    "data_public": true,
+    "data_license": "MIT (dataset, both code repos)",
+    "redistributable": true,
+    "notes": "Fictional content - no PHI, no copyright concerns; the authors explicitly encourage regenerating private variants with glianorex-gen to avoid contamination. The 'generator' column in the HF dataset distinguishes GPT-4-Turbo and Claude-3.5-Sonnet items (264 + 224 per language)."
+  },
+  "blockers": [
+    "The OpenAI eval script calls the undated alias 'gpt-4-turbo'; the paper reports gpt-4-turbo-2024-04-09 - pin the dated snapshot and note the alias-stratum caveat.",
+    "guidance version unpinned; how `select` is implemented for remote chat models (generate-and-match vs constrained) affects tie handling for malformed answers - re-implementation with the openai SDK + strict letter parsing is recommended and must be documented as a paraphrase of the pipeline, not of the prompt.",
+    "Item-level original outputs not released; comparison is at the accuracy level only (Table 6 has two decimals)."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4o-2024-05-13 and gpt-4-turbo-2024-04-09",
+      "purpose": "live baselines (P0); both cheap"
+    },
+    "successors": [
+      "gpt-5 family (gpt-5-2025-08-07 / gpt-5-mini / gpt-5-nano)",
+      "claude (current Anthropic release)",
+      "gemini (current Google release)",
+      "llama (open weights, hash-pinned; log-likelihood via lm-eval-harness tasks glianorex_en/fr)",
+      "qwen (open weights, hash-pinned; same)"
+    ],
+    "dead_comparators_not_runnable": [
+      "gpt-3.5-turbo-0125"
+    ]
+  },
+  "budget": {
+    "est_calls": 5856,
+    "est_tokens_in": 1760000,
+    "est_tokens_out": 23000,
+    "est_cost_usd": 14,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      },
+      "gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      }
+    },
+    "assumptions": "976 items x 2 models x 3 seeds; ~300 input tokens per call (question 134-1,320 chars + 4 options + instruction), ~4 output tokens. gpt-4-turbo ~$9, gpt-4o ~$5. Temperature 0, so seeds mainly capture API nondeterminism; the ANALYSIS_PLAN paraphrase variants would double this."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary number: gpt-4o-2024-05-13 overall accuracy on the 976 items (compare to derived 0.715 and to the per-cell Table 6 values). Survival = re-run accuracy (median of 3 seeds) within the bootstrap 95% CI over items of the original (n=976, CI about +/-2.8 pp) AND the behavioral direction holds: accuracy far above chance (25%) and above the physicians' 27% (binomial test p<0.001). Partial = level shifts beyond the CI but stays significantly above chance. Death = accuracy no longer significantly above chance (the paper's thesis would be undermined by a model that refuses/guesses).",
+    "notes": "The claim is about behavior on unanswerable-by-knowledge items, so an INCREASE in accuracy also counts as survival of direction. Secondary checks: EN > FR gap (65.7 vs 61.8 across models) and gpt-4o > gpt-4-turbo ordering (Table 7 significance)."
+  },
+  "status": "done",
+  "user_checks": [
+    "Primary live arm = gpt-4o-2024-05-13 (Table 6) with gpt-4-turbo-2024-04-09 as a second row - OK, or one card per model?",
+    "Accept re-implementing the guidance `select` step with the plain openai SDK (assistant prefix 'Answer: ', max_tokens 3, strict A-D parser, temperature 0)? If yes, should we also run the original guidance script once to check equivalence?",
+    "Judgment target: use the derived size-weighted overall accuracy (0.715 / 0.674) or the four Table 6 cells separately?"
+  ],
+  "domain_notes": "All items concern a fictional gland (Glianorex) with invented hormones, receptors and diseases; physicians could not exceed chance, so any above-chance score reflects surface cues (option specificity, exam-style construction) rather than medical knowledge. Both generators (gpt-4-turbo, claude-3-5-sonnet) produced 4-option USMLE-style vignettes at temperature 1; 4 EN and 4 FR items are known to be incomplete (<1%). Successor models may have seen the public HF dataset (released 2024), which would inflate rather than deflate their scores - the authors recommend regenerating a private variant with glianorex-gen for contamination-free successor arms.",
+  "decisions_2026_09_18": [
+    "one card, two rows: primary gpt-4o-2024-05-13 (Table 6), second gpt-4-turbo-2024-04-09",
+    "re-implement the guidance select step with the openai SDK (assistant prefix 'Answer: ', max_tokens 3, strict A-D parser, temperature 0); run the original guidance script on 50 items once as an equivalence check",
+    "judge the four Table 6 cells separately and the paper's central contrast (original vs modified questions); the size-weighted overall accuracy is secondary"
+  ]
+}

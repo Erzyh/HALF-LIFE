@@ -1,0 +1,72 @@
+{
+  "wid": "W4403347060",
+  "title": "Multi-Session Client-Centered Treatment Outcome Evaluation in Psychotherapy",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 800,
+    "subset_rule": "all (400 clients x 2 sessions = 800 TheraPhase transcripts; each scored on 10 symptom columns)",
+    "approximation": "two-step pipeline (Appendix D reasoning, then Appendix E assessment) with <Format Instructions> authored by us; reference scores taken from the released AssessmentResult.csv (GPT-4o 'gold model', Sec. 3.3) rather than regenerated; prompts are English while transcripts are Chinese, as in the paper"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "UTSNLPGroup/TheraPhase",
+    "config_or_split": "files TheraPhase/case_{client}_{1|2}.txt (800 transcripts) and AssessmentResult.csv (reference scores)",
+    "filter": "none",
+    "fields": {
+      "input": "transcript text of TheraPhase/case_*.txt (Chinese, 来访者/心理咨询师 turns)",
+      "label": "AssessmentResult.csv columns anxiety, depression, hostility, somatization, obsessive_compulsive, interpersonal_sensitivity, phobic_anxiety, paranoid_ideation, psychoticism, additional_items (values -1/0/1/2)",
+      "id": "interview_id (file name)"
+    },
+    "license": "unknown (no license on the HF page)",
+    "access_checked": true,
+    "size_mb": 5
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Prompt: Psychological Assessment\nRole:\nAs a psychologist specializing in this evaluation task, based on the following interview and the extracted Symptom Checklist-90 (SCL-90) symptom-related content and explanation, provide a qualitative score (-1-2) for each symptom category.\nScore Criteria:\nScoring criteria: -1 (Symptom not addressed in the interview), 0 (Symptom addressed in the interview, but no symptoms found, no signs of distress or dysfunction), 1 (Minimal symptoms, minor indications of distress but no significant dysfunction), 2 (Clear symptoms, clear indications of distress and significant dysfunction).\nDirectives:\nPlease note that this qualitative assessment is based on the state at the end of the interview. There may be noticeable symptoms during the interview, but these symptoms may become clarified or alleviated as the discussion progresses.\nAdditional Information:\n{psychometric_test}\nOutput Formatting:\n{format_instructions}\nClient Information:\n{interview}\n{item_aware_reasoning_result}\nPlease extract specific parts related to SCL-90 symptoms from the Client's statements. For each extracted part, indicate whether the symptom is present or not, and explain why this text is related to the SCL-90 symptom and specific item. If a symptom is mentioned but not present, extract that part and explain why the symptom is not present.",
+    "placeholders": {
+      "psychometric_test": "the 90 SCL-90 items grouped under the 10 score columns (public instrument; wording/language to be fixed by the human, see open_points)",
+      "format_instructions": "a JSON schema requiring one integer in {-1,0,1,2} per column of AssessmentResult.csv (authored from Sec. 3.3, Table 2 and Appendix G's Pydantic-defined JSON)",
+      "interview": "items.input (full session transcript)",
+      "item_aware_reasoning_result": "the output of the step-1 prompt (Appendix D, given in notes) run on the same transcript with the same model and parameters",
+      "format_instructions_step1": "(step-1 only) output format for the extracted statement / symptom category / specific symptom / presence / explanation records, as in Table 8"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix E (assessment prompt); Appendix D (items-aware reasoning prompt, step 1)",
+    "verbatim": "partial (both prompts copied verbatim with their <...> slots turned into placeholders; the content of <Psychometric Test> and <Format Instructions> is not printed and must be supplied)"
+  },
+  "output": {
+    "parse": "json field per symptom column (anxiety ... additional_items), integer in {-1,0,1,2}",
+    "postprocess": "strip code fences; a missing or invalid column value counts as incorrect for that cell"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of (session, symptom column) cells, 800 x 10, whose predicted score equals the reference score in AssessmentResult.csv; mean over three runs",
+    "judge": "none",
+    "original_value": 0.7561,
+    "original_location": "Table 3, row GPT-4-turbo, column Accuracy (psychological assessment)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 4800,
+    "est_usd": 290.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "no hook: the <Format Instructions> of both prompts and the <Psychometric Test> (SCL-90 item list and its grouping into the 10 AssessmentResult.csv columns) are not printed; their wording moves the number.",
+    "step 2 (Appendix E) consumes the output of step 1 (Appendix D) on the same transcript - two dependent calls per transcript, which the runner's single stage (plus a judge stage) does not model.",
+    "whether AssessmentResult.csv is the paper's reference file is not stated on the card."
+  ],
+  "notes": "Step-1 prompt (Appendix D, run first, its output fills {item_aware_reasoning_result}):\nPrompt: Items-Aware Reasoning\nRole:\nImagine you are a skilled psychologist adept at identifying potential symptoms from interview. You can explain how these symptoms relate to the SCL-90 symptom checklist and specific items within it.\nDirectives:\nYour task is to determine the presence or absence of symptoms from the Client's statements and provide detailed reasons for your assessment. Extract specific parts related to SCL-90 symptoms from the Client's statements. For each extracted part, indicate whether the symptom is present or not, and explain why this text is related to the SCL-90 symptom and specific item. If a symptom is mentioned but not present, extract that part and explain why the symptom is not present.SCL-90 is a psychological symptom assessment tool with 90 items, each evaluating different aspects of psychological distress.\nAdditional Information:\nSymptom Checklist-90:\n{psychometric_test}\nPresence of Symptoms: Extract the relevant part of the Client's statement. Indicate that the symptom is present. Explain why this text indicates the presence of the SCL-90 symptom and specify the item.\nAbsence of Symptoms: Extract the part where the symptom is mentioned but not present. Indicate that the symptom is not present. Explain why this text does not indicate the presence of the SCL-90 symptom despite the mention.\nOutput Formatting:\n{format_instructions_step1}\nClient Information:\n{interview}\nPlease extract specific parts related to SCL-90 symptoms from the Client's statements. For each extracted part, indicate whether the symptom is present or not, and explain why this text is related to the SCL-90 symptom and specific item. If a symptom is mentioned but not present, extract that part and explain why the symptom is not present.\n\nAbout 2.5K input tokens (transcript + 90 items) and up to 1K output tokens per call, two calls per session (~$0.06 per call)."
+}

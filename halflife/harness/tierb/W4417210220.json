@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4417210220",
+  "title": "PRISM: Prompt-Refined In-Context System Modelling for Financial Retrieval",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Appendix A.8: '4. GPT-5: gpt-5-2025-08-07'; Table 4: 'Baseline GPT-5 N/A 141 9 0' (FinanceBench oracle, out of 150)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A.14 Tables 17-18 (P1-P4 document/chunk ranking prompts), Tables 19-20 (agent prompts)",
+    "note": "FinanceBench 'Baseline' replicates the FinanceBench paper's LLM prompt, which is not printed here; correctness judging procedure not stated."
+  },
+  "claim": {
+    "metric": "accuracy, FinanceBench oracle context, baseline prompt",
+    "value": 0.94,
+    "n_items": 150,
+    "location": "Table 4 / Table 12, row Baseline GPT-5 Oracle (141 correct of 150)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "FinanceBench open set (150 questions with oracle evidence); FiQA-2018 (BEIR)"
+  },
+  "cost": {
+    "est_calls": 450,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Headline FinAgentBench NDCG is a private leaderboard; FiQA results need the embedding/reranking pipeline (text-embedding-3, FAISS).",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "The FinanceBench 'Baseline' replicates the FinanceBench paper's LLM prompt under oracle context (A.9.3), but neither the prompt nor the correct/incorrect/unable adjudication is printed; Sec. 9 says the full source code including prompt files is released at bit.ly/prism-ailens. Take the baseline prompt and grader from that code, run the 150 FinanceBench open-set questions with their oracle evidence on gpt-5-2025-08-07, and compare with 141/150 (Tables 4/12).",
+    "approximation": "If grading was manual, use a fixed LLM/rule grader and flag.",
+    "needs_repo": true,
+    "repo_url": "https://bit.ly/prism-ailens",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

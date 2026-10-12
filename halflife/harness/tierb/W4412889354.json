@@ -1,0 +1,25 @@
+{
+  "openalex_id": "W4412889354",
+  "title": "Beyond Metrics: Evaluating LLMs Effectiveness in Culturally Nuanced, Low-Resource Real-World Scenarios",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec 3.1: \"We evaluated three OpenAI models: GPT-4-Turbo, GPT-4-32k..., and GPT-3.5-Turbo\"; Figure 1 F1-score chart, one of seven compared models."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 3 (\"the standardized prompt that we used for evaluating all seven LLMs\")",
+    "note": "Single fixed sentiment-classification prompt shared by all 7 models."
+  },
+  "claim": {
+    "metric": "weighted F1 score (%), sentiment classification, WhatsApp chat dataset", "value": null, "n_items": 3719, "location": "Figure 1 (\"Overall F1 score comparison of the models\"); GPT-4-Turbo bar shown between GPT-3.5-Turbo and Mixtral-8x7b, but no exact value is printed as text or in a table",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "Private WhatsApp chat dataset (Karusala et al. 2021 / Mondal et al. 2021) of HIV-support-group messages in Nairobi; paper states \"the dataset is not publicly available, but researchers can request access by contacting the authors\""},
+  "cost": {"est_calls": 11157, "tier": "high"},
+  "blockers": ["data_closed"],
+  "notes": "GPT-4-Turbo is genuinely run live as one of 7 evaluated models with a standardized zero-shot prompt (Figure 3) over a fixed 3,719-message set, and its per-sentiment performance is discussed at length, but only via bar-chart figures (1, 2, 4) -- no exact numeric value for GPT-4-Turbo is printed in text or a table. More fundamentally, the WhatsApp dataset (real, sensitive health-related messages) is explicitly not public and is gated behind author request, blocking reproduction independent of the number issue."
+}

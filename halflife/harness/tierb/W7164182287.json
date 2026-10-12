@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7164182287",
+ "title": "Use of large language models for providing automated feedback in medical imaging education: a systematic review",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "PRISMA systematic review; GPT-4 Turbo/GPT-4o appear only in prose summarising included studies (e.g. Atsukawa et al.), never run by these authors."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No experiment; a PRISMA-registered literature review (PROSPERO)."
+ },
+ "claim": {
+  "metric": "none (review of others' reported results)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "n/a (review; no new dataset)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Systematic review of 7 included studies (of 1,003 screened); GPT-4 Turbo/GPT-4o results discussed belong to the reviewed papers, not to this paper's own execution."
+}

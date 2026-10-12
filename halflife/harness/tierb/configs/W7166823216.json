@@ -1,0 +1,84 @@
+{
+  "wid": "W7166823216",
+  "title": "Probing Multimodal Large Language Models on Cognitive Biases in Chinese Short-Video Misinformation",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "max_tokens": 8192
+    },
+    "params_source": "paper Sec. 3.1 ('We set the temperature parameter to zero whenever available and keep other hyper-parameters as default') - o3 is a reasoning model and rejects temperature, so only max_completion_tokens is passed; 8192 leaves room for hidden reasoning plus the Explanation/Rating JSON. reasoning_effort is not stated by the paper and is left at the API default. Seeds 1 per CONFIG_SCHEMA.md (high cost tier).",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 200,
+    "subset_rule": "all 200 manually annotated short videos (100 misinformation / 100 factual; Table 6), Multimodal input setting",
+    "approximation": "NOT DETERMINED - the input is images plus text, which this harness cannot send (see open points)."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "penguin-G/Fine-VDK (the paper's footnote 5 prints the org prefix only, https://huggingface.co/datasets/penguin-G/; the dataset resolves by the repository name in footnote 4, github.com/penguinnnnn/Fine-VDK)",
+    "config_or_split": "single release, 200 videos; no parquet conversion (the files are zip archives, not a table)",
+    "filter": null,
+    "fields": {
+      "input": "video frames + transcript",
+      "label": "video veracity (False / True subset)",
+      "id": "video id"
+    },
+    "license": "CC BY-NC 4.0 (dataset card); the code repository is GPL-3.0",
+    "access_checked": true,
+    "size_mb": 13458.2,
+    "fields_prose": {
+      "input": "the sampled video frames (32-frame sampling rate, 21.8 +/- 9.1 frames per video) and the ASR transcript (306 +/- 239 tiktoken tokens)",
+      "label": "Label False (misinformation) / True (factual); BS rewards r > 4 on False and r < 4 on True",
+      "id": "video id in metadata.xlsx"
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "NOT downloaded. The dataset is not gated, but data_video.zip is 13,458,190,842 bytes (13.5 GB), 270x the 50 MB ceiling. The small companions were listed but not fetched: data_cover_image.zip 27.7 MB, data_ocr.zip 160 KB, data_tanscript.zip 132 KB, metadata.xlsx 52 KB, error_verification.xlsx 34 KB, frame_extraction.py 4 KB. Frames are not distributed; they are produced from the videos by frame_extraction.py."
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are an expert fact-checker and your goal is to identify online misinformation. You will be provided with several video frames in sequence extracted from a short video and an associated audio transcript. Your task is to analyze the provided content to determine if it contains false beliefs or misinformation.\nHere's how to approach the task:\n1. **Analyze the entire frames carefully.** Look for claims, statements, assertions, or actions that could be factually incorrect, misleading, or unsubstantiated.\n2. **Identify specific points of potential misinformation.**\n3. Explain *why* the points constitute misinformation.** This explanation should reference common knowledge, widely accepted facts, or the logical inconsistencies within the provided text. If the information is accurate, explain why it is not misinformation.\n4. Based on your analysis, provide a rating from 1 to 7 indicating your confidence about the presence of misinformation, where:\n**1**: Very confident that the content has no misinformation\n**2**: Confident that the content has no misinformation\n**3**: Slightly confident that the content has no misinformation\n**4**: Not at all confident that the content has/has no misinformation\n**5**: Slightly confident that the content has misinformation\n**6**: Confident that the content has misinformation\n**7**: Very confident that the content has misinformation\nOutput must be in JSON format, containing two keys:\n* '\"Explanation\"': A detailed explanation of your reasoning, outlining specific false claims or confirming the accuracy of the information. If \"Yes\", clearly state what the misinformation is and why it's false. If \"No\", explain why the information is accurate.\n* '\"Rating\"': An integer between 1-7 reflecting your confidence about misinformation presence.\n——\nTranscript: {transcript}\nVideo Frames: {frames}",
+    "placeholders": {
+      "transcript": "the video's ASR transcript ([TRANSCRIPT] in Figure 11)",
+      "frames": "the sampled video frames as image content parts ([IMAGE] in Figure 11)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix C 'Prompts', Figure 11 (Modality: Multimodal); the caption states '[TRANSCRIPT] and [IMAGE] are replaced by actual aural transcripts and visual frames of each video'",
+    "verbatim": "full for the text, with the extraction's hard wraps rejoined; the paper's own numbering glitch in step 3 ('3. Explain *why* ... misinformation.**') and the mixed backtick/quote marks around the two JSON keys are kept as printed. The [IMAGE] slot cannot be expressed as text.",
+    "placeholders_paper": {
+      "transcript": "aural transcript of the video",
+      "frames": "visual frames of the video"
+    }
+  },
+  "output": {
+    "parse": "json field Rating (an integer 1-7)",
+    "postprocess": "clip to 1..7; an unparsable reply has no rating and cannot enter BS",
+    "parse_paper": "not printed beyond the required JSON format"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Normalized Belief Score, Eq. 1: for a raw rating r in 1..7, BS = max((r-4)/3, 0) when the video's Label is False and max((4-r)/3, 0) when the Label is True, averaged over the 200 videos and reported x100. It rewards only skepticism toward misinformation and belief in factual content.",
+    "judge": "none for BS (the rating is the model's own self-reported Likert judgement); a separate LLM-as-a-Judge prompt is used elsewhere in the paper to rate CoT coverage on a 1-4 scale",
+    "original_value": 35.2,
+    "original_location": "Abstract ('o3 performs the worst at 35.2') and Table 1, row o3-20250416, Multimodal block, column All (False subset 54.0, True subset 16.3)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 200,
+    "est_usd": 40.0,
+    "tier": "high",
+    "prepare_note": "--prepare not run: the items are video frames. Table 6 reports up to ~21.8K tokens per video for o3, so 200 calls (1 seed, high tier) at o3 $2.00/$8.00 per 1M is roughly $10 input plus reasoning output; image tokens and the 13.5 GB extraction step dominate the real cost."
+  },
+  "open_points": [
+    "MULTIMODAL INPUT: the Multimodal setting sends ~22 video frames per item alongside the transcript. harness/tierb_runner.py builds message bodies whose content is a string, and battery.estimate prices chars/4, so neither the request construction nor the cost estimate supports image content parts. A hook could return image parts from render(), but the estimator and the cost cap would be wrong. Extending the harness is a human decision.",
+    "DOWNLOAD: data_video.zip is 13.5 GB, 270 times the 50 MB ceiling, and the frames are not distributed - they must be produced from the videos with the repository's frame_extraction.py (32-frame sampling rate; 21.8 +/- 9.1 frames per video). Even the text-only modalities would need data_tanscript.zip and data_ocr.zip (both tiny) plus metadata.xlsx for the labels.",
+    "REASONING EFFORT: 'temperature zero whenever available, other hyper-parameters as default' leaves o3's reasoning_effort unstated; on a reasoning model this is the parameter the number is most sensitive to.",
+    "A CHEAPER SUBSTITUTE EXISTS but measures a different cell: the Textual (OCR) and Aural (transcript) settings need only the two small zips and are pure text, and Table 1 gives o3 34.0 and 23.0 for them. Re-targeting the claim to one of those is a decision for a human, not a reproduction of the 35.2 Multimodal cell."
+  ],
+  "notes": "Every prompt is printed in full (Appendix C, Figures 7-11 for Claim / Textual / Aural / Visual / Multimodal plus the LLM-as-a-Judge template), the model snapshot is pinned ('o3 (2025-04-16)'), the BS formula is explicit and the 200-video split is balanced 100/100 - the only blockers are the modality and the archive size. || The dataset is public and ungated at penguin-G/Fine-VDK (CC BY-NC 4.0), so the paper's truncated footnote URL is not itself an obstacle. || GPT-4o-20241120 is the other live OpenAI snapshot in Table 1 (Multimodal 59.3) and would face the same two blockers."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4405766313",
+ "title": "Assessing Social Alignment: Do Personality-Prompted Large Language Models Behave Like Humans?",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Fig. 12 model list: \"...gpt-3.5-turbo-0125 / gpt-4-turbo-2024-04-09 / gpt-4o-2024-05-13 / gpt-4o-mini-2024-07-18\" -- trait-alignment plot across LLMs"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Methodology (BFI-44 personality-prompting templates; Milgram Experiment replication protocol)",
+  "note": "Models are prompted to exhibit specific Big-Five trait levels, then assessed via the BFI-44 questionnaire and a Milgram-style obedience simulation."
+ },
+ "claim": {
+  "metric": "alignment between prompted and BFI-44-measured personality trait value (Agreeableness/Conscientiousness/Openness)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 12 (per-model trait-alignment plot, gpt-4-turbo-2024-04-09 row); exact numeric alignment value not confirmed in the excerpt read",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "BFI-44 personality inventory (standard public instrument); Milgram Experiment paradigm (public, well-documented)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4o-2024-05-13 is also directly tested in the same paper (also on the live list) and is the focus of a separate Milgram-experiment checkpoint-comparison (Figure 13, vs. gpt-4o-2024-08-06). Marked 'maybe': the specific trait-alignment number for gpt-4-turbo-2024-04-09 (as opposed to a qualitative figure position) was not confirmed in the excerpt read."
+}

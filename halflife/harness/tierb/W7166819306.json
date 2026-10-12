@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166819306",
+  "title": "Exploring Novel Drug Research Area using Large Language Models Based on Research Trends in Biomedical Literature",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec 5.1: \"We employed GPT-5-2025-08-07 (OpenAI) ... as the primary model in our pipeline\", used for PICO extraction, entity normalization, and P-I combination identification"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D (\"Baseline Prompt\": full JSON-output instruction template with {disease_labels}/{drug_labels}/{abstracts} placeholders)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (evaluation is qualitative only)",
+    "value": null,
+    "n_items": null,
+    "location": "Table 2 lists example top-ranked P-I combinations; Sec 8 Limitations: \"in the evaluation framework, we only used qualitative methods\"",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "2,262 filtered PubMed cancer abstracts (from an initial pool of 5,000); disease/drug label lists in Appendix E/F"
+  },
+  "cost": {
+    "est_calls": 51,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "n=51 diseases x m=256 drugs (Sec 4.4) is an input-matrix dimension, not a sample count for a scored claim. Composite impact scores (0-100) are the model's own self-rated output, not validated against ground truth; the authors explicitly flag qualitative-only evaluation as a limitation."
+}

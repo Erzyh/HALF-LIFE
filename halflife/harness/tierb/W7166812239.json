@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7166812239",
+  "title": "SchemaScope: How Join-Hop Depth Breaks Text-to-SQL in Large Language Models, and a Decomposition-Based Remedy",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (gpt-4-turbo-2024-04-09); GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'GPT-4o (gpt-4o-2024-05-13), GPT-4-Turbo (gpt-4-turbo-2024-04-09), Llama-3-70B-Instruct, Gemini-1.5-Pro, and Claude-3.5-Sonnet ... All prompted via API; temperature 0 for reproducibility.'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "'standard schema-linking prompt' described (full schema, keys, question); not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "execution accuracy (%) on JHD (h>=3), base (without SchemaScope)",
+    "value": 42.2,
+    "n_items": 264,
+    "location": "Table 3, row GPT-4-Turbo, JHD Base (42.2; BIRD dev base 49.3)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "JHD benchmark (410 questions over 12 schemas incl. MIMIC-IV, SEC EDGAR, TPC-DS, synthetic); no release URL; BIRD dev (1,534) is public"
+  },
+  "cost": {
+    "est_calls": 1230,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt"
+  ],
+  "notes": "BIRD dev base (49.3) uses a public dataset but the prompt is not printed; MIMIC-IV schemas need credentialed access. Six-page workshop paper."
+}

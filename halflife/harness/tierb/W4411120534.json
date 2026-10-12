@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4411120534",
+  "title": "Is Translation All You Need? A Study on Solving Multilingual Tasks with Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "A",
+    "evidence": "\"To evaluate the quality of the responses, we use GPT-4o (gpt-4o-2024-05-13) as the judge. The prompt for the judge is shown in Figure 8 in the Appendix\" (Sec. 3.1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix Figure 8 (judge prompt), Figure 9 (cultural-knowledge prompt)",
+    "note": "Judge prompt only"
+  },
+  "claim": {
+    "metric": "win rate of original vs translated queries (judge score 1-10)",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 5 (bars per language, no numeric table)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-05-13"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MGSM, XCOPA, XNLI, PAWS-X, MKQA, XL-Sum subsets; user-query set of Sec. 3"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "no_number"
+  ],
+  "notes": "Subject model is gpt-3.5-turbo-1106 (dead preview); the live model only scores outputs, and its win rates are shown as figures."
+}

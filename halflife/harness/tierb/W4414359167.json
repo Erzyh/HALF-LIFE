@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4414359167",
+ "title": "Taking STEPS Forward: Enhancing Online Peer-Counseling with Schema Therapy via Socratic Questioning",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"We used the \\\"gpt-4o-2024-05-13\\\" model in experiments but based on initial comparisons, expect the results to apply to all LLMs\" (footnote 8, Sec. 3)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix C (Socratic-question generation prompts); Appendix D (system interface)",
+  "note": "Two LLMs role-play the conversation: STEPS as peer counselor, LLM_Patient as support seeker, seeded from 20 CounselChat forum posts."
+ },
+ "claim": {
+  "metric": "Assessment / Cognitive scores (0-6 scale) for LLM_ST+phases vs. STEPS, rated by human judges",
+  "value": null,
+  "n_items": 20,
+  "location": "Sec. 3 Experiments (\"collecting human ratings on a scale from 0 to 6\")",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "CounselChat forum posts (Bertagnolli, 2020), 20 posts used, via a prior Schema-Therapy study (Gollapalli et al., 2023)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "human_outcome"
+ ],
+ "notes": "Otherwise a strong candidate (role S/B, gpt-4o-2024-05-13 explicitly dated, full prompts in Appendix C, public CounselChat data, small n=20), but the headline Assessment/Cognitive metrics are human ratings collected by the authors' own raters (0-6 scale), not an automatically reproducible number -- reproducing the exact reported values would require re-running new human evaluation, hence human_outcome."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404261082",
+ "title": "MotionGlot: A Multi-Embodied Motion Generation Model",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "'we prompt gpt-4-turbo to rewrite 23000 prompts from'"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "The rewriting instruction itself is not quoted."
+ },
+ "claim": {
+  "metric": "none for gpt-4-turbo itself (it is used to augment/rewrite the text-prompt corpus used to train/evaluate the paper's own MotionGlot model, which is what the reported motion-generation metrics describe)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Motion-language datasets (e.g. HumanML3D-style) with 23,000 prompts rewritten by gpt-4-turbo"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-4-turbo is a role-A data-augmentation utility (prompt rewriting), not the subject of MotionGlot's reported motion-generation benchmarks."
+}

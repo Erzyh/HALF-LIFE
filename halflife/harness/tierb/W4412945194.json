@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4412945194",
+  "title": "From Selection to Generation: A Survey of LLM-based Active Learning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"by employing GPT-4-Turbo for annotating low-resource languages, Kholodna et al. (2024) reported substantial reductions in estimated annotation costs\" (Sec. 4.2, LLM-based Annotation)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "Survey discussing other papers' active-learning pipelines; no prompts of its own."},
+  "claim": {
+    "metric": "none for this survey (cites Kholodna et al. 2024's annotation-cost reduction)", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (survey of LLM-based active-learning literature)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "ACL survey. GPT-4-Turbo is mentioned twice, both times summarizing a third-party paper (Kholodna et al. 2024); the survey runs no models itself."
+}

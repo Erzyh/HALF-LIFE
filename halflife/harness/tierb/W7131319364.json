@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7131319364",
+  "title": "Conversational AI for Automated Patient Questionnaire Completion: Development Insights and Design Principles",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (gpt-5-2025-08-07)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "\"We developed a generative AI conversational agent (CA) using GPT-5\"; Sec. 4: \"version of the underlying LLM (gpt-5-2025-08-07) so no further updates will affect CA's integrity\"; temperature 0.8."
+  },
+  "prompt": {"verbatim": "partial", "location": "Table 2 (sample of prompt design principles with text); full prompt provided in reference [19]", "note": ""},
+  "claim": {
+    "metric": "participant feedback on the conversational agent (qualitative)", "value": null, "n_items": null, "location": "Sec. 4-5 (design iterations and participant comments)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {"public": "no", "source": "back-pain patient questionnaire sessions with recruited participants"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["human_outcome"],
+  "notes": "Design-insights paper: outcomes are participant reactions to an interactive agent, with no numeric model metric; the full prompt is external to the paper."
+}

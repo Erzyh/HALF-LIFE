@@ -1,0 +1,14 @@
+{
+  "wid": "W4400611869",
+  "n_items": 925,
+  "n_requests": 1850,
+  "seeds": 2,
+  "est_usd": 2.0,
+  "subset_note": "cost cap $1.0: seeded random subset of 925 items (seed 20260907); repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+  "dropped_unrenderable": 0,
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 82.2,
+  "cap_usd": 4.5,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4400611869"
+}

@@ -1,0 +1,159 @@
+{
+  "card_id": "W7155245470",
+  "openalex_id": "https://openalex.org/W7155245470",
+  "title": "Same Verdict, Different Reasons: LLM-as-a-Judge and Clinician Disagreement on Medical Chatbot Completeness",
+  "doi": null,
+  "paper": {
+    "authors": "DeLucia, Huang, Joshi, Yarmohammadi, Hassoon, Dredze (Johns Hopkins Data Science and AI Institute)",
+    "year": 2026,
+    "venue": "preprint / ACL-style submission, 30 pp.",
+    "repo": null,
+    "repo_commit": null,
+    "repo_license": null,
+    "repo_absent_reason": "The paper releases no code and no data: a full-text search for github / repository / 'code available' / anonymous-supplement links returns nothing, and the only external links are the two Hugging Face model cards (meta-llama/Llama-3.1-8B-Instruct, aaditya/OpenBioLLM-Llama3-70B). Prompts are printed verbatim in Appendix D (Tables 4-10).",
+    "tierb_relation": "NO UPGRADE. A Tier B prompt-level config already exists (harness/tierb/configs/W7155245470.json, status needs_human) and remains the best available protocol, because there is no repository to upgrade to. This card adds what Tier B left open: the ground-truth construction pass, the subset-filter reconstruction and the cost of both.",
+    "third_party_code": "The grading machinery the paper builds on IS public: openai/simple-evals (MIT, commit 652c89d0ca9df547706735883097e9537d40dc47, shallow clone at external/repos/W4400222256/openai__simple-evals). healthbench_eval.py carries the oss_eval data URL and a GRADER_TEMPLATE that matches the paper's Table 4 boolean grader almost word for word, so the clinician-ground-truth pass can be run with released code."
+  },
+  "dependence": {
+    "type": "judge",
+    "strength": "core",
+    "note": "The subject of the study is the LLM judge itself: every number in Table 1 is a property of gpt-5-mini's grading decisions. The comparison label ('clinician ground truth') is, on HealthBench, itself produced by an LLM - a GPT-4.1 pass over the clinician-written positive rubric criteria - so a re-execution carries model dependence on BOTH sides and both must be re-run."
+  },
+  "claim": {
+    "statement": "On the 1,281 filtered single-turn layperson HealthBench conversations, gpt-5-mini-2025-08-07 used as a judge with the zero-shot Analytical-Rubric (5-point completeness, threshold score >= 4 = complete) reaches the study's ceiling for detecting incomplete responses and still discriminates barely above chance: F1 = 0.76, precision = 0.86, recall = 0.68, AUC = 0.66 against the clinician ground truth (Table 1, HealthBench block, row Analytical-Rubric, GPT-5 Mini columns; Sec. 4.1).",
+    "claim_type": "tool_validity",
+    "metric": "F1 of the Incomplete class (judge score < 4 vs ground-truth incomplete) plus precision, recall and AUC of the raw 1-5 judge score, over the 1,281 conversations. Ground truth: the HealthBench 'ideal' answer is graded criterion-by-criterion by GPT-4.1 against the conversation's positive completeness rubric items (equal weights, binary met/not-met); complete iff >= 75% of criteria are satisfied (77% of the 1,281 come out incomplete).",
+    "original_values": {
+      "gpt5mini_healthbench_analytical_rubric": {
+        "f1": 0.76,
+        "precision": 0.86,
+        "recall": 0.68,
+        "auc": 0.66
+      },
+      "gpt5mini_healthbench_other_rubrics": {
+        "analytical_rubric_fss": {
+          "f1": 0.83,
+          "precision": 0.81,
+          "recall": 0.84,
+          "auc": 0.62
+        },
+        "general_likert": {
+          "f1": 0.54,
+          "precision": 0.89,
+          "recall": 0.39,
+          "auc": 0.64
+        },
+        "general_likert_fss": {
+          "f1": 0.67,
+          "precision": 0.82,
+          "recall": 0.57,
+          "auc": 0.58
+        },
+        "dynamic_checklist_circular": {
+          "f1": 0.93,
+          "precision": 0.96,
+          "recall": 0.91,
+          "auc": 0.93
+        }
+      },
+      "open_weight_comparators_analytical_rubric": {
+        "llama-3.3-70b": {
+          "f1": 0.42,
+          "auc": 0.65
+        },
+        "openbiollm-70b": {
+          "f1": 0.2,
+          "auc": 0.53
+        }
+      },
+      "n_items": 1281,
+      "incomplete_prevalence": 0.77,
+      "auc_range_across_all_judges_healthbench": [
+        0.5,
+        0.66
+      ]
+    },
+    "original_source": "Table 1 (p. 6, HealthBench block); Sec. 4.1 'GPT-5 Mini with Analytical-Rubric sets the performance ceiling'; Sec. 3.2 for the 1,281-conversation filter and the 75% ground-truth threshold; App. B.2 for the filtering pipeline."
+  },
+  "protocol": {
+    "model": "gpt-5-mini-2025-08-07",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+    "model_usage_verified": "yes - Sec. 3.1: 'three backbone LLM Judges: Llama 3.3-70B, OpenBioLLM-70B, and GPT-5 Mini (gpt-5-mini-2025-08-07)'; 'GPT-5 Mini was run at the default temperature of 1.0'. No alias inference needed. The gpt-4-turbo hit in live_ids is a citation of prior work in Sec. 2, not an experimental arm.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (App. C: 'GPT-5-Mini was accessed via OpenAI API')",
+    "prompt_source": "Paper App. D, Table 9 'Full grading prompt for the Analytical-Rubric rubric' (transcribed verbatim into harness/tierb/configs/W7155245470.json, field prompt.user_template). Table 10 holds the FSS variant, Tables 7-8 General-Likert, Tables 4-6 Dynamic-Checklist. Ground-truth grader prompt: Table 4 = the openai/simple-evals healthbench GRADER_TEMPLATE.",
+    "params": {
+      "temperature": 1.0,
+      "max_completion_tokens": 4096,
+      "response_format": "structured JSON output ('Return a valid JSON object with the following fields: \"explanation\" and \"criteria_score\"')",
+      "reasoning_effort": "not stated by the paper (API default assumed)",
+      "seed": "not set",
+      "params_source": "Sec. 3.1 ('a maximum of 4,096 output tokens and structured JSON output'; 'GPT-5 Mini was run at the default temperature of 1.0'); App. C"
+    },
+    "n_items": 1281,
+    "samples_per_item": 1,
+    "seeds_planned": 3,
+    "seeds_note": "Temperature 1.0 on a reasoning model makes a single pass a draw from a wide distribution; the paper reports one pass. 3 seeds, median, with the run-to-run spread reported as a new number.",
+    "input_construction": "The conversation is flattened to a single string with 'User:' / 'Assistant:' role prefixes (App. B.2) and the HealthBench ideal_completion is appended as the last assistant turn - the judged response is the ideal answer, not a model answer.",
+    "output_parse": "read criteria_score (integer 1-5) from the returned JSON after stripping any markdown fence; score >= 4 -> complete, else incomplete; unparsable replies retried once and then counted as incomplete and reported.",
+    "ground_truth_pass": "Separate one-shot pass with gpt-4.1-2025-04-14 (paper says 'GPT-4.1', undated): for each of the 1,281 conversations, one call per POSITIVE completeness-axis rubric criterion, boolean met/not-met (Table 4 grader), equal weights; complete iff the satisfied fraction >= 0.75.",
+    "evaluation": "Binary F1/precision/recall of the Incomplete class plus ROC-AUC on the raw 1-5 score, over the 1,281 items (plain scikit-learn; no released script)."
+  },
+  "artifacts": {
+    "prompts_path": "paper App. D Tables 4-10 (no repository); transcribed in harness/tierb/configs/W7155245470.json",
+    "data_path": "HealthBench oss_eval split, https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (60 MB, 5,000 conversations; fields prompt, rubrics[criterion/points/tags], example_tags, ideal_completions_data, prompt_id) - the 1,281-conversation filtered subset is NOT released. MedExpert (108 questions x 5 responses) comes from a separate ML4H 2025 paper by the same group; its availability is not stated here.",
+    "eval_path": "none released. The ground-truth grader is reproducible from openai/simple-evals healthbench_eval.py (GRADER_TEMPLATE, _compute_clipped_score); the F1/AUC computation is trivial and must be re-implemented.",
+    "data_public": "partial - HealthBench yes, the 1,281-item filter and the derived clinician ground truth no, MedExpert unknown",
+    "data_license": "HealthBench / simple-evals MIT",
+    "redistributable": "yes for HealthBench-derived artifacts under MIT with attribution; our reconstructed filter list and ground-truth labels are new artifacts we can publish alongside the run",
+    "notes": "No PHI or PII: HealthBench conversations are synthetic and MedExpert is clinician-curated (paper App. B.1). Because both the item set and the labels have to be rebuilt, our n will not be exactly 1,281 and our ground truth will not be bit-identical to theirs - both must be reported as reconstruction deltas."
+  },
+  "blockers": [
+    "The 1,281-conversation subset is not released. Reproducing it needs the App. B.2 cascade: langid language filter, heuristic HCP tags (799 flagged), then a Llama-3.1-8B-Instruct few-shot classifier with the vocabulary constrained to True/False (828 more flagged, Table 3 prompt). Metadata-only filters give a different, larger set, so the item count will differ either way.",
+    "The clinician ground truth is not released and is itself an LLM product: it requires a full GPT-4.1 grading pass (~12.8k calls, ~$46) before the subject model can be scored, and the paper does not give the GPT-4.1 snapshot date, so label noise is added on top of subject-model drift.",
+    "Judge decoding is temperature 1.0 with an unstated reasoning effort, so both passes are stochastic; the published Table 1 is a single draw.",
+    "MedExpert (the second dataset, best AUC 0.56) is from a separate paper with no stated availability - the MedExpert half of Table 1 is out of scope for this card."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-5-mini-2025-08-07",
+      "purpose": "live baseline (P0); the paper's best judge and the source of the headline ceiling"
+    },
+    "successors": [
+      "gpt-5.6-terra (vendor-designated replacement for gpt-5-mini per the OpenAI deprecations page)"
+    ],
+    "auxiliary_models_not_under_test": [
+      "gpt-4.1-2025-04-14 - ground-truth grader only (its snapshot is alive; it is not the object of the claim)",
+      "meta-llama/Llama-3.1-8B-Instruct - HCP filter classifier (open weights, hash-pinned)"
+    ],
+    "open_weight_anchor": "Llama-3.3-70B-Instruct and OpenBioLLM-Llama3-70B are the paper's other two judges and give a permanent re-execution axis (both hash-pinnable, greedy decoding)."
+  },
+  "budget": {
+    "est_calls": 16653,
+    "est_tokens_in": 21500000,
+    "est_tokens_out": 5400000,
+    "est_cost_usd": 55,
+    "pricing_usd_per_1m": {
+      "gpt-5-mini-2025-08-07": {
+        "input": 0.25,
+        "output": 2.0
+      },
+      "gpt-4.1-2025-04-14": {
+        "input": 2.0,
+        "output": 8.0
+      }
+    },
+    "assumptions": "Subject pass: 1,281 items x 3 seeds = 3,843 calls, ~1,600 input tokens (the ~700-token Analytical-Rubric prompt plus the conversation and the ideal answer) and ~900 output tokens (reasoning plus the JSON explanation) -> $1.5 in + $6.9 out = ~$8.5. Ground-truth pass (run once, not per seed): ~10 positive completeness criteria per conversation x 1,281 = ~12,810 calls at ~1,200 in / ~150 out with gpt-4.1 -> ~$46. Total ~$55; the ground-truth pass is 84% of it and is reusable across every seed, rubric variant and successor arm."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary number: F1 of the Incomplete class for gpt-5-mini-2025-08-07 with the zero-shot Analytical-Rubric (median of 3 seeds) against 0.76, with AUC 0.66 as the claim-bearing secondary. Survival = F1 inside the bootstrap 95% CI over items around 0.76 AND the paper's actual argument holds: AUC stays in the near-chance band (<= ~0.70), so the judge still offers no triage utility. Partial = F1 moves outside the CI but AUC remains near chance, or vice versa. Death = AUC rises to a genuinely discriminative level (>= ~0.80) on a comparably reconstructed ground truth, which would overturn the paper's central 'LLM judges cannot separate complete from incomplete' conclusion. Because prevalence is 77% incomplete, F1 alone is weak evidence and must always be read next to AUC and next to the majority-class baseline.",
+    "notes": "The reconstruction deltas (our n vs 1,281; our incomplete prevalence vs 0.77) are reported first, and the judgment is conditioned on them. A same-ground-truth ablation (our GPT-4.1 labels vs a second GPT-4.1 pass) bounds label noise before any model-drift conclusion is drawn."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Ground truth: spend ~$46 on the GPT-4.1 grading pass to rebuild the labels (required for any comparison to Table 1), or drop this card?",
+    "Subset: reproduce the App. B.2 filter including the local Llama-3.1-8B-Instruct HCP classifier, or approximate with metadata-only filters and report the item-count delta?",
+    "Which GPT-4.1 snapshot for the ground truth - gpt-4.1-2025-04-14 (the only dated one) - and do we accept that the paper only wrote 'GPT-4.1'?",
+    "Scope: HealthBench Analytical-Rubric only, or also the FSS variant (0.83/0.62) so the 'few-shot shifts threshold, not discrimination' claim can be judged for ~$8 more?"
+  ],
+  "domain_notes": "The judged text is always HealthBench's own clinician-written 'ideal' answer, so the task is: does a judge agree with clinicians about what is missing from a response that clinicians consider good? 77% of these ideal answers fail the 75%-of-criteria bar, which is why F1 for the Incomplete class can be high (0.76) while AUC is barely above chance (0.66). The Dynamic-Checklist row on HealthBench (F1 0.93, AUC 0.93) is excluded by the authors as circular - its judge and the ground truth share the same ICL rubric scoring - and must stay excluded in any re-run. The paper's deeper finding (RQ3: agreeing verdicts cite different omissions) rests on a GPT-5 Mini failure-mode classifier over different-verdict pairs and is a separate, larger card."
+}

@@ -1,0 +1,96 @@
+{
+ "wid": "W4399912745v2",
+ "title": "ALiiCE: Evaluating Positional Fine-grained Citation Generation [variant: code-release prompt format]",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.5,
+   "max_tokens": 512,
+   "top_p": 1.0
+  },
+  "params_source": "paper Appendix A.2 (sampling temperature 0.5 for all models); max_tokens and top_p assumed",
+  "seeds": 1
+ },
+ "task": {
+  "type": "generation",
+  "n_items": 948,
+  "subset_rule": "all (ALCE ASQA evaluation set, 948 questions)",
+  "approximation": "Variant with the released code's prompt (shorter instruction, two citation examples, 'Document [k] Title: T: text' lines) instead of the paper's Table 7 text, to test the format hypothesis for the 47.0 -> 37.6 deviation; 5 passages = docs[0:5]; temperature 0.5 as in the paper."
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "princeton-nlp/ALCE-data (ALCE-data.tar, file asqa_eval_gtr_top100.json; mirror of the ALCE download_data.sh archive)",
+  "config_or_split": "asqa_eval_gtr_top100.json (948 items, 100 docs each; the hook uses docs[0:5])",
+  "filter": null,
+  "fields": {
+   "input": "question",
+   "documents": "documents_block",
+   "label": "qa_pairs",
+   "id": "sample_id"
+  },
+  "license": "unknown (no license on the HF page; ALCE code repository is MIT; ASQA data carries its own terms)",
+  "access_checked": true,
+  "size_mb": 451,
+  "file_url": "https://huggingface.co/datasets/princeton-nlp/ALCE-data/resolve/main/ALCE-data.tar",
+  "fields_prose": {
+   "input": "question",
+   "documents": "documents_block = five lines built by the hook from docs[0:5] (fields title, text; GTR top-100 order)",
+   "label": "qa_pairs[*].short_answers (gold short answers for str_em; kept as the gold object)",
+   "id": "sample_id"
+  },
+  "filter_prose": "none",
+  "local_files": {
+   "dir": "external/data/tierb_items/W4399912745/",
+   "archive": "ALCE-data.tar (451,297,280 B; members: asqa_eval_gtr_top100.json 84.8 MB, asqa_eval_gtr_top100_reranked_oracle.json, asqa_eval_dpr_top100.json, eli5_*, qampari_*)",
+   "used": "asqa_eval_gtr_top100.json (84,762,794 B, extracted with tarfile)"
+  },
+  "download": {
+   "date": "2026-09-18",
+   "url": "https://huggingface.co/datasets/princeton-nlp/ALCE-data/resolve/main/ALCE-data.tar",
+   "bytes": 451297280,
+   "sha256_tar": "eda837bf659a91b3648dc6e7ab6b17197664d93593857e8fdf3800b6aa6a98f0",
+   "sha256_asqa_eval_gtr_top100_json": "d72737ce7d46629d3504fc508f29ec0c270e0ddd5cff3fad69625d2c0e4be35b",
+   "tool": "urllib stream (over the runner's 250 MB _get limit, hence the hook reads the extracted file)"
+  }
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "Please provide an accurate and concise answer that includes fine-grained in-text citations immediately following the relevant information. Place the citation numbers within brackets directly after the facts they support.\n\n Citation format examples:\n Cups can be made of glass[1] or plastic[2][3].\nPlastic can be used to make cups[3], but may contain some bad effects[4].\n\nQuestion: {question}\n\n{documents}\nAnswer:",
+  "placeholders": {
+   "question": "items.question",
+   "documents": "items.documents_block"
+  },
+  "few_shot": "none (the two citation-format examples are part of the code's instruction)",
+  "source_location": "ALiiCE code release, prompts/generation.json (instruction, demo_prompt with an empty answer, doc_prompt)",
+  "verbatim": "full (instruction and layout from prompts/generation.json; document lines 'Document [k] Title: T: text')",
+  "placeholders_prose": {
+   "question": "items.question",
+   "documents": "five lines 'Documents [k] (Title: {title}) {text}' for k=1..5 built from docs[0:5]"
+  }
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "strip; ALCE str_em: for each qa_pair check whether any gold short answer is an exact substring of the response after ALCE's normalize_answer (lowercase, remove punctuation and articles, collapse whitespace); item score = fraction of qa_pairs hit"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "exact-match recall (ALCE str_em): mean over the 948 questions of the share of gold short answers appearing verbatim in the response, times 100",
+  "judge": "none",
+  "original_value": 47.0,
+  "original_location": "Table 1, ASQA block, row GPT-4 (5-psg), column Correct.",
+  "bootstrap_unit": "item",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 948,
+  "est_usd": 15.0,
+  "tier": "high"
+ },
+ "open_points": [
+  "[variant 2026-09-19] Our design, run with the user's go; compares with W4399912745 (37.60, CI 35.5-39.6) and the paper's 47.0."
+ ],
+ "notes": "Headline ALiiCE citation metrics (CVCP, citation recall/precision) need spaCy parsing and the TRUE T5-11B NLI model and are not re-run; only the correctness column is targeted. Input ~1K tokens (5 passages) and ~150 output tokens per call. || [datacheck 2026-09-18] Field names verified on the extracted file: question, docs[].{id,title,text,score,summary,extraction}, qa_pairs[].{context,question,short_answers,wikipage}, sample_id (948 unique), answer, annotations, wikipages; 100 docs per item (~100 words each); 2-6 qa_pairs per item. Hook harness/tierb/hooks/W4399912745.py builds documents_block and scores ALCE str_em (citations removed first, as in ALiiCE eval.py). Discrepancy for a human to note: the ALiiCE code release (github.com/ylXuu/ALiiCE, prompts/generation.json) renders passages as 'Document [k] Title: {title}: {text}' separated by blank lines and uses a shorter instruction with two citation examples, whereas the config keeps the paper's Table 7 text and the 'Documents [k] (Title: ...) ...' line format (DOC_LINE in the hook if the code format is preferred). || [triage 2026-09-18] PROTOCOL APPROXIMATION + BEHAVIOUR, no scoring defect; 37.60 unchanged (907 items, CI 35.5-39.6). (1) Cell: the 47.0 is Table 1 (Table 7 is the prompt), ASQA block, row GPT-4 (5-psg), column Correct. = exact match recall (caption; Sec. 4: 'ground truths are exact substrings of R', after Stelmakh et al.), std 0.4 over runs; 5-psg = top-5 GTR passages = docs[0:5], so the document count is the paper's setting. (2) Scorer verified: normalize_answer / remove_citations / exact_presence are the ALCE utils.py / eval.py functions line for line (lower -> strip string.punctuation -> drop a|an|the -> collapse whitespace; the same two citation regexes); ALCE's eval.py also truncates at the first newline, which only 4/907 outputs contain (37.44 with truncation); without citation removal the score would be 37.82 because bracket numbers such as '[15]' match numeric gold answers in 4 items, so removal is right; hook self-test passes. (3) Output: max_tokens 512, finish_reason stop 907/907, completion tokens mean 31 / median 25 / max 159, 0 empty, 8 without any citation, 18 hedging ('the documents do not mention ...'). (4) Prompt: Table 7 format kept; the released code's 'Document [k] Title: T: text' with a shorter instruction stays an undocumented alternative (DOC_LINE switch) that cannot be checked offline; 907/948 cost-cap subset and 1 seed at T=0.5 are in prepare.json. (5) Behaviour: 760/907 outputs are one sentence, 19.6 words on average (sd 14.4) vs the paper's GPT-4 length 28.1 (20.8); items cover 0 / 1 / 2 of their 2-6 gold sub-answers in 238 / 384 / 210 cases, str_hit 9.7; 56.4% of gold sub-answers occur in the 5 passages (ceiling 57.9) and the model recovers 59.4% of those. The 9.4 pp gap tracks the shorter single-interpretation answers of the pinned gpt-4-turbo-2024-04-09 (13 fingerprints); whether the prompt-format difference or the snapshot's answer style causes it cannot be separated offline. No re-analysis (nothing changed); result.json is the first pass.",
+ "machine_fields_added": "2026-09-07 (normalize_2)",
+ "variant_of": "W4399912745"
+}

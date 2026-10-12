@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7118965376",
+  "title": "Development and validation of a generative AI-assisted medication-indication knowledge base",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Benchmarking may also be carried out with different versions of GPT-4 that have since been introduced, such as GPT-4 Turbo, GPT-4o and o1 (Discussion)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix (finalised prompt for base GPT-4, accessed April 2023)",
+    "note": "Prompt belongs to base GPT-4 (retired), not to the live model."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (GPT-4 Turbo not run)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Public medication lists, MedCAT"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Study used base GPT-4 in April 2023; precision 89.9% validated by pharmacists/physicians. GPT-4 Turbo is future-work mention only."
+}

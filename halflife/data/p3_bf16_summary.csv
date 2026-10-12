@@ -1,0 +1,2 @@
+﻿papers_drawn,papers_compared,abs_diff_median_pts,abs_diff_p75_pts,abs_diff_max_pts,papers_diff_over_2,papers_diff_over_5,class_changes,fp8_deviated,bf16_deviated,deviated_fp8_only,deviated_bf16_only,fp8_unparsed_total,bf16_unparsed_total,items_total,repeat_call_to_call_range_median_pts_open_weight
+12,11,1.25,7.37,328.7,5,4,1,6,6,0,0,84,77,4762,0.16

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7106782500",
+  "title": "From Competition to Coordination: Market Making as a Scalable Framework for Safe and Aligned Multi-Agent LLM Systems",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4.1 nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Sec. 4.1: \"We tested five variants from the GPT family: GPT-4.1 nano, GPT-4.1 mini, GPT-4.1...\"; Table 1 row GPT-4.1-nano, TruthfulQA net gain=7.85"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B, Figure 3 (trader prompt) and Figure 4 (market-maker judgment prompt), sample annotated for the ETHICS-Commonsense dataset",
+    "note": "Prompts are embedded as figure images in the PDF (not present in the extracted text layer); the paper states a full sample prompt pair is shown and the remaining datasets follow the same template."
+  },
+  "claim": {
+    "metric": "net accuracy gain over first-prediction baseline (percentage points), TruthfulQA",
+    "value": 7.85,
+    "n_items": null,
+    "location": "Table 1, row GPT-4.1-nano, TruthfulQA column",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TruthfulQA, Scruples (Dilemmas), ETHICS (Justice, Commonsense), CommonsenseQA 2.0 - all public benchmarks"
+  },
+  "cost": {
+    "est_calls": 500,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Number of dataset samples used per benchmark for the market-making runs is not stated (n_items unclear); benchmarks themselves range from a few hundred items to 32,000. GPT-4.1 and GPT-4.1-mini share the identical setup with smaller gains (2.47, 3.735 pp on TruthfulQA)."
+}

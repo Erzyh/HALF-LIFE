@@ -1,0 +1,64 @@
+﻿num,openalex_id,item,mid,decision,memo,third_coder
+218,W4407349851,역할:gemini-1.5-pro,gemini-1.5-pro,판단불가,"전문 열람불가로 판단불가 판정이나 초록의 Materials and Methods에서 ChatGPT o1-preview, ChatGPT-4o, ChatGPT-4V, Google Gemini 1.5 Pro, Claude 3.5 Sonnet, Claude 3 Opus등 6개의 LLM이 답했다고 나옴",A
+218,W4407349851,역할:o1-preview,o1-preview,판단불가,"전문 열람불가로 판단불가 판정이나 초록의 Materials and Methods에서 ChatGPT o1-preview, ChatGPT-4o, ChatGPT-4V, Google Gemini 1.5 Pro, Claude 3.5 Sonnet, Claude 3 Opus등 6개의 LLM이 답했다고 나옴",A
+269,W4410453756,역할:gemini-1.5-pro,gemini-1.5-pro,판단불가,열람불가로 판단불가 판정이나 해당 사이트의 논문소개에서 Google 이미지와 YouTube에서 수집한 후두 내시경 영상(프레임 및 동영상)을 분석하는 Google Gemini 1.5 Pro의 성능을 평가하였다고 소개됨,A
+314,W4413125085,역할:gpt-4-turbo,gpt-4-turbo,실행,Stage 4: assessment 에서 요약된 정보로 평가 등급과 그 근거를 생성 This stage was tested with OpenAI’s gpt-3.5-turbo and gpt-4-turbo-preview models,A
+345,W7103897471,역할:gemini-1.5-flash,gemini-1.5-flash,판단불가," 초록에는 사용하였다고 나오지만 전문열라불강미으로 판단 불가 판정 Six multimodal LLMs (GPT-4 Turbo, GPT-4o, GPT-4o mini, Gemini 1.5 Flash, Gemini 1.5 Pro, and Claude 3.5 Haiku) were prompted to answer each case and self-report confidence (1–4 scale).",A
+345,W7103897471,역할:gemini-1.5-pro,gemini-1.5-pro,판단불가," 초록에는 사용하였다고 나오지만 전문열라불강미으로 판단 불가 판정 Six multimodal LLMs (GPT-4 Turbo, GPT-4o, GPT-4o mini, Gemini 1.5 Flash, Gemini 1.5 Pro, and Claude 3.5 Haiku) were prompted to answer each case and self-report confidence (1–4 scale).",A
+345,W7103897471,역할:gpt-4-turbo,gpt-4-turbo,판단불가," 초록에는 사용하였다고 나오지만 전문열라불강미으로 판단 불가 판정 Six multimodal LLMs (GPT-4 Turbo, GPT-4o, GPT-4o mini, Gemini 1.5 Flash, Gemini 1.5 Pro, and Claude 3.5 Haiku) were prompted to answer each case and self-report confidence (1–4 scale).",A
+419,W7154538725,역할:gpt-4-turbo,gpt-4-turbo,판단불가,"GPT-4-turbo가 나오는 곳은 부록 표 9 하나뿐. 표 9는 벤치마크별 평가 설정을 정리한 표인데, 영상 벤치마크 MMBench-Video의 채점 방식으로 “GPT-4-turbo judge”가 적혀 있음. 본문 다른 곳에는 GPT-4-turbo가 나오지 않음. 그런데 MMBench-Video의 결과는 논문 어디에도 없음. 메모 2와 같은 의견 ",A
+84,W4404783824,역할:claude-3-haiku,claude-3-haiku,실행,"ChatGPT 및 Claude의 여러 버전으로 생성한 1,800개를 사용해 성능 평가",B
+113,W4409885602,역할:claude-2,claude-2,못찾음,Claude를 사용하여 p5.js 코드를 생성 -> 버전은 못찾음,B
+132,W4416390049,역할:text-davinci-003,text-davinci-003,인용·언급,실험에 대해서 CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing 연구를 인용한 것으로 나옴,B
+235,W4404989530,역할:gpt-4-0125-preview,gpt-4-0125-preview,실행,The gpt-4-0125-preview and Llama-3.1-405B were the LLM deployed in our framework라고 되어있음,B
+252,W4417036168,역할:claude-2,claude-2,인용·언급,MT-Bench의 기존 평가 방식을 설명하는 사례로 언급함,B
+288,W4404782882,역할:gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,인용·언급,"직접 수행했다고 명시한 프롬프트 실험에는 GPT-4o, GPT-3.5-Turbo, Claude-3-Opus가 나옴",B
+294,W4411119926,역할:claude-2.1,claude-2.1,인용·언급,평가 대상인 18개 LLM 목록에 claude-2.1이 명시됨,B
+294,W4411119926,역할:claude-3-opus-20240229,claude-3-opus-20240229,인용·언급,평가 대상인 18개 LLM 목록에 claude-3-opus-20240229이 명시됨,B
+294,W4411119926,역할:claude-3-sonnet-20240229,claude-3-sonnet-20240229,인용·언급,평가 대상인 18개 LLM 목록에 claude-3-sonnet-20240229이 명시됨,B
+294,W4411119926,역할:gpt-3.5-turbo-0613,gpt-3.5-turbo-0613,인용·언급,평가 대상인 18개 LLM 목록에 gpt-3.5-turbo-0613이 명시됨,B
+294,W4411119926,역할:gpt-4-0314,gpt-4-0314,인용·언급,평가 대상인 18개 LLM 목록에 gpt-4-0314이 명시됨,B
+294,W4411119926,역할:gpt-4-0613,gpt-4-0613,인용·언급,평가 대상인 18개 LLM 목록에 gpt-4-0613이 명시됨,B
+454,W7165744445,역할:o3-mini,o3-mini,판단불가,다운받지 못함,B
+469,W7153235326,역할:o3-mini,o3-mini,실행,"Python 코드 일부를 o3-mini의 도움 받아 작성했으며, 활용했다고 나옴",B
+480,W4412641669,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,논문 작성 과정에서 언어 교정으로 사용하였음,B
+37,W4387225765,역할:gpt-4-32k,gpt-4-32k,인용·언급,"gpt-4-32k was not widely available when we ran our experiments. 32k 는 언급만 함.
+실행은 gpt-4만 실행",C
+56,W4401024798,역할:claude-2.1,claude-2.1,인용·언급,"Mixtral 선택 이유로 든 비교 언급, 저자는 Mixtral만 실행.",C
+64,W4404354862,역할:o1-preview,o1-preview,인용·언급,"""Due to the high cost of the o1-preview, we utilize the o1-mini as a replacement"" , o1-preview는 미사용, 표 2~4 결과는 GPT-4o·o1-mini뿐",C
+194,W7140347406,역할:o1-mini,o1-mini,실행," 표 4에 o1-mini Pass@1 42.4%, 저자가 직접 실행",C
+216,W4416078576,역할:gemini-1.5-flash,gemini-1.5-flash,인용·언급,"""Compared to commercial models like GPT-4 and Gemini 1.5 Flash"" — 배경 비교 언급뿐, 결과표에 Gemini 없음 → 인용·언급",C
+225,W7168130110,역할:gemini-1.5-pro,gemini-1.5-pro,인용·언급,"Acknowledgments의 AI 사용 고지 ""Gemini 1.5 Pro was employed exclusively to improve linguistic flow..."" — 논문 작성 보조 고지, 실험 사용 없음",C
+257,W4416570218,역할:claude-3-5-sonnet,claude-3-5-sonnet,실행,"AI 심사역 ""George""를 Claude Sonnet 3.5(Version ID Claude-3-5-sonnet-20240620) 기본 온도로 운영 — 참가자 대상 개입으로 실행",C
+274,W7162766369,역할:gemini-1.5-flash,gemini-1.5-flash,인용·언급,"자동 생성 보고서(SOVEREIGN)로 Gemini 1.5 기술보고서를 ""Analysis of"" 대상으로 분석 , 5절 표는 그 논문에서 추출한 주장의 검증 여부, 실제 사용 도구는 NIM nv-embedqa-e5-v5·LLM 심사. Gemini 호출 없음",C
+274,W7162766369,역할:gemini-1.5-pro,gemini-1.5-pro,인용·언급,자동 생성 보고서가 Gemini 1.5 기술보고서(arXiv 2403.05530)를 분석 대상으로 삼음.,C
+293,W4412930207,역할:gpt-4-1106-preview,gpt-4-1106-preview,실행,"Table 4에 gpt-4-1106-preview의 완성 거부 응답 예시, Table 5에 퀴즈 방법을 두 버전(0613·1106-preview)에 적용한 결과  저자 직접 실행",C
+310,W7130762659,역할:claude-sonnet-4-20250514,claude-sonnet-4-20250514,실행,p.41 claude-sonnet-4-20250514의 반사실 개입 응답 예시(실제 출력 기록) 저자 직접 실행.,C
+312,W4399553916,역할:gpt-4-turbo,gpt-4-turbo,실행,"A.2 Safety Evaluation: (input, output) 쌍을 GPT-4-Turbo에 넣어 1~5점 유해성 채점, ASR 산출 — 심사자로 직접 실행(Qi et al. 설정을 따름)",C
+352,W4391901300,역할:gpt-4-turbo,gpt-4-turbo,실행,Figure 1에서 GPT-4 Turbo 128K Needle 히트맵(acc 87.1)을 자사 모델과 같은 조건으로 제시 → 실행. Table 3 MMLU 86.4·Table 4 BookQA 37.4는 공개 수치 인용 가능성 있음,C
+355,W4400341964,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,"4.1.4에 ""solely using GPT-3.5-Turbo""(설정 gpt-3.5-turbo-0125) 명시.",C
+383,W4406779113,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,"Table 1 하단 ""larger models"" 참고 행에만 등장(1회). LC 55.02/WR 46.12는 AlpacaEval 2.0 공개 리더보드 수치와 같음, 본문에 실행 서술 없음 → 비교표 인용",C
+411,W7140131338,역할:o3-mini,o3-mini,실행," ""we include a machine-translated version by OpenAI's o3-mini"" — 다른 번역본과 달리 출처 인용 없어 저자가 생성한 번역 데이터로 판단",C
+460,W4412884457,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,"Acknowledgments의 AI 사용 고지 ""employing ChatGPT-4 (GPT-4-turbo) to improve grammar... no involvement in shaping the intellectual content"" 논문 작성 보조 고지, 실험 사용 없음",C
+478,W4411452552,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,"Acknowledgments ""the author used ChatGPT (GPT-4-turbo & o3) for proofreading"" 논문 작성 보조 고지, 검색 1회뿐이며 분석에 사용 없음",C
+493,W7110795894,역할:gpt-4-turbo,gpt-4-turbo,실행,"메모: 데이터 시트 9.1.3 ""We chose to use the GPT-4-Turbo model""  로봇 챗봇의 NLU·대화관리·생성 백본으로 사용, 지연 경험 서술, 9.2 참가자 실험에 사용 → 실행",C
+17,W4385965642,역할:text-davinci-003,text-davinci-003,판단불가,논문 제목과 링크가 불일치,D
+81,W4403851705,역할:gemini-1.5-pro,gemini-1.5-pro,인용·언급,"베이스라인으로 사용은 했는데, 실제 실행은 안하고 타 논문 결과 수치만 인용",D
+81,W4403851705,역할:o1-preview,o1-preview,인용·언급,"베이스라인으로 사용은 했는데, 실제 실행은 안하고 타 논문 결과 수치만 인용",D
+128,W4414489324,역할:gemini-1.5-flash,gemini-1.5-flash,인용·언급,"베이스라인으로 사용은 했는데, 실제 실행은 안하고 타 논문 결과 수치만 인용.
+B.1 appendix에 적혀있음",D
+139,W7105506484,역할:gemini-1.5-pro,gemini-1.5-pro,실행,4.Experiments 첫 문장에 직접 평가했다고 명시되어있음,D
+151,W7154427703,역할:gemini-1.5-pro,gemini-1.5-pro,실행,"베이스라인 중 한 개를 비디오 클립 생성에 Gemini-1.5-pro를 사용한것으로 보임.
+원본 논문 없이 '논문만' 보면 직접 실행한것으로 보임.",D
+228,W7160284490,역할:gemini-1.5-pro,gemini-1.5-pro,판단불가,PDF가 없어 열람 불가,D
+260,W7161848113,역할:gemini-1.5-pro,gemini-1.5-pro,인용·언급,논문 교정용으로 사용한것으로 보임.,D
+299,W4415035363,역할:gpt-4-0613,gpt-4-0613,실행,"어떻게 사용했는지는 알 수 없으나, 베이스라인으로 사용해 평가 하였으므로 실행으로 간주함.",D
+348,W7155640799,역할:claude-2.1,claude-2.1,판단불가,PDF가 없어 열람 불가,D
+348,W7155640799,역할:gemini-1.5-pro,gemini-1.5-pro,판단불가,PDF가 없어 열람 불가,D
+348,W7155640799,역할:gpt-3.5-turbo-0301,gpt-3.5-turbo-0301,판단불가,PDF가 없어 열람 불가,D
+348,W7155640799,역할:gpt-4-turbo,gpt-4-turbo,판단불가,PDF가 없어 열람 불가,D
+374,W4412944558,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,베이스라인으로 사용은 했으나 AgentGym이라는 다른 논문에서 수치를 가져왔다고 명시되어있음.,D
+405,W7154426895,역할:o3-mini,o3-mini,실행,평가 결과가 있음.,D
+408,W7202168386,역할:o4-mini,o4-mini,실행,텍스트 생성에 직접 사용.,D
+428,W7167748912,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,Appendix B에 저장소에 공개된 점수들을 사용했다고 명시되어있음.,D
+491,W7164880899,역할:gpt-4-turbo,gpt-4-turbo,인용·언급,사례 설명용으로 사용.,D

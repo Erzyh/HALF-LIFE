@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411119617",
+  "title": "MedEthicEval: Evaluating Large Language Models Based on Chinese Medical Ethics",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT4-turbo undisclosed 0.72\" (Table 3, Models' Performance in Knowledge); \"are multiple-choice, we use accuracy as the evaluation\" (Sec. 4)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D (model evaluation examples); Appendix A prints dataset-generation prompts only",
+    "note": "The knowledge questions are MCQs given directly."
+  },
+  "claim": {
+    "metric": "accuracy on the medical-ethics Knowledge subset",
+    "value": 0.72,
+    "n_items": 629,
+    "location": "Table 3, row GPT4-turbo",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/KaguraRuri/MedEthicEval (Table 1: Knowledge 629, DV 236, PD 100, ED 100)"
+  },
+  "cost": {
+    "est_calls": 629,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the exact evaluation prompt for the MCQ knowledge task is only shown via examples. Other subsets (DV, PD, ED) are scored by human annotators. NAACL Industry 2025, no preview string, alias resolves to gpt-4-turbo-2024-04-09; decoding parameters not stated.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Appendix D consists of figure images of model outputs, so the Knowledge MCQ evaluation prompt is not in the text. Take the 629 knowledge MCQs and the evaluation script/prompt from the repository; run gpt-4-turbo-2024-04-09 (temperature 0 assumed) and score accuracy against the keys; compare with 0.72 (Table 3).",
+    "approximation": "Decoding parameters are not stated; if the repository holds no prompt, the question and options are given directly with an answer-letter instruction, which is an approximation.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/KaguraRuri/MedEthicEval",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

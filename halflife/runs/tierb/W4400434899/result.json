@@ -1,0 +1,65 @@
+{
+  "wid": "W4400434899",
+  "title": "Are Large Language Models Strategic Decision Makers? A Study of Performance and Bias in Two-Player Non-Zero-Sum Games",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 25.5,
+  "original_location": "Table 1, row GPT-4-Turbo / A, column SH AO A->B (B = 74.5)",
+  "reexecution": {
+    "mean_over_seeds": 0.26208333333333333,
+    "per_seed": {
+      "0": {
+        "value": 0.265,
+        "n": 800,
+        "ci95": [
+          0.235,
+          0.29375
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.25625,
+        "n": 800,
+        "ci95": [
+          0.2275,
+          0.28625
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.265,
+        "n": 800,
+        "ci95": [
+          0.235,
+          0.295
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4400434899",
+    "n_items": 800,
+    "n_requests": 2400,
+    "seeds": 3,
+    "est_usd": 13.39,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 25.5
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "the preference sentences are printed as template slots ('acting agent's preferred behaviour (CG v SG)'); filled as 'prioritise Common-Gain' / 'prioritise Self-Gain' following the paper's wording; Table 1 pools the A->B setups, so the config pools the 800 runs; the statistic is computed as accuracy against the constant gold 'A' (share of runs choosing A); replies without a parsable action count as non-A instead of being dropped from the denominator",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 26.208333333333332,
+    "delta": 0.7083333333333321,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7140124165",
+  "title": "MEENA (PersianMMMU): Multimodal-Multilingual Educational Exams for N-level Assessment",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We evaluate GPT-4o and GPT-4o-mini (OpenAI, 2024), GPT-4-Turbo (OpenAI, 2023), Gemini-2.0-flash ...\" (Sec. 5); Table 2 MEENA English, GPT-4-Turbo Zero Shot 0.440"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E (prompts for zero-shot, ICL, first-describe, wrong-image, without-image settings and the LLM-as-judge)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, zero-shot, MEENA English dataset",
+    "value": 0.44,
+    "n_items": null,
+    "location": "Table 2, MEENA English Dataset, row GPT-4-Turbo, column Zero Shot",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/raia-center/ (MEENA) and https://github.com/raia-center/meena"
+  },
+  "cost": {
+    "est_calls": 3067,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the evaluated item count is not stated (full set 7,483 questions; bilingual English subset 3,067). Answer extraction uses regex with an undated GPT-4o-mini fallback. Alias rule (EACL 2026, no preview string) gives gpt-4-turbo-2024-04-09; image inputs required.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n is unprinted but the 'MEENA English Dataset' is the 3,067-question bilingual subset described in Sec. 3. Run the Appendix E zero-shot prompt with images on those 3,067 questions from the HF release with gpt-4-turbo-2024-04-09, extract the option with the paper's regex stage and fall back to gpt-4o-mini for unparsed answers, and compare accuracy 0.440 (Table 2).",
+    "approximation": "Fallback extractor snapshot undated; alias resolved by rule; decoding settings not stated; high cost for image inputs.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

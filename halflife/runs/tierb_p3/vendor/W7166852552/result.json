@@ -1,0 +1,56 @@
+{
+  "wid": "W7166852552",
+  "title": "LexGenius: An Expert-Level Benchmark for Large Language Models in Legal General Intelligence",
+  "model": "gpt-5.6-luna",
+  "metric": "accuracy",
+  "original_value": 46.51,
+  "original_location": "Table 2, row GPT-4.1 nano, column Overall Nai. (CoT: 54.62)",
+  "reexecution": {
+    "mean_over_seeds": 0.6357100059916118,
+    "per_seed": {
+      "0": {
+        "value": 0.6357100059916118,
+        "n": 8345,
+        "ci95": [
+          0.6255242660275614,
+          0.6456560814859197
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 10
+  },
+  "prepare": {
+    "wid": "W7166852552",
+    "n_items": 8345,
+    "n_requests": 8345,
+    "seeds": 1,
+    "est_usd": 6.38,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-luna",
+    "metric": "accuracy",
+    "original_value": 46.51,
+    "cap_usd": 7.3
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-luna"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "our own two seeded shuffles (seed 20260907 + item index); the way the Naive instruction and the question/options are joined is not printed; single pass in the released option order (the runner has no seeded option shuffle; the paper averages two shuffled passes)",
+  "arm": {
+    "model": "gpt-5.6-luna",
+    "config_model": "gpt-4.1-nano",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W7166852552"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 63.571000599161174,
+    "delta": 17.061000599161176,
+    "original_inside_ci95": false
+  }
+}

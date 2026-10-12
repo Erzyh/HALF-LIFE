@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7104384491",
+  "title": "PILOT-Bench: A Benchmark for Legal Reasoning in the Patent Domain with IRAC-Aligned Classification Tasks",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-o3-2025-04-16",
+    "resolved": "o3-2025-04-16",
+    "role": "B",
+    "evidence": "Appendix F: 'Closed-source(commercial) Models gpt-4o-2024-08-06, gpt-o3-2025-04-16, claude-sonnet-4-20250514 ...'; Table 2(a) row 'GPT-o3 0.5955 0.6639 0.7968'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D.3 (instruction templates and prompts, zero-shot); Tables 14-19 (label dictionaries)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Micro-F1, Issue Type classification (Split base)",
+    "value": 0.7968,
+    "n_items": 15481,
+    "location": "Table 2(a), block Split (Base), row GPT-o3, column Micro-F1",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PILOT-Bench (github.com/TeamLab), built from public PTAB decisions"
+  },
+  "cost": {
+    "est_calls": 46443,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Long inputs (Table 8) and 15k cases make a full o3 re-run expensive; a random subsample is advisable."
+}

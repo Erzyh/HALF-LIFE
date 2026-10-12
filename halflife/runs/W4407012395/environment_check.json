@@ -1,0 +1,394 @@
+{
+  "card_id": "W4407012395",
+  "checked_utc": "2026-09-19T13:07:34.176029+00:00",
+  "repo": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\repos\\W4407012395\\TsinghuaC3I__MedXpertQA",
+  "repo_commit_expected": "f53877b0d35b3c5526dfc0f899a2e902e0910c1d",
+  "repo_commit_found": "f53877b0d35b3c5526dfc0f899a2e902e0910c1d",
+  "repo_commit_matches_card": true,
+  "repo_code_imported": [
+    "eval/config/prompt_templates.py PromptTemplates.load_templates",
+    "eval/utils.py answer_cleansing",
+    "eval/main.py set_correctness"
+  ],
+  "openai_sdk_stubbed": false,
+  "dataset": {
+    "path": "external\\repos\\W4407012395\\TsinghuaC3I__MedXpertQA\\eval\\data\\medxpertqa_sampled\\input\\medxpertqa_sampled_text_input.jsonl",
+    "n_items": 244,
+    "by_question_type": {
+      "Reasoning": 186,
+      "Understanding": 58
+    },
+    "expected_by_question_type": {
+      "Reasoning": 186,
+      "Understanding": 58
+    },
+    "unique_ids": 244,
+    "all_ids_Text_prefixed": true,
+    "all_10_options": true,
+    "labels_single_letter_A_J": true,
+    "subset_of_full_text": true,
+    "full_text_n": 2450,
+    "full_by_question_type": {
+      "Reasoning": 1861,
+      "Understanding": 589
+    },
+    "mm_run": false,
+    "sample_fraction": {
+      "Reasoning": 0.0999,
+      "Understanding": 0.0985
+    },
+    "mm_sampled_n": 199,
+    "question_chars": {
+      "min": 210,
+      "max": 3364,
+      "mean": 1060.4
+    }
+  },
+  "rendered_request": {
+    "item_id": "Text-20",
+    "prompt_template": "Q: {question}\nA: Let's think step by step.",
+    "trigger_rendered": "Therefore, among A through J, the answer is",
+    "trigger_template": "Therefore, among {start} through {end}, the answer is",
+    "prompt_sha256": "33de598e77a4aa1f15195b53b38842c3ab5453af1ad5718a209e8f18762fe8ec",
+    "system_role_defined_but_dropped": "You are a helpful medical assistant.",
+    "prompt_chars": 1513,
+    "params": {
+      "max_completion_tokens": 8192,
+      "temperature": "not sent (paper C.2)",
+      "system_message": "none",
+      "seed": "seed_idx (0 = the original's seed=0)"
+    },
+    "appendix_g3_prompt_found_verbatim": true,
+    "appendix_g3_trigger_found_verbatim": true
+  },
+  "rendered_bodies_redacted": {
+    "o1-2024-12-17": {
+      "stage1": {
+        "model": "o1-2024-12-17",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "[REDACTED MedXpertQA question text - the authors ask that no example be shared online (paper Appendix A); prompt_sha256 is kept and the text is rebuildable from the MIT dataset]"
+              }
+            ]
+          }
+        ],
+        "max_completion_tokens": 8192,
+        "seed": 0
+      },
+      "stage2_with_placeholder_reply": {
+        "model": "o1-2024-12-17",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "[REDACTED MedXpertQA question text - the authors ask that no example be shared online (paper Appendix A); prompt_sha256 is kept and the text is rebuildable from the MIT dataset]"
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": "The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentat"
+          },
+          {
+            "role": "user",
+            "content": "Therefore, among A through J, the answer is"
+          }
+        ],
+        "max_completion_tokens": 8192,
+        "seed": 0
+      }
+    },
+    "o3-mini-2025-01-31": {
+      "stage1": {
+        "model": "o3-mini-2025-01-31",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "[REDACTED MedXpertQA question text - the authors ask that no example be shared online (paper Appendix A); prompt_sha256 is kept and the text is rebuildable from the MIT dataset]"
+              }
+            ]
+          }
+        ],
+        "max_completion_tokens": 8192,
+        "seed": 0
+      },
+      "stage2_with_placeholder_reply": {
+        "model": "o3-mini-2025-01-31",
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "[REDACTED MedXpertQA question text - the authors ask that no example be shared online (paper Appendix A); prompt_sha256 is kept and the text is rebuildable from the MIT dataset]"
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "content": "The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentation is consistent with the mechanism described in option B. The patient's presentat"
+          },
+          {
+            "role": "user",
+            "content": "Therefore, among A through J, the answer is"
+          }
+        ],
+        "max_completion_tokens": 8192,
+        "seed": 0
+      }
+    }
+  },
+  "printed_values_are_integer_counts": {
+    "o1-2024-12-17": {
+      "Reasoning": {
+        "printed": 46.24,
+        "n": 186,
+        "implied_correct": 86,
+        "recomputed": 46.24,
+        "exact": true
+      },
+      "Understanding": {
+        "printed": 39.66,
+        "n": 58,
+        "implied_correct": 23,
+        "recomputed": 39.66,
+        "exact": true
+      },
+      "Avg": {
+        "printed": 44.67,
+        "n": 244,
+        "implied_correct": 109,
+        "recomputed": 44.67,
+        "exact": true
+      },
+      "splits_sum_to_avg": true
+    },
+    "o3-mini-2025-01-31": {
+      "Reasoning": {
+        "printed": 37.63,
+        "n": 186,
+        "implied_correct": 70,
+        "recomputed": 37.63,
+        "exact": true
+      },
+      "Understanding": {
+        "printed": 36.21,
+        "n": 58,
+        "implied_correct": 21,
+        "recomputed": 36.21,
+        "exact": true
+      },
+      "Avg": {
+        "printed": 37.3,
+        "n": 244,
+        "implied_correct": 91,
+        "recomputed": 37.3,
+        "exact": true
+      },
+      "splits_sum_to_avg": true
+    }
+  },
+  "parser_selftest": {
+    "n": 10,
+    "n_pass": 10,
+    "cases": [
+      {
+        "reply": "The correct answer is (B), the second listed option.",
+        "expected": "B",
+        "got": "B",
+        "pass": true
+      },
+      {
+        "reply": "B",
+        "expected": "B",
+        "got": "B",
+        "pass": true
+      },
+      {
+        "reply": "Therefore, among A through J, the answer is (D).",
+        "expected": "D",
+        "got": "D",
+        "pass": true
+      },
+      {
+        "reply": "Answer: D. as explained above",
+        "expected": "D",
+        "got": "D",
+        "pass": true
+      },
+      {
+        "reply": "**(J)**",
+        "expected": "J",
+        "got": "J",
+        "pass": true
+      },
+      {
+        "reply": "(F) is the best choice here",
+        "expected": "F",
+        "got": "F",
+        "pass": true
+      },
+      {
+        "reply": "the answer is b",
+        "expected": null,
+        "got": null,
+        "pass": true
+      },
+      {
+        "reply": "No answer provided.",
+        "expected": null,
+        "got": null,
+        "pass": true
+      },
+      {
+        "reply": "A patient with this presentation would most likely have (C).",
+        "expected": "A",
+        "got": "A",
+        "pass": true
+      },
+      {
+        "reply": "I cannot determine the answer from the information given.",
+        "expected": "I",
+        "got": "I",
+        "pass": true
+      }
+    ],
+    "known_quirks": [
+      "utils.answer_cleansing extracts the FIRST case-sensitive \\b[A-J]\\b of the stage-2 reply, so the English words 'A' and 'I' are read as options A and I (a first-person refusal scores as I), while a lower-case letter yields no prediction at all (scored incorrect). Kept as released - it is the parser that produced Tables 4 and 5."
+    ]
+  },
+  "scorer_replay_vs_table5": {
+    "o1-2024-12-17": {
+      "seeded_correct": 109,
+      "scored": {
+        "Reasoning": 46.24,
+        "Avg": 44.67,
+        "Understanding": 39.66
+      },
+      "printed": {
+        "Reasoning": 46.24,
+        "Understanding": 39.66,
+        "Avg": 44.67
+      },
+      "matches_printed": true
+    },
+    "o3-mini-2025-01-31": {
+      "seeded_correct": 91,
+      "scored": {
+        "Reasoning": 37.63,
+        "Avg": 37.3,
+        "Understanding": 36.21
+      },
+      "printed": {
+        "Reasoning": 37.63,
+        "Understanding": 36.21,
+        "Avg": 37.3
+      },
+      "matches_printed": true
+    }
+  },
+  "checks": {
+    "repo_commit": true,
+    "n_items": true,
+    "splits": true,
+    "options_and_labels": true,
+    "subset_of_full": true,
+    "parser": true,
+    "printed_are_counts": true,
+    "scorer_replay": true,
+    "appendix_g3": true
+  },
+  "expert_baseline_row": {
+    "Reasoning": 41.74,
+    "Understanding": 45.44,
+    "Avg": 42.6,
+    "n": 2450,
+    "note": "aggregated examinee response distributions on the FULL Text set; not an integer count (41.74% of 1861 = 776.8) and not restricted to the 244-item sample the o1/o3-mini rows use"
+  },
+  "token_estimate": {
+    "o1-2024-12-17": {
+      "arm": "o1",
+      "seeds": 1,
+      "calls": 488,
+      "tokens_in": 194606,
+      "tokens_in_method": "tiktoken o200k_base",
+      "tokens_in_chars_over_4": 241306,
+      "tokens_out_expected": 610000,
+      "by_stage": {
+        "stage1": {
+          "calls": 244,
+          "tokens_in": 64729,
+          "tokens_in_chars_over_4": 68589,
+          "tokens_out_expected": 488000,
+          "tokens_out_budget_per_call": 2000
+        },
+        "stage2": {
+          "calls": 244,
+          "tokens_in": 129877,
+          "tokens_in_chars_over_4": 172716,
+          "tokens_out_expected": 122000,
+          "tokens_out_budget_per_call": 500
+        }
+      },
+      "usd_per_1m": {
+        "input": 15.0,
+        "output": 60.0
+      },
+      "usd_expected": 39.52,
+      "usd_ceiling_at_max_completion_tokens": 242.78
+    },
+    "o3-mini-2025-01-31": {
+      "arm": "o3mini",
+      "seeds": 3,
+      "calls": 1464,
+      "tokens_in": 583818,
+      "tokens_in_method": "tiktoken o200k_base",
+      "tokens_in_chars_over_4": 723918,
+      "tokens_out_expected": 1830000,
+      "by_stage": {
+        "stage1": {
+          "calls": 732,
+          "tokens_in": 194187,
+          "tokens_in_chars_over_4": 205768,
+          "tokens_out_expected": 1464000,
+          "tokens_out_budget_per_call": 2000
+        },
+        "stage2": {
+          "calls": 732,
+          "tokens_in": 389631,
+          "tokens_in_chars_over_4": 518149,
+          "tokens_out_expected": 366000,
+          "tokens_out_budget_per_call": 500
+        }
+      },
+      "usd_per_1m": {
+        "input": 1.1,
+        "output": 4.4
+      },
+      "usd_expected": 8.69,
+      "usd_ceiling_at_max_completion_tokens": 53.41
+    }
+  },
+  "log_policy": "[REDACTED MedXpertQA question text - the authors ask that no example be shared online (paper Appendix A); prompt_sha256 is kept and the text is rebuildable from the MIT dataset]",
+  "frictions": [
+    "per-question original outputs are not published (only leaderboard aggregates), so only aggregate accuracy is comparable; no item-level agreement with the original run can be computed",
+    "paper Appendix A asks that no example be shared online, so this card's L1 archive stores item ids, hashes and model replies but not the question text (see LOG POLICY)",
+    "the Expert (Pre-Licensed) row of Table 5 (42.60) is computed on the FULL Text set from aggregated examinee response distributions - it is not an integer item count and not the 244-item sample - yet the card's judgment compares o1's sampled accuracy against it directly",
+    "eval/model/api_agent.py hard-codes an OpenAI-compatible proxy (api_key '[API_KEY]', base_url '[BASE_URL]'), so the published numbers were produced through a proxy of unknown routing; this re-run posts to api.openai.com directly",
+    "the original run is a single pass (seed=0) and o-series ignore temperature, so the paper's own run-to-run spread is unknown; the seed parameter is sent as the original did, but OpenAI documents it as best-effort and reasoning models are not deterministic",
+    "main.py's --temperature default of 0 is silently dropped for o1/o3-mini by api_agent.py; 'greedy decoding' in section 4.1 therefore does not apply to these two rows",
+    "the repo sends the stage-1 user turn as a content-parts list even for text-only items; replicated here verbatim, but it cannot be exercised offline",
+    "the sampled subsets ship in the repo without the seed-42 sampling script, so the 10% draw itself is not reproducible - it is taken as given (186/1861 and 58/589 of the full Text set)",
+    "utils.answer_cleansing extracts the FIRST case-sensitive \\b[A-J]\\b of the stage-2 reply, so the English words 'A' and 'I' are read as options A and I (a first-person refusal scores as I), while a lower-case letter yields no prediction at all (scored incorrect). Kept as released - it is the parser that produced Tables 4 and 5."
+  ],
+  "ok": true
+}

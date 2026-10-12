@@ -1,0 +1,248 @@
+{
+  "card": "W4396768794",
+  "generated_utc": "2026-09-17T23:29:03.040865+00:00",
+  "generation_model": "gpt-4-turbo-2024-04-09",
+  "judge_model": "gpt-4o-2024-05-13",
+  "original_table3": {
+    "P1": 107,
+    "P5": 29,
+    "P0": 62,
+    "n_scored": 198,
+    "n_unscored": 2,
+    "strict": 54.04040404040404,
+    "top5": 68.68686868686869,
+    "strict_ci95": [
+      46.9984693877551,
+      61.42131979695431
+    ],
+    "top5_ci95": [
+      62.3098912932007,
+      75.25252525252525
+    ],
+    "label": "original judge GPT-4-0613, repo counting (Table 3)"
+  },
+  "original_lenient": {
+    "P1": 108,
+    "P5": 30,
+    "P0": 62,
+    "n_scored": 200,
+    "n_unscored": 0,
+    "strict": 54.0,
+    "top5": 69.0,
+    "strict_ci95": [
+      47.0,
+      61.0
+    ],
+    "top5_ci95": [
+      62.5,
+      75.01249999999999
+    ],
+    "label": "original judge GPT-4-0613, lenient parser"
+  },
+  "track1": {
+    "P1": 117,
+    "P5": 21,
+    "P0": 62,
+    "n_scored": 200,
+    "n_unscored": 0,
+    "strict": 58.5,
+    "top5": 69.0,
+    "strict_ci95": [
+      51.0,
+      65.5
+    ],
+    "top5_ci95": [
+      62.0,
+      75.5
+    ],
+    "label": "track 1: archived diagnoses, substitute judge",
+    "repo_counting": {
+      "P1": 117,
+      "P5": 21,
+      "P0": 62,
+      "n_scored": 200,
+      "n_unscored": 0,
+      "strict": 58.5,
+      "top5": 69.0
+    },
+    "n_calls": 200,
+    "n_missing": 0,
+    "raw_outputs": {
+      "P1": 117,
+      "P0": 62,
+      "P5": 21
+    },
+    "agreement_with_original_judge": {
+      "n_pairs": 200,
+      "percent_agreement": 0.895,
+      "cohen_kappa": 0.81651376146789,
+      "confusion_original->substitute": {
+        "P1->P1": 105,
+        "P0->P0": 58,
+        "P0->P5": 3,
+        "P5->P5": 16,
+        "P5->P1": 11,
+        "P0->P1": 1,
+        "P1->P5": 2,
+        "P5->P0": 3,
+        "P1->P0": 1
+      }
+    },
+    "served": {
+      "models": [
+        "gpt-4o-2024-05-13"
+      ],
+      "n_fingerprints": 5
+    }
+  },
+  "track2": {
+    "label": "track 2: new gpt-4-turbo-2024-04-09 diagnoses, substitute judge",
+    "per_seed": {
+      "0": {
+        "P1": 114,
+        "P5": 26,
+        "P0": 60,
+        "n_scored": 200,
+        "n_unscored": 0,
+        "strict": 57.0,
+        "top5": 70.0,
+        "strict_ci95": [
+          49.5,
+          64.0
+        ],
+        "top5_ci95": [
+          63.0,
+          76.0
+        ],
+        "n_missing": 0
+      },
+      "1": {
+        "P1": 118,
+        "P5": 21,
+        "P0": 61,
+        "n_scored": 200,
+        "n_unscored": 0,
+        "strict": 59.0,
+        "top5": 69.5,
+        "strict_ci95": [
+          52.5,
+          65.0
+        ],
+        "top5_ci95": [
+          63.5,
+          75.5
+        ],
+        "n_missing": 0
+      },
+      "2": {
+        "P1": 113,
+        "P5": 25,
+        "P0": 62,
+        "n_scored": 200,
+        "n_unscored": 0,
+        "strict": 56.5,
+        "top5": 69.0,
+        "strict_ci95": [
+          49.5,
+          63.5
+        ],
+        "top5_ci95": [
+          62.5,
+          75.5
+        ],
+        "n_missing": 0
+      }
+    },
+    "seeds_with_data": [
+      0,
+      1,
+      2
+    ],
+    "median_strict": 57.0,
+    "median_top5": 69.5,
+    "median_strict_ci95": [
+      51.0,
+      64.0
+    ],
+    "median_top5_ci95": [
+      63.4875,
+      76.0
+    ],
+    "n_calls": 600,
+    "served": {
+      "models": [
+        "gpt-4o-2024-05-13"
+      ],
+      "n_fingerprints": 6
+    }
+  },
+  "drift": {
+    "judge_drift_pp_strict": 4.5,
+    "judge_drift_pp_top5": 0.0,
+    "judge_drift_vs_table3_pp_strict": 4.460000000000001,
+    "generator_drift_pp_strict": -1.5,
+    "generator_drift_pp_top5": 0.5,
+    "definition": "judge drift = track 1 minus the original verdicts on the SAME archived diagnoses (lenient parser both; also vs Table 3's 54.04); generator drift = track 2 (median over repeats) minus track 1 under the SAME substitute judge. The two are additive: track 2 - Table 3 = judge drift + generator drift."
+  },
+  "judgment": {
+    "label": "생존 (survival)",
+    "rule": "card judgment (ANALYSIS_PLAN section 1): survival = re-run P1 (median over 3 repeats) inside the case-bootstrap 95% CI of track 1 (judge-matched) AND inside the CI of the paper's own verdicts, with Top-5 > Strict; partial = inside exactly one CI; death = inside neither or Top-5 ordering reversed. Reading chosen: the card's 'or vice versa' clause makes 'inside the judge-matched CI only' partial. Top-5 >= Strict holds by construction (P5 adds to P1), so the direction check can only fail when no case is P5; the Top-5 minus Strict gap is reported against the paper's 14.65 pp for the human coders.",
+    "detail": {
+      "rerun_P1_median": 57.0,
+      "in_ci_judge_matched_track1": true,
+      "in_ci_paper_table3": true,
+      "top5_direction_kept": true,
+      "top5_minus_strict_pp": 12.5,
+      "paper_top5_minus_strict_pp": 14.65
+    }
+  },
+  "generation": {
+    "n_calls": 600,
+    "expected": 600,
+    "served": {
+      "models": [
+        "gpt-4-turbo-2024-04-09"
+      ],
+      "n_fingerprints": 13
+    }
+  },
+  "budgets": {
+    "baseline_alive": {
+      "label": "W4396768794 generation",
+      "calls": 600,
+      "errors": 0,
+      "cost_usd": 9.614549999999989,
+      "tokens_in": 110148,
+      "tokens_out": 283769,
+      "cap_usd": 18.0,
+      "stopped_at_cap": false,
+      "started": "2026-09-17T22:53:53.805207+00:00",
+      "updated": "2026-09-17T23:26:39.121574+00:00"
+    },
+    "judge_track1": {
+      "label": "W4396768794 judge track 1",
+      "calls": 200,
+      "errors": 0,
+      "cost_usd": 0.6560050000000004,
+      "tokens_in": 130001,
+      "tokens_out": 400,
+      "cap_usd": 4.0,
+      "stopped_at_cap": false,
+      "started": "2026-09-17T23:26:40.033533+00:00",
+      "updated": "2026-09-17T23:27:14.656731+00:00"
+    },
+    "judge_track2": {
+      "label": "W4396768794 judge track 2",
+      "calls": 600,
+      "errors": 0,
+      "cost_usd": 1.9658450000000005,
+      "tokens_in": 389569,
+      "tokens_out": 1200,
+      "cap_usd": 8.0,
+      "stopped_at_cap": false,
+      "started": "2026-09-17T23:27:14.672198+00:00",
+      "updated": "2026-09-17T23:29:02.002747+00:00"
+    }
+  },
+  "cost_usd_total": 12.2364
+}

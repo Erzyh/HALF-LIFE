@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4386395478",
+  "title": "Large Language Models as Data Preprocessors",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Sec. 4: 'GPT-4o-2024-05-13 (referred to as GPT-4o). The temperature parameter for these models is set at 0.35.'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 (prompt template: role line + zero-shot / few-shot / batch components; zero-shot DI example printed)",
+    "note": "Few-shot demonstrations and batch formatting are only described; Table 1 uses the 'best setting' per dataset."
+  },
+  "claim": {
+    "metric": "accuracy (%) (data imputation)",
+    "value": 90.7,
+    "n_items": null,
+    "location": "Table 1, row GPT-4o, column Restaurant",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Standard benchmarks: Adult, Hospital (ED), Buy, Restaurant (DI), Synthea (SM), Magellan EM datasets"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Test-set sizes are not given in the text; the best few-shot/batch configuration per dataset is not fully specified. The 2023 arXiv id carries a revised version that added GPT-4o.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Few-shot demonstrations and the per-dataset 'best setting' are unlisted; the datasets are those of Narayan et al. [12] (fm_data_tasks release), so take its Restaurant DI test split as the item set. Build the prompt from Sec. 3: role line, zero-shot task/answer-format instructions, 10 hand-written few-shot demonstrations with reasons following the printed example, random batching with batch size 5-10 and zero-shot reasoning; run gpt-4o-2024-05-13 at temperature 0.35 and compare imputation accuracy with Table 1 (90.7) at set level.",
+    "approximation": "Our own 10 demonstrations and batch composition; the exact GPT-4o configuration behind the 'best setting' for Restaurant is not identified (the Table 2 ablation is for GPT-3.5); n taken from the Narayan et al. release.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

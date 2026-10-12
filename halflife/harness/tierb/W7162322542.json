@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7162322542",
+ "title": "生成AIによる認識モダリティ形式の（不）使用 : ChatGPT のモデル更新に伴う変化に着目して",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo（無料版） [free version]",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 1: \"第１調査 2025年2〜3月 GPT-4 Turbo（無料版）...５回ずつ\"; \"第２調査 2025年8月 GPT-4o（ChatGPT Pro）\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 2 (テストAに使用したプロンプトは（1）の通りである -- \"the prompt used for Test A is as follows (1)\")",
+  "note": "Japanese-language prompts asking the model to correct sentences lacking epistemic-modality markers."
+ },
+ "claim": {
+  "metric": "none reproducible via API (both surveys used the consumer ChatGPT interface, not the API)",
+  "value": null,
+  "n_items": 10,
+  "location": "Table 1: 5 runs x 2 tests (A, B) for Survey 1",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Japanese sentences constructed by the author; prompts printed in the paper"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui"
+ ],
+ "notes": "Both surveys were conducted through ChatGPT's consumer product (Survey 1: free-tier web UI running \"GPT-4 Turbo\"; Survey 2: ChatGPT Pro subscription running \"GPT-4o\"), not the API, so the exact tested configuration (product-level system prompts/guardrails) cannot be reproduced via a raw API call even though gpt-4-turbo-2024-04-09 itself remains callable."
+}

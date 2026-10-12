@@ -1,0 +1,56 @@
+{
+  "wid": "W4415332749",
+  "title": "J4R: Learning to Judge with Equivalent Initial State Group Relative Policy Optimization",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 73.1,
+  "original_location": "Table 6 (Appendix C.2), row 'o1', Avg. column (splits 77.59 / 90.38 / 58.15 / 65.33 over 598 / 260 / 325 / 300 samples micro-average to 73.09)",
+  "reexecution": {
+    "mean_over_seeds": 0.8,
+    "per_seed": {
+      "0": {
+        "value": 0.8,
+        "n": 100,
+        "ci95": [
+          0.68,
+          0.9
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4415332749",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 2.65,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 73.1,
+    "cap_usd": 14.2
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper ran the OpenAI Batch API; we call the same snapshot synchronously. The per-paper cost cap will cut the item set (see cost.prepare_note): the metric is then computed on the surviving samples and is no longer the full-benchmark number.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "o1-2024-12-17",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4415332749"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 80.0,
+    "delta": 6.900000000000006,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4412889970",
+  "title": "Mind the Gesture: Evaluating AI Sensitivity to Culturally Offensive Non-Verbal Gestures",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o (undated); gpt-4 (0613)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "Sec. 4: \"LLM: ... gpt-4 (0613)\"; \"VLM: ... Phi-3-vision-128k-instruct, gpt-4o\" with a footnote to the model docs page; Table 5 row \"gpt-4o 82.8\" (error rate %); temperature 0.0."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix C (prompt templates for T2I, LLM and VLM settings), Table 3 (prompt types)", "note": ""},
+  "claim": {
+    "metric": "error rate (%) when recommending gestures from US interpretations, VLM setting", "value": 82.8, "n_items": null, "location": "Table 5, row gpt-4o; inputs are T2I-generated gesture images (6 per country-gesture pair) over 288 gesture-country pairs",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {"public": "partial", "source": "MC-SIGNS dataset and code at https://github.com/Akhila-Yerukola/culturally-offensive-; the DALL-E 3 / Imagen 3 generated images fed to the VLM are not explicitly released"},
+  "cost": {"est_calls": 5184, "tier": "mid"},
+  "blockers": ["data_closed"],
+  "notes": "The gpt-4-turbo hit in live_ids is a documentation URL, not a model used. The OpenAI text model is the retired gpt-4-0613; gpt-4o has no snapshot, and the VLM experiment depends on generated images and on human offensiveness annotations. Two unresolved gaps, so not maybe."
+}

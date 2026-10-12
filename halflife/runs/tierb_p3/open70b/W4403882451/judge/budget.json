@@ -1,0 +1,12 @@
+{
+  "label": "W4403882451-judge",
+  "calls": 600,
+  "errors": 8,
+  "cost_usd": 3.454829999999998,
+  "tokens_in": 1264152,
+  "tokens_out": 29445,
+  "cap_usd": 3.7,
+  "stopped_at_cap": false,
+  "started": "2026-09-20T16:28:12.572384+00:00",
+  "updated": "2026-09-21T12:36:01.920916+00:00"
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404988426",
+ "title": "TabulaX: Leveraging Large Language Models for Multi-Class Table Transformations",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "B",
+  "evidence": "Table 1: 'Performance of SOTA models on KBWT dataset...GPT-4o...F1-Score 0.510'; footnote 4: 'We used the gpt-4o-2024-05-13 model from the OpenAI API for this experiment'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 4 prose ('classifier's LLM prompt starts by defining the task...'); footnote 5 defers the full template to the released prompt/code repository",
+  "note": "In-paper text describes the prompt's structure and development (3-5 variants tried) but the exact full text is only in the repo."
+ },
+ "claim": {
+  "metric": "F1-score, KBWT dataset (direct GPT-4o baseline, no TabulaX pipeline)",
+  "value": 0.51,
+  "n_items": null,
+  "location": "Table 1, GPT-4o column",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "KBWT (Knowledge Base Web Tables), introduced in prior work [Abedjan et al.] and reused here; WT and TT datasets used elsewhere in the paper"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "KBWT test-set size (n_items) not located in the excerpt read. Later sections evaluate TabulaX's own multi-step pipeline (also GPT-4o-backed, with classification + code-generation stages) on WT/TT/KBWT, a more complex, code-dependent claim than this Table 1 baseline row."
+}

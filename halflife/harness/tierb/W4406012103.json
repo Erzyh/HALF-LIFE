@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406012103",
+ "title": "Inteligência artificial e privacidade: implicações legais e éticas na era digital",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Nota: \"O autor utilizou a l CHATGPT, GPT-4-Turbo para correção da gramática dos textos e sugestão de alteração de algumas expressões.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Portuguese law/ethics essay; GPT-4-Turbo cited only as a grammar-correction writing aid."
+}

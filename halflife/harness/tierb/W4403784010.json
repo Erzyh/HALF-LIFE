@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403784010",
+  "title": "Enhancing disease detection in radiology reports through fine-tuning lightweight LLM on weak labels",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "\"labels were synthesized using GPT-4o (gpt-4o-2024-05-13, ...). Specifically, 9,000 samples were selected from the WCM dataset.\" (Sec. 2.3); Table 4 row GPT4-o F1 0.93"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 2 (synthetic label generation prompt) and Figure 1 (task prompts)",
+    "note": "Few-shot seed examples (3 of 11 NIH/MIDRC reports) are sampled into the prompt."
+  },
+  "claim": {
+    "metric": "micro-F1, open-ended disease detection",
+    "value": 0.93,
+    "n_items": 100,
+    "location": "Table 4, row GPT4-o",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "WCM radiology reports (institutional, IRB), MIMIC-CXR (credentialed access), NIH-CXR/MIDRC reports with 100 radiologist-curated labels (not released)"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "GPT-4o is both the weak-label teacher and a comparison row. The 100-report human-curated evaluation sets and their labels are not released; no repository is cited. Temperature 0.1 reported for the fine-tuned model."
+}

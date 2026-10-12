@@ -1,0 +1,13 @@
+{
+  "wid": "W4416036063",
+  "n_items": 1374,
+  "n_requests": 1374,
+  "seeds": 1,
+  "est_usd": 2.98,
+  "subset_note": "cost cap $2.98: seeded random subset of 1374 items (seed 20260907)",
+  "dropped_unrenderable": 0,
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 89.2,
+  "cap_usd": 2.98
+}

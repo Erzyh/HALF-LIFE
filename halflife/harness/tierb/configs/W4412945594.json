@@ -1,0 +1,74 @@
+{
+ "wid": "W4412945594",
+ "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4o-2024-05-13",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 1024,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (the paper states no decoding parameters for the baseline scaffolds; it only names the snapshot, 'GPT-4o (GPT-4o-2024-0513)', in the Table 4 caption)",
+  "seeds": 1
+ },
+ "task": {
+  "type": "other",
+  "n_items": 300,
+  "subset_rule": "paper-defined split: the standard 300-instance SWE-bench Lite test split (Sec. 5.1)",
+  "approximation": "SWE-agent is a multi-turn agent with a shell and file-editing tools inside a per-instance repository checkout; a run is tens of tool-calling turns per instance, not a single chat completion, so the runner cannot execute it"
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "huggingface.co/datasets/princeton-nlp/SWE-bench_Lite (also mirrored as SWE-bench/SWE-bench_Lite); LocAgent's own code is at github.com/gersteinlab/LocAgent (reachable 2026-09-19, HTTP 200)",
+  "config_or_split": "split test (300 instances)",
+  "filter": null,
+  "fields": {
+   "input": "problem_statement",
+   "label": "the files touched by the gold patch",
+   "id": "instance_id"
+  },
+  "license": "unknown (the princeton-nlp/SWE-bench_Lite dataset card carries no licence tag)",
+  "access_checked": true,
+  "size_mb": 3.5,
+  "hf": {
+   "dataset": "princeton-nlp/SWE-bench_Lite",
+   "split": "test"
+  },
+  "note": "the localisation target is derived from the gold patch, so the label is a post-processing step over the dataset rather than a column",
+  "checks": "the hf parquet listing resolves and the test split loads (300 rows, 3.5 MB, columns repo / instance_id / base_commit / patch / test_patch / problem_statement / hints_text / created_at / version / FAIL_TO_PASS / PASS_TO_PASS / environment_setup_commit); --prepare then stops in render because no prompt is printed for this cell"
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": {},
+  "few_shot": "none",
+  "source_location": "Sec. 5.3 / Appendix C.1 (implementation details of the baselines). Appendix A.3 prints only LOCAGENT's own prompt (Figure 8); the four baseline scaffolds - Agentless, SWE-agent, MoatlessTools, OpenHands - are run with their published prompts, which this paper does not reprint.",
+  "verbatim": "none (the SWE-agent prompt behind the 57.30 cell is not in the paper)"
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "the localisation is read from the agent's trajectory (the files it opened/edited), then ranked",
+  "parse_paper": "unstated in this paper; it follows the SWE-agent scaffold's own output handling"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "file-level Acc@1: share of the 300 instances for which the single top-ranked file predicted by the agent is one of the files that must be changed (Sec. 5.2)",
+  "judge": "none",
+  "original_value": 57.3,
+  "original_location": "Table 4, block Agent-Based / SWE-agent, row GPT-4o, column File(%) Acc@1",
+  "bootstrap_unit": "instance",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 300,
+  "est_usd": 150.0,
+  "tier": "high"
+ },
+ "open_points": [
+  "prompt not printed: the cell is produced by the third-party SWE-agent scaffold as the LocAgent authors configured it; neither the scaffold prompts nor their configuration are reprinted, so a reproduction would be a re-implementation rather than a re-run of the published prompt.",
+  "sandbox: SWE-agent needs a per-instance repository checkout and a container with shell and editor tools, and a run costs tens of model turns per instance. That infrastructure is outside the Tier B runner and is a separate engineering decision.",
+  "label: file-level accuracy is scored against the files touched by the gold patch, which has to be derived from the SWE-bench Lite patch column; the ranking that turns an agent trajectory into Acc@1/3/5 is not specified in the paper."
+ ],
+ "notes": "The three other agent scaffolds in Table 4 (Agentless, MoatlessTools, OpenHands) have the same GPT-4o rows and the same blockers. LocAgent's own model is a fine-tuned Qwen2.5, i.e. not a live-listed OpenAI snapshot."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4400023054",
+  "title": "BigCodeBench: Benchmarking Code Generation with Diverse Function Calls and Complex Instructions",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo 2024-04-09; GPT-4o 2024-05-13",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 6 (Appendix L.1): \"GPT-4-Turbo (OpenAI, 2024b) 2024-04-09 0.582 0.582 0.563 0.699\" (greedy original / calibrated Pass@1, sampling Pass@1 / Pass@5)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix K (code generation prompts from Liu et al., 2024); task prompts are the dataset",
+    "note": "Greedy decoding for main results; sampling N=5 at temperature 0.8, top-p 0.95 for Pass@5."
+  },
+  "claim": {
+    "metric": "calibrated Pass@1, greedy, BigCodeBench-Complete",
+    "value": 0.582,
+    "n_items": 1140,
+    "location": "Table 6, row GPT-4-Turbo 2024-04-09, Calibrated column",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/bigcode/bigcodebench (v0.2.4); evaluation harness https://github.com/bigcode-project/bigcodebench"
+  },
+  "cost": {
+    "est_calls": 3420,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gap: Pass@1 requires executing generated code against 1,140 unit-test suites in the released Docker-based harness, so the number is not checkable from the prompt alone. Table 4 (artifacts) has a garbled model-to-endpoint mapping in the extracted text (GPT-4o listed next to gpt-4-turbo-2024-04-09), but Table 6 is unambiguous. Greedy decoding means seeds add little.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Generate greedy completions for the 1,140 BigCodeBench-Complete tasks (huggingface.co/datasets/bigcode/bigcodebench, v0.2.4) with gpt-4-turbo-2024-04-09 using the Appendix K prompt format. Calibrated Pass@1 requires executing each completion against the task's unit tests inside the released Docker-based harness (bigcodebench package), which cannot be rebuilt from the paper text; the harness reports the calibrated score directly. Compare with 0.582 (Table 6).",
+    "approximation": "None beyond harness/dataset version (v0.2.4); greedy decoding makes seeds nearly redundant.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/bigcode-project/bigcodebench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

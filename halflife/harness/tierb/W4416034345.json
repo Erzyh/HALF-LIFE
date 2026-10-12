@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416034345",
+  "title": "Unlocking Legal Knowledge: A Multilingual Dataset for Judicial Summarization in Switzerland",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini (o3-mini-2025-01-31)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "B",
+    "evidence": "Appendix F.1: 'For the proprietary models, we used ... gpt-4o-2024-08-06, o3-mini-2025-01-31, claude-3-5-sonnet-20241022.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix H: Prompt 2 (system) and Prompt 3 (user); one-shot example selection in F.2",
+    "note": "One-shot example = the shortest validation sample for each decision/headnote language pair, given as a user/assistant turn."
+  },
+  "claim": {
+    "metric": "ROUGE-L (x100), macro-averaged over 9 language pairs",
+    "value": 18.21,
+    "n_items": 978,
+    "location": "Table 2, row o3-mini one-shot, column ROUGE-L (+/-0.67)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "huggingface.co/datasets/ipst/slds (test: 326 decisions, 978 samples, 2023-2024)"
+  },
+  "cost": {
+    "est_calls": 978,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Decisions are long (mean 3.6K tokens). Temperature 0.7 and seed 2025 requested where the API allows. The JUDGE column uses an LLM judge; use the lexical metrics. Evaluation script on GitHub."
+}

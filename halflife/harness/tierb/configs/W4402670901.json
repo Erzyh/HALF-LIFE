@@ -1,0 +1,79 @@
+{
+  "wid": "W4402670901",
+  "title": "MathBench: Evaluating the Theory and Application Proficiency of LLMs with a Hierarchical Mathematics Benchmark",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 2048
+    },
+    "params_source": "paper Sec. 3.1 ('we standardized the maximum output length to 2048 tokens and employed a greedy decoding strategy for all Large Language Models'); greedy is rendered as temperature 0",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 3709,
+    "subset_rule": "all of MathBench: MathBench-A (1,500 application questions, open-ended, few-shot CoT) + MathBench-T (2,209 theory questions, 4-option MCQ, zero-shot CoT under CircularEval)",
+    "approximation": "blocked on the data (see open_points). If it were run: CircularEval means each MCQ is asked 4 times with permuted options and counts as correct only if all four are right, so one seed is 1,500 + 4 x 2,209 = 10,336 calls."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "github.com/open-compass/MathBench - the README points at 'the data from release file' (github.com/open-compass/MathBench/releases/tag/v0.1.0) and tells you to copy a mathbench_v1 folder into OpenCompass's data/",
+    "config_or_split": "mathbench_v1: per-stage files for MathBench-A (arithmetic, primary, middle, high, college) and MathBench-T (primary, middle, high, college), each in English and Chinese",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "options (A-D, MathBench-T only)",
+      "label": "answer",
+      "id": "id"
+    },
+    "license": "the repository is Apache-2.0; the incorporated open-source questions (CEVAL, MMLU, Arithmetic-HG, Math401, SciBench) are stated to be MIT (Appendix A.2)",
+    "access_checked": false,
+    "size_mb": null,
+    "download": {
+      "date": "2026-09-19",
+      "check": "The repository holds only .gitignore / LICENSE / README.md / docs (checked via the GitHub tree HTML). Release v0.1.0 (2024-01-15) carries no asset: its expanded_assets page lists only the auto-generated 'Source code (zip)' and '(tar.gz)', and that zip (6,053 bytes) contains .gitignore, LICENSE and README.md only. No dataset with this name exists under the opencompass org on Hugging Face (NeedleBench, SWEBench-Pro-Verified, MMBench, CriticBench) or on ModelScope (only LiveMathBench)."
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "[two templates, both printed in Appendix C.1] open-ended (MathBench-A), 8-shot chat CoT: HUMAN: 'Q: There are 15 trees in the grove. ...' / BOT: 'A: ... The answer is 6.' ... ending with HUMAN: 'Q: {question}' / BOT: 'A: '. Single choice with reasoning (MathBench-T), zero-shot: \"Here is a multiple-choice question about mathematics. Please reason through it step by step, and at the end, provide your answer option with 'Therefore, the correct answer is option X', Where 'X' is the correct option you think from A, B, C, D. Here is the question you need to answer:\\n{question}\\nLet's think step by step: \"",
+    "placeholders": {
+      "question": "items.question"
+    },
+    "few_shot": "MathBench-A: k=8 fixed examples printed in Figure 21 (English) and Figure 22 (Chinese) - the GSM8K chain-of-thought set. MathBench-T: none (zero-shot CoT, Figures 23 English / 24 Chinese).",
+    "source_location": "Appendix C.1 (Figures 21-24: English/Chinese open-ended and single-choice-with-reasoning prompts)",
+    "verbatim": "full for all four templates (they are printed as prompt blocks); the Chinese templates are kept in the original script. Only the wrapper is printed, so which of the four applies to a given item follows from the item's language and type.",
+    "placeholders_paper": {
+      "question": "for MathBench-T the question text already contains the four options"
+    }
+  },
+  "output": {
+    "parse": "regex (?:Therefore, the correct answer is option|所以答案为选项)\\s*([A-D])",
+    "postprocess": "MathBench-A: the paper's rule-based math answer comparison on 'The answer is X'; MathBench-T: the option letter, with CircularEval requiring all four permutations to be right",
+    "parse_paper": "answer option letter (MCQ) / final numeric answer (open-ended); no LLM judge is used for scoring (Sec. 3.1)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Table 6 'Avg.' = mean of the MathBench-A average and the MathBench-T average. Verified against the paper's own numbers for GPT-4o in Table 2 (the two sub-tables 'MathBench-A' and 'MathBench-T'): A = mean(77.7, 87.7, 76.3, 59.0, 54.0) = 70.9 and T = mean(92.2, 88.3, 82.0, 85.6) = 87.0, so Avg. = (70.9 + 87.0)/2 = 78.95 -> 79.0. Each stage column of Table 6 is in turn the mean of that stage's A and T score (Arith has no theory part: 77.7 in both).",
+    "judge": "rule",
+    "original_value": 79.0,
+    "original_location": "Table 6 ('Overall Comparison of Chat Models on MathBench'), row GPT-4o-2024-05-13, Avg. column (row: 77.7 89.9 82.3 70.5 69.8 79.0)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 31008,
+    "est_usd": 220.0,
+    "tier": "mid",
+    "prepare_note": "not run (no items). 10,336 calls per seed x 3 seeds = 31,008 calls at gpt-4o $5/$15 per 1M with 2,048-token answers: roughly $73 per seed, far above the per-paper cap."
+  },
+  "open_points": [
+    "items: the benchmark is not downloadable from the place the paper and the README name. The MathBench repository contains no data, its only release has no asset, and there is no official Hugging Face or ModelScope mirror. The remaining route is the OpenCompass data bundle (OpenCompassData-core*.zip), which is far over the 50 MB download limit and would have to be approved and fetched by a human.",
+    "protocol: CircularEval multiplies the 2,209 theory questions by 4 (all option permutations, correct only if all four are right). That expansion, and the two-level aggregation (stage = mean of A and T, Avg. = mean of the two benchmark averages), need a hook; the mini-language cannot express either.",
+    "cost: about 10.3k calls per seed (about $70-80 per seed at list prices). Even one seed is above the per-paper cap, so the run needs a budget decision or a documented subset."
+  ],
+  "notes": "GPT-4o is role B here (a reference model in the benchmark's own table). Scoring is rule-based, so no judge model is needed. The paper's Table 9 gives the same cells under plain accuracy instead of CircularEval, which would cut the call count by 4 but is a different claim."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7164973659",
+ "title": "When Should Agent Trust Be Conditional? Characterizing and Attacking Skill-Conditional Reputation in Agent Swarms",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Sec. 5: \"No model is executed: we download, parse, and analyze published trajectories\" from AppWorld's leaderboard, which includes agents built on \"GPT-4 Turbo\" and \"GPT-4o\" base models (Trivedi et al. 2024)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none produced by these authors (re-analysis of pre-existing published trajectories)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AppWorld benchmark leaderboard trajectories (Trivedi et al. 2024)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The authors explicitly state no model is executed for this paper; GPT-4 Turbo/GPT-4o appear only as base models of pre-existing AppWorld leaderboard agents whose already-recorded trajectories are statistically reanalyzed."
+}

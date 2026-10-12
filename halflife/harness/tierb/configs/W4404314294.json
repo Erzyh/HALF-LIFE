@@ -1,0 +1,88 @@
+{
+  "wid": "W4404314294",
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLMs in Disaster Response",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on temperature; it generated five completions per question and reports the first)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 707,
+    "subset_rule": "all",
+    "approximation": "Temperature 0.0 instead of the (unstated, presumably default) sampling temperature used to obtain five distinct completions; 'first index' = the single completion per seed."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "Rajat1212/DisasterQA, file DisasterQA.csv (707 rows)",
+    "config_or_split": "DisasterQA.csv (single split)",
+    "filter": null,
+    "fields": {
+      "input": "Question",
+      "options": "Answer Choices",
+      "label": "Answer",
+      "id": null
+    },
+    "license": "unknown (no license on the dataset card)",
+    "access_checked": true,
+    "size_mb": 0.3,
+    "hf": {
+      "dataset": "Rajat1212/DisasterQA",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_prose": {
+      "input": "Question",
+      "options": "Answer Choices (multi-line 'a. ...\\nb. ...')",
+      "label": "Answer (lower-case letter)",
+      "id": "row index"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{question}\n{answer_choices}\nPlease answer the question above and end your answer with 'The answer is {letter}', where letter is A, B, C, D, E, or F.",
+    "placeholders": {
+      "question": "items.Question",
+      "answer_choices": "items.Answer Choices",
+      "letter": "literal:{letter}"
+    },
+    "few_shot": "none",
+    "source_location": "Section III.B ('we added this phrase at the end of every prompt'; No Prompting = question and the phrase)",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "question": "items.Question",
+      "answer_choices": "items['Answer Choices'] verbatim (one option per line)",
+      "letter": "LITERAL text of the paper's phrase, not a placeholder: keep '{letter}' in the prompt unchanged"
+    }
+  },
+  "output": {
+    "parse": "regex (?i)(?:answer(?: choice)?(?: here)? is|choices provided is|options provided is|from the list is|choices is|one out is):?\\s*\\**\\s*\\(?([A-Fa-f])\\b",
+    "postprocess": "uppercase; compare with the upper-cased gold letter; no match = unanswered",
+    "parse_prose": "regex (case-insensitive): first letter A-F following any of 'answer is', 'answer here is', 'answer choice is', 'answer choice here is', 'choices provided is:', 'options provided is:', 'from the list is', 'choices is', 'one out is' (Section IV)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "correct / (707 - unanswered), i.e. unanswered questions are removed from the denominator as in Section IV.",
+    "judge": "none",
+    "original_value": 0.817,
+    "original_location": "Table II (Results from No Prompting), row GPT-4 Turbo, column 1st Index (81.70%)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 2121,
+    "est_usd": 21.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Gold letters in the CSV are lower-case (a-d) while the phrase asks for A-F; comparison is case-insensitive. Sec. III.B lists the DSP/CoT/few-shot/emotional variants; only No Prompting is run. || [hooks_4 2026-09-07] hook renders the paper's prompt from the 'Answer Choices' column and scores correct/(n - unanswered). Gold column oddities: 'g' (1) and 'q' (1) can never be matched by A-F.",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "harness/tierb/hooks/W4404314294.py: render ('Answer Choices' field with a space; literal '{letter}' kept), parse (Section IV phrase regex, first letter A-F), score (accuracy with unanswered removed from the denominator; per-item None for unanswered)"
+}

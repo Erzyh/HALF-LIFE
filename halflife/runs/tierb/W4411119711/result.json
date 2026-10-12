@@ -1,0 +1,49 @@
+{
+  "wid": "W4411119711",
+  "title": "FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 55.96,
+  "original_location": "Table 2, row 'GPT-4-Turbo w/ simple, zero-shot prompt (Luo et al., 2023)', column BA (%) (F1-M 42.16)",
+  "reexecution": {
+    "mean_over_seeds": 0.5608987218432968,
+    "per_seed": {
+      "0": {
+        "value": 0.5608987218432968,
+        "n": 750,
+        "ci95": [
+          0.5340896443726005,
+          0.5836046657912769
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119711",
+    "n_items": 750,
+    "n_requests": 750,
+    "seeds": 1,
+    "est_usd": 4.87,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 55.96,
+    "cap_usd": 8.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "The paper cites the prompt to Luo et al. (2023) rather than printing it; the exact system/user strings are taken from the authors' own judge notebook, which also fixes temperature 0 and the answer parser. The alias 'GPT-4-Turbo' of Table 2 is read as the tracked snapshot gpt-4-turbo-2024-04-09.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 56.08987218432968,
+    "delta": 0.1298721843296775,
+    "original_inside_ci95": true
+  }
+}

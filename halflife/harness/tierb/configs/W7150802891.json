@@ -1,0 +1,67 @@
+{
+  "wid": "W7150802891",
+  "title": "Are large pre-trained vision language models effective construction safety inspectors",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.2,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 5.1 (temperature = 0.2, top_p = 1.0, max_token = 1024; single seed for GPT models)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 3004,
+    "subset_rule": "all 3,004 test images (Table 3), 5-shot",
+    "approximation": "The five in-context example images and captions are a seeded random draw (seed 20260907) from the training split; the authors' draw is unlisted."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "LouisChen15/ConstructionSite (gated, auto-approval; CC-BY-NC-4.0): test.parquet (3,004 images with human captions), train-*.parquet (7,009 images) for the exemplars",
+    "config_or_split": "test.parquet (test split); train parquet for the 5 exemplars",
+    "filter": "none",
+    "fields": {
+      "input": "image",
+      "label": "reference caption(s) (human-annotated)",
+      "id": "image file name"
+    },
+    "license": "CC-BY-NC-4.0 (Hugging Face tag)",
+    "access_checked": true,
+    "size_mb": 1500
+  },
+  "prompt": {
+    "system": "You are a construction site inspector. You are responsible for viewing the given image and give helpful and polite answers to your supervisor.",
+    "user_template": "{image}Please describe the image. Your description should include information about people, construction equipment, and material stockpiles. Do not make assumptions, be concise, and describe facts only. Please describe with only one paragraph.",
+    "placeholders": {
+      "image": "the test image attached to the final user turn; the five exemplars precede it as user (image + the same user prompt) / assistant (human caption) turns"
+    },
+    "few_shot": "k=5 seeded from the training split (Sec. 5.1: 'randomly sampled from the training set'; images plus their human-annotated captions)",
+    "source_location": "Sec. 5.1 (system prompt and user prompt quoted verbatim; 5-shot layout)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "free text (the caption paragraph)",
+    "postprocess": "strip; standard COCO caption tokenization inside the scorer"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "CIDEr-D (Vedantam et al. 2015) of the generated caption against the reference caption(s) of each test image, computed with the MSCOCO caption evaluation tools and averaged over the 3,004 images (x100).",
+    "judge": "none",
+    "original_value": 169.9,
+    "original_location": "Table 6, row GPT4o 5-shot, column CIDEr-D (SPICE 24.9, METEOR 39.4, BERTScore 37.7, CLIPScore 81.8)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 3004,
+    "est_usd": 60.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Gated Hugging Face dataset (LouisChen15/ConstructionSite, CC-BY-NC-4.0, ~1.5 GB) must be accepted and downloaded by a human, and the prompt needs six image parts per call (5 exemplar images + the test image); CIDEr-D also needs the MSCOCO caption tools (pycocoevalcap), outside the hook rules."
+  ],
+  "notes": "Six images per call keep the cost high; the dataset card could not be read without accepting the terms. || [hooks_2 2026-09-07] reviewed for a per-paper hook: gated data + image inputs; no hook written.",
+  "hook": "none (needs_human: gated data + image inputs)"
+}

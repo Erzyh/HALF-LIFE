@@ -1,0 +1,68 @@
+{
+  "wid": "W4411120175",
+  "title": "Large Language Models Reflect Human Citation Patterns with a Heightened Citation Bias",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 4096,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; the three GPT-4o runs in Table C2 differ, so stochastic default sampling, temperature 1.0, is the consistent reading)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 166,
+    "subset_rule": "all (166 cs.LG papers; 3,066 ground-truth introduction references)",
+    "approximation": "Post-processing model GPT-4-0613 (Step 4) is retired and must be substituted; Semantic Scholar coverage has grown since July 2024, so the existence rate drifts upward."
+  },
+  "items": {
+    "source_type": "zenodo",
+    "source": "https://zenodo.org/records/11299894 (raw_data_LLM_citation_patterns.zip, 1.16 GB, cc-by-4.0: per-paper main-content txt files) + github.com/AndresAlgaba/LLM_citation_patterns (pipeline; results/merged_references.csv)",
+    "config_or_split": "data/ main content txt files (166)",
+    "filter": "none",
+    "fields": {
+      "input": "main content txt (author information, conference, abstract, introduction with [n] citation markers)",
+      "label": "ground-truth introduction references with Semantic Scholar IDs (results/merged_references.csv)",
+      "id": "arXiv id"
+    },
+    "license": "cc-by-4.0",
+    "access_checked": true,
+    "size_mb": 1160
+  },
+  "prompt": {
+    "system": "You are a helpful assistant",
+    "user_template": "Below, we share with you a written introduction to a paper and have omitted the references. Numbers between square brackets indicate citations. Can you give us a suggestion for an explicit reference associated with each number? Do not return anything except the citation number between square brackets and the corresponding reference.\n===\n{main_content}",
+    "placeholders": {
+      "main_content": "the paper's main content file (Step 3 output)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A, Step 6 'Vanilla' prompting (system message + prompt); Step 4 post-processing prompt (in notes)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "free text '[n] reference' lines -> Step 4 post-processing prompt -> markdown table (authors, number of authors, title, year, venue)",
+    "postprocess": "title + author matching against Semantic Scholar (Step 7)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "100 x (number of generated references matched to a Semantic Scholar entry) / (number of generated references), pooled over the 166 papers (Table C2, row 1)",
+    "judge": "rule: Semantic Scholar API title/author match (Step 7) after LLM post-processing of the generated list (Step 4 prompt, originally GPT-4-0613)",
+    "original_value": 74.34,
+    "original_location": "Table C2, column GPT-4o Run 1, row 'Existing generations in Semantic Scholar database (%)'",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 996,
+    "est_usd": 20.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "aux_model_dead: Step 4 post-processing was run with GPT-4-0613 (retired) - a substitute changes the pipeline; the paper prints the post-processing prompt, so a judge stage with a substitute model is possible only after a human picks it.",
+    "Scoring needs live Semantic Scholar API title/author matching (network at analysis time, coverage drift since 27 July 2024) and the 1.16 GB Zenodo archive (over the download limit); neither fits the hook rules."
+  ],
+  "notes": "Post-processing prompt (Step 4, verbatim): Below, we share with you a list of references with their corresponding citation number between square brackets. Could you for each reference extract the authors, the number of authors, title, publication year, and publication venue? Please only return the extracted information in a markdown table with the citation number (without brackets), authors, number of authors, title, publication year, and publication venue as columns.\n===\n[LLM generated reference list] || est_calls = 498 generation + 498 post-processing calls. Bootstrap over papers (references are nested within papers). || [hooks_2 2026-09-07] reviewed for a per-paper hook: aux model dead + external API at scoring; no hook written.",
+  "hook": "none (needs_human: aux model dead + external API at scoring)"
+}

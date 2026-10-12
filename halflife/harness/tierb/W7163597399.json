@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7163597399",
+  "title": "Reasoning4Sciences: Bridging Reasoning Language Models to All Scientific Branches",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo / o3-mini / o4-mini",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Section 6: 'WORLDREP [111] applies GPT-4-Turbo, GPT-4o, and Gemini-1.5-Pro' (cited); Appendix list 'Closed: GPT-3.5, GPT-4, GPT-4.1, ... o3, o3-mini, o4-mini'."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not applicable (survey)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey of reasoning language models across scientific disciplines; live IDs are citations."
+}

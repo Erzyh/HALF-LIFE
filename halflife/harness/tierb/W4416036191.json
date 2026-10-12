@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036191",
+  "title": "Graders Should Cheat: Privileged Information Enables Expert-Level Automated Evaluations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13); 'GPT-4 Turbo' listed separately from 'GPT-4-1106'",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Sec. 3: 'GPT-4o (gpt-4o-2024-05-13)'; Table 3: 'GPT-4o 33.5% 40.2% 33.2% 33.9% 26.6%' (win-rate vs Claude 3.5 Sonnet with Claude 3.5 Sonnet as grader)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A (open-ended evaluation prompts); Appendix C (privileged-information examples)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "win-rate vs Claude 3.5 Sonnet on MathOdyssey-Olympiad, no hint",
+    "value": 40.2,
+    "n_items": 148,
+    "location": "Table 3, row GPT-4o, column No Hint",
+    "task_type": "generation",
+    "judge": "llm:claude-3-5-sonnet-20240620"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MathOdyssey Olympiad subset (148), RewardBench (2,985), Vibe-Eval (269); MATH-Adv is the authors' variant"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "mid"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Grader models (claude-3-5-sonnet-20240620, gemini-1.5-flash-001, gemini-1.5-pro-001) are retired and the candidate-side numbers depend on them. 'GPT-4 Turbo' alias is ambiguous next to a GPT-4-1106 row."
+}

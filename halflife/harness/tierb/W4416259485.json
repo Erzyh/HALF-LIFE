@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416259485",
+  "title": "Benchmarking PDF Accessibility Evaluation A Dataset and Framework for Assessing Automated and LLM-Based Approaches for Accessibility Testing",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'we used the most recent stable version of each model available as of February 2025 ... official APIs using default configuration settings (temperature=0.7)'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C (full zero-shot prompt for the alternative-text criterion); Appendix A Tables 7-13 (sub-criteria checklists inserted in the other six prompts)",
+    "note": "Structured per-criterion inputs are described in Table 2 and shipped in the repo."
+  },
+  "claim": {
+    "metric": "mean accuracy across seven criteria (3 runs)",
+    "value": 0.85,
+    "n_items": 35,
+    "location": "Table 3, column GPT-4 Turbo, row Average (0.85±0.04)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/Anukriti12/PDF-Accessibility-Benchmark (modified PDFs, labels, processed inputs, pipeline instructions)"
+  },
+  "cost": {
+    "est_calls": 105,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Items per criterion are not stated explicitly (35 documents across seven criteria is quoted for the checker comparison; per-criterion accuracies such as 0.70 suggest more than 5 items); temperature 0.7 with 3 runs. Text-only GPT-4-Turbo received extracted structure/text rather than page images.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The benchmark is 125 modified PDFs (5 base documents per criterion x 4 or 3 labels, Sec. 3.2.3), so n = 125 documents (3 runs each) rather than 35. The structured per-criterion inputs and the six prompts other than the alt-text one (Appendix C) are assembled by the repository pipeline; run gpt-4-turbo-2024-04-09 at temperature 0.7 for 3 runs and compare mean accuracy 0.85 +/- 0.04 (Table 3).",
+    "approximation": "Sampling at temperature 0.7; 'most recent stable version as of February 2025' resolved to the 2024-04-09 snapshot.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/Anukriti12/PDF-Accessibility-Benchmark",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406167407",
+  "title": "LLM Content Moderation and User Satisfaction: Evidence from Response Refusals in Chatbot Arena",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 3.2: \"we conducted a validation using GPT-4-turbo as a second annotator. The model was instructed to classify all 3,500 responses ... in a zero-shot setting.\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "The five-category zero-shot classification scheme is described narratively (Sec. 3.2); no verbatim prompt template is printed and there is no prompt appendix in the paper."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4-turbo used only as a second annotator to validate human labels, not as the studied classifier)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Chatbot Arena conversation pairs (49,938 one-turn pairs); refusal classifier and hand-labeled dataset released on HuggingFace (Human-CentricAI/LLM-Refusal-Classifier and llm-refusal-chatbot-arena)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Krippendorff's Alpha (0.668) and Cohen's Kappa (0.67) are reported for GPT-4-turbo vs. human agreement (Sec. 3.2), but this is an inter-annotator reliability check, not a task-performance claim for the model itself; the paper's main results (Tables 4-6) are all from the fine-tuned RoBERTa classifier."
+}

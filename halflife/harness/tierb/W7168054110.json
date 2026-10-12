@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7168054110",
+ "title": "Do You Need a Frontier Model as a Citation Verifier? Benchmarking Rubric LLMs for Deep-Research Source Attribution",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-5-mini (gpt-5-mini-2025-08-07)",
+  "resolved": "gpt-5-mini-2025-08-07",
+  "role": "A",
+  "evidence": "Table 1: \"GPT-5-mini Azure OpenAI gpt-5-mini-2025-08-07\", one of 8 LLM judges; \"council of 6 LLM judges... comprised GPT-5-mini... GPT-5.2... Claude Opus 4.5/4.6... Gemini 2.5/3 Pro\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Judge rubric/prompt not located in the extracted text."
+ },
+ "claim": {
+  "metric": "none (paper's own subject is judge-agreement quality; by project convention role-A judge results are marked no_number)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-5-mini-2025-08-07 is one of 8 LLM judges being benchmarked as citation-verification judges (role A); consistent with the project's treatment of judge-only papers, marked ineligible/no_number even though the paper's premise is about judge quality specifically."
+}

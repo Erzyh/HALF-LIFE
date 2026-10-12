@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404970691",
+  "title": "Zero-Shot Prompting and Few-Shot Fine-Tuning: Revisiting Document Image Classification Using Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'GPT-4 gpt-4-turbo-2024-04-09' (Table 1); 'we rely on the APIs of Mistral AI and OpenAI respectively, specifying a temparature of 0' (Section 4.1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 2 (system prompts P1, P2, P3 printed in full; P2 used for the results)",
+    "note": "One-shot variant adds 16 (user, assistant) example pairs."
+  },
+  "claim": {
+    "metric": "accuracy (zero-shot, OCR text input, RVL-CDIP-160x5)",
+    "value": 61.8,
+    "n_items": 800,
+    "location": "Table 3, row '0 OCR GPT-4' (61.8 +/- 2.0, invalid answers 2.1%)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "RVL-CDIP (public); test subsets are five random draws of 160 images with Amazon Textract OCR; the draws and OCR text are not released"
+  },
+  "cost": {
+    "est_calls": 2400,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "OCR via Amazon Textract must be re-run and the random subsets re-drawn, so variance beyond the reported +/-2.0 is expected.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "RVL-CDIP-160x5 is five non-overlapping random draws of 160 test images (10 per class) with Amazon Textract OCR; neither the draws nor the OCR text are released (footnote 3 promises them without a URL). Redraw five seeded selections from the public RVL-CDIP test split, OCR with Textract (Tesseract as fallback), prompt gpt-4-turbo-2024-04-09 with system prompt P2 (Figure 2) plus the OCR text at temperature 0, parse the label and count invalid answers, and report mean +/- std over the five draws; compare with 61.8 +/- 2.0 (Table 3).",
+    "approximation": "Different draws and OCR output; expect spread beyond the reported +/-2.0.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

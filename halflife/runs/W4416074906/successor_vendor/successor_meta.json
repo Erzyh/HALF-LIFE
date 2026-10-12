@@ -1,0 +1,33 @@
+{
+  "wid": "W4416074906",
+  "baseline_model": "o4-mini-2025-04-16",
+  "successor_model": "gpt-5.6-terra",
+  "arm": "vendor",
+  "cap_usd": 8.0,
+  "adapter_args": [
+    "--analyze"
+  ],
+  "paths_redirected": [
+    [
+      "RUN_ROOT",
+      "runs\\W4416074906\\successor_vendor"
+    ],
+    [
+      "RUN",
+      "runs\\W4416074906\\successor_vendor"
+    ],
+    [
+      "CHECK_PATH",
+      "runs\\W4416074906\\successor_vendor\\environment_check.json"
+    ],
+    [
+      "META",
+      "runs\\W4416074906\\successor_vendor\\run_meta.json"
+    ],
+    [
+      "ITEMS",
+      "runs\\W4416074906\\successor_vendor\\items.jsonl"
+    ]
+  ],
+  "body_rule": "successor_body in scripts/tiera_successor.py"
+}

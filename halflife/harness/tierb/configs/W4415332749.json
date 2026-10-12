@@ -1,0 +1,129 @@
+{
+ "wid": "W4415332749",
+ "title": "J4R: Learning to Judge with Equivalent Initial State Group Relative Policy Optimization",
+ "status": "ready",
+ "model": {
+  "id": "o1-2024-12-17",
+  "params": {
+   "reasoning_effort": "medium",
+   "max_tokens": 16384
+  },
+  "params_source": "paper App. C.1 ('All reasoning models are evaluated with \"reasoning effort\" set to medium (default)'); temperature/top_p are not accepted by o1, max_tokens 16384 is ours (first run used 4096 and 28% of o1 replies spent it all on hidden reasoning and returned no verdict; the parsed replies had median 1,452 and maximum 3,964 completion tokens)",
+  "seeds": 1
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 1483,
+  "subset_rule": "all 1,483 ReasoningJudgeBench samples (13 Hugging Face splits), each rendered twice with the two responses swapped -> 2,966 rendered items",
+  "approximation": "The paper ran the OpenAI Batch API; we call the same snapshot synchronously. The per-paper cost cap will cut the item set (see cost.prepare_note): the metric is then computed on the surviving samples and is no longer the full-benchmark number.",
+  "n_items_rendered": 2966
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "Salesforce/ReasoningJudgeBench (introduced by this paper; code at github.com/SalesforceAIResearch/ReasoningJudgeBench)",
+  "config_or_split": "config default, all 13 splits (aime_4o 15, aime 23, arc_challenge 60, bbeh_be 161, bbeh_cu 89, bbeh_dq 68, bbeh_hyper 114, bbeh_ma 38, folio 88, olympiadbench 184, reclor 289, strategy_qa 54, supergpqa 300 = 1,483)",
+  "filter": null,
+  "fields": {
+   "input": "question",
+   "options": null,
+   "label": "gold",
+   "id": "id"
+  },
+  "license": "cc-by-nc-4.0 (dataset card)",
+  "access_checked": true,
+  "size_mb": 12,
+  "hf": {
+   "dataset": "Salesforce/ReasoningJudgeBench",
+   "config": "default",
+   "splits": [
+    "arc_challenge_pairwise",
+    "bbeh_be_pairwise",
+    "folio_pairwise",
+    "reclor_pairwise",
+    "aime_4o_pairwise",
+    "aime_pairwise",
+    "bbeh_ma_pairwise",
+    "olympiadbench_pairwise",
+    "bbeh_cu_pairwise",
+    "bbeh_dq_pairwise",
+    "bbeh_hyper_pairwise",
+    "strategy_qa_pairwise",
+    "supergpqa_pairwise"
+   ]
+  },
+  "fields_source": {
+   "problem_id": "sample id (used as the pair key)",
+   "instruction": "the user prompt shown to the judge",
+   "positive_response": "the correct response",
+   "negative_response": "the incorrect response",
+   "label": "unused here (the hook derives the gold verdict from the order it renders)"
+  },
+  "hook_rows": "harness/tierb/hooks/W4415332749.py load_items(): per sample two rows, order AB (A = positive_response, gold 'A>B|<problem_id>') and order BA (A = negative_response, gold 'B>A|<problem_id>'); the split group (multi_hop / math / everyday / domain, App. C) is carried on each row.",
+  "splits_to_paper_groups": {
+   "multi_hop (598)": [
+    "arc_challenge_pairwise (60)",
+    "bbeh_be_pairwise (161)",
+    "folio_pairwise (88)",
+    "reclor_pairwise (289)"
+   ],
+   "math (260)": [
+    "aime_4o_pairwise (15)",
+    "aime_pairwise (23)",
+    "bbeh_ma_pairwise (38)",
+    "olympiadbench_pairwise (184)"
+   ],
+   "everyday (325)": [
+    "bbeh_cu_pairwise (89)",
+    "bbeh_dq_pairwise (68)",
+    "bbeh_hyper_pairwise (114)",
+    "strategy_qa_pairwise (54)"
+   ],
+   "domain (300)": [
+    "supergpqa_pairwise (300)"
+   ]
+  },
+  "max_samples": 50,
+  "max_samples_note": "repair run 2026-09-20: the hook draws a seeded random subset of 50 SAMPLES (seed 20260907) and renders both orders of each, so the consistent-accuracy metric has complete pairs; the first run's item-level cap subset (235 rendered items, 128 executed) held only 1 complete pair. That archive is kept at runs/tierb/W4415332749_v1_cap20_maxtok4096/."
+ },
+ "prompt": {
+  "system": "Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user prompt displayed below. You will be given assistant A's answer and assistant B's answer. Your job is to evaluate which assistant's answer is better.\nWhen evaluating the assistants' answers, identify any mistakes or inaccurate information. Focus on the content each response, and select the response that arrives at the correct response and with the most sound and logical reasoning. Avoid any biases, such as order of responses, length, or stylistic elements like formatting.\nBefore providing an your final verdict, think through the judging process and output your thoughts as an explanation\nAfter providing your explanation, you must output only one of the following choices as your final verdict with a label:\n1. Assistant A is better: [[A>B]]\n2. Assistant B is better: [[B>A]]\nUse the following template:\nExplanation: Your detailed thought process as an explanation.\nVerdict: [[A>B]] or [[B>A]].",
+  "user_template": "<|User Prompt|>\n{question}\n<|The Start of Assistant A's Answer|>\n{response_a}\n<|The End of Assistant A's Answer|>\n<|The Start of Assistant B's Answer|>\n{response_b}\n<|The End of Assistant B's Answer|>",
+  "placeholders": {
+   "question": "items.question",
+   "response_a": "items.response_a",
+   "response_b": "items.response_b"
+  },
+  "few_shot": "none",
+  "source_location": "Appendix E.1 ('J4R prompt templates', system prompt + user prompt printed in full)",
+  "verbatim": "full, with two extraction repairs: the PDF's monospace rendering inserted a space before every apostrophe (\"assistant A 's answer\", \"the assistants ' answers\", \"<|The Start of Assistant A 's Answer|>\") - removed; nothing else changed, in particular the paper's own wording 'Focus on the content each response' and 'Before providing an your final verdict' is kept as printed.",
+  "placeholders_paper": {
+   "question": "{question} = the original task prompt",
+   "response_a": "{response_a}",
+   "response_b": "{response_b}"
+  }
+ },
+ "output": {
+  "parse": "regex \\[\\[\\s*([AB])\\s*>\\s*([AB])\\s*\\]\\]",
+  "postprocess": "hook parse(): the LAST verdict marker in the reply is taken (the explanation may quote the labels); a reply with no marker counts as incorrect",
+  "parse_paper": "final verdict label [[A>B]] or [[B>A]] (Appendix E.1)"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "Consistent pairwise accuracy: each sample is judged in both response orders and counts as correct only if both verdicts are right (Sec. 5). The reported value is the micro-average over all 1,483 samples ('Avg. is a microaverage across benchmark splits', Table 1 caption). Implemented in harness/tierb/hooks/W4415332749.py score().",
+  "judge": "none (the model under test IS the judge; its verdict is compared with the benchmark's gold pair)",
+  "original_value": 73.1,
+  "original_location": "Table 6 (Appendix C.2), row 'o1', Avg. column (splits 77.59 / 90.38 / 58.15 / 65.33 over 598 / 260 / 325 / 300 samples micro-average to 73.09)",
+  "bootstrap_unit": "sample (pair of calls)",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 2966,
+  "est_usd": 251.78,
+  "tier": "high",
+  "est_usd_prepare": 251.78,
+  "prepare_note": "runner --prepare --dry-run 2026-09-19: full set 2,966 calls = $251.78 (o1 $15/$60 per 1M, prepare's 1,000-output-token assumption); at the standard --cap 20 the runner kept a seeded random subset of 235 rendered items ($19.59), for which the battery dry run prints $63.25 because it bills the full max_completion_tokens=4096.",
+  "repair_note": "repair run: 100 calls at max_tokens 16384; expected about $0.20 per call (o1 $15/$60 per 1M; median 1.5k, p90 3k completion tokens), cap $40 = the hard stop"
+ },
+ "open_points": [],
+ "notes": "o1 is role B in this paper (a baseline judge, not the contribution). The same prompt and protocol produce the paper's o3-mini (65.14) and o4-mini (69.39) rows, so this config doubles as their template via --model. Ties are not offered by this prompt, so the App. C.2 tie rule does not apply. The dataset's own `label` column is not used: the gold verdict follows from which side the hook put positive_response on. || Cost: the full cell is about $252 at o1 list prices (worst case $800 if every reply used all 4,096 completion tokens), far above the per-paper cap. Either accept the runner's seeded cap subset (235 rendered items = about 117 complete order-pairs; the hook drops samples whose second order is missing) or get a go for the full benchmark."
+}

@@ -1,0 +1,5 @@
+﻿condition,scorable_results,moved_gt5_vs_reported_pct,moved_gt5_vs_baseline_pct,moved_gt10_vs_reported_pct,moved_rel10_vs_reported_pct,moved_rel20_vs_reported_pct,accuracy-type (0-100): n,accuracy-type (0-100): moved_gt5_vs_reported_pct,F1 / overlap: n,F1 / overlap: moved_gt5_vs_reported_pct,error metric: n,error metric: moved_gt5_vs_reported_pct,custom (paper-specific): n,custom (paper-specific): moved_gt5_vs_reported_pct,percentage_metrics_only: n,percentage_metrics_only: moved_gt5_vs_reported_pct,papers_with_noise_floor: n,papers_with_noise_floor: moved_gt5_vs_baseline_pct,"papers_with_noise_floor: moved_beyond_max(5, floor)_pct",papers_with_noise_floor: median_floor_pts
+designated replacement,72,52.8,52.8,43.1,55.6,47.2,34,70.6,4,50.0,1,100.0,33,33.3,34,70.6,58,53.4,53.4,0.6
+non-reasoning successor,48,47.9,54.2,29.2,47.9,35.4,19,47.4,2,50.0,1,0.0,26,50.0,19,47.4,40,52.5,52.5,0.8
+open-weight model,64,70.3,57.8,39.1,64.1,35.9,33,78.8,3,33.3,1,100.0,27,63.0,33,78.8,52,59.6,59.6,0.6
+other vendor,66,66.7,57.6,47.0,59.1,48.5,35,71.4,3,66.7,1,100.0,27,59.3,35,71.4,54,59.3,57.4,0.6

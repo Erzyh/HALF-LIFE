@@ -1,0 +1,56 @@
+{
+  "wid": "W4403786592",
+  "title": "A Comprehensive Evaluation of Large Language Models on Mental Illnesses",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 39.6,
+  "original_location": "Table 10, row GPT-4-Turbo, column DepSeverity (39.6 / 0.805)",
+  "reexecution": {
+    "mean_over_seeds": 0.339,
+    "per_seed": {
+      "0": {
+        "value": 0.339,
+        "n": 1000,
+        "ci95": [
+          0.308975,
+          0.3670249999999999
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403786592",
+    "n_items": 1000,
+    "n_requests": 1000,
+    "seeds": 1,
+    "est_usd": 0.22,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 39.6,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Different 1,000-post balanced sample (IDs unpublished); SEV-4 wording transcribed from the Figure 1 image, block separators and post placement (post appended after a blank line) assumed.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4403786592"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 33.900000000000006,
+    "delta": -5.699999999999996,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4412889855",
+  "title": "Towards Robust Universal Information Extraction: Dataset, Evaluation, and Solution",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Commercial model API services, including GPT-3.5-turbo, GPT-4-turbo (OpenAI., 2023), DeepSeek-V3 ... we employ the 10-shot approach ... with the specific prompts provided in Appendix D (Section 5)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D, Table 7 (few-shot NER), Table 8 (RE), Table 9 (ED)",
+    "note": "Templates are complete but the 10 demonstrations are only described as 'selected from the training set'."
+  },
+  "claim": {
+    "metric": "Micro-F1 on original NER samples (RUIE-Bench)",
+    "value": 60.6,
+    "n_items": 1000,
+    "location": "Table 2, row GPT-4-turbo, NER 'Original' column (row extracted as merged digits: 60.6 57.5 59.8 ...)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "RUIE-Bench (1,000 NER / 800 RE / 900 ED sampled from ACE05, CoNLL03, WikiANN, NYT, CASIE); https://github.com/ICT-GoKnow/RobustUIE"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "ACL 2025 (no preview string) so resolved to the GA snapshot, but the citation is 'OpenAI., 2023'. Unseen-set NER F1 58.9 (Table 3) uses an OntoNotes sample of unstated size.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "The Table 7 template is complete except for the 10 demonstrations, which are 'randomly sampled from the training set'. Take the 1,000 RUIE-Bench original NER samples from the release, fill the template with 10 demonstrations drawn with a fixed seed from the corresponding source training sets, run gpt-4-turbo-2024-04-09 at temperature 0 and compute micro-F1 vs Table 2 (60.6) at set level.",
+    "approximation": "Demonstrations differ from the authors'; snapshot by date rule; ACE05-derived samples are LDC-licensed if not in the release.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

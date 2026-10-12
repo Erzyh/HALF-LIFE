@@ -1,0 +1,64 @@
+{
+  "wid": "W7166852552",
+  "title": "LexGenius: An Expert-Level Benchmark for Large Language Models in Legal General Intelligence",
+  "model": "gpt-4.1-nano",
+  "metric": "accuracy",
+  "original_value": 46.51,
+  "original_location": "Table 2, row GPT-4.1 nano, column Overall Nai. (CoT: 54.62)",
+  "reexecution": {
+    "mean_over_seeds": 0.4879568603954464,
+    "per_seed": {
+      "0": {
+        "value": 0.4879568603954464,
+        "n": 8345,
+        "ci95": [
+          0.47740862792091077,
+          0.4988615937687238
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 8
+  },
+  "prepare": {
+    "wid": "W7166852552",
+    "n_items": 8345,
+    "n_requests": 8345,
+    "seeds": 1,
+    "est_usd": 0.48,
+    "subset_note": "paraphrase p2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [8345]",
+    "dropped_unrenderable": null,
+    "model": "gpt-4.1-nano",
+    "metric": "accuracy",
+    "original_value": 46.51,
+    "cap_usd": 1.3,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7166852552",
+    "paraphrase": "p2",
+    "pairs": [
+      [
+        "假如你是一个专业的法律人员，请根据你的法律知识，在A，B，C，D四个选项中选择1个正确的选项，只回答A或B或C或D四个字母中的一个，只回答正确选项的序号（即A或B或C或D）不要回答其他的内容",
+        "设想你是一位法律专业人士。依据你的法律知识，在A、B、C、D这四个选项里挑出正确的那一个，并且仅以A、B、C或D中的一个字母作答（即正确选项的编号），不要附加任何别的文字"
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 12
+  },
+  "approximation": "our own two seeded shuffles (seed 20260907 + item index); the way the Naive instruction and the question/options are joined is not printed; single pass in the released option order (the runner has no seeded option shuffle; the paper averages two shuffled passes)",
+  "arm": {
+    "model": "gpt-4.1-nano",
+    "config_model": "gpt-4.1-nano",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p2\\W7166852552"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 48.79568603954464,
+    "delta": 2.2856860395446432,
+    "original_inside_ci95": false
+  }
+}

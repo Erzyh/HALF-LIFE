@@ -1,0 +1,56 @@
+{
+  "wid": "W4411080278",
+  "title": "Temperature-Driven Variability in Emergency Diagnostic Accuracy by a Leading Language Model",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 100,
+  "original_location": "Results 'Diagnostic Accuracy' / Figure 2 (temperature 0.0, with physical exam; 4 cases x 250 iterations)",
+  "reexecution": {
+    "mean_over_seeds": 0.313,
+    "per_seed": {
+      "0": {
+        "value": 0.313,
+        "n": 1000,
+        "ci95": [
+          0.284,
+          0.341
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411080278",
+    "n_items": 1000,
+    "n_requests": 1000,
+    "seeds": 1,
+    "est_usd": 0.64,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 100,
+    "cap_usd": 1.1
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Case vignettes transcribed from Table 1 (field separators assumed); the leading diagnosis is the first listed item of the reply (parser ours).",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4411080278"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 31.3,
+    "delta": -68.7,
+    "original_inside_ci95": false
+  }
+}

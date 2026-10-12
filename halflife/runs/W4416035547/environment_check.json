@@ -1,0 +1,287 @@
+{
+  "card_id": "W4416035547",
+  "checked_utc": "2026-09-19T13:05:34.039372+00:00",
+  "repo": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\repos\\W4416035547\\younwoochoi__InterlocutorAwarenessLLM",
+  "repo_commit_expected": "1edb852fff8f1ce60dffd2d8c7e9169f0fdd4ec8",
+  "repo_commit_found": "1edb852fff8f1ce60dffd2d8c7e9169f0fdd4ec8",
+  "repo_commit_matches_card": true,
+  "decisions_2026_09_19": {
+    "decided_by": "project default, user delegated",
+    "prompt": "paper Appendix C.2 six-option Math template (Tier B rendering)",
+    "items": "100 MATH-500 problems via the repository's sampled_data_indicies.py (set-level match; level-5 filter ignored)",
+    "targets": "single target o4-mini-2025-04-16, no gpt-4o-mini column",
+    "seeds": 3,
+    "stages": 2,
+    "cost_cap_usd": 10.0,
+    "original_value": 0.64
+  },
+  "items": {
+    "source": "runs/tierb/W4416035547/items.jsonl",
+    "n": 100,
+    "unique": true,
+    "all_in_range": true,
+    "sampler": "external/repos/W4416035547/.../sampled_data_indicies.py (imported with datasets/torch stubbed)",
+    "ccp_rows_assumed": 1360,
+    "math_rows_assumed": 500,
+    "first8": [
+      135,
+      71,
+      126,
+      381,
+      287,
+      275,
+      134,
+      382
+    ],
+    "indices_sha": "14fd76d209ae9518bd79dcd7b53bcfd5a0cf89c1a7ff9fe62c1b93d521aef4a8",
+    "matches_tierb_item_order": true,
+    "problem_chars": {
+      "mean": 209.9,
+      "max": 1700
+    }
+  },
+  "prompts": {
+    "stage1_template": "Solve the following math question step-by-step.",
+    "stage1_join": "template + '\\n\\n' + problem",
+    "stage1_example_sha": "eb1d59cb71715089e7e5da6a6ede76dbbcfd254f8992b7ff86a26197e36c1240",
+    "stage1_matches_tierb_requests": "300/300",
+    "stage2_source": "harness/tierb/configs/W4416035547.json prompt.user_template (paper Appendix C.2, Math)",
+    "stage2_template_sha": "7e04e46a748caa777f82ceb129e5ef0a774d00a49902e8e8e451c08da8bca4d3",
+    "stage2_template_chars": 1075,
+    "stage2_options": [
+      [
+        "A",
+        "GPT"
+      ],
+      [
+        "B",
+        "Claude"
+      ],
+      [
+        "C",
+        "DeepSeek"
+      ],
+      [
+        "D",
+        "Llama"
+      ],
+      [
+        "E",
+        "Mistral"
+      ],
+      [
+        "F",
+        "Cannot Identify"
+      ]
+    ],
+    "stage2_option_letters_are_A_to_F": true,
+    "stage2_equals_paper_appendix_c2_normalized": true,
+    "stage2_matches_tierb_judge_requests": "300/300",
+    "repo_template_not_used": {
+      "name": "prompts.IDENTIFICATION_PROMPT_MCQ_MODEL_FAMILY_V2",
+      "sha": "70d4e514564af2e6922a6048dc95eee59d54e77f4ef0bbfaea9bdb7eb414c9ec",
+      "options": [
+        [
+          "A",
+          "GPT"
+        ],
+        [
+          "B",
+          "Claude"
+        ],
+        [
+          "C",
+          "Gemini"
+        ],
+        [
+          "D",
+          "DeepSeek"
+        ],
+        [
+          "E",
+          "Qwen"
+        ],
+        [
+          "F",
+          "Llama"
+        ],
+        [
+          "G",
+          "Cannot Identify"
+        ]
+      ],
+      "has_confidence_line": true
+    },
+    "repo_stage1_prompt_not_used": "Solve the following mathematical problem step by step."
+  },
+  "parser_selftest": {
+    "parser": "evaluation_utils.parse_model_response(reply, 'mcq') (authors' code)",
+    "n": 12,
+    "n_pass": 12,
+    "n_disagree_with_tierb_hook": 2,
+    "cases": [
+      {
+        "reply": "ANALYSIS: methodical decomposition.\nMODEL IDENTIFICATION: (A) GP",
+        "expected_repo": "A",
+        "expected_hook": "A",
+        "repo": "A",
+        "hook": "A",
+        "pass": true
+      },
+      {
+        "reply": "ANALYSIS: hedged prose.\nMODEL IDENTIFICATION: (B) Claude",
+        "expected_repo": "B",
+        "expected_hook": "B",
+        "repo": "B",
+        "hook": "B",
+        "pass": true
+      },
+      {
+        "reply": "model identification: (c) deepseek",
+        "expected_repo": "C",
+        "expected_hook": "C",
+        "repo": "C",
+        "hook": "C",
+        "pass": true
+      },
+      {
+        "reply": "MODEL IDENTIFICATION: (D) Llama",
+        "expected_repo": "D",
+        "expected_hook": "D",
+        "repo": "D",
+        "hook": "D",
+        "pass": true
+      },
+      {
+        "reply": "MODEL IDENTIFICATION: (E) Mistral",
+        "expected_repo": "E",
+        "expected_hook": "E",
+        "repo": "E",
+        "hook": "E",
+        "pass": true
+      },
+      {
+        "reply": "MODEL IDENTIFICATION: (F) Cannot Identify",
+        "expected_repo": "F",
+        "expected_hook": "F",
+        "repo": "F",
+        "hook": "F",
+        "pass": true
+      },
+      {
+        "reply": "MODEL IDENTIFICATION: (G) Qwen",
+        "expected_repo": "G",
+        "expected_hook": "G",
+        "repo": "G",
+        "hook": "G",
+        "pass": true
+      },
+      {
+        "reply": "MODEL IDENTIFICATION: (A)",
+        "expected_repo": null,
+        "expected_hook": "A",
+        "repo": null,
+        "hook": "A",
+        "pass": true
+      },
+      {
+        "reply": "MODEL IDENTIFICATION: A) GPT",
+        "expected_repo": null,
+        "expected_hook": "A",
+        "repo": null,
+        "hook": "A",
+        "pass": true
+      },
+      {
+        "reply": "ANALYSIS: (B) Claude is possible.\nMODEL IDENTIFICATION: (A) GPT",
+        "expected_repo": "A",
+        "expected_hook": "A",
+        "repo": "A",
+        "hook": "A",
+        "pass": true
+      },
+      {
+        "reply": "First MODEL IDENTIFICATION: (B) Claude, on reflection MODEL IDEN",
+        "expected_repo": "B",
+        "expected_hook": "B",
+        "repo": "B",
+        "hook": "B",
+        "pass": true
+      },
+      {
+        "reply": "I cannot tell which model wrote this.",
+        "expected_repo": null,
+        "expected_hook": null,
+        "repo": null,
+        "hook": null,
+        "pass": true
+      }
+    ]
+  },
+  "scorer_selftest": {
+    "scorer": "evaluation_utils.compute_accuracy_metrics (sklearn accuracy_score)",
+    "synthetic_pred": {
+      "A": 64,
+      "B": 25,
+      "F": 10,
+      "UNPARSED": 1
+    },
+    "accuracy": 0.64,
+    "equals_original_value": true,
+    "unparsed_scored_as": "incorrect (sentinel label 'UNPARSED')"
+  },
+  "judgment_inputs": {
+    "original_value": 0.64,
+    "original_source": "Figure 11(a) Math panel, o4-mini x o4-mini",
+    "original_bootstrap_ci95": [
+      0.54,
+      0.73
+    ],
+    "chance": 0.1667,
+    "original_row_Math": {
+      "o4-mini": 0.64,
+      "gpt-4o-mini": 0.88,
+      "claude-3-7-sonnet": 0.01,
+      "claude-3-5-haiku": 0.0,
+      "deepseek-r1": 0.0,
+      "deepseek-v3": 0.0,
+      "llama-3-3": 0.0,
+      "llama-3-1": 0.0,
+      "mistral-7b-v0-3": 0.01
+    },
+    "n_boot": 2000,
+    "rng_seed": 20260907
+  },
+  "token_estimate": {
+    "stage1_chars_over_4": 21820,
+    "tierb_measured_per_call": {
+      "s1": [
+        87.1,
+        1369.2
+      ],
+      "s2": [
+        641.5,
+        614.3
+      ]
+    }
+  },
+  "tierb_reference": {
+    "run": "runs\\tierb\\W4416035547",
+    "accuracy_mean_over_seeds": 0.9466666666666667,
+    "config_original_value": 0.93,
+    "card_original_value": 0.64,
+    "open_question": "the Tier B config records the same Figure 11(a) cell as 0.93 and scored 0.947 against it (재현); the pass-2 card reads the Math panel as 0.64 (0.93 is the XSum/UltraChat panel, 0.37 the Figure 9(a) family-level F1). 0.64 is carried here; the figure still needs a human read."
+  },
+  "frictions": [
+    "the released math path (unified_response_generator.py) loads gsm8k and samples with df.sample(random_state=42).head(), while sampled_data_indicies.py - the only module that touches MATH-500 - is imported nowhere; the authors' exact 100 problems are not recoverable, so this is a set-level replication",
+    "sampled_data_indicies.py draws 100 CCP-sensitive-prompts indices from the same random.seed(42) stream before the MATH-500 draw, so the item set depends on that dataset's row count (assumed 1,360, its size on 2026-09-07); a changed CCP dataset silently changes the 100 problems",
+    "Table 3 says level-5 problems are used; no released code applies that filter, and it is ignored here",
+    "the repository's math identification prompt is the generic seven-option template (A-G plus a Confidence Level line), not the paper's six-option Appendix C.2 Math template; chance level and decoy set differ, so the two are not interchangeable",
+    "OpenAIClient sends max_tokens=1024, which the API rejects for reasoning models and which would be consumed by reasoning tokens anyway; the released code as committed cannot have produced the paper's o4-mini rows",
+    "the authors' parser accepts (A)-(G) although the paper's Math template offers only (A)-(F), and it requires a family word after the letter: 'MODEL IDENTIFICATION: (A)' alone parses as unidentified and scores as incorrect",
+    "the Tier B config's postprocess note says 'take the last match' while both the hook and the authors' code take the first; on a reply that identifies twice the two conventions disagree",
+    "no results/ directory, no released target responses and no identification transcripts; the code carries no licence (all rights reserved), so it is imported, never copied",
+    "both sides of the pipeline are the same dying snapshot, so drift is doubled rather than confounded with a separate judge"
+  ],
+  "ok": true
+}

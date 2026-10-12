@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405470316",
+  "title": "Seeker: Towards Exception Safety Code Generation with Intermediate Language Agents Framework",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "Appendix A.3.5: 'closed-source (e.g. Claude-2 ..., GPT-4-turbo (GPT-4, 2023), GPT-4o ...) LLMs as the agent's internal model'; Table 6 row 'GPT-4-turbo 0.84 91 83 77 0.63 89'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A.3 prompt templates (CEE, Planner, Detector, Predator, Ranker, Handler agents)",
+    "note": "Multi-agent Seeker framework with retrieval over the CEE knowledge base; not a single prompt."
+  },
+  "claim": {
+    "metric": "exception-handling accuracy (ACC %)",
+    "value": 77,
+    "n_items": null,
+    "location": "Table 6 (Appendix A.3.5), row GPT-4-turbo, column ACC",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o (Code Review Score only)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Code and CEE on GitHub (footnotes 1-2); evaluation set size not stated"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Paper dated 2024-12 with no preview string, but the citation '(GPT-4, 2023)' suggests a 2023 preview snapshot; n_items for Table 6 is not reported."
+}

@@ -1,0 +1,25 @@
+{
+  "openalex_id": "W4416184760",
+  "title": "Development of an LLM Pipeline Surpassing Physicians in Cardiovascular Risk Score Calculation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Supplementary Table 4, HAS-BLED / LLM Pipeline row: \"GPT-4 Turbo 0.85 [0.56, 1.00] 0.26 [0.15, 0.35]\" (Krippendorff's alpha, RMSE)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 2 (representative prompt-template examples for CHA2DS2-VASc); Supplementary material said to hold full templates (not present in the extracted text)",
+    "note": "A core prompt template is reused per score component across all 5 tested LLMs."
+  },
+  "claim": {
+    "metric": "RMSE, HAS-BLED score, LLM Pipeline configuration", "value": 0.26, "n_items": 179, "location": "Supplementary Table 4, row GPT-4 Turbo, HAS-BLED/LLM Pipeline column (atrial-fibrillation cohort, n=179)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "Single-center retrospective clinical cohort (AF ablation registry n=179, aortic-stenosis heart-team cohort n=76), Charite Berlin; paper states \"(anonymized) data ... will be shared on reasonable request\", not publicly posted"},
+  "cost": {"est_calls": 12000, "tier": "high"},
+  "blockers": ["data_closed"],
+  "notes": "GPT-4 Turbo is one of 5 LLMs run standalone and in an extraction-plus-deterministic-scoring pipeline over real, non-public patient records; results (RMSE and Krippendorff's alpha, with 95% CIs) are reported for all 3 risk scores. The underlying clinical-report inputs are not public and are available only on reasonable request to the authors, blocking prompt-level reproduction regardless of prompt/claim quality."
+}

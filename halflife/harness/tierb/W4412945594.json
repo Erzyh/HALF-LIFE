@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4412945594",
+ "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4o (GPT-4o-2024-0513)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "B",
+  "evidence": "\"we use GPT-4o (GPT-4o-2024-0513) and Claude-3.5 as the localization model\" (Table 4); row \"SWE-agent GPT-4o 57.30 64.96 68.98 58.03 58.03 45.99 46.35\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 5.3/Appendix C.1; relies on the public, established agent-framework prompts (Agentless, SWE-agent, MoatlessTools, OpenHands), not reprinted verbatim in this paper",
+  "note": ""
+ },
+ "claim": {
+  "metric": "File-level Acc@1, SWE-agent + GPT-4o",
+  "value": 57.3,
+  "n_items": 300,
+  "location": "Table 4 (SWE-bench Lite, standard 300-instance split)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "SWE-bench Lite (public)"
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "GPT-4o is run as the backbone LLM inside four different open-source agent scaffolds (Agentless, MoatlessTools, SWE-agent, OpenHands) that LocAgent's authors configured themselves for a controlled comparison; LocAgent's own novel model uses fine-tuned Qwen2.5, not a live-listed OpenAI model. Cost is high because SWE-bench Lite agent rollouts involve many tool-call turns per instance."
+}

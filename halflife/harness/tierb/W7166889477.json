@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166889477",
+ "title": "FinMaster: A Holistic Benchmark for Full-Pipeline Financial Management with Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o3-mini",
+  "resolved": "o3-mini-2025-01-31",
+  "role": "S",
+  "evidence": "Sec.4.2: \"Average accuracy remains low, with o3-mini at 12.84%\" (Accounting tasks); Table with per-task Acc(%)+token counts for o3-mini/GPT-4.1-nano/etc."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec.3.3 (4-component template: task description, examples, problem statement, JSON output instructions); literal per-task problem statements listed (e.g. task {2,1,2})",
+  "note": "Structural template and literal task-level content are given; the exact boilerplate task-description/example/output-instruction text is not quoted verbatim."
+ },
+ "claim": {
+  "metric": "average accuracy, Accounting task suite",
+  "value": 12.84,
+  "n_items": null,
+  "location": "Sec.4.2 (\"Average accuracy remains low, with o3-mini at 12.84%\")",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "https://github.com/JiangInsight/Finmaster.git"
+ },
+ "cost": {
+  "est_calls": 5000,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4.1-nano is also evaluated in this paper (40-60% on literacy tasks) but o3-mini has a cleaner text-cited headline number. Soft gaps: prompt wrapper only partially quoted, and exact item count behind the \"12.84%\" accounting average is not stated in the extracted text (dataset totals 5,000 transaction rows / 975 artifacts overall)."
+}

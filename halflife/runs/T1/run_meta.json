@@ -1,0 +1,57 @@
+{
+  "card_id": "T1",
+  "run_date_utc": "2026-09-02",
+  "target_paper": {
+    "title": "Benchmarking Large Language Models for Bio-Image Analysis Code Generation",
+    "doi": "10.1101/2024.04.19.590278",
+    "repo": "https://github.com/haesleinhuepf/human-eval-bia",
+    "repo_commit": "f6edaa15545e84951f5428d07e16db04155f2266",
+    "repo_license": "MIT",
+    "original_run_dates": "2024-04 (OpenAI usage screenshots in docs/images: 20240406, 20240417)",
+    "original_values": { "pass@1": 0.4736842105263157, "pass@5": 0.6860902255639099, "pass@10": 0.7368421052631579 }
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served_field": "gpt-4-turbo-2024-04-09 (per response.model)",
+    "system_fingerprint_example": "fp_f2f751a792",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions",
+    "parameters": "no temperature/max_tokens/seed set — identical to original notebook (demo/create_samples.ipynb)",
+    "prompt_template_source": "demo/create_samples.ipynb setup_prompt() copied verbatim into cards/T1_bia_codegen.json",
+    "samples_per_task": 10,
+    "n_tasks": 57,
+    "python": "3.13.7 (harness only; no model-side dependency)",
+    "pricing_assumed_usd_per_1m": { "input": 10.0, "output": 30.0 },
+    "budget_cap_usd": 9.5
+  },
+  "evaluation": {
+    "python": "3.10.11 (venv-heb, matches paper's 3.10 requirement)",
+    "key_libs": { "numpy": "1.26.4", "scikit-image": "0.25.2" },
+    "requirements_install": "26/26 packages from requirements.txt installed OK (external/env_install_log.txt)",
+    "timeout_s": 300,
+    "workers": 4,
+    "k": [1, 5, 10],
+    "environment_reference_check": { "canonical_solutions_pass@1": 1.0, "n_tasks": 57 }
+  },
+  "results": {
+    "reexecution": { "pass@1": 0.48070175438596496, "pass@5": 0.6853244221665274, "pass@10": 0.7368421052631579,
+                     "n_samples": 570, "bootstrap95_pass@1": [0.374, 0.581] },
+    "original": { "pass@1": 0.4736842105263157, "pass@5": 0.6860902255639099, "pass@10": 0.7368421052631579,
+                  "bootstrap95_pass@1": [0.377, 0.570] },
+    "delta_pass@1": 0.0070,
+    "task_level": { "within_0.2": "46/57", "majority_flipped": 6,
+                    "flipped_note": "all flips sit at 0.4-0.6 pass rates, consistent with n=10 sampling noise at temperature 1.0" },
+    "cost_usd": 5.93,
+    "calls": 570,
+    "call_log_stats": { "http_200": 570, "distinct_system_fingerprints": 10, "latency_ms_median": 8534,
+                        "latency_ms_p95": 16585, "tokens_in": 73580, "tokens_out": 173147,
+                        "note": "a single dated snapshot was served by 10 distinct backend fingerprints within one hour; results nonetheless replicate — fingerprint identifies serving configuration, not weights" },
+    "judgment": "생존 (survived): point estimate inside original CI, pass@10 identical (42/57 tasks solved at least once in both); dated snapshot shows no detectable drift 17 months after the original run",
+    "judged_by": "automatic rule per ANALYSIS_PLAN §1 (direction + CI overlap); human double-coding pending"
+  },
+  "reproducibility_frictions_observed": [
+    "pip install -e . of the repo fails: setup.py imports pkg_resources, absent in the modern isolated build backend (setuptools) — editable install impossible without patching; worked around by importing the source tree directly",
+    "human_eval/execution.py as shipped is syntactically invalid (exec line commented out leaves an empty with-block) — deliberate safety gate, but every reproducer must modify code before evaluation can run; helpers re-implemented in harness/heb_eval.py",
+    "Original generation used API default temperature (1.0) with no seed — sampling variance is inherent; comparisons use bootstrap CIs over tasks",
+    "Original per-sample results are archived in the repo (data/*_results.jsonl), enabling task-level comparison — an L1-compliant paper"
+  ]
+}

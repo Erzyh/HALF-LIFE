@@ -1,0 +1,14 @@
+﻿mode,items,stage,count,denominator,share_pct
+1 Identifier retired,P1 P2 P8,census,17027,49212,34.6
+"2 Web interface only, no API snapshot",P1 P2,"Tier B triage, ineligible reasons",56,766,7.3
+3 Procedure under-reported,P3,"Tier B triage, ineligible reasons",125,766,16.3
+4 Data gated or licence unclear,P4,"Tier B triage, ineligible reasons",136,766,17.8
+5 Auxiliary model (judge) dependency,P2 P1,Tier B executed papers,9,86,10.5
+6 Multi-stage or multimodal protocol,P7,Tier B configurations needing a human,65,130,50.0
+7 Outcome measured on people,P2,"Tier B triage, ineligible reasons",29,766,3.8
+"8 Terms of service, account policy",P8,successor arms,7,74,9.5
+9 Change under a pinned identifier,P1 P6,Tier B executed papers,73,75,97.3
+10 Interface change on the successor,P2 P3,third-party and open-weight arms,4,67,6.0
+11 Hidden reasoning inside the output cap,P5,Gemini arm,35646,66123,53.9
+"12 Format non-compliance, safety filter",P2,successor arms,4,254,1.6
+13 Capability shift: the number moves,P8 P6,successor arms,147,250,58.8

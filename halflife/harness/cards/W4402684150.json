@@ -1,0 +1,113 @@
+{
+  "card_id": "W4402684150",
+  "openalex_id": "https://openalex.org/W4402684150",
+  "title": "Evaluating Very Long-Term Conversational Memory of LLM Agents",
+  "doi": "10.18653/v1/2024.acl-long.747",
+  "paper": {
+    "doi": "10.18653/v1/2024.acl-long.747",
+    "authors": "Maharana, Lee, Tulyakov, Bansal, Barbieri, Fang",
+    "year": 2024,
+    "venue": "ACL 2024 (Long Papers), pp. 13851-13870",
+    "repo": "https://github.com/snap-research/locomo",
+    "repo_commit": "3eb6f2c585f5e1699204e3c3bdf7adc5c28cb376",
+    "repo_license": "CC BY-NC 4.0 (LICENSE.txt covers code and data)",
+    "repo_note": "Scaffold cloned shmsw25/FActScore (a third-party metric used for event summarization), not the paper's repo; the paper's own repo snap-research/locomo was cloned for this card. Event-summarization evaluation code is marked 'Coming soon' in README."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "gpt-4-turbo is one of the evaluated long-context models (Table 2, Table 4) and the best-performing system in the paper; the core finding (LLMs far below humans, adversarial collapse) is a statement about these models. Data generation used gpt-3.5-turbo and text-davinci-003 (dead) but is frozen in the released dataset, so it does not affect re-execution."
+  },
+  "claim": {
+    "statement": "With the entire conversation in a 128K context, gpt-4-turbo is the best long-context model on LoCoMo question answering with overall F1 51.6 (single-hop 72.3, multi-hop 51.5, temporal 51.4, open-domain 38.5, adversarial 15.7) yet lags humans (87.9) by ~36 points, and its adversarial-question F1 collapses to 15.7 vs 34.8 for gpt-3.5-turbo with a 4K window (Table 2; Sec. 6.1 findings 1-3).",
+    "claim_type": "capability_limit",
+    "metric": "Answer-prediction F1 (token overlap after normalization + Porter stemming; multi-answer: mean over ground truths of max over predictions; task_eval/evaluation.py f1()), averaged per question category and overall over 1,986 questions",
+    "original_values": {
+      "gpt-4-turbo_128K": { "single_hop": 72.3, "multi_hop": 51.5, "temporal": 51.4, "open_domain": 38.5, "adversarial": 15.7, "overall": 51.6 },
+      "human": { "single_hop": 95.1, "multi_hop": 85.8, "temporal": 92.6, "open_domain": 75.4, "adversarial": 89.4, "overall": 87.9 },
+      "gpt-3.5-turbo_4K": { "overall": 23.9, "adversarial": 34.8 },
+      "gpt-3.5-turbo_16K": { "overall": 35.9, "adversarial": 14.8 },
+      "claude-3-sonnet_200K": { "overall": 42.8, "adversarial": 2.5 },
+      "gemini-1.0-pro_1M": { "overall": 39.1, "adversarial": 5.2 },
+      "secondary_event_summarization_gpt-4-turbo": { "rouge_l": 21.6, "factscore_f1": 48.9 }
+    },
+    "original_source": "Table 2 (QA), Table 4 (event summarization), Table 5 (question counts: single-hop 841, multi-hop 282, temporal 321, open-domain 96, adversarial 446 = 1,986); no per-question model outputs released"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo (alias, scripts/evaluate_gpts.sh --model gpt-4-turbo). App. C.2: OpenAI API 'as of May 2024' -> the alias resolved to gpt-4-turbo-2024-04-09, the same model as the live arm; the paper does not print the dated id.",
+    "model_status": "gpt-4-turbo / gpt-4-turbo-2024-04-09: dying, shutdown 2026-10-23",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions via legacy openai.ChatCompletion (global_methods.run_chatgpt; needs openai<1.0 or a shim)",
+    "prompt_source": "task_eval/gpt_utils.py: CONV_START_PROMPT + formatted conversation ('DATE: ... CONVERSATION: <speaker> said, \"...\" [and shared <blip_caption>]', sessions in chronological order) + QA_PROMPT_BATCH + numbered questions; category 2 (temporal) questions get the suffix 'Use DATE of CONVERSATION to answer with an approximate date.'; category 5 (adversarial) questions become a 2-way choice '(a) Not mentioned in the conversation (b) <answer>' with random order (unseeded random.random())",
+    "params": {
+      "temperature": 0,
+      "top_p": "1 (App. C.2); code passes only temperature",
+      "max_tokens": "batch_size x PER_QA_TOKEN_BUDGET = 20 x 50 = 1000",
+      "batch_size": "20 questions per call (evaluate_gpts.sh); context truncation keeps the most recent turns so that conv + questions < 128,000 - 50 x batch (never triggers for ~16.6K-token conversations)",
+      "seed": "not set; single inference run reported (App. C.2)",
+      "output_parsing": "JSON dict {question_index: short answer} parsed by process_ouput(); 3 retries on parse failure"
+    },
+    "n_items": "1,986 questions over 10 conversations (data/locomo10.json)",
+    "samples_per_item": "1 in the paper; re-run: 3 repeated runs x 2 prompt paraphrases (paraphrase only QA_PROMPT_BATCH wording, keep the JSON output instruction)",
+    "evaluation": "Automatic: task_eval/evaluate_qa.py -> evaluation.f1 per question; per-category aggregation with evaluation_stats.analyze_aggr_acc (category ids in data: 1 = multi-hop, 2 = temporal, 3 = open-domain, 4 = single-hop, 5 = adversarial, matching Table 5 counts); adversarial answers mapped through get_cat_5_answer before F1",
+    "execution_environment": "Single Python 3.9/3.10 process; requirements.txt (openai legacy API, tiktoken, nltk stemmer, numpy); no tools, no docker, no GPU for the gpt-4-turbo arm (RAG arms need the DRAGON retriever, not part of this claim). One full pass = ~105 API calls of ~20K tokens each, ~30 min wall-clock with the 5 s sleep in the code.",
+    "representative_subset": "3 of the 10 conversations (fixed ids, chosen to cover the length range) = ~600 questions x 2 runs; cheap enough that the full 10-conversation protocol should be run instead."
+  },
+  "artifacts": {
+    "prompts_path": "task_eval/gpt_utils.py (QA_PROMPT_BATCH, QA_PROMPT, QA_PROMPT_CAT_5, CONV_START_PROMPT); prompt_examples/ (generation-side prompts)",
+    "data_path": "data/locomo10.json (10 conversations, qa, event_summary, observation, session_summary); images not released (URLs + BLIP captions only)",
+    "eval_path": "task_eval/evaluate_qa.py, task_eval/evaluation.py, task_eval/evaluation_stats.py; scripts/evaluate_gpts.sh",
+    "data_public": true,
+    "data_license": "CC BY-NC 4.0 (App. B.2 and LICENSE.txt)",
+    "redistributable": true,
+    "notes": "Non-commercial license; redistribution with attribution is allowed for research. Released data are the 10 conversations used in the ACL version (the March-2024 arXiv v1 had 50). No original per-question predictions are released, so only aggregate comparison is possible."
+  },
+  "blockers": [
+    "Model id given only as the alias 'gpt-4-turbo' (May 2024 API -> 2024-04-09 snapshot inferred, not stated)",
+    "Unseeded random choice order for adversarial questions and JSON-parsing retries introduce run-to-run variance that is not controlled in the original",
+    "Legacy openai<1.0 client in code; must be shimmed or pinned",
+    "Human reference (87.9) is a fixed number from the paper, not re-collectable"
+  ],
+  "arms": {
+    "baseline_alive": { "model": "gpt-4-turbo-2024-04-09", "purpose": "live baseline (alias used in the paper resolved to this snapshot in May 2024)" },
+    "successors": [
+      "gpt-5-2025-08-07",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated snapshot; repo has claude_utils.py)",
+      "gemini (current dated snapshot; repo has gemini_utils.py)",
+      "llama (open weights, long-context instruct variant, weight hash pinned; hf_llm_utils.py)",
+      "qwen (open weights, long-context instruct variant, weight hash pinned)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 } },
+    "unit_basis": "~105 calls per full pass (1,986 questions / 20 per batch, per conversation); ~20K input tokens per call (avg conversation 16.6K tokens + formatting + prompts), ~500 output tokens (20 short answers as JSON)",
+    "full": {
+      "definition": "all 1,986 questions, 3 repeated runs (x2 paraphrases -> 6 passes)",
+      "est_calls": 630,
+      "est_tokens_in": 12600000,
+      "est_tokens_out": 320000,
+      "est_cost_usd": 136
+    },
+    "subset": {
+      "definition": "3 conversations (~600 questions) x 2 runs",
+      "est_calls": 60,
+      "est_tokens_in": 1200000,
+      "est_tokens_out": 30000,
+      "est_cost_usd": 13
+    },
+    "single_pass_usd": 23,
+    "cap_usd": "recommend 150"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1, capability_limit. Primary number: overall F1 51.6 with bootstrap 95% CI over 1,986 questions (approx +/-2 pts). SURVIVED if the median re-run overall F1 is within 51.6 +/- 3 AND the gap to human (87.9) remains > 20 points AND adversarial remains the lowest category (< 30). PARTIAL if overall F1 moves by 3-10 points but the human gap and the adversarial-collapse ordering hold. DEAD if overall F1 >= 78 (gap to human < 10) or adversarial F1 >= single-hop-level (the 'long-context LLMs hallucinate on adversarial questions' claim no longer holds).",
+    "notes": "Temperature 0 but unseeded (a)/(b) ordering for 446 adversarial items; report the adversarial category with its own CI. Category-5 scoring maps the chosen option back to text before F1, so check get_cat_5_answer behaviour on verbose outputs. Successor arms with >128K context should still use the same 128K truncation rule for comparability."
+  },
+  "status": "draft",
+  "user_checks": [
+    "Accept the inference that the alias 'gpt-4-turbo' (API as of May 2024) = gpt-4-turbo-2024-04-09, making the live arm the exact original snapshot? (Alternative: contact authors.)",
+    "Run the full 10-conversation protocol (~$23 per pass, ~$136 for 3 runs x 2 paraphrases) rather than the 3-conversation subset - recommended.",
+    "Should the re-run seed the adversarial option order (deviation from original code) or keep it unseeded and log the draws? Recommend seeding and logging.",
+    "Is the CC BY-NC 4.0 license compatible with archiving full request/response logs in the project's public artifact (they embed the dataset text)?"
+  ],
+  "domain_notes": "The benchmark is fully self-contained (dataset in repo, rule-based F1), so this is one of the cheapest agentic-flagged cards; the 'agentic' part of the paper is the data-generation pipeline, not the evaluated claim. The scored answer is extracted from a batched JSON response, so format-following failures count against the model exactly as in the original. F1 uses stemming and multi-answer max, so verbose successor models are penalized; consider reporting an LLM-judged accuracy only as a supplementary, non-judgment metric."
+}

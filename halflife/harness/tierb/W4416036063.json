@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4416036063",
+ "title": "sudoLLM: On Multi-role Alignment of Language Models",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "OpenAI o1-2024-12-17",
+  "resolved": "o1-2024-12-17",
+  "role": "S",
+  "evidence": "App. B: \"the OpenAI o1 model (o1-2024-12-17)\"; Table 1 caption: \"response accuracy of OpenAI o1-2024-12-17 for OQ, RQ and BQ\"; \"OQ MMLU accuracy: 89.2 ± 0.9 %\"."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix D (full system prompts for Inst./VFT and an example MMLU evaluation prompt, with {{user}} slot)",
+  "note": "Few-shot examples are user-query-specific and only the structure is given for those; the fixed instruction/system portion is quoted in full."
+ },
+ "claim": {
+  "metric": "response accuracy on original (unmodified) MMLU queries (OQ)",
+  "value": 89.2,
+  "n_items": 500,
+  "location": "Table 1 (OQ MMLU accuracy row); Appendix A.1 (500-sample MMLU draws, Sec. 4.1)",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "MMLU (public); code, prompts, data and raw model outputs released per the paper's reproducibility statement"
+ },
+ "cost": {
+  "est_calls": 1500,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "o1-2024-12-17 plays the fixed 'answering LLM' role while smaller LLMs (LLaMA/Qwen variants) are the models actually being studied for biased rephrasing; the OQ accuracy row is the cleanest number attributable to o1 itself. Temperature left at default (1) per Appendix B."
+}

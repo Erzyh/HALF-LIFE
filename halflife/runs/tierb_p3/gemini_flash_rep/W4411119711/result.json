@@ -1,0 +1,66 @@
+{
+  "wid": "W4411119711",
+  "title": "FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 55.96,
+  "original_location": "Table 2, row 'GPT-4-Turbo w/ simple, zero-shot prompt (Luo et al., 2023)', column BA (%) (F1-M 42.16)",
+  "reexecution": {
+    "mean_over_seeds": 0.6057201811199633,
+    "per_seed": {
+      "0": {
+        "value": 0.6041849192247541,
+        "n": 750,
+        "ci95": [
+          0.5725666061498661,
+          0.6338748141271762
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.6072554430151724,
+        "n": 750,
+        "ci95": [
+          0.5746015060414318,
+          0.6353565792623215
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 54
+  },
+  "prepare": {
+    "wid": "W4411119711",
+    "n_items": 750,
+    "n_requests": 1500,
+    "seeds": 2,
+    "est_usd": 3.58,
+    "subset_note": "repeat of the gemini_flash condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 55.96,
+    "cap_usd": 3.46,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gemini_flash\\W4411119711"
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper cites the prompt to Luo et al. (2023) rather than printing it; the exact system/user strings are taken from the authors' own judge notebook, which also fixes temperature 0 and the answer parser. The alias 'GPT-4-Turbo' of Table 2 is read as the tracked snapshot gpt-4-turbo-2024-04-09.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash_rep\\W4411119711"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 60.57201811199633,
+    "delta": 4.612018111996328,
+    "original_inside_ci95": false
+  }
+}

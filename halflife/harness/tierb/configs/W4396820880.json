@@ -1,0 +1,69 @@
+{
+ "wid": "W4396820880",
+ "title": "ECC Analyzer: Extract Trading Signal from Earnings Conference Calls using Large Language Model for Stock Performance Prediction",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 64,
+   "top_p": 1.0
+  },
+  "params_source": "paper Sec. 5.3 ('all interactions with LLMs were conducted using \"GPT-4 Turbo-2024-04-09\". We set the temperature parameter to 0'); max_tokens assumed (the baseline returns a single volatility number)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "extraction",
+  "n_items": 115,
+  "subset_rule": "paper-defined split: the temporal 20% test fold of the 572 aligned S&P 500 earnings calls of Qin & Yang (2019), i.e. about 115 calls - the paper states the 8:2 temporal ratio but never lists the test instances",
+  "approximation": "n_items is derived (572 x 0.2); the triage row's 500 is the number of companies in the source corpus, not the number of scored instances"
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/GeminiLn/EarningsCall_Dataset - the public S&P 500 earnings-conference-call dataset of Qin & Yang (2019) ('What you say and how you say it matters', ref. 28), 2017 calls of 500 companies with aligned text transcripts and audio; repository reachable 2026-09-19 (HTTP 200)",
+  "config_or_split": "temporally last 20% of the 572 aligned instances",
+  "filter": null,
+  "fields": {
+   "input": "earnings-call transcript",
+   "label": "log realised volatility v[d-tau,d] computed from adjusted close prices (Eq. 1)"
+  },
+  "license": "unknown (not read; the repository was only checked for existence)",
+  "access_checked": true,
+  "size_mb": null,
+  "file_url": null
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": {},
+  "few_shot": "none",
+  "source_location": "Sec. 5.2, bullet 'GPT-4-turbo-2024-04-09' ('We assessed the capability of LLMs in directly predicting volatility performance from ECCs. The model was set to generate a response with a zero temperature setting'); Appendix A.1.1-A.1.3 print prompts for the ECC Analyzer's own summarisation / sentence-extraction stages, not for this baseline",
+  "verbatim": "none (the direct-volatility-prediction prompt for the GPT-4-Turbo row of Table 1 is not printed anywhere in the paper)"
+ },
+ "output": {
+  "parse": "number",
+  "postprocess": "take the last number in the reply as the predicted volatility",
+  "parse_paper": "unstated"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "mean squared error between the predicted and the labelled log volatility, MSE = sum_i (y_i - yhat_i)^2 / n (Eq. 2). The runner implements mean_error / mean_abs_error but not MSE, so a hook would be needed.",
+  "judge": "none",
+  "original_value": 2.198,
+  "original_location": "Table 1, row GPT-4-Turbo, first column (the overall average MSE). The tau-specific columns of the same row are MSE_3 = 3.187, MSE_7 = 5.059, MSE_15 = 7.959, MSE_30 = 11.824.",
+  "bootstrap_unit": "item",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 345,
+  "est_usd": 25.0,
+  "tier": "mid"
+ },
+ "open_points": [
+  "prompt not printed: the paper never gives the wording used to ask GPT-4 Turbo for a volatility number, and the appendix prompts belong to the framework's feature-extraction stages. Any reproduction would have to invent the prompt, which makes the comparison design-level only.",
+  "split not enumerated: the 8:2 temporal split of the 572 aligned calls is described but the test instances are not listed, and neither the volatility labels nor the split are in the paper.",
+  "metric: MSE is not one of the runner's metrics; a hook would have to implement it (and the labels have to be recomputed from price data with Eq. 1, since the release only contains transcripts and audio).",
+  "claim-cell wording: the triage row calls 2.198 a '1-day horizon' MSE; in Table 1 the first column is the overall average MSE and the horizon-specific values start at MSE_3 = 3.187. The config records the Table 1 first column."
+ ],
+ "notes": "The GPT-4-Turbo row is a deliberately weak baseline in the paper ('directly applying LLMs to volatility prediction proves largely ineffective, akin to random guessing') that motivates the authors' own pipeline, so the cell is attributable and interesting, but it is the least specified experiment in the paper."
+}

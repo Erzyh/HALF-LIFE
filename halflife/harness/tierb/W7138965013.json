@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7138965013",
+ "title": "From Prompt to Practice: Evaluating Unedited AI-Generated Psychometric Scales",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"GPT-4 Turbo was prompted to create a self-esteem scale ('create a scale...')\"; reference list: \"OpenAI. 2024. 'Gpt-4-Turbo-2024-04-09.' OpenAI API Model Documentation.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Main text: \"GPT-4 Turbo was prompted to create a self-esteem scale ('create a scale ...')\"",
+  "note": "Prompt is paraphrased with a short embedded quote fragment, not given in full."
+ },
+ "claim": {
+  "metric": "none automated (headline results are factor-structure/reliability/agreement statistics from a 140-respondent human survey)",
+  "value": null,
+  "n_items": 140,
+  "location": "Abstract: \"A sample of 140 respondents completed both established measures...and unaltered AI-derived counterparts.\"",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "140-respondent survey data; AI-generated scale items shown in the paper but respondent data not confirmed released"
+ },
+ "cost": {
+  "est_calls": 1,
+  "tier": "low"
+ },
+ "blockers": [
+  "human_outcome"
+ ],
+ "notes": "The item-generation call to GPT-4 Turbo is itself a single cheap, clean prompt, but every reported result (factor loadings, reliability, Bland-Altman agreement) depends on re-running a 140-person human survey with the generated scale, not on anything the model itself outputs as a score."
+}

@@ -1,0 +1,67 @@
+{
+  "wid": "W4403882351",
+  "title": "RLEF: Grounding Code LLMs in Execution Feedback with Reinforcement Learning",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "top_p": 0.95
+    },
+    "params_source": "paper Sec. 3.2 and Table 2 caption (temperature 0.2 for 1@3, nucleus sampling top-p 0.95, 20 rollouts per problem); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 165,
+    "subset_rule": "paper-defined split: CodeContests test (165 problems)",
+    "approximation": "Sandbox time/memory limits and the set of executed tests may differ from the authors' setup; 20 samples per problem as in the paper."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "deepmind/code_contests (mirror of github.com/google-deepmind/code_contests)",
+    "config_or_split": "test",
+    "filter": "none",
+    "fields": {
+      "input": "description",
+      "label": "public_tests, private_tests, generated_tests (input/output lists)",
+      "id": "name"
+    },
+    "license": "CC-BY-4.0 (Hugging Face tag)",
+    "access_checked": true,
+    "size_mb": 100
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Provide a Python solution for the following competitive programming question: {problem}.\nYour code should be enclosed in triple backticks like so: ```python YOUR CODE HERE ```. Use the backticks for your code only.",
+    "placeholders": {
+      "problem": "items.description inserted as-is (Appendix C.1: '${problem}' is replaced by the original problem description)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix C.1 'Initial Prompt' (Code Contests)",
+    "verbatim": "full (the extraction rendered the triple backticks as curly quotes; restored)"
+  },
+  "output": {
+    "parse": "regex ```python\\n(.*?)``` (first fenced block) -> program; executed as Python 3 against the tests",
+    "postprocess": "no fenced block counted as a failed sample"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "1@3 solve rate: with 20 samples per problem, the unbiased estimator of Li et al. (2022) for the probability that a submission chosen from 3 random samples solves the problem (a sample solves it if it passes all private and generated tests; public tests are used only to select the submission), averaged over the 165 problems (x100).",
+    "judge": "none",
+    "original_value": 25.3,
+    "original_location": "Table 2, row gpt-4o-2024-05-13, column CC. Test ST (single-turn)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 3300,
+    "est_usd": 50.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Scoring needs an execution sandbox (per-test timeout, memory limit) to run 3,300 generated programs against the private and generated tests; no code execution in the runner or hooks.",
+    "1@3 needs 20 samples per problem (seeds = 20 in the runner's terms, ~$50) and the Li et al. (2022) estimator; confirm the interpretation for the single-turn baseline (filter by public tests then one submission, as configured, versus pass@3)."
+  ],
+  "notes": "Problem statements average ~1k tokens; only the test parquet (one file) is needed. || [hook pass 2026-09-07] no hook: execution sandbox."
+}

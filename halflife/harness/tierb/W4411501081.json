@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411501081",
+  "title": "Ethical requirements for generative AI in brand content creation: a qualitative comparative analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Content creation Chat GPT3, Chat GPT4, GPT-4 Turbo, ... (table of GenAI tools used in the surveyed cases, Section 2)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Qualitative comparative analysis of documents; no model runs."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Qualitative study; GPT-4 Turbo is only listed as a tool."
+}

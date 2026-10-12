@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404990976",
+  "title": "Thai Financial Domain Adaptation of THaLLE -- Technical Report",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 3: 'gpt-4-turbo-2024-04-09 72% 68% 84%' (Public IC Practice Exams P1, P2, P3); Sec. 4: commercial APIs benchmarked against the public IC practice exams"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B, Table 4 (CoT and Zero-Shot system prompts); Appendix C output example with gpt-4-turbo-2024-04-09 under the CoT prompt",
+    "note": "Three system prompts are printed; which one produced Table 3 is not stated explicitly (CoT example given)."
+  },
+  "claim": {
+    "metric": "accuracy, IC practice exam P1",
+    "value": 72,
+    "n_items": 50,
+    "location": "Table 3, row gpt-4-turbo-2024-04-09, column P1",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SET public Investment Consultant practice exams P1 (50), P2 (25), P3 (25), refs 24-26"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Thai-language multiple choice; answer extraction rule not stated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Which system prompt produced Table 3 is resolved by Appendix C, which shows gpt-4-turbo-2024-04-09 output under the 'CoT' system prompt on a practice-exam question; the two zero-shot prompts in Table 4 are labelled for training-data generation. Use the CoT system prompt, a user prompt of question plus four numbered options as in Appendix C, extract the choice digit after the prompt's own marker ('Therefore the correct answer is:' in Thai), and score the 50 P1 questions from the SET practice PDF (ref. 24).",
+    "approximation": "Thai exam PDF must be converted to text; extraction rule inferred from the answer marker; temperature unstated.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

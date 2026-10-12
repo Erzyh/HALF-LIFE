@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411119985",
+ "title": "How Inclusively do LMs Perceive Social and Moral Norms?",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec. \"Models\": \"...gpt-3.5-turbo-0613, gpt-4-turbo-2024-04-09, gpt-4o-2024-08-06...\"; Table 1 row \"GPT-4 Turbo 0.92 0.79 0.79 1.02...\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix C (three prompt variants: zero-shot, zero-shot with option descriptions, zero-shot with a markdown table)",
+  "note": "Task: given a Rule-of-Thumb (RoT) from Social Chemistry 101, predict the ordinal social-agreement level (<1%, 5-25%, 50%, 75-90%, >90%)."
+ },
+ "claim": {
+  "metric": "ADA-Met (Absolute-Distance Alignment, lower=better), zero-shot, r/confessions (CONF) subset",
+  "value": 0.92,
+  "n_items": 100,
+  "location": "Table 1, row \"GPT-4 Turbo\", Zero-Shot/CONF column (AITA 0.79, ROC 0.79, DEAR 1.02 also given; 100 RoTs per data source, 400 total across CONF/AITA/ROC/DEAR)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Social Chemistry 101 dataset (400 RoTs with 50 human annotators each; demographics obtained from the dataset creators, Appendix A.2)"
+ },
+ "cost": {
+  "est_calls": 1200,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4o-2024-08-06 is also tested in this paper but is not on the live list (only gpt-4-turbo-2024-04-09 and gpt-3.5-turbo-0613 among the OpenAI models are dated; gpt-4o-2024-08-06 is off-list). Metric compares the LM's ordinal answer to the mode of pre-existing published human annotations (not new human outcomes), computed via ADA-Met (Eq. 1-2). est_calls assumes the headline zero-shot condition only (400 items) at 3 seeds; all three prompt variants together would be ~3x that."
+}

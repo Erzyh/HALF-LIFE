@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403344681",
+  "title": "EgoSocialArena: Benchmarking the Social Intelligence of Large Language Models from a First-person Perspective",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 2: 'GPT-4-Turbo 55.4 69.7 +14.3 10.0 20.0 10.0 60.0' and 'GPT-4-Turbo 23.3 70.0 75.7 54.7 75.6 52.0 47.4'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 4.2 describes the story + question + options format; Appendix B shows one Limit Texas Hold'em case; no template printed",
+    "note": "Repository https://github.com/gyhou123/EgoSocialArena may contain the prompts."
+  },
+  "claim": {
+    "metric": "first-person static cognition accuracy (%)",
+    "value": 69.7,
+    "n_items": null,
+    "location": "Table 2, row GPT-4-Turbo, column Static Cognition First-person",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/gyhou123/EgoSocialArena"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Behavioral scenarios (RPS, Texas Hold'em, social-goal dialogue) are interactive; snapshot not stated."
+}

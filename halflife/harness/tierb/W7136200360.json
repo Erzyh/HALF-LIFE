@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7136200360",
+  "title": "BondBERT: What We Learn when Assigning Sentiment in the Bond Market",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14 (alias; snapshot not stated)",
+    "role": "A",
+    "evidence": "Sec. 3: 'Sentiment labels were generated using GPT-4.1-nano via the OpenAI API'; footnote 7: 'We evaluated different GPT models, such as GPT-4.1 and GPT-4.1-mini ... opted for GPT-4.1-nano'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Labelling prompt described in Sec. 3 (bond-price impact framing); twelve sanity-check snippets",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none: GPT-4.1-nano only supplies training labels for BondBERT; results are BondBERT event-study metrics",
+    "value": null,
+    "n_items": null,
+    "location": "Section 5 (BondBERT results)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "proprietary financial news article corpus (not released); 12 hand-written snippets"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "data_closed"
+  ],
+  "notes": "Live model is the annotator for a fine-tuned BERT; no metric of the annotator itself against human labels is reported."
+}

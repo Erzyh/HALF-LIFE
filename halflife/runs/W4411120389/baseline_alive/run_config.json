@@ -1,0 +1,19 @@
+{
+  "card_id": "W4411120389",
+  "model": "gpt-4-turbo-2024-04-09",
+  "n_greedy_repeats": 3,
+  "n_sample_runs": 32,
+  "n_max_affordable": 43,
+  "temperature_greedy": 0.0,
+  "temperature_sample": 1.0,
+  "top_p": 1.0,
+  "n_per_call": 1,
+  "max_tokens": null,
+  "stop": null,
+  "cap_usd": 50.0,
+  "calls": 5740,
+  "calibrated_cost_usd": 30.237840000000006,
+  "prompt_source": "allenai/open-instruct@167a2b4b eval/codex_humaneval/run_eval.py:140",
+  "instruction": "Complete the following python function. Please only output the code for the completed function.\n\n\n",
+  "built_utc": "2026-09-18T09:35:11.991833+00:00"
+}

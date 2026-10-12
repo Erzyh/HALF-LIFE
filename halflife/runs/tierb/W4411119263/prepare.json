@@ -1,0 +1,13 @@
+{
+  "wid": "W4411119263",
+  "n_items": 2060,
+  "n_requests": 6180,
+  "seeds": 3,
+  "est_usd": 40.57,
+  "subset_note": null,
+  "dropped_unrenderable": 0,
+  "model": "gpt-4o-2024-05-13",
+  "metric": "custom",
+  "original_value": 84.0,
+  "cap_usd": 200.0
+}

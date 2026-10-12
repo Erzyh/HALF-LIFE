@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412888445",
+  "title": "Reasoning Does Not Necessarily Improve Role-Playing Ability",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 3.2: 'state-of-the-art models such as GPT-4-Turbo and DeepSeek-R1'; Figure 1 and Appendix C tables carry 'OpenAI GPT-4 Turbo' columns"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not printed; code at xcfcode/rolecompass",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on Cross-MR (zero-shot role-playing)",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 1 bars and Appendix C tables (values not in the extracted text)",
+    "task_type": "generation",
+    "judge": "llm:unspecified (prompting) / reward model"
+  },
+  "data": {
+    "public": "yes",
+    "source": "RoleBench, CharacterEval, HPD, SocialBench, InCharacter, Cross-MR (public)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Snapshot not stated."
+}

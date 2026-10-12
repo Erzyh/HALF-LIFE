@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166885188",
+ "title": "Evaluating LLM-Generated Formative Feedback for Undergraduate Mathematics Through the Lens of Feedback Theory",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-5 (medium reasoning)",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "Table 1: \"Feedback generation GPT-4.1; GPT-5 with medium reasoning\"; Table 3 row \"GPT-4.1 MS-w-example\" / \"GPT-5 MS-w-example\" Kendall tau values, n=65 each."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 2 (Baseline-concise / MS-w-example workflow descriptions); code+prompts released on GitHub",
+  "note": "Workflow structure is named and described but the exact system-prompt text is not quoted verbatim in the visible text."
+ },
+ "claim": {
+  "metric": "Kendall tau (grade regraded by GPT-4.1-nano from feedback alone, vs. reconciled human grade), GPT-5 MS-w-example workflow",
+  "value": 0.296,
+  "n_items": 65,
+  "location": "Table 3",
+  "task_type": "generation",
+  "judge": "llm:gpt-4.1-nano"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Synthetic controlled proof-feedback dataset; code/prompts/data at https://github.com/agohr/llm_proof_feedback"
+ },
+ "cost": {
+  "est_calls": 260,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "A companion Table 4 HT-rubric quality score also compares GPT-5 vs. GPT-4.1, but that judge panel includes 'GPT-5.4', a snapshot outside the tracked live-model list, so it was not used as the headline claim. Plain 'GPT-4.1' (full-size) is itself not one of the tracked retiring identifiers (only gpt-4.1-nano is)."
+}

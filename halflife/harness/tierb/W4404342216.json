@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4404342216",
+  "title": "AAAR-1.0: Assessing AI's Potential to Assist Research",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Table 1: 'o3-mini (OpenAI, 2025) 47.98 34.34 79.59' (EQINFER F1 / Prec. / Rec.); Table 3: 'o3-mini (OpenAI, 2025) 30.17 28.70 37.67 54.01 20.71 29.14'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E, Figure 11 (EQINFER data-collection and prediction prompts), Figures 12-13 (EXPDESIGN, WEAKNESS)",
+    "note": "Figures are images; the prompt text is not in the extracted txt, verify in the PDF."
+  },
+  "claim": {
+    "metric": "F1 (%) on EQINFER",
+    "value": 47.98,
+    "n_items": 4196,
+    "location": "Table 1, row o3-mini, column F1 (1,049 positive + 3,147 negative equations)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AAAR-1.0 (https://renzelou.github.io/AAAR-1.0/)"
+  },
+  "cost": {
+    "est_calls": 4196,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Version list in Appendix B.2 predates o3-mini (only gpt-4o-2024-08-06, gpt-4-1106-preview, o1-preview listed); o3-mini has a single snapshot. Closed models were run thrice with the median reported. EXPDESIGN/WEAKNESS use GPT-4o-based similarity scoring."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4389714070",
+  "title": "Alignment for Honesty",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "A",
+    "evidence": "Appendix D.8: 'employ GPT-4o (gpt-4o-2024-05-13; OpenAI (2024)) to assess whether the model responses are safe, unsafe, or controversial'; Table 23 (BeaverTails-Evaluation counts)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "ShieldLM prompt (Zhang et al., 2024) referenced, not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none: Table 23 counts (safe / unsafe / controversial) describe honesty-tuned Llama models as judged by GPT-4o",
+    "value": null,
+    "n_items": 700,
+    "location": "Table 23 (BeaverTails-Evaluation, 700 prompts)",
+    "task_type": "classification",
+    "judge": "llm:gpt-4o-2024-05-13"
+  },
+  "data": {
+    "public": "yes",
+    "source": "BeaverTails-Evaluation (700 prompts) on HuggingFace; TriviaQA / NQ honesty evaluation sets"
+  },
+  "cost": {
+    "est_calls": 2100,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model acts only as a safety judge in an appendix experiment added in a later revision; the paper's subject is honesty fine-tuning of Llama-2 models."
+}

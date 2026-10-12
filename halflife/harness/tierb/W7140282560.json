@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7140282560",
+  "title": "Comparative Analysis of Large Language Models (LLMs) in Generating Medical Board-Style Assessment Items",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 turbo",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "Five biochemistry assessment items were also produced by each of seven other LLMs (GPT-3.5, GPT-4, GPT-4 turbo, Claude-v2, ...) (Section 3.1); models accessed through paid ChatGPT/Claude memberships"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (block between 'System list start' and 'System list end')",
+    "note": "Generation prompt for board-style items is printed in full; Appendix B gives the topic-tracking table."
+  },
+  "claim": {
+    "metric": "overall item quality score (0-100, mean of three medical educators)",
+    "value": null,
+    "n_items": 5,
+    "location": "Figure 3 (bar chart; text in Section 4.1 gives 74-82% for the four high-performing LLMs incl. GPT-4 turbo)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "No dataset; items are generated from the printed prompt"
+  },
+  "cost": {
+    "est_calls": 3,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "human_outcome"
+  ],
+  "notes": "Models were used through the ChatGPT web product (paid membership), snapshot unknown; the GPT-4 turbo round was run about four months after the first round (likely early 2024). Outcome is a human rubric score of 5 generated items; no per-model number is printed in text."
+}

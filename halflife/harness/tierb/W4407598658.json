@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4407598658",
+ "title": "ChatGPT and DeepSeek Evaluate One Another for Science Education",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-4 Turbo)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"ChatGPT (GPT-4 Turbo) handles symbolic math, calculus, and step-by-step science... better at explaining code\" - qualitative comparison, no quantitative benchmark."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt or task instances quoted; purely qualitative/opinion comparison."
+ },
+ "claim": {
+  "metric": "none (no quantitative benchmark reported for GPT-4 Turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Qualitative opinion comparison of ChatGPT and DeepSeek for science teaching; no numeric evaluation, dataset, or prompt is given anywhere in the paper."
+}

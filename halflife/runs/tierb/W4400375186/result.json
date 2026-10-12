@@ -1,0 +1,65 @@
+{
+  "wid": "W4400375186",
+  "title": "CEB: Compositional Evaluation Benchmark for Fairness in Large Language Models",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "micro_f1",
+  "original_value": 69.5,
+  "original_location": "Table 6, row GPT-4, block CEB-Recognition-S, column Gen.",
+  "reexecution": {
+    "mean_over_seeds": 0.68,
+    "per_seed": {
+      "0": {
+        "value": 0.68,
+        "n": 200,
+        "ci95": [
+          0.61,
+          0.745
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.685,
+        "n": 200,
+        "ci95": [
+          0.62,
+          0.75
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.675,
+        "n": 200,
+        "ci95": [
+          0.61,
+          0.74
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4400375186",
+    "n_items": 200,
+    "n_requests": 600,
+    "seeds": 3,
+    "est_usd": 9.91,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "micro_f1",
+    "original_value": 69.5
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "none",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 68.0,
+    "delta": -1.5,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "card_id": "W4411119263",
+  "model": "gpt-4o-2024-05-13",
+  "seeds": 1,
+  "calls": 2060,
+  "cap_usd": 20.0,
+  "repo_commit": "cfcb8fc2cd078b91e1fe26d81ddbd03672b60175",
+  "eval_kwargs": {
+    "max_tokens": 64,
+    "n": 1,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "logprobs": 5
+  },
+  "prompt_methods": {
+    "normal": "pairwise_vanilla",
+    "swap": "pairwise_vanilla_swap"
+  },
+  "estimate": {
+    "tokenizer": "tiktoken/o200k_base +4/msg +3",
+    "seeds": 1,
+    "calls": 2060,
+    "tokens_in": 2188602,
+    "tokens_out_expected": 8240,
+    "usd_expected": 11.07,
+    "usd_if_every_reply_hit_max_tokens": 12.92,
+    "pricing_usd_per_1m": {
+      "input": 5.0,
+      "output": 15.0
+    },
+    "per_dataset": {
+      "llmbar_natural": {
+        "calls_per_seed": 200,
+        "tokens_in_per_seed": 93448,
+        "mean_tokens_in": 467.2,
+        "usd_per_seed": 0.4792
+      },
+      "llmbar_adversarial": {
+        "calls_per_seed": 638,
+        "tokens_in_per_seed": 354066,
+        "mean_tokens_in": 555.0,
+        "usd_per_seed": 1.8086
+      },
+      "mtbench": {
+        "calls_per_seed": 400,
+        "tokens_in_per_seed": 307084,
+        "mean_tokens_in": 767.7,
+        "usd_per_seed": 1.5594
+      },
+      "instrusum": {
+        "calls_per_seed": 822,
+        "tokens_in_per_seed": 1434004,
+        "mean_tokens_in": 1744.5,
+        "usd_per_seed": 7.2193
+      }
+    }
+  },
+  "built_utc": "2026-09-19T13:13:24.653504+00:00"
+}

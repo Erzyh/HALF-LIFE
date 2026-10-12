@@ -1,0 +1,92 @@
+{
+  "card_id": "W4411119520",
+  "openalex_id": "https://openalex.org/W4411119520",
+  "title": "How Can We Diagnose and Treat Bias in Large Language Models for Clinical Decision-Making?",
+  "doi": "10.18653/v1/2025.naacl-long.114",
+  "paper": {
+    "authors": "Benkirane, Kay, Perez-Ortiz (UCL / Google DeepMind)",
+    "year": 2025,
+    "repo": "https://github.com/kenza-ily/diagnose_treat_bias_llm",
+    "repo_note": "Scaffold's second candidate '...diagnose_treat_bias_llmFigure' is a PDF-extraction artefact of the same URL",
+    "repo_commit": "a7d92ffc27041fda9a76049db9a93d19bc8cc35e",
+    "repo_license": "none (no LICENSE file; pyproject 'cpv-bias' 1.0.0)"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "Bias is measured as differences in the LLMs' own MCQ accuracy and explanation embeddings across counterfactual demographic variants; every number is a property of model outputs."
+  },
+  "claim": {
+    "statement": "Exploratory CPVs (Table 3): with temperature 0 and a CoT + demographic-relevance prompt, GPT-4 Turbo (gpt-4-turbo-2024-04-09) shows near-zero gender accuracy deltas on the gender-only CPV set (delta(Female,Neutral)=0.00%, delta(Male,Neutral)=-0.50%; Chen2024_G, 600 items) but consistent under-performance on ethnicity-varied cases in the gender x ethnicity set (delta(Female,Neutral)=-1.59%, delta(Male,Neutral)=-1.19%, delta(Asian,NoEth)=-0.46%, delta(Black,NoEth)=-1.85%, delta(White,NoEth)=-0.93%; Chen2024_GxE, 720 items), with 'black' the most negatively influential SHAP token (-0.60).",
+    "claim_type": "bias_or_behavior",
+    "metric": "accuracy delta(i,j) = A_i - A_j (percentage points) between demographic variants of otherwise identical JAMA Clinical Challenge MCQs; SHAP importance of prompt tokens for correctness",
+    "original_values": {
+      "gpt4turbo_gender_cpv": { "d_female_neutral_pct": 0.00, "d_male_neutral_pct": -0.50 },
+      "gpt4turbo_gxe_cpv": { "d_female_neutral_pct": -1.59, "d_male_neutral_pct": -1.19, "d_asian_noeth_pct": -0.46, "d_black_noeth_pct": -1.85, "d_white_noeth_pct": -0.93 },
+      "gpt4o_gender_cpv": { "d_female_neutral_pct": -0.50, "d_male_neutral_pct": -2.00 },
+      "gpt4o_gxe_cpv": { "d_female_neutral_pct": -1.26, "d_male_neutral_pct": -1.26, "d_asian_noeth_pct": -0.93, "d_black_noeth_pct": -2.31, "d_white_noeth_pct": 1.85 },
+      "gpt35_gender_cpv": { "d_female_neutral_pct": 1.00, "d_male_neutral_pct": 0.00 },
+      "shap_black_gpt4turbo": -0.60,
+      "shap_white_gpt4o": 0.74,
+      "dataset_sizes": { "Chen2024_G": "200 original -> 600 with variations", "Chen2024_GxE": "72 original -> 720 with variations", "CPV_GxE (prompt-engineering exp.)": "140 -> 2200" },
+      "table5_gpt4turbo_prompt_engineering": { "d_QIF_Q_male_pct": -3.83, "d_QIF_Q_female_pct": -3.90, "d_QIFCoT_Q_male_pct": 1.74, "d_QIFCoT_Q_female_pct": -0.53, "ethnicity_skewsize_Q_to_QIF": "-0.68 -> 0.06" }
+    },
+    "original_source": "Table 3 (Exploratory CPVs); Results 'Intersectionality and prioritisation'; Figure 2 / Table 22 (SHAP); Tables 14-16 (dataset sizes and subsets); Table 5 (prompt engineering)"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "model_note": "Explicit snapshot in Methodology 'Model selection'; gpt-4o-2024-05-13 is the second live arm; gpt-3.5-turbo-0301 (dead), Claude 3 Haiku / 3.5 Sonnet (dead), 'Gemini 3.5 Flash' (sic), Llama 3 70B, Llama 3.1 405B also used; fine-tuning on gpt-4o-mini-2024-07-18",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (both gpt-4-turbo-2024-04-09 and gpt-4o-2024-05-13)",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (system + user messages)",
+    "prompt_source": "prompts/ directory in repo (prompt0 baseline MCQ; prompt1 structured reasoning + exp1_specific_question.txt = gender/ethnicity relevance rating; prompt2 CoT baseline 'Q'; prompt3 'Q+IF'; prompt4 'Q+IF+CoT'-style debiasing; prompt5_mcq/xpl fine-tuning formats; prompt6 open-ended ablation) and paper Appendix G. The mapping of directories to the 'Exploratory CPV' prompt (CoT + follow-up relevance questions) is not documented in the repo.",
+    "params": {
+      "temperature": 0,
+      "max_tokens": "not reported",
+      "seed": "not reported",
+      "other": "predict-then-explain: each call returns an MCQ letter plus explanation; follow-up questions on gender/ethnicity relevance; SBERT all-distilroberta-v1 embeddings for explanation bias"
+    },
+    "n_items": 1320,
+    "n_items_note": "600 (Chen2024_G) + 720 (Chen2024_GxE) MCQ prompts, plus relevance follow-ups",
+    "samples_per_item": 1,
+    "evaluation": "MCQ letter accuracy vs. JAMA answer (automatic; cpv/metrics/accuracy.py), deltas between variants, Equality of Odds / SkewSize (cpv/metrics/skewsize.py), SHAP over prompt tokens, GenderBias/BiasScore of explanations (cpv/metrics/gender_direction/) - all automatic once outputs exist"
+  },
+  "artifacts": {
+    "prompts_path": "prompts/prompt0 ... prompts/prompt6 (system/user .txt templates)",
+    "data_path": "data/ - raw JAMA Clinical Challenge cases NOT included (data/README.md: licensing); data/scraper.ipynb + data/fetch.ipynb rebuild them; HuggingFace 'kenza-ily/medqa-cpv', 'medmcqa-cpv', 'pubmedqa-cpv' are public re-implementations on other sources, not the paper's JAMA CPV",
+    "eval_path": "cpv/evaluate.py, cpv/metrics/*, cpv/report.py, explore/compare_before_after.py",
+    "data_public": false,
+    "data_license": "JAMA Network (proprietary; requires licence/institutional access)",
+    "redistributable": false,
+    "notes": "No inference/API-calling script in the repo (only a snippet in docs/running_cpv.md); fine-tuned model IDs in README (ft:gpt-4o-mini-2024-07-18:personal:v5-mcq:AADZTOHe, ...:v3-xpl-nounicode:A9wJDZfF)."
+  },
+  "blockers": [
+    "source cases (JAMA Clinical Challenge; 'Chen2024' 1,522 cases and CPV 1,734 cases) are licensed content absent from the repo - must be scraped under a JAMA licence (ToS/licensing risk)",
+    "exact Chen2024_G (200 cases) / Chen2024_GxE (72 cases) subsets depend on the authors' filtration rules (Tables 9-13) and rule-based variation system; identical item lists are not guaranteed",
+    "no inference script; prompt-directory-to-experiment mapping undocumented",
+    "reported effect sizes are <= 2.3 percentage points on 600-720 items with no confidence intervals - near the noise floor"
+  ],
+  "arms": {
+    "baseline_alive": { "model": "gpt-4-turbo-2024-04-09", "second_live_arm": "gpt-4o-2024-05-13" },
+    "successors": ["gpt-5-2025-08-07", "gpt-5-mini-2025-08-07", "claude (current dated snapshot)", "gemini (current dated snapshot)", "llama-3.x (open weights, hash-pinned)", "qwen3 (open weights, hash-pinned)"]
+  },
+  "budget": {
+    "est_calls": 3960,
+    "est_tokens_in": 2772000,
+    "est_tokens_out": 1386000,
+    "est_cost_usd": 69,
+    "pricing_usd_per_1m": { "gpt-4-turbo": { "input": 10.0, "output": 30.0 }, "gpt-4o": { "input": 5.0, "output": 15.0 } },
+    "assumptions": "1,320 items x 3 seeds for gpt-4-turbo-2024-04-09; ~700 input tokens (case + MCQ + system prompt) and ~350 output tokens (letter + explanation + relevance answers). Adding gpt-4o-2024-05-13 costs ~USD 35 more (total ~USD 104). Temperature 0 makes seeds near-redundant but keeps the 3-seed protocol."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1: survival if, for GPT-4 Turbo on the GxE set, delta(Black,NoEth) and delta(Female/Male,Neutral) keep their negative sign and stay within +/- 2 percentage points of the originals, and the ethnicity ranking (Asian least penalised) is preserved; because the originals have no CIs, compute paired bootstrap CIs over cases - if the re-executed delta's CI includes 0 while the original point lies outside it, classify 'partial'.",
+    "notes": "A 1-2 pp delta on 600-720 items is 6-14 items; expect run-to-run drift of that order even at temperature 0."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Hard gate: does the team have JAMA Network access, and is scraping JAMA Clinical Challenge cases acceptable under our ToS policy?",
+    "Core claim: Table 3 exploratory deltas (as drafted) or Table 5 prompt-engineering deltas (GPT-4 Turbo delta(Q+IF,Q) = -3.83%/-3.90%, 2,200-item CPV_GxE x 3 prompts, ~3x the cost)?",
+    "Ask the authors (contact@kenza-ily.com) which prompts/ directory is the 'Exploratory CPV' prompt and for the Chen2024_G / GxE case-ID lists.",
+    "Include gpt-4o-2024-05-13 as a second live arm?"
+  ],
+  "domain_notes": "Cases are JAMA Clinical Challenge diagnostic vignettes with expert explanations, filtered to exclude pregnancy/women's-health and explicitly ethnic cases; demographic injection is rule-based (age/gender descriptor, pronouns, ethnicity adjective), so 'bias' means sensitivity of the answer/explanation to that edit alone. The paper's 'Gemini 3.5 Flash' is an anachronistic label (likely Gemini 1.5 Flash). Reported deltas are single-run point estimates; reviewers should not over-interpret sub-2-pp differences."
+}

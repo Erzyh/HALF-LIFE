@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7162893299",
+  "title": "SciIntBench: Measuring LLM Compliance with Research Integrity Norms Under Adversarial Framing",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "openai/gpt-4o (release date 2024-05-13)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"OpenAI GPT-4o openai/gpt-4o 2024-05-13\" (Table 3, model identifier and release date); GPT-4o results appear only in Figures 2-4"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 2 (sample prompt triples), Appendix A (categories); judge prompts in Appendix",
+    "note": "810 prompts across 10 RCR categories; not all printed."
+  },
+  "claim": {
+    "metric": "refusal rate on covert adversarial prompts",
+    "value": null,
+    "n_items": 810,
+    "location": "Figure 2 (panel A; no per-model number in text)",
+    "task_type": "classification",
+    "judge": "llm:gpt-5.5 (undated) and claude-opus-4.7"
+  },
+  "data": {
+    "public": "partial",
+    "source": "SciIntBench (810 prompts); release not stated in the extracted text"
+  },
+  "cost": {
+    "est_calls": 810,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "tos"
+  ],
+  "notes": "The model id is an OpenRouter-style alias 'openai/gpt-4o' whose snapshot is ambiguous; the 2024-05-13 date is only used for temporal analysis. Prompts are adversarial requests for research-misconduct assistance designed to bypass guardrails. Temperature 0, max 400 tokens."
+}

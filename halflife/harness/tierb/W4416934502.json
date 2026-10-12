@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416934502",
+  "title": "From Red AI to Green AI: A Unified Survey of Lifecycle Costs, Efficiency Techniques, and a Comprehensive Reporting Framework",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1 nano (energy-per-query figure)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Table: 'GPT-4.1 nano Inference (Long) N/A 0.454 Wh / query <0.3 g CO2e / query'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Survey; no experiments"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey/position paper reporting third-party energy estimates."
+}

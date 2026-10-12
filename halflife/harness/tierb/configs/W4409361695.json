@@ -1,0 +1,72 @@
+{
+  "wid": "W4409361695",
+  "title": "Multi-Agent Security Tax: Trading Off Security and Collaboration Capabilities in Multi-Agent Systems",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding parameters); max_tokens 1024 because the agent replies in the persona of a scientist agent continuing a 7-message exchange",
+    "seeds": 3
+  },
+  "task": {
+    "type": "agentic",
+    "n_items": 180,
+    "subset_rule": "the no-defense cell of Experiment 2: 30 agents (each carrying a 7-message interaction history) x 6 harmless-but-unusual instructions = 180 trials per model",
+    "approximation": "Blocked before an approximation can be chosen - see open_points."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Appendix of the paper: the list of 6 harmless-but-unusual instructions, plus the 30 sampled agent message histories produced by the authors' own multi-agent simulation (Sec. 3.2, 'Generation of Realistic Histories')",
+    "config_or_split": "no-defense (control) condition",
+    "filter": null,
+    "fields": {
+      "input": null,
+      "options": null,
+      "label": null,
+      "id": null
+    },
+    "license": "unknown",
+    "access_checked": false,
+    "size_mb": null,
+    "inline": null,
+    "label_map": null
+  },
+  "prompt": {
+    "system": null,
+    "user_template": null,
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Appendix (agent system prompts, the 6 harmless-but-unusual instructions, the vaccine and instruction defenses, and the GPT-4 Omni evaluation prompt) - repeatedly referenced as 'see the Appendix for details'",
+    "verbatim": "unavailable - the extracted text of external/papers_tierb/W4409361695.txt is the AAAI camera-ready and stops at the references (pages 27577-27581); no appendix is present, so not one word of the agent prompt, the 6 instructions or the judge prompt can be copied. The arXiv preprint arXiv:2502.19145 (abs page reachable 2026-09-19) is the version that carries the appendix."
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "none - the agent's free-form reply is passed to the judge"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "Agent acceptance rate: the number of times the agent followed the unusual but harmless instruction divided by the total number of instructions (Sec. 4.2), over the 180 no-defense trials.",
+    "judge": "llm:gpt-4o-2024-05-13 - Sec. 3.2: 'The agent's response to the harmless but weird instruction was assessed with GPT-4 Omni which was asked to return 1 if the agent followed the instruction and 0 if it did not.' The undated 'GPT-4 Omni' resolves to gpt-4o-2024-05-13 under the pre-2024-10-02 rule, and that snapshot is still callable - but the judge PROMPT is in the missing appendix, so the ANALYSIS_PLAN's condition (judge callable AND its prompt printed) is only half met.",
+    "original_value": 64.4,
+    "original_location": "Table 2 ('Agent's acceptance rate to unusual but harmless instruction depending on the defense strategy implemented'), row gpt-4-turbo-2024-04-09, column 'No defense': 64.4% +- 7pp; discussed in Sec. 4.2 as the one exception among the models",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 540,
+    "est_usd": 12.0,
+    "tier": "low",
+    "est_usd_prepare": null,
+    "prepare_note": "not prepared - items and prompts unavailable; 540 = 180 trials x 3 seeds, plus an equal number of judge calls"
+  },
+  "open_points": [
+    "Prompts unavailable in the paper text: the agent system prompt, the 6 harmless-but-unusual instructions and the GPT-4 Omni judge prompt are all in an appendix that the extracted camera-ready does not contain. Nothing can be copied verbatim. The arXiv preprint arXiv:2502.19145 carries the appendix and would have to be consulted first.",
+    "The items are not a dataset. Sec. 3.2 builds them by first running the authors' own multi-agent research simulation without intervention and then sampling 30 agents with exactly 7 messages of interaction history each. Those histories are simulation output, not a public release, and reproducing them means re-running the whole multi-agent framework - a different and much larger experiment than the single-call cell this study re-executes.",
+    "n_items = 180 is derived (5,400 trials / 30 combinations of 6 models x 5 defense conditions), not printed. It is consistent with the reported +-7pp interval under a binomial approximation, but a human should confirm it against the appendix before any comparison."
+  ],
+  "notes": "The claim cell is well identified and the judge model is still callable, so this paper is only blocked on material that exists but is not in the file we have. If the appendix is obtained, the remaining work is ordinary: 180 single-shot agent calls plus 180 judge calls per seed, at roughly $12 for three seeds. The distinct Experiment 1 result (infection spread / system robustness, Table 1) is a different measurement on the same framework and is not in scope here."
+}

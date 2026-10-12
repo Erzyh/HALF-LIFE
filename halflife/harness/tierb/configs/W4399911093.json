@@ -1,0 +1,90 @@
+{
+ "wid": "W4399911093",
+ "title": "Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 1.0,
+   "top_p": 1.0,
+   "max_tokens": 512
+  },
+  "params_source": "assumed = API defaults: the authors' released validation notebook calls chat.completions with only model and messages, so temperature 1.0 / top_p 1.0 were in force; the paper's F-score 90.24% +/- 0.55% over five runs confirms that sampling was on. max_tokens assumed (the answer is a short word list).",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 100,
+  "subset_rule": "all 100 manually annotated Spanish Europarl sentences of the validation set (Appendix C)",
+  "approximation": "3 harness seeds instead of the paper's 5 runs. The released notebook is parameterised for gpt-4o-2024-11-20; the model id is set to the snapshot Table 4 names as the selected model (gpt-4-turbo = gpt-4-turbo-2024-04-09 per Sec. 4.2). Everything else - prompt pattern, five priming examples, skip list, answer parser, count definitions and the pooled F-score - is the authors' own released code."
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/ellisalicante/grb-corpora, file data/validation/gt-es.txt (100 sentences with word-level ground truth), with data/dataset-analysis/skiplist-es.txt for the ignored pronouns",
+  "config_or_split": "the Spanish validation set (gt-es.txt); gt-va.txt is the Valencian counterpart (F-score 84.43%)",
+  "filter": null,
+  "fields": {
+   "input": "sentence",
+   "label": "gold",
+   "id": "id"
+  },
+  "license": "see LICENSE.txt in the repository; the source sentences are Europarl (public)",
+  "access_checked": true,
+  "size_mb": 0.03,
+  "file_url": "https://raw.githubusercontent.com/ellisalicante/grb-corpora/main/data/validation/gt-es.txt",
+  "fields_source": {
+   "input": "the quoted sentence of each block",
+   "label": "the quoted annotation block, upper-cased, split into [WORD, P/N, M/F] triples and filtered through the skip list",
+   "id": "block index (1-100)"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W4399911093/",
+   "files": [
+    "gt-es.txt (28,862 bytes, 100 sentences, 686 annotated words after the skip list)",
+    "prompt-es.txt",
+    "examples-es.txt",
+    "skiplist-es.txt"
+   ]
+  },
+  "download": {
+   "date": "2026-09-19",
+   "note": "100 blocks parsed, 686 gold word triples after skip-list filtering"
+  }
+ },
+ "prompt": {
+  "system": "You are a helpful assistant.",
+  "user_template": "Ejemplo 1: \"El señor Presidente viajó a Tokio para reunirse con el secretario de estado y a la mañana siguiente tuvo que volar a Madrid por temas personales.\"\nseñor - P, M\nPresidente - P, M\nTokio - N, M\nsecretario - P, M\nestado - N, M\nmañana - N, F\nMadrid - N, M\ntemas - N, M\n\nEjemplo 2: \"Mi colega Sr. Allan Hofmann se dirigió a los ciudadanos de Madrid, recordándoles que son personas con derechos y responsabilidades.\"\ncolega - P, M\nSr. - P, M\nAllan - P, M\nciudadanos - P, M\nMadrid - N, M\npersonas - P, F\nderechos - N, M\nresponsabilidades - N, F\n\nEjemplo 3: \"El señor Presidente de la comisión de educación se reunió con los estudiantes en Tokio, donde el distinguido Sir Ben Smith compartió su visión sobre el futuro de la enseñanza.\"\nseñor - P, M\nPresidente - P, M\ncomisión - N, F\neducación - N, F\nestudiantes - P, M\nTokio - N, M\nSir - P, M\nBen - P, M\nvisión - N, F\nfuturo - N, M\nenseñanza - N, F\n\nEjemplo 4: \"El Sr. Johnson, un respetado colega de la ciudadanía británica, ha vivido en Londres durante más de dos décadas, donde trabaja incansablemente para mejorar la comunidad local.\"\nSr. - P, M\ncolega - P, M\nciudadanía - N, F\nLondres - N, M\ndécadas - N, F\ncomunidad - N, F\n\nEjemplo 5: \"Encontré en Europa no solo destinos turísticos, sino un hogar temporal donde me sentí ciudadana del mundo, abrazando la diversidad y la riqueza cultural que esta tierra ofrece.\"\nEuropa - N, F\ndestinos - N, M\nhogar - N, M\nciudadana - P, F\nmundo - N, M\ndiversidad - N, F\nriqueza - N, F\ntierra - N, F\n\nFrase: \"{sentence}\"\n\nInstrucciones: Identifica todos los sustantivos y pronombres en la frase proporcionada. Para cada uno, determina si se refiere a una persona (P) o no (N), y especifica su género gramatical: masculino (M), femenino (F). Excluye los apellidos. Sigue el formato de los ejemplos proporcionados sin añadir texto adicional.",
+  "placeholders": {
+   "sentence": "items.sentence"
+  },
+  "few_shot": "k=5 fixed examples, printed in Table 3 of the paper and released as data/dataset-analysis/examples-es.txt; they are substituted into the <EXAMPLES> slot exactly as the released notebook does",
+  "source_location": "Appendix A (prompt formulation) and Appendix B / Table 3 (the five priming examples); the byte-exact strings are the repository files data/dataset-analysis/prompt-es.txt and examples-es.txt",
+  "verbatim": "full. Two harmless differences between Appendix A's typeset version and the released prompt file are resolved in favour of the file that the code actually loads: the file writes the sentence in quotes (Frase: \"<SENTENCE>\") and lists the genders as 'masculino (M), femenino (F)' where the appendix prints 'masculino (M) o femenino (F)'. The system message 'You are a helpful assistant.' comes from the notebook."
+ },
+ "output": {
+  "parse": "regex per line '^(\\S+) - (P|N), (M|F)$'",
+  "postprocess": "hook parse() = parse_response() of the released notebook: strip, upper-case, collapse ' \n', split on ' - ', ', ' and newlines, regroup in threes, drop groups whose word is in the skip list",
+  "parse_paper": "parse_response() of code/validation/validation-gt-openai.ipynb"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "F-score = 2PR/(P+R) with P = nc/(nc+ni+ne) and R = nc/(nc+nm), where nc = words correctly identified and correctly classified on both attributes, ni = identified but at least one attribute wrong, nm = missed, ne = extra; counts pooled over the 100 sentences (Appendix C)",
+  "judge": "rule",
+  "original_value": 90.24,
+  "original_location": "Table 4, row gpt-4-turbo, column F-score (%) = 90.24 +/- 0.55 (accuracy 89.40, precision 89.53, recall 90.96); also quoted in Sec. 4.2",
+  "bootstrap_unit": "sentence (set-level resample: pooled F-score recomputed on resampled sentences)",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 300,
+  "est_usd": 6.0,
+  "tier": "low",
+  "est_usd_prepare": 5.16,
+  "est_usd_dryrun_max": 6.17,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 100 items x 3 seeds = 300 calls, ~156k input tokens (the five priming examples ride along in every call)."
+ },
+ "open_points": [
+  "The paper averages five runs at the API default temperature; the harness runs three seeds, so seed-to-seed spread is expected to be of the order of the paper's +/- 0.55 pp."
+ ],
+ "notes": "The claim cell is a validation-set capability number for the annotator model, not a downstream corpus statistic. The Valencian counterpart (gt-va.txt, F 84.43%) uses the same pipeline with the translated prompt and examples. gpt-4o-2024-05-13 (84.65) and gpt-4-0125-preview (87.04) appear in the same table; the latter is a dead snapshot."
+}

@@ -1,0 +1,56 @@
+{
+  "wid": "W4403556032",
+  "title": "Enhancing Healthcare LLM Trust with Atypical Presentations Recalibration",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.751,
+  "original_location": "Table 2, block gpt-4-turbo, row 'Atypical presentations', MedQA Acc",
+  "reexecution": {
+    "mean_over_seeds": 0.4229559748427673,
+    "per_seed": {
+      "0": {
+        "value": 0.4229559748427673,
+        "n": 1272,
+        "ci95": [
+          0.39463443396226416,
+          0.4497051886792452
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 704
+  },
+  "prepare": {
+    "wid": "W4403556032",
+    "n_items": 1272,
+    "n_requests": 1272,
+    "seeds": 1,
+    "est_usd": 0.92,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.751,
+    "cap_usd": 1.61
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Options rendered as 'A. ...' lines inside {question} (format not printed); the printed prompt keeps the optional Difficulty line (Appendix B says it is optional and was used for analysis only).",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4403556032"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.4229559748427673,
+    "delta": -0.3280440251572327,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7125599892",
+  "title": "Deep Reinforcement Learning for Surgical Robotics with State and Image Information: A Survey",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 6.4 (VLA policies): \"SUFIA ... its dependence on GPT-4 Turbo prevents real-time operation, its safety and reliability remain unassessed\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This is a survey; GPT-4 Turbo is discussed only as a component of SUFIA, a system from a separate cited paper (Moghani et al. 2024), not run by these survey authors."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4 Turbo is mentioned only in a critique of a third-party system, SUFIA)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a - survey paper; no primary dataset or experiments conducted by these authors"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey of DRL for surgical robotics; the single GPT-4 Turbo mention (Sec. 6.4) critiques SUFIA (Moghani et al. 2024) for real-time-latency and safety limitations. No live model is run by this paper's own authors."
+}

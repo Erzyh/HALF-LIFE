@@ -1,0 +1,133 @@
+{
+ "wid": "W7160514285",
+ "title": "Large Language Models Show Metacognitive Sensitivity in Medical Reasoning",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4.1-nano",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 300,
+   "top_p": 1.0,
+   "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+     "name": "medical_llm_confidence_response",
+     "strict": true,
+     "schema": {
+      "type": "object",
+      "properties": {
+       "diagnosis": {
+        "type": "string",
+        "enum": [
+         "A",
+         "B"
+        ],
+        "description": "The selected option: A or B."
+       },
+       "confidence": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100,
+        "description": "Estimated probability that the selected option is correct, from 0 to 100."
+       },
+       "more_information_needed": {
+        "type": "boolean",
+        "description": "Whether the vignette is underdetermined enough that further clinical information is needed."
+       }
+      },
+      "required": [
+       "diagnosis",
+       "confidence",
+       "more_information_needed"
+      ],
+      "additionalProperties": false
+     }
+    }
+   }
+  },
+  "params_source": "paper Sec. 2.7 (Structured Outputs with a strict JSON schema, stateless calls) plus the released runner and the archived run records: temperature 0, max_output_tokens 300 (the script's default constant is 200; every row of the released parsed_results for gpt-4.1-nano records 300, which is what the reported pilot used)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 108,
+  "subset_rule": "paper-defined split: the 108 forced-choice trials of the frozen 135-trial manifest (the 27 equivocal trials carry no forced-choice gold, Sec. 2.11 / 3.1)",
+  "approximation": "The paper calls the Responses API; the harness calls Chat Completions with the same strict json_schema response format, the same system instruction and the same prompt text. The paper's model id is the undated alias gpt-4.1-nano, so the snapshot served may differ from the pilot's."
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/anazz-dev/medical-llm-metacognition-benchmark, file medical_llm_colab_run_package_v0_1/medical_llm_trial_manifest_seed1to3_v0_1.jsonl (frozen 135-trial manifest with the rendered prompt of every trial)",
+  "config_or_split": "the 108 rows with forced_choice_accuracy_applicable = true",
+  "filter": null,
+  "fields": {
+   "input": "prompt_text",
+   "label": "gold_letter",
+   "id": "id"
+  },
+  "license": "unknown (repository has no LICENSE file); all vignettes are synthetic, no patient data",
+  "access_checked": true,
+  "size_mb": 3.8,
+  "file_url": "https://codeload.github.com/anazz-dev/medical-llm-metacognition-benchmark/tar.gz/refs/heads/main",
+  "fields_source": {
+   "input": "prompt_text",
+   "label": "derived from ground_truth_label vs option_A/option_B",
+   "id": "trial_id"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W7160514285/",
+   "files": [
+    "repo.tar.gz (3.8 MB)",
+    "medical_llm_trial_manifest_seed1to3_v0_1.jsonl (135 trials)"
+   ]
+  },
+  "download": {
+   "date": "2026-09-19",
+   "bytes": 3818732,
+   "sha256_prefix": "8684a8123a44c82e",
+   "note": "135 trials = 45 vignettes x 3 prompt variants; 108 forced-choice, 27 equivocal, matching Table 1 and Sec. 3.1"
+  }
+ },
+ "prompt": {
+  "system": "You are participating in a synthetic medical-reasoning research benchmark. Return exactly one JSON object matching the requested schema. Do not provide medical advice. Do not explain your reasoning.",
+  "user_template": "{prompt_text}",
+  "placeholders": {
+   "prompt_text": "items.prompt_text"
+  },
+  "few_shot": "none",
+  "source_location": "Sec. 2.6 describes the three variants; the verbatim templates are the released docs/prompt_templates.md and the prompt_template fields of medical_llm_experiment_config_v0_1.json, and the manifest carries the rendered prompt_text of each trial",
+  "verbatim": "full - the prompt text is taken from the released trial manifest, one already-rendered prompt per trial, so nothing is reconstructed. Variant P01 reads: 'You are given a synthetic clinical vignette for a research study.\n\nChoose the more likely clinical interpretation from the two options provided, based only on the information in the vignette.\n\nOptions:\nA. Probable Alzheimer-type neurocognitive disorder\nB. Depression-related cognitive impairment\n\nVignette:\n{vignette_text}\n\nReturn JSON only:\n{...}\n\nConfidence means your estimated probability that your chosen interpretation is correct based only on the information provided.\nDo not provide medical advice.\nDo not explain your reasoning.' P02 swaps the two options, P03 lists them as bullets and asks for the full label in the diagnosis field.",
+  "variants": [
+   "P01_AB_letters_ATNCD_first (36 forced-choice trials)",
+   "P02_BA_letters_DRCI_first (36)",
+   "P03_named_options_ATNCD_first (36)"
+  ]
+ },
+ "output": {
+  "parse": "json field diagnosis",
+  "postprocess": "the strict schema constrains the field to 'A' or 'B'; compared case-insensitively with the gold letter, an unparseable reply counts as incorrect",
+  "parse_paper": "json.loads of output_text; diagnosis must be in [A, B]; the letter is mapped through option_A/option_B to AT_NCD/DRCI and compared with ground_truth_label"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "forced-choice diagnostic accuracy = share of the 108 forced-choice trials whose chosen option names the ground-truth condition",
+  "judge": "none",
+  "original_value": 0.935,
+  "original_location": "Table 2 ('Overall performance for gpt-4.1-nano'), row 'Forced-choice accuracy'",
+  "bootstrap_unit": "item",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 324,
+  "est_usd": 0.05,
+  "tier": "low",
+  "est_usd_prepare": 0.03,
+  "est_usd_dryrun_max": 0.05,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 108 items x 3 seeds = 324 calls, ~102k input tokens."
+ },
+ "open_points": [
+  "The paper reports 0.935 in Table 2 but 0.944 in the cross-model comparison (Sec. 3.7) and the released parsed_results for gpt-4.1-nano score 102/108 = 0.9444; 0.935 equals 101/108. The Table 2 cell is used as the original value, but the artefact that ships with the paper is one item better, so a one-item difference is already present in the paper's own record.",
+  "gpt-4.1-nano is an undated alias: the snapshot answering today need not be the one the May 2026 pilot called.",
+  "If the Chat Completions endpoint rejects the strict json_schema response format for this alias, fall back to response_format {'type': 'json_object'}; the prompt itself already demands the three-field object."
+ ],
+ "notes": "Single-author pilot; benchmark artefacts (feature bank, vignettes, manifest, prompts, raw and parsed outputs, notebooks) are all frozen in the repository, which makes the prompt and the gold mapping exact. Equivocal trials are excluded from this metric by the paper's own design."
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7125521524",
+  "title": "O Serviço Social e a tomada de decisão algorítmica: A utilização da inteligência artificial nos processos judiciais de promoção e proteção",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT 4 Turbo",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"...análise da performance do ChatGPT 4 Turbo na redação de relatórios sociais...\"; ref: \"ChatGPT (versão GPT-4 Turbo). https://chat.openai.com\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Metodologia (single simulated case description)",
+    "note": "A single simulated case is described and given to ChatGPT to draft a social report; the exact chat prompt text is not printed."
+  },
+  "claim": {
+    "metric": "none (qualitative exploratory case study, no numeric score)",
+    "value": null,
+    "n_items": 1,
+    "location": "Resultados (qualitative discussion of one simulated case)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "single simulated case authored by the researchers, not released"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "Accessed via the ChatGPT web interface (chat.openai.com), not the API; a single-case qualitative exploratory study with no quantitative metric, so it fails both the API and the numeric-claim requirements."
+}

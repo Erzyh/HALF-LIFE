@@ -1,0 +1,65 @@
+{
+  "wid": "W4402345509",
+  "title": "LAB-Bench: Measuring Capabilities of Language Models for Biology Research",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 0.12,
+  "original_location": "Supplementary Table 1, row LitQA2, column gpt-4-turbo (mean of three runs over public and private splits)",
+  "reexecution": {
+    "mean_over_seeds": 0.1306532663316583,
+    "per_seed": {
+      "0": {
+        "value": 0.135678391959799,
+        "n": 199,
+        "ci95": [
+          0.09045226130653267,
+          0.18592964824120603
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.1306532663316583,
+        "n": 199,
+        "ci95": [
+          0.08542713567839195,
+          0.18090452261306533
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.12562814070351758,
+        "n": 199,
+        "ci95": [
+          0.08040201005025126,
+          0.17587939698492464
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4402345509",
+    "n_items": 199,
+    "n_requests": 597,
+    "seeds": 3,
+    "est_usd": 8.33,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 0.12
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "20% private items unavailable (Appendix B.1: public/private accuracies differ by under 5 points); Claude 2 fallback parser replaced by regex-only parsing; option order permuted with a fixed seed per item",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.1306532663316583,
+    "delta": 0.010653266331658306,
+    "original_inside_ci95": true
+  }
+}

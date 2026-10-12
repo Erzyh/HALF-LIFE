@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4406121825",
+  "title": "Towards Multimodal Metaphor Understanding: A Chinese Dataset and Model for Metaphor Mapping Identification",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (documentation URL)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Footnote 3: 'https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo'; Sec. 5: 'GPT-4-Vision-preview (GPT-4) ... we utilize it through API calls'."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": "No prompt text for the GPT-4V or GPT-3.5 baselines is printed."
+  },
+  "claim": {
+    "metric": "accuracy (%), target-domain identification, CM3D",
+    "value": 38.36,
+    "n_items": null,
+    "location": "Table 3, row GPT-4 (BertScore 69.82, accuracy 38.36)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "CM3D Chinese multimodal metaphor dataset (6,108 text-image pairs); release not confirmed in the text"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "no_number"
+  ],
+  "notes": "The only GPT-4 model run is gpt-4-vision-preview (retired); the callable gpt-4-turbo id appears only inside a documentation URL."
+}

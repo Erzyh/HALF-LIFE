@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7202230881",
+  "title": "MIRA: Evidence-Verified Repair Memory for Text-to-SQL Correction",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "\"All stages that use a general-purpose correction LLM employ gpt-5-2025-08-07\" (Sec 4.1); Table 1 overall EX: MIRA=76.92% vs Current SQL=63.31% (n=1,785)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Sec 2/4 describe corrector inputs (question, schema, current SQL, historical memory items) narratively; no prompt text is quoted and the paper has no appendix."
+  },
+  "claim": {
+    "metric": "execution accuracy (EX%), MIRA overall",
+    "value": 76.92,
+    "n_items": 1785,
+    "location": "Table 1, Overall EX column, row MIRA; n = 1,785 test cases across 6 benchmark/upstream-system combinations",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "BIRD Mini-Dev (corrected, Jin et al.) and ScienceBenchmark (public Text-to-SQL benchmarks)"
+  },
+  "cost": {
+    "est_calls": 4779,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Paper reports exact call/token counts for gpt-5-2025-08-07 (4,779 calls, 13.71M in / 6.12M out tokens over all 1,785 inputs) but never quotes the corrector prompt. All five comparator methods (MAGIC, TK-Boost, SQLFixAgent, SHARE, Current SQL) use the same gpt-5-2025-08-07 correction LLM and share this gap."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4402427685",
+ "title": "Exploring Large-Scale Language Models to Evaluate EEG-Based Multimodal Data for Mental Health",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"we used 'GPT-4o-2024-05-13' as the targeted model through OpenAI Azure's API\"; Table 2, zero-shot EEG+Audio row: MODMA 73.54+/-2.03%."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 1 (\"Role-play prompt: Imagine you are a mental health expert...\" + task specification + rules template with <MOD1>/<MOD2>/<SYM> placeholders)",
+  "note": "Repeated 5x per condition, mean +/- SD reported."
+ },
+ "claim": {
+  "metric": "prediction accuracy, zero-shot EEG+Audio, MODMA depression classification",
+  "value": 73.54,
+  "n_items": null,
+  "location": "Table 2, Zero-shot row (EEG+Audio), MODMA column (73.54 +/- 2.03%)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "MODMA, PME4, LUMED-2 (academically released multimodal EEG datasets, typically require request/registration)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Exact snapshot pinned via Azure API. Soft gaps: exact MODMA test-set n is not stated in the extracted text (only 5-repeat mean+-SD), and the three EEG datasets (MODMA/PME4/LUMED-2) are academic releases that typically require a data request rather than open download."
+}

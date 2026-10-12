@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7129180728",
+  "title": "Asynchronous Verified Semantic Caching for Tiered LLM Architectures",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "C",
+    "evidence": "\"SemCacheSearchQueries equivalence classes are constructed via a union-find pass guided by an LLM judge (GPT-4.1-nano)\" -- attributed to the cited vCache benchmark, not run by these authors"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "The paper explicitly states it does not run an LLM judge in its own simulation loop; GPT-4.1-nano's role is inherited from a cited benchmark's construction."
+  },
+  "claim": {
+    "metric": "none (GPT-4.1-nano is cited as the judge used to build a benchmark, not run by this paper)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SemCacheLMArena and SemCacheSearchQueries benchmarks (Schroeder et al. 2025, vCache)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "This paper's own headline policy results are explicitly judge-agnostic (oracle from labeled equivalence classes); the only other LLM judge they run themselves is Claude Opus 4.5 on a 100-pair audit sample, which is out of scope."
+}

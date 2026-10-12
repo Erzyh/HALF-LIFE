@@ -1,0 +1,12 @@
+{
+  "label": "W7144391134 zero-shot",
+  "calls": 3193,
+  "errors": 0,
+  "cost_usd": 10.408331200000017,
+  "tokens_in": 17495426,
+  "tokens_out": 5757705,
+  "cap_usd": 12.0,
+  "stopped_at_cap": false,
+  "started": "2026-10-01T14:12:10.515599+00:00",
+  "updated": "2026-10-01T19:16:03.802714+00:00"
+}

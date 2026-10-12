@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4401202726",
+  "title": "Physics of Language Models: Part 2.1, Grade-School Math and the Hidden Reasoning Process",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "\"we conduct few-shot experiments using the latest versions of GPT-4 turbo (2024-04-09) and GPT-4o (2024-05-13) ... For each op we tested 30 problems\" (Appendix G / Figure 2)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix G: 5-shot problem/solution examples shown in figures",
+    "note": ""
+  },
+  "claim": {
+    "metric": "5-shot accuracy on iGSM-med_pq per op",
+    "value": null,
+    "n_items": 30,
+    "location": "Figure 2 (bar chart only)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "iGSM synthetic generator (release status not stated in the text)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Numbers exist only as a bar chart; GPT-4 turbo is near random for op >= 9."
+}

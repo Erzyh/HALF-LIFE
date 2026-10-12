@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4409362915",
+ "title": "Security Attacks on LLM-based Code Completion Tools",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 (GPT-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Experimental Setup: \"...GPT-3.5 (GPT-3.5-turbo-0125), GPT-4o (GPT-4o-2024-05-13), and GPT-4 (GPT-4-turbo-2024-04-09).\"; Table 2 reports jailbreaking Attack Success Rate per model."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Technical appendix (arXiv:2408.xxxxx), Table 2/3/4/5/6",
+  "note": "Prompts are adversarial jailbreak and training-data/privacy-extraction attacks against commercial code-completion tools."
+ },
+ "claim": {
+  "metric": "Jailbreaking Attack Success Rate (ASR)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 2",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Custom attack prompt sets described in the paper; targets GitHub Copilot, Amazon Q, and API-based models"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "tos"
+ ],
+ "notes": "The paper's core contribution is jailbreaking commercial code-completion tools and extracting memorized training data/PII; despite clean, dated model pins (gpt-4-turbo-2024-04-09, gpt-4o-2024-05-13) and full methodology, we do not re-run jailbreak/privacy-extraction prompts against commercial APIs."
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4411080278",
+  "title": "Temperature-Driven Variability in Emergency Diagnostic Accuracy by a Leading Language Model",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Methods: 'GPT-4o (model version `gpt-4o-2024-05-13` via the OpenAI Application Programming Interface [API])'; 'submitted to GPT-4o 250 times at five distinct temperature settings'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Supplement 1 (prompt header with case-specific fields); Table 1 (curated case details for the four FoEM cases)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "leading-diagnosis accuracy (%) at temperature 0.0 with physical exam",
+    "value": 100,
+    "n_items": 1000,
+    "location": "Results 'Diagnostic Accuracy' / Figure 2 (4 cases x 250 iterations)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Case details printed in Table 1 (adapted from the login-protected FoEM curriculum)"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Scoring by keyword search against the gold diagnosis. Overall accuracy at temperature 1.0 = 89.4% (95% CI 87.3-91.2) is the more informative secondary claim. Same experiment as W4415128218 (Cureus version); run once."
+}

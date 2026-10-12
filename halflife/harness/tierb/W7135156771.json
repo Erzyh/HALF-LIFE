@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7135156771",
+ "title": "Empathy Is Not What Changed: Clinical Assessment of Psychological Safety Across GPT Model Generations",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o4-mini-2025-04-16 / gpt-5-mini-2025-08-07",
+  "resolved": "o4-mini-2025-04-16",
+  "role": "S",
+  "evidence": "Author's Note: \"o4-mini-2025-04-16 (OpenAI API)-the accidentally included previous-generation reasoning model\"; Table 5: \"Crisis Detection...o4-mini 8.93+-1.64...H=13.88 p=0.001\" (N=70/model)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "\"Scenario scripts, system prompts, and experiment configuration are available at https://github.com/drKeeman/ai-psy-benchmark\"",
+  "note": "14 pre-scripted conversational scenarios x 5 runs/model = 70 conversations/model."
+ },
+ "claim": {
+  "metric": "Crisis Detection score (0-10 clinical rubric)",
+  "value": 8.93,
+  "n_items": 70,
+  "location": "Table 5 (all domains pooled, N=70 conversations/model); Kruskal-Wallis H=13.88, p=0.001",
+  "task_type": "other",
+  "judge": "llm:unspecified"
+ },
+ "data": {
+  "public": "yes",
+  "source": "authors' own scenario/prompt release, github.com/drKeeman/ai-psy-benchmark"
+ },
+ "cost": {
+  "est_calls": 70,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "A tiny independent lab's pilot study (N=70/model); gpt-4o-2024-08-06 is the third arm but is outside the tracked live list. Scoring is \"LLM-as-a-judge\" with clinically-informed rubrics (no human baseline yet collected, per Limitations), but the exact judge model isn't named in the reviewed text -- the soft gap behind maybe, alongside the small sample size."
+}

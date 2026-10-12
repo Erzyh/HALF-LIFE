@@ -1,0 +1,14 @@
+{
+  "wid": "W4403885225",
+  "n_items": 871,
+  "n_requests": 1742,
+  "seeds": 2,
+  "est_usd": 39.8,
+  "subset_note": "cost cap $19.9: seeded random subset of 871 items (seed 20260907); repeat of the vendor condition: same items and request bodies, 2 fresh calls per item",
+  "dropped_unrenderable": 0,
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 0.915,
+  "cap_usd": 17.74,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\vendor\\W4403885225"
+}

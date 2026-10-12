@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166547843",
+  "title": "Can Large Language Models Facilitate Qualitative Political Narrative Analysis?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT4-turbo / GPT-4-turbo (via University of Edinburgh ELM API); GPT-4o for the main study",
+    "resolved": "gpt-4-turbo-2024-04-09 (alias behind an institutional proxy; unresolved)",
+    "role": "B",
+    "evidence": "Sec. 3: 'API access to ChatGPT-4o was removed during this project ... we instead had to use ChatGPT4-turbo for the 600-word full corpus study'; Sec. 4: 'DeepSeek and GPT-4-turbo performed strongest'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Narrative-analysis instruction described in Section 3; exact wording not printed in full",
+    "note": ""
+  },
+  "claim": {
+    "metric": "validation coding scores (0-5 quality, binary checks) assigned by human coders",
+    "value": null,
+    "n_items": 13,
+    "location": "Tables 5-6 (validation tables; rows labelled GPT-4o, GPT-4-turbo results described in text only)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "13 EU State of the Union speeches 2010-2023 (public); expert narrative analyses used as reference are not released"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Outputs are scored by human coders against expert narrative analyses; the GPT-4-turbo runs went through an institutional proxy with unknown snapshot; no numeric table is attributed to GPT-4-turbo."
+}

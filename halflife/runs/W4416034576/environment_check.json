@@ -1,0 +1,178 @@
+{
+  "card_id": "W4416034576",
+  "checked_utc": "2026-09-19T13:37:11.018314+00:00",
+  "offline": true,
+  "api_calls": 0,
+  "repo": {
+    "path": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\repos\\W4416034576\\Anonymous-2025-Repr__LLM-DS-Reproducibility",
+    "commit": "3b4a5a8f8b2fd9e78e8769036b84bd8d90da8b5e",
+    "license": "MIT"
+  },
+  "environment": {
+    "python": "3.13.7",
+    "langchain": "1.2.15",
+    "langchain_classic": "1.0.3",
+    "langchain_experimental": "0.4.2",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "3.0.1",
+      "scipy": "1.17.1",
+      "statsmodels": "0.14.6",
+      "sklearn": "1.8.0",
+      "pingouin": "0.6.1",
+      "econml": "0.17.0"
+    },
+    "shims": [
+      "sys.modules['langchain.prompts'|'langchain.agents'] -> langchain_classic (langchain 1.x dropped StringPromptTemplate / AgentOutputParser from that namespace)",
+      "utils/load_data.py DiscoveryBench block executed with os.path.join -> posixpath.join: the block derives the metadata id from file_path.split('/')[-1].split('_')[1], which picks the wrong token under Windows separators for the 7 subject directories containing '_'",
+      "the same block executed with open -> utf-8: the repo opens metadata JSON with the locale codec (cp949 here) and dies on the UTF-8 punctuation in the dataset descriptions"
+    ],
+    "code_execution": {
+      "mode": "fresh isolated interpreter per snippet (subprocess.run python -I -X utf8, outbound sockets blocked)",
+      "timeout_s": 180,
+      "repo_tool": "utils.code_execution.CustomPythonAstREPLTool, imported in the child; the repo itself exec()s in-process with os.chdir, no timeout and no isolation"
+    }
+  },
+  "data": {
+    "root": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\data\\W4416034576",
+    "license": "ODC-By (Open Data Commons Attribution), allenai/discoverybench LICENSE: attribution only, so prompt excerpts are archived in full",
+    "files": 166,
+    "bytes": 9961939,
+    "largest_file_mb": 3.02,
+    "answer_key_sha256": "67504136becc97f4b4b3c698489bf2222d2a55f75aaa5cf033d6dd62ef5537e0",
+    "not_fetched": "QRData (CC BY-NC 4.0) and StatQA (GPL-3.0) - out of scope by decision"
+  },
+  "tasks": {
+    "n": 239,
+    "expected": 239,
+    "by_subject": {
+      "archaeology": 38,
+      "introduction_pathways_non-native_plants": 16,
+      "meta_regression": 50,
+      "meta_regression_raw": 50,
+      "nls_incarceration": 28,
+      "nls_raw": 7,
+      "nls_ses": 23,
+      "requirements_engineering_for_ML_enabled_systems": 15,
+      "worldbank_education_gdp": 6,
+      "worldbank_education_gdp_indicators": 6
+    },
+    "missing_files": []
+  },
+  "prompts": {
+    "template_sha256": "ba330a99d0a6f5c554e70a07dbf90a5314ab3202f6d80c853139d4e0ccb18d19",
+    "tool_name": "python_repl_ast",
+    "tool_description": "A Python shell. Use this to execute python commands. Input should be a valid python command. When using this tool, sometimes output is abbreviated - make sure it does not look abbreviated before using it in your answer.",
+    "agent_instruction": {
+      "COT": "\nLet's think step by step.",
+      "ROT": "\nLet's think step by step. Make sure a person can replicate the action input by only looking at the workflow and the action input reflects every step of the workflow."
+    },
+    "cot_and_rot_differ_only_by_the_instruction": true,
+    "rot_extra_chars": 140,
+    "task0": {
+      "subject": "archaeology",
+      "question": "In which century did the axes become quantitatively most frequent?",
+      "files": [
+        "pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv",
+        "time_series_data.csv",
+        "capital.csv"
+      ]
+    },
+    "rendered": {
+      "COT": {
+        "chars": 8010,
+        "est_tokens": 2002,
+        "sha256": "57cb57964ecf2b1a113c48797994306f36669e7d344f2549ff14a09c2d6cd7fe",
+        "text": "You are a statistician trying to answer a question based on one or more datasets.\n\nYou have access to the following tools: \npython_repl_ast: A Python shell. Use this to execute python commands. Input should be a valid python command. When using this tool, sometimes output is abbreviated - make sure it does not look abbreviated before using it in your answer.\n\nIn your output, please strictly follow the format outlined below, maintaining the specified order and structure.\nQuestion: the input question you must answer\nWorkflow: a plan to tackle the problem\nAction: the action to take, should be one of [python_repl_ast]\nAction Input: the input to the action in the format of (```python\\s.*?```). Use print to show the results.\nObservation: the result of performing the action with the action input (please do not generate)\nFinal Answer: an answer to the original question\n\nNOTE: You will need to generate the complete action input in one code snippet to solve the query in one attempt. \nIf no observation is provided, you need to generate the workflow, action, and action input. You don't need to provide the final answer. \nIf an observation is provided, you should generate the answer starting with \"Final Answer:\"\nLet's think step by step.\n\nBegin!\n\nYou need to load all datasets in python using the specified paths: \n['pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv', 'time_series_data.csv', 'capital.csv']\n\nDataset descriptions: \nBelow are the descriptions of the datasets and dataset columns.\nDataset pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv: Records of pollen data's PCA & interpolations across sites.\nDescriptions for the columns:\nColumn name 'Unnamed': Index or a time marker in years counting backward\nColumn name 'calBP': Calibrated years Before Present (1950 AD)\nColumn name 'CE': Common Era\nColumn name 'Belau_PC1': PC1 of principal components for pollen in Belau\nColumn name 'Woserin_PC1': PC1 of principal components for pollen in Woserin\nColumn name 'Belau_PC1_inter': Interpolated PC1 for the Belau site\nColumn name 'Woserin_PC1_inter': Interpolated PC1 for the Woserin site\nColumn name 'MEAN': The average of the interpolated PC1 for the Belau and Woserin sites\nColumn name 'SMOOTH_MEAN_50y': Smoothed averages of the PC1 over 50 years\nColumn name 'SMOOTH_MEAN_100y': Smoothed averages of the PC1 over 100 years\nColumn name 'SMOOTH_MEAN_150y': Smoothed averages of the PC1 over 150 years\nColumn name 'SMOOTH_MEAN_200y': Smoothed averages of the PC1 over 200 years\nColumn name 'SMOOTH_MEAN_250y': Smoothed averages of the PC1 over 250 years\n\nDataset time_series_data.csv:  This dataset provides a detailed quantification of archaeological findings over various time periods, measured in Z values for different cultural and economic indicators such as tools, house sizes, materials, and monument data. \nDescriptions for the columns:\nColumn name 'CE': Common Era (BCE x (-1))\nColumn name 'calBP': Calibrated years before the present\nColumn name 'kde_all_mean': Mean of kernel density estimation of all data points\nColumn name 'kde_all_std': Standard deviation of kernel density estimation of all data points\nColumn name 'kde_all_detrend': KDE of data points after detrending\nColumn name 'g_all_mean': Mean of KDE growth rates\nColumn name 'g_all_std': Standard deviation of KDE growth rates\nColumn name 'pollen': Pollen data of Belau Lake\nColumn name 'pollen_inter': Interpolated and forward filled missing pollen values\nColumn name 'pollen_detrend': Detrended pollen values from interpolated pollen values\nColumn name 'pollen_inter_100': Rolling mean of the interpolated pollen data with a window size of 100\nColumn name 'pollen_grate_100': Percentage change of interpolated pollen data\nColumn name 'HatchetSword': Z values for Hatchets and Swords\nColumn name 'HatchetSword_inter': Interpolated z values for Hatchets and Swords\nColumn name 'Dagger': Z values for Daggers\nColumn name 'Dagger_inter': Interpolated z value for Daggers\nColumn name 'HouseSize': Z values for House Size in meter squared\nColumn name 'HouseSize_inter': Interpolated z values for House Sizes in meter squared\nColumn name 'CopperGold': Z values for Copper and Gold\nColumn name 'CopperGold_inter': Interpolated z values for Copper and Gold\nColumn name 'Amber': Z values for Amber\nColumn name 'Amber_inter': Interpolated z values for Amber\nColumn name 'MonumentCount': Z values for Monument Count\nColumn name 'MonumentCount_inter': Interpolated z values for Monument Count\nColumn name 'Depot': Z values for Depot\nColumn name 'Depot_inter': Interpolated z values for Depot\nColumn name 'Sickle': Z values for Sickle\nColumn name 'Sickle_inter': Interpolated z values for Sickle\nColumn name 'AxesCelts': Z values for Axes and Celts\nColumn name 'AxesCelts_inter': Interpolated z values for Axes and Celts\nColumn name 'MonumentSize': Z values for Monument Size\nColumn name 'MonumentSize_inter': Interpolated z values for Monument Size\nColumn name 'PotteryForm': Z values for Pottery Form\nColumn name 'PotteryForm_inter': Interpolated z values for Pottery Form\nColumn name 'PotteryDecoration': Z values for Pottery Decoration\nColumn name 'PotteryDecoration_inter': Interpolated z values for Pottery Decoration\n\nDataset capital.csv: This dataset contains archaeological data of various forms of capital across different prehistoric periods.\nDescriptions for the columns:\nColumn name 'BCE': Before Common Era\nColumn name 'group': Dropped after data loading\nColumn name 'color': Dropped after data loading\nColumn name 'ZAxtSchwert': Z values for Hatchets and Swords\nColumn name 'ZDolch': Z values for Daggers\nColumn name 'Zhausgr': Z values for House Size\nColumn name 'ZCU_AU': Z values for Copper and Gold\nColumn name 'Zamber': Z values for Amber\nColumn name 'ZMonument': Z values for Monument Count\nColumn name 'ZHort': Z values for Depot\nColumn name 'ZSichel': Z values for Sickle\nColumn name 'ZBeil': Z values for Axes and Celts\nColumn name 'ZMW': Z values for Monument Size\nColumn name 'ZKeform': Z values for Pottery Form\nColumn name 'Zkeverz': Z values for Pottery Decoration\n\nDomain Knowledge: 1. Symbolic capital consists of Hatchet & Swords, Daggers, House Size. 2. Social Capital consists of Copper and Gold, Amber, Monument Count 3. Cultural Capital consists of Diversity of Pottery form, Diversity of Pottery Decoration. 4. Economic Capital consists of Depot, Sickle, Axes & Celts, Monument Size. 5. Human impact or landscape openness, respectively, as reflected in the pollen data, can be used as a demographic indicator based on the assumption that an increasing population density leads to increasing woodland clearance due to an increasing demand for resources including wood, agricultural land and settlement areas. Each sample from the pollen record used in the principal component analysis is absolutely dated and therefore the openness score (PC 1.) can be plotted as a time series, expressing human induced land clearance. The 'Belau_PC1' of pollen data (pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv) has been assumed to reflect openness. Original openness score through 'Belau_PC1', 100-year smoothed openness score, and linear interpolation of openness score have been used to signify growth. The original openness score (Belau_PC1), the 100-year smoothed openness score (pollen_inter_100), and the linear interpolation of the openness score (pollen_inter) have been used to signify openness. 6. Demographic growth manifests itself in growth set bringing with it a further opening of the landscape. Opening of landscape corresponds to higher growth rates. During the Early Neolithic, we are dealing with a population growth that goes hand in hand with the opening up of vegetation and the cultivation of the landscape. The growth rate is defined as the percentage change of the 100-year smoothed openness score (pollen_grate_100). 7. Time series analysis and PCA are done in 100-year bins.\n\nQuestion: \nIn which century did the axes become quantitatively most frequent?"
+      },
+      "ROT": {
+        "chars": 8150,
+        "est_tokens": 2038,
+        "sha256": "984cb422f24c7528194e3cdf8948a765afdfc67f920b3fcdc4cf84af6a4ad37b",
+        "text": "You are a statistician trying to answer a question based on one or more datasets.\n\nYou have access to the following tools: \npython_repl_ast: A Python shell. Use this to execute python commands. Input should be a valid python command. When using this tool, sometimes output is abbreviated - make sure it does not look abbreviated before using it in your answer.\n\nIn your output, please strictly follow the format outlined below, maintaining the specified order and structure.\nQuestion: the input question you must answer\nWorkflow: a plan to tackle the problem\nAction: the action to take, should be one of [python_repl_ast]\nAction Input: the input to the action in the format of (```python\\s.*?```). Use print to show the results.\nObservation: the result of performing the action with the action input (please do not generate)\nFinal Answer: an answer to the original question\n\nNOTE: You will need to generate the complete action input in one code snippet to solve the query in one attempt. \nIf no observation is provided, you need to generate the workflow, action, and action input. You don't need to provide the final answer. \nIf an observation is provided, you should generate the answer starting with \"Final Answer:\"\nLet's think step by step. Make sure a person can replicate the action input by only looking at the workflow and the action input reflects every step of the workflow.\n\nBegin!\n\nYou need to load all datasets in python using the specified paths: \n['pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv', 'time_series_data.csv', 'capital.csv']\n\nDataset descriptions: \nBelow are the descriptions of the datasets and dataset columns.\nDataset pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv: Records of pollen data's PCA & interpolations across sites.\nDescriptions for the columns:\nColumn name 'Unnamed': Index or a time marker in years counting backward\nColumn name 'calBP': Calibrated years Before Present (1950 AD)\nColumn name 'CE': Common Era\nColumn name 'Belau_PC1': PC1 of principal components for pollen in Belau\nColumn name 'Woserin_PC1': PC1 of principal components for pollen in Woserin\nColumn name 'Belau_PC1_inter': Interpolated PC1 for the Belau site\nColumn name 'Woserin_PC1_inter': Interpolated PC1 for the Woserin site\nColumn name 'MEAN': The average of the interpolated PC1 for the Belau and Woserin sites\nColumn name 'SMOOTH_MEAN_50y': Smoothed averages of the PC1 over 50 years\nColumn name 'SMOOTH_MEAN_100y': Smoothed averages of the PC1 over 100 years\nColumn name 'SMOOTH_MEAN_150y': Smoothed averages of the PC1 over 150 years\nColumn name 'SMOOTH_MEAN_200y': Smoothed averages of the PC1 over 200 years\nColumn name 'SMOOTH_MEAN_250y': Smoothed averages of the PC1 over 250 years\n\nDataset time_series_data.csv:  This dataset provides a detailed quantification of archaeological findings over various time periods, measured in Z values for different cultural and economic indicators such as tools, house sizes, materials, and monument data. \nDescriptions for the columns:\nColumn name 'CE': Common Era (BCE x (-1))\nColumn name 'calBP': Calibrated years before the present\nColumn name 'kde_all_mean': Mean of kernel density estimation of all data points\nColumn name 'kde_all_std': Standard deviation of kernel density estimation of all data points\nColumn name 'kde_all_detrend': KDE of data points after detrending\nColumn name 'g_all_mean': Mean of KDE growth rates\nColumn name 'g_all_std': Standard deviation of KDE growth rates\nColumn name 'pollen': Pollen data of Belau Lake\nColumn name 'pollen_inter': Interpolated and forward filled missing pollen values\nColumn name 'pollen_detrend': Detrended pollen values from interpolated pollen values\nColumn name 'pollen_inter_100': Rolling mean of the interpolated pollen data with a window size of 100\nColumn name 'pollen_grate_100': Percentage change of interpolated pollen data\nColumn name 'HatchetSword': Z values for Hatchets and Swords\nColumn name 'HatchetSword_inter': Interpolated z values for Hatchets and Swords\nColumn name 'Dagger': Z values for Daggers\nColumn name 'Dagger_inter': Interpolated z value for Daggers\nColumn name 'HouseSize': Z values for House Size in meter squared\nColumn name 'HouseSize_inter': Interpolated z values for House Sizes in meter squared\nColumn name 'CopperGold': Z values for Copper and Gold\nColumn name 'CopperGold_inter': Interpolated z values for Copper and Gold\nColumn name 'Amber': Z values for Amber\nColumn name 'Amber_inter': Interpolated z values for Amber\nColumn name 'MonumentCount': Z values for Monument Count\nColumn name 'MonumentCount_inter': Interpolated z values for Monument Count\nColumn name 'Depot': Z values for Depot\nColumn name 'Depot_inter': Interpolated z values for Depot\nColumn name 'Sickle': Z values for Sickle\nColumn name 'Sickle_inter': Interpolated z values for Sickle\nColumn name 'AxesCelts': Z values for Axes and Celts\nColumn name 'AxesCelts_inter': Interpolated z values for Axes and Celts\nColumn name 'MonumentSize': Z values for Monument Size\nColumn name 'MonumentSize_inter': Interpolated z values for Monument Size\nColumn name 'PotteryForm': Z values for Pottery Form\nColumn name 'PotteryForm_inter': Interpolated z values for Pottery Form\nColumn name 'PotteryDecoration': Z values for Pottery Decoration\nColumn name 'PotteryDecoration_inter': Interpolated z values for Pottery Decoration\n\nDataset capital.csv: This dataset contains archaeological data of various forms of capital across different prehistoric periods.\nDescriptions for the columns:\nColumn name 'BCE': Before Common Era\nColumn name 'group': Dropped after data loading\nColumn name 'color': Dropped after data loading\nColumn name 'ZAxtSchwert': Z values for Hatchets and Swords\nColumn name 'ZDolch': Z values for Daggers\nColumn name 'Zhausgr': Z values for House Size\nColumn name 'ZCU_AU': Z values for Copper and Gold\nColumn name 'Zamber': Z values for Amber\nColumn name 'ZMonument': Z values for Monument Count\nColumn name 'ZHort': Z values for Depot\nColumn name 'ZSichel': Z values for Sickle\nColumn name 'ZBeil': Z values for Axes and Celts\nColumn name 'ZMW': Z values for Monument Size\nColumn name 'ZKeform': Z values for Pottery Form\nColumn name 'Zkeverz': Z values for Pottery Decoration\n\nDomain Knowledge: 1. Symbolic capital consists of Hatchet & Swords, Daggers, House Size. 2. Social Capital consists of Copper and Gold, Amber, Monument Count 3. Cultural Capital consists of Diversity of Pottery form, Diversity of Pottery Decoration. 4. Economic Capital consists of Depot, Sickle, Axes & Celts, Monument Size. 5. Human impact or landscape openness, respectively, as reflected in the pollen data, can be used as a demographic indicator based on the assumption that an increasing population density leads to increasing woodland clearance due to an increasing demand for resources including wood, agricultural land and settlement areas. Each sample from the pollen record used in the principal component analysis is absolutely dated and therefore the openness score (PC 1.) can be plotted as a time series, expressing human induced land clearance. The 'Belau_PC1' of pollen data (pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv) has been assumed to reflect openness. Original openness score through 'Belau_PC1', 100-year smoothed openness score, and linear interpolation of openness score have been used to signify growth. The original openness score (Belau_PC1), the 100-year smoothed openness score (pollen_inter_100), and the linear interpolation of the openness score (pollen_inter) have been used to signify openness. 6. Demographic growth manifests itself in growth set bringing with it a further opening of the landscape. Opening of landscape corresponds to higher growth rates. During the Early Neolithic, we are dealing with a population growth that goes hand in hand with the opening up of vegetation and the cultivation of the landscape. The growth rate is defined as the percentage change of the 100-year smoothed openness score (pollen_grate_100). 7. Time series analysis and PCA are done in 100-year bins.\n\nQuestion: \nIn which century did the axes become quantitatively most frequent?"
+      }
+    },
+    "round2_task0_ROT": {
+      "chars": 8569,
+      "sha256": "a49e49150ab9dbb027965c221d128984e3d9d415059f470adc8a0e65feacb86e",
+      "conversation_add_tokens": 105
+    },
+    "est_tokens_over_239_tasks_ROT": {
+      "mean": 2423,
+      "median": 2044,
+      "p90": 4542,
+      "min": 680,
+      "max": 8345
+    },
+    "inspector": {
+      "sim_prompt_sha256": "62918616ba771691f182a9498cba5052becb85ad0c56546e899125be8d36c93b",
+      "sim_prompt_chars": 1220,
+      "sim_prompt_text": "Your task is to determine whether Code 1 and Code 2 arrive at the same conclusion regarding the question: In which century did the axes become quantitatively most frequent?\n\nCode 1:\n```python\nimport pandas as pd\ndf = pd.read_csv('pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv')\nprint('rows', len(df))\nprint('cols', len(df.columns))\n```\n\nCode 1 execution output:\nrows 4084\ncols 13\nYou cannot generate code anymore. Please provide the final answer directly based on the information you have so far.\n\nCode 1 conclusion:\nthe dataset has 1 row per century.\n\nCode 2:\n```python\nimport pandas as pd\ndf = pd.read_csv('pollen_openness_score_Belau_Woserin_Feeser_et_al_2019.csv')\nprint('rows', len(df))\nprint('cols', len(df.columns))\n```\n\nCode 2 execution output:\nrows 4084\ncols 13\nYou cannot generate code anymore. Please provide the final answer directly based on the information you have so far.\n\nCode 2 conclusion:\nsame\n\nIf the output of the two code snippets provide the same values for the same statistics and lead to the same conclusion to the question, please score 1. Otherwise, score 0. Note that if code 2 runs into error, please score 0.\nPlease reply in this format: \n\"Thoughts: \n\nThe similarity score is:\"\n",
+      "template_sha256": {
+        "accuracy": "cb44aa64982993ff43a4bbbd2ff750474d55d29377e277abfd16dd3cca6ef192",
+        "w2c": "2c8135f9b2dd9376363ee38b9fc70d8f683597814cc0b56b822dcb4da8b05cc8",
+        "sim": "8b222195a4bed98b78d5f9ca75ceb909faac5256244f5f01fe9a11a221d9dd3d",
+        "concl": "7da76b05a5c84881e89d14485a1a2c563123e3291478f6873929ad70f93dbb84"
+      },
+      "dataset_specific_rider": "\nFor numerical questions, any predicted answer within 1% of the ground truth answer is considered correct. Please compare abs(predicted-ground_truth)/abs(ground_truth) with 1% to make your decision.\n",
+      "system_messages": {
+        "acc": "You are a data scientist grading the accuracy of a predicted answer to a question.",
+        "w2c": "You are a data scientist translating a workflow into code.",
+        "concl": "You are a data scientist answering a question based on the code and code output.",
+        "sim": null
+      },
+      "system_role_sent": "developer"
+    }
+  },
+  "scorer": {
+    "parsed_action": "python_repl_ast",
+    "parsed_workflow": "1. Load the dataset with pandas. 2. Report its shape.",
+    "parsed_final_answer": "the dataset has 1 row per century.",
+    "execution_ok": {
+      "output": "rows 4084\ncols 13\nYou cannot generate code anymore. Please provide the final answer directly based on the information you have so far.",
+      "elapsed_ms": 7643,
+      "has_error": false,
+      "max_runs_notice": true
+    },
+    "execution_failing": {
+      "output": "Error [FileNotFoundError]: [Errno 2] No such file or directory: 'no_such_file_xyz.csv'\nYou cannot generate code anymore. Please provide the final answer directly based on the information you have so far.",
+      "maps_to_reproducibility_score": -1
+    },
+    "score_parser": {
+      "accuracy_1": 1.0,
+      "accuracy_0": 0.0,
+      "accuracy_unparseable": 0,
+      "similarity_1": 1.0,
+      "similarity_0": 0.0,
+      "similarity_unparseable": -1
+    },
+    "caveat": "ScoreParser's unparseable-similarity sentinel is also -1, the value eval/reproducibility.py uses for inexecutable analyst code; --analyze therefore takes inexecutability from the archived execution log, not from the score"
+  },
+  "metric_definition": {
+    "published": "Overall Reproducibility (%) = share of tasks scored 1 (55.23% = 132/239 CoT, 60.25% = 144/239 RoT); Inexecutable Code (%) = share scored -1",
+    "repo_aggregate": "eval/run_reproducibility.py reports mean over {1, 0, -1}, which is NOT the published number (41.42 for the CoT row); --analyze computes both"
+  },
+  "original_values": {
+    "COT": {
+      "acc": 31.8,
+      "repr": 55.23,
+      "inexec": 13.81
+    },
+    "ROT": {
+      "acc": 33.05,
+      "repr": 60.25,
+      "inexec": 15.9
+    }
+  },
+  "frictions": [
+    "results/ in the repository contains only __init__.py: no per-task analyst output and no judge verdict was released, so analyst drift cannot be separated from inspector drift by re-scoring archived outputs",
+    "the published 'Overall Reproducibility' is the share of tasks scored 1, but eval/run_reproducibility.py reports mean over {1, 0, -1}; for the CoT row the two differ by 13.81 pp (55.23 vs 41.42)",
+    "utils/output_parser.ScoreParser returns -1 when a similarity reply cannot be parsed, which collides with the -1 that eval/reproducibility.py uses for inexecutable analyst code; an unparseable accuracy reply silently scores 0",
+    "utils/load_data.py derives metadata ids with file_path.split('/')[-1].split('_')[1], which silently mis-parses under Windows separators for the 7 DiscoveryBench subject directories containing '_'",
+    "every repository open() call omits encoding=, so the DiscoveryBench metadata JSON fails to load under a non-UTF-8 locale (cp949 here)",
+    "agents/prompt_template.py and utils/output_parser.py need langchain's pre-1.0 namespace (StringPromptTemplate, AgentOutputParser), served here from langchain_classic; the tool description that enters the prompt comes from langchain_experimental's PythonAstREPLTool, an unpinned dependency",
+    "the repository's sandbox exec()s model-written code in-process with os.chdir, no timeout and no network isolation; this re-run substitutes a fresh isolated interpreter per snippet",
+    "the original analyst ran at temperature 1 with no seed (a LangChain constraint), so run-to-run variance of the reasoning outputs is unquantified in the paper; three seeds are used here",
+    "the o3-mini inspector's r = 0.98 agreement with gpt-4o (Section 5.6) was measured on QRData, not DiscoveryBench, and the paper reports 'only minor score increases' for it"
+  ]
+}

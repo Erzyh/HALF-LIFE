@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416036577",
+  "title": "Cross-domain Rumor Detection via Test-Time Adaptation and Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Gpt-4o-2024-05-13 is adopted to generate pseudo-labels (Section 4.1); Table 1 row 'GPT-4o 0.643 0.629 0.598 0.681 ...' as an LLM baseline"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B / Table 7 (base, conf and conf_reason prompts used in T2ARD)",
+    "note": "Which of the Table 7 prompts produced the Table 1 GPT-4o baseline is not stated explicitly (presumably 'base')."
+  },
+  "claim": {
+    "metric": "accuracy (Twitter -> Twitter-COVID19)",
+    "value": 0.643,
+    "n_items": 400,
+    "location": "Table 1, row GPT-4o, block 'Source TWITTER / Target Twitter-COVID19', column Acc.; 400 events (Table 6)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Twitter-COVID19 and Weibo-COVID19 (Lin et al. 2022) plus TWITTER/WEIBO datasets; public via prior work (post availability may vary)"
+  },
+  "cost": {
+    "est_calls": 1200,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "GPT-4o also serves as the pseudo-label annotator inside T2ARD (role A). Decoding parameters not stated.",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "Use the Table 7 'base' prompt (Role / Event: <Event content> / Task with <list of categories> rumor vs non-rumor, python-dict answer) with the 400 Twitter-COVID19 events of Lin et al. 2022 (public release; Table 6); query gpt-4o-2024-05-13 once per event, parse the dict answer and compute accuracy vs 0.643 (Table 1).",
+    "approximation": "The paper does not say which Table 7 variant produced the Table 1 GPT-4o baseline (base assumed; conf/conf_reason yield the same label field); what <Event content> holds (source post only vs thread) and decoding parameters are unstated; tweet availability may have decayed.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

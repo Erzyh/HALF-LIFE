@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7108248001",
+ "title": "HUMORCHAIN: Theory-Guided Multi-Stage Reasoning for Interpretable Multimodal Humor Generation",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-5-2025-08-07",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "\"we use GPT-5-2025-08-07 as the backbone reasoning model in our experiments\" (Sec 4); Table 3: \"I vs A 300 0.695 0.305\" (Total pairwise comparisons, Win Rate HUMORCHAIN vs. zero-shot baseline)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3/4 describe theory-guided, CoT-fused and few-shot prompt variants; annotator instructions in Appendix H, dataset config in Appendix F",
+  "note": "No single verbatim generation-prompt template was located in the excerpted text."
+ },
+ "claim": {
+  "metric": "Win Rate (human pairwise preference), HUMORCHAIN vs. zero-shot baseline (I vs A)",
+  "value": 0.695,
+  "n_items": 300,
+  "location": "Table 3",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Meme-Image-No-Text (internal), plus public Oogiri-GO and OxfordTVG-HIC for cross-model comparisons"
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "GPT-5 also drives a LoRA-fine-tuned discriminator loop (5-retry threshold 0.66), so the full HUMORCHAIN pipeline needs more than a bare prompt to reproduce exactly, but the underlying backbone captions are GPT-5-2025-08-07 outputs judged by human annotators. Soft gaps: no verbatim generation prompt located, and the internal dataset's public status is unclear."
+}

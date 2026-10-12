@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4407386436",
+  "title": "Scaling Public Health Text Annotation: Zero-Shot Learning vs. Crowdsourcing for Improved Efficiency and Labeling Accuracy",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "labeling via the GPT-4 Turbo API (Introduction); 'GPT-4 Turbo charges $0.01 for each 1,000 input tokens and $0.03 for each 1,000 output tokens' (Results)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Fig. 1 '[Sample] Instruction prompt' (physical-activity category)",
+    "note": "Final per-category prompts were refined by the model itself and applied to batches of 800-1000 tweets; they are not printed."
+  },
+  "claim": {
+    "metric": "labeling accuracy vs expert gold labels (all categories)",
+    "value": 0.7151,
+    "n_items": 12000,
+    "location": "Table I, row Total, column GPT Accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "12,000 Canadian tweets rehydrated by ID from a public-health crowdsourcing repository [11]; expert and AMT labels"
+  },
+  "cost": {
+    "est_calls": 45,
+    "tier": "low"
+  },
+  "blockers": [
+    "tos"
+  ],
+  "notes": "Tweets must be rehydrated through the X API (paid, deleted posts lost); labels came from majority vote of three runs; February 2025 arXiv with no preview string."
+}

@@ -1,0 +1,14 @@
+{
+  "wid": "W4399911093",
+  "n_items": 100,
+  "n_requests": 200,
+  "seeds": 2,
+  "est_usd": 4.42,
+  "subset_note": "repeat of the vendor condition: same items and request bodies, 2 fresh calls per item",
+  "dropped_unrenderable": 0,
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 90.24,
+  "cap_usd": 3.66,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\vendor\\W4399911093"
+}

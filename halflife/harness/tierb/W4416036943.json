@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416036943",
+  "title": "Two Heads Are Better Than One: Dual-Model Verbal Reflection at Inference-Time",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Appendix: 'We utilized gpt-4-turbo-2024-04-09 as the Critic LLM to generate reflection data. The temperature is set as 0.7 and the maximum token generation is limited to 1,024.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure A2 'Prompt template for GPT-4-turbo as critic'",
+    "note": ""
+  },
+  "claim": {
+    "metric": "ACC/F1/QWK of the DARS Reasoner with GPT-4 as Critic",
+    "value": null,
+    "n_items": null,
+    "location": "Table 1 (rows with GPT-4 critic)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "ASAP (public) plus a proprietary student-answer dataset (Section 5)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number"
+  ],
+  "notes": "The live model's effect is only measurable through the trained LLaMA-3B Reasoner; half of the datasets are proprietary."
+}

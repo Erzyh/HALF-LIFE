@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4417228525",
+  "title": "LLMs4SchemaDiscovery: A Human-in-the-Loop Workflow for Scientific Schema Mining with Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (ver. 2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4: \"GPT-4o (ver. 2024-08-06), GPT-4-turbo (ver. 2024-04-09), and LLama 3.1 (8B) ... fixed temperature value of 0.3\"; Sec. 5: \"GPT-4-turbo achieved a RougeL of 0.4118\" (stage 1)."
+  },
+  "prompt": {"verbatim": "none", "location": "not in the paper; prompts live in https://github.com/sciknoworg/schema-miner", "note": ""},
+  "claim": {
+    "metric": "ROUGE-L between generated and ground-truth schema, stage 1", "value": 0.4118, "n_items": null, "location": "Sec. 5 stage-1 table, row GPT-4-turbo",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "https://github.com/sciknoworg/schema-miner (ALD/CVD papers and ground-truth schemas)"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["human_outcome"],
+  "notes": "The workflow is human-in-the-loop: stages 2 and 3 incorporate domain-expert feedback rounds, and even stage 1 uses a specification document and prompts not reproduced in the paper. Numbers are schema-similarity metrics, not a self-contained model accuracy."
+}

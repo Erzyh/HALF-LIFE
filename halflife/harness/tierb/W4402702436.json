@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402702436",
+  "title": "Towards Synthetic Trace Generation of Modeling Operations using In-Context Learning Approach",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "Sec. 5.1: '(3) GPT-4 Turbo [56], the professional version of GPT also developed by OpenAI'; 'we used a web-based interface for all the selected LLMs'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 3 (prompt schema and answer example, few-shot in-context learning)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "hallucination / quality metrics of generated XES traces",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 5 and Table 2 (per-LLM statistics)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HEPSYCODE dataset (2,379 XES events), https://github.com/hepsycode/modelingOperationRec_..."
+  },
+  "cost": {
+    "est_calls": 50,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui"
+  ],
+  "notes": "Web interface with an 8K context implies the ChatGPT UI, so the API alias is unresolved; the paper is from Aug 2024."
+}

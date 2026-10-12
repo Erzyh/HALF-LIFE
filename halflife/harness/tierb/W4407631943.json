@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4407631943",
+ "title": "Principled Data Selection for Alignment: The Hidden Risks of Difficult Examples",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "Table 1 caption: \"WR and LC indicate...win rate against GPT-4-Turbo...GPT-4-Turbo serving as the evaluator [Arena-Hard]...using GPT-4-Turbo as the evaluator\" [MT-Bench]"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "GPT-4-Turbo is used only as the reference/judge model inside standard third-party benchmarks (AlpacaEval 2, Arena-Hard, MT-Bench); no separate prompt for GPT-4-Turbo itself is given by this paper."
+ },
+ "claim": {
+  "metric": "none for GPT-4-Turbo as subject; it is only the win-rate reference/judge for AlpacaEval2, Arena-Hard, MT-Bench. Subjects are the paper's own fine-tuned models",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "UltraFeedback-binarized, Argilla-7k (public alignment datasets); AlpacaEval 2 / Arena-Hard / MT-Bench (public benchmarks)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is a data-selection-for-DPO paper; GPT-4-Turbo appears solely as the standard reference/evaluator baked into AlpacaEval2/Arena-Hard/MT-Bench, never as a system the authors themselves run and report a number for."
+}

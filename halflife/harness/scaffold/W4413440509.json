@@ -1,0 +1,21 @@
+{
+  "openalex_id": "https://openalex.org/W4413440509",
+  "title": "A multi-model longitudinal assessment of ChatGPT performance on medical residency examinations",
+  "doi": "https://doi.org/10.3389/frai.2025.1614874",
+  "field": "Medicine",
+  "year": "2025",
+  "live_models": "gpt-4-turbo|o4-mini",
+  "dead_models": "o1-preview",
+  "flags": "data-check",
+  "all_links": [
+    "github.com/mariaevcsouto/chatgpt-multimodel-medexam-benchmark"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/mariaevcsouto/chatgpt-multimodel-medexam-benchmark",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4413440509.txt",
+  "paper_text_status": "pdf"
+}

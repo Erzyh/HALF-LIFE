@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4404782941",
+  "title": "Can LLMs replace Neil deGrasse Tyson? Evaluating the Reliability of LLMs as Science Communicators",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: \"we assess proprietary models such as GPT-4 Turbo (gpt-4-turbo-2024-04-09), GPT-3.5 Turbo (gpt-3.5-turbo-1106)\"; Table 2 row \"GPT-4 Turbo 0.646 0.651 0.193 0.750 0.754 0.432 0.436\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Table 3 (Appendix D.2, few-shot prompts for proprietary models, dagger = GPT-4 Turbo)", "note": "Main responses at temperature 0.0; stochastic responses at 1.0 (10 samples) for the secondary metrics."},
+  "claim": {
+    "metric": "Main Response Accuracy (MACC) on SCiPS-QA closed questions", "value": 0.646, "n_items": 510, "location": "Table 2, row GPT-4 Turbo, column MACC; SCiPS-QA has 510 closed questions (Table 1)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "GitHub repo llm-science-miscommunication (footnote 1, code and data)"},
+  "cost": {"est_calls": 1530, "tier": "low"},
+  "blockers": [],
+  "notes": "Answers are parsed as Yes / No / I do not know, so no judge is needed for MACC. The verification and hallucination metrics (VSR, Table 7) use GPT-4 Turbo and GPT-3.5 Turbo as verifiers and SelfCheckGPT; the dead gpt-3.5-turbo-1106 only matters for those secondary numbers."
+}

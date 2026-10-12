@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4400065264",
+ "title": "Following Length Constraints in Instructions",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT4 Turbo (gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 2: \"GPT4 Turbo (gpt-4-turbo-2024-04-09) 49.3 29.2 187 44.2 27.5 179\" (Vlt%/Win%/Words on AlpacaEval-LI and MT-Bench-LI); listed separately from the older \"GPT4 Turbo (gpt4_1106_preview)\" row"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 3.1 (length-instruction augmentation template); Appendix A (word-count function)",
+  "note": "Paper appends a length instruction to the original AlpacaEval/MT-Bench prompt; template described and used consistently across all evaluated models."
+ },
+ "claim": {
+  "metric": "Length-instruction violation rate (Vlt%), AlpacaEval-LI",
+  "value": 49.3,
+  "n_items": 802,
+  "location": "Table 2, row 'GPT4 Turbo (gpt-4-turbo-2024-04-09)', AlpacaEval-LI Vlt% column",
+  "task_type": "generation",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AlpacaEval 2.0 (805 prompts, 3 excluded as already length-constrained -> 802 used) and MT-Bench, both public benchmarks"
+ },
+ "cost": {
+  "est_calls": 4812,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Win(%) is computed via LLM-as-a-Judge pairwise comparison (AlpacaEval 2.0 methodology) against a fixed baseline; reproducing the row needs both the 802 generations and 802 pairwise judgments, x3 seeds, pushing cost into the high tier even though gpt-4-turbo's own per-call price is modest."
+}

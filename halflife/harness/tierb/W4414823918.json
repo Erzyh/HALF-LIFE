@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4414823918",
+  "title": "Dr. Bench: A Multidimensional Evaluation for Deep Research Agents, from Answers to Reports",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 5.1: 'seven web-search-tool-enhanced reasoning models (gemini-2.5-pro, gpt-5-2025-08-07, ...)'; Table 1: 'GPT-5-2025-08-07 0.5560 0.4593 1.0383 27.3312 7006 0.0045'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Subject input is the benchmark query itself (example in Figure 9, 'Please write a report ...'); judge prompts in Appendix D",
+    "note": "System prompt and web-search tool configuration for the subject models are not printed."
+  },
+  "claim": {
+    "metric": "IntegratedScore",
+    "value": 27.3312,
+    "n_items": 214,
+    "location": "Table 1, row GPT-5-2025-08-07, column InteScore",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-11-20"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/evigbyen/drbench/ (214 expert-validated queries with rubrics and annotations)"
+  },
+  "cost": {
+    "est_calls": 214,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Reports depend on live web search, so drift is expected; the SemanticDrift/TrustworthyBoost metrics need the benchmark's FAK/FDK and TSL annotation pipeline (Algorithm 1). o4-mini in live_ids is actually o4-mini-deep-research-2025-06-26, a different model. Temperature 0.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Use the 214 queries, QSR rubrics, FAK/FDK/TSL annotations and the Algorithm 1 scoring code from the repository. Generate reports with gpt-5-2025-08-07 plus the web-search tool at temperature 0 (the subject-model system prompt and search configuration are not printed and must come from the repository); score Quality, SemanticDrift and TrustworthyBoost with the Appendix D judge prompts on gpt-4o-2024-11-20 and compare IntegratedScore with 27.3312 (Table 1).",
+    "approximation": "Live web search makes reports time-dependent, so drift is expected; the subject-model prompt and search settings are the repository's.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/evigbyen/drbench/",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

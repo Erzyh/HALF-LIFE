@@ -1,0 +1,18 @@
+{
+  "openalex_id": "https://openalex.org/W4394708144",
+  "title": "Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators",
+  "doi": "https://doi.org/10.48550/arxiv.2404.04475",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "claude-2.1",
+  "flags": "",
+  "all_links": [
+    "github.com/tatsu-lab/alpaca_eval",
+    "github.com/tatsu-lab/stanford_alpaca",
+    "huggingface.co/spaces/allenai"
+  ],
+  "candidate_repos": [],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4394708144.txt",
+  "paper_text_status": "pdf"
+}

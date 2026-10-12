@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406848657",
+ "title": "Positioning Political Texts with Large Language Models by Asking and Averaging",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table: \"GPT-4o gpt-4o-2024-05-13 Closed API Oct 2023\" / \"GPT-4 Turbo gpt-4-turbo-2024-04-09 Closed API Dec 2023\"; correlations reported only in Figures 1-5 (not machine-readable numeric text)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec.3 (\"You will be provided with the text of a tweet... Where does this text stand on the 'left' to 'right' wing scale?...\")",
+  "note": "Full example prompt for the US-Congress-tweets task; temperature 0, max_tokens 20, JSON response format."
+ },
+ "claim": {
+  "metric": "none for GPT-4 Turbo specifically (correlation values only appear in Figures 1/2/5, not as extractable numeric text)",
+  "value": null,
+  "n_items": 899,
+  "location": "Figure 1 (US Congress tweets, N=899); Figure 5 (EU speeches)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Code Ocean replication package (https://doi.org/10.24433/CO.0323087.v1) and Dataverse"
+ },
+ "cost": {
+  "est_calls": 899,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Exceptionally well-documented (exact snapshots, full prompt, N, and even total cost: \"$1.5\" for the 899-tweet GPT-4 run), but the specific correlation values for GPT-4 Turbo are shown only in Figures 1/2/5, not as machine-readable numbers in the extracted text, matching this project's no_number convention for figure-only results."
+}

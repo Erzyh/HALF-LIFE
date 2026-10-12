@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403345634",
+  "title": "Uncovering Factor Level Preferences to Improve Human-Model Alignment",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Appendix footnote 6: 'We use gpt-4o-2024-05-13 version for all GPT-4o'; Table 2 row 'GPT-4o 0.156 0.297 0.155' (factor-level preference alignment)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D.3 (prompt template for LLM-based factor scoring), Appendix F.2.1 (generation prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "factor-level alignment tau (generation, summarization)",
+    "value": 0.156,
+    "n_items": null,
+    "location": "Table 2, row GPT-4o, column tau (summarization)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-05-13 (factor scorer)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Reddit TL;DR, instruction-following and document QA preference datasets (public)"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Value is a rank correlation over an LLM-scored factor pipeline; n_items and the exact sample are not stated. GPT-4-turbo alias in the CSV is not used in the text."
+}

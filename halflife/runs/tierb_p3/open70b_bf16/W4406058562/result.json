@@ -1,0 +1,58 @@
+{
+  "wid": "W4406058562",
+  "title": "Applicability of Large Language Models and Generative Models for Legal Case Judgement Summarization",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "rouge_l",
+  "original_value": 0.198,
+  "original_location": "Table 4 (UK-Abs), row gpt4-summ, column RL-F1",
+  "reexecution": {
+    "mean_over_seeds": 0.23247073804674964,
+    "per_seed": {
+      "0": {
+        "value": 0.23247073804674964,
+        "n": 100,
+        "ci95": [
+          0.2253080383554135,
+          0.23941951722237215
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4406058562",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 1.7,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "rouge_l",
+    "original_value": 0.198,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4406058562",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "Whole judgment in one prompt (128K context, Sec. 4.2) with YY = reference summary word count (Sec. 4.4 rule K*|Exp|/|Doc| with a single chunk); ROUGE implementation settings not stated. ROUGE-L is the runner's LCS-based F1 over lowercased whitespace tokens (rouge-score's rougeL tokenizer differs slightly).",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W4406058562"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.23247073804674964,
+    "delta": 0.03447073804674963,
+    "original_inside_ci95": false
+  }
+}

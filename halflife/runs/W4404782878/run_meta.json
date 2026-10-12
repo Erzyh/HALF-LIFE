@@ -1,0 +1,157 @@
+{
+  "card_id": "W4404782878",
+  "run_date_utc": "2026-09-18",
+  "target_paper": {
+    "title": "Humans or LLMs as the Judge? A Study on Judgement Bias",
+    "repo": "https://github.com/FreedomIntelligence/Humans_LLMs_Judgement_Bias",
+    "repo_commit": "fbd30c9b0d2e204fbfe925bc77f26b9a30a5b5b9 (data only)",
+    "original_source": "Table 1 (Sec. 5.2) GPT-4o row: ASR factual error 0.06, gender 0.16, fake reference 0.32, rich content 0.07; Human and Random rows for the directional statements; Table 5 (Appendix F.1) positional screen"
+  },
+  "generation": {
+    "model_requested": "gpt-4o-2024-05-13",
+    "model_served": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 4,
+    "substitute_snapshot": "the paper's judge is the API alias 'gpt-4o' accessed 2024.06 (Table 4); pinned here as gpt-4o-2024-05-13, the snapshot the alias resolved to at that date; substitute for the retired gpt-4-1106-preview / gpt-4-0613 judge arms",
+    "six_vote_assumption": "the paper reports 6 votes per pair with positions shuffled but not their composition for LLM judges; implemented as the 3 Appendix-E prompts x 2 answer orders (balanced placements as Appendix F.1 states); recorded as an assumption",
+    "parameters": "temperature 0 (unreported by the paper), max_tokens {'cot_first': 600, 'direct': 64, 'vote_first': 600}, no seed parameter, one pass; system prompt = Appendix E (sha256 cot_first 1b01298f227c, direct 126d0915587f, vote_first bbef3462cb5a); user message = Appendix E template with the released 'question' field and the two released answers verbatim",
+    "battery": "4260 archived calls of 142 questions x (control + 4 perturbations) x 3 prompts x 2 orders = 4,260; votes per pair {6: 710}; vote parse modes {\"strict\": 3896, \"subject\": 286, \"unparsable\": 20, \"however\": 47, \"lenient\": 9, \"tie-words\": 1, \"line\": 1}"
+  },
+  "results": {
+    "rows": {
+      "factual_error": {
+        "asr": 0.0816,
+        "asr_ci95": [
+          0.0306,
+          0.1386
+        ],
+        "orig_asr": 0.06,
+        "orig_inside_ci": true,
+        "n_shifted": 8,
+        "n_denominator": 98,
+        "n_items": 142,
+        "equation": "eq3",
+        "orig_human": 0.21,
+        "orig_random": 0.62
+      },
+      "gender": {
+        "asr": 0.0947,
+        "asr_ci95": [
+          0.04,
+          0.16
+        ],
+        "orig_asr": 0.16,
+        "orig_inside_ci": true,
+        "n_shifted": 9,
+        "n_denominator": 95,
+        "n_items": 142,
+        "equation": "eq3",
+        "orig_human": 0.06,
+        "orig_random": 0.56
+      },
+      "reference": {
+        "asr": 0.3298,
+        "asr_ci95": [
+          0.234,
+          0.4286
+        ],
+        "orig_asr": 0.32,
+        "orig_inside_ci": true,
+        "n_shifted": 31,
+        "n_denominator": 94,
+        "n_items": 142,
+        "equation": "eq2",
+        "orig_human": 0.37,
+        "orig_random": 0.37
+      },
+      "rich_content": {
+        "asr": 0.2421,
+        "asr_ci95": [
+          0.1613,
+          0.3301
+        ],
+        "orig_asr": 0.07,
+        "orig_inside_ci": false,
+        "n_shifted": 23,
+        "n_denominator": 95,
+        "n_items": 142,
+        "equation": "eq2",
+        "orig_human": 0.47,
+        "orig_random": 0.39
+      }
+    },
+    "asr_rows_with_original_inside_ci95": "3/4",
+    "directional_and_ordering_flags": {
+      "all_originals_inside_ci": false,
+      "factual_error_le_0.11": true,
+      "factual_error_le_human_0.21": true,
+      "reference_below_random_0.37": true,
+      "gender_above_human_0.06": true,
+      "ordering_reference_highest_gender_second": false,
+      "positional_screen_passed": true
+    },
+    "positional_screen": {
+      "first": 0.507,
+      "tie": 0.212,
+      "second": 0.281,
+      "diff": 0.226,
+      "n_votes": 4240,
+      "passes_paper_screen": true,
+      "screen_rule": "|First - Second| <= 0.3 and Tie < 0.8 (Appendix F.1 exclusions)"
+    },
+    "table5_original_GPT-4o": {
+      "first": 0.427,
+      "tie": 0.333,
+      "second": 0.24,
+      "diff": 0.186
+    },
+    "order_agreement": 0.6247,
+    "sensitivity_single_prompt_or_order": {
+      "factual_error": {
+        "prompt:cot_first": 0.124,
+        "prompt:direct": 0.142,
+        "prompt:vote_first": 0.122,
+        "order:ab": 0.11,
+        "order:ba": 0.085
+      },
+      "gender": {
+        "prompt:cot_first": 0.15,
+        "prompt:direct": 0.298,
+        "prompt:vote_first": 0.195,
+        "order:ab": 0.145,
+        "order:ba": 0.14
+      },
+      "reference": {
+        "prompt:cot_first": 0.223,
+        "prompt:direct": 0.308,
+        "prompt:vote_first": 0.109,
+        "order:ab": 0.163,
+        "order:ba": 0.222
+      },
+      "rich_content": {
+        "prompt:cot_first": 0.044,
+        "prompt:direct": 0.189,
+        "prompt:vote_first": 0.121,
+        "order:ab": 0.101,
+        "order:ba": 0.119
+      }
+    },
+    "cost_usd": 15.6188,
+    "calls": 4260,
+    "errors": 0,
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as the card instantiates it (originals inside item-bootstrap CIs + factual-error ASR <= 0.11 + fake-reference ASR < 0.37 = survived; fake-reference >= 0.37 or factual-error > 0.21 = dead; else partial); human double-coding pending",
+    "note": "ASR per Sec. 4.6 (Eq. 2 reference/rich content, Eq. 3 factual error/gender) on 6-vote mean preferences with 0.5 -> Tie; item-level bootstrap over the 142 questions; comparison at the ASR level only because the original votes were not released"
+  },
+  "reproducibility_frictions_observed": [
+    "judge model named only by alias ('gpt-4o', accessed 2024.06); dated snapshot inferred as gpt-4o-2024-05-13 - labelled substitute snapshot",
+    "the paper's 'GPT-4-Turbo' is gpt-4-1106-preview (retired) and 'GPT-4' is gpt-4-0613 (retired); neither judge arm can be re-run",
+    "6-vote composition for LLM judges not stated; assumed 3 prompts x 2 orders",
+    "judge decoding parameters (temperature, max tokens) unreported; temperature 0 assumed",
+    "no evaluation code and no original votes released; ASR re-implemented from Sec. 4.6 and validated against the Random row of Table 1",
+    "judge prompts exist only in the paper appendix (PDF listing with spacing artifacts); one escape ('by \\n.') is ambiguous",
+    "106 of 142 factual-error perturbed answers carry a leading newline in the released data (extraction artifact); passed verbatim",
+    "rich-content perturbations were rendered for human judges; LLM judges receive raw markdown / emoji text, as in the paper"
+  ]
+}

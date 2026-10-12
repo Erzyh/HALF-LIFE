@@ -1,0 +1,196 @@
+{
+  "card_id": "W4411120389",
+  "openalex_id": "https://openalex.org/W4411120389",
+  "title": "The Good, The Bad, and The Greedy: Evaluation of LLMs Should Not Ignore Non-Determinism",
+  "doi": "10.18653/v1/2025.naacl-long.211",
+  "paper": {
+    "doi": "10.18653/v1/2025.naacl-long.211",
+    "authors": "Song, Wang, Li, Lin",
+    "year": 2025,
+    "venue": "NAACL 2025 (Long Papers), pp. 4195-4206; arXiv 2407.10457 (2024-07)",
+    "repo": "https://github.com/Yifan-Song793/GoodBadGreedy",
+    "repo_commit": "eb9a5860ce7a94e800fed6aa04faf6e27bf6b04d",
+    "repo_license": "none in the code repo; released samples on HF goodbadgreedy/GoodBadGreedy are Apache-2.0",
+    "repo_note": "Scaffold link was glued ('GoodBadGreedyour'); correct repo cloned. The repo holds only analysis/best-of-N scripts; generation was done with external frameworks (Open-Instruct for GSM8K/HumanEval, official AlpacaEval/Arena-Hard/WildBench/MixEval scripts). All sampled generations incl. gpt-4-turbo-2024-04-09 are released as GoodBadGreedy.zip (1.59 GB) on HF - an L1-grade per-item artifact."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "GPT-4-Turbo (gpt-4-turbo-2024-04-09, named in analyse/*.py) is the proprietary comparison model whose greedy-vs-sampling gap is reported in Table 2/Table 8 and used as the reference line in the best-of-N analysis (Fig. 4). Auxiliary judge dependence for AlpacaEval 2 / Arena-Hard (gpt-4-1106-preview judge, dead) and WildBench (gpt-4-turbo-2024-04-09 judge)."
+  },
+  "claim": {
+    "statement": "Greedy decoding outperforms the average of sampled runs (T=1.0, top-p 1.0) on most benchmarks, most strongly on math/code; for GPT-4-Turbo: HumanEval pass@1 greedy 89.6 vs sampling mean 84.1 (std 2.65 over N=128 runs, best-worst gap 11.0; one-sample t-test p=1.1e-48), GSM8K 84.5 vs 83.8 (std 0.77, N=128, p=4.7e-21), MMLU-Redux 82.6 vs 82.4 (std 0.43, N=32), MixEval 89.2 vs 88.8 (std 0.18), Arena-Hard 80.1 vs 75.2 (std 1.31), with AlpacaEval 2 LC the exception (49.6 vs 50.1, p=0.03) (Table 2, Table 8). Core re-executable arm for this card: the HumanEval gap.",
+    "claim_type": "method_effect",
+    "metric": "HumanEval: per-run pass@1 = fraction of 164 problems whose completion passes the unit tests (execution-based, Open-Instruct evaluate_functional_correctness); 'Sample' = mean of per-run pass@1 over N=128 sampled runs, 'Std.' = population std over runs, 'Delta' = best - worst run; greedy = single run at temperature 0",
+    "original_values": {
+      "gpt-4-turbo_humaneval": {
+        "greedy": 89.6,
+        "sample_mean": 84.1,
+        "std": 2.65,
+        "delta_best_worst": 11.0,
+        "N": 128,
+        "t_test_p": "1.1E-48"
+      },
+      "gpt-4-turbo_gsm8k": {
+        "greedy": 84.5,
+        "sample_mean": 83.8,
+        "std": 0.77,
+        "delta": 2.5,
+        "N": 128,
+        "t_test_p": "4.7E-21"
+      },
+      "gpt-4-turbo_mmlu_redux": {
+        "greedy": 82.6,
+        "sample_mean": 82.4,
+        "std": 0.43,
+        "delta": 1.6,
+        "N": 32,
+        "t_test_p": "3.2E-6"
+      },
+      "gpt-4-turbo_mixeval": {
+        "greedy": 89.2,
+        "sample_mean": 88.8,
+        "std": 0.18,
+        "delta": 0.8,
+        "N": 16,
+        "t_test_p": "6.4E-8"
+      },
+      "gpt-4-turbo_arena_hard": {
+        "greedy": 80.1,
+        "sample_mean": 75.2,
+        "std": 1.31,
+        "delta": 3.6,
+        "N": 16,
+        "t_test_p": "5.0E-12"
+      },
+      "gpt-4-turbo_alpacaeval2_lc": {
+        "greedy": 49.6,
+        "sample_mean": 50.1,
+        "std": 0.76,
+        "delta": 2.5,
+        "N": 16,
+        "t_test_p": "0.03"
+      },
+      "gpt-4-turbo_lengths_table6": {
+        "alpacaeval_greedy": 377,
+        "alpacaeval_sample": 389,
+        "gsm8k_greedy": 149,
+        "gsm8k_sample": 150
+      }
+    },
+    "original_source": "Table 2 (main), Table 8 (App. A significance tests), Table 6 (lengths), Fig. 4 (GPT-4-Turbo reference lines: AlpacaEval 50.1, MMLU 82.4, HumanEval 84.1); per-sample outputs in HF GoodBadGreedy.zip (codex_humaneval/gpt-4-turbo-2024-04-09_nochat_sample_{0..127})"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09 (verified: model list in analyse/analyse_humaneval_sample.py, analyse_gsm_sample.py, analyse_mmlu_sample.py, analyse_alpacaeval_sample.py; paper text says GPT-4-Turbo)",
+    "model_status": "dying, OpenAI shutdown 2026-10-23",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions via Open-Instruct eval/codex_humaneval/run_eval.py --openai_engine (query_openai_chat_model); commit 167a2b4b31097da2e15b84f920d0482ab57d6be5 (last change before 2024-07-15) used as the reference implementation - exact commit not stated by the authors",
+    "prompt_source": "Open-Instruct run_eval.py (OpenAI path): single user message 'Complete the following python function. Please only output the code for the completed function.\\n\\n\\n' + HumanEval prompt (function signature + docstring); no few-shot; folder naming '_nochat_' in the repo",
+    "params": {
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": "paper: 1.0; Open-Instruct OpenAI path hard-codes top_p=0.95 -> discrepancy to resolve",
+        "n": 128,
+        "max_tokens": 512,
+        "stop": [
+          "\\nclass",
+          "\\ndef",
+          "\\n#",
+          "\\nif",
+          "\\nprint"
+        ]
+      },
+      "greedy": {
+        "temperature": 0.0,
+        "n": 1,
+        "max_tokens": 512,
+        "same_stop": true
+      },
+      "seed": "not set; API nondeterminism at T=0 acknowledged by the paper's topic",
+      "post_processing": "completion appended to prompt; pass/fail by executing HumanEval tests (eval/codex_humaneval/execution.py, timeout 3 s default)"
+    },
+    "n_items": 164,
+    "samples_per_item": "128 sampled completions + 1 greedy in the paper; re-run: 128 samples (the paper's own dispersion scheme replaces ANALYSIS_PLAN seeds for the sampling arm) + 3 greedy runs (median) x 2 prompt paraphrases of the instruction line",
+    "evaluation": "Automatic, execution-based: per-run pass@1 over 164 problems; then mean/std/max/min over runs (analyse/analyse_humaneval_sample.py) and one-sample t-test of the 128 run scores against the greedy score (App. A); secondary GSM8K EM (Open-Instruct eval/gsm, 8-shot CoT) with identical logic",
+    "execution_environment": "Python 3.10 env with Open-Instruct (pin a mid-2024 commit) and the human-eval execution harness (sandboxed code execution: run inside a container/VM, no network); no GPU for the API arm. HumanEval: 164 x 129 completions executed locally in seconds. GSM8K adds 1,319 x 129 = 170K generations with 8-shot prompts (~900 input tokens each).",
+    "representative_subset": "HumanEval, 164 problems x 32 sampled completions (T=1.0) + 3 greedy runs; std/mean over 32 runs is adequate to test sign and order of the 5.5-point gap (original std 2.65 -> SE of the mean ~0.5).",
+    "environment_check": "Re-score the released gpt-4-turbo-2024-04-09 HumanEval samples (HF zip) with our harness and confirm mean 84.1 / std 2.65 / greedy 89.6 before any API call."
+  },
+  "artifacts": {
+    "prompts_path": "null in repo (prompt lives in Open-Instruct eval/codex_humaneval/run_eval.py; GSM8K 8-shot prompt in Open-Instruct eval/gsm/examplars.py)",
+    "data_path": "HF goodbadgreedy/GoodBadGreedy (GoodBadGreedy.zip, 1.59 GB, Apache-2.0: all sampled generations incl. gpt-4-turbo-2024-04-09 for the 7 benchmarks); HumanEval (openai/human-eval, MIT); GSM8K test (MIT)",
+    "eval_path": "analyse/analyse_humaneval_sample.py, analyse/analyse_gsm_sample.py, analyse/analyse_mmlu_sample.py, best_of_n_eval/eval_humaneval_sample_baseline.py; scoring itself via Open-Instruct",
+    "data_public": true,
+    "data_license": "HF release Apache-2.0; HumanEval MIT; GSM8K MIT; MMLU-Redux CC-BY-4.0; code repo no license",
+    "redistributable": true,
+    "notes": "Per-sample original outputs exist for every benchmark, allowing exact re-scoring and paired per-problem comparison. Judge-based benchmarks (AlpacaEval 2, Arena-Hard) depend on the dead gpt-4-1106-preview judge and are not re-executable as published."
+  },
+  "blockers": [
+    "top-p mismatch: paper states 1.0, Open-Instruct's OpenAI path hard-codes 0.95; exact Open-Instruct commit not documented",
+    "AlpacaEval 2 / Arena-Hard arms need the gpt-4-1106-preview judge (dead 2026-03-26); MixEval/WildBench need their own parser/judge models -> only HumanEval, GSM8K, MMLU-Redux are judge-free",
+    "Sampled-generation cost scales with N=128 (HumanEval cheap, GSM8K ~$2,300 at gpt-4-turbo prices)",
+    "Greedy at T=0 is not deterministic on the API (the paper's own point); needs repeated greedy runs"
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4-turbo-2024-04-09",
+      "purpose": "live baseline (exact snapshot used in the paper)"
+    },
+    "successors": [
+      "gpt-5-2025-08-07 (note: may not expose temperature/top_p; record)",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated snapshot)",
+      "gemini (current dated snapshot)",
+      "llama (open weights, weight hash pinned; vLLM with identical sampling params, also enables exact greedy)",
+      "qwen (open weights, weight hash pinned; vLLM)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      }
+    },
+    "unit_basis": "HumanEval: ~170 input tokens (instruction + prompt), ~250 output tokens (bounded by max_tokens 512 and stop sequences) per completion. GSM8K: ~900 input (8-shot CoT), ~150 output. MMLU-Redux: ~400 input, ~250 output (zero-shot CoT).",
+    "full": {
+      "definition": "the three judge-free benchmarks at the paper's N: HumanEval 164 x (128 + 3 greedy), GSM8K 1,319 x (128 + 3), MMLU-Redux 3,000 x (32 + 3)",
+      "est_calls": 299000,
+      "est_tokens_in": 200000000,
+      "est_tokens_out": 57000000,
+      "est_cost_usd": 3700,
+      "breakdown_usd": {
+        "humaneval": 200,
+        "gsm8k": 2330,
+        "mmlu_redux": 1210
+      }
+    },
+    "subset": {
+      "definition": "HumanEval 164 x (32 samples + 3 greedy) x 2 instruction paraphrases",
+      "est_calls": 11480,
+      "est_tokens_in": 1950000,
+      "est_tokens_out": 2870000,
+      "est_cost_usd": 106
+    },
+    "humaneval_full_N128_usd": 200,
+    "cap_usd": "recommend 250 (HumanEval at full N=128 plus greedy repeats)"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1, method_effect. Reference: HumanEval greedy 89.6 > sampling mean 84.1 (gap 5.5, std 2.65, p=1.1e-48). SURVIVED if the median greedy score (3 runs) exceeds the sampling mean, the one-sample t-test of run scores vs greedy gives p < 0.05, and the gap is of the same order (>= 2 points, i.e. within the 2-11 range spanned by the original gap and its best-worst delta). PARTIAL if greedy > sampling mean but n.s. or gap < 2 points, or if the effect holds on GSM8K but not HumanEval. DEAD if sampling mean >= greedy on HumanEval (direction reversed). The subsidiary statement 'HumanEval is the least stable benchmark (std 2.65 >> MMLU 0.43)' is judged by ordering of stds.",
+    "notes": "The sampling arm's 128 runs are the dispersion; greedy needs >= 3 runs because API T=0 is nondeterministic. Paraphrase variants may only touch the instruction sentence, not the HumanEval prompt. Resolve top_p (0.95 vs 1.0) before running; if unresolved, run both and report the 0.95 variant as primary (matches the code path that produced the released samples)."
+  },
+  "status": "done",
+  "user_checks": [
+    "Resolve top_p: the paper says 1.0 but the Open-Instruct OpenAI path (and vLLM path) hard-code top_p=0.95; confirm with the authors or run both (extra ~$100 for HumanEval).",
+    "Confirm HumanEval as the core live-arm claim (cheap, execution-scored, largest gap); GSM8K at N=128 (~$2,330) only if budget allows - or GSM8K at N=32 (~$600)?",
+    "Approve using the HF-released gpt-4-turbo-2024-04-09 samples (Apache-2.0) as the 'original' per-problem outcomes and re-scoring them in our harness as the environment check.",
+    "Pin Open-Instruct to commit 167a2b4b (2024-07) or ask the authors for the exact commit and flags (--use_chat_format off, --additional_stop_sequence)?"
+  ],
+  "domain_notes": "The paper is itself about run-to-run variance, so this card is unusual: the sampling arm's dispersion (N=128) is part of the original protocol and directly comparable, and the released per-sample outputs let us separate harness drift from model drift before spending anything. The judge-based benchmarks show how a dead auxiliary model (gpt-4-1106-preview as AlpacaEval/Arena-Hard judge) kills re-executability of otherwise live-model results, a pattern to record in the census.",
+  "decisions_2026_09_18": [
+    "top_p 1.0 as the paper states is the primary setting; the Open-Instruct default 0.95 is a sensitivity run only if budget remains (default: not run)",
+    "HumanEval only: greedy decoding repeated 3 times (temperature 0) plus sampled decoding with as many samples per problem as fit the cap (target N=32), scored by execution with the paper's harness",
+    "the HF-released gpt-4-turbo-2024-04-09 samples (Apache-2.0) are the 'original' per-problem outcomes and are re-scored in our harness as the environment check",
+    "Open-Instruct pinned to commit 167a2b4b (2024-07) as the card suggests; flags documented",
+    "per-paper cap $85"
+  ]
+}

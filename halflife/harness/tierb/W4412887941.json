@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412887941",
+  "title": "Smotrom tvoja pa ander drogoj verden! Resurrecting Dead Pidgin with Generative Models: Russenorsk Case Study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "openai/o1-2024-12-17",
+    "resolved": "o1-2024-12-17",
+    "role": "S",
+    "evidence": "'We used anthropic/claude-3-5-sonnet-20241022 and openai/o1-2024-12-17' (footnote 1); Table 1 columns Sonnet / o1 mark which attested properties each agent proposed"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "not in the paper; prompts and outputs published at https://github.com/altsoph/RusNor/",
+    "note": "Section 3 describes the agentic pipeline only."
+  },
+  "claim": {
+    "metric": "number of literature-attested Russenorsk properties proposed by the agent",
+    "value": 17,
+    "n_items": 27,
+    "location": "Table 1, column o1 (17 of 27 property rows marked)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/altsoph/RusNor/ (dictionary, prompts, generated hypotheses)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Multi-step agentic pipeline; the chrF translation experiment (Table 2) used Claude 3.5 Sonnet, not o1; property matching is a manual judgment."
+}

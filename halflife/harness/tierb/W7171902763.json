@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7171902763",
+ "title": "Retrieval-Augmented Generation in LLMs for Mental Health: Quantifying the Incremental Contribution of Retrieval Within a Layered Safety Architecture",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1 nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "\"GPT-4.1 nano's accuracy jumped from 48.3% to 72.7% with RAG\"; Table 2 McNemar row \"GPT-4.1 nano 687 124 535 334\" (n=1680)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Deterministic prompt (temperature=0) mentioned but not quoted."
+ },
+ "claim": {
+  "metric": "accuracy, intent classification, RAG-enabled",
+  "value": 72.7,
+  "n_items": 1680,
+  "location": "Results (\"GPT-4.1 nano's accuracy jumped from 48.3% to 72.7% with RAG\"); Table 2",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Wysa Inc.'s proprietary anonymized real + synthetic user-chatbot conversation repository"
+ },
+ "cost": {
+  "est_calls": 1680,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Industry study by Wysa Inc. using its own proprietary anonymized mental-health chatbot conversations (real + re-synthesized) and internal RAG knowledge base; neither the input data nor the retrieval corpus is public."
+}

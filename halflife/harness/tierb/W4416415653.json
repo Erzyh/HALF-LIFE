@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416415653",
+  "title": "Analysis of article screening and data extraction performance by an AI systematic literature review platform",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (GPT-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'Turbo (GPT-4-turbo-2024-04-09) (OpenAI, 2024)' as the platform's LLM (Section 2.2 ISLaR prompt development)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary Tables 2-3 (online); two prompt versions developed iteratively",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (full-text screening vs expert reviewers)",
+    "value": 0.87,
+    "n_items": null,
+    "location": "Abstract and Section 3.1.2 (accuracy 0.87, precision 0.88, sensitivity 0.91; data extraction 0.86)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "PubMed articles of a cost-of-illness SLR (article list in supplement); ISLaR platform is proprietary (Merck)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt",
+    "webui"
+  ],
+  "notes": "Proprietary platform with a structured UI wraps the model; prompts only in supplementary material."
+}

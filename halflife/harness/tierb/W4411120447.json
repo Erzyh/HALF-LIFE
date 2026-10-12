@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411120447",
+  "title": "Analyzing and Evaluating Correlation Measures in NLG Meta-Evaluation",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "\"three different proprietary LLMs from OpenAI (gpt-3.5-turbo, gpt-4-turbo, gpt-4o); ... three evaluation scales (1-5, 1-10, 0-100); and two sampling settings\" (Sec. 3)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B, Table 3: evaluation prompt template with {scale}, {aspect}, {source}, {target}",
+    "note": ""
+  },
+  "claim": {
+    "metric": "global Pearson correlation with human scores (GPT4_T=0_1_5), averaged over 10 meta-evaluation datasets",
+    "value": 0.55,
+    "n_items": null,
+    "location": "Table 5, row GPT4_T=0_1_5, column r",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SummEval, WMT23 and 8 further meta-evaluation datasets listed in Table 4"
+  },
+  "cost": {
+    "est_calls": 19200,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "No per-dataset numeric value for the gpt-4-turbo evaluator (Figure 4 shows curves); Table 5 pools all datasets so re-execution means scoring all of them. Version not printed; date rule.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n_items follows from Table 1: SummEval 16 systems x 100 inputs x 4 aspects, WMT23 zh-en news 16 x 376, HANNA 6 x 60 x 6, MANS 2 x 5 x 200, USR 2 x 5 x 60 x 6, WebNLG2020 16 x 178 x 5, i.e. 34,416 (system, input, aspect) scorings over the 30 meta-evaluation datasets D1-D30 (Table 4). Score each with the Appendix B Table 3 template (scale 1-5, temperature 0) on gpt-4-turbo-2024-04-09, compute the correlation with human scores per dataset and average; compare with 0.55 (Table 5, row GPT4_T=0_1_5, column r).",
+    "approximation": "Version by date rule; the record's '10 datasets' should read 30; confirm the r column definition (Sec. 2) before comparing, since Table 5 also lists r_NxM = 0.51.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

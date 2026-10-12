@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4409362465",
+  "title": "Measuring Human and AI Values Based on Generative Psychometrics with Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we measure the relevance and valence of the test items with Kaleido (Sorensen et al. 2024), GPT-4 Turbo (Achiam et al. 2023), and ValueLlama\"; Table 1 row \"GPT-4 Turbo 79.8% 87.5%\" (Relevance/Valence accuracy)"
+  },
+  "prompt": {"verbatim": "none", "location": "Sec. 3.2 states \"the prompts for inference are listed in Appendix A\", but Appendix A is not present in this document (paper defers full detail to 'the extended version')", "note": "Zero-shot prompt on a held-out 200-item ValueBench test set; wording not accessible in this text."},
+  "claim": {
+    "metric": "Relevance classification accuracy, zero-shot, held-out ValueBench test set", "value": 79.8, "n_items": 200,
+    "location": "Table 1, row GPT-4 Turbo, Relevance column; test set = 50 values x 200 associated items (146 Supports/54 Opposes)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "ValueBench (Ren et al. 2024) held-out test split; ValuePrism (Sorensen et al. 2024) for training data"},
+  "cost": {"est_calls": 600, "tier": "low"},
+  "blockers": ["prompt_none"],
+  "notes": "AAAI 2025. Otherwise a clean role-S claim (dated-resolvable model, public data, precise n and value), but the paper explicitly points to an Appendix A / extended version for the actual prompt text that is not included in this proceedings copy."
+}

@@ -1,0 +1,61 @@
+﻿wid,original_verdict,second_verdict,agree_3class,agree_eligible_vs_not,original_resolved_model,second_resolved_model,original_role,second_role,original_blockers,second_blockers,text_chars,truncated,cost_usd
+W4404782618,eligible,ineligible,0,0,gpt-4o-2024-05-13,gpt-4o-2024-05-13,S,S,,data_closed human_outcome,54308,0,0.032378
+W4404518515,eligible,eligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,59893,0,0.032072
+W4411120175,eligible,eligible,1,1,gpt-4o-2024-05-13,gpt-4o-2024-05-13,B,S,,,98956,0,0.056352
+W4404782330,eligible,eligible,1,1,gpt-4o-2024-05-13,gpt-4o-2024-05-13,S,S,,,37984,0,0.023762
+W7166837475,eligible,eligible,1,1,o3-mini-2025-01-31,o1-2024-12-17,S,S,,,84699,0,0.05563
+W7150802891,eligible,eligible,1,1,gpt-4o-2024-05-13,gpt-4o-2024-05-13,S,S,,,109821,0,0.057944
+W4416036577,eligible,eligible,1,1,gpt-4o-2024-05-13,gpt-4o-2024-05-13,B,B,,,60139,0,0.036596
+W4404970691,eligible,eligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,36782,0,0.024668
+W4412714694,eligible,ineligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,B,,data_closed no_number,44564,0,0.028216
+W4404986534,eligible,ineligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,B,,no_number,235829,1,0.06137
+W7169474262,eligible,eligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,65308,0,0.040262
+W4414585650,eligible,eligible,1,1,o3-mini-2025-01-31,o3-mini-2025-01-31,S,S,,,108520,0,0.06869
+W4403580619,eligible,eligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,58063,0,0.036082
+W4404782977,eligible,eligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,85742,0,0.048994
+W4404314294,eligible,eligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,33919,0,0.022212
+W4410280647,eligible,eligible,1,1,o3-mini-2025-01-31,o1-2024-12-17,S,S,,,108064,0,0.070728
+W4414981059,eligible,eligible,1,1,o3-2025-04-16,gpt-4.1-nano-2025-04-14,S,S,,,60464,0,0.043882
+W7166852523,eligible,eligible,1,1,gpt-5-2025-08-07,gpt-5-2025-08-07,S,S,,,37957,0,0.024962
+W7166852552,eligible,eligible,1,1,gpt-4.1-nano,gpt-4.1-nano,S,S,,,155150,1,0.083134
+W4406058824,eligible,eligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,82581,0,0.05781
+W7106782500,maybe,ineligible,0,1,gpt-4.1-nano-2025-04-14,unresolved,S,S,,dead_alias no_number,24546,0,0.016294
+W4411120249,maybe,eligible,0,0,gpt-4o-2024-05-13,gpt-4o-2024-05-13,B,S,,,66855,0,0.045196
+W4400023054,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,172415,1,0.068726
+W4404783273,maybe,eligible,0,0,gpt-4o-2024-05-13,gpt-4o-2024-05-13,S,S,,,87359,0,0.05599
+W7166588097,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,70959,0,0.04139
+W7166885188,maybe,ineligible,0,1,gpt-5-2025-08-07,unresolved,S,B,,no_number,23413,0,0.015728
+W4402670978,maybe,ineligible,0,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,data_closed,53148,0,0.03926
+W4403705266,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,92458,0,0.049656
+W4400487307,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,S,,,85148,0,0.047698
+W4402670994,maybe,ineligible,0,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,S,,data_closed,78121,0,0.056972
+W7128827394,maybe,ineligible,0,1,o4-mini-2025-04-16,o4-mini-2025-04-16,S,S,,data_closed,38336,0,0.02398
+W4395474395,maybe,eligible,0,0,gpt-4o-2024-05-13,gpt-4o-2024-05-13,B,B,,,56790,0,0.039414
+W4404311505,maybe,ineligible,0,1,o1-2024-12-17,o1-2024-12-17,B,B,,no_number,72906,0,0.041902
+W4403585697,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,S,,,30799,0,0.021754
+W4412886689,maybe,eligible,0,0,o1-2024-12-17,o1-2024-12-17,S,S,,,83590,0,0.047774
+W4411120459,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,B,,,66405,0,0.039846
+W4403666370,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,69320,0,0.038356
+W4400480600,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,,,61334,0,0.031784
+W7125459680,maybe,ineligible,0,1,o3-mini-2025-01-31,o3-mini-2025-01-31,B,B,,no_number data_closed human_outcome prompt,153949,1,0.061088
+W4405561711,maybe,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,S,,,79367,0,0.044284
+W7154655572,ineligible,ineligible,1,1,gpt-4.1-nano-2025-04-14,unresolved,B,B,no_prompt,no_number,39543,0,0.02046
+W4403759556,ineligible,eligible,0,0,gpt-4o-2024-05-13,gpt-4o-2024-05-13,S,S,human_outcome,,19892,0,0.01503
+W7131889008,ineligible,ineligible,1,1,o1-2024-12-17,o1-2024-12-17,C,A,no_number,no_number,103021,0,0.05092
+W4403809255,ineligible,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,S,no_number,,66827,0,0.039594
+W4406482922,ineligible,ineligible,1,1,unresolved,gpt-4-turbo-2024-04-09,C,C,no_number,no_number data_closed,60432,0,0.034014
+W4412889103,ineligible,ineligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,C,B,no_number,no_number none,74811,0,0.051172
+W7203473845,ineligible,ineligible,1,1,gpt-5-nano-2025-08-07,gpt-5-nano-2025-08-07,S,S,no_number,data_closed no_number,98566,0,0.051484
+W4405033318,ineligible,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,A,B,no_number,,30830,0,0.02078
+W4406778839,ineligible,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,S,S,data_closed no_prompt human_outcome,,71552,0,0.038236
+W4412888001,ineligible,ineligible,1,1,unresolved,gpt-4-turbo-2024-04-09,C,C,no_number,webui aux_model_dead,60416,0,0.036586
+W4402705014,ineligible,eligible,0,0,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,A,B,no_number,,88505,0,0.051102
+W7127623381,ineligible,ineligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,S,webui no_number,no_number data_closed,68660,0,0.037902
+W4417144639,ineligible,ineligible,1,1,unresolved,gpt-4-turbo-2024-04-09,C,C,no_number,no_number,142512,1,0.063788
+W4411119258,ineligible,ineligible,1,1,dead-preview,gpt-4-turbo-2024-04-09,A,A,dead_alias no_number,aux_model_dead,65706,0,0.04092
+W4403786591,ineligible,ineligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,B,S,human_outcome,webui human_outcome,49974,0,0.031302
+W4411119967,ineligible,eligible,0,0,dead-preview,gpt-4-turbo-2024-04-09,S,S,dead_alias,,78432,0,0.048102
+W4416035826,ineligible,ineligible,1,1,gpt-4-turbo-2024-04-09,gpt-4-turbo-2024-04-09,C,C,no_number aux_model_dead,no_number,81321,0,0.047206
+W4415169525,ineligible,eligible,0,0,unresolved,gpt-4-turbo-2024-04-09,S,S,webui human_outcome,,132974,1,0.062032
+W4405470316,ineligible,eligible,0,0,unresolved,gpt-4-turbo-2024-04-09,B,S,no_number,,88311,0,0.044826
+W7203475044,ineligible,eligible,0,0,gpt-5-mini-2025-08-07,gpt-5-mini-2025-08-07,A,S,no_number,,95394,0,0.054534

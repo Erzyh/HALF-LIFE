@@ -1,0 +1,31 @@
+{
+  "openalex_id": "https://openalex.org/W4404518327",
+  "title": "LLM Voting: Human Choices and AI Collective Decision-Making",
+  "doi": "https://doi.org/10.1609/aies.v7i1.31758",
+  "field": "Economics, Econometrics and Finance",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-4-1106-preview",
+  "flags": "",
+  "all_links": [
+    "github.com/ethz-coss/LLM_voti",
+    "github.com/joshuay1/zurich-pb-voti",
+    "github.com/joshuay1/zurich-pb-votingpants"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/ethz-coss/LLM_voti",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/joshuay1/zurich-pb-voti",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/joshuay1/zurich-pb-votingpants",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4404518327.txt",
+  "paper_text_status": "pdf"
+}

@@ -1,0 +1,57 @@
+{
+  "wid": "W7166852552",
+  "title": "LexGenius: An Expert-Level Benchmark for Large Language Models in Legal General Intelligence",
+  "model": "gpt-4.1-nano",
+  "metric": "accuracy",
+  "original_value": 46.51,
+  "original_location": "Table 2, row GPT-4.1 nano, column Overall Nai. (CoT: 54.62)",
+  "reexecution": {
+    "mean_over_seeds": 0.4810065907729179,
+    "per_seed": {
+      "0": {
+        "value": 0.4810065907729179,
+        "n": 8345,
+        "ci95": [
+          0.4701018573996405,
+          0.49215398442180947
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 6
+  },
+  "prepare": {
+    "wid": "W7166852552",
+    "n_items": 8345,
+    "n_requests": 8345,
+    "seeds": 1,
+    "est_usd": 0.48,
+    "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+    "dropped_unrenderable": null,
+    "model": "gpt-4.1-nano",
+    "metric": "accuracy",
+    "original_value": 46.51,
+    "cap_usd": 1.0,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7166852552"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 8
+  },
+  "approximation": "our own two seeded shuffles (seed 20260907 + item index); the way the Naive instruction and the question/options are joined is not printed; single pass in the released option order (the runner has no seeded option shuffle; the paper averages two shuffled passes)",
+  "arm": {
+    "model": "gpt-4.1-nano",
+    "config_model": "gpt-4.1-nano",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\drift_ctrl\\W7166852552"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 48.10065907729179,
+    "delta": 1.5906590772917895,
+    "original_inside_ci95": false
+  }
+}

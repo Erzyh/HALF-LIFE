@@ -1,0 +1,66 @@
+{
+  "wid": "W4404781158",
+  "title": "MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Models",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 75.28,
+  "original_location": "Table 5, row GPT-4, English Avg. (quantity 65.00, quality 83.89, relation 82.22, manner 70.00)",
+  "reexecution": {
+    "mean_over_seeds": 0.7833333333333333,
+    "per_seed": {
+      "0": {
+        "value": 0.7791666666666667,
+        "n": 240,
+        "ci95": [
+          0.7291666666666666,
+          0.8291666666666667
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7875,
+        "n": 240,
+        "ci95": [
+          0.7375,
+          0.8333333333333334
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404781158",
+    "n_items": 240,
+    "n_requests": 480,
+    "seeds": 2,
+    "est_usd": 0.22,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 75.28,
+    "cap_usd": 1.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4404781158"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "automatic option extraction replaces the three human ratings of the free-form answers (resolution plan)",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W4404781158"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 78.33333333333333,
+    "delta": 3.0533333333333275,
+    "original_inside_ci95": true
+  }
+}

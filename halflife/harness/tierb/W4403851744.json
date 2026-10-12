@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403851744",
+  "title": "MedQA-CS: Objective Structured Clinical Examination (OSCE)-Style Benchmark for Evaluating LLM Clinical Skills",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"The LLMs includeding the experiments are the GPT series (GPT-3.5-turbo, GPT-4-turbo, GPT-4o)\" (Sec. 3 Experimental Settings); Table 3 row GPT-4 = MedStuLLM score 59.89"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C, Tables 8-10 (MedStuLLM and MedExamLLM prompts)",
+    "note": "Student prompts and examiner (judge) prompts are printed in full."
+  },
+  "claim": {
+    "metric": "MedExamLLM(GPT-4) clinical-skill score, average over 4 sections",
+    "value": 59.89,
+    "n_items": 1667,
+    "location": "Table 3, row GPT-4, column Avg.",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MedQA-CS: https://huggingface.co/datasets/bio-nlp-umass/MedQA-CS ; https://github.com/bio-nlp/MedQA-CS (CC BY-NC 4.0)"
+  },
+  "cost": {
+    "est_calls": 3334,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Paper dated 2024-10-02, no preview strings, so 'GPT-4-turbo' resolves to gpt-4-turbo-2024-04-09 (alias rule). Table rows label the model 'GPT-4'. Subject runs used temperature=0.9 (RQ2), judge runs temperature=0. Judge is the same live model (MedExamLLM = GPT-4-turbo); 1,667 subject calls + 1,667 judge calls per seed, long case contexts."
+}

@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4407719176",
+  "title": "Is Human-Like Text Liked by Humans? Multilingual Human Detection and Preference Against AI",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o / GPT-4o-2024-08-06",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "Appendix C generation notes, e.g. \"articles were generated using the OpenAI's GPT-4o\", \"meta reviews using GPT-4o-2024-08-06\"; Table 3 reports human annotator detection accuracy per dataset."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix C (per-dataset generation prompts), Table 6 (Italian), Table 8 (original vs improved prompts)", "note": "Generation prompts printed; GPT-4o is the text generator, not the evaluated system."},
+  "claim": {
+    "metric": "human detection accuracy on GPT-4o-generated text", "value": null, "n_items": null, "location": "Table 3 (e.g. Zhihu-QA GPT-4o pair-binary zero-shot 99.6%)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {"public": "yes", "source": "https://github.com/xnlp-lab/HumanEval-MGT"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["human_outcome"],
+  "notes": "The gpt-4-turbo alias in live_ids is a false hit (the text only contains GPT-3.5-turbo and Qwen-turbo). GPT-4o generates the machine text; every reported number is human-annotator detection accuracy or preference, and where a snapshot is named it is gpt-4o-2024-08-06, not 2024-05-13. Automatic-detection experiments use fine-tuned detectors."
+}

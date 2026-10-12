@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403758464",
+  "title": "LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's o1 on PlanBench",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 1 (600 Blocksworld instances, zero-shot and one-shot) column 'GPT-4 Turbo': Blocksworld Zero Shot 241/600 (40.1%), One Shot 138/600 (23%)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A prints a complete Blocksworld prompt (domain description, [STATEMENT], goal, 'Just give the actions in the plan')",
+    "note": ""
+  },
+  "claim": {
+    "metric": "plan validity accuracy (Blocksworld, zero-shot)",
+    "value": 40.1,
+    "n_items": 600,
+    "location": "Table 1, Blocksworld, Zero Shot, column GPT-4 Turbo (241/600)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PlanBench (public GitHub); plans validated with VAL"
+  },
+  "cost": {
+    "est_calls": 1800,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Paper dated 2024-09-20 with no preview string, but the vanilla-LLM rows summarize runs made over time and may predate the 2024-04-09 snapshot.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Gap is snapshot ambiguity, not a missing input: the 600 static 3-5 block Blocksworld instances are in the public PlanBench repository (ref. [1]) and Appendix D.1 prints the full zero-shot natural-language prompt. Run gpt-4-turbo-2024-04-09 on the 600 instances, extract the action sequence, validate each plan with VAL, and compare 241/600 (40.1%).",
+    "approximation": "The paper's GPT-4 Turbo column carries no snapshot and may aggregate runs made before 2024-04-09; sampling temperature for the vanilla LLM rows is not stated (use 0).",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

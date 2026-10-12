@@ -1,0 +1,91 @@
+{
+  "wid": "W4415196225",
+  "title": "Hummus: A Dataset of Humorous Multimodal Metaphor Use",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 16,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding); max_tokens covers a Yes/No answer",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 286,
+    "subset_rule": "paper-defined split: test set (Table 6 'All' test = 286 items; test_set.json in the repository)",
+    "approximation": "none"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/xiaoyuisrain/humorous-multimodal-metaphor-use: hummus_dataset.json (annotations), images/ (New Yorker cartoons from the CapCon corpus), test_set.json (test ids)",
+    "config_or_split": "test_set.json",
+    "filter": "met_class != 'Discard'",
+    "fields": {
+      "input": "caption",
+      "label": "met_class",
+      "id": "id",
+      "contest": "contest_number"
+    },
+    "license": "CC BY-NC-SA 4.0 (repository LICENSE); CapCon images CC-BY-4.0",
+    "access_checked": true,
+    "size_mb": 60,
+    "file_url": "https://raw.githubusercontent.com/xiaoyuisrain/humorous-multimodal-metaphor-use/main/hummus_dataset.json",
+    "fields_prose": {
+      "input": "caption + image (images/<id>)",
+      "label": "met_class in {Yes, WIDLII, No} (positive = Yes or WIDLII)",
+      "id": "item key, e.g. nyc-combi-4"
+    },
+    "label_map": {
+      "WIDLII": "Yes"
+    },
+    "columns_verified": "hummus_dataset.json = dict keyed by item id (1,000 entries; the runner flattens it with id = key) with caption, contest_number, met_class (No 372, Yes 332, WIDLII 236, Discard 60); test_set.json is NOT at the repository root on main (404) - the 286 test ids still have to be located; images are not in the repository listing fetched"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{image}Caption: {caption}\n\nDoes the humor of the given image-and-caption combination involve metaphor use? Answer the question with Yes or No.",
+    "placeholders": {
+      "image": "attach images/<id>.jpg as an image content part (NOT expressible: the runner sends text only)",
+      "caption": "items.caption"
+    },
+    "few_shot": "none",
+    "source_location": "Table 1 (Classification instruction) with the full-prompt layout in the Table 1 caption: <image> + 'Caption: {caption}\\n\\n{instructions}'",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "image": "the cartoon image, sent first",
+      "caption": "items.caption"
+    }
+  },
+  "output": {
+    "parse": "label from set [Yes, No]",
+    "postprocess": "strip; no match = unsuccessful answer (counted as wrong; success rate reported)",
+    "parse_prose": "label from set [Yes, No]: first case-insensitive match"
+  },
+  "metric": {
+    "name": "macro_f1",
+    "definition": "mean of F1(positive class: gold Yes/WIDLII, prediction Yes) and F1(negative class: gold No, prediction No) over the 286 test items ('Classification Avg'). (= macro F1 over the two classes Yes/No after mapping WIDLII -> Yes; runner macro_f1)",
+    "judge": "none",
+    "original_value": 0.56,
+    "original_location": "Table 2, row GPT-4 Turbo, Classification columns Pos 0.64 / Neg 0.47 / Avg 0.56",
+    "bootstrap_unit": "item",
+    "name_prose": "custom",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 858,
+    "est_usd": 9.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "Image inputs: the prompt is the New Yorker cartoon (image part) + caption; text-only messages cannot reproduce it.",
+    "test_set.json (286 test ids) is not at the raw path on main (404); the 286-item test restriction cannot be applied until the file is located."
+  ],
+  "notes": "Field names verified from the head of hummus_dataset.json (caption, contest_number, met_class, ...); test_set.json and the images directory were seen in the repository listing but not fetched (raw fetch on 'main' returned 404, check the default branch). Sec. 6.5 also tried a 'No or Yes' wording; the Table 2 number uses the Table 1 wording. || [hooks_2 2026-09-07] reviewed for a per-paper hook: image inputs; no hook written.",
+  "runner_gaps": [
+    "prompt: image attachment placeholder",
+    "items: restrict to an id list held in a second file"
+  ],
+  "hook": "none (needs_human: image inputs)"
+}

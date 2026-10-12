@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4401545735",
+  "title": "Designing Heterogeneous LLM Agents for Financial Sentiment Analysis",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "'the performances using gpt-4o-2024-05-13 and gpt-3.5-turbo-1106 are compared on two relatively small datasets: FPB and FiQA (Table 4)' (Section 4.3)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 2.2 (naive prompt templates; HAD template 'Consider [MESSAGE], what is the sentiment [AGENT-SPECIFIC INSTRUCTION]'); Section 3 (agent instructions A1-A7, summative prompt)",
+    "note": "Placeholders and example message are not instantiated in the paper."
+  },
+  "claim": {
+    "metric": "accuracy (naive prompting, Financial PhraseBank)",
+    "value": 74.57,
+    "n_items": 2264,
+    "location": "Table 4, row GPT-4, FPB Acc. (F1 77.99); FiQA Acc. 87.68; HAD variant 88.34",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Financial PhraseBank (2,264 sentences after processing) and FiQA Task 1 (771), Table 2"
+  },
+  "cost": {
+    "est_calls": 6792,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Exact naive prompt wording, the FPB agreement subset and temperature are not stated.",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "[TEST MESSAGE] is filled with each of the 2,264 sentences of the Financial PhraseBank 100%-agreement subset (Table 2 counts 570/303/1,391 match FPB's Sentences_AllAgree file exactly). The naive prompt is the single-LLM template printed in Sec. 2.2 ('[TEST MESSAGE] Question: what is the sentiment? Answer with negative/neutral/positive.'); run gpt-4o-2024-05-13 at temperature 0, map the answer to the three classes and compare accuracy/F1 with Table 4 (74.57 / 77.99).",
+    "approximation": "The exact naive wording used for Table 4 is only illustrated in Figure 3 (an image; check it if the PDF is at hand); temperature not stated.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

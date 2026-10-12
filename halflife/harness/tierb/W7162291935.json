@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7162291935",
+ "title": "Establishment and application of real-world datasets for precocious puberty from electronic health records based on large language models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"The GPT-4 was able to retrieve specific content from the history of present illness and past medical history with accuracies of 81% and 94%, respectively [8].\" (citation of a different, external study); \"architectures like GPT-4 Turbo (OpenAI) have the ability to perform assessments...\" (Discussion, generic mention)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a for GPT-4/GPT-4 Turbo; the CRISPE-framework prompt (eTable 4) was built for and run against GLM-4-9B, not GPT-4",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for GPT-4; this paper's own extraction-accuracy results (medical history 90.9%, physical exam 96.3%, clinical diagnosis 97.6%, medical order 74.2%; eTable 5) are for GLM-4-9B on n=2,170 held-out EHRs",
+  "value": null,
+  "n_items": null,
+  "location": "Sec 2.6-2.8 and Results 3.1 (GLM-4-9B, with GLM-4-Plus reprocessing low-quality fields)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "10,846 children's EHRs from a single hospital; no public release found"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number",
+  "data_closed"
+ ],
+ "notes": "This paper's actual information-extraction pipeline runs open-source GLM-4-9B/GLM-4-Plus (Zhipu AI), not any OpenAI model. \"GPT-4\"/\"GPT-4 Turbo\" appear only in background/citation sentences (role C, 81%/94% figures belong to a different cited paper [8])."
+}

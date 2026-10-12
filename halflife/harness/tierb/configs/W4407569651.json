@@ -1,0 +1,78 @@
+{
+  "wid": "W4407569651",
+  "title": "CIRCUIT: A Benchmark for Circuit Interpretation and Reasoning Capabilities of LLMs",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 1536
+    },
+    "params_source": "paper Sec. 5.1 for max_tokens ('setting the maximum tokens to 1,536 for each'); temperature assumed 0 (the paper is silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 510,
+    "subset_rule": "all 510 CIRCUIT questions (102 templates x 5 numerical setups), 0-shot prompt without netlists - the first experiment block of Sec. 5.2",
+    "approximation": "blocked: the dataset is not published and the questions carry circuit diagrams (see open_points)."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "CIRCUIT dataset (introduced by this paper: 510 questions from 102 templates, 93 templates with diagrams, 79 of those with netlists). No repository, DOI or download link appears anywhere in the paper, and no public copy was found.",
+    "config_or_split": "entire dataset (the 'Glob.' column of Table 1)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "label": "numerical answer",
+      "id": "template id + numerical setup index"
+    },
+    "license": "unknown",
+    "access_checked": false,
+    "size_mb": null,
+    "download": {
+      "date": "2026-09-19",
+      "check": "No URL in the paper (only arXiv/OpenAI/SIA references). Hugging Face dataset search for 'CIRCUIT benchmark' returns only englund/circuit-design-benchmarks (unrelated, <1K rows); GitHub repository searches for the benchmark ('CIRCUIT benchmark LLM interpretation reasoning', 'CIRCUIT dataset netlist LLM') return no repository."
+    }
+  },
+  "prompt": {
+    "system": "You are an electrical engineering expert. Solve a given problem step by step. At the end of your solution, write \"Final Numerical Answer: N\" where N is your final numerical answer. If the problem did not have enough information needed to solve it, put \"Unknown\" in place of N. If the problem setup is invalid, and thus the problem does not have a solution, put \"None\" in place of N. The final numerical answer, if different from Unknown and None, should be with precision up to 6 decimal places. The numerical answer should be a decimal number with 6 digits after the decimal point. Don't write fractions or numbers in any other format. Don't write any further explanations after the Final Numerical Answer.\nHere is an example of the answer format:\nQuestion:\nWhat is x = 2 + 2 * 2?\nStep by step solution:\nFollowing the PEMDAS rule, we first multiply 2 * 2 = 4. Then, we add 2 + 4 to get x = 6.\nFinal Numerical Answer: 6.000000",
+    "user_template": "{question}",
+    "placeholders": {
+      "question": "items.question"
+    },
+    "few_shot": "none for this cell (0-shot). The 1-shot variant adds the worked example of Appendix C (two versions, with and without netlist), and the netlist variants prepend NETLIST_INSTRUCTION_START plus the relevant entries of NETLIST_INSTRUCTION_DICTIONARY (Appendix B).",
+    "source_location": "Appendix C ('Prompt Design'): the 0-shot system instruction is printed in full, followed by the 1-shot example versions",
+    "verbatim": "full for the 0-shot system prompt (line breaks of the printed block preserved; the typographic apostrophes of 'Don't' normalised to ASCII). The user message is the dataset's question text, which we do not have.",
+    "placeholders_paper": {
+      "question": "the CIRCUIT question, sent together with its diagram when the template has one"
+    }
+  },
+  "output": {
+    "parse": "regex Final Numerical Answer:\\s*(-?[\\d.]+)",
+    "postprocess": "paper: regex extraction of the final numerical answer; a response counts as correct if |answer - ground truth| < 0.001 (Sec. 5.3)",
+    "parse_paper": "'Final Numerical Answer: N' parsed by regex; 'Unknown' / 'None' are the two non-numeric outcomes"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Global accuracy A_global = correctly answered questions / total questions over the whole 510-question dataset, where correct means |answer - ground truth| < 0.001 (Sec. 4.1, 5.3). The paper's other metric, template accuracy pass@k/n over the 102 templates, is not this cell.",
+    "judge": "rule",
+    "original_value": 38.4,
+    "original_location": "Table 1, row 'GPT 4-turbo 0-s', Glob. column",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1530,
+    "est_usd": 60.0,
+    "tier": "mid",
+    "prepare_note": "not run: no items. 510 questions x 3 seeds at gpt-4-turbo $10/$30 per 1M with 1,536-token answers is roughly $60-70."
+  },
+  "open_points": [
+    "items: the CIRCUIT dataset is not released. The paper gives no repository, DOI or contact-free download, and searches on Hugging Face and GitHub find nothing. Without the 510 questions and their ground-truth values there is nothing to send.",
+    "modality: 93 of the 102 templates have circuit diagrams and 'models were provided with diagrams for questions that included them' (Sec. 5.2), so the cell is a multimodal run; the Tier B runner sends text-only messages.",
+    "prompt variant: Table 1 has four prompt configurations (0-shot / 1-shot x with / without netlist). The 38.4 cell is 0-shot without netlists over the full 510 questions; the netlist runs use only the 395 questions that have netlists."
+  ],
+  "notes": "Only the system instruction is printed verbatim; it is recorded above so that a later release of the dataset would make this config runnable in one step. gpt-4o appears in the same table but is undated in the text, which is why the gpt-4-turbo row was chosen."
+}

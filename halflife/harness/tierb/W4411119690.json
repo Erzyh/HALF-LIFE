@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411119690",
+ "title": "Privacy Checklist: Privacy Violation Detection Grounding on Contextual Integrity Theory",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Sec: 'close-source LLM, we evaluate the GPT-4-turbo-'; Table 2 row 'GPT-4-turbo-04-09 Real 86.91 74.76 88.31 89.25 89.71 86.91'; 'to obtain the responses with temperature = 0'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 5 (CI-characteristics extraction prompt), Table 10 (CI-ES prompts), Sec. 5/6 (six prompting strategies: DP, CoT-auto, CoT-manual, +regulation IDs, +explanation, +CI extraction)",
+  "note": "Six distinct prompt templates are defined and printed as tables."
+ },
+ "claim": {
+  "metric": "accuracy (%) averaged across six prompting strategies, Real HIPAA court cases",
+  "value": 86.91,
+  "n_items": null,
+  "location": "Table 2, row GPT-4-turbo-04-09 (Real), rightmost column",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Caselaw Access Project (CAP) real HIPAA-related court cases, plus LLM-augmented synthetic cases built from the same source"
+ },
+ "cost": {
+  "est_calls": 1800,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Exact count of real-case test items not located in the excerpt read (the paper reports 'Real' vs 'Synthetic' splits but n was not pinned down); six prompt variants each require a separate call, and legal-document context lengths raise per-call cost above short-prompt norms."
+}

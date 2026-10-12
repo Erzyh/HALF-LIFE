@@ -1,0 +1,77 @@
+{
+  "wid": "W4404782618",
+  "title": "Visual Prompting in LLMs for Enhancing Emotion Recognition",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (Sec. 4.1 names the model and the zero-shot setting but gives no decoding parameters)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 459,
+    "subset_rule": "all 459 annotated faces of CCFERD (Table 4: Easy 76 images / 174 faces, Medium 34 / 171, Hard 9 / 114), one question per face",
+    "approximation": "BLOCKED: the run is multimodal. Each call would carry an image that has first been rewritten by the paper's SoV pipeline (face detection, face numbering, bounding boxes, facial landmarks drawn onto the picture, Sec. 3.2), and the runner sends text-only messages. A hook could assemble image parts, but neither the images nor the SoV code are released."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "CCFERD (Complex Context Facial Emotion Recognition Dataset), https://github.com/anonOrchid/CCFERD, linked as 'Code' from the project page https://wangzhifengharrison.github.io/sov_prompts_emnlp; images collected by the authors from https://www.abc.net.au/news/",
+    "config_or_split": "all three difficulty splits (Easy / Medium / Hard)",
+    "filter": null,
+    "fields": {
+      "input": "SoV-marked image + person number",
+      "label": "one of Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral (README: DeepFace pre-annotation, revised by two annotators and verified by a third with a psychology background)",
+      "id": "image id + person number"
+    },
+    "license": "unknown (no LICENSE in the repository; the source photographs are ABC News material)",
+    "access_checked": true,
+    "size_mb": null,
+    "file_url": null,
+    "access_note": "Repository reachable 2026-09-19 (HTTP 200). datasets/images/ contains only 'ComingSoon.md'; datasets/examples/ has original_images and processed_images. The README states: 'To comply with anonymity requirements, the actual images from the dataset, along with the Python code and contact information, will be made publicly available once the paper is accepted.' The paper is EMNLP 2024 Main and the release has still not happened, so the 459 annotated faces and their labels are not obtainable."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Is Person {n}'s face visible? What is Person {n}'s emotion?",
+    "placeholders": {
+      "n": "the number the SoV pipeline printed on that face in the image"
+    },
+    "few_shot": "none (zero-shot, Sec. 4.1)",
+    "source_location": "Figure 5, right-hand column (combined text-vision prompts); the left-hand column shows the plain-text variant 'What is the emotion for this group of people?'",
+    "verbatim": "partial: the per-person question is verbatim from Figure 5 (the figure shows it for Person 1); the figure's other questions ('What food is Person 3 eating and drinking?', 'Do Person 3 and Person 4 have similar emotion?') illustrate the method rather than the scored task, and the paper never states which single question produced the Table 1 accuracy or whether the seven emotion labels were offered in the prompt.",
+    "placeholders_paper": {
+      "n": "Person 1 ... Person n, the numbers drawn on the image"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the reply is prose ('he appears to be smiling ... he is feeling happy'); the paper does not describe how it is mapped to one of the seven labels",
+    "parse_paper": "unspecified"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "Total accuracy (%): share of the 459 faces whose recognised emotion matches the annotation, pooled over the three difficulty splits.",
+    "judge": "none stated",
+    "original_value": 50.1,
+    "original_location": "Table 1, row 'GPT-4o (Achiam et al., 2024) +SoV (Ours)', Total Acc(%) column (Easy 51.27, Medium 49.12, Hard 49.12, Total 50.10; R@1 24.20)",
+    "bootstrap_unit": "face",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1377,
+    "est_usd": 35.0,
+    "tier": "mid",
+    "cost_note": "459 faces x 3 seeds; each call carries a full news photograph, so image tokens dominate (roughly 1-2k input tokens per image at gpt-4o prices)."
+  },
+  "open_points": [
+    "items: the dataset is not public. The repository ships example images only and says the real images will follow 'once the paper is accepted'; the paper has been published since EMNLP 2024. Without the 119 images and the 459 per-face emotion labels there is nothing to run and nothing to score against.",
+    "method: the SoV pipeline that produces the marked images (face detection, numbering, bounding boxes, landmark overlay) is the paper's contribution and its code is part of the same unreleased bundle, so even with raw photographs the model input could not be rebuilt faithfully.",
+    "harness: multimodal input is outside the runner's text-only request builder; a hook would have to assemble image parts and the images would have to be encoded locally.",
+    "scoring: the answers are prose and the paper does not say how they were mapped to the seven labels, nor what R@1 ranks over; a rule or a judge would be our own addition."
+  ],
+  "notes": "GPT-4V-turbo scores higher in the same table (55.33 Total) but is not a resolvable snapshot and was accessed through chatgpt.com (footnote 1), so gpt-4o-2024-05-13 is the only live-model cell. Both GPT rows are the authors' own runs."
+}

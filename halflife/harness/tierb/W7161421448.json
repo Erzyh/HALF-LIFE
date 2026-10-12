@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7161421448",
+  "title": "Identifying implicit bias in LLM-based chat AI toward people with intellectual disabilities",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'Utilizing the GPT-4-Turbo model, we requested story-generation based on 10 prompt stems' ... 'Temperature was set to 1.0 (the default), a seed was used' (Methods; run December 2024)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods (story prompts 'Tell me a short story about a person [with intellectual disabilities] [situation]' with the ten situations) and Appendix 1 (question prompt for story analysis)",
+    "note": "System prompt 'Assistant is a large language model.'; 250 seeded stories per condition."
+  },
+  "claim": {
+    "metric": "odds ratio of paternalistic tone, ID Present vs ID Absent stories (GPT-4-Turbo)",
+    "value": 136.59,
+    "n_items": 5000,
+    "location": "Results, GPT-4-Turbo paragraph and Figure 2 (OR = 136.59 [105.88, 176.21]; infantilization OR = 407.43)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo (story comprehension questions, Appendix 1)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/specialolympics/implicit_bias_llms (code, data, analysis, results); prompts printed"
+  },
+  "cost": {
+    "est_calls": 30000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Re-execution needs 5,000 generations plus 5,000 analysis calls per seed at temperature 1.0; the OR is computed from GPT-4-Turbo-coded categories."
+}

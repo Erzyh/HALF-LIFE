@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7172172215",
+  "title": "When Specifications Conflict: A Symmetry-Based Framework for Measuring LLM Preferences",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano",
+    "role": "S",
+    "evidence": "'GPT-4.1-nano gpt-4.1-nano (OpenAI) default temperature 0.1; seed 42' (model table); 'Test-selection rates range from 16.5% for Gemma-3-4B-IT and 17.4% for GPT-4.1-nano' (Section 5)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 8 (prompt template for the code-generation experiments); Figure 2 (example prompt construction for the main benchmark)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "test-selection rate (MBPP documentation-vs-test conflicts)",
+    "value": 17.4,
+    "n_items": 268,
+    "location": "Figure 6 and appendix table row GPT-4.1-nano (82.6% documentation, 17.4% test); 67 verified pairs x 4 counterbalanced trials = 268 per model",
+    "task_type": "generation",
+    "judge": "none (execution-based attribution against oracle test suites)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "sanitized MBPP (public, 427 tasks; 200 sampled with seed 42, 67 verified pairs); generation prompts and records stated as 'released with the benchmark' but no URL in the text"
+  },
+  "cost": {
+    "est_calls": 804,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Main 550-instance benchmark tables focus on other models; GPT-4.1-nano's number is in the code-generation experiment. Release URL not printed, so data marked partial.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 67 verified MBPP conflict pairs were built by a DeepSeek-V4-Pro pipeline (200 sanitized-MBPP tasks sampled with seed 42) and are stated as 'released with the benchmark' without a URL. With the released pairs, run the Figure 8 template in the four counterbalanced orders with gpt-4.1-nano (temperature 0.1, seed 42), attribute each output by executing it against both oracle test suites, and compare the 17.4% test-selection rate. Fallback: regenerate the pairs with the described pipeline.",
+    "approximation": "A regenerated pair set differs from the released one; snapshot not stated.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

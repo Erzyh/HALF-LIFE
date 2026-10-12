@@ -1,0 +1,25 @@
+{
+  "openalex_id": "W4402466848",
+  "title": "Trust or Escalate: LLM Judges with Provable Guarantees for Human Agreement",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec 3.1: \"and GPT-4-turbo (Achiam et al., 2023) as judges\"; Table 3 row \"No Selection\" = 100% GPT-4-turbo composition, Coverage 100%, Guarantee-Success 0%."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Appendix shows qualitative judge-decision transcripts (\"Chat Assistant Example\" cases) but never prints the pairwise-judge system/instruction prompt itself."
+  },
+  "claim": {
+    "metric": "guarantee success rate across 1000 calibration/test splits, standalone GPT-4-turbo (\"No Selection\"), ChatArena", "value": null, "n_items": 5200, "location": "Table 3, row \"No Selection\" (100% GPT-4-turbo); exact per-split test size and raw agreement % are not cleanly separable from the extracted table text",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {"public": "partial", "source": "Chatbot Arena user-assistant interactions (Zheng et al. 2023, publicly released); paper uses an unreleased 5.2k-instance subset \"sampled by Li et al. (2024a)\"; no code/prompt repository link found in this paper"},
+  "cost": {"est_calls": 15600, "tier": "high"},
+  "blockers": ["no_number"],
+  "notes": "GPT-4-turbo is run as a standalone judge baseline (\"No Selection\"/Heuristic Selection rows) against the paper's proposed Cascaded Selective Evaluation method, a genuine live-run claim, but (1) the pairwise-judge prompt itself is never printed anywhere in the paper, only example transcripts of its outputs, and (2) the results tables extracted as dense runs of concatenated digits (a PDF-table-extraction artifact), so no single GPT-4-turbo value could be confidently isolated. Both gaps stack, so this is ineligible rather than \"maybe\"."
+}

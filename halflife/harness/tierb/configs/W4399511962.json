@@ -1,0 +1,88 @@
+{
+  "wid": "W4399511962",
+  "title": "CRAG -- Comprehensive RAG Benchmark",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 128
+    },
+    "params_source": "assumed (the paper pins the snapshot - 'GPT-4 Turbo (gpt-4-turbo-2024-04-09)' - but states no decoding parameters). max_tokens 128 matches the prompt's own instruction to 'answer the question in as few words as possible'.",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1335,
+    "subset_rule": "paper-defined split: the CRAG public test set, 1,335 questions (Sec. 5.1); the released split flag is `split == 1` (0 = validation, 1 = public test)",
+    "approximation": "LLM-only condition, so no retrieval context is added; the query_time string must be rendered exactly as 'mm/dd/yyyy, hh:mm:ss PT' from the dataset's query_time field."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/facebookresearch/CRAG (docs/dataset.md), file data/crag_task_1_and_2_dev_v4.jsonl.bz2",
+    "config_or_split": "split == 1 (public test, 1,335 questions) of the combined validation+public-test release (2,706 examples in total per Appendix A.2.3)",
+    "filter": "split == 1",
+    "fields": {
+      "input": "query",
+      "label": "answer",
+      "id": "interaction_id"
+    },
+    "label_alt": "alt_ans (list of other valid gold answers)",
+    "license": "CC BY-NC 4.0 (repository LICENSE and README)",
+    "access_checked": true,
+    "size_mb": 739.4,
+    "file_url": "https://github.com/facebookresearch/CRAG/raw/refs/heads/main/data/crag_task_1_and_2_dev_v4.jsonl.bz2?download=",
+    "fields_prose": {
+      "input": "query plus query_time; no references in the LLM-only condition",
+      "label": "answer, with alt_ans holding other acceptable gold answers",
+      "id": "interaction_id"
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "NOT downloaded. A HEAD of the release file resolves to media.githubusercontent.com with Content-Length 739,384,484 bytes (739 MB), because every row embeds up to five full HTML pages alongside the QA pair. The schema below is taken from docs/dataset.md, which documents interaction_id, query_time, domain, question_type, static_or_dynamic, query, answer, alt_ans, split, popularity and search_results. There is no QA-only file: the Task 3 release is larger still (four parts)."
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are given a Question and the time when it was asked in the Pacific Time Zone (PT), referred to as \"Query Time\". The query time is formatted as \"mm/dd/yyyy, hh:mm:ss PT\". Your task is to answer the question in as few words as possible.\nPlease follow these guidelines when formulating your answer:\n1. If the question contains a false premise or assumption, answer “invalid question”.\n2. If you are uncertain or don’t know the answer, respond with “I don’t know”.\n### Question\n{query}\n### Query Time\n{query_time}\n### Answer\n",
+    "placeholders": {
+      "query": "items.query",
+      "query_time": "items.query_time"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A.3.1 'Prompts used in straightforward RAG solutions', block 'Vanilla LLM'",
+    "verbatim": "full; the extraction's hard wraps were rejoined and the typographic quotes around “invalid question” / “I don’t know” are kept as printed. This is the LLM-only prompt; the Task 1 and Task 2/3 variants in the same appendix add a {references} block.",
+    "placeholders_paper": {
+      "query": "the CRAG question",
+      "query_time": "the question's query time, formatted mm/dd/yyyy, hh:mm:ss PT"
+    }
+  },
+  "output": {
+    "parse": "free text (a short answer, or the literal 'invalid question' / 'I don't know')",
+    "postprocess": "none",
+    "parse_paper": "same; the answer string is handed to the two-step evaluator"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Accuracy under CRAG auto-eval: an answer that matches the ground truth exactly counts as accurate without invoking a judge; otherwise two auto-evaluators, ChatGPT (gpt-3.5-turbo-0125) and Llama 3 (llama-3-70B-instruct), judge it and the reported figure is the average of the two (Sec. 4). 'Perfect' and 'acceptable' are merged into accurate; missing answers score 0 and incorrect answers -1 for truthfulness.",
+    "judge": "llm:gpt-3.5-turbo-0125 AND llm:llama-3-70B-instruct, averaged; prompt location Appendix A.2.2 - but the appendix states the printed prompt is only 'similar to' the real one",
+    "original_value": 33.5,
+    "original_location": "Table 5, block 'LLM only', row GPT-4 Turbo, column Accuracy (Hallucination 13.5, Missing 53.0, Truthfulness 20.0)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1335,
+    "est_usd": 20.0,
+    "tier": "high",
+    "prepare_note": "--prepare not run: loading the items would pull 739 MB. The generation half is cheap (1,335 short prompts at gpt-4-turbo, ~$20 with 1 seed); the judge half is the expensive and blocked part."
+  },
+  "open_points": [
+    "JUDGE PROMPT NOT RELEASED: Appendix A.2.2 says in as many words, 'The prompt we used in the auto-eval is similar to the following. We did not release the exact prompt used in the challenge to avoid prompt attack.' The metric therefore cannot be reconstructed from the paper, only approximated - which is exactly what the accuracy number is sensitive to.",
+    "JUDGE MODELS: the reported figure is the average of gpt-3.5-turbo-0125 and llama-3-70B-instruct. gpt-3.5-turbo-0125 has no entry in harness/pricing.json, i.e. it is not on this study's callable list, and llama-3-70B-instruct needs self-hosting or a third-party endpoint. Per the task rule an LLM judge is admissible only when the judge model is itself still callable and its prompt is printed; neither holds here.",
+    "DOWNLOAD: the only released file for Tasks 1/2 is 739 MB because each row embeds up to five full HTML pages; the LLM-only condition needs just query / query_time / answer / alt_ans / split, but no QA-only extract is published. A human must decide whether to lift the 50 MB ceiling and strip the file locally.",
+    "If a human approves a substitute judge, note that the paper reports its own auto-evaluators' agreement with human grading (94.7% / 98.9% F1, Table 10), so a substitute's agreement should be measured on the same basis before the delta is interpreted."
+  ],
+  "notes": "The generation side is unusually clean: the snapshot is pinned in the text, the LLM-only prompt is printed verbatim, the split flag is documented, and Table 5 gives the exact cell (33.5). Everything that blocks this config sits on the scoring side plus the release size. || The same table's Task 1/2/3 rows for GPT-4 Turbo reuse the same questions with the reference blocks of Appendix A.3.1, and would inherit the same judge problem. || Exact-string matches bypass the judge entirely, so a partial re-execution (exact-match-only accuracy, a strict lower bound on the paper's number) is possible without any judge - that is a scoping decision, not a reproduction of 33.5."
+}

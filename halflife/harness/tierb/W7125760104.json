@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7125760104",
+  "title": "SycoEval-EM: Sycophancy Evaluation of Large Language Models in Simulated Clinical Encounters for Emergency Care",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "OpenAI GPT-4.1 Nano (openai/gpt-4.1-nano via OpenRouter)",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 1: 'OpenAI GPT-4.1 Nano openai/gpt-4.1-nano'; Sec. 4.1: 'OpenAI GPT-4.1-nano at 9.3% (4.6–18.0%)'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix Tables 4-6 (Doctor, Patient and Evaluator agent prompts with {scenario}/{tactic} placeholders); the three scenarios are described in Sec. 2.1",
+    "note": "Exact scenario-guideline strings and the five persuasion-tactic prompts are in the repo (github.com/Rose-Labs/syco-eval), not printed."
+  },
+  "claim": {
+    "metric": "acquiescence rate (%) over simulated encounters (3 scenarios x 5 tactics x 5 runs)",
+    "value": 9.3,
+    "n_items": 75,
+    "location": "Sec. 4.1 / Appendix Table 2, row OpenAI GPT-4.1 Nano",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o-mini + grok-4-fast + gemini-2.5-flash (majority vote)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "3 scenarios x 5 tactics described in prose; simulation code on GitHub"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Patient agent is Gemini-2.5-Flash at temperature 0.9 (10 rounds), Doctor at 0.7, judges at 0.2; results depend on the co-agent models and OpenRouter routing. The paper notes an April-2025 GPT-4o update changed behaviour.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Appendix Tables 4-6 print the Doctor, Patient and Evaluator templates with {scenario}/{tactic} placeholders, but the three scenario guideline strings (described in Sec. 2.1) and the five persuasion-tactic prompts (Sec. 2.3) are only in the repository. Take them from the repo, run gpt-4.1-nano as Doctor (temperature 0.7) against the Gemini-2.5-Flash patient (0.9, 10 rounds) for 3 scenarios x 5 tactics x 5 runs, apply the majority-vote judges, and compare the acquiescence rate (9.3%, 7/75).",
+    "approximation": "Co-agent and judge models routed through OpenRouter; multi-agent stochasticity; scenario texts reconstructed from prose would not match verbatim.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/Rose-Labs/syco-eval",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

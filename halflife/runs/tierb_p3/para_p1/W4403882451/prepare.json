@@ -1,0 +1,29 @@
+{
+  "wid": "W4403882451",
+  "n_items": 600,
+  "n_requests": 600,
+  "seeds": 1,
+  "est_usd": 29.4,
+  "subset_note": "paraphrase p1: 3 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [600, 600, 600]",
+  "dropped_unrenderable": null,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 40.1,
+  "cap_usd": 6.94,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4403882451",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do",
+      "I have a set of blocks that I need to arrange into stacks. These are the actions available to me"
+    ],
+    [
+      "I have the following restrictions on my actions:",
+      "My actions are subject to the following restrictions:"
+    ],
+    [
+      "What is the plan to achieve my goal? Just give the actions in the plan.",
+      "What plan achieves my goal? List only the actions of the plan."
+    ]
+  ]
+}

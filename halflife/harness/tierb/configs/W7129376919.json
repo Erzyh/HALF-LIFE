@@ -1,0 +1,74 @@
+{
+ "wid": "W7129376919",
+ "title": "Collaborative large language models (LLMs) are all you need for screening in systematic reviews",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 1000,
+   "top_p": 1.0
+  },
+  "params_source": "paper Methods/Models ('The temperature hyperparameter was set to be 0 ensuring deterministic responses with a maximum output of 1,000 tokens'); the snapshot is 'the versions released in May 2024' of GPT-4 Turbo",
+  "seeds": 1
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 11300,
+  "subset_rule": "all 11,300 title/abstract pairs across the five systematic reviews (Table 1 totals 1552 + 1637 + 1338 + 1998 + 4775)",
+  "approximation": "cannot be fixed: neither the articles nor the gold labels are obtainable (see open_points)"
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/Mihir3009/SR_LLMs (the paper's Data availability statement: 'Source code and fully annotated datasets with gold-standard decision labels and machine-generated decisions labels with explanation are publicly available')",
+  "config_or_split": "five systematic-review datasets (PARP toxicity, mHCC, mCRPC, mHSPC, RCC), 11,300 title/abstract pairs in total",
+  "filter": null,
+  "fields": {
+   "input": "title + abstract",
+   "label": "gold-standard include / exclude decision",
+   "id": "citation id"
+  },
+  "license": "the repository ships a LICENSE file; the article is CC-BY-NC-ND 4.0 (medRxiv preprint)",
+  "access_checked": true,
+  "size_mb": 0,
+  "file_url": null,
+  "access_note": "Checked 2026-09-19: the repository exists but holds only LICENSE and a README.md whose entire content is the line '# SR_LLMs'. No data, no code, and the branches page lists no branch besides the default."
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "You are a systematic review expert. You are required to screen a given study by reading the title and abstract of the given study. You will decide based on the [component 1, component 2, component N] of the PICOS (population, intervention, control, outcome, study design] criteria. You will only include the given study if all of the criteria are met/satisfied. Please produce only one label for the given study: \"include\", or \"exclude\". Please also provide a step-by-step explanation for your decision. DO NOT generate anything apart from Include or Exclude for Decision. Always provide a Decision after an explanation.\n\nFORMAT:\n\nExplanation: [step-by-step explanation]\n\nDecision: Include/Exclude\n\nPICOS:\n\n<Dataset specific PICOS criteria>\n\nTitle: <add title text>\n\nAbstract: <add abstract text>",
+  "placeholders": {
+   "picos": "NOT AVAILABLE - the per-review PICOS criteria are not published",
+   "title": "items.title",
+   "abstract": "items.abstract"
+  },
+  "few_shot": "none (zero-shot chain-of-thought)",
+  "source_location": "Supplement Table 1 ('Initial prompt used for main experiments') in the online-only supplementary material media-1.docx of the medRxiv preprint 10.64898/2026.02.07.26345640, downloaded 2026-09-19; the paper body points at Supplement Tables 1-3",
+  "verbatim": "full for the template, which is a shell: its angle-bracket slots are filled per review. The slot <Dataset specific PICOS criteria> - and the bracketed [component 1, component 2, component N] list naming which PICOS components apply - are printed nowhere in the paper or its supplement, so the prompt cannot actually be rendered. The unbalanced bracket in '(population, intervention, control, outcome, study design]' is the supplement's own."
+ },
+ "output": {
+  "parse": "regex Decision:\\s*(Include|Exclude)",
+  "postprocess": "case-insensitive; the FORMAT block fixes an Explanation line followed by a Decision line"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "mean recall for inclusion across the five systematic reviews: per review, recall = correctly included articles / gold-included articles; the reported figure is the mean over the five reviews, not the pooled recall",
+  "judge": "none",
+  "original_value": 95.5,
+  "original_location": "Results, 'Independent individual LLMs without conflict resolution' ('GPT-4T exhibited a mean precision of 99.74 ... and a mean recall of 95.5%'); per-review values in Table 2, ranging from 91.5% (PARP toxicity) to 100% (mHCC)",
+  "bootstrap_unit": "article (within review)",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 11300,
+  "est_usd": 158.0,
+  "tier": "high",
+  "est_note": "hand estimate: 11,300 gpt-4-turbo calls, title+abstract+PICOS in, chain-of-thought out (up to 1,000 tokens). No prepare run: neither items nor labels are available."
+ },
+ "open_points": [
+  "No items and no gold labels. The data-availability statement promises the annotated datasets at github.com/Mihir3009/SR_LLMs, but that repository contains only LICENSE and a one-line README (checked 2026-09-19). The five reviews' citation sets and their gold include/exclude decisions are not in the public record elsewhere.",
+  "Prompt incomplete. Supplement Table 1 gives the template but leaves <Dataset specific PICOS criteria> and the [component 1 ... component N] list unspecified; the PICOS criteria differ per review and are what the decision turns on.",
+  "Cost. Even if the data appeared, 11,300 chain-of-thought screening calls on gpt-4-turbo-2024-04-09 at up to 1,000 output tokens is by far the most expensive claim in this group (order USD 150-200 for a single pass) and would need its own go."
+ ],
+ "notes": "The supplement (media-1.docx, 387,236 bytes) was mirrored to external/data/tierb_items/W7129376919/ and holds Supplement Tables 1-3 (main, conflict-resolution and LLM-LLM interaction prompts) plus the error analyses."
+}

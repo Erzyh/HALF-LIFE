@@ -1,0 +1,277 @@
+{
+  "card_id": "W4400103831",
+  "run_date_utc": "2026-09-19",
+  "target_paper": {
+    "title": "BADGE: BADminton report Generation and Evaluation with LLM",
+    "doi": "10.48550/arxiv.2406.18116",
+    "repo": "https://github.com/AndyChiangSH/BADGE",
+    "repo_commit": "83a515a2f618e118cebc4f55ae55096f2a4e7560",
+    "repo_license": "MIT",
+    "original_values": {
+      "human": 7.925,
+      "gpt35": 8.625,
+      "gpt4": 8.825
+    },
+    "original_source": "Table 2 (GPT-4 evaluation, CSV+CoT condition, 10 matches)",
+    "released_outputs_reaggregated": {
+      "human": 7.947222222222222,
+      "gpt35": 8.625,
+      "gpt4": 8.399999999999999
+    }
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13,
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (harness/openai_client.py)",
+    "parameters": "one user message; no temperature / max_tokens / top_p / seed, exactly as code/generation/GPT-4.py and code/evaluation/*.py -> API default temperature 1.0",
+    "prompts": "prompt/generation/CSV+CoT.txt ({CSV} <- CSV/<game>/CSV.txt) and prompt/evaluation/<criterion>.txt ({Badminton Report} <- report), read from the repo at run time",
+    "battery": "stage 1 writer 30 calls, stage 2 judge 480 calls, 3 seeds, score parser: bare integer, else the last '<criterion> [Score][:] <n>' with markdown bold tolerated, 1-10 enforced, otherwise missing"
+  },
+  "results": {
+    "arms": {
+      "primary": {
+        "sources": {
+          "gpt4": "gpt4_new",
+          "gpt35": "gpt35_released",
+          "human": "human_released"
+        },
+        "rows": {
+          "gpt4": {
+            "per_criterion": {
+              "coherence": 8.566666666666666,
+              "consistency": 9.333333333333332,
+              "excitement": 8.133333333333335,
+              "fluency": 8.966666666666665
+            },
+            "avg": 8.75,
+            "n_matches": 10,
+            "missing": 0,
+            "per_seed_avg": [
+              8.8,
+              8.75,
+              8.7
+            ],
+            "median_over_seeds": 8.75,
+            "bootstrap": {
+              "ci95": [
+                8.625,
+                8.866666666666667
+              ],
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "gpt35": {
+            "per_criterion": {
+              "coherence": 8.266666666666667,
+              "consistency": 8.233333333333334,
+              "excitement": 7.8,
+              "fluency": 8.766666666666666
+            },
+            "avg": 8.266666666666666,
+            "n_matches": 10,
+            "missing": 0,
+            "per_seed_avg": [
+              8.275,
+              8.261111111111111,
+              8.25
+            ],
+            "median_over_seeds": 8.261111111111111,
+            "bootstrap": {
+              "ci95": [
+                7.925,
+                8.541666666666666
+              ],
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "human": {
+            "per_criterion": {
+              "coherence": 7.4333333333333345,
+              "consistency": 8.9,
+              "excitement": 6.966666666666667,
+              "fluency": 8.333333333333332
+            },
+            "avg": 7.908333333333334,
+            "n_matches": 10,
+            "missing": 0,
+            "per_seed_avg": [
+              7.949999999999999,
+              7.9,
+              7.874999999999999
+            ],
+            "median_over_seeds": 7.9,
+            "bootstrap": {
+              "ci95": [
+                7.708333333333333,
+                8.108333333333334
+              ],
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        },
+        "vs_published_8_825": {
+          "target": 8.825,
+          "delta": -0.07499999999999929,
+          "judgment": "생존 (survived)",
+          "why": "the original is inside the match-bootstrap CI and GPT-4 >= GPT-3.5 > human (GPT-4 8.750, CI [8.625, 8.867]; GPT-3.5 8.261; human 7.900; original 8.825)"
+        },
+        "vs_released_recomputed_8_40": {
+          "target": 8.4,
+          "delta": 0.34999999999999964,
+          "judgment": "부분 생존 (partial)",
+          "why": "the LLM-over-human ordering holds but the original is outside the CI (GPT-4 8.750, CI [8.625, 8.867]; GPT-3.5 8.261; human 7.900; original 8.4)"
+        },
+        "ordering_gpt4_ge_gpt35_gt_human": true,
+        "judgment": "생존 (survived)"
+      },
+      "secondary": {
+        "sources": {
+          "gpt4": "gpt4_released",
+          "gpt35": "gpt35_released",
+          "human": "human_released"
+        },
+        "rows": {
+          "gpt4": {
+            "per_criterion": {
+              "coherence": 8.533333333333333,
+              "consistency": 9.433333333333334,
+              "excitement": 8.1,
+              "fluency": 8.933333333333334
+            },
+            "avg": 8.75,
+            "n_matches": 10,
+            "missing": 0,
+            "per_seed_avg": [
+              8.825,
+              8.675,
+              8.761111111111111
+            ],
+            "median_over_seeds": 8.761111111111111,
+            "bootstrap": {
+              "ci95": [
+                8.625,
+                8.875
+              ],
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "gpt35": {
+            "per_criterion": {
+              "coherence": 8.266666666666667,
+              "consistency": 8.233333333333334,
+              "excitement": 7.8,
+              "fluency": 8.766666666666666
+            },
+            "avg": 8.266666666666666,
+            "n_matches": 10,
+            "missing": 0,
+            "per_seed_avg": [
+              8.275,
+              8.261111111111111,
+              8.25
+            ],
+            "median_over_seeds": 8.261111111111111,
+            "bootstrap": {
+              "ci95": [
+                7.925,
+                8.541666666666666
+              ],
+              "n_boot": 2000,
+              "seed": 0
+            }
+          },
+          "human": {
+            "per_criterion": {
+              "coherence": 7.4333333333333345,
+              "consistency": 8.9,
+              "excitement": 6.966666666666667,
+              "fluency": 8.333333333333332
+            },
+            "avg": 7.908333333333334,
+            "n_matches": 10,
+            "missing": 0,
+            "per_seed_avg": [
+              7.949999999999999,
+              7.9,
+              7.874999999999999
+            ],
+            "median_over_seeds": 7.9,
+            "bootstrap": {
+              "ci95": [
+                7.708333333333333,
+                8.108333333333334
+              ],
+              "n_boot": 2000,
+              "seed": 0
+            }
+          }
+        },
+        "vs_published_8_825": {
+          "target": 8.825,
+          "delta": -0.06388888888888822,
+          "judgment": "생존 (survived)",
+          "why": "the original is inside the match-bootstrap CI and GPT-4 >= GPT-3.5 > human (GPT-4 8.761, CI [8.625, 8.875]; GPT-3.5 8.261; human 7.900; original 8.825)"
+        },
+        "vs_released_recomputed_8_40": {
+          "target": 8.4,
+          "delta": 0.3611111111111107,
+          "judgment": "부분 생존 (partial)",
+          "why": "the LLM-over-human ordering holds but the original is outside the CI (GPT-4 8.761, CI [8.625, 8.875]; GPT-3.5 8.261; human 7.900; original 8.4)"
+        },
+        "ordering_gpt4_ge_gpt35_gt_human": true,
+        "judgment": "생존 (survived)"
+      }
+    },
+    "published_table2": {
+      "human": {
+        "coherence": 7.5,
+        "consistency": 8.9,
+        "excitement": 6.8,
+        "fluency": 8.5,
+        "avg": 7.925
+      },
+      "gpt35": {
+        "coherence": 8.4,
+        "consistency": 9.2,
+        "excitement": 8.0,
+        "fluency": 8.9,
+        "avg": 8.625
+      },
+      "gpt4": {
+        "coherence": 8.6,
+        "consistency": 9.4,
+        "excitement": 8.2,
+        "fluency": 9.1,
+        "avg": 8.825
+      }
+    },
+    "cost_usd": 5.802,
+    "calls": 510,
+    "errors": 0,
+    "call_log_stats": {
+      "finish_reasons": {
+        "stop": 480
+      },
+      "judge_calls_archived": 480
+    },
+    "judgment": "생존 (survived)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as the card instantiates it: survived = the published 8.825 lies inside the match-level bootstrap 95% CI of the re-run GPT-4 row AND GPT-4 >= GPT-3.5 > human; partial = ordering holds but level or CI does not; dead = human reports scored at or above the LLM-written ones; human double-coding pending",
+    "note": "the original is inside the match-bootstrap CI and GPT-4 >= GPT-3.5 > human (GPT-4 8.750, CI [8.625, 8.867]; GPT-3.5 8.261; human 7.900; original 8.825)"
+  },
+  "reproducibility_frictions_observed": [
+    "the released judge outputs do not rebuild Table 2's GPT-4 row: our parser gives 8.400 (consistency 8.00 with released item scores 10, 4, 8, 10, unparseable, 9, 3, 9, 9, 10) against the published 8.825, while the GPT-3.5 row (8.625) reproduces exactly and the human row reaches 7.925 once one judge reply that renames the criterion ('- Excitiveness: 6') is counted",
+    "the repository ships no score parser and no table-building script; the parser above is a documented pipeline paraphrase, not a prompt change",
+    "no decoding parameter is set anywhere in the repository, so writer and judge both run at temperature 1.0 on n = 10 matches; the published GPT-4 - GPT-3.5 gap of 0.20 is inside that noise",
+    "path mismatch in the repository: the generation scripts write generation/<game>/<model>/ while the evaluation scripts read report/<game>/<model>/, and evaluation/ stores the report directory as 'csv+CoT.txt' for 9 of the 10 games and 'CSV+CoT.txt' for the tenth",
+    "the GPT-3.5 writer arm (gpt-3.5-turbo-0125, shut down 2026-03-26) cannot be regenerated; its released reports and the human reports are judged as fixed inputs",
+    "Table 3 (human raters) and the r = 0.333 correlation cannot be re-executed",
+    "the 10 human-written reports are third-party news text: they stay inside the L1 archive as prompt inputs only"
+  ]
+}

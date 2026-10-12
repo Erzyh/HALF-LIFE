@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4417146272",
+  "title": "Variation in body weight and feed intake trajectories are promising resilience indicators in Texel lambs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "OpenAI GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Generative AI statement: \"ChatGPT (version GPT-4, model OpenAI GPT-4-turbo...) was used to help with the translation ... and improve readability.\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "GPT-4-turbo is disclosed only as a manuscript-writing/translation aid in the required Generative AI statement, not part of the study's methodology."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4-turbo not used in any experiment; disclosed only as a writing aid)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Institutional lamb growth/feed-intake dataset (INIA, Uruguay); paper states the data are not publicly available due to legal restrictions"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "This is an animal-science paper on lamb resilience indicators; GPT-4-turbo appears solely in the required Generative AI disclosure (used to help translate/edit the manuscript), unrelated to the study's actual body-weight/feed-intake analysis."
+}

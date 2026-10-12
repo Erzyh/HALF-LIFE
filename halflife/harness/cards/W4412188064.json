@@ -1,0 +1,91 @@
+{
+  "card_id": "W4412188064",
+  "openalex_id": "https://openalex.org/W4412188064",
+  "title": "Swedish Medical LLM Benchmark: development and evaluation of a framework for assessing large language models in the Swedish medical domain",
+  "doi": "10.3389/frai.2025.1557920",
+  "paper": {
+    "authors": "Moell, Farestam, Beskow (KTH)",
+    "year": 2025,
+    "repo": "https://github.com/BirgerMoell/swedish-medical-benchmark",
+    "repo_commit": "f6297d50d468d47c39468e3f3c88b656c5fac915",
+    "repo_license": "none at repo root (benchmarks/pubmedqa/LICENSE is PubMedQA's MIT; README mentions CC BY only for the paper)"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The benchmark's results table is the LLMs' accuracies on 2,665 Swedish medical questions; the ranking claim (GPT-4-turbo / Claude-3.5 / o3 top) is entirely model output."
+  },
+  "claim": {
+    "statement": "'GPT-4-t' (GPT-4-turbo; repo result files show gpt-4-0125-preview) achieved the top SMLB weighted score, 75.57% (+/- 0.76) - PQ-S 53.90 (+/- 1.58), SMDT 79.07 (+/- 1.73), EM 93.10 (+/- 1.18), GM 93.09 (+/- 0.98) - ahead of Claude-3.5 (October) 75.20 and o3 73.58, with several models passing the SMDT doctors' test (>60) (Table 5, Figure 1; Conclusion).",
+    "claim_type": "capability_level",
+    "metric": "accuracy (%) per sub-benchmark; SMLB = question-count-weighted mean over 2,665 items; standard error via Miller (2024) with clustering for SMDT follow-ups; single run",
+    "original_values": {
+      "SMLB": 75.57, "SMLB_se": 0.76,
+      "PQ-S": 53.90, "PQ-S_se": 1.58,
+      "SMDT": 79.07, "SMDT_se": 1.73,
+      "EM": 93.10, "EM_se": 1.18,
+      "GM": 93.09, "GM_se": 0.98,
+      "claude35_october_SMLB": 75.20,
+      "o3_SMLB": 73.58,
+      "gpt41_SMLB": 71.30,
+      "gpt4o_SMLB": 65.38,
+      "eir_SMLB": 38.34,
+      "n_items": { "PQ-S": 1000, "SMDT": 535, "EM": 464, "GM": 666, "total": 2665 }
+    },
+    "original_source": "Table 5 (Performance of LLMs on the SMLB); Figure 1; Conclusion section 5 ('GPT-4-turbo: 75.57%'); repo results/results_whole_gpt_4t.json (PQ-S, model gpt-4-0125-preview), results/results_gp_gpt_4.json and results_emergency_medicine_gpt-4.json (model gpt-4-0125-preview, run 2024-09-03)"
+  },
+  "protocol": {
+    "model": "gpt-4-0125-preview (per the repo's result files; the paper only says 'GPT-4-turbo' / 'GPT-4-t')",
+    "model_note": "The scaffold's live arm 'gpt-4-turbo' is an alias false positive: the paper never names a snapshot, and the stored runs used gpt-4-0125-preview (api_models.py also sets gpt_model = 'gpt-4-0125-preview').",
+    "model_status": "DEAD - gpt-4-0125-preview shut down 2026-03-26. Live proxy: gpt-4-turbo-2024-04-09 (dying 2026-10-23).",
+    "endpoint": "litellm completion() -> OpenAI chat completions (single user message)",
+    "prompt_source": "run_llm/api_models.py (Swedish system prompts per benchmark, e.g. PQ-S: 'Du aer en utmaerkt laekare och skriver ett laekarprov ... svara med endast ett av: ja, nej, eller kanske'; SMDT: '... Svara med hela svarsalternativet ...') composed by run_llm/benchmark_set_up.py final_prompt_format(); paper Appendix A",
+    "params": {
+      "temperature": "not set (API default 1.0)",
+      "max_tokens": "10 (PQ-S), 200 (default Benchmark.max_tokens for others)",
+      "seed": "not set",
+      "other": "3 s sleep between calls; responses lower-cased and lexically matched (detect_answers); malformed answers counted as wrong"
+    },
+    "n_items": 2665,
+    "samples_per_item": 1,
+    "evaluation": "Automatic: per-benchmark detect_answers() string matching against ground truth (full option text expected), accuracy via evaluate_performance.py; SMLB = weighted mean; error bars per Miller (2024)"
+  },
+  "artifacts": {
+    "prompts_path": "run_llm/api_models.py; run_llm/benchmark_set_up.py",
+    "data_path": "benchmarks/pubmedqa/data/ori_pqal_swe.json (1000); benchmarks/swetheoreticaldoctorsexam/clinical_case.json (535); benchmarks/specialist_questions/emergency_medicine/emergency_medicine_clinical_format.json (464); benchmarks/specialist_questions/gp/fall_description_clinical_format.json (666); held-out encrypted variants *_test.json.gpg (EM, GM)",
+    "eval_path": "evaluate_performance.py; run_llm/benchmark_set_up.py; results/*.json (stored runs)",
+    "data_public": true,
+    "data_license": "PQ-S source PubMedQA MIT; Swedish exam material licence not stated",
+    "redistributable": "unknown (Swedish medical exam questions' copyright not stated)",
+    "notes": "results/ contains gpt-4-0125-preview runs for PQ-S (1000), GM (666), EM (464) but no SMDT run; api_models.py currently defaults MODEL_NAME to gemini-2.5-flash-preview-04-17."
+  },
+  "blockers": [
+    "live model dead: the GPT-4-t runs used gpt-4-0125-preview (shutdown 2026-03-26); the paper's 'GPT-4-turbo' label hides this",
+    "temperature unset (default 1.0) and a single run - original numbers carry sampling noise beyond the reported SE",
+    "Swedish exam items' copyright/redistribution unstated; EM/GM 'test' variants are GPG-encrypted (key not public)",
+    "SMDT raw result file for gpt-4-t is absent from the repo, so item-level comparison is only possible for PQ-S, EM, GM"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "proxy_option": "gpt-4-turbo-2024-04-09 (dying 2026-10-23)" },
+    "successors": ["gpt-5-2025-08-07", "gpt-5-mini-2025-08-07", "claude (current dated snapshot)", "gemini (current dated snapshot)", "llama-3.x (open weights, hash-pinned; paper used Llama 3/3.1 70B)", "qwen3 (open weights, hash-pinned)"]
+  },
+  "budget": {
+    "est_calls": 7995,
+    "est_tokens_in": 2930000,
+    "est_tokens_out": 320000,
+    "est_cost_usd": 39,
+    "pricing_usd_per_1m": { "gpt-4-turbo": { "input": 10.0, "output": 30.0 } },
+    "assumptions": "CONDITIONAL proxy run: 2,665 items x 3 seeds; input ~250 (PQ-S), ~700 (SMDT), ~300-320 (EM/GM) tokens incl. Swedish prompt; output <= 40 tokens (max_tokens 10/200)."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (proxy): survival if SMLB weighted accuracy lies within 75.57 +/- 2 x 0.76 (and each sub-benchmark within +/- 2 SE) and the sub-benchmark ordering EM ~ GM > SMDT > PQ-S is preserved; the cross-model ranking (GPT-4-turbo >= Claude-3.5 >= o3) needs successor arms and is judged by direction only.",
+    "notes": "PQ-S is label-imbalanced ('yes' bias) and the authors call it the least reliable sub-benchmark; consider judging on SMDT+EM+GM as a sensitivity analysis."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Accept gpt-4-turbo-2024-04-09 as proxy for the dead gpt-4-0125-preview (the paper never names the snapshot; only the repo result files do)?",
+    "Core claim = SMLB total (75.57) as drafted, or the SMDT-only 'passes the Swedish doctors' test' figure (79.07)?",
+    "Confirm redistribution status of the Swedish exam items with the authors (bmoell@kth.se) before archiving prompts+items in our logs."
+  ],
+  "domain_notes": "PQ-S is a GPT-4-translated PubMedQA (yes/no/maybe) with a strong 'yes' label imbalance - older models score higher by answering 'yes', newer ones lower - so PQ-S differences do not track medical competence. SMDT items are long Swedish clinical exam questions (avg ~1,500 chars, 5 options); EM/GM come from specialist exams with follow-up questions clustered per case and are near saturation (~93-97%). Answer parsing is lexical (the full option text is expected), so output-format drift across model versions can move scores independently of knowledge."
+}

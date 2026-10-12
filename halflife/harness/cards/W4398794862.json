@@ -1,0 +1,99 @@
+{
+  "card_id": "W4398794862",
+  "openalex_id": "https://openalex.org/W4398794862",
+  "title": "Divergent Creativity in Humans and Large Language Models",
+  "doi": "10.48550/arXiv.2405.13012",
+  "paper": {
+    "doi": "10.48550/arXiv.2405.13012",
+    "authors": "Antoine Bellemare-Pepin, Francois Lespinasse, Philipp Thoelke, Yann Harel, Kory Mathewson, Jay A. Olson, Yoshua Bengio, Karim Jerbi",
+    "year": 2024,
+    "venue": "arXiv preprint (v1 2024-05-21; revised version adds Figure 2 with models released up to June 2025). Full-text PDF fetched and text-extracted; Tables 1 and S1 are images (read visually).",
+    "repo": "https://github.com/AntoineBellemare/DAT_GPT",
+    "repo_commit": "f16aca5f79950100792a92c1b119dfef253d1988",
+    "repo_license": "GPL-3.0"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "LLMs are benchmarked against 100,000 human Divergent Association Task (DAT) responses; every model score is the mean DAT of 500 independent chat-session generations. Per-response scores and words for all models are released (notebook/concatenated_results*.csv)."
+  },
+  "claim": {
+    "statement": "On the Divergent Association Task, 'GPT-4-turbo' (Table 1: gpt-4-0125-preview) scores markedly lower than its predecessor GPT-4 (gpt-4-0314) - mean DAT 75.96 (n = 500, SD 3.57) vs 83.99 (n = 503) - and below the human mean (81.04, n = 100,000), whereas GPT-4 significantly surpasses humans (Figure 1A-B; Figure S2: 0314 > 1106 > 0613 > turbo); GPT-4-turbo also shows the highest word repetition, with 'ocean' in > 90% of its word sets (Figure 1D).",
+    "claim_type": "capability_level",
+    "metric": "DAT score (Olson et al. 2021): 100 x mean pairwise cosine distance between GloVe-840B-300d vectors of the first 7 valid nouns of a 10-word list; mean over 500 generations after excluding responses with < 10 valid words; prompt adherence = share of valid responses; two-sided independent t-tests between models/humans",
+    "original_values": {
+      "gpt4turbo_mean_dat": 75.96,
+      "gpt4turbo_sd": 3.57,
+      "gpt4turbo_n_valid": 500,
+      "gpt4turbo_control_prompt_mean": 71.16,
+      "gpt4_0314_mean_dat": 83.99,
+      "gpt4_0613_mean_dat": 81.52,
+      "gpt4_1106_mean_dat": 82.77,
+      "gpt35_mean_dat": 77.83,
+      "human_100k_mean_dat": 81.04,
+      "human_100k_sd": 7.06,
+      "ocean_share_gpt4turbo": "> 0.90 of word sets (text)",
+      "later_models_figure2": {"gpt-4o": 75.21, "gpt-4.1": 78.04, "gpt-4o-mini": 75.58},
+      "note": "Means/SDs recomputed by the card author from notebook/concatenated_results_2024-11-08.csv (Strategy = 'Original instructions', Temperature = 'Mid'); the paper reports them only graphically (Figure 1A, Figure S2)."
+    },
+    "original_source": "Figure 1 and Figure S2 of arXiv 2405.13012; per-response data in notebook/concatenated_results_2024-11-08.csv and notebook/total_responses_per_model.csv (GPT-4-turbo: 500)"
+  },
+  "protocol": {
+    "model": "gpt-4-0125-preview (Table 1 'GPT4-turbo', release January 25, 2024). Table S1 of the 2025 revision lists the same series as 'gpt-4-turbo' (alias), but the released data contain a single GPT-4-turbo series, so the original arm is the 0125 preview.",
+    "model_status": "DEAD - gpt-4-0125-preview shut down 2026-03-26 (target_models.json). The census hit 'gpt-4-turbo' is the product label / Table S1 alias; gpt-4-turbo-2024-04-09 (dying) was not an arm. Note: the repo's scripts/api_call_dat_gpt4.py hard-codes gpt-4-0314 in all historical commits (Apr 2023 - Nov 2024) and o4-mini-2025-04-16 at HEAD, i.e. model strings were edited per run and not committed.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (scripts/api_call_dat_gpt4.py)",
+    "prompt_source": "scripts/api_call_dat_gpt4.py (NO_STRATEGY = original DAT instructions; NOTHING = control; strategy variants) and Methods 'Divergent Association Task' / 'Control prompt' of the paper",
+    "messages": [
+      {"role": "user", "content": "Please enter 10 words that are as different from each other as possible, in all meanings and uses of the words. Rules: Only single words in English. Only nouns (e.g., things, objects, concepts). No proper nouns (e.g., no specific people or places). No specialised vocabulary (e.g., no technical terms). Think of the words on your own (e.g., do not just look at objects in your surroundings).  Make a list of these 10 words, a single word in each entry of the list."},
+      {"role": "user", "content": "[control condition, separate sessions] Make a list of 10 words"}
+    ],
+    "params": {"temperature": "default (1.0 = 'Mid'; 0.5 'Low' and 1.5 'High' only in the temperature analysis of GPT-4)", "max_tokens": "not set", "seed": "not set", "top_p": "default", "system_prompt": "none"},
+    "n_items": "1 prompt (DAT instructions) + 1 control prompt; 500 independent chat sessions each",
+    "samples_per_item": 500,
+    "evaluation": "Automatic: parse the 10 words; scripts/dat.py (Olson's DAT; GloVe glove.840B.300d + words.txt dictionary; first 7 valid words); exclude incomplete responses; mean and 95% CI; independent t-tests vs humans and other models (notebook/dat_visualization.ipynb).",
+    "environment_check": "Re-score the released GPT-4-turbo word lists (concatenated_results_2024-11-08.csv 'Words' column) with our DAT implementation + the same GloVe file: must give 75.96 before any new call."
+  },
+  "artifacts": {
+    "prompts_path": "external/repos/W4398794862/AntoineBellemare__DAT_GPT/scripts/api_call_dat_gpt4.py",
+    "data_path": "external/repos/W4398794862/AntoineBellemare__DAT_GPT/notebook/concatenated_results_2024-11-08.csv and concatenated_results_2025-06-18.csv (per-response Score/Words/Model/Strategy/Temperature); human_data_dat/ai-creativity.csv, study2.tsv (100k human DAT responses from Olson et al.); machine_data_dat/ directory referenced in README is absent at HEAD",
+    "eval_path": "external/repos/W4398794862/AntoineBellemare__DAT_GPT/scripts/dat.py; notebook/dat_visualization.ipynb",
+    "data_public": true,
+    "data_license": "code GPL-3.0; human DAT data redistributed in the repo (original Olson et al. terms not stated); GloVe 840B (Public Domain Dedication and License) must be downloaded separately (~2 GB)",
+    "redistributable": "partial (GPL code and our own outputs yes; human data terms unclear)",
+    "notes": "The 2025 revision adds GPT-4o (75.2), GPT-4.1 (78.0), o4-mini etc. - a ready-made successor comparison already in the released CSV."
+  },
+  "blockers": [
+    "live model not an experimental arm: Table 1 pins 'GPT4-turbo' to gpt-4-0125-preview (dead 2026-03-26); gpt-4-turbo-2024-04-09 would be a sibling snapshot only",
+    "model strings were never committed (script hard-codes gpt-4-0314) - provenance of each series rests on Table 1/S1 alone",
+    "GloVe 840B download (~2 GB) required for scoring; human data license unstated"
+  ],
+  "arms": {
+    "baseline_alive": {"model": null, "note": "none - optional sibling arm gpt-4-turbo-2024-04-09 (P3 successor-family), labelled as sibling; the released CSV already contains gpt-4o / gpt-4.1 series for successor context"},
+    "successors": [
+      "gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm)",
+      "claude (current Anthropic flagship, dated snapshot fixed at run time)",
+      "gemini (current Google flagship, dated snapshot fixed at run time)",
+      "llama (open weights, e.g. Llama-3.3-70B-Instruct, weights hash fixed)",
+      "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct, weights hash fixed)"
+    ]
+  },
+  "budget": {
+    "est_calls": 1000,
+    "est_tokens_in": 110000,
+    "est_tokens_out": 40000,
+    "est_cost_usd": 3,
+    "pricing_usd_per_1m": {"gpt-4-turbo-2024-04-09": {"input": 10.0, "output": 30.0}},
+    "assumptions": "sibling arm: the paper's own scheme is 500 independent generations per prompt at default temperature (no extra seeds needed): 500 DAT + 500 control calls; ~110 input tokens, ~40 output tokens. Adding the three strategy prompts would triple it."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (sibling arm only, flagged): survival if the sibling's mean DAT (500 samples) is significantly below the archived gpt-4-0314 mean (83.99; t-test on archived vs new responses) AND below the human mean (81.04), with the gap of the same order (>= ~3 points); partial if below GPT-4-0314 but not significantly below humans; death if the sibling matches or exceeds GPT-4-0314 or humans (the 'newer turbo is less divergent' claim fails).",
+    "notes": "The comparison uses the archived gpt-4-0314 responses (model dead) as a fixed reference; word-repetition ('ocean' share) is a secondary descriptive indicator."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Approve a sibling-snapshot arm (gpt-4-turbo-2024-04-09, ~$3) in place of the dead gpt-4-0125-preview arm? Note Table S1 (2025 revision) labels the series 'gpt-4-turbo' - ask the authors whether any 2024-04-09 data exist.",
+    "Confirm the core claim choice: 'GPT-4-turbo declines vs GPT-4 and falls below humans on the DAT' (Figure 1/S2) rather than the GPT-4 temperature effect (Figure 4) or the creative-writing DSI results (Figures 6-8).",
+    "Approve downloading GloVe 840B-300d (~2 GB) for scoring."
+  ],
+  "domain_notes": "The DAT is a validated, fast creativity proxy (semantic distance between nouns in a fixed GloVe space), so scores are bounded by the embedding and by word-frequency effects; LLM 'creativity' here is diversity of a 10-word list, not a judgment of quality. The paper's headline is that some LLMs beat the average human on the DAT while the top human decile beats every model; GPT-4-turbo's drop below GPT-4 is attributed to increased response redundancy. Default temperature (1.0) matters: GPT-4 at temperature 1.5 reached 85.6."
+}

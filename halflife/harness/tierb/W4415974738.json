@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4415974738",
+  "title": "Evaluating Large Language Models in Interpreting Cervical Cytology",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (ChatGPT); 'GPT-4-turbo with vision' mentioned as background only",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"The selected images were uploaded into GPT-5 and Google Gemini 2.5 Pro. Each model was prompted to provide a diagnosis based on the ... Bethesda System\" (Methods)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods: exact prompt quoted ('please analyze this Cervical PAP Smear images and give the diagnosis based on the ...')",
+    "note": ""
+  },
+  "claim": {
+    "metric": "exact-diagnosis concordance with Hologic diagnosis",
+    "value": 0.47,
+    "n_items": 100,
+    "location": "Results (47/100); Tables 1-2",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Hologic digital cytology education site images (public web); case IDs not listed"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui"
+  ],
+  "notes": "The listed live ID gpt-4-turbo appears only in the introduction; the subject is GPT-5 via ChatGPT web upload with unknown snapshot."
+}

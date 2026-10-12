@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7131731763",
+  "title": "Language Models Exhibit Inconsistent Biases Towards Algorithmic Agents and Human Experts",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec 4.1 per-task scatter analysis: \"gpt-4-turbo, rho=0.69, p<.01\" (correlation with humans' per-task algorithm-aversion gap, Study 1, 27 tasks)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (\"Sample prompts and responses\"), Appendix B (\"An example prompt\" for Study 2)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "correlation (rho) between model's and humans' per-task algorithm-aversion gap",
+    "value": 0.69,
+    "n_items": 27,
+    "location": "Sec 4.1 scatter-plot analysis; 27 tasks from Table C.1 (Study 1, Castelo et al. task set), n=100 prompts per task",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Task set adapted from Castelo et al. and Dietvorst et al. (Table C.1), including UCI Heart Disease and Student Performance datasets"
+  },
+  "cost": {
+    "est_calls": 2700,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "gpt-4-turbo's own mean trust-gap point estimate is plotted only in Figure 1 (star marker, not a printed number), so the correlation stat is used instead. Study 2 (algorithm-appreciation, n=200) reruns a 6-task subset; gpt-4-turbo did not consistently choose the more accurate agent there and produced most of the dataset's neutral/non-committal responses (94% of a 9.9% neutral total)."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7141772025",
+  "title": "Qworld: Question-Specific Evaluation Criteria for LLMs",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano",
+    "role": "B",
+    "evidence": "Table 2 (HealthBench): row 'GPT-4.1-nano 33.9 18.1' (official score / Qworld score); Appendix A: 'we set temperature to 0.4' for non-reasoning models; GPT-4.1 is the response evaluator."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D.3 'Prompt Templates' (criteria generation and judge prompts); HealthBench questions are the model input",
+    "note": "The official sHealthBench number uses HealthBench expert rubrics and the official GPT-4.1 grading protocol; sQworld needs Qworld-generated criteria."
+  },
+  "claim": {
+    "metric": "HealthBench score (official rubrics)",
+    "value": 33.9,
+    "n_items": 5000,
+    "location": "Table 2 (left), row GPT-4.1-nano, column sHealthBench",
+    "task_type": "generation",
+    "judge": "llm:gpt-4.1"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HealthBench (OpenAI, 5,000 questions with expert rubrics); https://github.com/mims-harvard/Qworld"
+  },
+  "cost": {
+    "est_calls": 45000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Response generation 5,000 x 3 seeds plus rubric grading calls. gpt-4.1 (judge) is not in target_models.json; assumed callable. The sQworld number (18.1) would additionally need the criteria pipeline (~56 calls/question) unless the criteria are released.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "sHealthBench is the official HealthBench score: GPT-4.1 grades each expert rubric item of every response and the result is normalised (Appendix A.2), but the grader prompt and protocol are not printed and belong to the official HealthBench release wrapped by the Qworld repository. Generate responses for the 5,000 HealthBench conversations with gpt-4.1-nano (temperature 0.4, 16k context), grade with GPT-4.1 under that protocol, and compare with 33.9 (Table 2).",
+    "approximation": "gpt-4.1-nano snapshot unstated (single snapshot 2025-04-14); grader nondeterminism; rubric-grading calls dominate cost.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/mims-harvard/Qworld",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

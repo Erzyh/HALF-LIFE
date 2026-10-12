@@ -1,0 +1,56 @@
+{
+  "wid": "W4400434899",
+  "title": "Are Large Language Models Strategic Decision Makers? A Study of Performance and Bias in Two-Player Non-Zero-Sum Games",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 25.5,
+  "original_location": "Table 1, row GPT-4-Turbo / A, column SH AO A->B (B = 74.5)",
+  "reexecution": {
+    "mean_over_seeds": 0.5,
+    "per_seed": {
+      "0": {
+        "value": 0.5,
+        "n": 800,
+        "ci95": [
+          0.46625,
+          0.5325
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4400434899",
+    "n_items": 800,
+    "n_requests": 800,
+    "seeds": 1,
+    "est_usd": 1.98,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 25.5,
+    "cap_usd": 3.21
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the preference sentences are printed as template slots ('acting agent's preferred behaviour (CG v SG)'); filled as 'prioritise Common-Gain' / 'prioritise Self-Gain' following the paper's wording; Table 1 pools the A->B setups, so the config pools the 800 runs; the statistic is computed as accuracy against the constant gold 'A' (share of runs choosing A); replies without a parsable action count as non-A instead of being dropped from the denominator",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4400434899"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 50.0,
+    "delta": 24.5,
+    "original_inside_ci95": false
+  }
+}

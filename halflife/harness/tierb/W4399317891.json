@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4399317891",
+  "title": "OR-Bench: An Over-Refusal Benchmark for Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4-turbo-2024-04-09 13.4 14.8 3.3 11.2 12.7 16.0 17.3 5.0 15.2 16.2 12.7\" (Table 2, rejection rate on OR-Bench-Hard-1K, temperature 0.0)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Prompts are the dataset items, no system prompt (Sec. 4.1); refusal keywords and LLM-check prompt in Appendix F",
+    "note": ""
+  },
+  "claim": {
+    "metric": "over-refusal (rejection) rate on OR-Bench-Hard-1K, overall",
+    "value": 12.7,
+    "n_items": null,
+    "location": "Table 2, row GPT-4-turbo-2024-04-09, column overall",
+    "task_type": "classification",
+    "judge": "llm:gpt-4 (undated) for refusal detection on the hard subset"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/bench-llm/or-bench ; https://github.com/justincui03/or-bench"
+  },
+  "cost": {
+    "est_calls": 1319,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Soft gap: refusal detection on the hard subset uses an undated 'GPT-4' check (keyword matching approximates it within ~2%). Hard-1K size is not stated in the text (about 1.3K prompts). Prompts are seemingly toxic but verified safe, so ToS exposure is limited; OR-Bench-Toxic is not needed for this claim.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Hard-1K is 1,319 prompts (Appendix U), available at huggingface.co/datasets/bench-llm/or-bench; send each as a bare user message (no system prompt, Sec. 4.1) to gpt-4-turbo-2024-04-09 at temperature 0. Label refusals with the Appendix S judge prompt run on gpt-4-turbo-2024-04-09 as the stand-in for the undated 'GPT-4' judge, and cross-check with the Appendix M keyword list. Compare the overall rejection rate with 12.7 (Table 2).",
+    "approximation": "Judge model substituted (undated GPT-4 -> gpt-4-turbo-2024-04-09); the paper reports keyword matching agrees with the GPT-4 judge within about 2 points.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

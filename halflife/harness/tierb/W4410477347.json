@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4410477347",
+ "title": "Maestro: Multi-Agent Enhanced System for Task Recognition and Optimization in Manufacturing Lines",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"we leverage the capabilities of GPT-4 (gpt-4-turbo-2024-04-09) for high-level decision making and task understanding\" (Sec. IV.C, Implements)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "The paper describes the multi-agent architecture and decentralized decision-making abstractly (equations, agent counts, timing windows) but never quotes an actual prompt given to GPT-4."
+ },
+ "claim": {
+  "metric": "task completion rate on manufacturing/action-recognition benchmarks (Okutama-Action, ETHICS, AVFS, Turnbull, PackIt)",
+  "value": null,
+  "n_items": null,
+  "location": "Table I (e.g., OKUTAMA Action 85.5%, ETHICS 90.3%, AVFS 88.0%)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Okutama-Action dataset is a known public action-recognition dataset; 'the fight detection model', 'Turnbull', 'PackIt' and 'AVFS' are not clearly identified/citable from the extracted text"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "Preprint (ResearchSquare) with a dated live-model snapshot explicitly given, but no prompt text anywhere and several baseline dataset names (Turnbull, PackIt, AVFS, 'the fight detection model') are not clearly identifiable public resources from the extracted text, so data provenance is also uncertain."
+}

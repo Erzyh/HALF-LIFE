@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4406735017",
+ "title": "Multi-round, Chain-of-thought Post-editing for Unfaithful Summaries",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "dead-preview",
+  "role": "C",
+  "evidence": "Footnote 11: \"gpt-4-0613, https://...models/gpt-4-and-gpt-4-turbo\" -- URL-only citation; models actually run are text-bison-001, gemini-pro, Mixtral-8x7B, Llama-3.3-70B (Table 3)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 4 (Editor/EditorSpan/EditorType/EditorSpan+Type prompts), Appendix B",
+  "note": "Prompts are for the models actually run (Mixtral, Gemini, PaLM2, Llama), not GPT-4."
+ },
+ "claim": {
+  "metric": "none for the live id (gpt-4-0613 is only cited in a footnote URL)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FRANK and DeFacto factuality benchmarks (public)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias",
+  "no_number"
+ ],
+ "notes": "Live-id detector matched \"gpt-4-turbo\" inside a docs URL cited only to identify gpt-4-0613 (pre-2024-04-09 preview). GPT-4/Turbo is never actually run; the paper's own critic-editors are PaLM2, Gemini, Mixtral-8x7B, Llama-3.3-70B."
+}

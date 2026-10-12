@@ -1,0 +1,151 @@
+{
+  "per_seed": {
+    "0": {
+      "tpr": {
+        "k": 83,
+        "n": 150,
+        "pct": 55.3333,
+        "ci95": [
+          47.3431,
+          63.0572
+        ]
+      },
+      "fpr": {
+        "k": 6,
+        "n": 150,
+        "pct": 4.0,
+        "ci95": [
+          1.8459,
+          8.4513
+        ]
+      },
+      "tpr_by_block": {
+        "gpt-4o": {
+          "k": 24,
+          "n": 30,
+          "pct": 80.0,
+          "ci95": [
+            62.6943,
+            90.4949
+          ]
+        },
+        "claude": {
+          "k": 18,
+          "n": 30,
+          "pct": 60.0,
+          "ci95": [
+            42.3204,
+            75.4094
+          ]
+        },
+        "paraphrased_gpt-4o": {
+          "k": 27,
+          "n": 30,
+          "pct": 90.0,
+          "ci95": [
+            74.3789,
+            96.54
+          ]
+        },
+        "o1-pro": {
+          "k": 9,
+          "n": 30,
+          "pct": 30.0,
+          "ci95": [
+            16.6647,
+            47.8758
+          ]
+        },
+        "humanized_o1-pro": {
+          "k": 5,
+          "n": 30,
+          "pct": 16.6667,
+          "ci95": [
+            7.3365,
+            33.5644
+          ]
+        }
+      },
+      "fpr_by_block": {
+        "gpt-4o": {
+          "k": 3,
+          "n": 30,
+          "pct": 10.0,
+          "ci95": [
+            3.46,
+            25.6211
+          ]
+        },
+        "claude": {
+          "k": 1,
+          "n": 30,
+          "pct": 3.3333,
+          "ci95": [
+            0.5909,
+            16.6704
+          ]
+        },
+        "paraphrased_gpt-4o": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "ci95": [
+            0.0,
+            11.3513
+          ]
+        },
+        "o1-pro": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "ci95": [
+            0.0,
+            11.3513
+          ]
+        },
+        "humanized_o1-pro": {
+          "k": 2,
+          "n": 30,
+          "pct": 6.6667,
+          "ci95": [
+            1.8477,
+            21.3235
+          ]
+        }
+      }
+    }
+  },
+  "judgment": "생존 (survived)",
+  "comparison": {
+    "tpr_delta_pp": 1.333,
+    "fpr_delta_pp": 0.0,
+    "tpr_by_block_delta_pp": {
+      "gpt-4o": -3.3,
+      "claude": 6.7,
+      "paraphrased_gpt-4o": -6.7,
+      "o1-pro": 10.0,
+      "humanized_o1-pro": -0.03
+    },
+    "fpr_by_block_delta_pp": {
+      "gpt-4o": 3.3,
+      "claude": 0.03,
+      "paraphrased_gpt-4o": -3.3,
+      "o1-pro": -3.3,
+      "humanized_o1-pro": 3.37
+    },
+    "tierb_tpr_ai_half": 54.666666666666664,
+    "evasion_gradient_pp": 50.0,
+    "gradient_holds": true,
+    "far_below_expert_majority_vote": true,
+    "original_tpr_ci95": [
+      46.0238,
+      61.7764
+    ],
+    "tpr_inside_original_ci": true,
+    "fpr_no_blowout": true,
+    "original_fpr_ci95": [
+      1.8459,
+      8.4513
+    ]
+  }
+}

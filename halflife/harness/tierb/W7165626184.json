@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7165626184",
+ "title": "Retrieval-Augmented Generation in Healthcare Systems: A Systematic Review with Emphasis on Public Data",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4, GPT-3.5 (cited across surveyed works)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "'GPT-3.5 Turbo was used by Zhou et al. [2024]...'; 'a predominant adoption of GPT-4 (Kresevic et al., Unlu et al., Zakka et al.)' -- all citation-style summaries of other papers' systems, not experiments by this survey's own authors"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "A systematic literature review; no prompts of its own."
+ },
+ "claim": {
+  "metric": "none (literature review; no original experiments)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "n/a (review of prior RAG-in-healthcare literature)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Every GPT-4/GPT-3.5 mention describes systems built and evaluated by other, cited papers, not by these review authors."
+}

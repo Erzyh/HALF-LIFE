@@ -1,0 +1,65 @@
+{
+  "wid": "W4415035710",
+  "title": "Do LLMs have a Gender (Entropy) Bias?",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 2.0,
+  "original_location": "Table 4, row ChatGPT-4-turbo, Education Recommendations, Shannon Entropy column (t = 2.00, p = 0.04)",
+  "reexecution": {
+    "mean_over_seeds": -0.22876743393109097,
+    "per_seed": {
+      "0": {
+        "value": -0.25529436679869827,
+        "n": 158,
+        "ci95": [
+          -2.168490494918541,
+          1.8775474516828305
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": -0.3621185865437921,
+        "n": 158,
+        "ci95": [
+          -2.2967808841276347,
+          1.827089670838333
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": -0.06888934845078257,
+        "n": 158,
+        "ci95": [
+          -1.976035386415563,
+          2.0798374968081395
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4415035710",
+    "n_items": 158,
+    "n_requests": 474,
+    "seeds": 3,
+    "est_usd": 6.4,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 2.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "one iteration gives one t-statistic (paper Table 4 is a single iteration); questions sent in shuffled order in fresh contexts as in Algorithm 1, without the one-minute delay Entropy is computed over the character distribution of each reply in bits: this reproduces the released shannonentropy_* columns to three decimals (Sec. 3.1 writes the formula with words, Algorithm 2 line 11 says characters).",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": -0.22876743393109097,
+    "delta": -2.228767433931091,
+    "original_inside_ci95": false
+  }
+}

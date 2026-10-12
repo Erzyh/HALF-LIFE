@@ -1,0 +1,47 @@
+[
+ {
+  "wid": "W7171749161",
+  "name": "Tag Questions",
+  "model": "gpt-4-turbo-2024-04-09",
+  "calls": 960,
+  "cost_usd": 0.347,
+  "judgment": "생존 (survived)",
+  "fingerprints": 10
+ },
+ {
+  "wid": "W7140135941",
+  "name": "MedAbstain",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "calls": 7049,
+  "cost_usd": 0.181,
+  "judgment": "부분 생존 (partial)",
+  "fingerprints": 9
+ },
+ {
+  "wid": "W4362598103",
+  "name": "News credibility",
+  "model": "gpt-4-turbo-2024-04-09",
+  "calls": 7523,
+  "cost_usd": 27.47,
+  "judgment": "부분 생존 (partial)",
+  "fingerprints": 10
+ },
+ {
+  "wid": "W7144391134",
+  "name": "BlindingLLMs",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "calls": 6252,
+  "cost_usd": 1.92,
+  "judgment": "생존 (survived)",
+  "fingerprints": 9
+ },
+ {
+  "wid": "W4402565126",
+  "name": "Cultural bias",
+  "model": "gpt-4-turbo-2024-04-09",
+  "calls": 10800,
+  "cost_usd": 13.2,
+  "judgment": "생존 (survived)",
+  "fingerprints": 10
+ }
+]

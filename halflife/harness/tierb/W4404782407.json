@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404782407",
+  "title": "Towards Injecting Medical Visual Knowledge into Multimodal LLMs at Scale",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "GPT4v-Distill-60K We only provide the image to GPT-4 Vision (gpt-4-turbo-2024-04-09) to generate ... (Appendix, data construction); '(gpt-4-turbo-2024-04-09) as MLLMs to synthesize' (Section 3)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 4 and Appendix D Figures 9-19 (data-generation and evaluation prompts)",
+    "note": "Prompts drive synthetic VQA data generation, not an evaluation of the live model."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (live model used to synthesize PubMedVision training data)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PubMedVision data and code on GitHub (footnote 1)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Subject models are HuatuoGPT-Vision variants; GPT-4V only annotates."
+}

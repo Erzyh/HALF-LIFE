@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7154427322",
+  "title": "Many Ways to Be Fake: Benchmarking Fake News Detection Under Strategy-Driven AI Generation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "A",
+    "evidence": "fake articles 'generated using the gpt-5-mini-2025-08-07' model (Section 3); detectors: GPT-4o-mini-2024-07-18, GPT-4o-2024-11-20, GPT-5.1-2025-11-13, Gemini ... (Table)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (generation prompts for the strategy combinations; topic assignment prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "detection rate (IR condition)",
+    "value": 10.44,
+    "n_items": null,
+    "location": "Table (row GPT-4o-2024-11-20, IR 10.44%)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "generated fake-news corpus (Appendix A); release discussed as risky"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-5-mini is the generator (data creation); detection numbers belong to other models, several of which are not in the live list."
+}

@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4405560434",
+  "title": "Feasibility of large language models for CEUS LI-RADS categorization of small liver nodules in patients at risk for hepatocellular carcinoma",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT-4o",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"the reports were input into ChatGPT-4o mini (14), ChatGPT-4o (15), ChatGPT-4.0 (16) and Google Gemini (17) for prompt CEUS LI-RADS classification\" (Materials and methods)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Materials and methods (structured-report-to-chatbot workflow described); exact wording of what was typed into the chat window is not printed", "note": "Three output rounds per case with a majority vote; no system prompt or API parameters given."},
+  "claim": {
+    "metric": "Sensitivity for small HCC diagnosis (junior-level radiology reports)", "value": 70, "n_items": 87,
+    "location": "Results table, row GPT-4o, first column \"70 (61/87)\"",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "Institutional CEUS exam reports and images from West China Hospital of Sichuan University (retrospective, IRB-approved); not a public dataset"},
+  "cost": {"est_calls": 516, "tier": "low"},
+  "blockers": ["webui", "alias_unpinned", "data_closed"],
+  "notes": "No API, temperature, or token parameters are mentioned anywhere; 'chatbot' framing and manual entry of translated structured reports indicate the ChatGPT web interface. Undated 'ChatGPT-4o' with data access through December 2024 (per alias_note) falls after the 2024-10-02 cutoff, so it is unresolved rather than gpt-4o-2024-05-13. Patient CEUS reports are institutional and not public."
+}

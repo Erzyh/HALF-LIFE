@@ -1,0 +1,56 @@
+{
+  "wid": "W4404314294",
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLMs in Disaster Response",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 0.817,
+  "original_location": "Table II (Results from No Prompting), row GPT-4 Turbo, column 1st Index (81.70%)",
+  "reexecution": {
+    "mean_over_seeds": 0.900709219858156,
+    "per_seed": {
+      "0": {
+        "value": 0.900709219858156,
+        "n": 707,
+        "ci95": [
+          0.8780141843971632,
+          0.9219858156028369
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4404314294",
+    "n_items": 707,
+    "n_requests": 707,
+    "seeds": 1,
+    "est_usd": 2.43,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 0.817,
+    "cap_usd": 3.09
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Temperature 0.0 instead of the (unstated, presumably default) sampling temperature used to obtain five distinct completions; 'first index' = the single completion per seed.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4404314294"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.900709219858156,
+    "delta": 0.08370921985815605,
+    "original_inside_ci95": false
+  }
+}

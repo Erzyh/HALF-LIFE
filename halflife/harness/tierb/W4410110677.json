@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4410110677",
+  "title": "Large Language Models for Supporting Clear Writing and Detecting Spin in Randomized Controlled Trials in Oncology",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o1-2024-12-17",
+    "resolved": "o1-2024-12-17",
+    "role": "S",
+    "evidence": "Methods: 'The exact model versions were gpt-3.5-turbo-0125, gpt-4o-2024-11-20, and o1-2024-12-17. The LLMs were called via the ... API with the temperature parameter set to 1.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods (system prompt printed verbatim with a {section} slot; user prompt = title/abstract or abstract section)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1 score, positive-vs-negative trial classification, title-and-abstract input",
+    "value": 0.97,
+    "n_items": 250,
+    "location": "Table 1, 'title and abstract' block, row o1 (accuracy 0.97, precision 0.98, recall 0.97, F1 0.97 [0.95-0.99])",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "250 oncology RCT abstracts with labels and code, https://github.com/windisch-paul/positive_negative"
+  },
+  "cost": {
+    "est_calls": 750,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "o1 with reasoning costs roughly $0.05-0.1 per call; one input condition x 3 seeds is ~750 calls (borderline high). Temperature parameter is not honoured by o1, so runs should be near-deterministic apart from reasoning variance."
+}

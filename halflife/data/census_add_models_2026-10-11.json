@@ -1,0 +1,43 @@
+{
+  "generated": "2026-10-11",
+  "purpose": "Identifiers with published retirement dates that the 2 September vocabulary and the 2 October refresh did not track (found when the vendor pages were re-read before submission, data/vendor_pages/openai_deprecations_2026-10-11.md): harvested with scripts/census_harvest.py --models data/census_add_models_2026-10-11.json --raw data/census_add_raw_2026-10-11.jsonl --ckpt data/census_add_ckpt_2026-10-11.json and folded into the census by scripts/census_refresh2.py. gpt-5.1, gpt-5.1-2025-11-13, gpt-5.4-nano and gpt-5.4-nano-2026-03-17 (announced 2026-10-01) were already harvested with the extension vocabulary (data/census_ext_raw.jsonl) and are folded in from there.",
+  "models": [
+    {
+      "id": "gpt-3.5-turbo-instruct",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-09-28",
+      "priority": 1,
+      "release": "2023-09-21",
+      "note": "completion model; retirement announced 2025-09-26; missing from the 2026-09-02 vocabulary"
+    },
+    {
+      "id": "gpt-3.5-turbo-1106",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-09-28",
+      "priority": 1,
+      "release": "2023-11-06",
+      "note": "chat snapshot; retirement announced 2025-09-26; the 2026-10-02 refresh dropped the dateless alias in its window as unresolved"
+    },
+    {
+      "id": "babbage-002",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-09-28",
+      "priority": 1,
+      "release": "2023-08-22",
+      "note": "base completion model; retirement announced 2025-09-26"
+    },
+    {
+      "id": "davinci-002",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-09-28",
+      "priority": 1,
+      "release": "2023-08-22",
+      "note": "base completion model; retirement announced 2025-09-26"
+    }
+  ],
+  "decision_2026-10-11": "babbage-002 and davinci-002 were harvested (55 and 1,958 works) but not folded into the census: the OpenAlex phrase search also returns works that name only text-davinci-002 or text-babbage-001 (827 of the 1,098 davinci-002 works already in the census name text-davinci-002), and the full text is not available to tell them apart. gpt-3.5-turbo-instruct (351 works) and gpt-3.5-turbo-1106 (906 works) are folded in by scripts/census_refresh2.py."
+}

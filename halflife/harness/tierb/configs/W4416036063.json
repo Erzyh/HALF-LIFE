@@ -1,0 +1,83 @@
+{
+ "wid": "W4416036063",
+ "title": "sudoLLM: On Multi-role Alignment of Language Models",
+ "status": "ready",
+ "model": {
+  "id": "o1-2024-12-17",
+  "params": {
+   "reasoning_effort": "low",
+   "max_tokens": 2000
+  },
+  "params_source": "paper Appendix B.1 (\"the OpenAI o1 model (o1-2024-12-17), with reasoning_effort set to low and max_completion_tokens set at 2000\"); all other settings at their defaults (temperature 1, which o1 ignores)",
+  "seeds": 1
+ },
+ "task": {
+  "type": "mcq",
+  "n_items": 1500,
+  "subset_rule": "seeded random 1500 (seed 20260907) from the MMLU test split (all subjects)",
+  "approximation": "The paper draws 3 mutually-exclusive sets of 500 OQ samples from the MMLU test split and reports their mean +- sd (89.2 +- 0.9). The exact draw lives in data/mmlu_quality/MMLU_samples.json of the release, which is NOT in the repository (DATA.md points at an empty link), so a seeded draw of the same size (1500) from the same split is used and one pooled accuracy is compared with the reported mean."
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "cais/mmlu",
+  "config_or_split": "config all, split test (14,042 questions)",
+  "filter": null,
+  "fields": {
+   "input": "question",
+   "options": "choices",
+   "label": "answer",
+   "id": "question"
+  },
+  "label_map": null,
+  "label_transform": "index_to_letter",
+  "license": "MIT (dataset card)",
+  "access_checked": true,
+  "size_mb": 4,
+  "hf": {
+   "dataset": "cais/mmlu",
+   "config": "all",
+   "split": "test"
+  },
+  "fields_paper": {
+   "input": "the original (unmodified) MMLU query = OQ",
+   "options": "the four answer choices, lettered A-D",
+   "label": "answer (0-3 index, converted to a letter)"
+  }
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "You are an expert at answering multiple-choice questions from various domains. Given a question, and possible options, pick the correct option. Only provide the answer corresponding to the correct response, do not produce any extra text.\n\nQuestion: Find the degree for the given field extension Q(sqrt(2), sqrt(3), sqrt(18)) over Q.\nA. 0\nB. 4\nC. 2\nD. 6\nAnswer: B\n\nQuestion: If you were hired by a large company to develop a new training program, your first step would probably be to conduct a:\nA. needs analysis.\nB. job evaluation.\nC. summative evaluation.\nD. formative evaluation.\nAnswer: A\n\nQuestion: Which of the following is NOT a category of Shari'ah law?\nA. Unlawful\nB. Neutral\nC. Criminal\nD. Commendable\nAnswer: C\n\nQuestion: {question}\n{options}\nAnswer: ",
+  "placeholders": {
+   "question": "items.question",
+   "options": "options_lettered(choices)"
+  },
+  "few_shot": "k=3 fixed examples printed in the paper (Appendix D) and in prompts/base_prompts/mmlu.txt of the release",
+  "source_location": "Appendix D (\"Following is an example evaluation prompt (MMLU)\") + prompts/base_prompts/mmlu.txt and the mmlu_fmt template of config.toml in github.com/espressovi/sudoLLM",
+  "verbatim": "full, with one addition: Appendix D prints the prompt from its second sentence on, while the released prompts/base_prompts/mmlu.txt - the file the code actually sends - opens with \"You are an expert at answering multiple-choice questions from various domains.\" That opening sentence is kept; the question block follows config.toml's mmlu_fmt (\"\nQuestion: {{ question }}\n{% for key, value in ans.items() %}{{key}}. {{value}}\n{% endfor %}Answer: \")."
+ },
+ "output": {
+  "parse": "letter",
+  "postprocess": "strip; first standalone A-D; an unparsable reply counts as wrong",
+  "parse_paper": "the prompt asks for the bare option letter (\"Only provide the answer corresponding to the correct response, do not produce any extra text\")"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the sampled MMLU test questions whose predicted option letter equals the gold letter",
+  "judge": "none",
+  "original_value": 89.2,
+  "original_location": "Table 1, caption line \"OQ MMLU accuracy: 89.2 +- 0.9 %\" (response accuracy of o1-2024-12-17 on the original queries)",
+  "bootstrap_unit": "item",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 1500,
+  "est_usd": 62.4,
+  "tier": "high",
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19 capped the run at 480 of the 1,500 items for $19.98; scaled to the full 1,500 items the same estimate is $62.4 (616 output tokens per call assumed for o1's hidden reasoning)"
+ },
+ "open_points": [
+  "The exact 1,500 MMLU test questions of Section 4.1 are not published: DATA.md of github.com/espressovi/sudoLLM says \"All data and artifacts ... can be found [here]()\" with an EMPTY link, and data/mmlu_quality/MMLU_samples.json (named in config.toml) is not in the repository. A seeded draw is used instead; a human should confirm that substituting the draw is acceptable for this comparison.",
+  "Cost: 1,500 o1 calls with hidden reasoning tokens. The dry-run estimate is the binding number before any run is approved."
+ ],
+ "notes": "o1 is the fixed answering LLM of the study, not the model under investigation (the smaller LLaMA/Qwen models do the biased rephrasing); the OQ row is the number attributable to o1 itself. || The paper does not say whether the Alice/Bob identity system prompt of Appendix D accompanied the Section 4.1 quality check; OQ queries carry no role, the printed MMLU evaluation prompt is self-contained, and config.toml keeps the safety system prompt for the Section 4.2 attacks only, so no system message is sent. || RQ (rephrased) and BQ (biased) rows of Table 1 cannot be reproduced: they need the study's own Qwen-2.5-7B logit-biased rephrasings, which are also behind the empty data link."
+}

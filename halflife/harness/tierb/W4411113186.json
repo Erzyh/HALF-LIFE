@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411113186",
+  "title": "LogRules: Enhancing Log Analysis Capability of Large Language Models through Rules",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 4.2.1: 'We select 4 open-source log parsers and 1 closed-source LLM for baseline comparison: ... and GPT-4-turbo.' Table 1 Average for GPT-4-turbo: GA 94.3, PA 86.7, ED 98.2"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "GPT-4-turbo baseline prompt not printed (Appendix C.1 describes only the four open-source parsers)",
+    "note": "Sec. 4.1.3: temperature 0.0, top_p and top_k 1, max_new_tokens 2048."
+  },
+  "claim": {
+    "metric": "log-parsing grouping accuracy (GA, %) averaged over 16 Loghub datasets",
+    "value": 94.3,
+    "n_items": 16,
+    "location": "Table 1, column GPT-4-turbo, row Average (GA 94.3 / PA 86.7 / ED 98.2)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Loghub (16 datasets, 2k logs each) for parsing; BGL and Spirit for anomaly detection"
+  },
+  "cost": {
+    "est_calls": 32000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Table 2 also lists GPT-4-turbo for anomaly detection (BGL F1 38.8). Batching and prompting scheme for the baseline are unspecified; the '1106' grep hit is a page number."
+}

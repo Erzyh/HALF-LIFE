@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7166837475",
+  "title": "Large Language Models Require Curated Context for Reliable Political Fact-Checking—Even with Reasoning and Web Search",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini-2025-01-31 (also o1-2024-12-17)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "\"OpenAI o3-mini-2025-01-31\" in Table 1 (tested LLMs); \"We set the temperature to 0 for all tests\" (Sec. 3); Table A2 row o3-mini"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix: 'System prompt: Zero-shot' and 'User prompt: Zero shot' (STATEMENT ORIGINATOR / CLAIM) printed verbatim",
+    "note": ""
+  },
+  "claim": {
+    "metric": "macro F1, zero-shot (k=0), six PolitiFact labels",
+    "value": 0.27,
+    "n_items": 6137,
+    "location": "Table A2, row o3-mini, k=0, column F1 (macro)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PolitiFact claim dataset released at github.com/osome-iu/fact_check_rag_osome and Zenodo; '6k' stratified subset"
+  },
+  "cost": {
+    "est_calls": 18411,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "o1-2024-12-17 k=0 macro F1 0.38 in the same table. Structured-output mode; malformed outputs re-parsed with gpt-4o-mini-2024-07-18. 6k subset is a random half of the 12k set; IDs presumably in the release."
+}

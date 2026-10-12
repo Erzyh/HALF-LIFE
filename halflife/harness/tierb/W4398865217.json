@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4398865217",
+  "title": "Evaluating Large Language Models for Public Health Classification and Extraction Tasks",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (OpenAI API)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 2.2.1: 'we also access some of the highest performing private models (GPT-4 Turbo and GPT-4o), via the OpenAI API'; Table 4: 'NCBI Disease Extraction 0.88 0.79 0.83 0.85'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix 8, Figures 7-8 (example 7-shot health-causal prompt and zero-shot NCBI Disease Extraction prompt, rendered as images in the Stable-Beluga-2 template)",
+    "note": "Prompts for the other 10 GPT-4 tasks are not printed; model-author chat templates are used."
+  },
+  "claim": {
+    "metric": "micro-F1 (zero-shot)",
+    "value": 0.83,
+    "n_items": 475,
+    "location": "Table 4, row NCBI Disease Extraction, column GPT-4 Turbo",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "NCBI Disease Corpus (public, 475 test abstracts per Table 1); 4 of the 11 GPT-4 tasks use internal UKHSA/Yelp-derived annotations"
+  },
+  "cost": {
+    "est_calls": 475,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "No GPT-4 Turbo snapshot is stated; the text includes Llama-3.3-70B (Dec 2024), so the run is post-2024-07 and the alias resolves to 2024-04-09. Greedy decoding. Figure 8 prompt text is an image in the extraction.",
+  "resolution": {
+    "gap": "prompt_as_image",
+    "plan": "Transcribe the zero-shot NCBI Disease Extraction prompt from Figure 8 (Appendix 8 'Example Prompts') of the PDF; the extraction holds only the caption. Strip the Stable-Beluga-2 wrapper and send the instruction plus each of the 475 NCBI Disease Corpus test abstracts (public) to gpt-4-turbo-2024-04-09 with greedy decoding (temperature 0). Compute micro-F1 of the extracted disease mentions against the gold annotations and compare with 0.83 (Table 4).",
+    "approximation": "The chat wrapper for GPT-4 Turbo is the API's own rather than the Stable-Beluga-2 template shown in the figure; the mention-matching rule (exact string match on the mention set) is not spelled out in the text.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

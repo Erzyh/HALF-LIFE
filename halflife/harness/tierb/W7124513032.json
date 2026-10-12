@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7124513032",
+ "title": "M^4olGen: Multi-Agent, Multi-Stage Molecular Generation under Precise Multi-Property Constraints",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13; also gpt-4.1 (undated, not on the live list)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "Table 1 (Overall metrics across methods, LLMs section): \"gpt-4o-2024-05-13 0.115 0.847 60.203 0.858 0.285 0.868 1.0\" (QED err, logP err, MW err, Scaled total err, Norm. total err, Diversity, Uniqueness)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method (retrieval-augmented molecule editing pipeline); an instruction fragment (\"Start by analyzing the retrieved molecules to...\") appears in the text",
+  "note": "Prompt fragments for the multi-agent retrieval/editing pipeline are shown; a complete end-to-end template for the plain LLM-baseline row (Table 1) was not located."
+ },
+ "claim": {
+  "metric": "normalized total property error (QED/logP/MW combined; lower is better), gpt-4o-2024-05-13 as a zero-shot molecule generator",
+  "value": 0.285,
+  "n_items": null,
+  "location": "Table 1, row 'gpt-4o-2024-05-13', 'Norm. total err' column",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Public molecule corpus (~2.95M molecules mentioned in Sec. 2); held-out evaluation set for ablations"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "gpt-4o-2024-05-13 is run directly as one of six LLM baselines for constrained molecule generation (Table 1); a separate 'gpt-4.1' (undated, full-size) row is also present but does not resolve to any snapshot on the live list. Soft gap: the number of molecules in the Table 1 evaluation set is not stated as a single n in the retrieved text (only the held-out ablation set is described as such)."
+}

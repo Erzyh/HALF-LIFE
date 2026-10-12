@@ -1,0 +1,56 @@
+{
+  "wid": "W4403885225",
+  "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 0.915,
+  "original_location": "Table 4, row GPT-4-Turbo, column Ver. (also Table 7, row Ver. Default, column GPT-4)",
+  "reexecution": {
+    "mean_over_seeds": 0.9867724867724867,
+    "per_seed": {
+      "0": {
+        "value": 0.9867724867724867,
+        "n": 871,
+        "ci95": [
+          0.9735449735449735,
+          0.9973544973544973
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403885225",
+    "n_items": 871,
+    "n_requests": 871,
+    "seeds": 1,
+    "est_usd": 19.9,
+    "subset_note": "cost cap $19.9: seeded random subset of 871 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 0.915,
+    "cap_usd": 19.9
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "answer1 is shown as Assistant A and answer2 / answer2_longer as Assistant B in both judgments (order not stated); two judgments per item (original and perturbed); the paper's unperturbed repeat (CR) is not needed for RR.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4403885225"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.9867724867724867,
+    "delta": 0.07177248677248671,
+    "original_inside_ci95": false
+  }
+}

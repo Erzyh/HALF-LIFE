@@ -1,0 +1,25 @@
+{
+  "wid": "W4403786592",
+  "n_items": 1000,
+  "n_requests": 1000,
+  "seeds": 1,
+  "est_usd": 7.47,
+  "subset_note": "paraphrase p1: 2 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [1000, 1000]",
+  "dropped_unrenderable": null,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 39.6,
+  "cap_usd": 4.64,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4403786592",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "As a psychologist, analyze the provided social media post(s).\nIs the poster depressed?\nOn a scale of 0 to 3, how likely is this?",
+      "Take the role of a psychologist and examine the social media post(s) provided.\nDoes the author show signs of depression?\nRate the likelihood on a scale from 0 to 3."
+    ],
+    [
+      "(Answer only with a number between 0 and 3 without explaining your reasoning. If the post is unclear, choose the most probable label without any extra explanation.)\n(Please return only the label and no other text.)",
+      "(Reply with a single number from 0 to 3 and do not explain your reasoning. If the post is ambiguous, pick the most likely label without further comment.)\n(Return the label only, with no other text.)"
+    ]
+  ]
+}

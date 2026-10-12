@@ -1,0 +1,14 @@
+{
+  "wid": "W4400611869",
+  "n_items": 990,
+  "n_requests": 1980,
+  "seeds": 2,
+  "est_usd": 4.2,
+  "subset_note": "cost cap $2.1: seeded random subset of 990 items (seed 20260907); repeat of the gemini_flash condition: same items and request bodies, 2 fresh calls per item",
+  "dropped_unrenderable": 0,
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 82.2,
+  "cap_usd": 9.22,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gemini_flash\\W4400611869"
+}

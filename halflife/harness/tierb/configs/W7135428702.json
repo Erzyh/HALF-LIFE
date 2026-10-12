@@ -1,0 +1,116 @@
+{
+  "wid": "W7135428702",
+  "title": "SommBench: Assessing Sommelier Expertise of Language Models",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 5,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4 (zero-shot, temperature 0, single run); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 1024,
+    "subset_rule": "all (WTQA: 128 questions x 8 languages)",
+    "approximation": "none"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "sommify/sommbench",
+    "config_or_split": "wtqa / test (1,024 rows)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "option_a": "a",
+      "option_b": "b",
+      "option_c": "c",
+      "option_d": "d",
+      "label": "true_label",
+      "language": "language",
+      "level": "level"
+    },
+    "license": "cc-by-nc-4.0",
+    "access_checked": true,
+    "size_mb": 0.2,
+    "hf": {
+      "dataset": "sommify/sommbench",
+      "config": "wtqa",
+      "split": "test"
+    },
+    "fields_prose": {
+      "input": "question",
+      "options": "a, b, c, d",
+      "label": "true_label",
+      "id": "row index",
+      "language": "language (selects the prompt block)",
+      "level": "level"
+    },
+    "label_map": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "d": "D"
+    },
+    "columns_verified": "question, a, b, c, d, level, true_label (lowercase a-d), language (codes en, sk, sv, fi, de, da, it, es; 128 rows each = 1,024)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Act as an expert sommelier.\nYour task is to answer the following multiple-choice question.\nYour response MUST be a single letter (A, B, C, or D) and nothing else.\nQuestion: {question}\nOptions:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nCorrect Answer (A, B, C, or D):",
+    "placeholders": {
+      "question": "items.question",
+      "a": "items.a",
+      "b": "items.b",
+      "c": "items.c",
+      "d": "items.d"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A, Figures 4-11 (prompt per language)",
+    "verbatim": "full (line-break hyphenations in the two-column extraction rejoined; typographic apostrophes normalised); machine form: user_template holds the English block, the other seven language blocks (unchanged) are in user_template_by_language keyed by the dataset's language code",
+    "user_template_by_language": {
+      "en": "Act as an expert sommelier.\nYour task is to answer the following multiple-choice question.\nYour response MUST be a single letter (A, B, C, or D) and nothing else.\nQuestion: {question}\nOptions:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nCorrect Answer (A, B, C, or D):",
+      "sk": "Si expert someliér.\nTvojou úlohou je odpovedať na nasledujúcu otázku s možnosťou výberu z viacerých odpovedí.\nTvoja odpoveď MUSÍ byť jediné písmeno (A, B, C alebo D) a nič iné.\nOtázka: {question}\nMožnosti:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nSprávna odpoveď je (A, B, C alebo D):",
+      "da": "Optræd som en ekspert-sommelier.\nDin opgave er at besvare følgende multiple choice-spørgsmål.\nDit svar SKAL være et enkelt bogstav (A, B, C eller D) og intet andet.\nSpørgsmål: {question}\nValgmuligheder:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nKorrekt svar (A, B, C eller D):",
+      "de": "Verhalten Sie sich wie ein erfahrener Sommelier.\nIhre Aufgabe ist es, die folgende Multiple-Choice-Frage zu beantworten.\nIhre Antwort MUSS aus einem einzigen Buchstaben (A, B, C oder D) bestehen und darf nichts anderes enthalten.\nFrage: {question}\nOptionen:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nRichtige Antwort (A, B, C oder D):",
+      "it": "Agisci come un sommelier esperto.\nIl tuo compito è rispondere alla seguente domanda a scelta multipla.\nLa tua risposta DEVE essere una sola lettera (A, B, C o D) e nient'altro.\nDomanda: {question}\nOpzioni:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nRisposta corretta (A, B, C o D):",
+      "es": "Actúa como un sumiller experto.\nTu tarea consiste en responder a la siguiente pregunta de opción múltiple.\nSu respuesta DEBE ser una sola letra (A, B, C o D) y nada más.\nPregunta: {question}\nOpciones:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nRespuesta correcta (A, B, C o D):",
+      "sv": "Agera som en expert-sommelier.\nDin uppgift är att svara på följande flervalsfråga.\nDitt svar MÅSTE bestå av en enda bokstav (A, B, C eller D) och inget annat.\nFråga: {question}\nAlternativ:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nRätt svar (A, B, C eller D):",
+      "fi": "Toimi sommelier-asiantuntijana.\nTehtävänäsi on vastata seuraavaan monivalintakysymykseen.\nVastauksesi on oltava yksi kirjain (A, B, C tai D) eikä mitään muuta.\nKysymys: {question}\nVaihtoehdot:\n(A) {a}\n(B) {b}\n(C) {c}\n(D) {d}\nOikea vastaus (A, B, C tai D):"
+    }
+  },
+  "output": {
+    "parse": "letter",
+    "postprocess": "strip, uppercase; compare with true_label; unparsable counts as incorrect",
+    "parse_prose": "letter (A-D): first standalone letter A-D in the reply"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "overall WTQA accuracy = mean of the eight per-language accuracies (equal-sized sets, so equal to the accuracy over all 1,024 items)",
+    "judge": "none",
+    "original_value": 0.73,
+    "original_location": "Table 1, row gpt-4.1-nano, column WTQA",
+    "bootstrap_unit": "item",
+    "scale": 1,
+    "alternative_cell": "Table 2 (per-language WTQA accuracy), row gpt-4.1-nano, column EN = 0.80 (n = 128); SK 0.69, SV 0.74, FI 0.73, DE 0.72, DA 0.72, IT 0.74, ES 0.73"
+  },
+  "cost": {
+    "est_calls": 3072,
+    "est_usd": 0.05,
+    "tier": "low",
+    "est_usd_prepare": 0.05,
+    "est_usd_dryrun_max_tokens": 0.05,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens"
+  },
+  "open_points": [],
+  "notes": "Very cheap (~$0.0005 per call). Reasoning traces are ignored for reasoning models (not relevant here). The released sommbench package implements the same prompts. || [hook 2026-09-07] render() selects prompt.user_template_by_language by the item's language code (Figures 4-11) and fills {question},{a},{b},{c},{d}; all 1,024 items (128 x 8 languages) run against Table 1 (0.73 = mean of the eight per-language accuracies; Table 2 gives the per-language cells, EN 0.80). Parse 'letter', label_map a-d -> A-D and accuracy stay with the runner.",
+  "hook": {
+    "path": "harness/tierb/hooks/W7135428702.py",
+    "functions": [
+      "render"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

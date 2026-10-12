@@ -1,0 +1,95 @@
+{
+  "card_id": "W4404569914",
+  "openalex_id": "https://openalex.org/W4404569914",
+  "title": "Does Prompt Formatting Have Any Impact on LLM Performance?",
+  "doi": "10.48550/arXiv.2411.10541",
+  "paper": {
+    "doi": "10.48550/arXiv.2411.10541",
+    "authors": "He, Rungta, Koleczek, Sekhon, Wang, Hasan (Microsoft / MIT)",
+    "year": 2024,
+    "version_read": "arXiv 2411.10541, external/papers/W4404569914.txt",
+    "repo": null,
+    "repo_license": null,
+    "repo_commit": null,
+    "repo_note": "No code release; the only GitHub link in the PDF (github.com/openai/evals) is a third-party tool cited for the NER Finance data."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The finding is the sensitivity of four Azure OpenAI GPT snapshots to prompt format; every number is model output under a fixed benchmark."
+  },
+  "claim": {
+    "statement": "Prompt format (plain text / Markdown / YAML / JSON) significantly changes task performance for all four GPT models (one-sided matched-pair t-tests p < 0.05 in every dataset x model cell except GPT-4-1106-preview on HumanEval, p = 0.055; Table 1), and GPT-4-1106-preview ('GPT-4-turbo') is less sensitive than GPT-3.5: e.g. MMLU 81.2 (Markdown) vs 73.9 (JSON) for GPT-4-1106-preview, while GPT-35-turbo-0613 swings 59.7 (JSON) vs 50.0 (Markdown) on MMLU and 200-300% on FIND / HumanEval (Sec. 3.2, Tables 1, 3, 4).",
+    "claim_type": "bias_or_behavior",
+    "metric": "Task score per format (MMLU accuracy over 57 subjects; HumanEval pass@1 with unit tests; NER Finance entity score; CODEXGLUE Java<->C# translation score; HumanEval-X; FIND score), best-vs-worst format gap and matched-pair t-test p-value; consistency and IoU metrics in Secs. 4-5",
+    "original_values": {
+      "gpt-4-1106-preview": {
+        "MMLU": { "max": "81.2 (Markdown)", "min": "73.9 (JSON)", "p": "<0.001", "per_format": { "Plaintext": "81.005 +/- 12.979", "Markdown": "81.252 +/- 12.932", "YAML": "80.758 +/- 13.000", "JSON": "73.918 +/- 13.580" } },
+        "HumanEval": { "max": "86.6 (Markdown)", "min": "82.9 (Plain text)", "p": 0.055, "per_format": { "Plaintext": "82.93 +/- 4.39", "Markdown": "86.59 +/- 4.06", "YAML": "85.37 +/- 4.18", "JSON": "86.59 +/- 4.06" } },
+        "NER_Finance": { "max": "53.8 (YAML)", "min": "49.3 (Plain text)", "p": 0.001 },
+        "CODEXGLUE_Java2CS": { "max": "77.0 (Markdown)", "min": "68.2 (Plain text)", "p": "<0.001" },
+        "CODEXGLUE_CS2Java": { "max": "83.1 (JSON)", "min": "68.1 (Plain text)", "p": "<0.001" },
+        "HumanEval_X": { "max": "72.4 (JSON)", "min": "63.9 (Plain text)", "p": "<0.001" },
+        "FIND": { "max": "20.7 (Markdown)", "min": "20.08 (Plain text)", "p": "<0.0269" }
+      },
+      "gpt-35-turbo-0613_MMLU": { "max": "59.7 (JSON)", "min": "50.0 (Markdown)", "p": "<0.001" },
+      "gpt-4-32k-0613_HumanEval_JSON": "21.95 +/- 2.48 (vs 76.22 plain text)"
+    },
+    "original_source": "Paper Table 1 (sensitivity), Tables 3-8 (per-format scores with SD), Sec. 2.3 (models)"
+  },
+  "protocol": {
+    "model": "Azure OpenAI deployments gpt-35-turbo-0613, gpt-35-turbo-16k-0613, gpt-4-32k-0613, gpt-4-1106-preview (Sec. 2.3). 'GPT-4-turbo' in the text = gpt-4-1106-preview. gpt-4-turbo-2024-04-09 NOT used (only the 0125 laziness fix is mentioned in passing, Appendix D).",
+    "model_status": "dead (gpt-4-1106-preview 2026-03-26; gpt-4-32k 2025-06-06; gpt-3.5-turbo-0613 / 16k 2024-09-13). Live arm not an experimental arm.",
+    "endpoint": "Azure OpenAI chat completions (deployment names above); API version not reported",
+    "prompt_source": "appendix Table 2 (four format templates with persona / instructions / examples / output-format / user-ask placeholders) and Appendix C examples - paper only, no files",
+    "params": { "temperature": "not reported", "max_tokens": "not reported", "seed": "not reported", "n_runs": "not reported (SDs in Tables 3-8 appear to be across subjects/items, not seeds)" },
+    "n_items": "MMLU 14,079 test questions; HumanEval 164; NER Finance 500 sampled; FIND 500 functions; CODEXGLUE 1,000 pairs per direction; HumanEval-X 164; each x 4 formats",
+    "samples_per_item": "1 per format (assumed)",
+    "evaluation": "Automatic: accuracy / pass@1 via unit tests / string-match entity scoring / translation similarity; matched-pair t-test across items between best and worst format.",
+    "environment_check": "not applicable - no artifacts; a successor run would need our own reimplementation of the four templates from Table 2 and Appendix C"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": null,
+    "eval_path": null,
+    "data_public": "partial",
+    "data_license": "underlying benchmarks public (MMLU MIT, HumanEval MIT, CodeXGLUE C-UDA/MIT, HumanEval-X Apache-2.0, FIND MIT, NER Finance from openai/evals MIT); the formatted prompt files, sampled subsets and outputs are not released",
+    "redistributable": "unknown",
+    "notes": "Template skeletons are printed in Table 2 and Appendix C, so a faithful-in-spirit reimplementation is feasible; exact wording of ICL examples and output-format instructions per task is only partially shown."
+  },
+  "blockers": [
+    "live model not an experimental arm: all four Azure snapshots are dead ('GPT-4-turbo' = gpt-4-1106-preview)",
+    "no code, prompt files, sampled subsets (NER 500, FIND 500) or outputs released",
+    "decoding parameters and number of runs unreported",
+    "Azure deployment behaviour (content filters, API version) not reproducible on the public OpenAI endpoint"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "note": "none" },
+    "successors": [
+      "gpt-4-turbo-2024-04-09 (dying; nearest successor of gpt-4-1106-preview)",
+      "gpt-5-2025-08-07 / gpt-5-mini-2025-08-07",
+      "claude (current Sonnet/Opus id per target_models)",
+      "gemini (current Pro/Flash id)",
+      "llama (open weights, pinned hash)",
+      "qwen (open weights, pinned hash)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 } },
+    "sampling_scheme": "temperature 0 (unreported -> ANALYSIS_PLAN default) x 3 seeds",
+    "full_hypothetical": { "est_calls": 199212, "est_tokens_in": 120000000, "est_tokens_out": 40000000, "est_cost_usd": 2400, "note": "all 6 datasets x 4 formats x 3 seeds (16,607 items x 4 x 3); ~600 in / ~200 out tokens (CoT-style outputs); HYPOTHETICAL, card is blocked" },
+    "representative_subset": { "est_calls": 13968, "est_tokens_in": 8400000, "est_tokens_out": 4200000, "est_cost_usd": 210, "note": "HumanEval (164) + 1,000-item stratified MMLU subset, x 4 formats x 3 seeds = 4,656 calls/seed; preserves the GPT-4 MMLU Markdown-vs-JSON gap and the HumanEval non-significance cell" }
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1 on the GPT-4 MMLU cell: survival = best-vs-worst format gap same sign (Markdown/plain > JSON) with matched-pair p < 0.05 and gap of the same order (~7 points); partial = significant but gap collapses to < 2 points or reorders formats; dead = no significant format effect. Secondary: HumanEval cell remains non-significant (p > 0.05).",
+    "notes": "Only judgeable on successor models; no live baseline."
+  },
+  "status": "blocked",
+  "status_reason": "live model not an experimental arm (the paper's 'GPT-4-turbo' is gpt-4-1106-preview; all snapshots dead); no artifacts",
+  "user_checks": [
+    "Move to the successor-only track with gpt-4-turbo-2024-04-09 as the nearest successor of gpt-4-1106-preview, using our own reimplementation of the Table 2 templates?",
+    "If so, is the MMLU-1000 + HumanEval subset (~210 USD for 3 seeds) the right unit, or HumanEval only (~10 USD)?",
+    "Should we contact the authors (Microsoft) for the prompt files and sampled subsets before any spend?"
+  ],
+  "domain_notes": "A prompt-sensitivity study on Azure-hosted GPT snapshots, all now retired; the models are subjects. The paper reports enough template structure to rebuild the four formats but not the exact per-task ICL examples, so any re-execution is a conceptual replication. The scaffold's 'gpt-4-turbo' hit is the paper's shorthand for gpt-4-1106-preview (alias false positive)."
+}

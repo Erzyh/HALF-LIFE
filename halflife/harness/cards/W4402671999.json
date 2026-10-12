@@ -1,0 +1,81 @@
+{
+  "card_id": "W4402671999",
+  "openalex_id": "https://openalex.org/W4402671999",
+  "title": "Examining the robustness of LLM evaluation to the distributional assumptions of benchmarks",
+  "doi": "10.18653/v1/2024.acl-long.560",
+  "paper": {
+    "doi": "10.18653/v1/2024.acl-long.560",
+    "authors": "Ailem, Marazopoulou, Siska, Bono (Microsoft)",
+    "year": 2024,
+    "version_read": "ACL 2024 long paper (Anthology PDF), external/papers/W4402671999.txt",
+    "repo": null,
+    "repo_license": null,
+    "repo_commit": null,
+    "repo_note": "No code or data release found in the paper (no GitHub/Drive link; only HF dataset links for ANLI). Several evaluated models are Microsoft/OpenAI-internal names (Text-Alpha-002-Current, DV3-FP8, Babbage-0721, ChatGPT-Turbo-Base-0516, ChatGPT-202301)."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The analysed objects are per-prompt correctness vectors of 12-14 LLMs per benchmark; the finding (non-random correlation structure, ranking changes under reweighting) is a property of that model set's outputs."
+  },
+  "claim": {
+    "statement": "Per-prompt performance vectors across LLMs are non-randomly correlated: clustering observed performance vectors yields higher average silhouette scores than permuted vectors (ANLI 0.52 vs 0.21, HellaSwag 0.54 vs 0.24, CommonsenseQA 0.61 vs 0.29, CNN/DM 0.25 vs 0.21; Table 3), and permutation / KS tests reject random structure (KS p = 2e-5 on ANLI, HS, CSQA; Table 2); consequently prompt reweighting changes model rankings (Sec. 5.2).",
+    "claim_type": "bias_or_behavior",
+    "metric": "Average silhouette score (spherical k-means, cosine distance, k chosen to maximise silhouette) of prompt performance vectors vs a random permutation; permutation-test p-values on Hamming/cosine/Jaccard correlations (average, 75th, 95th percentile) and KS test",
+    "original_values": {
+      "silhouette_observed_vs_permuted": { "ANLI": [0.52, 0.21], "HellaSwag": [0.54, 0.24], "CommonsenseQA": [0.61, 0.29], "CNN_DailyMail": [0.25, 0.21] },
+      "ks_test_p": { "ANLI": 2e-5, "HellaSwag": 2e-5, "CommonsenseQA": 2e-5 },
+      "permutation_p_95th_percentile_ANLI": { "Hamming": 0.0009, "Cosine": 0.0009, "Jaccard": 0.0009 }
+    },
+    "original_source": "Paper Tables 2 and 3 (Sec. 5.1); model list Table 1 (Sec. 4.3); test sizes Sec. 4.4"
+  },
+  "protocol": {
+    "model": "Model set per benchmark (Table 1), 12 (ANLI) / 13 (HS) / 14 (CSQA) / 8 (CNN/DM) models: GPT-4-0314, GPT-4-0613 (Chat), GPT-4-Turbo-1106 (Chat) and GPT-4-Turbo-1106 (completion) = gpt-4-1106-preview, ChatGPT-Turbo-0301/0613, Text-Davinci-002/003, DaVinci, Llama-13B/30B/65B, Llama-2-13B/70B, Claude-2, Falcon-180b, Koala-13B, Vicuna-13B, Mistral-7B, Alpaca-7B, Persimmon-8B, plus internal models. gpt-4-turbo-2024-04-09 was NOT used: 'GPT-4-Turbo' here is the 1106 preview.",
+    "model_status": "dead (gpt-4-1106-preview 2026-03-26; gpt-4-0314/0613, gpt-3.5-turbo-0301/0613, text-davinci-002/003, claude-2 all dead). Live arm not an experimental arm.",
+    "endpoint": "not reported (mix of OpenAI API, internal endpoints and local GPUs)",
+    "prompt_source": "not available (few-shot format not given; ANLI 7-shot from dev set, HellaSwag 10-shot, CSQA 5-shot, CNN/DM 5-shot)",
+    "params": { "temperature": "not reported", "max_tokens": "not reported", "seed": "not reported" },
+    "n_items": "ANLI test 1,200; HellaSwag 1,005; CommonsenseQA 1,221; CNN/DM 1,150 (10% random test splits for the last three, split not released)",
+    "samples_per_item": 1,
+    "evaluation": "Automatic: accuracy per prompt (binary) or ROUGE, then clustering + permutation tests + reweighting analysis (code not released).",
+    "environment_check": "not applicable - no artifacts"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": null,
+    "eval_path": null,
+    "data_public": false,
+    "data_license": "benchmarks themselves are public (ANLI CC BY-NC 4.0, HellaSwag MIT, CommonsenseQA MIT, CNN/DM research use); the performance matrices, splits and prompts are not released",
+    "redistributable": "unknown",
+    "notes": "The claim concerns a specific set of models, several of which never existed outside Microsoft; the set cannot be reconstituted by anyone."
+  },
+  "blockers": [
+    "live model not an experimental arm: 'GPT-4-Turbo-1106' = gpt-4-1106-preview (dead); no dying model in Table 1",
+    "no code, prompts, random test splits or performance matrices released",
+    "several evaluated models are internal (Text-Alpha-002-Current, DV3-FP8, Babbage-0721, ChatGPT-Turbo-Base-0516) - unavailable to external researchers",
+    "the claim is a property of the model *set*; replacing individual models changes the object of study",
+    "decoding parameters and few-shot prompt formats unreported"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "note": "none" },
+    "successors": [
+      "a successor re-execution would need a fresh panel of >=12 models (gpt-5 family, claude, gemini, llama, qwen, plus open checkpoints) and would test whether the structural finding generalises, not whether the original panel drifted"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 } },
+    "full_hypothetical": { "est_calls": null, "est_tokens_in": null, "est_tokens_out": null, "est_cost_usd": null, "note": "Not estimable as a re-execution: requires >=12 models. Per single closed-model run: 4,576 items x ~1,500 few-shot input tokens = 6.9M in + ~0.1M out -> ~75 USD per gpt-4-turbo model; a 12-model panel mixing API and open models ~300-500 USD API spend plus GPU time." },
+    "representative_subset": { "est_calls": null, "est_cost_usd": null, "note": "ANLI only (1,200 items, 12 models) would be the smallest faithful unit; still needs a full model panel" }
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1: survival = observed silhouette > permuted silhouette with permutation p < 0.05 on the same benchmark (direction + significance); partial = direction holds but not significant; dead = no difference. Applicable only to a successor panel.",
+    "notes": "Not executable; recorded for the census as dependence=subject, artifacts=none."
+  },
+  "status": "blocked",
+  "status_reason": "live model not an experimental arm (only gpt-4-1106-preview and older, all dead); no artifacts; internal models in the panel",
+  "user_checks": [
+    "Keep this paper in the census as 'blocked - no artifacts, dead panel' or drop it from P0 entirely?",
+    "Is a successor-panel re-execution (structural claim generalisation, ~12 current models on ANLI) of interest for the P3 track?"
+  ],
+  "domain_notes": "A benchmark-methodology paper whose evidence is a matrix of correctness bits from many models; the LLMs are subjects. Nothing was released and the panel includes Microsoft-internal models, so even a same-day reproduction by outsiders was impossible. The scaffold's 'gpt-4-turbo' hit is the 1106 preview (an alias false positive for the 2024-04-09 GA model)."
+}

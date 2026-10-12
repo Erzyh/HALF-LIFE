@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7162606037",
+ "title": "AI-Associated Lexical Shifts Across 34 Languages: Cross-Lingual Convergence and Diachronic Uptake in News Writing",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Limitations/Model-versions: \"...GPT-3.5 Turbo rho=0.918, GPT-4 rho=0.857, GPT-4 Turbo rho=0.930, and GPT-4o rho=0.956...\", supporting GPT-4.1-mini as a proxy for models used during the target period."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "System-prompt sensitivity section (e.g. \"Continue the input text. Output only the continuation.\"); Appendix A (cost/model-matching rationale)",
+  "note": "Main task is direct text continuation from corpus text (model receives the first half of a sentence), not a fixed engineered template."
+ },
+ "claim": {
+  "metric": "Spearman rho vs. GPT-4.1-mini lexical-overuse lists (cross-version robustness check)",
+  "value": 0.93,
+  "n_items": 1200,
+  "location": "Limitations section (Historical model matching / Model-versions paragraph)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Public multilingual news corpus (2020-2021 continuations, 34 languages)"
+ },
+ "cost": {
+  "est_calls": 20000,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "The paper's primary model is GPT-4.1-mini (not itself one of the tracked retiring identifiers); GPT-4-Turbo appears only in a secondary validation comparison limited to 20k continuations per model, with overlap n~1,100-1,300 after a low-count guard (reported as a range, not an exact figure). Undated GPT-4o also appears in the same comparison (rho=0.956) but is not the primary claim here."
+}

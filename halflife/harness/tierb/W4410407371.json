@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4410407371",
+ "title": "Enhancing Substance Use Detection in Clinical Notes with Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o3-mini-2025-01-31",
+  "resolved": "o3-mini-2025-01-31",
+  "role": "S",
+  "evidence": "Results table row \"LLM o3-mini-2025-01-31 5 0.883 0.911 0.899 0.893 0.986 0.994\" (F1/accuracy/sensitivity/PPV/specificity/NPV, aggregated across 8 drug classes, 5-shot ICL)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix E (\"final prompt template we used for all LLMs\")",
+  "note": ""
+ },
+ "claim": {
+  "metric": "F1 (aggregated across 8 substance classes, 5-shot ICL)",
+  "value": 0.883,
+  "n_items": 6443,
+  "location": "Sec 3 Results (overall table); held-out test split n=6443 (Sec 2.5)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "MIMIC-III/IV discharge summaries (PhysioNet credentialed access, described in-paper as \"publicly available\"); authors' own DrugDetection annotations not confirmed released separately"
+ },
+ "cost": {
+  "est_calls": 6443,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Bare \"gpt-4-turbo\" appears once (Sec 1, background list of \"proprietary LLMs\"); Table 1's actual roster runs GPT-4o (as gpt-4o-2024-08-06, outside the tracked list), not GPT-4-Turbo. o3-mini-2025-01-31 is the dated, directly-run model with printed metrics. Soft gap: MIMIC needs PhysioNet credentialing."
+}

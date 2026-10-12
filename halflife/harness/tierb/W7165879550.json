@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7165879550",
+ "title": "InterviewXpert: An AI-Driven Automated Interview and Resume Analysis System",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"However, GPT-4-Turbo is frequently cited as superior for deep reasoning and logical deductions\" (design-rationale aside, no experiment)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt; GPT-4-Turbo is discussed but not shown to be used by the system."
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "System-description paper for an interview/resume tool; GPT-4-Turbo is referenced only in a design-choice discussion, never run or benchmarked."
+}

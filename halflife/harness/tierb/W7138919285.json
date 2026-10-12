@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7138919285",
+ "title": "AI in the Wild: A Meta-Analytic Evaluation of Depression Detection from Social Media Data",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"A human reviewer and GPT-4 Turbo—using the prompt reproduced in Appendix A—independently [coded study characteristics]\"."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix A (study-coding prompt)",
+  "note": "Supports only a coding/annotation role, not a benchmark capability claim."
+ },
+ "claim": {
+  "metric": "none tied to GPT-4 Turbo's own capability; the paper's predictive-accuracy findings (Accuracy, F1, r trends over time) summarize depression-detection models reported in the reviewed studies, not GPT-4 Turbo itself",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Meta-analysis corpus of published depression-detection studies (systematic review)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is a meta-analysis; GPT-4 Turbo is used only to help code/extract study-level variables (role A) alongside a human reviewer, not to detect depression itself."
+}

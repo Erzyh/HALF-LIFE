@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411113098",
+  "title": "TESTEVAL: Benchmarking Large Language Models for Test Case Generation",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4-turbo N/A 100 94.79 56.24 96.08 94.81 85.46 ...\" (Table 1, overall coverage task: syntax, execution, assertion correctness, line/branch coverage)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.1-A.5 (prompt templates for overall coverage, targeted line/branch/path, two-step CoT)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "overall line coverage (%) of generated test suites",
+    "value": 96.08,
+    "n_items": 210,
+    "location": "Table 1, row GPT-4-turbo, column Overall coverage / line (branch 94.81)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TESTEVAL: 210 LeetCode programs under test (https://github.com/LLM4SoftwareTesting/TestEval)"
+  },
+  "cost": {
+    "est_calls": 210,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: scoring requires executing generated tests and measuring coverage (harness in the repo). GPT-4-turbo snapshot not stated; NAACL Findings 2025 with no preview string resolves to gpt-4-turbo-2024-04-09. Temperature 0.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 210 programs under test are a filtered selection from the walkccc/LeetCode solutions (Sec. 3.1) that can only be identified from the repository, which also holds the pytest-cov harness and the random input generators. Take the programs and harness from the repo, use the Appendix A.1 overall-coverage prompt, query gpt-4-turbo-2024-04-09 at temperature 0 for 20 rounds per program (max 256 tokens), run the generated tests and report overall line coverage (96.08).",
+    "approximation": "None beyond Python/pytest-cov version differences.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/LLM4SoftwareTesting/TestEval",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

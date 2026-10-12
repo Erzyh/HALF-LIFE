@@ -1,0 +1,97 @@
+{
+  "card_id": "W4404782918",
+  "openalex_id": "https://openalex.org/W4404782918",
+  "title": "LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing",
+  "doi": "10.18653/v1/2024.emnlp-main.292",
+  "paper": {
+    "doi": "10.18653/v1/2024.emnlp-main.292",
+    "authors": "Du, Wang, Zhao, Deng, Liu, Lou, Zou, Venkit, Zhang, Srinath, et al. (arXiv 2406.16253)",
+    "year": 2024,
+    "version_read": "EMNLP 2024 main (Anthology PDF), external/papers/W4404782918.txt",
+    "repo": "https://github.com/jiangshdd/ReviewCritique",
+    "repo_license": "Apache NON-AI License 2.0 (research only; no use for model training)",
+    "repo_commit": "629932bcfa31879b1df1e011e3cd7188aa3b9b46 (clone external/repos/W4404782918/jiangshdd__ReviewCritique; dataset only, no code). github.com/Tiiiger/bert_score is a third-party metric tool, not the paper's repo."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "Thread (ii) 'LLMs as Metareviewers': the LLM is evaluated on flagging expert-labelled Deficient review segments; the numbers are the model's own precision/recall/F1 against human expert annotations. (Thread (i) 'LLMs as Reviewers' uses LLM-generated reviews judged by humans and is not automatable.)"
+  },
+  "claim": {
+    "statement": "LLMs are poor meta-reviewers: prompted to flag Deficient review segments on ReviewCritique, GPT-4 (API alias gpt-4-turbo) reaches only precision / recall / F1 = 17.18 / 34.59 / 20.30 with the Select-Deficient prompt and 14.91 / 34.49 / 18.38 with Labeling-All (ensembles 16.85 / 20.66); recall exceeds precision for every model, and the best F1 across all models is 21.99 (Claude Opus, Either-No ensemble) (Table 4). Explanations for correctly flagged segments score ROUGE-1/2/L 17.13 / 2.71 / 14.64 and BERTScore 55.63 for GPT-4 (Table 5).",
+    "claim_type": "capability_limit",
+    "metric": "Segment-level precision, recall and F1 for the Deficient class (reliability == 'No'), computed per paper then averaged across papers (Sec. 4.2); explanation quality via ROUGE and BERTScore (microsoft/deberta-xlarge-mnli) on correctly identified segments",
+    "original_values": {
+      "GPT-4_table4_P_R_F1": {
+        "Labeling-All": [14.91, 34.49, 18.38],
+        "Select-Deficient": [17.18, 34.59, 20.30],
+        "Both_No": [18.71, 21.40, 16.85],
+        "Either_No": [14.72, 47.68, 20.66]
+      },
+      "best_F1_any_model": "21.99 (Claude Opus, Either-No)",
+      "GPT-4_table5_explanations": { "ROUGE-1": 17.13, "ROUGE-2": 2.71, "ROUGE-L": 14.64, "BERTScore": 55.63 },
+      "dataset_stats_table1": { "papers": 100, "reviews": 380, "segments": 11376, "deficient_segments": 713, "deficient_pct": 6.27 }
+    },
+    "original_source": "Paper Table 4 and Table 5 (Sec. 4.2), Table 1 (dataset stats), Tables 10-11 (appendix E, all prompt conditions), Appendix A.3 (model endpoints)"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09. Paper (Appendix A.3): 'GPT-4 (gpt-4-turbo)' - an undated alias. Experiments ran between the 2024-04-09 GA release (when the alias started resolving to gpt-4-turbo-2024-04-09) and the arXiv v1 date 2024-06-24, so the alias can only have resolved to 2024-04-09. The paper genuinely USED this model as an experimental arm.",
+    "model_status": "dying, shutdown 2026-10-23 (priority 1) - valid live arm",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions",
+    "prompt_source": "appendix F: Table 12 (Labeling-All) and Table 13 (Select-Deficient), verbatim in the paper; not in repo. Placeholders {paper_title}, {body_text}, {review_text} (indexed segments), {author_rebuttals_text}",
+    "messages": [
+      { "role": "user", "content": "Assume you are a meta-reviewer of a natural language processing conference. Given a paper submission and its corresponding review, your job is to assess the deficiency of each review segment. ... The criteria for Deficient are: 1. factual errors or misinterpretations ... 2. lacking constructive feedback 3. overly subjective, emotional, or offensive judgments ... 4. downsides without supporting evidence ... Here is the submission title: {paper_title} Here is the body text of the submission: {body_text} Here is the segmented review: {review_text} Here is the author rebuttals: {author_rebuttals_text} ... [index]. [Yes or No][Your explanation if your answer is No] Output your answer below:" }
+    ],
+    "params": { "temperature": "not reported", "max_tokens": "not reported", "seed": "not reported", "system_prompt": "none shown" },
+    "n_items": "380 human-written reviews over 100 ICLR submissions (50 accepted / 50 rejected), 11,376 segments; one call per review per prompt strategy (assumed: Table 4 caption says 'on our ReviewCritique dataset'; the exact subset is not restated)",
+    "samples_per_item": "1 per prompt strategy x 2 strategies (Labeling-All, Select-Deficient); ensembles derived offline",
+    "evaluation": "Automatic: parse '[index]. [Yes/No] explanation' lines, align to segment indices, compare with reliability labels (Yes = reliable, No = Deficient), P/R/F1 per paper then mean; ROUGE + BERTScore (deberta-xlarge-mnli) between model explanation and expert explanation for true positives. No code released; parsing/alignment rules must be written by us.",
+    "environment_check": "Load data/ReviewCritique.jsonl (100 records; keys decision, title, body_text, review#1..#4 -> review[{segment_text, topic_class_1, topic_class_2, reliability, explanation, error_type}], score) and confirm 380 reviews / 11,376 segments / 712 'No' labels (paper says 713); measure prompt lengths (body_text mean ~41.6k chars ~ 10.4k tokens, max ~155k chars ~ 39k tokens - all within 128k)."
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": "data/ReviewCritique.jsonl (100 papers, human reviews with segment labels); data/ReviewCritique_LLM.jsonl (20 papers, LLM-generated reviews by gpt4 / claude_opus / gemini_pro_1.5 with labels; thread (i))",
+    "eval_path": null,
+    "data_public": true,
+    "data_license": "Apache NON-AI License 2.0 - evaluation/analysis/benchmarking allowed, training forbidden; derivative works must state origin. Paper bodies are ICLR OpenReview submissions (initial versions).",
+    "redistributable": true,
+    "notes": "The prompt has an {author_rebuttals_text} slot but the released JSONL has no rebuttal field; rebuttals would have to be scraped from OpenReview (all 100 are public ICLR submissions) or the slot left empty (documented deviation). Segment count 712 vs 713 minor mismatch."
+  },
+  "blockers": [
+    "author rebuttal texts used in the prompt are absent from the released data (fetch from OpenReview or run without - deviation)",
+    "decoding parameters (temperature, max_tokens) and output-parsing / index-alignment rules unreported; no evaluation code",
+    "exact evaluation subset for Table 4 not restated (assumed all 380 human reviews)",
+    "long-context prompts (mean ~12.5k tokens incl. review; max ~40k) - cost-dominant and sensitive to any truncation policy",
+    "BERTScore/ROUGE secondary metric needs the deberta-xlarge-mnli checkpoint (public)"
+  ],
+  "arms": {
+    "baseline_alive": { "model": "gpt-4-turbo-2024-04-09", "model_status": "dying, shutdown 2026-10-23", "purpose": "live baseline (paper's GPT-4 = alias gpt-4-turbo, mid-2024)" },
+    "successors": [
+      "gpt-5-2025-08-07 / gpt-5-mini-2025-08-07",
+      "claude (current Sonnet/Opus id per target_models; paper's claude-3-opus-20240229 is dead)",
+      "gemini (current Pro/Flash id; paper's gemini-1.5-flash is dead)",
+      "llama (open weights, pinned hash; paper used Llama-3-8B/70B-Instruct with 8k truncation)",
+      "qwen (open weights, pinned hash; paper lists Qwen2-72B but endpoint string says Qwen2-7B-Instruct)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 } },
+    "sampling_scheme": "temperature 0 (unreported -> ANALYSIS_PLAN default) x 3 seeds; 2 prompt strategies are the paper's own paraphrase pair",
+    "full": { "est_calls": 2280, "est_tokens_in": 28500000, "est_tokens_out": 1600000, "est_cost_usd": 335, "note": "380 reviews x 2 prompts = 760 calls/seed x 3 seeds; ~12.5k input tokens (paper body mean 10.4k + segmented review ~1.5k + instructions) and ~700 output tokens (Labeling-All lists every segment); ~111 USD/seed; no prompt-caching discount assumed" },
+    "representative_subset": { "est_calls": 360, "est_tokens_in": 4500000, "est_tokens_out": 250000, "est_cost_usd": 53, "note": "the 20-paper subset (60 human reviews, Table 1 col 4) x 2 prompts x 3 seeds = 360 calls; ~18 USD/seed; preserves per-paper F1 averaging and both prompt strategies" }
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1 on Select-Deficient F1 (primary; 20.30) with Labeling-All F1 (18.38) as secondary: survival = re-run mean F1 within the bootstrap 95% CI over papers of the original AND recall > precision AND F1 stays in the 'relatively low' regime (< ~30). Partial = direction (recall > precision, low F1) holds but F1 leaves the CI. Dead = F1 rises to a level contradicting 'LLMs struggle' (e.g. > 35) or precision/recall ordering reverses.",
+    "notes": "Per-paper F1 with ~4 reviews and ~7 Deficient segments per paper is noisy; report bootstrap CI over 100 papers (or 20 for the subset)."
+  },
+  "status": "draft",
+  "status_reason": "live arm gpt-4-turbo-2024-04-09 genuinely used (alias gpt-4-turbo, mid-2024); data public; prompts verbatim in appendix; remaining gaps are protocol details (rebuttals, decoding, parsing)",
+  "user_checks": [
+    "Accept Select-Deficient F1 = 20.30 (Table 4) as the single judged number, with Labeling-All as secondary?",
+    "Rebuttal slot: scrape author rebuttals from OpenReview for the 100 ICLR submissions, or run with the slot empty and record the deviation?",
+    "Run all 380 reviews (~335 USD for 3 seeds) or the 20-paper / 60-review subset (~53 USD)?",
+    "Temperature 0 and max_tokens 4096 as defaults (both unreported)?",
+    "Parsing rule for unparseable or missing indices: treat as 'Yes' (reliable)? Authors did not specify"
+  ],
+  "domain_notes": "Capability-limit claim about LLMs judging peer reviews; humans (senior NLP researchers) provide the gold labels, so the metric is fully automatic once labels exist. The prompt carries the entire paper body (mean ~10k tokens), so this card is token-heavy per call and should use the dated snapshot explicitly (the paper only gives the alias). The dataset licence forbids training use and asks for attribution; our L1 log archive will contain the paper texts (public OpenReview submissions), which is permitted for evaluation/analysis."
+}

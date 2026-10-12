@@ -1,0 +1,48 @@
+{
+  "openalex_id": "https://openalex.org/W4405408496",
+  "title": "The Impact of Temperature on Extracting Information From Clinical Trial Publications Using Large Language Models",
+  "doi": "https://doi.org/10.7759/cureus.75748",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4o-2024-05-13",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/windisch-paul/temperature"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/windisch-paul/temperature",
+      "cloned": true,
+      "audit": {
+        "n_files": 13,
+        "ext_top": {
+          ".png": 8,
+          ".csv": 2,
+          "": 1,
+          ".ipynb": 1,
+          ".yaml": 1
+        },
+        "has_license": false,
+        "has_requirements": false,
+        "has_readme": false,
+        "n_notebooks": 1,
+        "n_py": 0,
+        "n_data_files": 2,
+        "files_mentioning_prompt": 1,
+        "files_with_eval_terms": 2,
+        "model_ids_in_code": {
+          "o3": 213,
+          "o1": 184,
+          "o4": 107,
+          "gpt-4o": 53,
+          "gpt-4o-mini": 31
+        },
+        "readme_head": ""
+      },
+      "commit": "26e3eec096b9f5a733fc07c371f81800349570a6"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4405408496.txt",
+  "paper_text_status": "pdf"
+}

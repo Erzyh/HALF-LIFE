@@ -1,0 +1,66 @@
+{
+  "wid": "W7166821175",
+  "title": "From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiovascular Device Traceability",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 60.1,
+  "original_location": "Table 2, Group B, row GPT-4-turbo, column R@Gold (repeated as Table 14, row GPT-4-turbo, Recall 60.1)",
+  "reexecution": {
+    "mean_over_seeds": 0.764102564102564,
+    "per_seed": {
+      "0": {
+        "value": 0.7658119658119659,
+        "n": 585,
+        "ci95": [
+          0.7332905982905983,
+          0.8
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7623931623931623,
+        "n": 585,
+        "ci95": [
+          0.7282051282051282,
+          0.7949145299145296
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7166821175",
+    "n_items": 585,
+    "n_requests": 1170,
+    "seeds": 2,
+    "est_usd": 18.88,
+    "subset_note": "repeat of the vendor condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 60.1,
+    "cap_usd": 13.86,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\vendor\\W7166821175"
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Only the gold positives are run: R@Gold is recall over the 585 verified pairs, so the negatives of the paper's 'balanced evaluation set' (hard negatives with S >= 70 and sim > 0.8, plus random negatives, counts unreported) are not needed for this claim and the companion FPR (28.6%) is therefore not reproduced. The prompt's two entity slots are filled with the released ontology entity lists (ent_names_d / ent_names_p); the repository's few-shot script instead fills them with an entity-overlap score hint, and the paper does not say which filling the Table 14 0-shot run used. Device and patent text are truncated to 400 characters, as that script does. The released gold standard covers 74 devices, the paper's Table 14 caption says 85.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor_rep\\W7166821175"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 76.41025641025641,
+    "delta": 16.310256410256407,
+    "original_inside_ci95": false
+  }
+}

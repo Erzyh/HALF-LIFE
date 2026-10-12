@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4407308868",
+  "title": "Beyond Sample-Level Feedback: Using Reference-Level Feedback to Guide Data Synthesis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (1106)",
+    "resolved": "dead-preview",
+    "role": "A",
+    "evidence": "Section 4.1: 'we follow standard evaluation protocols and use GPT-4-Turbo (1106) as a judge. For AlpacaEval 2.0, we use GPT-4-Turbo (1106) as the reference model'."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendix B prints data-synthesis prompts, not the judge prompt (AlpacaEval/Arena-Hard defaults)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "length-controlled win rate (fine-tuned Llama-3.1-8B, judged by GPT-4-Turbo 1106)",
+    "value": null,
+    "n_items": null,
+    "location": "Table 2 (AlpacaEval 2.0 / Arena-Hard)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-1106-preview"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AlpacaEval 2.0, Arena-Hard, MT-Bench"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "The live-looking alias is the judge and reference model (gpt-4-1106-preview, retired). The numbers belong to fine-tuned open models."
+}

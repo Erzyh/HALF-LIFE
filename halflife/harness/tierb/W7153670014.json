@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7153670014",
+ "title": "Language Bias under Conflicting Information in Multilingual LLMs",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-5-MINI-2025-08-07",
+  "resolved": "gpt-5-mini-2025-08-07",
+  "role": "S",
+  "evidence": "Table (1,000-word haystacks): \"GPT-5-MINI-2025-08-07 23 0 2377\" (Both/None/One, out of 2,400 trials); GPT-5-NANO-2025-08-07 also run (1/2/2397)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec.3 (Fig.1 example haystack excerpt; Table 2 lists the 8 English needles verbatim); Appendix A (model/decoding settings)",
+  "note": "\"Our prompt specifies the expected output format\"; general haystack-plus-question structure and needle content are given, exact question wording not fully confirmed in extracted text."
+ },
+ "claim": {
+  "metric": "share of trials retrieving exactly one language's answer (\"One\"), 1,000-word haystacks",
+  "value": 99.04,
+  "n_items": 2400,
+  "location": "results table, row GPT-5-MINI-2025-08-07, 1,000-word block (One=2377/2400)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Wikinews (CC-BY), ProPublica (CC-NC-ND), Democracy Now! (CC-NC-ND) source articles; needle-in-haystack harness from github.com/gkamradt/needle-in-a-haystack"
+ },
+ "cost": {
+  "est_calls": 2400,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Both gpt-5-mini-2025-08-07 and gpt-5-nano-2025-08-07 are pinned exactly and run head-to-head; soft gaps are the not-fully-quoted exact question wording and the mixed CC-BY/CC-NC-ND licensing of the source news articles used to build haystacks."
+}

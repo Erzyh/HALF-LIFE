@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4402953864",
+ "title": "Multimodal Multi-turn Conversation Stance Detection: A Challenge Dataset and Effective Model",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (gpt-3.5 and gpt-4)",
+  "resolved": "unresolved",
+  "role": "B",
+  "evidence": "Sec.5.1: \"prompting method... of Lei et al. [22]... LLaMA-70b, Claude-3, ChatGPT (gpt-3.5 and gpt-4) as the comparison method\"; footnote 8 links OpenAI gpt-4/gpt-4-turbo docs page."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Prompting method cited from Lei et al. (2023), not reprinted in this paper."
+ },
+ "claim": {
+  "metric": "F1-avg, multimodal stance detection (ChatGPT baseline)",
+  "value": null,
+  "n_items": null,
+  "location": "results tables comparing text-only/multimodal baselines (exact ChatGPT row not isolated in extracted text)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "custom multimodal multi-turn stance dataset introduced by this paper"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "In-text identifier is bare \"gpt-4\" (undated); footnote 8 pointing to OpenAI's \"gpt-4-and-gpt-4-turbo\" docs page is not sufficient to pin the exact snapshot, and the classification prompt is only cited from Lei et al., not printed."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404345923",
+  "title": "LogiCity: Advancing Neuro-Symbolic AI with Abstract Urban Simulation",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "\"The performance of Human, gpt-4o (GPT-4o), gpt-4o-mini (GPT-4o mini), gpt-4-turbo-2024-04-09 (GPT-4), and gpt-3.5-turbo-1106 (GPT-3.5) on VAP hard mode test sets are reported in Table 4\""
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure B (Appendix): in-context demo and question format; only one demo and part of the questions displayed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "action prediction accuracy, overall, 5-shot, 'Mini' test",
+    "value": 39.6,
+    "n_items": 117,
+    "location": "Table 4, row GPT-4, column Overall",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "LogiCity code/data open-sourced on the project website; the 117-question Mini test and 5-shot demo selection not identified in the text"
+  },
+  "cost": {
+    "est_calls": 351,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Temperature not stated. Small n makes re-execution cheap if the Mini test file is in the release.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 117-question 'Mini' test (VAP hard mode, concepts IsTiro and IsReckless) and the 5-shot demonstrations drawn from the human training document are part of the open-sourced LogiCity release (project website; the hyperlink is not captured in the extracted text). With them, use the Figure B format (5 demos + question) with gpt-4-turbo-2024-04-09 and compute overall accuracy vs Table 4 (39.6). Fallback: regenerate a seeded 117-question Mini test from the released VAP test set.",
+    "approximation": "Temperature not stated; a regenerated Mini test and demo selection would differ from the authors'.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

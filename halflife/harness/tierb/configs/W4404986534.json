@@ -1,0 +1,72 @@
+{
+  "wid": "W4404986534",
+  "title": "A Survey on LLM-as-a-Judge",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 64,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4.4.1 'Model Configuration' (temperature 0; gpt-4-turbo-2024-04-09); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 5106,
+    "subset_rule": "all: 2,553 samples x 2 response orders = 5,106 rows built by the hook (gold = human label mapped to the presented order)",
+    "approximation": "The exact meta-evaluation template is not singled out; the printed Gao et al. pairwise template is adapted from summaries to responses with a TIE option (resolution plan); a different template can move agreement by several points."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "LLMEval2 benchmark (Zhang et al. 2023), LLMEval2_benchmark.json.zip linked from https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/WideDeep (Google Drive file 1sRbYZ0SWqmbIlzC_eB2zjyQF5TBynSXo)",
+    "config_or_split": "all 2,553 samples (1,050 response-1 wins, 1,021 response-2 wins, 482 ties)",
+    "filter": "none",
+    "fields": {
+      "input": "question",
+      "options": "response_1, response_2",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 5,
+    "file_url": "https://drive.google.com/uc?export=download&id=1sRbYZ0SWqmbIlzC_eB2zjyQF5TBynSXo&confirm=t",
+    "fields_verified": "LLMEval2_benchmark.json (inside the zip; JSON lines, 2,553 records): dataset, query, response1, response2, human in {model1 1050, model2 1021, TIE 482}"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Given a question, which response is better? Answer \"Response 1\", \"Response 2\" or \"TIE\". You do not need to explain the reason.\nQuestion: {question}\nResponse 1: {response_1}\nResponse 2: {response_2}",
+    "placeholders": {
+      "question": "items.question (hook)",
+      "response_1": "items.response_1 (response1 in the '12' row, response2 in the '21' row)",
+      "response_2": "items.response_2"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 3 box 'Evaluation Prompt Templates from Gao et al. [38]', Pairwise Comparison; Sec. 4.4.1 (two-order prompting, Percentage Agreement)",
+    "verbatim": "partial (printed template: 'Given a new article, which summary is better? Answer \"Summary 0\" or \"Summary 1\". You do not need to explain the reason. Article: {Article} Summary 0: {Summary_0} Summary 1: {Summary_1}'; article/summary slots renamed to question/response and a TIE option added per Sec. 4.4.1)"
+  },
+  "output": {
+    "parse": "hook: first case-insensitive mention of 'response 1' / 'response 2' / 'tie'; none -> invalid (excluded)",
+    "postprocess": "strip; map back to the original response identity when the order was swapped; no match = invalid (excluded, as Table 3 counts only valid responses)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "hook: Percentage Agreement = share of valid judgements equal to the human label (Response 1 / Response 2 / TIE in the presented order)",
+    "judge": "none",
+    "original_value": 61.54,
+    "original_location": "Table 2, row GPT-4-turbo, column Alignment with Human (n=5106)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 5106,
+    "est_usd": 51.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Approve the adapted pairwise template (question/response wording, TIE option): Sec. 4.4.1 names LLMEval2, gpt-4-turbo-2024-04-09, temperature 0 and both response orders but does not print the judge prompt; the hook is complete and prepare verified (5,106 rows)."
+  ],
+  "notes": "bootstrap item = LLMEval2 sample (both orders paired). Table 3 reports the per-label alignment counts, useful for a secondary check. || [hooks_2 2026-09-07] LLMEval2 archive downloaded from Google Drive (1.4 MB), field names verified, two-order expansion in the hook; status stays needs_human only for the template approval.",
+  "hook": "harness/tierb/hooks/W4404986534.py: load_items (Google Drive zip, both orders), render (adapted pairwise template), parse (label), score (agreement over valid judgements)"
+}

@@ -1,0 +1,67 @@
+{
+  "wid": "W7106207151",
+  "title": "Syn-STARTS: Synthesized START Triage Scenario Generation Framework for Scalable LLM Evaluation",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.72,
+  "original_location": "Appendix E, Table 2(a), row GPT-4, column Datasets(A) = TRIAGE-adult",
+  "reexecution": {
+    "mean_over_seeds": 0.7314814814814814,
+    "per_seed": {
+      "0": {
+        "value": 0.7222222222222222,
+        "n": 54,
+        "ci95": [
+          0.6106481481481483,
+          0.8333333333333334
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7407407407407407,
+        "n": 54,
+        "ci95": [
+          0.6296296296296297,
+          0.8518518518518519
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7106207151",
+    "n_items": 54,
+    "n_requests": 108,
+    "seeds": 2,
+    "est_usd": 0.06,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.72,
+    "cap_usd": 1.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W7106207151",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "one of the 54 rows (index 1) has an empty narrative; the authors' script skips it and stores no answer, which their accuracy counts as wrong (39/54 = 0.7222 in the released result file), whereas this config sends it to the model like any other item - at most a 1/54 = 1.9 pp difference",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W7106207151"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7314814814814814,
+    "delta": 0.011481481481481426,
+    "original_inside_ci95": true
+  }
+}

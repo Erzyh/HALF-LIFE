@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403555729",
+  "title": "MaterialBENCH: Evaluating College-Level Materials Science Problem-Solving Abilities of Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 1 summary block: 'dates 2024.4.15-16 | model gpt-4-turbo-2024-04-09 | system statements none | score 0.79'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3.2.6 (system message text); problem statements are not released",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy",
+    "value": 0.79,
+    "n_items": null,
+    "location": "Table 1, gpt-4-turbo-2024-04-09 block",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "MaterialBENCH problems derived from copyrighted university textbooks; no release statement"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Benchmark items are not released; scoring uses majority vote of 10 responses per problem."
+}

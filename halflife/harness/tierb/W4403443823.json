@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403443823",
+  "title": "Science is Exploration: Computational Frontiers for Conceptual Metaphor Theory",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we look at gpt-3.5-turbo, gpt-4-turbo, and gpt-4o ... 2 gpt-4-turbo-2024-04-09\" (Sec. 3); Table 1 row 4-turbo: metaphorical P 74.80 / R 86.90, literal P 77.41 / R 60.53"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 2 (modified MIP prompt used in all experiments) plus the system prompt quoted in Sec. 3",
+    "note": "Sentence appended in quotation marks at the end of the prompt."
+  },
+  "claim": {
+    "metric": "precision on the metaphorical class, TroFi",
+    "value": 74.8,
+    "n_items": 3736,
+    "location": "Table 1, row 4-turbo, Metaphorical Precision (Recall 86.90)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TroFi dataset (human-labelled sentences, 3,736) and https://github.com/rmatouschekh/science-is-exploration (MWLB data, outputs, annotations)"
+  },
+  "cost": {
+    "est_calls": 3736,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "top_p 0.1, other parameters default. Scoring is a rule-based YES/NO match against TroFi labels. The paper's total API cost for three models on TroFi + MWLB was about $100."
+}

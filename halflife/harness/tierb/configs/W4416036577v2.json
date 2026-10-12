@@ -1,0 +1,102 @@
+{
+ "wid": "W4416036577v2",
+ "title": "Cross-domain Rumor Detection via Test-Time Adaptation and Large Language Models [variant: base prompt + 4 source-domain demonstrations]",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4o-2024-05-13",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 64,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (paper silent on decoding parameters)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 400,
+  "subset_rule": "all 400 Twitter-COVID19 events (Table 6)",
+  "approximation": "Variant of the base prompt with four source-domain demonstrations, to test the triage hypothesis that the Table 1 LLM rows used source-domain examples (the paper's numbers differ by source domain on the same 400 target events). Layout of the demonstrations is our design."
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/DanielLin97/ACLR4RUMOR-NAACL2022, file data/Twitter/COVID-19/Twitter-COVID19.7z (Lin et al. 2022 release)",
+  "config_or_split": "Twitter-COVID19 (target domain), all 400 labelled events (hook load_items; the data file holds 402 events)",
+  "filter": null,
+  "fields": {
+   "input": "event_content",
+   "label": "label",
+   "id": "id"
+  },
+  "license": "MIT (repository LICENSE)",
+  "access_checked": true,
+  "size_mb": 10,
+  "file_url": "https://raw.githubusercontent.com/DanielLin97/ACLR4RUMOR-NAACL2022/main/data/Twitter/COVID-19/Twitter-COVID19.7z",
+  "filter_paper": "none",
+  "fields_prose": {
+   "input": "source post text of the event",
+   "label": "rumor / non-rumor (252 / 148)",
+   "id": "event id"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W4416036577/",
+   "archive": "Twitter-COVID19.7z",
+   "unpacked": [
+    "extracted/Twitter_data_all.txt (39.9 MB)",
+    "extracted/Twitter_label_all.txt (8.8 KB)"
+   ]
+  },
+  "download": {
+   "date": "2026-09-18",
+   "url": "https://raw.githubusercontent.com/DanielLin97/ACLR4RUMOR-NAACL2022/main/data/Twitter/COVID-19/Twitter-COVID19.7z",
+   "bytes": 10501930,
+   "sha256": "51fb8799aa6819990d75667b12d459ba869387f3d8ca5ba156f678832c95333f",
+   "tool": "urllib + py7zr (7z archive; not a runner table format, hence the hook)"
+  },
+  "label_map_hook": {
+   "1": "rumor",
+   "0": "non-rumor"
+  }
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "Role: You have been specially designed for the rumor detection task.\nHere are some labelled examples from another Twitter collection:\n{demonstrations}\nEvent: \n{event_content}\nTask: \nThere are following categories: \n{list_of_categories}\nWhat's the category of this Event? Output your answer in the form of a list of python dicts like[\"answer\":<answer_here>].",
+  "placeholders": {
+   "event_content": "items.event_content",
+   "list_of_categories": "literal:rumor\nnon-rumor",
+   "demonstrations": "items.demonstrations"
+  },
+  "few_shot": "4 demonstrations (2 rumor, 2 non-rumor) drawn with seed 20260907 from the source-domain Twitter set (data/Twitter of the ACLR4RUMOR release); same four for every item",
+  "source_location": "Appendix B, Table 7 (prompt 'base') + our demonstration block; the paper does not print its few-shot layout",
+  "verbatim": "base prompt verbatim; the demonstration wrapper sentence and layout are ours",
+  "placeholders_paper": {
+   "event_content": "source post text of the event",
+   "list_of_categories": "the two labels of Sec. 4.1, one per line: 'rumor' and 'non-rumor'"
+  }
+ },
+ "output": {
+  "parse": "regex (?i)\\\"answer\\\"\\s*:\\s*\\\"?(non-rumor|rumor)",
+  "postprocess": "strip, lowercase; no match counted as incorrect",
+  "parse_paper": "regex \"answer\"\\s*:\\s*\"?(non-rumor|rumor)\"? (case-insensitive, first match)"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the 400 events whose predicted category equals the gold label.",
+  "judge": "none",
+  "original_value": 0.643,
+  "original_location": "Table 1, row GPT-4o, block Source TWITTER / Target Twitter-COVID19, column Acc.",
+  "bootstrap_unit": "item",
+  "name_paper": "accuracy",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 1200,
+  "est_usd": 6.0,
+  "tier": "low"
+ },
+ "open_points": [
+  "[variant 2026-09-19] Our design, run with the user's go; compares with the zero-shot base run W4416036577 (0.5225) and the paper's 0.643."
+ ],
+ "notes": "The 7z archive was not opened; confirm that it stores post text (not only tweet ids) and the label file layout. If only ids are present the events must be hydrated, which may no longer be possible for deleted tweets. || [normalize 2026-09-07] items.fields stay prose until the archive is inspected; list_of_categories is fixed as 'rumor' and 'non-rumor' on two lines. || [datacheck 2026-09-18] Archive opened: it stores full post text (not tweet ids) for 402 events, 400 of them labelled (1 = rumor 252, 0 = non-rumor 148, matching Sec. 4.1); every labelled event has its source post (parent 'None'); hook harness/tierb/hooks/W4416036577.py builds id / event_content / label from the unpacked files. || [triage 2026-09-18] PAPER-SIDE UNREPORTED STEP, no scoring defect; 0.5225 unchanged (seeds 0.525/0.515/0.5275, 387/400 items identical across seeds). (1) Cell and metric confirmed: Table 1, block Source TWITTER / Target Twitter-COVID19, row GPT-4o, Acc over all 400 target events; the LLM rows are stand-alone baselines ('rely solely on general semantic understanding'); the prompt variant is not stated (base assumed; conf_reason is the adopted annotation prompt). (2) Parse clean: 0/1200 unparsed, finish_reason stop, <= 15 tokens; replies are [\"answer\": \"rumor\"] 647, fenced python [{\"answer\": \"rumor\"}] 547, [\"answer\":\"rumor\"] 6. (3) Mapping not flipped: label file 252 x '1' / 148 x '0' = Table 6 (252 rumors / 148 non-rumors); label-1 posts are news-type claims (Netanyahu's measures, DoH case counts, an MP diagnosed), label-0 posts are jokes / opinions / personal chatter, i.e. the PHEME-style 'rumor = circulating newsworthy claim'; flipping would give 0.4775. Pooled confusion (3 seeds): gold rumor -> rumor 356 / non-rumor 400; gold non-rumor -> non-rumor 271 / rumor 173; predicted-rumor rate 44%, recall rumor 0.47 / non-rumor 0.61, macro-F1 0.52, majority class 0.63: gpt-4o-2024-05-13 (6 fingerprints) reads 'rumor' as misinformation and is at chance on this label definition. (4) Event content: Sec. 3.1 defines an event as claim + responsive posts but never says what <Event content> holds; threads average 1,020 posts (median 233, max 25,144), so a thread prompt would be a different, costly protocol - kept as approximation. (5) Paper side: the same 400 target events give GPT-4o 0.643 (Source TWITTER block) but 0.581 (Source WEIBO block), Llama 0.496/0.372, Qwen 0.536/0.427, which a zero-shot prompt over the target alone cannot produce (our T=0 seeds differ by 1.25 pp), so the LLM baselines carry an unreported source-dependent element (e.g. source-domain demonstrations); the GPT-4o RF1/NF1 pair implies about 152 correctly classified non-rumors out of 148 (feasible only with the 148-item class as positive) while the BiGCN row implies the reverse and 7 rows have a+d != 400 x Acc, so the F1 columns cannot settle the label coding. No re-analysis (nothing changed); result.json is the first pass.",
+ "variant_of": "W4416036577"
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4411119835",
+  "title": "CharacterBox: Evaluating the Role-Playing Capabilities of LLMs in Text-Based Virtual Worlds",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-1106-preview",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "\"we use GPT-4-Turbo-1106-preview as GPT-4 (Achiam et al., 2023) and GPT-3.5-Turbo-1106 as GPT-3.5\" (Sec. 4.1)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix (narrator/character prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "GPT-4-judged role-playing score, mean over 8 metrics, English scenes",
+    "value": 3.926,
+    "n_items": null,
+    "location": "Table 2, row GPT-4 (English)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo-1106-preview"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CharacterBox scenes at github.com/Paitesanshi/CharacterBox"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "aux_model_dead"
+  ],
+  "notes": "Both subject and evaluator are 1106 previews."
+}

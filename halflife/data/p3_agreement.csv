@@ -1,0 +1,7 @@
+﻿arm_1,arm_2,papers_scorable_in_both,both_deviated,only_arm_1,only_arm_2,neither,agreement_pct,cohen_kappa,mcnemar_exact_p
+vendor-designated replacement,gpt-4.1,46,16,9,6,15,67.4,0.35,0.607
+vendor-designated replacement,open-weight Llama 3.3 70B,64,27,6,16,15,65.6,0.31,0.052
+vendor-designated replacement,Gemini 3.8 Flash,65,34,0,8,23,87.7,0.75,0.008
+gpt-4.1,open-weight Llama 3.3 70B,39,15,3,9,12,69.2,0.4,0.146
+gpt-4.1,Gemini 3.8 Flash,40,16,2,11,11,67.5,0.37,0.022
+open-weight Llama 3.3 70B,Gemini 3.8 Flash,64,34,9,7,14,75.0,0.45,0.804

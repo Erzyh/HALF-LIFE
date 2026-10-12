@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411635730",
+ "title": "Hibrit Zekâda Sosyolojik İmgelem: Stratejik İnovasyon Kapsamında İnsan Zekâsı ile Yapay Zekânın Bilgi Ekosistemleriyle Etkileşiminin İncelenmesi",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Yapay Zeka Bildirimi: Bu makalede proofreading konusunda OpenAI'in GPT-4-turbo surumunden destek alinmistir.\" (AI Declaration: support from OpenAI's GPT-4-turbo version was received for proofreading)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Writing-assistance disclosure only; a sociology-of-AI essay, not an LLM study."
+ },
+ "claim": {
+  "metric": "none (proofreading aid only; no experiment)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Turkish-language essay on human/artificial intelligence in strategic innovation; GPT-4-turbo is disclosed only as a proofreading aid, with no research use or reportable metric."
+}

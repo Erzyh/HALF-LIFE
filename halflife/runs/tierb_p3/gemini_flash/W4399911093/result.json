@@ -1,0 +1,56 @@
+{
+  "wid": "W4399911093",
+  "title": "Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 90.24,
+  "original_location": "Table 4, row gpt-4-turbo, column F-score (%) = 90.24 +/- 0.55 (accuracy 89.40, precision 89.53, recall 90.96); also quoted in Sec. 4.2",
+  "reexecution": {
+    "mean_over_seeds": 0.9525862068965517,
+    "per_seed": {
+      "0": {
+        "value": 0.9525862068965517,
+        "n": 100,
+        "ci95": [
+          0.9390730484679329,
+          0.9656276851472996
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911093",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 0.19,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 90.24,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "3 harness seeds instead of the paper's 5 runs. The released notebook is parameterised for gpt-4o-2024-11-20; the model id is set to the snapshot Table 4 names as the selected model (gpt-4-turbo = gpt-4-turbo-2024-04-09 per Sec. 4.2). Everything else - prompt pattern, five priming examples, skip list, answer parser, count definitions and the pooled F-score - is the authors' own released code.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4399911093"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 95.25862068965517,
+    "delta": 5.0186206896551795,
+    "original_inside_ci95": false
+  }
+}

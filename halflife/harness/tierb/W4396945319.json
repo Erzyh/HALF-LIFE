@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4396945319",
+ "title": "Many-Shot Regurgitation (MSR) Prompting",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 (engine: gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec 4.1: \"We evaluated the verbatim regurgitation behavior of three language models: GPT-3.5 (engine: gpt-3.5-turbo-1106), GPT-4 (engine: gpt-4-turbo-2024-04-09)...\"; Table 1 row GPT-4/Wikipedia."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 2 (MSR construction described algorithmically: segments T1..Tn arranged as faux user/model conversation turns in a single prompt)",
+  "note": "Method is fully specified but no verbatim prompt string is printed anywhere in the paper."
+ },
+ "claim": {
+  "metric": "Cliff's delta, verbatim-match-length distribution Dpre vs Dpost, Wikipedia",
+  "value": -0.828,
+  "n_items": 1200,
+  "location": "Table 1, row Wikipedia/GPT-4 (Cliff's Delta -0.828, KS distance 0.75, KW H 7.77, p=0.0053); ~600 Dpre + ~600 Dpost Wikipedia articles (Sec 4.1)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Wikipedia articles and OpenStax OER textbooks (curated pre/post training-cutoff); code at https://github.com/luffycodes/Many-Shot-Regurgitation-MIA"
+ },
+ "cost": {
+  "est_calls": 1200,
+  "tier": "mid"
+ },
+ "blockers": [
+  "tos"
+ ],
+ "notes": "MSR prompting is explicitly built on the many-shot jailbreaking technique (a single prompt simulating many fake conversation turns to force continuation) in order to elicit verbatim training-data regurgitation; this is a training-data-extraction/jailbreak-style manipulation of the model's guardrails, so we do not submit it to a commercial API even though the elicited content (Wikipedia/textbook text) is itself benign. Everything else about the record is otherwise clean: dated engine, role S, numeric claim with n, public data."
+}

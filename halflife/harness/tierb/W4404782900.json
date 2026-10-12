@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404782900",
+ "title": "LitSearch: A Retrieval Benchmark for Scientific Literature Search",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"We use gpt-4o-2024-05-13 in our experiments.\" Table 3: \"GPT-4o reranking (w/ GritLM) 74.7 73.2 79.9 77.1 85.8 92.4 75.3 79.2\" (best-performing method)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 13 (\"The prompt used for reranking retrieved documents using GPT-4o\")",
+  "note": "Table 12 gives a separate GPT-4 prompt for inline-citation question generation (dataset construction, not evaluation)."
+ },
+ "claim": {
+  "metric": "Recall@20 reranking performance (GPT-4o reranking w/ GritLM), Avg. over Specific questions",
+  "value": 79.2,
+  "n_items": 597,
+  "location": "Table 3; LitSearch totals 597 questions (351 inline-citation + 246 author-written, Sec. 2.4)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LitSearch benchmark (ACL Anthology + ICLR papers via S2ORC)"
+ },
+ "cost": {
+  "est_calls": 1791,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4o is also used as a one-hop retriever variant (Table 3, similar performance) and for inline-citation question generation (Table 12, that prompt uses an undated 'GPT-4'). Reranking requires one call per query against a shortlist, so cost is roughly proportional to the 597 queries x 3 seeds."
+}

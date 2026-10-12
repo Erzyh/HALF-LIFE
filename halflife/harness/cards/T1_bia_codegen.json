@@ -1,0 +1,70 @@
+{
+  "card_id": "T1",
+  "status": "done",
+  "title": "Benchmarking Large Language Models for Bio-Image Analysis Code Generation",
+  "paper": {
+    "doi": "10.1101/2024.04.19.590278",
+    "authors": "Haase, Tischer, Hériché, Scherf",
+    "year": 2024,
+    "repo": "https://github.com/haesleinhuepf/human-eval-bia",
+    "repo_license": "MIT",
+    "repo_commit": "see runs/T1/run_meta.json"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "핵심 결과(모델별 pass-rate)가 전적으로 상용 모델 출력에 의존. 코드·테스트·원 샘플·채점 결과 전부 공개 (L1 충족 사례)"
+  },
+  "claim": {
+    "statement": "gpt-4-turbo-2024-04-09 solves 47.4% of 57 bio-image-analysis coding tasks at pass@1 (10 samples per task), on par with the leading models (claude-3-5-sonnet 58%, gpt-4o-2024-05-13 50%).",
+    "claim_type": "capability_level",
+    "metric": "pass@1 (HumanEval estimator, n=10 per task, mean over 57 tasks)",
+    "original_values": {
+      "pass@1": 0.4736842105263157,
+      "pass@5": 0.6860902255639099,
+      "pass@10": 0.7368421052631579
+    },
+    "original_source": "data/samples_gpt-4-turbo-2024-04-09_passk_results.csv in repo; paper text reports 47±38%"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "model_status": "dying, OpenAI shutdown 2026-10-23",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions",
+    "messages": [
+      {
+        "role": "user",
+        "content": "<prompt_template with task prompt>"
+      }
+    ],
+    "temperature": "not set (API default 1.0) — matches original notebook",
+    "max_tokens": "not set — matches original",
+    "seed": "not set — matches original; system_fingerprint logged",
+    "samples_per_task": 10,
+    "n_tasks": 57,
+    "prompt_template": "Complete the following code. \n    First, write down a plan as comments how to solve the problem step-by-step.\n    Then, import the python libraries you think you will use.\n    Then, write the function you were asked for.\n    Write python code only.\n    Do NOT write any code for testing the function.\n    Return the complete code including my code.\n\n```python\n{input_code}\n```\n    ",
+    "code_extraction": "human_eval.data.extract_python (repo, unchanged)",
+    "evaluation": "HumanEval exec harness from repo (execution.py logic, exec enabled in our copy), Python 3.10 venv with repo requirements; timeout per card run_meta",
+    "environment_check": "canonical solutions must be run first in our venv (reference pass rate) to separate environment drift from model drift"
+  },
+  "arms": [
+    {
+      "arm": "baseline_alive",
+      "model": "gpt-4-turbo-2024-04-09",
+      "purpose": "생전 베이스라인 (P0)"
+    }
+  ],
+  "budget": {
+    "cap_usd": 9.5,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      }
+    },
+    "estimate_usd": "6-8 (paper reported $13.02 for two gpt-4 models at same pricing)"
+  },
+  "judgment": {
+    "survival_rule": "ANALYSIS_PLAN §1. 생존: pass@1 within original ± bootstrap 95% CI over tasks and direction of ranking claim holds",
+    "notes": "temperature 1.0 sampling → run-to-run variance expected; report bootstrap CI over 57 tasks"
+  }
+}

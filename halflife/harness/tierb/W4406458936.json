@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406458936",
+  "title": "Large Language Models For Text Classification: Case Study And Comprehensive Review",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 3.1: '10. gpt-4-turbo (Gpt4-turbo)'; Table 2 FakeNewsNet ZS row: Gpt4-turbo 81.7; temperature 0"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 1 and Sec. 3.1 (prompt construction, technique templates with {base instruction} placeholders)",
+    "note": "Snapshot not stated."
+  },
+  "claim": {
+    "metric": "weighted F1, FakeNewsNet, zero-shot",
+    "value": 81.7,
+    "n_items": 214,
+    "location": "Table 2, block FakeNewsNet, row 1) ZS, column Gpt4-turbo",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "FakeNewsNet subset (214 records, selection not specified); Employee Reviews (1,000 self-collected, manually annotated, not released)"
+  },
+  "cost": {
+    "est_calls": 642,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Two soft gaps (prompt partial, data subset unspecified) plus a closed annotated set."
+}

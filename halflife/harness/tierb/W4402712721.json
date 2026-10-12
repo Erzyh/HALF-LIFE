@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4402712721",
+  "title": "Prompting Large Language Models for Supporting the Differential Diagnosis of Anemia",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 3.1.1: 'This study uses GPT-4 Turbo'; Sec. 3.3: 'We only used 250 patients for GPT-4 due to resource constraints'; Table 6 row 'GPT-4 98.4 98.21 99.09'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Tables 1-6 (plain and sequential prompts with anemia classes, 1-shot, decision-tree rules, CoT)",
+    "note": "Snapshot not stated; resolved by the post-2024-07 alias rule (paper dated Nov 2024)."
+  },
+  "claim": {
+    "metric": "diagnosis accuracy, sequential prompt with rules and CoT",
+    "value": 98.4,
+    "n_items": 250,
+    "location": "Table 6, row GPT-4, column Accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Synthetic anemia dataset from ref. [3] (first 250 patients); availability not stated in this paper; code at an anonymized repository"
+  },
+  "cost": {
+    "est_calls": 5000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Sequential prompting issues several calls per patient.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 250 patients are the first 250 rows of the 70,000-patient synthetic anemia dataset of ref. [3] (arXiv 2404.05913); the paper gives the generation recipe but not the file, and the code plus prompts.txt are in the anonymized repository, which fixes the sequential prompt loop (several calls per patient). Take the dataset rows and the loop from that repository, run gpt-4-turbo-2024-04-09, and compare diagnosis accuracy over 250. If the data file is absent, regenerate from the Figure 1 decision tree with uniform per-class sampling as described in Sec. 3.3.",
+    "approximation": "Paper reports a single unseeded run; a regenerated dataset would not contain the same 250 patients.",
+    "needs_repo": true,
+    "repo_url": "https://anonymous.4open.science/r/anemia_diag_with_llm-1C1A/",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

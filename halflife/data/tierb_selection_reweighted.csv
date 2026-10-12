@@ -1,0 +1,11 @@
+﻿dimension,n_executed,재현,근접,편차,확인 필요
+none (raw executed set),86,62.8,11.6,23.3,2.3
+field group,86,61.4,13.8,22.3,2.4
+year,86,62.9,11.8,23.3,2.0
+document type,86,62.7,11.2,23.0,3.1
+citations,86,62.7,13.5,21.6,2.3
+cost tier,86,61.9,13.8,21.8,2.5
+task type,86,62.9,11.4,23.1,2.6
+prompt verbatim,86,63.0,10.9,23.9,2.2
+data public,86,64.0,11.3,22.5,2.3
+model family,86,60.4,11.5,25.8,2.2

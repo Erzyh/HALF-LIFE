@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036205",
+  "title": "RETAIL: Towards Real-world Travel Planning for Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 4 row 'gpt-4-Turbo 4.91 2.67 1.52 1.03 14.18 15.10 0.347'; Table 5 row 'gpt-4-Turbo 68.43 0.64 0.35 0.39 77.45 0.79 30.00 0.44 0.20'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (no prompt appendix found in the extracted text)",
+    "note": "Snapshot not stated."
+  },
+  "claim": {
+    "metric": "Final Pass Rate, travel plan evaluation",
+    "value": 0.2,
+    "n_items": 500,
+    "location": "Table 5, row gpt-4-Turbo (baselines), column Final Pass Rate; 500 sampled evaluation dialogues",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "RETAIL dataset and code (GitHub)"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Constraint checkers for pass rates require the evaluation code."
+}

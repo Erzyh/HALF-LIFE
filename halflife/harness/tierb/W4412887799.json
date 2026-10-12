@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4412887799",
+ "title": "How Personality Traits Shape LLM Risk-Taking Behaviour",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Model-version table: \"GPT-4o gpt-4o (2024-08-06)...GPT-4 Turbo gpt-4 (turbo-2024-04-09)\"; Fig. 3: \"(a) Claude 3 Sonnet, (b) GPT-4o, (c) GPT-4 Turbo\" CPT estimates"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 3-4 (personality-prompting and CPT gamble-choice methodology described); exact system-prompt templates not confirmed verbatim in the excerpts read",
+  "note": "LLMs are prompted to adopt Big Five personality trait levels, then presented with monetary gambles; Cumulative Prospect Theory (CPT) parameters (alpha, beta, lambda) are fit to their choices."
+ },
+ "claim": {
+  "metric": "CPT risk-aversion parameter (alpha) under Openness-trait intervention, GPT-4-Turbo",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 3(c) (\"GPT-4 Turbo\", 15 runs per intervention level); a nearby table gives alpha=0.52, beta=0.44, lambda=-0.30 for an Openness intervention, but the excerpt read does not unambiguously confirm this specific table belongs to GPT-4-Turbo rather than GPT-4o",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Standard CPT gamble-choice paradigm (Tversky & Kahneman) and Big Five/BFI personality framework, both established public instruments"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4-Turbo is one of several models (with Claude 3 Sonnet, GPT-4o, GPT-4o mini, and others) directly tested across personality-intervention levels (15 runs per level per Fig. 3). Marked 'maybe': the precise numeric CPT parameters attributable specifically to GPT-4-Turbo (as opposed to GPT-4o) were not confidently isolated in the excerpts read, and the exact prompt wording was not located verbatim."
+}

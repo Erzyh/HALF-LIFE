@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W7124283595",
+  "title": "TNM Classification of Pancreatic Cancer From Unstructured Radiology Reports Using a Reasoning Language Model",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "OpenAI o1",
+    "resolved": "o1-2024-12-17",
+    "role": "S",
+    "evidence": "\"OpenAI o1 ... was used to classify the TNM classification\" (Abstract); \"ChatGPT's web interface was employed with settings\" / \"The system prompt or 'playground' tool was not used\" (Methods); Table 1 confusion matrix of T-factor classification by o1 vs radiologists"
+  },
+  "prompt": {"verbatim": "full", "location": "Methods (the full classification prompt is quoted, originally written in Japanese and translated)", "note": "Triple quotation marks used to delimit the radiology report text within the prompt."},
+  "claim": {
+    "metric": "Exact-match accuracy, T-factor classification vs radiologist consensus", "value": null, "n_items": 100,
+    "location": "Table 1 (T factor confusion matrix, o1 vs radiologists), cohort of 100 consecutive pancreatic-cancer patients",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "Institutional radiology reports from Tokyo Women's Medical University (IRB-approved retrospective cohort, not public)"},
+  "cost": {"est_calls": 300, "tier": "high"},
+  "blockers": ["webui", "data_closed"],
+  "notes": "Explicitly used ChatGPT's consumer web interface rather than the API or playground; the underlying radiology reports are institutional patient data and not released, even though the prompt itself is fully printed and translated."
+}

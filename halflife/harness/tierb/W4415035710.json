@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4415035710",
+  "title": "Do LLMs have a Gender (Entropy) Bias?",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "ChatGPT-4-turbo / gpt-4-turbo (Algorithms 1-2)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.2: 'Each of the questions is sent to each LLM (ChatGPT-3.5-turbo, ChatGPT-4-turbo, Llama3, and Deepseek-R1)'; Alg. 1: 'models←[chatgpt-3.5-turbo, chatgpt-4-turbo, llama3, deepseek-r1]'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Algorithm 1 (system prompt template 'Assistant gives recommendations to users on the <category> choices for their needs.' + user question); questions in the HF dataset",
+    "note": "temperature 1, other hyperparameters default, each question in a fresh context, 1-minute delay between calls."
+  },
+  "claim": {
+    "metric": "Welch t-statistic (p) male vs female Shannon entropy, Education category, 1 iteration",
+    "value": 2.0,
+    "n_items": 158,
+    "location": "Table 4, row ChatGPT-4-turbo, Education Recommendations, Shannon Entropy column (t=2.00, p=0.04)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "RealWorldQuestioning benchmark, https://huggingface.co/datasets/SonalPrabhune/RealWorldQuestioning (Education: 79 questions x 2 gender variants; 434 x 2 overall)"
+  },
+  "cost": {
+    "est_calls": 474,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Temperature-1 sampling makes the t-statistic noisy and p=0.04 is unlikely to replicate exactly, but the pipeline (prompt, data, entropy metric) is fully specified. Whole-dataset re-run (870 questions x 3 seeds, long outputs) would be ~2,600 calls (high). Table 6 uses ChatGPT-4o (unpinned) as judge and is secondary."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4415332119",
+  "title": "Non-Collaborative User Simulators for Tool Agents",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "Sec. 4.1: 'We evaluate five models for agents-both proprietary (GPT-4.1-mini, GPT-4.1-nano) and open-source'; Table 1 row 'GPT-4.1-nano SR 23.6 16.9 9.8 26.7 14.7 ...'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix G, Listings 1-17 (simulator modules, dialogue state tracker, ending verifier, MultiWOZ tool agent prompt); tau-bench agent prompts from Yao et al. (2024)",
+    "note": "Snapshot not stated; only one gpt-4.1-nano snapshot exists."
+  },
+  "claim": {
+    "metric": "success rate, MultiWOZ, collaborative user",
+    "value": 23.6,
+    "n_items": 356,
+    "location": "Table 1, row GPT-4.1-nano SR, column MultiWOZ Collab. (89 scenarios x 4 trials)",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o-mini (goal-completion check)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MultiWOZ and tau-bench scenarios; code at github.com/holi-lab/NCUser"
+  },
+  "cost": {
+    "est_calls": 27000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Needs the tool environment (MultiWOZ API server, Table 9) and the GPT-4.1-mini user simulator; multi-turn dialogues. GPT-4.1-mini is not in the catalog live list.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "The MultiWOZ tool-agent environment (helper APIs, the 89 selected test scenarios, 30-step limit), the GPT-4.1-mini collaborative user simulator (Appendix G listings) and the GPT-4o-mini goal-completion judge are all in the repository. Run gpt-4.1-nano as the ReAct agent for 4 trials over 89 scenarios and report the success rate (23.6).",
+    "approximation": "Co-agent snapshots (GPT-4.1-mini is a catalog gap, not a dead model) and multi-turn stochasticity; the simulator and judge are secondary live models.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/holi-lab/NCUser",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

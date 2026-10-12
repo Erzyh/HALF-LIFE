@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411112894",
+  "title": "The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Case Study on Media Bias Detection",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (openai/gpt-4-turbo)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "two closed-source models GPT-4-turbo and GPT-3.5-turbo, to cover the closed-source state-of-the-art (Section 4.2); Table 4 lists 'openai/gpt-4-turbo'; Table 1 row GPT-4 Turbo"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix Table 8 (pseudo-code template with system prompt 'You are an expert in media bias.' and the classification instruction)",
+    "note": "The 0-shot + system-prompt variant is fully determined by Table 8; few-shot variants retrieve per-instance examples from BABE."
+  },
+  "claim": {
+    "metric": "Matthews correlation coefficient (0-shot + sys prompt)",
+    "value": 0.683,
+    "n_items": null,
+    "location": "Table 1, row GPT-4 Turbo, column '0-shot + sys prompt' (BABE train/development combined set)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "BABE dataset (Spinde et al. 2021; 4,121 sentences); code at github.com/Media-Bias-Group/annomatic"
+  },
+  "cost": {
+    "est_calls": 12363,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Alias risk: candidate models come from a late-2023 Open LLM leaderboard snapshot, so the GPT-4 Turbo run may predate the 2024-04-09 GA snapshot; the paper (NAACL Findings 2025) gives no run date or preview string. Exact n of the combined train/dev split must be taken from the BABE release. GPT-4 Turbo was excluded from the final annotator pool for cost.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n is unprinted because the set is the official BABE train split: the paper uses the authors' 75/25 split with a 1,000-sentence test set, so the train/development combined set is the remaining ~3,121 of 4,121 sentences. Run the Table 8 zero-shot + system prompt ('You are an expert in media bias.') on that split with gpt-4-turbo-2024-04-09 at temperature 0 and compute MCC vs Table 1 (0.683).",
+    "approximation": "Split taken from the BABE release; the paper's 'openai/gpt-4-turbo' alias is resolved to the 2024-04-09 GA snapshot by rule although the run date is not given.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

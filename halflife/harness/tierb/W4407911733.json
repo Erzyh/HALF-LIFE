@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4407911733",
+ "title": "Assessing Completeness of Clinical Histories Accompanying Imaging Orders Using Adapted Open-Source and Closed-Source Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"one closed-source (GPT-4 Turbo [OpenAI]) LLM... adapted using prompt engineering, in-context learning\"; \"weighted overall mean accuracy, 91%... vs 92%... GPT-4 Turbo\" (n=300 adjudicated test set)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Appendix S1 (referenced but not included in the extracted text)",
+  "note": "\"prompt engineering and in-context learning with 16 in-context [examples]\" mentioned; exact template only in Appendix S1 / GitHub code."
+ },
+ "claim": {
+  "metric": "weighted overall mean accuracy, clinical-history-element extraction",
+  "value": 92,
+  "n_items": 300,
+  "location": "Results (\"weighted overall mean accuracy, 91% ... vs 92% ... P=.31\"); Phase 3 adjudicated test set n=300",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "de-identified clinical histories from a single academic medical center; \"available from the corresponding author by request\""
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "mid"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Radiology journal study with real de-identified patient clinical-history text from one institution's emergency department (2020-2022); data explicitly available only \"from the corresponding author by request\", and the exact prompt is in a separate Appendix S1 not captured in the extracted text."
+}

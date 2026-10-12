@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4406778839",
+  "title": "Empowering AIOps: Leveraging Large Language Models for IT Operations Management",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT 4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"from the OpenAI family: GPT 3.5 Turbo, GPT 4-o, GPT 4-o Mini, and GPT 4 Turbo\"; \"we ask each model the same question 10 times\" (Sec. 3)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 1 (list of SR/AR queries); ReAct agent system prompt and tool definitions not printed",
+    "note": "Queries printed, scaffold prompt absent"
+  },
+  "claim": {
+    "metric": "task-solving accuracy, SR tasks (0-1 tools)",
+    "value": 0.8571,
+    "n_items": null,
+    "location": "Table 2 (RQ1), row GPT 4 Turbo",
+    "task_type": "agentic",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "Private OpenShift/Kubernetes demo cluster (namespace 'demo', operators, pods, Prometheus)"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt",
+    "human_outcome"
+  ],
+  "notes": "LangChain ReAct agent over live cluster APIs; correctness judged by authors. Version not printed; resolved by date rule (Jan 2025, no preview string)."
+}

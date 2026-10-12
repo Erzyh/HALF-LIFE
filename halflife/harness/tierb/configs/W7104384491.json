@@ -1,0 +1,69 @@
+{
+  "wid": "W7104384491",
+  "title": "PILOT-Bench: A Benchmark for Legal Reasoning in the Patent Domain with IRAC-Aligned Classification Tasks",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 4096,
+      "top_p": 1.0
+    },
+    "params_source": "paper Appendix F (gpt-o3-2025-04-16); reasoning effort and decoding not stated (temperature/top_p not configurable for o3, placeholders)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 15481,
+    "subset_rule": "all cases (15,482 evaluated; Table 2(a) Split (Base) n = 15,481), input = appellant arguments + examiner findings with the PTAB opinion excluded",
+    "approximation": "The Issue Type prompt (Appendix D.3, Figure 8) is an image and is not recoverable from the text."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "Yehoon/pilot-bench (pilot-bench.tar.gz, 55 MB; from github.com/TeamLab/pilot-bench)",
+    "config_or_split": "opinion_split data (fields per card: file_name, appellant_arguments, examiner_findings, ptab_opinion, issue_type, board_rulings, subdecision)",
+    "filter": "none",
+    "fields": {
+      "input": "appellant_arguments + examiner_findings (Split (Base))",
+      "label": "issue_type (multi-label over 101 / 102 / 103 / 112 / Others)",
+      "id": "file_name"
+    },
+    "license": "cc-by-4.0 (with a stated no-legal-advice use restriction)",
+    "access_checked": true,
+    "size_mb": 55
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "NOT IN TEXT: the Issue Type prompt is Appendix D.3 Figure 8 (image); the extraction only carries the Figure 6 opinion-split skeleton. Structure per Sec. 5.1 / Appendix F.1: task instruction + label dictionary (Table 14) + JSON-only output rule + <APPELLANT ARGUMENTS>{appellant_arguments}</APPELLANT ARGUMENTS> <EXAMINER FINDINGS>{examiner_findings}</EXAMINER FINDINGS>",
+    "placeholders": {
+      "appellant_arguments": "items.appellant_arguments",
+      "examiner_findings": "items.examiner_findings"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix D.3 (Figure 8: Issue Type prompt); Tables 14-19 (label dictionaries)",
+    "verbatim": "partial (prompt text not recoverable from the extracted text)"
+  },
+  "output": {
+    "parse": "json list of labels",
+    "postprocess": "normalize per Appendix F.1 (dedupe, strip subsection suffixes such as 103(a) -> 103)"
+  },
+  "metric": {
+    "name": "micro_f1",
+    "definition": "micro-F1 over multi-label Issue Type predictions vs gold label sets across all cases",
+    "judge": "none",
+    "original_value": 0.7968,
+    "original_location": "Table 2(a), block Split (Base), row GPT-o3, column Micro-F1",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 15481,
+    "est_usd": 929.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "no hook: the Issue Type prompt is Figure 8 (an image) and the code release reads it from data/prompt/decision_predict/{system.txt, issue_type.txt}, a folder absent from github.com/TeamLab/pilot-bench (it may sit inside the 55 MB HF tarball pilot-bench.tar.gz - not verified).",
+    "no hook: the paper's calls used OpenAI function calling (predict_issue_type, config/issue_predict.json 'gpt-o' block) to force a JSON list; the runner's request body cannot carry functions/function_call and analyze() reads only message.content.",
+    "a full run is ~$900 on o3; a seeded subsample (e.g. 2,000 cases) and the o3 reasoning effort (not stated) are human decisions."
+  ],
+  "notes": "HF tarball is 55 MB (above the download limit), so fields are taken from the dataset card. Macro-F1 0.6639 and Exact Match 0.5955 are the other cells of the row."
+}

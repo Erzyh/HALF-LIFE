@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7124888722",
+ "title": "What AI evaluations for preventing catastrophic risk can and cannot do",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"CyberSecEval 2...initially showed GPT-4 Turbo exploiting only 5% of buffer overflow vulnerabilities [17]\" -- citing a third-party (Meta CyberSecEval 2) result, not the authors' own experiment"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Policy/methods discussion paper about AI safety evaluations; no experiment of its own."
+ },
+ "claim": {
+  "metric": "none for these authors (the 5% figure is cited from reference [17], CyberSecEval 2, not measured by this paper)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Argues about the limits of catastrophic-risk evaluations generally; GPT-4 Turbo's cybersecurity number is quoted from a different paper (CyberSecEval 2) as an illustrative example of under-elicitation, not reproduced or re-measured here."
+}

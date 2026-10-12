@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4405425460",
+  "title": "Leveraging Large Language Models for Enhanced Process Model Comprehension",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 5.2.1: 'We configure our framework to use gpt-4o-2024-05-13'; Sec. 5.2.3 compares GPT-4o-2024-05-13 and GPT-4-Turbo-2024-04-09 with two open models (Table 7)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3.3, Listings 4-8 (role prompting, abstraction, CoT, few-shot examples abbreviated with '...'); full prompts at github.com/humam-kourani/AIPA/tree/main/evaluation",
+    "note": "Listings are abbreviated; the self-evaluation (judge) prompt is only in the repository."
+  },
+  "claim": {
+    "metric": "average quality score (0-10, gpt-4o self-evaluation), Healthcare process, SXML abstraction",
+    "value": 8.7,
+    "n_items": 20,
+    "location": "Table 5(a), column SXML, row All (8.7 +/- 0.6)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-05-13"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Healthcare BPMN model (public, camunda bpmn-for-research, textual description used as ground truth); 20 questions printed in Table 2"
+  },
+  "cost": {
+    "est_calls": 20,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "gpt-4-turbo-2024-04-09 scores 8.6 +/- 0.8 on the same process in Table 7(a). Abbreviated prompts and the LLM self-evaluation (judge 'gpt-4o', assumed 2024-05-13) are the soft gaps.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Listings 4-8 are abbreviated and the self-evaluation (judge) prompt is only in the repository's evaluation folder. With the full prompts, answer the 20 Healthcare questions of Table 2 from the SXML abstraction of the camunda bpmn-for-research Healthcare model with gpt-4o-2024-05-13, score the answers with gpt-4o against the textual ground truth and compare Table 5(a) (8.7 +/- 0.6).",
+    "approximation": "Judge and subject are the same model; judge snapshot assumed 2024-05-13; temperature not stated.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/humam-kourani/AIPA",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

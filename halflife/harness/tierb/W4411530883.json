@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411530883",
+ "title": "Editorial: The role of foods, diet, and dietary patterns in the prevention and management of diabesity",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"...this manuscript. DeepSeek-V3 and GPT-4-turbo for translating and [editing]...\" -- writing/translation-assistance acknowledgment"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (writing/translation assistance only)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (no experiment; this is a journal editorial)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Short editorial in Frontiers in Nutrition; GPT-4-turbo (alongside DeepSeek-V3) is credited only with translation/editing assistance for the manuscript, not a research method."
+}

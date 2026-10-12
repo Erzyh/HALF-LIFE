@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W7133951874",
+  "title": "Performance of ChatGPT-o1 and DeepSeek-R1 on the health law related questions in the Chinese national licensing examination: a comparative study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o1-2024-12-17",
+    "resolved": "o1-2024-12-17",
+    "role": "S",
+    "evidence": "\"For ChatGPT-o1, the API endpoint corresponding to the snapshot o1-2024-12-17 was used ... Temperature = 0.0, Top-p = 0.95, and Max Tokens = 512\" (Methods)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods: standard starting prompt quoted in full (English), followed by the Chinese MCQ",
+    "note": "Same prompt for both models; one stateless call per question"
+  },
+  "claim": {
+    "metric": "accuracy",
+    "value": 0.795,
+    "n_items": 400,
+    "location": "Results, first paragraph (318/400 correct); Tables 1-2 by topic",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "400 health-regulation MCQs sampled from a purchased official CNMLE guide book; not printed; data statement points to article/supplementary material"
+  },
+  "cost": {
+    "est_calls": 1200,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Items are copyrighted exam-prep content; availability hinges on supplementary material that cannot be verified offline. max_tokens=512 with o1 may truncate reasoning.",
+  "resolution": {
+    "gap": "unreleased",
+    "plan": "The 400 health-law MCQs were sampled from a purchased CNMLE guidebook and are not printed; the data availability statement is boilerplate ('included in the article/supplementary material') with no supplementary item list, so the items cannot be reconstructed from the public record.",
+    "approximation": "n/a",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

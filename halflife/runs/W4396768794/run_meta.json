@@ -1,0 +1,258 @@
+{
+  "card_id": "W4396768794",
+  "run_date_utc": "2026-09-17",
+  "target_paper": {
+    "title": "Assessing DxGPT: Diagnosing Rare Diseases with Various Large Language Models",
+    "repo": "https://github.com/foundation29org/dxgpt_testing",
+    "repo_commit": "c7abe550ccad59465bdf53b67e9629e3f239f0eb",
+    "original_source": "Table 3 (RAMEDIS, 200 cases) reproduced from data/scores_RAMEDIS_gpt4turbo0409.csv with the src/dashboard_scores.py counting: P1 107, P2-P5 29, P0 62 of 198 -> 54.04 / 68.69"
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13,
+    "parameters": "temperature 0, max_tokens 800, one user message = PROMPT_TEMPLATE of src/batch_diagnosis_v2.py with the Python list repr of the case's HPO term names; no system message, no seed parameter",
+    "battery": "200 RAMEDIS cases x 3 repeats (seed_idx 0-2, identical requests); 600 calls archived"
+  },
+  "judge": {
+    "original": "GPT-4-0613 via Azure deployment 'nav29' (src/diagnoses_analisis.py), temperature 0, max_tokens 800; dead",
+    "substitute_requested": "gpt-4o-2024-05-13",
+    "model_served": [
+      "gpt-4o-2024-05-13"
+    ],
+    "parameters": "temperature 0, max_tokens 800, one user message = PROMPT_TEMPLATE of src/diagnoses_analisis.py with the GT cell as stored (list repr) and the full diagnosis text",
+    "tracks": {
+      "judge_track1": "the 200 archived gpt-4-turbo-0409 diagnoses re-judged",
+      "judge_track2": "the 600 new diagnoses judged"
+    },
+    "label_parsing": "lenient (first P0..P5 token, P2-P5 -> P5) on both the original and the substitute verdicts; the repo's exact counting (198 denominator for the original) is reported alongside"
+  },
+  "drift_separation": "Generator drift and judge drift are separated by design: judge drift = track 1 (archived diagnoses, substitute judge) minus the original verdicts on the same diagnoses (Table 3 / lenient re-count); generator drift = track 2 (new gpt-4-turbo-2024-04-09 diagnoses, median over 3 repeats) minus track 1 under the same substitute judge. The judgment uses the judge-matched comparison; the comparison with the published 54.04 is secondary because the original judge cannot be re-run.",
+  "data": {
+    "cases": "HF chenxz/RareBench, config RAMEDIS, split test: first 200 records of data/RAMEDIS.jsonl (file order)",
+    "license": "RareBench: Apache-2.0 (HF dataset card license tag and GitHub chenxz1111/RareBench LICENSE); dxgpt_testing repo: MIT (Foundation29hub 2023)",
+    "citation": "Chen et al. 2024, RareBench: Can LLMs Serve as Rare Diseases Specialists? arXiv:2402.06341",
+    "item_text_archived": true,
+    "item_text_note": "Apache-2.0 permits redistribution with attribution; calls.jsonl therefore keeps the HPO term lists; per_case.csv and the case_sha256 in each request meta allow an id+hash archive if needed",
+    "ground_truth": "archived GT strings (Orphanet preferred names resolved by the authors); no Orphanet API call",
+    "hpo_release": "v2024-03-06",
+    "inputs_manifest": {
+      "fetched_utc": "2026-09-17T22:17:26.619185+00:00",
+      "files": {
+        "data.zip": {
+          "url": "https://huggingface.co/datasets/chenxz/RareBench/resolve/main/data.zip",
+          "bytes": 32441,
+          "sha256": "458ebbbd7b8f2975aa9c3a1773e9c1fb103563a291775b6fd5e979375ed1ab3c"
+        },
+        "phenotype_mapping.json": {
+          "url": "https://huggingface.co/datasets/chenxz/RareBench/resolve/main/mapping/phenotype_mapping.json",
+          "bytes": 896977,
+          "sha256": "30be945789d0dd4e39b4a579a69fea6129f473ae1aed6d066ec1e6a8241ed121"
+        },
+        "disease_mapping.json": {
+          "url": "https://huggingface.co/datasets/chenxz/RareBench/resolve/main/mapping/disease_mapping.json",
+          "bytes": 865999,
+          "sha256": "cbde22f5f6b05eaf24d2a7bd9655718c9d3474aa592873ffa34a41382dd86985"
+        },
+        "hp.obo": {
+          "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2024-03-06/hp.obo",
+          "bytes": 9995624,
+          "sha256": "908b9b1e4020a43e3ca20c49d8ac898ab9908956fd6d19dfb58579b1d10cedee"
+        },
+        "RAMEDIS.jsonl": {
+          "from": "data.zip",
+          "bytes": 143461,
+          "sha256": "b9d62d3013d407ab6e703a71a7390f2436322a6c7531c84eebcf2f91b5734a6c"
+        }
+      },
+      "data_zip_members": [
+        "data/",
+        "data/HMS.jsonl",
+        "data/LIRICAL.jsonl",
+        "data/MME.jsonl",
+        "data/RAMEDIS.jsonl"
+      ]
+    }
+  },
+  "results": {
+    "original_table3": {
+      "P1": 107,
+      "P5": 29,
+      "P0": 62,
+      "n_scored": 198,
+      "strict": 54.04040404040404,
+      "top5": 68.68686868686869,
+      "strict_ci95": [
+        46.9984693877551,
+        61.42131979695431
+      ],
+      "top5_ci95": [
+        62.3098912932007,
+        75.25252525252525
+      ]
+    },
+    "original_lenient": {
+      "P1": 108,
+      "P5": 30,
+      "P0": 62,
+      "n_scored": 200,
+      "strict": 54.0,
+      "top5": 69.0,
+      "strict_ci95": [
+        47.0,
+        61.0
+      ],
+      "top5_ci95": [
+        62.5,
+        75.01249999999999
+      ]
+    },
+    "track1_judge_matched": {
+      "P1": 117,
+      "P5": 21,
+      "P0": 62,
+      "n_scored": 200,
+      "n_unscored": 0,
+      "strict": 58.5,
+      "top5": 69.0,
+      "strict_ci95": [
+        51.0,
+        65.5
+      ],
+      "top5_ci95": [
+        62.0,
+        75.5
+      ],
+      "n_missing": 0,
+      "agreement_with_original_judge": {
+        "n_pairs": 200,
+        "percent_agreement": 0.895,
+        "cohen_kappa": 0.81651376146789,
+        "confusion_original->substitute": {
+          "P1->P1": 105,
+          "P0->P0": 58,
+          "P0->P5": 3,
+          "P5->P5": 16,
+          "P5->P1": 11,
+          "P0->P1": 1,
+          "P1->P5": 2,
+          "P5->P0": 3,
+          "P1->P0": 1
+        }
+      }
+    },
+    "track2_reexecution": {
+      "per_seed": {
+        "0": {
+          "P1": 114,
+          "P5": 26,
+          "P0": 60,
+          "n_scored": 200,
+          "n_unscored": 0,
+          "strict": 57.0,
+          "top5": 70.0,
+          "strict_ci95": [
+            49.5,
+            64.0
+          ],
+          "top5_ci95": [
+            63.0,
+            76.0
+          ],
+          "n_missing": 0
+        },
+        "1": {
+          "P1": 118,
+          "P5": 21,
+          "P0": 61,
+          "n_scored": 200,
+          "n_unscored": 0,
+          "strict": 59.0,
+          "top5": 69.5,
+          "strict_ci95": [
+            52.5,
+            65.0
+          ],
+          "top5_ci95": [
+            63.5,
+            75.5
+          ],
+          "n_missing": 0
+        },
+        "2": {
+          "P1": 113,
+          "P5": 25,
+          "P0": 62,
+          "n_scored": 200,
+          "n_unscored": 0,
+          "strict": 56.5,
+          "top5": 69.0,
+          "strict_ci95": [
+            49.5,
+            63.5
+          ],
+          "top5_ci95": [
+            62.5,
+            75.5
+          ],
+          "n_missing": 0
+        }
+      },
+      "median_strict": 57.0,
+      "median_top5": 69.5,
+      "median_strict_ci95": [
+        51.0,
+        64.0
+      ],
+      "median_top5_ci95": [
+        63.4875,
+        76.0
+      ],
+      "seeds_with_data": [
+        0,
+        1,
+        2
+      ]
+    },
+    "drift": {
+      "judge_drift_pp_strict": 4.5,
+      "judge_drift_pp_top5": 0.0,
+      "judge_drift_vs_table3_pp_strict": 4.460000000000001,
+      "generator_drift_pp_strict": -1.5,
+      "generator_drift_pp_top5": 0.5,
+      "definition": "judge drift = track 1 minus the original verdicts on the SAME archived diagnoses (lenient parser both; also vs Table 3's 54.04); generator drift = track 2 (median over repeats) minus track 1 under the SAME substitute judge. The two are additive: track 2 - Table 3 = judge drift + generator drift."
+    },
+    "cost_usd": 12.2364,
+    "calls": {
+      "baseline_alive": 600,
+      "judge_track1": 200,
+      "judge_track2": 600
+    },
+    "errors": {
+      "baseline_alive": 0,
+      "judge_track1": 0,
+      "judge_track2": 0
+    },
+    "judgment": "생존 (survival)",
+    "judged_by": "automatic rule per card 'judgment' / ANALYSIS_PLAN section 1 (see result.json judgment.rule); human double-coding pending",
+    "note": {
+      "rerun_P1_median": 57.0,
+      "in_ci_judge_matched_track1": true,
+      "in_ci_paper_table3": true,
+      "top5_direction_kept": true,
+      "top5_minus_strict_pp": 12.5,
+      "paper_top5_minus_strict_pp": 14.65
+    }
+  },
+  "reproducibility_frictions_observed": [
+    "judge model dead: GPT-4-0613 behind the Azure deployment 'nav29' (shut down 2024-09-13); substitute gpt-4o-2024-05-13 in a two-track design",
+    "ground-truth disease names come from a live Orphanet API call with a hard-coded key in the repo; the archived GT strings were reused instead",
+    "the HF loading script (RareBench.py) no longer runs under datasets 4.x; data/RAMEDIS.jsonl was read directly from data.zip in file order",
+    "HPO term names depend on the ontology bundled with the unpinned hpo3 package at run time; release v2024-03-06 assumed (hpo3 1.2.0 era)",
+    "2 of 200 archived judge outputs carry literal quotes and are dropped by the repo's counting (denominator 198); a lenient parser is used for the substitute judge",
+    "repo scripts call HF, Orphanet and LLM APIs at import time; prompt templates were extracted with ast and verified byte-for-byte instead of importing",
+    "Windows checkout (core.autocrlf) turns the LF CSV blobs into CRLF, including inside the diagnosis texts; normalised back to LF"
+  ]
+}

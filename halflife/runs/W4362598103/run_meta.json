@@ -1,0 +1,88 @@
+{
+  "card_id": "W4362598103",
+  "run_date_utc": "2026-09-07",
+  "target_paper": {
+    "title": "Accuracy and Political Bias of News Source Credibility Ratings by Large Language Models",
+    "repo": "https://github.com/osome-iu/llm_domain_rating",
+    "repo_commit": "81bc6c1faca2551d7a6314872989210bac6ce91e",
+    "original_source": "released llm_ratings.parquet re-scored (Figure 3 rho 0.54/0.62, 41.2% unrated, Figure 6 no significant default liberal bias)"
+  },
+  "generation": {
+    "model_requested": "gpt-4-turbo-2024-04-09",
+    "model_served": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10,
+    "parameters": "temperature 0, response_format json_object, system SYS_BASE + user instruction/format (code/query_llm.py, prompt_factory.py)",
+    "battery": "7,523 domains x 1 pass (default configuration)"
+  },
+  "results": {
+    "original": {
+      "unrated_share": 0.412202578758474,
+      "rho_own": 0.62418425191157,
+      "rho_own_ci95": [
+        0.6037450227035468,
+        0.6455439259087326
+      ],
+      "n_rated_with_pc1": 4422,
+      "rho_common": 0.5367833851472271,
+      "rho_common_ci95": [
+        0.5081659921994613,
+        0.5639749104542118
+      ],
+      "n_common": 3077
+    },
+    "reexecution": {
+      "unrated_share": 0.35429407072587077,
+      "rho_own": 0.6294006060439428,
+      "rho_own_ci95": [
+        0.6097127453036062,
+        0.6482506154734634
+      ],
+      "n_rated_with_pc1": 4857,
+      "rho_common": 0.5443719152534265,
+      "rho_common_ci95": [
+        0.5134212777734061,
+        0.5721721906260834
+      ],
+      "n_common": 3057
+    },
+    "political_original": {
+      "n_left": 1218,
+      "n_right": 1139,
+      "mean_bias_left": 0.004799878752048495,
+      "mean_bias_right": -0.0034831588472648994,
+      "welch_t": 1.4021135014894979,
+      "p": 0.16101708355702352,
+      "note": "left/right = sign of the Robertson score (paper's exact split not in the repo); liberal bias = higher LLM-minus-expert on left sources"
+    },
+    "political_reexecution": {
+      "n_left": 1261,
+      "n_right": 1189,
+      "mean_bias_left": 0.005170170364052896,
+      "mean_bias_right": -0.00663045727527719,
+      "welch_t": 2.0080357429969906,
+      "p": 0.04475127840045502,
+      "note": "left/right = sign of the Robertson score (paper's exact split not in the repo); liberal bias = higher LLM-minus-expert on left sources"
+    },
+    "paired": {
+      "n": 7522,
+      "status_flip_share": 0.07045998404679607,
+      "rho_orig_vs_rerun_on_both_rated": 0.9743795172787649,
+      "mean_abs_diff": 0.01101966163694559
+    },
+    "unparsed": 1,
+    "cost_usd": 27.47,
+    "calls": 7523,
+    "errors": 0,
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN §1; human double-coding pending",
+    "note": "Accuracy half survives exactly (rho 0.629 vs 0.624 own; 0.544 vs 0.537 common set; per-domain agreement rho 0.974, mean |diff| 0.011). The refusal share fell from 0.412 to 0.354 (7.0% of domains changed rated/unrated status). The political-bias half changes qualitatively: left-minus-right rating bias +0.012 (was +0.008) with Welch p = 0.045 (was 0.161), so the paper's 'no significant liberal bias for GPT-4 Turbo' statement no longer holds at alpha 0.05 under our left/right split (sign of the Robertson score; the paper's exact split is not in the repository)."
+  },
+  "reproducibility_frictions_observed": [
+    "figure-level analysis code absent from the repository; Spearman / t-test re-implemented and validated on the released parquet",
+    "Robertson political-bias scores fetched from Harvard Dataverse (CC0) with a browser user agent; the default urllib client is refused (403)",
+    "one of 7,523 replies was not parseable JSON",
+    "same dated snapshot served by 10 backend fingerprints; item-level ratings almost unchanged, refusal behaviour drifted"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "wid": "W7125460230",
+  "title": "ClaimDB: A Fact Verification Benchmark over Large Structured Data",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 1024
+    },
+    "params_source": "paper Appendix Table 3 ('Extra information and hyperparameters'), row gpt-4.1-nano: context window 1M, temp. 1.0, topK -, topP 1.0",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1000,
+    "subset_rule": "paper-defined split: the public test set, ~1,000 claims sampled uniformly per label and fully balanced (~333 each of entailed / contradicted / NEI; Sec. 5). The private test set's labels are withheld.",
+    "approximation": "NOT DETERMINED - the run is agentic, not single-turn, so nothing in this harness reproduces it as written (see open points)."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "https://claimdb.github.io (project page; HTTP 200 on 2026-09-19)",
+    "config_or_split": "public test set (~1,000 claims); a training split and a label-hidden private test split are also released",
+    "filter": null,
+    "fields": {
+      "input": "claim",
+      "label": "entailed | contradicted | not-enough-info",
+      "id": null
+    },
+    "license": "CC BY-SA 4.0 (per the triage record and the project page)",
+    "access_checked": false,
+    "size_mb": null,
+    "fields_prose": {
+      "input": "a natural-language claim plus optional external information, verified against the SQLite database attached to that claim",
+      "label": "three-way: ENTAILED / CONTRADICTED / NOT ENOUGH INFO",
+      "id": "not established"
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "only the project page was fetched (200). No claim file was located and no database was downloaded: the evidence is the BIRD databases, and Sec. 6.1 states the claim context averages ~110M tokens of structured information, so the evidence store is far beyond the 50 MB ceiling by design. Column names and the exact release layout are therefore unverified."
+    }
+  },
+  "prompt": {
+    "system": "<SCHEMA GENERATED HERE>.\nYou are a fact-checking assistant operating over structured data. You will be given a natural-language claim and optional external information. You will have access to a SQLite database and may execute arbitrary SQL queries over it using specialized tools.\nYour task is to determine whether the claim is \"ENTAILED\", \"CONTRADICTED\", or \"NOT ENOUGH INFO\" based on evidence you obtain from the database. The labels are defined as follows:\n-ENTAILED: The claim is supported by the database.\n-CONTRADICTED: The claim is refuted by the database.\n-NOT ENOUGH INFO: The database does not provide sufficient evidence to decide.\nUse the available tools to query the database and gather evidence before making a decision. Do not ask the user for clarification or additional information.\nYou should always start by querying the database for the schema (tables and columns).\nYour answer should be in JSON format, adhering to the following schema:\n{\"properties\": {\"verdict\": {\"description\": \"Whether the claim is supported, contradicted, or undecidable from the database.\", \"enum\": [\"ENTAILED\", \"CONTRADICTED\", \"NOT ENOUGH INFO\"], \"title\": \"Verdict\", \"type\": \"string\"}, \"justification\": {\"description\": \"Brief justification (1-2 sentences) of the verdict.\", \"title\": \"Justification\", \"type\": \"string\"}}, \"required\": [\"verdict\", \"justification\"], \"title\": \"ClaimVerdict\", \"type\": \"object\"}\nOutput Example 1:\n{\"verdict\": \"ENTAILED\", \"justification\": \"The database shows that the population of France is 67 million, which supports the claim.\"}\nOutput Example 2:\n{\"verdict\": \"CONTRADICTED\", \"justification\": \"The database indicates that the capital of Germany is Berlin, contradicting the claim.\"}\nOutput Example 3:\n{\"verdict\": \"NOT ENOUGH INFO\", \"justification\": \"The database does not contain any information about the population of Sacramento.\"}",
+    "user_template": "not printed - the claim (and optional external information) is supplied to the agent loop; the paper shows only the system/instruction block of Figure 22",
+    "placeholders": {
+      "claim": "the claim under verification"
+    },
+    "few_shot": "none as demonstrations; three output examples are part of the instruction block",
+    "source_location": "Appendix C, Figure 22 ('Prompt for all verifier models in the experiments (Section 6.1)'), referenced from Sec. 6.1 'We use a single prompt (Figure 22 in the Appendix)'",
+    "verbatim": "partial. The instruction block is copied verbatim with the extraction's hard wraps rejoined and the pretty-printed JSON schema collapsed onto single lines (content unchanged). Two things are NOT verbatim because they are not printed: the placeholder '<SCHEMA GENERATED HERE>' is filled at run time with the database schema of the claim at hand, and the user turn that carries the claim itself is not shown anywhere in the paper."
+  },
+  "output": {
+    "parse": "json field verdict (enum ENTAILED / CONTRADICTED / NOT ENOUGH INFO), produced through the framework's structured-output mechanism",
+    "postprocess": "Appendix: 'For models where structured outputs are not guaranteed ... we re-run the test whenever a response violates the expected schema', usually resolved in one or two re-runs",
+    "parse_paper": "same"
+  },
+  "metric": {
+    "name": "macro_f1",
+    "definition": "Macro-F1 = (F1_entailed + F1_contradicted + F1_NEI) / 3, each label treated as the positive class against the other two (Sec. 6.2).",
+    "judge": "none",
+    "original_value": 0.337,
+    "original_location": "Sec. 6 results table (Table 2), row gpt-4.1-nano(2025a): per-label P 0.647/0.641/0.376, R 0.165/0.124/0.952, F1 0.263/0.208/0.539, Macro-F1 0.337, Acc. 0.416",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 12.0,
+    "tier": "low",
+    "prepare_note": "--prepare not run: the items source and the evidence databases are not resolvable under the constraints. est_calls 3,000 is 1,000 claims x 3 seeds and counts agent SESSIONS, not model calls: each session runs up to 20 tool calls (Figure 6 reports 4-8 on average), so the true call count is roughly 5-8x higher and the context grows with every SQL result."
+  },
+  "open_points": [
+    "AGENTIC PROTOCOL: the benchmark is explicitly a tool-calling agent task - 'We use Google's MCP toolbox for databases and give each agent a single tool: the ability to execute arbitrary SQL queries against the database associated with the claim at hand. The only constraint we impose is a generous limit of 20 tool calls; exceeding this counts as a failed run' (Sec. 6.1). The Tier B runner issues one stateless chat completion per item with no tools, so it cannot execute this claim as written. Reproducing it needs an agent loop plus a SQLite execution sandbox, which is a human decision about scope.",
+    "EVIDENCE STORE: verification runs against the BIRD databases; Sec. 6.1 states the claim context averages ~110M tokens of structured information and that 'verification cannot be done by reading the evidence in-context'. That is far over the 50 MB download ceiling of this task, so the databases were not fetched and the claim files were not located.",
+    "USER TURN NOT PRINTED: Figure 22 shows only the instruction block. How the claim and the 'optional external information' are presented to the model is not published, and <SCHEMA GENERATED HERE> is filled at run time from the claim's own database.",
+    "A NO-TOOL FALLBACK WOULD MEASURE SOMETHING ELSE: the paper runs exactly that ablation for its best model and reports macro-F1 0.253 / accuracy 0.367 for gpt-5-mini 'without access to external tools ... near random'. A tool-free re-run of gpt-4.1-nano would therefore not be comparable to the 0.337 cell."
+  ],
+  "notes": "Claim cell confirmed in the paper text: the gpt-4.1-nano row of the Sec. 6 results table reads '0.647 0.641 0.376 0.165 0.124 0.952 0.263 0.208 0.539 0.337 0.416', i.e. Macro-F1 0.337 over the ~1,000-claim public test set, one of 30 evaluated LLMs. || Decoding parameters are unusually well documented for this paper (Appendix Table 3 gives context window, temperature, topK and topP per model), so only the harness gap blocks it. || claimdb.github.io responds 200 but is a JavaScript project page; no direct data file URL was recovered from it."
+}

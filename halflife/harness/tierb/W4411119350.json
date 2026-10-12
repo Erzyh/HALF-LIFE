@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119350",
+  "title": "LLaMA-Berry: Pairwise Optimization for Olympiad-level Mathematical Reasoning via O1-like Monte Carlo Tree Search",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT 4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Comparison table: \"GPT 4 Turbo 3.3 - 47.0 38.8\" (AIME24/Math Odyssey/GPQA) alongside Claude/GPT-4o/o1/Gemini -- previously reported scores, not run by these authors"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "The paper's own prompts (Appendices A/B/C/H) are for its LLaMA-3.1-8B-based LLaMA-Berry pipeline, not for GPT-4 Turbo."
+  },
+  "claim": {
+    "metric": "none (GPT-4 Turbo score is a cited comparison figure, not produced by this paper)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AIME24, AMC23, Math Odyssey, GPQA Diamond (public benchmarks)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "LLaMA-Berry's own experiments run LLaMA-3.1-8B-Instruct with tree search; the GPT-4 Turbo/GPT-4o/o1/Gemini rows are baseline numbers copied from other sources for comparison, not reproduced by this paper's authors."
+}

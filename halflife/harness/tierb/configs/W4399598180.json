@@ -1,0 +1,115 @@
+{
+  "wid": "W4399598180",
+  "title": "HalluDial: A Large-Scale Benchmark for Automatic Dialogue-Level Hallucination Evaluation",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 16,
+      "top_p": 1.0
+    },
+    "params_source": "resolution plan (paper states temperature 0.0 only for its annotation stage; detection temperature not stated); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 3200,
+    "subset_rule": "seeded random 3200 (seed 20260907) from the union of spontaneous_test.json (36,714) and induced_test.json (22,029)",
+    "approximation": "3,200-item seeded subset instead of the ~58.7k test split (the size the paper uses for localization); detection temperature assumed 0.0. If run on the public train samples: the evaluation split differs from the paper (train samples instead of the withheld test split)."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "Google Drive folder 19POyHTlLc3iQKKR4oonZzIGLEQ94Wyjl (github.com/flageval-baai/HalluDial README; the HF repo FlagEval/HalluDial only holds a loading script pointing at the same files)",
+    "config_or_split": "paper: spontaneous_test.json + induced_test.json (test split, NOT released); public: spontaneous_train.json + induced_train.json (10,000 rows each)",
+    "filter": null,
+    "fields": {
+      "input": "response",
+      "knowledge": "knowledge",
+      "dialogue_history": "dialogue_history",
+      "label": "label",
+      "id": "id",
+      "turn": "turn"
+    },
+    "license": "CC-BY-NC-SA-4.0 (Hugging Face tag)",
+    "access_checked": true,
+    "size_mb": 13,
+    "fields_prose": {
+      "input": "knowledge, dialogue_history, response",
+      "label": "label = first word of target ('Yes' = hallucinatory, 'No' = non-hallucinatory), derived by the hook; target itself is 'Yes. <rationale>' or 'No.'",
+      "id": "scenario:split:dialogue_id:turn (hook)"
+    },
+    "label_map": null,
+    "filter_prose": "none (seeded subset)",
+    "access_note": "2026-09-18: the Drive folder holds only spontaneous.zip, induced.zip, all.zip, each with a 10,000-row *_train.json (20,000 in all.zip); the README's 55,071 / 33,042 train rows and the 36,714 / 22,029 test rows are not there. Maintainer in GitHub issue #1: the test set 'is not available under the open-source plan at this time' (contamination). Hub parquet API: 400 (script dataset).",
+    "use_public_train_sample": false,
+    "local_files": {
+      "dir": "external/data/tierb_items/W4399598180/",
+      "files": [
+        "spontaneous.zip -> spontaneous/spontaneous_train.json (10,000 rows, 10.9 MB)",
+        "induced.zip -> induced/induced_train.json (10,000 rows, 11.0 MB)",
+        "all.zip -> all/all_train.json (20,000 rows = the union)"
+      ]
+    },
+    "download": {
+      "date": "2026-09-18",
+      "tool": "gdown 6.1.0 (folder listing + the file ids in HalluDial.py)",
+      "files": [
+        {
+          "name": "spontaneous.zip",
+          "drive_id": "1M9grlSzMEVgb5kFOHQIbYOZL9NX1YboI",
+          "bytes": 3343624,
+          "sha256": "ad4c4e657fe4792da3ae9fdce8bc96e55883bc9a85855cdce2f051fd973bfb5a"
+        },
+        {
+          "name": "induced.zip",
+          "drive_id": "1HzMYLEIEC1eCamFvA084ktbVB59xEW6s",
+          "bytes": 3176144,
+          "sha256": "1b7be78318aa308412707da44058d2271cee5c0e19226bee18eb77707f310c4e"
+        },
+        {
+          "name": "all.zip",
+          "drive_id": "1duxf2fN2A0MMy1gx85LRSk1-EPVE1tG6",
+          "bytes": 6518516,
+          "sha256": "a253c6f207edca96a252f18c33bc0339a965d26c5a9ad646d2f2292aaa0eb194"
+        }
+      ]
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "As an assistant, your task is to serve as a response judge. Provided with the related knowledge, a dialogue history and a generated response, your objective is to determine if the generated response contains any hallucinated information that (1) directly contradicts the given knowledge, or (2) cannot be verified from the provided knowledge and dialogue context.\nYou SHOULD carefully evaluate each segment of the generated response and determine if the response contains any hallucinated information. If such content is detected, your output should be \"Yes\"; otherwise, it should be \"No\".\n###Knowledge###: {knowledge}\n###Dialogue History###: {dialogue_history}\n###Response###: {response}\n###Judgement###:",
+    "placeholders": {
+      "knowledge": "items.knowledge",
+      "dialogue_history": "items.dialogue_history",
+      "response": "items.response"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix F.3, Table 15 (Instruction of hallucination detection)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "label from set [Yes, No]",
+    "postprocess": "strip; no match counted as wrong",
+    "parse_prose": "label from set [Yes, No]: first case-insensitive match of 'yes' or 'no' in the completion"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of items whose Yes/No judgement equals the gold hallucination label (Yes = hallucinatory); macro F1 over the two classes reported alongside (paper 78.84).",
+    "judge": "none",
+    "original_value": 80.64,
+    "original_location": "Table 2, row GPT-4o-2024-05-13, column Acc.",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3200,
+    "est_usd": 16.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "BLOCKING: the paper's evaluation split (spontaneous_test.json 36,714 + induced_test.json 22,029) is not public - the maintainers withhold it (GitHub issue #1; Drive folder checked 2026-09-18); only 10,000-row train samples per scenario are released. Decision: set items.use_public_train_sample = true to run the seeded 3,200-item subset on the released train samples (a different split from Table 2; label prior in the public sample: spontaneous 24% Yes, induced ~50% Yes) or drop the paper.",
+    "gold encoding confirmed: target starts with 'Yes.' or 'No.' (the hook maps the first word to Yes/No; 6 of the 20,000 public rows are malformed and dropped)."
+  ],
+  "notes": "The test JSON files are several hundred MB (146,856 dialogues in total) and were not downloaded; field names come from the dataset card (dialogue_id, knowledge, dialogue_history, turn, response, target). Confirm how the binary label is encoded in 'target' before running. The tier is the triage tier; after subsetting the realized cost is low. || [datacheck 2026-09-18] Field names verified on the downloaded files (dialogue_id, knowledge, dialogue_history, turn, response, target). Test split not released; hook harness/tierb/hooks/W4399598180.py loads the test files if they ever appear, else the public train samples when items.use_public_train_sample is true. Trial prepare with that lever on (then reset to false, run artifacts removed): 3200 items / 3200 requests, est. $6.54 (cap $20), subset_note=None."
+}

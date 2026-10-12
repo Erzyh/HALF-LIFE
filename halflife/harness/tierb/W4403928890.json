@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403928890",
+  "title": "Getting in the Door: Streamlining Intake in Civil Legal Services with Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Model list: \"gpt-4o-2024-08-06, gpt-4-0613, gpt-4-turbo-2024-04-09, gpt-4o-mini-2024-07-18\"; Table 4 row \"GPT-4-turbo...0.86 0.81 0.82\" (weighted P/R/F1)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 3-4; \"the full code and prompt are available on GitHub in two repositories\"",
+    "note": "Eligibility-screening prompt built from jurisdiction intake rules plus a tenant scenario; prompt intentionally omits worked examples."
+  },
+  "claim": {
+    "metric": "weighted-average F1 (Accept/Deny/Question), GPT-4-turbo",
+    "value": 0.82,
+    "n_items": 48,
+    "location": "Table 4 (segmented by jurisdiction), Weighted average F1 column",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "48 scenario-jurisdiction pairs (dataset D1); \"dataset and code to reproduce this experiment is available\" (GitHub)"
+  },
+  "cost": {
+    "est_calls": 144,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "GPT-4-turbo is the best-performing of 8 tested models overall (384 = 48 x 8 total results) and was also used to iteratively refine the prompt itself. A separate 11-transcript expert-attorney review (dataset D2) is qualitative, not used for this record's claim."
+}

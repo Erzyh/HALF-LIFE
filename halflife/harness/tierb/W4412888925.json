@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412888925",
+  "title": "Exploring Semantic Filtering Heuristics For Efficient Claim Verification",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o / GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 1 (background): \"GPT-4o being the default flagship OpenAI model...twice as fast and 50% more cost-effective than the larger GPT-4 Turbo model\"."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "No prompt for GPT-4o/GPT-4 Turbo; the paper's own system (SFEFC) runs Phi-4-14B, an open-weight model, not a tracked OpenAI snapshot."
+  },
+  "claim": {
+    "metric": "none for the live ids (background/motivation sentence only)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AVeriTeC dataset (FEVER-8 shared task), but not applicable to the GPT-4o/GPT-4 Turbo mention itself"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The paper's own claim-verification pipeline (SFEFC) and its FEVER-8/HerO baseline comparison both run on Phi-4-14B; GPT-4o and GPT-4 Turbo appear only in an introductory sentence contrasting proprietary model cost/speed trends, never as models the authors call."
+}

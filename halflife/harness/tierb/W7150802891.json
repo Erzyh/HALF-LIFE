@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7150802891",
+  "title": "Are large pre-trained vision language models effective construction safety inspectors",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13 (GPT4o)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"The GPT-4 variants employed in this article are GPT-4-1106-vision-preview (GPT4V) and GPT-4o-2024-05-13 (GPT4o)\" (Sec. 4); Table 6 row \"GPT4o 5-shot 24.9 169.9 39.4 37.7 81.8\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 5.1 (captioning system and user prompts quoted verbatim), Sec. 5.2 (VQA system prompt)",
+    "note": "Five few-shot example images and captions are randomly sampled from the training split and not identified; temperature 0.2, top_p 1.0, max_tokens 1024, single seed."
+  },
+  "claim": {
+    "metric": "CIDEr-D (image captioning, 5-shot)",
+    "value": 169.9,
+    "n_items": 3004,
+    "location": "Table 6, row GPT4o 5-shot (SPICE 24.9, CIDEr-D 169.9, METEOR 39.4, BERTScore 37.7, CLIPScore 81.8); test set 3,004 images (Table 3)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/LouisChen15/ConstructionSite (ConstructionSite 10k, test split 3,004 images)"
+  },
+  "cost": {
+    "est_calls": 9000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "One soft gap: the five in-context example images are an unspecified random sample from the training set. Each call carries six images, so cost is high at three seeds. GPT4o does not appear in the safety-rule VQA table (Table 7); the captioning row is the only GPT4o number.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "The five in-context examples are an unlisted random draw from the ConstructionSite training split (Sec. 5.1). Draw five seeded-random training images with their human captions from the HF dataset, prepend them to the printed Sec. 5.1 system/user captioning prompts, caption each of the 3,004 test images with gpt-4o-2024-05-13 (temperature 0.2, top_p 1.0, max_tokens 1024, single seed), and compute CIDEr-D with the MSCOCO caption tools (169.9).",
+    "approximation": "Different exemplar images; six images per call keeps the cost high.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

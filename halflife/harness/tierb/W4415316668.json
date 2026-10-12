@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4415316668",
+ "title": "PIKA: Expert-Level Synthetic Datasets for Post-Training Alignment from Scratch",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo (1106)",
+  "resolved": "dead-preview",
+  "role": "B",
+  "evidence": "\"GPT-4-Turbo (1106) Llama-3-8B-Instruct GPT-4 (0314)\" (baseline table header); \"we use GPT-4-Turbo (1106) and...\"; \"...against GPT-4-Turbo,\" (AlpacaEval-style win-rate comparisons)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "AlpacaEval-style pairwise judging convention; not reproduced verbatim in the retrieved text."
+ },
+ "claim": {
+  "metric": "none for a live snapshot (GPT-4-Turbo here is explicitly the retired 1106 preview)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "llm:gpt-5-2025-08-07 and unresolved gpt-4.1-mini"
+ },
+ "data": {
+  "public": "partial",
+  "source": "PiKa synthetic alignment datasets; some evaluation prompts synthesized via undated GPT-4o"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias",
+  "no_number"
+ ],
+ "notes": "This paper explicitly pins 'GPT-4-Turbo' to the retired 1106 preview snapshot as an AlpacaEval-style reference/baseline (dead-preview). Its other model mentions -- undated GPT-4o (used as a data synthesizer, scored by other judges rather than having its own capability number), GPT-5 (dated 2025-08-07, judge role only), and GPT-4.1-mini (not on the live-snapshot list) -- do not yield an isolable, reproducible number tied to a still-callable subject model in the retrieved text."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414031439",
+  "title": "Evaluating accuracy and reasoning capabilities of large language models for acute ischemic stroke management",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini (o3-mini-2025-01-31)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Four LLMs were evaluated: o3-mini (OpenAI API, version o3-mini-2025-01-31), LLaMA 3.3-70B-Instruct ... accessed in March 2025 using fixed checkpoints (Methods)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Methods, 'LLM inference and prompt structure' (single template with bracketed patient fields)",
+    "note": "Template is verbatim; the 80 case vignettes are the missing inputs."
+  },
+  "claim": {
+    "metric": "accuracy of mechanical thrombectomy decision",
+    "value": 0.8,
+    "n_items": 80,
+    "location": "Results text and Table 2, row 'OpenAI o3 mini' (MT accuracy 0.80, Jaccard 0.473); cohort n=80 (Table 1)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "80 anonymized stroke patient vignettes from the authors' centers; 'available upon reasonable request'"
+  },
+  "cost": {
+    "est_calls": 240,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Provider-default decoding, no seed; treatment eligibility parsed by keyword matching. Clinical data are not public."
+}

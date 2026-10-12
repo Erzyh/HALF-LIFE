@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4409362832",
+  "title": "DEQA: Descriptions Enhanced Question-Answering Framework for Multimodal Aspect-Based Sentiment Analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"We also evaluate gpt-4o-2024-05-13 on MABSA. The results are presented in Table 6\"; Table 6 row \"gpt-4o-2024-05-13 23.7 28.5 25.9 25.2 26.3 25.7\" (Twitter2015/Twitter2017 P/R/F1)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "No prompt text or template for the gpt-4o-2024-05-13 MABSA baseline is given anywhere in the paper; only a footnoted code/data repository is referenced."},
+  "claim": {
+    "metric": "Micro-F1, MABSA, Twitter2017", "value": 25.7, "n_items": null,
+    "location": "Table 6, row gpt-4o-2024-05-13, Twitter2017 F1 column",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Twitter2015 / Twitter2017 (Yu and Jiang 2019), standard public MABSA benchmarks"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["prompt_none"],
+  "notes": "AAAI 2025. The model, task and dataset are all clean and dated, but no version of the MABSA prompt given to gpt-4o-2024-05-13 is printed in the paper (only referenced via 'our code and data'). Unrelated: the authors' own DEQA method uses gpt-4-vision-preview (a dead preview) for image captioning, but that is not the gpt-4o-2024-05-13 baseline evaluated in Table 6."
+}

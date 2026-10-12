@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403575183",
+ "title": "Evidence of Cognitive Deficits andDevelopmental Advances in Generative AI: A Clock Drawing Test Analysis",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"The language models we tested (as of July 2024) were ... OpenAI's ... GPT-4 Turbo...\" (Sec. 2.1); Table 2 row \"GPT-4 Turbo 2 0 1 1 1 1 1 1 1 2 1 1 1 14 4\" (Total=14, Weighted=4)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 2.2 (\"draw the face of a clock, put in the numbers, and set the hands to 10 minutes after nine\", plus an SVG-rendering instruction for text-only LLMs)",
+  "note": "Single fixed prompt, administered once per model with no fine-tuning or repeated sampling."
+ },
+ "claim": {
+  "metric": "CDT Weighted Score (WMS-IV BCSE scoring rubric, Wechsler 2009)",
+  "value": 4,
+  "n_items": 1,
+  "location": "Table 2, row \"GPT-4 Turbo\" (Total=14, Weighted=4); Abstract (\"Only GPT 4 Turbo and Gemini Pro 1.5 successfully produced the correct time... Weighted score = 4/4\")",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Task is fully self-contained (fixed prompt, no external dataset); scoring rubric is the published WMS-IV BCSE (Wechsler, 2009)"
+ },
+ "cost": {
+  "est_calls": 3,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Marked 'maybe' because the headline score requires a human rater trained on the WMS-IV BCSE clock-drawing rubric to grade the raw SVG/text output (a well-defined but manual, non-automatic scoring step), and because the design is a single trial per model (n=1, 'once per model... no previous prompting'). GPT-4o (multimodal) is also tested in the same paper; undated but the testing period ('as of July 2024') precedes the 2024-10-02 cutoff, so it would resolve to gpt-4o-2024-05-13 (Table 2 row: Total=9, Weighted=2). The live_ids CSV hint of a dated snapshot was not found verbatim in the text; both GPT-4 Turbo and GPT-4o appear undated, resolved here via the alias/date rules."
+}

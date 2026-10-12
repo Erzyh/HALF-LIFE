@@ -1,0 +1,49 @@
+{
+  "wid": "W4415332749",
+  "title": "J4R: Learning to Judge with Equivalent Initial State Group Relative Policy Optimization",
+  "model": "o1-2024-12-17",
+  "metric": "custom",
+  "original_value": 73.1,
+  "original_location": "Table 6 (Appendix C.2), row 'o1', Avg. column (splits 77.59 / 90.38 / 58.15 / 65.33 over 598 / 260 / 325 / 300 samples micro-average to 73.09)",
+  "reexecution": {
+    "mean_over_seeds": 0.0,
+    "per_seed": {
+      "0": {
+        "value": 0.0,
+        "n": 128,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 36
+  },
+  "prepare": {
+    "wid": "W4415332749",
+    "n_items": 235,
+    "n_requests": 235,
+    "seeds": 1,
+    "est_usd": 19.59,
+    "subset_note": "cost cap $20.0: seeded random subset of 235 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "o1-2024-12-17",
+    "metric": "custom",
+    "original_value": 73.1,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "o1-2024-12-17"
+    ],
+    "n_fingerprints": 2
+  },
+  "approximation": "The paper ran the OpenAI Batch API; we call the same snapshot synchronously. The per-paper cost cap will cut the item set (see cost.prepare_note): the metric is then computed on the surviving samples and is no longer the full-benchmark number.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 0.0,
+    "delta": -73.1,
+    "original_inside_ci95": false
+  }
+}

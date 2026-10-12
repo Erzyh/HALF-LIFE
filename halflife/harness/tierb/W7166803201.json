@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166803201",
+  "title": "Fine-Grained Detection of Context-Grounded Hallucinations Using LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "their evaluation focused on GPT-4-turbo (Achiam et al., 2023), GPT-3.5-turbo (OpenAI, 2022), and Llama-2-13B (Section 1, describing Niu et al. 2024)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix H (H.1-H.3) for the authors' own models",
+    "note": "Printed prompts belong to the evaluated models (GPT-4o-2024-11-20, Claude-3.5-sonnet-20241022, Gemini-1.5-pro, Llama-3.1-405B), not to the live model."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (no number tied to GPT-4-turbo)",
+    "task_type": "classification",
+    "judge": "llm:gpt-4o"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Data and code repository cited in footnote 2 (github)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4-turbo is only cited from prior work. The paper's subject model gpt-4o-2024-11-20 is not in the live list."
+}

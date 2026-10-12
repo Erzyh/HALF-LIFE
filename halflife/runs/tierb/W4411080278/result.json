@@ -1,0 +1,65 @@
+{
+  "wid": "W4411080278",
+  "title": "Temperature-Driven Variability in Emergency Diagnostic Accuracy by a Leading Language Model",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "custom",
+  "original_value": 100,
+  "original_location": "Results 'Diagnostic Accuracy' / Figure 2 (temperature 0.0, with physical exam; 4 cases x 250 iterations)",
+  "reexecution": {
+    "mean_over_seeds": 0.25,
+    "per_seed": {
+      "0": {
+        "value": 0.25,
+        "n": 1000,
+        "ci95": [
+          0.224,
+          0.276
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.25,
+        "n": 1000,
+        "ci95": [
+          0.224,
+          0.276
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.25,
+        "n": 1000,
+        "ci95": [
+          0.224,
+          0.276
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411080278",
+    "n_items": 1000,
+    "n_requests": 3000,
+    "seeds": 3,
+    "est_usd": 18.57,
+    "subset_note": null,
+    "model": "gpt-4o-2024-05-13",
+    "metric": "custom",
+    "original_value": 100
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 3
+  },
+  "approximation": "Case vignettes transcribed from Table 1 (field separators assumed); the leading diagnosis is the first listed item of the reply (parser ours).",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 25.0,
+    "delta": -75.0,
+    "original_inside_ci95": false
+  }
+}

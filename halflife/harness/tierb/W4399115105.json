@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4399115105",
+ "title": "Exploring and steering the moral compass of Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Methods: \"We interacted with 8 different state-of-the-art LLMs: ...OpenAI's GPT-3.5-Turbo-0613 and GPT-4-Turbo-2024-04-09...\"; also used as a response classifier alongside Claude 3 Opus."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (classical moral dilemmas); canonical classification prompt at github.com/atlaie/ethical-llms/classification",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none clearly extractable as a number+n_items for GPT-4-Turbo alone in the retrieved text",
+  "value": null,
+  "n_items": null,
+  "location": "n/a (results reported via steering-effect figures, mainly for open-weight models)",
+  "task_type": "other",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "partial",
+  "source": "bioRxiv preprint; classification code/prompt at github.com/atlaie/ethical-llms"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The paper's main contribution (SARA activation steering) only applies to open-weight models run locally via Ollama; GPT-4-Turbo is included only in an initial 8-model dilemma-response comparison and as an auxiliary response classifier, and no printed table with a GPT-4-Turbo-specific metric could be located in the extracted text (results appear mainly as figures)."
+}

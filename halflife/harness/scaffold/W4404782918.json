@@ -1,0 +1,82 @@
+{
+  "openalex_id": "https://openalex.org/W4404782918",
+  "title": "LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing",
+  "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.292",
+  "field": "Medicine",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "claude-3-opus-20240229|gemini-1.5-flash",
+  "flags": "",
+  "all_links": [
+    "github.com/Tiiiger/bert_score",
+    "github.com/Tiiiger/bert_score2https",
+    "github.com/jiangshdd/ReviewCritique",
+    "github.com/jiangshdd/ReviewCritique.1",
+    "github.com/meta-llama/llama3"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/Tiiiger/bert_score",
+      "cloned": true,
+      "audit": {
+        "n_files": 116,
+        "ext_top": {
+          ".tsv": 72,
+          ".py": 17,
+          ".sh": 7,
+          ".txt": 6,
+          ".md": 5,
+          "": 3,
+          ".png": 3,
+          ".yml": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 1,
+        "n_py": 17,
+        "n_data_files": 72,
+        "files_mentioning_prompt": 1,
+        "files_with_eval_terms": 20,
+        "model_ids_in_code": {
+          "o3": 219,
+          "o1": 182,
+          "o4": 170
+        },
+        "readme_head": "# BERTScore\n[![made-with-python](https://img.shields.io/badge/Made%20with-Python-red.svg)](#python)\n[![arxiv](https://img.shields.io/badge/arXiv-1904.09675-b31b1b.svg)](https://arxiv.org/abs/1904.09675)\n[![PyPI version bert-score](https://badge.fury.io/py/bert-score.svg)](https://pypi.python.org/pypi/bert-score/) [![Downloads](https://pepy.tech/badge/bert-score)](https://pepy.tech/project/bert-score) [![Downloads](https://pepy.tech/badge/bert-score/month)](https://pepy.tech/project/bert-score) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) \n[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) \n\n\nAutomatic Evaluation Metric described in the paper [BERTScore: Evaluating Text Generation with BERT](https://arxiv.org/abs/1904.09675) (ICLR 2020). We now support about 130 models (see this [spreadsheet](https://docs.google.com/spreadsheets/d/1RKOVpselB98Nnh_EOC4A2BYn8_201tmPODpNWu4w7xI/edit?usp=sharing) for their correlations with human evaluation). Currently, the best model is `microsoft/deberta-xlarge-mnli`, please consider using it instead of the default `roberta-large` in order to have the best correlation with human evaluation.\n\n#### News:\n<!-- - Features to appear in the next version (currently in the master branch): -->\n- Updated to version 0.3.13\n  - Fix bug with transformers version > 4.17.0 ([#148](https://github.com/Tiiiger/bert_score/pull/148))\n- Update"
+      },
+      "commit": "19e7f551fe4fa43fdd07b8129ae947015b902b2d"
+    },
+    {
+      "url": "https://github.com/Tiiiger/bert_score2https",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/jiangshdd/ReviewCritique",
+      "cloned": true,
+      "audit": {
+        "n_files": 4,
+        "ext_top": {
+          ".jsonl": 2,
+          "": 1,
+          ".md": 1
+        },
+        "has_license": true,
+        "has_requirements": false,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 0,
+        "n_data_files": 2,
+        "files_mentioning_prompt": 1,
+        "files_with_eval_terms": 2,
+        "model_ids_in_code": {
+          "o3": 2
+        },
+        "readme_head": "# ReviewCritique\n\nThis repository contains the **ReviewCritique** dataset from our EMNLP'24 paper: [LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing](https://arxiv.org/abs/2406.16253).\n\n## Claim\n\nThis work is not advocating the use of LLMs for paper (meta-)reviewing. Instead, we present a comparative analysis to identify and distinguish LLM activities from human activities. Two research goals: i) Enable better recognition of instances when someone implicitly uses LLMs for reviewing activities; ii) Increase community awareness that LLMs, and AI in general, are currently inadequate for performing tasks that require a high level of expertise and nuanced judgment.\n\n## Abstract\n\nThis work is motivated by two key trends. On one hand, large language models (LLMs) have shown remarkable versatility in various generative tasks such as writing, drawing, and question answering, significantly reducing the time required for many routine tasks. On the other hand, researchers, whose work is not only time-consuming but also highly expertise-demanding, face increasing challenges as they have to spend more time reading, writing, and reviewing papers. This raises the question: how can LLMs potentially assist researchers in alleviating their heavy workload?\n\nThis study focuses on the topic of LLMs as NLP Researchers, particularly examining the effectiveness of LLMs in assisting paper (meta-)reviewing and its recognizability. To address this, we constructed the ReviewCritique dataset, "
+      },
+      "commit": "629932bcfa31879b1df1e011e3cd7188aa3b9b46"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4404782918.txt",
+  "paper_text_status": "pdf"
+}

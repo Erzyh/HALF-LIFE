@@ -1,0 +1,56 @@
+{
+  "wid": "W7134885605",
+  "title": "More Signal vs. More Noise - Comparing Full Text and Abstract as Inputs for Large Language Model-based Classification of Oncology Trial Eligibility Criteria",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 0.86,
+  "original_location": "Table 1, 'Based on Abstract', row Localized disease, Accuracy (95% CI 0.81-0.91)",
+  "reexecution": {
+    "mean_over_seeds": 0.935,
+    "per_seed": {
+      "0": {
+        "value": 0.935,
+        "n": 200,
+        "ci95": [
+          0.9,
+          0.97
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7134885605",
+    "n_items": 200,
+    "n_requests": 200,
+    "seeds": 1,
+    "est_usd": 4.74,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 0.86,
+    "cap_usd": 6.6
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Paper used a single batch run; the structured-output schema is not printed (a list of the allowed strings is enforced here); the abstract arm only (full texts are paywalled although the CSV carries a text column). The model reply is parsed by a regex instead of a structured-output schema.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-5-2025-08-07",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W7134885605"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.935,
+    "delta": 0.07500000000000007,
+    "original_inside_ci95": false
+  }
+}

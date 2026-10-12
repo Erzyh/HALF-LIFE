@@ -1,0 +1,21 @@
+{
+  "openalex_id": "https://openalex.org/W4391591592",
+  "title": "TravelPlanner: A Benchmark for Real-World Planning with Language Agents",
+  "doi": "https://doi.org/10.48550/arxiv.2402.01622",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "agentic/heavy",
+  "all_links": [
+    "github.com/Significant-Gravitas/AutoGPT.Besta"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/Significant-Gravitas/AutoGPT.Besta",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4391591592.txt",
+  "paper_text_status": "pdf"
+}

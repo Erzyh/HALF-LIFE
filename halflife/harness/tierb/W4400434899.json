@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4400434899",
+  "title": "Are Large Language Models Strategic Decision Makers? A Study of Performance and Bias in Two-Player Non-Zero-Sum Games",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 3: 'We run all experiments on 4 LLMs ... GPT-3.5, GPT-4-Turbo, GPT-4o, and Llama-3-8B'; 'We run each experimental setup 100 times'; Appendix B: AO prompting at T=1.0."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Technical Appendix Section B (BASE PROMPT with payoff placeholders; Tables 6-7 payoff configurations; AO and zero-shot CoT variants)",
+    "note": "Preferred-behaviour sentences (CG/SG) are given as templates."
+  },
+  "claim": {
+    "metric": "frequency (%) of selecting label A when prompted A then B, Stag Hunt, Answer-Only",
+    "value": 25.5,
+    "n_items": 100,
+    "location": "Table 1, row GPT-4-Turbo / A, column SH AO A->B",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "No dataset; payoff matrices and the prompt are printed in the Technical Appendix"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "arXiv 2024-07-05 with no snapshot: resolved by the post-GA rule, but the experiments may predate April 2024 (dead-preview risk). Full replication of Table 1 is 16 setups x 2 games x 2 prompting schemes x 100 runs."
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4406058824",
+  "title": "SciCode: A Research Coding Benchmark Curated by Scientists",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "GPT-4-Turbo: A faster and more cost-effective variant of GPT-4 [64]. We use the 'gpt-4-turbo-2024-04-09' snapshot. (Section 3.1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix Tables 4 (prompt w/o background) and 5 (prompt w/ scientists' background)",
+    "note": "Templates with {problem_steps_str}, {next_step_str}, {dependencies} placeholders filled from the public benchmark."
+  },
+  "claim": {
+    "metric": "pass@1 (subproblem, standard setup)",
+    "value": 22.9,
+    "n_items": 338,
+    "location": "Table 2, row GPT-4-Turbo, column Subproblem",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://scicode-bench.github.io/ (data, code, leaderboard); 80 main problems / 338 subproblems"
+  },
+  "cost": {
+    "est_calls": 1014,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Scoring requires executing generated Python against the benchmark's test cases (part of the release). Prompts include previously generated subproblem code, so inputs are long (~$12-15 per seed). Decoding parameters not stated. Main-problem pass@1 is 1.5% (n=80)."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404783273",
+  "title": "MMCode: Benchmarking Multimodal Large Language Models for Code Generation with Visually Rich Programming Problems",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Table 2 (Vision + Language Inputs): 'GPT-4o (gpt-4o-2024-05-13) 36.0 6.9 8.7 3.4 7.7 21.4 24.0 14.3 25.9 14.3 50.0 8.3 17.0'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 6 'The prompts used in this study' (Appendix C)",
+    "note": "Greedy decoding."
+  },
+  "claim": {
+    "metric": "Pass@1 (%)",
+    "value": 17.0,
+    "n_items": 3548,
+    "location": "Table 2, row GPT-4o (gpt-4o-2024-05-13), Vision + Language Inputs, column Overall",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "huggingface.co/datasets/likaixin/MMCode; github.com/likaixin2000/MMCode (3,548 questions, 6,620 images)"
+  },
+  "cost": {
+    "est_calls": 3548,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Pass@1 needs a code-execution harness with the dataset's test cases; large and costly with image inputs. Rated maybe because of the execution harness and cost, not because of a missing prompt.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Generate solutions for the 3,548 problems with their images using the Table 6 prompt and greedy decoding with gpt-4o-2024-05-13, then run the repository's execution judge against the hidden test cases shipped with the HF dataset and compare overall Pass@1 with Table 2 (17.0).",
+    "approximation": "Sandbox time limits and platform versions may differ; high cost for image inputs.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/likaixin2000/MMCode",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4406880877",
+  "title": "People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "O1-2024-12-17",
+    "resolved": "o1-2024-12-17",
+    "role": "B",
+    "evidence": "\"Detector LLM: O1-2024-12-17 ... ZERO-SHOT+ COT 83.3(6.7) 53.3(3.3) 96.7(3.3) 20(3.3) 16.7(3.3) 54(4)\" (Table 2, section C, prompt-based detectors)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 19 (zero-shot detector) and Table 20 (zero-shot + CoT detector) prompt templates",
+    "note": "Guide-augmented variants use Table 11 (truncated) plus the released guidebook."
+  },
+  "claim": {
+    "metric": "TPR (FPR) of the zero-shot+CoT prompt-based detector, overall",
+    "value": 54.0,
+    "n_items": 300,
+    "location": "Table 2, section (C), Detector LLM O1-2024-12-17, row Zero-shot + CoT, column Overall",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/jenna-russell/human_detectors (300 articles: 150 human, 150 AI-generated, with annotations)"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Main results are expert human annotators (not the chosen claim). o1-pro article generation used the ChatGPT Pro interface (webui) but the generated articles are released, so the detector claim does not depend on it. The paper's 'overall' for plain zero-shot (42.2) is inconsistent with its per-column values; the CoT row (54.0) is consistent. o1 run with reasoning effort 'medium', temperature fixed at 1 by the API."
+}

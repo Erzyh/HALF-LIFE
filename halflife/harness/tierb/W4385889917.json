@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4385889917",
+  "title": "Playing with words: Comparing the vocabulary and lexical diversity of ChatGPT and humans",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT-4 (footnote: gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"the first five datasets ... were run with the latest version of ChatGPT-4 and the results are summarized in Fig. 2\"; footnote 15: \"The model used was gpt-4o-2024-05-13.\""
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 3 describes task setup (TOEFL essays, CS/Medicine/Finance questions, open questions) reused from the earlier GPT-3.5 experiment",
+    "note": "Exact prompt wording is not reproduced for the gpt-4o rerun specifically."
+  },
+  "claim": {
+    "metric": "RTTR / Maas lexical diversity, five categories",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 2 (bar chart only, RTTR top / Maas bottom, three word-filtering conditions); Tables 2-5 report only the earlier GPT-3.5 run, not gpt-4o-2024-05-13",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TOEFL/Medicine/Computing/Finance/open-questions corpora; data at https://doi.org/10.5281/zenodo.11199030"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The gpt-4o-2024-05-13 rerun (Fig. 2 only) covers the first five of seven categories; the paper's numeric tables (2-5) are exclusively for the earlier GPT-3.5 responses, not this live snapshot."
+}

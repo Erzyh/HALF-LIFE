@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7138319054",
+  "title": "amc: The Automated Mission Classifier for Telescope Bibliographies",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "\"We use a lightweight, general-purpose, non-thinking model (gpt-4.1-nano) with a restricted vocabulary ('Yes' and 'No') that outputs logits\" (Sec. 3.2); final classifier gpt-5-mini"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 3: paper-type definitions copied; full reranker and classifier prompts only in the GitHub repository",
+    "note": ""
+  },
+  "claim": {
+    "metric": "macro F1 of the full amc pipeline",
+    "value": 0.84,
+    "n_items": null,
+    "location": "Section 4 (held-out TRACS test set, Kaggle leaderboard)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TRACS shared task data (Kaggle); paper full texts via ADS"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Number belongs to a multi-stage pipeline (keyword snippets -> gpt-4.1-nano reranker -> gpt-5-mini classifier) and is not attributable to gpt-4.1-nano alone."
+}

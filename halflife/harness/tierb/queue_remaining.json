@@ -1,0 +1,66 @@
+[
+ {
+  "wid": "W4399317891",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 20,
+  "est_usd": 100.46,
+  "title": "OR-Bench: An Over-Refusal Benchmark for Large Lang",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7117377764",
+  "model": "o3-2025-04-16",
+  "cap": 20,
+  "est_usd": 1.06,
+  "title": "Benchmarking large language models for geolocating",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7131319772",
+  "model": "gpt-5-mini-2025-08-07",
+  "cap": 20,
+  "est_usd": 3.98,
+  "title": "Can Large Language Models Replace Human Coders? In",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7140138327",
+  "model": "gpt-5-mini-2025-08-07",
+  "cap": 20,
+  "est_usd": 7.81,
+  "title": "ReMedQA: Are We Done With Medical Multiple-Choice ",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W4417257719",
+  "model": "gpt-5-2025-08-07",
+  "cap": 20,
+  "est_usd": 9.26,
+  "title": "EDINET-Bench: Evaluating LLMs on Complex Financial",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7197053912",
+  "model": "gpt-5-mini-2025-08-07",
+  "cap": 20,
+  "est_usd": 16.43,
+  "title": "ANCHOR-RE: An Agentic Neuro-Symbolic Framework for",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7144391352",
+  "model": "gpt-5-2025-08-07",
+  "cap": 20,
+  "est_usd": 17.52,
+  "title": "CALRK-Bench: Evaluating Context-Aware Legal Reason",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7134885605",
+  "model": "gpt-5-2025-08-07",
+  "cap": 20,
+  "est_usd": 25.27,
+  "title": "More Signal vs. More Noise - Comparing Full Text a",
+  "deadline": "2026-12-11"
+ }
+]

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404987838",
+  "title": "Tulu 3: Pushing Frontiers in Open Language Model Post-Training",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 6: judge comparison 'GPT-4 (GPT-4-turbo-2024-04-09, GPT-4o-2024-08-06, gpt-4o-mini-2024-07-18) and Llama 3.1'; AlpacaEval 2 compares outputs to GPT-4 turbo responses"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D (preference judge prompt template)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Tulu 3 datasets (Hugging Face)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model used as preference-data judge candidate and as AlpacaEval reference; subjects are Tulu 3 open models."
+}

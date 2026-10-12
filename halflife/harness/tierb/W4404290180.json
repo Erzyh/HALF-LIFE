@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404290180",
+ "title": "α-Synuclein ubiquitination – functions in proteostasis and development of Lewy bodies",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"OpenAI's GPT-4-turbo was used to summarize sections (e.g. results or discussion) of individual papers to efficiently identify key findings\" (Acknowledgments, writing-assistance disclosure)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Standard AI-writing-assistance disclosure; no prompt shown, no experiment."
+ },
+ "claim": {
+  "metric": "none (molecular-biology review article; GPT-4-turbo used only as a writing/summarization aid)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a; biology literature review, not an LLM evaluation"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Frontiers in Molecular Neuroscience review on alpha-synuclein biology; GPT-4-turbo is disclosed only as a manuscript-preparation aid (summarizing cited papers), not as an object of study with any reportable metric."
+}

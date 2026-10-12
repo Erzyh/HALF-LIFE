@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4416054073",
+ "title": "Exploring Persona-dependent LLM Alignment for the Moral Machine Experiment",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "Sec. Models: \"GPT-4o (gpt-4o-2024-05-13 (Hurst et al., 2024))\"; alignment results table, e.g. \"GPT-4o: 7/14\" categories showing closer human alignment than baseline (bold cells)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix A.1 (scenario/persona prompt templates), A.2 (survey data)",
+  "note": "Persona template adapted from Gupta et al. (2024)."
+ },
+ "claim": {
+  "metric": "count of demographic categories with improved human alignment vs. baseline (bold cells)",
+  "value": 7,
+  "n_items": 14,
+  "location": "Table 2 (GPT-4o column)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Moral Machine experiment scenarios/data (Awad et al., 2018)"
+ },
+ "cost": {
+  "est_calls": 500,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "The headline metric (AMCE Euclidean distance) requires a statistical-modeling pipeline over many raw trials, not a single API-call-to-score mapping; the exact total number of underlying moral-dilemma trials is not restated as one figure in the visible text, only 9 AMCE scenario categories crossed with persona/demographic combinations. ICLR 2025 peer-reviewed paper."
+}

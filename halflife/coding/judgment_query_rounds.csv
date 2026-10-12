@@ -1,0 +1,12 @@
+judge,round,received,rows_departing_from_written_rule,of_rows,notes
+B,1,2026-10-07 16:53,59,438,"prompt-level 44 (inside-interval rows with a 2-5 point difference marked partial; rows flagged in the note column marked died; point rule applied to non-score rows), Tier A 15 (no interval read as cannot judge; moves over five points with the same sign read as died); hidden columns in the returned file"
+B,2,2026-10-07 17:09,33,438,"prompt-level 18 (no-interval rows now read as cannot judge; the note column still hidden), Tier A 15 unchanged"
+B,3,2026-10-07 18:22,3,438,"prompt-level 3 (no-interval rows), Tier A 0; five conclusion-level cells read in the wrong direction"
+B,4,2026-10-07 18:39,0,438,final
+C,1,2026-10-10 13:48,9,438,"prompt-level 7 and Tier A 2, all no-interval rows read as cannot judge"
+C,2,2026-10-10 14:01,2,438,"two rows shifted by one line"
+C,3,2026-10-10 14:03,0,438,final
+A,1,2026-10-11 00:06,38,438,"prompt-level 24 and Tier A 14 (the same four misreadings as B); the conclusion-level column filled with the survival vocabulary instead of the four conclusion levels; typed values outside the lists"
+A,2,2026-10-11 09:43,37,438,"conclusion-level column re-entered in the four levels; verdict rows unchanged; five typed values outside the lists"
+A,3,2026-10-11 10:26,15,438,"the Tier A rule (same sign over five points = partial) applied to four prompt-level rows and not to nine Tier A rows"
+A,4,2026-10-11 11:01,2,438,"final; the two remaining rows and two conclusion-level rows were left as the judge's answers"

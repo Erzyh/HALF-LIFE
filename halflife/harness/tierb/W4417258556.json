@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4417258556",
+  "title": "Evaluating large language models for natural-language-to-code generation on aggregate Czech public health data analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "OpenAI o3 (2025-04-16); GPT-4 Turbo only in related work",
+    "resolved": "o3-2025-04-16",
+    "role": "S",
+    "evidence": "Table 1: 'OpenAI o3 2025-04-16 Not disclosed'; Sec. 3.1: 'Only o3 consistently separated diagnoses as required'; temperature 0 for all models except o3"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 2.2 (four analytical queries in natural language plus dataset documentation)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "per-query correctness (checkmark grid judged by the authors) over 4 analytical queries",
+    "value": null,
+    "n_items": 4,
+    "location": "Tables 3-4 (✅ / ❌ per model and query; no aggregate score)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Czech NZIP open data (nrhzs-mkn-podkapitoly.csv, 223 MB); repository linked via the article DOI"
+  },
+  "cost": {
+    "est_calls": 12,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Only four tasks and a qualitative pass/fail grid judged by the authors; generated code must be executed on the CSV. CSV live_id gpt-4-turbo is a citation (role C)."
+}

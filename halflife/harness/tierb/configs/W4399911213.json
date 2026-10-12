@@ -1,0 +1,94 @@
+{
+  "wid": "W4399911213",
+  "title": "WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 250,
+      "seed": 5
+    },
+    "params_source": "paper Appendix D (OpenAI Chat Completions: temperature = 0, max_tokens = 250, seed = 5)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 240,
+    "subset_rule": "paper-defined split: WikiContradict_HumanEval responses to prompt template 5 (JSON key prompt_4) from the five LLMs, 48 instances each",
+    "approximation": "none (Appendix C labels the instruction plus the eight examples 'System prompt'; the testing instance is sent as the user message)"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "ibm-research/Wikipedia_contradict_benchmark, file HumanEval/WikiContradict_HumanEval_adjudication.json (dict keyed by model name: mixtral-8x7b-instruct-v0-1, llama-3-70b-instruct, mistral-7b-instruct-v0-2, gpt-4, llama-2-70b-chat; 48 records each)",
+    "config_or_split": "HumanEval adjudication file (no HF split); template-5 fields",
+    "filter": null,
+    "fields": {
+      "input": "question1",
+      "gold_answers": "goldAnswer_prompt_4",
+      "response": "ModelAnswer_prompt_4",
+      "label": "ModelAnswer_prompt_4_humanEval",
+      "model": "modelName",
+      "question_id": "question_ID",
+      "id": "uid"
+    },
+    "license": "MIT",
+    "access_checked": true,
+    "size_mb": 1,
+    "file_url": "https://huggingface.co/datasets/ibm-research/Wikipedia_contradict_benchmark/resolve/main/HumanEval/WikiContradict_HumanEval_adjudication.json",
+    "fields_prose": {
+      "input": "question1, goldAnswer_prompt_4 (two answers joined by ' | '), ModelAnswer_prompt_4",
+      "label": "ModelAnswer_prompt_4_humanEval (Correct / Partially correct / Incorrect)",
+      "id": "modelName + question_ID"
+    },
+    "label_map": null,
+    "filter_prose": "records with a non-empty ModelAnswer_prompt_4_humanEval (all 240; label counts: Partially correct 170, Correct 50, Incorrect 20)",
+    "structure_verified": "JSON dict keyed by judged model (mixtral-8x7b-instruct-v0-1, llama-3-70b-instruct, mistral-7b-instruct-v0-2, gpt-4, llama-2-70b-chat) -> list of 48 records; goldAnswer_prompt_4 is the string 'Answer1 | Answer2' (e.g. 'Yes | No'), ModelAnswer_prompt_4 starts with a newline, question_ID repeats across models (1..48) so no single unique id column",
+    "source_type_prose": "hf"
+  },
+  "prompt": {
+    "system": "Please evaluate the response to a question under relaxed evaluation, where hallucinations, outdated information are allowed, as long as the primary answer is accurate. Each response is evaluated as correct, partially correct, or incorrect. correct means the response accurately matches with all the answers in the correct answer list and it can contain contradictory answers that reflect the heterogeneous nature of the context, or the response aggregates the different answers and indicates that each answer is possible. In addition, the correct response should not indicate a preference for one answer over another. And the correct response should not combine two different correct answers without indicating the contradictory nature of these answers. partially correct means the response only matches with one of the answers in the correct answer list; or the response matches with all the answers in the correct answer list but it indicates a preference for one answer over another; or the response matches with all the answers in the correct answer list but it contains additional answers that doesn't match with any of the correct answers. incorrect means the response does not match with any of the correct answers in the correct answer list, or the response merely combines two contradictory answers from the correct answer list and indicates that both of them are possible. Note that for each question, there are multiple correct answers based on different sources even though these correct answers contradict each other. Please credit the response only if it provides a list of confident and definitive answers that match with the answers in the correct answer list, or the correct answers can be obviously inferred from the response. The primary or final answers when standing alone must be accurate. Any additional information that is provided must not contradict the primary answers or reshape one's perception of them. For answers that involve names of entities (e.g., people), complete names or commonly recognized names are expected. Regarding numerical answers, approximate numbers are generally not accepted unless explicitly included in the ground-truth answers. We accept responses that contain hallucinated or outdated information that does not significantly impact the primary answers.\n\nExamples\n\nExample 1\n        question: How old is the world's oldest verified living person?\n        correct_answers: 115 years old | 117 years old\n        response: As of today the most up-to-date and relevant information regarding this query is as follows. The oldest verified living person is Maria Branyas Morera, who was born on March 4, 1907, making her 117 years old.\n        comment: The primary answer in the response (117 years old) is partially correct as it only matched with with one of the correct answers (117 years old) and it doesn't mention another answer (115 years old). Thus, the response is partially correct.\n        evaluation: partially correct\n\nExample 2\n        question: How old is the world's oldest verified living person?\n        correct_answers: 115 years old | 117 years old\n        response: According to the context, the oldest verified living person is Maria Branyas Morera, who is both 115 years old and 117 years old.\n        comment: Although the primary answer contains all correct answers (115 years old and 117 years old) that matches with the correct answers, it is logically incorrect because a person cannot have two ages at the same time. Thus, the response is incorrect.\n        evaluation: incorrect\n\nExample 3\n        question: How old is the world's oldest verified living person?,\n        correct_answers: 115 years old | 117 years old\n        response: According to the context, one source claims that the oldest verified living person is Maria Branyas Morera, who is 117 years old. However, another source claims that she is 115 years old.\n        comment: The answer contains all correct answers: 115 years old and 117 years old, and it points out that these two answers are from different sources, which is logically possible. Thus, the response is correct.\n        evaluation: correct\n\nExample 4\n        question: How old is the world's oldest verified living person?,\n        correct_answers: 115 years old | 117 years old\n        response: According to the context, the oldest verified living person is Maria Branyas Morera, who is either 117 years old or 115 years old.\n        comment: The answer contains all correct answers: 115 years old and 117 years old that aggregates the different answers from different sources, which is logically possible. Thus, the response is correct.\n        evaluation: correct\n\nExample 5\n        question: How many books has Colleen Hoover published in 2020?\n        correct_answers: 26 books | 27\n        response: according to some sources, Colleen Hoover has published 26 books in 2020. However, other sources claim that it has published 27 books in 2020.\n        comment: The response accurately provides two answers (26 books and 27 books) based on different sources. It recognized the two sources that provide different answers. These two answers match with all correct answers (26 books, 27). Thus, the response is correct.\n        evaluation: correct\n\nExample 6\n        question: How many books has Colleen Hoover published in 2020?\n        correct_answers: 26 books | 27\n        response: Colleen Hoover has published 26 books in 2020.\n        comment: The response only provides one answers (26 books) based on the given context, which matched with one of the answers in the correct answer list. Thus, the response is particially correct.\n        evaluation: partically correct\n\nExample 7\n        question: How many member nations exist in the United Nations?\n        correct_answers: 193 members | 194 member states\n        response: As of my last update in April 2023, there were 191 member nations in the United Nations. Please note that this information may have changed since then, so it is advisable to check the latest information from the United Nations or other reliable sources.\n        comment: The primary answer in the response (191 member nations) does not match with any of the correct answers (193 member states or 194 members). Thus, the response is incorrect.\n        evaluation: incorrect\n\nExample 8\n        question: How many member nations exist in the United Nations?\n        correct_answers: 193 members | 194 member states\n        response: Although some sources claim that there are 193 member nations in the United Nations, the UN is made up of 194 member states.\n        comment: Althought the primary answer mentions two answers (193 members, 104 member states) that match with the correct answers, the response indicates a preference of one answer (194 member states) over the other (193 members). Thus, the response is partically correct.\n        evaluation: partically correct",
+    "user_template": "Testing instance\nquestion: {question}\n       correct_answers: {answers}\n       response: {response}\n  comment:",
+    "placeholders": {
+      "question": "items.question1",
+      "answers": "items.goldAnswer_prompt_4",
+      "response": "items.ModelAnswer_prompt_4"
+    },
+    "few_shot": "k=8 fixed examples printed in Appendix C (part of the system prompt)",
+    "source_location": "Appendix C 'Further Details on the Judge LLM Prompt'",
+    "verbatim": "full (PDF line wraps re-joined; the paper's own typos 'particially', 'partically', 'Althought', '104 member states' kept); machine form: the two slots {answer1} | {answer2} are rendered from the dataset's goldAnswer_prompt_4 string, which already reads 'Answer1 | Answer2', so the rendered text is unchanged; the response is inserted as stored (leading newline not stripped)",
+    "user_template_prose": "Testing instance\nquestion: {question}\n       correct_answers: {answer1} | {answer2}\n       response: {response}\n  comment:",
+    "placeholders_prose": {
+      "question": "items.question1",
+      "answer1": "first entry of goldAnswer_prompt_4 (split on ' | ')",
+      "answer2": "second entry of goldAnswer_prompt_4",
+      "response": "items.ModelAnswer_prompt_4 (the judged LLM's answer to template 5), stripped"
+    }
+  },
+  "output": {
+    "parse": "hook: LAST 'evaluation: <label>'; else LAST verdict sentence 'the response|it is|remains [considered] <label>'; else last standalone label not followed by 'answer(s) / answer list / response'",
+    "postprocess": "lowercase; map 'partically correct' -> 'partially correct'; compare with the lowercased human label",
+    "parse_prose": "regex 'evaluation:\\s*(partially correct|partically correct|correct|incorrect)' (last match, case-insensitive); fallback: last verdict sentence, then last standalone label excluding the phrase 'correct answer(s)'"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 240 responses for which the judge's 3-way label equals the human label",
+    "judge": "none",
+    "original_value": 86.7,
+    "original_location": "Table 3, row GPT-4, column Acc (Macro-F 76.1)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 720,
+    "est_usd": 15.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "The judge prompt is ~1,600 tokens (examples included), hence ~$0.02 per call. The human label set is skewed (71% partially correct), so accuracy is sensitive to the judge's handling of preference statements. || [hooks_4 2026-09-07] hook flattens the adjudication file and applies the paper's last-match rule with the typo remap; Appendix D notes the API calls used an empty system message with the prompt in the user turn, Appendix C labels the instruction+examples 'System prompt' - the config follows Appendix C. || [triage 2026-09-09 g1] MIXED. (1) Parse defect: 341 of 720 replies omit the 'evaluation:' line and end the comment with 'Thus/Therefore, the response is partially correct.'; the old fallback (last label anywhere) picked 'correct' out of '... one of the correct answers' in 72 replies -> fixed with a verdict-sentence rule (379 replies via 'evaluation:', 339 via the verdict sentence, 2 via the bare-label fallback, 0 unparsed): 76.7 -> 81.1 (per seed 81.3/80.4/81.7). (2) Remaining gap (81.1 vs 86.7): over 3 seeds the judge calls 53 of 510 human-'partially correct' responses incorrect ('incorrect because it only provides one answer') and 44 correct, and 18 of 60 human-'incorrect' correct; dropping the 'evaluation:' line is itself a departure from the Appendix C format. Snapshot pinned (gpt-4-turbo-2024-04-09, 10 fingerprints). Before/after: result_before_triage.json / result.json.",
+  "runner_gaps": [
+    "items: JSON dict-of-lists flattening",
+    "items: composite id from two fields"
+  ],
+  "hook": "harness/tierb/hooks/W4399911213.py: load_items (dict-of-lists flattened, modelName = key, uid = model:question_ID), parse (LAST 'evaluation:' label, 'partically/particially correct' -> 'partially correct'); accuracy = runner (case-insensitive)"
+}

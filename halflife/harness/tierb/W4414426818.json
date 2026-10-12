@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414426818",
+  "title": "Comparison of GPT-4o With Human Performance in the Polish Vascular Surgery Specialty Examination",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "with tool integration (2023), GPT-4 Turbo (2023), and the GPT-4o, launched in May 2024 (Introduction, model history)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (no prompt printed)",
+    "note": ""
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (GPT-4 Turbo not run; subject was ChatGPT-4o via chat interface, Aug 2025, 88/120 correct)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "PES vascular surgery exam Spring 2025 (120 items; not distributed)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Even the actual subject (ChatGPT-4o) was used through the web product (webui) with undated snapshot."
+}

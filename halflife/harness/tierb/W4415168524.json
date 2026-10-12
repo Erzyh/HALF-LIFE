@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415168524",
+ "title": "An artificial intelligence-assisted comprehensive clinical decision-making guide for total knee arthroplasty",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Abstract: \"Essential technological integrations include ResNet for imaging analysis, Claude 3 for complex reasoning,...and GPT-4 Turbo for documentation.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A conceptual/perspective clinical-framework guide; GPT-4 Turbo is listed only as one of several proposed technology integrations, with no experiment or reported metric."
+}

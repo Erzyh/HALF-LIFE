@@ -1,0 +1,32 @@
+name: Reproduce tables
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Regenerate the tables from the committed data and compare with HEAD
+        working-directory: halflife
+        run: python scripts/check_regeneration.py
+      - name: Keep the regenerated figures as an artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: figures
+          path: halflife/figures/*.png
+          retention-days: 14

@@ -1,0 +1,45 @@
+{
+  "wid": "W7161421448",
+  "title": "Identifying implicit bias in LLM-based chat AI toward people with intellectual disabilities",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 136.59,
+  "original_location": "Results, GPT-4-Turbo paragraph and Figure 2 (OR = 136.59 [105.88, 176.21])",
+  "reexecution": {
+    "mean_over_seeds": 247.03248776145972,
+    "per_seed": {
+      "0": {
+        "value": 247.03248776145972,
+        "n": 2348,
+        "ci95": null,
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7161421448",
+    "n_items": 3219,
+    "n_requests": 3219,
+    "seeds": 1,
+    "est_usd": 40.0,
+    "subset_note": "cost cap $40.0: seeded random subset of 3219 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 136.59
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "unseeded temperature-1.0 replicates instead of per-call seeds; the story-analysis step uses the live gpt-4-turbo-2024-04-09 snapshot for the paper's GPT-4-Turbo analyst (its Azure deployment version is not printed); analysis call at temperature 1.0 with seed 123 (the repository's bias_label_seed; the paper says the same seed was used for every question)",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 247.03248776145972,
+    "delta": 110.44248776145972,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,44 @@
+[
+ {
+  "wid": "W4403556032",
+  "cap": 19.49,
+  "seeds": 1,
+  "arm": "format_f2",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-5.6-sol",
+  "paraphrase": "f2",
+  "vendor_arm_cost_usd": 12.99,
+  "unparsed_share_vendor": NaN,
+  "selected_because": "unscorable on the vendor arm (format non-compliance)",
+  "title": "Enhancing Healthcare LLM Trust with Atypical Prese",
+  "note": "format adaptation f2: baseline items and seed-0 bodies on the successor with one added format sentence and reasoning_effort none; one pass"
+ },
+ {
+  "wid": "W7166799942",
+  "cap": 2.0,
+  "seeds": 1,
+  "arm": "format_f2",
+  "arm_model": "gpt-5.6-luna",
+  "model": "gpt-5.6-luna",
+  "paraphrase": "f2",
+  "vendor_arm_cost_usd": 0.09,
+  "unparsed_share_vendor": 0.218,
+  "selected_because": "unparsable share > 5%",
+  "title": "CMTD: Cognitive Modeling with Traits and Distortio",
+  "note": "format adaptation f2: baseline items and seed-0 bodies on the successor with one added format sentence and reasoning_effort none; one pass"
+ },
+ {
+  "wid": "W4416034248",
+  "cap": 3.54,
+  "seeds": 1,
+  "arm": "format_f2",
+  "arm_model": "gpt-5.6-sol",
+  "model": "gpt-5.6-sol",
+  "paraphrase": "f2",
+  "vendor_arm_cost_usd": 2.36,
+  "unparsed_share_vendor": 0.049,
+  "selected_because": "next-highest share (contrast case)",
+  "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of",
+  "note": "format adaptation f2: baseline items and seed-0 bodies on the successor with one added format sentence and reasoning_effort none; one pass"
+ }
+]

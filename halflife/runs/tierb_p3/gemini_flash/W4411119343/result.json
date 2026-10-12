@@ -1,0 +1,56 @@
+{
+  "wid": "W4411119343",
+  "title": "Are LLM-Judges Robust to Expressions of Uncertainty? Investigating the effect of Epistemic Markers on LLM-based Evaluation",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 83.8,
+  "original_location": "Table 14 (Natural Questions subset), row GPT-4-turbo, Acc., column block Reader = GPT-4 (394 Correct samples), column QA_S",
+  "reexecution": {
+    "mean_over_seeds": 0.8527918781725888,
+    "per_seed": {
+      "0": {
+        "value": 0.8527918781725888,
+        "n": 394,
+        "ci95": [
+          0.817258883248731,
+          0.8883248730964467
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119343",
+    "n_items": 394,
+    "n_requests": 394,
+    "seeds": 1,
+    "est_usd": 0.07,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 83.8,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4411119343"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 85.27918781725889,
+    "delta": 1.4791878172588895,
+    "original_inside_ci95": true
+  }
+}

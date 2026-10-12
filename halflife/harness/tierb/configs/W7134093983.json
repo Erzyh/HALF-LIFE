@@ -1,0 +1,83 @@
+{
+ "wid": "W7134093983",
+ "title": "Using Vision + Language Models to Predict Item Difficulty",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4.1-nano-2025-04-14",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 1024,
+   "top_p": 1.0,
+   "response_format": "json_schema (Pydantic VisionAndTextFactors, structured outputs via client.beta.chat.completions.parse)"
+  },
+  "params_source": "assumed (paper silent; the notebook calls client.beta.chat.completions.parse with no decoding parameters, i.e. the API defaults temperature 1.0 / top_p 1.0). temperature 0.0 follows the ANALYSIS_PLAN default; a human should decide between that and the API default the paper actually used.",
+  "seeds": 3
+ },
+ "task": {
+  "type": "extraction",
+  "n_items": 154,
+  "subset_rule": "paper-defined split: the 154 items of the 184-item validation split whose image_url ends in .png",
+  "approximation": "BLOCKING - the 80/20 split file is not public and the runner cannot attach the visualization image."
+ },
+ "items": {
+  "source_type": "url",
+  "source": "the item-response dataset of Verma and Fan (2025) (arXiv:2505.08031; materials at github.com/cogtoolslab/viz_item_measures_cogsci2025). The paper's own input file, psych_139_mini_project_1_split_80_responses.csv, is a course split provisioned through Stanford institutional access; the code repository states \"Dataset is not included in this repository as the data was provisioned through institutional access at Stanford University for course purposes.\"",
+  "config_or_split": "80% validation split, aggregated to item level, .png items only (N=154); the 20% held-out split (46 items) was scored by a Kaggle-style competition platform",
+  "filter": "image_url.str.endswith('.png')",
+  "fields": {
+   "input": "question_text",
+   "options": "possible_responses",
+   "label": "easiness",
+   "id": "item_id",
+   "image": "image_url"
+  },
+  "license": "unknown for the course split; the upstream Verma and Fan materials are on GitHub (cogtoolslab) and the item images are served from the public bucket data-visualization-benchmark.s3.us-west-2.amazonaws.com",
+  "access_checked": false,
+  "size_mb": null,
+  "file_url": null,
+  "fields_note": "easiness = 1 - mean(incorrect_response) aggregated by item_id; items come from the WAN, GGR, BRBF, VLAT and CALVI assessments."
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "\nYou are an expert system synthesizing insights from data visualization literacy, cognitive science, and psychometrics. Your task is to perform a comprehensive analysis of a data visualization question item, considering the interplay between the visualization, the question, and the answer options to predict its overall difficulty for a random US adult.\n\nInput:\n- image_url: URL pointing to the visualization image.\n- question_text: The specific question being asked about the visualization.\n- options_list: The list of multiple-choice options as strings.\n\nOutput Instructions:\nAnalyze all provided inputs holistically. Evaluate the visual elements, the question's demands, the quality of the answer options (especially distractors in visual context), and how these factors interact. Provide your complete analysis as a JSON object that strictly conforms to the following Pydantic model structure:\n\n```json\n{\n  \"chart_type\": \"Type of chart used (e.g., 'Line Graph', 'Bar Chart', 'Scatter Plot').\",\n  \"axis_clarity\": \"Description of axis clarity (labels, scale, intervals, range).\",\n  \"data_encoding_clarity\": \"Description of how clearly data is represented and mappable to axes.\",\n  \"readability\": \"Assessment of text legibility, contrast, and overall visual ease of reading.\",\n  \"visual_clutter_level\": \"Level of visual clutter or 'chart junk' (e.g., 'Low', 'Medium', 'High').\",\n  \"data_series_count\": \"Number of distinct data series plotted.\",\n  \"annotations_clarity\": \"Description of any annotations (e.g., titles, legends, average lines) and their potential impact on interpretation.\",\n  \"overall_visual_complexity\": \"Subjective assessment of the visualization's overall complexity (e.g., 'Low', 'Medium', 'High').\",\n  \"cognitive_task_type\": \"Type of cognitive task implied by the question (e.g., 'Value Lookup', 'Comparison', 'Calculation', 'Identification').\",\n  \"question_clarity\": \"Assessment of the question's wording, ambiguity, and directness based on text alone.\",\n  \"information_integration_level\": \"Level of information integration implied by the question structure (e.g., 'Low - single concept', 'Medium - requires relating parts of question').\",\n  \"num_options\": \"The total number of multiple-choice options.\",\n  \"correct_answer\": \"The text of the correct answer option.\",\n  \"distractor_analysis\": \"Analysis of incorrect options (distractors) based on text: plausibility, numerical proximity, format, potential conceptual errors (cannot reference visual elements).\",\n  \"format_consistency\": \"Whether all options share a consistent format (e.g., units, data type) and why.\",\n  \"visual_text_alignment\": \"Assessment of how well the terms in the question and options map to labels and elements in the visualization.\",\n  \"required_precision\": \"Precision needed to extract the correct value (e.g., 'Exact gridline', 'Interpolation required', 'Categorical').\",\n  \"overall_difficulty_assessment\": \"Qualitative summary explaining the interplay of factors and justifying the predicted difficulty.\",\n  \"prediction\": \"Final estimated probability (0.0 to 1.0) a random US adult answers this specific question correctly, integrating all visual, textual, and interaction factors.\"\n}\n\nThis is the question:\n{question_text}\nThis is the answer options list:\n{options_list}",
+  "placeholders": {
+   "question_text": "items.question_text",
+   "options_list": "items.possible_responses",
+   "image": "NOT EXPRESSIBLE: the visualization is attached to the same user message as an image_url part, before the two text parts"
+  },
+  "few_shot": "none",
+  "source_location": "Sec. 2.2 paraphrases the three system prompts; the literal strings are SYSTEM_PROMPT_VISION_AND_TEXT (and SYSTEM_PROMPT_VISION / SYSTEM_PROMPT_TEXT) in dvl_vlms.ipynb of github.com/samin-khan/multimodal_item_difficulty_prediction_notebook",
+  "verbatim": "full from the code release, partial from the paper. The paper only lists the features the prompt mentions; the string above is the released notebook's f-string with its doubled braces resolved to single ones (an f-string artefact, not extraction damage). The notebook sends this text, then the image, then \"This is the question:\\n{question_text}\\nThis is the answer options list:\\n{options_list}\" as a second text part; the template above concatenates the two text parts in that order."
+ },
+ "output": {
+  "parse": "json field prediction",
+  "postprocess": "the structured reply is a VisionAndTextFactors object; only its prediction field (0-1 estimated proportion correct) is used",
+  "parse_paper": "eval(response.choices[0].message.content)['prediction']"
+ },
+ "metric": {
+  "name": "mean_abs_error",
+  "definition": "mean over the 154 items of |predicted easiness - observed easiness|, where observed easiness = 1 - mean(incorrect_response)",
+  "judge": "none",
+  "original_value": 0.224,
+  "original_location": "Abstract and Sec. 3.1 (\"Multimodal (Vision + Text) Model MAE: 0.2239\"); Figure 1",
+  "bootstrap_unit": "item",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 462,
+  "est_usd": 0.4,
+  "tier": "low",
+  "est_note": "154 items x 3 seeds at gpt-4.1-nano prices, one chart image plus a long structured-output schema per call. Not a dry-run number: --prepare cannot build these items."
+ },
+ "open_points": [
+  "runner gap: image input; the runner sends text only, and the multimodal cell is defined by the chart image being attached.",
+  "Items unavailable as used: the 80/20 split file is a Stanford course dataset that the code repository explicitly does not ship. The upstream Verma and Fan (2025) release (github.com/cogtoolslab/viz_item_measures_cogsci2025) holds the item pool and human responses, so a human must decide whether to rebuild item-level easiness from it and re-draw an 80% split - which would not be the paper's 154 items.",
+  "Decoding parameters are unstated; the notebook uses the API defaults (temperature 1). Running at temperature 0 (the plan default recorded here) is a deviation that needs a go.",
+  "The vision-only (0.282) and text-only (0.338) rows of the same comparison use SYSTEM_PROMPT_VISION and SYSTEM_PROMPT_TEXT from the same notebook cell; only the text-only arm would be runnable without image support."
+ ],
+ "notes": "Single-author course project; the headline MSE 0.10805 on the held-out set was scored by an external competition platform and cannot be recomputed. || Six of the 46 held-out items are .svg and were given a constant 0.5 prediction, which the paper lists as a limitation. || The released notebook also shows a bug in the evaluation loop (prediction_explanation is assigned from an undefined variable in the validation pass), which does not affect the three MAE values.",
+ "runner_gaps": [
+  "prompt: image attachment placeholder",
+  "items: the paper's split file is not public"
+ ]
+}

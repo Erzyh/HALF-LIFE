@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7164446663",
+  "title": "The Shibboleth Effect: Auditing the Cross-Lingual Distributional Skew of Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "Abstract: \"A flagship ecology of six frontier models-GPT-4o, Llama-4, Mistral-Large, Gemini-3.1-Pro, Qwen3.6-Plus, and DeepSeek-R1...GPT-4o...yields a null effect (delta=+0.130, p=.614)\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Only the abstract (34 lines) was captured; no methods section, wargame prompt, or scoring rubric is available."
+  },
+  "claim": {
+    "metric": "Concession Rate / Coercive Rhetoric shift (delta), English vs Turkish",
+    "value": 0.13,
+    "n_items": null,
+    "location": "Abstract only; 586 total validated statements across 6 models x 2 languages (N=10 games, K=5 rounds)",
+    "task_type": "agentic",
+    "judge": "llm:automated zero-shot classifier (unnamed)"
+  },
+  "data": {
+    "public": "no",
+    "source": "\"Cerulean Sea Crisis\" synthetic geopolitical wargame (author-constructed); release status unknown"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "alias_unpinned",
+    "no_prompt"
+  ],
+  "notes": "Undated \"GPT-4o\" in a paper almost certainly written well after 2024-10-02 (cited alongside 2025/2026-era model names), so it cannot be pinned to gpt-4o-2024-05-13 with confidence. Only the abstract text was retrievable; no per-model n or prompt is available."
+}

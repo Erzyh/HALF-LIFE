@@ -1,0 +1,73 @@
+{
+  "card_id": "W4399453660",
+  "openalex_id": "https://openalex.org/W4399453660",
+  "title": "Generative AI and Power Imbalances in Global Education: Frameworks for Bias Mitigation",
+  "doi": "10.48550/arXiv.2406.02966",
+  "paper": {
+    "doi": "10.48550/arXiv.2406.02966",
+    "authors": "Matthew Nyaaba, Alyson Wright, Gyu Lim Choi",
+    "year": 2024,
+    "venue": "arXiv preprint (University of Georgia)",
+    "repo": null,
+    "repo_commit": null,
+    "repo_license": null,
+    "note": "The only OSF link in the scaffold (osf.io/wd4tr) is a cited reference (doi 10.31234/osf.io/wd4tr, an 'AI and Ethics' paper), not this paper's artifact. No repository, prompt list or screenshot archive is released."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "Qualitative 'critical constructive' design: zero-shot prompts were typed into ChatGPT-4 Turbo (ChatGPT Advanced Mode, Mar-May 2024) and Gemini 1.5; outputs (text and generated images) were screenshotted and interpreted by the authors. The models' outputs are the entire evidence base."
+  },
+  "claim": {
+    "statement": "Zero-shot prompts to ChatGPT-4 Turbo and Gemini 1.5 yield Western-centric outputs across six dimensions of 'GenAI neocolonialism' - e.g. 'What seasons are there in a year?' returns the four temperate seasons for both the US and Ghana; image prompts such as 'wealthy African man and his house' vs 'wealthy European man and his house' and 'a human robot' reproduce stereotyped or white-default imagery (Figures 2-7; Findings section).",
+    "claim_type": "bias_or_behavior",
+    "metric": "none - interpretive coding of screenshots (textual, visual, structural indicators of digital neocolonialism); no counts, rates or statistics reported",
+    "original_values": null,
+    "original_source": "Findings section and Figures 2-8 (screenshots) of arXiv 2406.02966; no quantitative table"
+  },
+  "protocol": {
+    "model": "ChatGPT-4 Turbo via the ChatGPT web interface ('Advanced Mode'), not the API; snapshot unknown; image outputs came from ChatGPT's integrated image generator (DALL-E), also unpinned",
+    "model_status": "live model NOT an experimental API arm: 'GPT-4 Turbo' is only the product label of the ChatGPT tier used; the served snapshot in Mar-May 2024 is not identifiable and the web UI adds an undisclosed system prompt and tools",
+    "endpoint": "chat.openai.com web UI (no API); Gemini web app",
+    "prompt_source": "only example prompts quoted in the text (Data Collection and Findings sections): 'What seasons are there in a year?', 'Generate an image of a human robot', 'wealthy African man and his house' / 'wealthy European man and his house', Gurune translation of 'God is Good'; the full prompt series across six domains is not released",
+    "params": "not applicable (web UI defaults; temperature etc. not reported)",
+    "n_items": "unknown ('a series of systematically designed prompts' across six domains, tested in Ghana and US contexts)",
+    "samples_per_item": "1 (single screenshot per prompt/location)",
+    "evaluation": "Human interpretive analysis by the authors (postcolonial/critical-algorithmic lens). No model-side quantity is defined by the paper; a proxy such as 'share of runs returning four temperate seasons when the location is Ghana' would be an invention of ours, not a re-execution."
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": null,
+    "eval_path": null,
+    "data_public": false,
+    "data_license": null,
+    "redistributable": false,
+    "notes": "Screenshots appear only as figures in the PDF; no prompt list, no coding scheme, no data statement."
+  },
+  "blockers": [
+    "live model not an experimental arm (ChatGPT web UI, unpinned 'GPT-4 Turbo' tier; also relies on image generation)",
+    "no quantitative claim or metric - outcome is interpretive coding by the authors",
+    "prompt set and screenshots not released; only a handful of example prompts quoted"
+  ],
+  "arms": {
+    "baseline_alive": {"model": null, "note": "none"},
+    "successors": ["gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm)", "claude (current Anthropic flagship)", "gemini (current Google flagship)", "llama (open weights, e.g. Llama-3.3-70B-Instruct)", "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct)"]
+  },
+  "budget": {
+    "est_calls": 0,
+    "est_tokens_in": 0,
+    "est_tokens_out": 0,
+    "est_cost_usd": 0,
+    "pricing_usd_per_1m": {"gpt-4-turbo-2024-04-09": {"input": 10.0, "output": 30.0}},
+    "assumptions": "Not executable as a claim re-run. If the user wants an exploratory probe, re-asking the ~6 quoted text prompts x 2 locations x 3 seeds via the API costs well under $1 (image prompts excluded)."
+  },
+  "judgment": {
+    "rule": "Not judgeable under ANALYSIS_PLAN section 1: no direction, effect size or test is reported. Record as 'not re-executable (qualitative, unpinned web-UI model)' and exclude from survival analysis with this reason.",
+    "notes": "If a proxy probe is run, it must be reported as exploratory, not as a survival judgment."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm exclusion from P0 (qualitative design, web-UI model, no released prompts) - or should an exploratory proxy probe on the quoted text prompts be logged separately?"
+  ],
+  "domain_notes": "This is an education-policy paper using a Critical Constructive Qualitative design; the empirical part is illustrative rather than measurement-oriented, and the main contribution is the two mitigation frameworks (Inclusive AI Design; Human-Centric Prompt Engineering). Treat the model label 'ChatGPT-4 Turbo' as a product tier, not a snapshot; the paper itself lists the two-system, prompt-bounded, positionality-dependent design as limitations."
+}

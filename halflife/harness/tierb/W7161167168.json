@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7161167168",
+ "title": "Medical LLM Metacognition Is Multidimensional: A MetaMedQA Reanalysis of Confidence, Missing-Answer Recognition, and Unknown-Answer Detection",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Abstract: \"Two GPT-family models, gpt-4.1-nano and gpt-5.5, were evaluated on 1373 MetaMedQA items using structured outputs containing an answer, numerical confidence, and a more-information-needed judgment. gpt-4.1-nano achieved 56.4% accuracy...\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Abstract only describes the output contract (\"structured outputs containing an answer, numerical confidence, and a more-information-needed judgment\"); the input prompt template itself is not present",
+  "note": "The text_path for this record captured only the Zenodo landing page (title, abstract, file listing for \"Medical LLM Metacognition Is Multidimensional.pdf\", 714.9 kB) - not the full paper body, so the methods/prompt appendix could not be read."
+ },
+ "claim": {
+  "metric": "accuracy on MetaMedQA (confidence-centered reanalysis)",
+  "value": 56.4,
+  "n_items": 1373,
+  "location": "Abstract: \"gpt-4.1-nano achieved 56.4% accuracy, mean confidence of 79.7%, Brier score of 0.318, expected calibration error of 0.276, and AUROC2 of 0.582\"",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "MetaMedQA (public medical-QA benchmark); this reanalysis itself is openly published on Zenodo (10.5281/zenodo.20186339)"
+ },
+ "cost": {
+  "est_calls": 1373,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Everything in the abstract points to a clean, reproducible role-S evaluation (also reports missing-answer recall 19.1% and unknown/unanswerable recall 25.9% for gpt-4.1-nano), but the extracted text is only the Zenodo record's landing-page metadata, not the full PDF, so the exact prompt/structured-output schema could not be verified. gpt-5.5 (84.9% accuracy on the same 1373 items) is also evaluated but is outside the tracked still-callable identifier list."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403759556",
+  "title": "\"This Is a Quiz\" Premise Input: A Key to Unlocking Higher Diagnostic Accuracy in Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Methods: 'We used application programming interfaces to access each model (GPT-4o: gpt-4o-2024-05-13; ...) ... temperature = 0.0. Each input was conducted in an independent session'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods (base prompt and the additional quiz-premise sentences printed verbatim)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "primary-diagnosis accuracy, Condition 2 (with quiz premise)",
+    "value": 26.7,
+    "n_items": 150,
+    "location": "Table 1, GPT-4o, primary diagnosis, condition 2: 40/150 (26.7%); condition 1: 33/150 (22.0%)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AJNR 'Case of the Week' clinical histories and figure legends, Aug 2021-Jun 2024 (150 consecutive cases)"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "low"
+  },
+  "blockers": [
+    "human_outcome"
+  ],
+  "notes": "Correctness judged by two radiologists; an LLM proxy judge would change the metric. Otherwise prompt, snapshot and data are all in place."
+}

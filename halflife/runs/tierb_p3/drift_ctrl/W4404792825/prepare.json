@@ -1,0 +1,14 @@
+{
+  "wid": "W4404792825",
+  "n_items": 10,
+  "n_requests": 10,
+  "seeds": 1,
+  "est_usd": 0.15,
+  "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4o-2024-05-13",
+  "metric": "custom",
+  "original_value": 31.36,
+  "cap_usd": 1.0,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4404792825"
+}

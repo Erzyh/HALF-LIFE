@@ -1,0 +1,56 @@
+{
+  "wid": "W7117377764",
+  "title": "Benchmarking large language models for geolocating colonial Virginia land grants",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 23.4,
+  "original_location": "Table 4, row M-2 o3-2025-04-16, column Mean (95% CI 17.4-29.3); median 14.3 km",
+  "reexecution": {
+    "mean_over_seeds": 250.33147143578168,
+    "per_seed": {
+      "0": {
+        "value": 250.33147143578168,
+        "n": 43,
+        "ci95": [
+          40.56293239249838,
+          473.95594033440375
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 11
+  },
+  "prepare": {
+    "wid": "W7117377764",
+    "n_items": 43,
+    "n_requests": 43,
+    "seeds": 1,
+    "est_usd": 0.02,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 23.4,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the position of the abstract relative to the printed instruction (appended after it) is assumed; unparsable replies are excluded from the mean and counted",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "o3-2025-04-16",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7117377764"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 250.33147143578168,
+    "delta": 226.93147143578167,
+    "original_inside_ci95": false
+  }
+}

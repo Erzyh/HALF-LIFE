@@ -1,0 +1,129 @@
+{
+  "card_id": "W4402671726",
+  "openalex_id": "https://openalex.org/W4402671726",
+  "title": "To Generate or to Retrieve? On the Effectiveness of Artificial Contexts for Medical Open-Domain Question Answering",
+  "doi": "10.18653/v1/2024.acl-long.533",
+  "paper": {
+    "authors": "Frisoni, Cocchieri, Presepi, Moro, Meng (University of Bologna / University of Glasgow)",
+    "year": 2024,
+    "venue": "ACL 2024 Long Papers pp. 9878-9919 (earlier arXiv 2403.01924)",
+    "repo": "https://github.com/disi-unibo-nlp/medgenie",
+    "repo_commit": "6ccff62c19e0a51447263e487efac4521f49259a (2024-05-27; shallow clone under external/repos/W4402671726/disi-unibo-nlp__medgenie)",
+    "repo_license": "none declared - no LICENSE file and no licence statement in README (paper footnote 1 points at github.com/unibo-nlp/medgenie, which 404s; the live repo is the disi-unibo-nlp org)",
+    "other_artifacts": "Generated contexts on Hugging Face (MIT): disi-unibo-nlp/medqa-MedGENIE (12,723 rows, up to 5 ctxs per question), medqa-5-opt-MedGENIE, medmcqa-MedGENIE, mmlu-medical-MedGENIE; RAGAS input bundle data_ragas_eval.zip on Google Drive (file/d/1OWYJH9Xn5HAhp2PVQOxbwWXZ4AKNvJPT); per-metric public LangSmith traces of the original runs are linked from README (6 run URLs)"
+  },
+  "dependence": {
+    "type": "judge",
+    "strength": "auxiliary",
+    "note": "gpt-4-turbo-2024-04-09 is used only as the RAGAS LLM-as-a-judge that scores context quality (Table 4). The paper's headline result (MEDGENIE sets SOTA with open-weight readers) is produced entirely by local models; the GPT-4-Turbo judge supplies the validation that generated contexts are factually better, not merely more coherent. Judge outputs were not released as files, but the six LangSmith runs are public."
+  },
+  "claim": {
+    "statement": "Judged by gpt-4-turbo-2024-04-09 through RAGAS, MEDGENIE's artificially generated contexts beat MedWiki-retrieved contexts on the same MedQA questions: on 150 questions where both context sources led Zephyr-beta to the correct answer, Context Recall 93.4 vs 76.2, Context Precision 87.9 vs 48.6 and Faithfulness 59.7 vs 23.8; on 50 questions where both led to a wrong answer, CR 59.2 vs 32.0 and CP 55.3 vs 29.5 (Table 4; up to +27.2 CR, +39.3 CP, +35.9 F).",
+    "claim_type": "tool_validity",
+    "metric": "RAGAS reference-free metrics, each in [0,1] and reported x100: context_recall (share of ground-truth answer sentences attributable to the context), context_precision@K (rank-weighted share of relevant chunks), faithfulness (share of answer claims inferable from the context). Judge = gpt-4-turbo-2024-04-09; no human reference scores.",
+    "original_values": {
+      "positive_150": {
+        "context_recall": {
+          "generated": 93.4,
+          "retrieved": 76.2
+        },
+        "context_precision": {
+          "generated": 87.9,
+          "retrieved": 48.6
+        },
+        "faithfulness": {
+          "generated": 59.7,
+          "retrieved": 23.8
+        }
+      },
+      "negative_50": {
+        "context_recall": {
+          "generated": 59.2,
+          "retrieved": 32.0
+        },
+        "context_precision": {
+          "generated": 55.3,
+          "retrieved": 29.5
+        }
+      },
+      "reported_gaps": {
+        "context_recall": 27.2,
+        "context_precision": 39.3,
+        "faithfulness": 35.9
+      }
+    },
+    "original_source": "Paper Table 4 and Section 5 'RAGAS Evaluation'; repo README 'RAGAS Evaluation / Results' table repeats the same six cells with one public LangSmith run link each and states 'All scores have been computed by using gpt-4-turbo-2024-04-09 as evaluator. Estimated cost: ~$55'."
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "model_status": "dying, OpenAI shutdown 2026-10-23",
+    "model_usage_verified": "yes - hard-coded dated snapshot in ragas_evaluation/main.ipynb cell 4: ChatOpenAI(model_name=\"gpt-4-turbo-2024-04-09\"); the paper repeats the same string. No alias inference needed.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (through langchain_openai.chat_models.ChatOpenAI, driven by ragas.evaluate(..., llm=gpt4))",
+    "prompt_source": "NOT in the repo: the three metric prompts live inside the ragas library (ragas.metrics context_precision / context_recall / faithfulness). The notebook installs it unpinned ('pip install -q -U ragas datasets'), so the exact prompt text is whatever ragas version resolves at run time; the original runs date from ~May 2024 (ragas 0.1.7/0.1.8). Repo contributes only the data assembly (which fields go into question / contexts / ground_truth / answer).",
+    "params": {
+      "temperature": "not set in the notebook; ragas 0.1.x BaseRagasLLM.get_temperature returns 1e-8 for n=1 (0.3 when n>1), so effectively greedy",
+      "max_tokens": "not set (ChatOpenAI default)",
+      "seed": "not set",
+      "callbacks": "LangChainTracer to LangSmith project 'test' (tracing only, no effect on generation)",
+      "question_field": "question with the option markers rewritten from '\\nA. ' to '\\n- ' (all four options)",
+      "contexts_field": "generated: the 5 texts in medqa_samples['ctxs']; retrieved: the first 5 MedWiki chunks of medqa_opt4_rerank_usemedwiki.json",
+      "ground_truth_field": "the option text named by medqa_samples['target']",
+      "answer_field": "the Zephyr-beta prediction, split on the first ')' and stripped"
+    },
+    "n_items": "200 MedQA questions (150 'positive' + 50 'negative'), each scored twice (generated and retrieved contexts) = 400 question-source pairs; faithfulness is reported only for the 150 positive pairs",
+    "samples_per_item": 1,
+    "calls_per_item": "ragas 0.1.x issues ~1 call per context chunk for context_precision (5 chunks), 1 for context_recall and 2 for faithfulness (statement extraction + NLI), i.e. ~8 calls per positive pair and ~6 per negative pair",
+    "evaluation": "ragas.evaluate() returns per-item scores; the notebook writes generated_metric_result_medqa_w_ops.csv / retrieved_results_medqa_w_ops.csv. Table 4 cells are the means x100. No aggregation script is committed.",
+    "environment": "Python + ragas, datasets, langchain_openai (versions unpinned; the notebook is Colab-shaped)"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "prompts_path_note": "Judge prompts are inside the unpinned ragas package, not in the repo. Repo-side prompt assets (context_generation/prompt/*.txt, icl_reader/templates/**) belong to the local-model pipeline, not to this claim.",
+    "data_path": "ragas_evaluation/main.ipynb expects ./data/medqa_150_50_samples_ragas.json, ./data/zephyr_preds_medqa_4opt.json and ./data/medqa_opt4_rerank_usemedwiki.json, distributed as data_ragas_eval.zip on Google Drive (notebook cell 8). The generated contexts alone are also on Hugging Face (disi-unibo-nlp/medqa-MedGENIE, MIT), but the 150/50 sample selection, the Zephyr predictions and the MedWiki-reranked chunks exist only in the Drive bundle.",
+    "eval_path": "ragas_evaluation/main.ipynb (cells 18-27)",
+    "data_public": "yes, conditionally - the Drive record resolves and is named data_ragas_eval.zip, but whether it downloads without a Google sign-in was not verified (no download was attempted)",
+    "data_license": "MedQA (Jin et al.) MIT; MedGENIE contexts on Hugging Face MIT; MedWiki chunks derive from Wikipedia (CC BY-SA); repo itself unlicensed",
+    "redistributable": "partial - MIT parts yes; the Drive bundle carries no licence of its own and inherits the repo's absent licence",
+    "notes": "The notebook ships with N_SAMPLES = 2, so a re-executor must raise it and, more importantly, decide how the 150-positive and 50-negative blocks are separated: the released notebook slices medqa_samples[:N_SAMPLES] once and reports all three metrics for that slice, whereas Table 4 reports three metrics on 150 and only two on 50. Item-level judge scores were not released as files, but the six public LangSmith runs expose the original per-item prompts, predictions and scores."
+  },
+  "blockers": [
+    "Judge prompts are not in the repo and the notebook installs ragas unpinned ('pip install -U ragas'); ragas rewrote its metric prompts between 0.1.x and 0.2.x, so a 2026 install would not reproduce the 2024 prompts. Re-execution must pin a ragas 0.1.x release and record which one - this is a prompt-level deviation the card must declare.",
+    "The 150/50 split rule is not expressed in code: the notebook applies one slice to the combined medqa_150_50_samples_ragas.json and computes all three metrics on it. Which records are 'positive' and which are 'negative' has to be recovered from the data file (or from the public LangSmith runs).",
+    "Evaluation inputs sit behind a Google Drive zip rather than in the repo or on Hugging Face; availability without a Google account is unverified.",
+    "The repo carries no licence, so redistributing the Drive bundle or the judge outputs is not covered by an explicit grant."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4-turbo-2024-04-09",
+      "purpose": "live baseline (P0): the RAGAS judge exactly as the paper pinned it"
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for gpt-4-turbo) and gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+    ]
+  },
+  "budget": {
+    "est_calls": 9000,
+    "est_tokens_in": 11700000,
+    "est_tokens_out": 1350000,
+    "est_cost_usd": 158,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      }
+    },
+    "assumptions": "Per seed: 150 positive pairs x 2 sources x ~8 calls + 50 negative pairs x 2 sources x ~6 calls = ~3,000 calls; ~1,300 input tokens per call (metric template plus question, up to 5 medical passages and the ground-truth answer) and ~150 output tokens (verdict JSON). That is ~USD 52 per seed, which matches the authors' own '~$55' note in the README. 3 seeds = ~USD 158. Temperature is effectively 0 (1e-8), so the seeds mainly capture API nondeterminism; a single seed costs ~USD 52 and the 50-item negative block alone ~USD 10."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary numbers: the six Table 4 cells for the 150-positive block (CR/CP/F for generated and retrieved). Survival = the generated-over-retrieved gap keeps its sign and stays inside the bootstrap 95% CI over items of the original gap for all three metrics (n=150, so the CI on a single mean is roughly +/-6 points and on a paired gap narrower); the direction claim (artificial contexts score higher on every metric, in both the positive and the negative block) is the behavioural test. Partial = the ordering holds but one or more levels move outside the CI (expected if the pinned ragas version differs from the original). Death = any metric reverses sign, i.e. retrieved contexts judged at least as faithful/precise as generated ones.",
+    "notes": "This is a tool_validity claim: the judge is the measuring instrument, so judge drift and ragas-version drift are confounded. Run the pinned-ragas gpt-4-turbo arm first as the reference, then the successor arms with the identical pinned ragas, so that any successor shift is attributable to the model rather than the library. The public LangSmith runs are the only item-level record of the original and should be sampled for a prompt-equivalence spot-check."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Which ragas release do we pin? (0.1.7 / 0.1.8 are the versions current at the paper's May 2024 runs; the notebook pins nothing.)",
+    "Core claim = the six Table 4 cells as drafted, or only the 150-positive block (which carries all three metrics)?",
+    "The evaluation inputs are a Google Drive zip (data_ragas_eval.zip) whose accessibility we have not verified; if it is unreachable, is rebuilding the generated-context half from the MIT Hugging Face dataset acceptable, knowing the Zephyr predictions and MedWiki chunks would then be missing?",
+    "3 seeds at ~USD 52 each (~USD 158 total) or a single seed, given that ragas runs the judge at temperature 1e-8?"
+  ],
+  "domain_notes": "MEDGENIE is a generate-then-read framework: PMC-LLaMA-13B-AWQ writes 5 artificial contexts per MedQA question (3 option-focused + 2 option-free, temperature 0.9, frequency penalty 1.95, 512 new tokens) and a small reader answers over them. The RAGAS table exists to rule out the objection that generated contexts merely read more fluently than retrieved Wikipedia chunks; that is why the judge, not the reader, is the retiring component. Note that both the contexts under test and the answers being scored come from open-weight models that we can re-run locally, so the GPT-4-Turbo judge is the only part of this claim that can die."
+}

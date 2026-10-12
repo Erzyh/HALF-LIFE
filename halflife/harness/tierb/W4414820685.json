@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4414820685",
+ "title": "Differential Information Distribution: A Bayesian Perspective on Direct Preference Optimization",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano-2025-04-14",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "A",
+  "evidence": "App. J.2: \"We select the best checkpoint by absolute win-rate on Arena-Hard-v0.1 using gpt-4.1-nano-2025-04-14 as the judge.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Appendix J.2",
+  "note": "Standard Arena-Hard judge prompt is not reproduced in the paper."
+ },
+ "claim": {
+  "metric": "none for the live id (used only for interim checkpoint selection, not the reported Arena-Hard/WildBench numbers)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Magpie-G27 (HuggingFace), Arena-Hard-v0.1, WildBench-v2, lm-evaluation-harness QA benchmarks"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-4.1-nano-2025-04-14 judges only intermediate checkpoint selection (Arena-Hard-v0.1 win-rate); the headline Table 1 Arena-Hard number is judged by gpt-4.1-2025-04-14 and WildBench-v2 by gpt-4o-2024-08-06, neither a tracked still-callable id. Primarily a theoretical DPO paper; QA benchmarks (PIQA, MMLU, GSM8K, etc.) use lm-evaluation-harness with no LLM judge at all."
+}

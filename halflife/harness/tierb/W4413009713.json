@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4413009713",
+ "title": "A Deep Peek into DeepSeek AI's Talent and Implications for US Innovation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Quoted abstract of DeepSeek-Coder-V2 (Appendix A): \"achieves performance comparable to GPT4-Turbo in code-specific tasks\" -- a third-party claim quoted by these authors, not their own experiment"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Hoover Institution policy white paper on DeepSeek researcher talent flows (bibliometrics); no prompt of any kind."
+ },
+ "claim": {
+  "metric": "none (bibliometric/talent-flow analysis, not an LLM benchmark)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "OpenAlex author-affiliation data (paper's own bibliometric method); unrelated to the GPT4-Turbo mention"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Policy/bibliometric paper about DeepSeek's research workforce; the sole GPT4-Turbo mention is inside a quoted abstract of DeepSeek-Coder-V2 (a different paper, June 2024), not an experiment run by these authors."
+}

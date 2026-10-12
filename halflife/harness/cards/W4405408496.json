@@ -1,0 +1,187 @@
+{
+  "card_id": "W4405408496",
+  "openalex_id": "https://openalex.org/W4405408496",
+  "title": "The Impact of Temperature on Extracting Information From Clinical Trial Publications Using Large Language Models",
+  "doi": "10.7759/cureus.75748",
+  "paper": {
+    "doi": "10.7759/cureus.75748",
+    "authors": "Windisch, Dennstaedt, Koechli, Schroeder, Aebersold, Foerster, Zwahlen",
+    "year": 2024,
+    "venue": "Cureus 16(12): e75748 (open access, CC BY 4.0); medRxiv preprint 2024-10-23",
+    "repo": "https://github.com/windisch-paul/temperature",
+    "repo_commit": "26e3eec096b9f5a733fc07c371f81800349570a6",
+    "repo_license": "none (no LICENSE, README or requirements; environment.yaml + analysis.ipynb + two response CSVs + plots)",
+    "repo_note": "The repo contains the analysis notebook and the complete raw and parsed model responses for both models at all nine temperatures (L1-grade per-item artifact), but NOT the API-calling script; the calling protocol is fully described in the paper (system prompts verbatim, max_tokens=10, defaults otherwise). Datasets also deposited on Dryad (10.5061/dryad.gb5mkkx00 RCT/oncology labels; 10.5061/dryad.g1jwstr0b sample sizes)."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The study measures the behaviour of gpt-4o-2024-05-13 and gpt-4o-mini-2024-07-18 as a function of the temperature parameter on two text-mining tasks; every result is a property of these two models."
+  },
+  "claim": {
+    "statement": "For GPT-4o (gpt-4o-2024-05-13) the share of correctly formatted numeric predictions of the number of randomized participants is stable at 98.7-99.0% for temperatures 0.00-1.50 and drops to 95.6% at 1.75 and 89.2% at 2.00 (Table 1), while the error of the formatted predictions does not degrade (MAPE 1.0-3.8%, within-10% 96.2-98.0%); RCT/oncology classification shows the same pattern (100% formatted up to T=1.25, 99.9% at 1.50, 98.9% at 1.75, 93.3% at 2.00, with RCT F1 0.956-0.960 and oncology F1 0.965-0.977 flat across temperatures; Tables 2-3). Conclusion: temperatures <= 1.50 are a 'safe' range.",
+    "claim_type": "method_effect",
+    "metric": "Task 1 (n=996): % correctly formatted numeric predictions; MAPE and % within 10% / 1% of ground truth among formatted predictions. Task 2 (n=900 in paper, 899 rows in CSV): % correctly formatted [bool, bool] predictions; accuracy, precision, recall, F1 per label (RCT, oncology)",
+    "original_values": {
+      "gpt-4o_task1_formatted_pct": {
+        "0.00": 98.7,
+        "0.25": 98.8,
+        "0.50": 98.7,
+        "0.75": 99.0,
+        "1.00": 98.8,
+        "1.25": 98.7,
+        "1.50": 98.7,
+        "1.75": 95.6,
+        "2.00": 89.2
+      },
+      "gpt-4o_task1_mape_pct": {
+        "0.00": 1.7,
+        "0.25": 1.8,
+        "0.50": 1.5,
+        "0.75": 2.3,
+        "1.00": 2.0,
+        "1.25": 1.7,
+        "1.50": 3.8,
+        "1.75": 1.8,
+        "2.00": 1.0
+      },
+      "gpt-4o_task1_within10_pct": {
+        "0.00": 96.9,
+        "0.25": 97.0,
+        "0.50": 97.3,
+        "0.75": 96.5,
+        "1.00": 96.5,
+        "1.25": 96.6,
+        "1.50": 96.2,
+        "1.75": 96.7,
+        "2.00": 98.0
+      },
+      "gpt-4o_task2_formatted_pct": {
+        "0.00": 100.0,
+        "1.25": 100.0,
+        "1.50": 99.9,
+        "1.75": 98.9,
+        "2.00": 93.3
+      },
+      "gpt-4o_task2_rct_f1": {
+        "0.00": 0.956,
+        "1.00": 0.959,
+        "1.50": 0.96,
+        "2.00": 0.956
+      },
+      "gpt-4o_task2_oncology_f1": {
+        "0.00": 0.969,
+        "1.00": 0.967,
+        "1.50": 0.965,
+        "1.75": 0.977,
+        "2.00": 0.972
+      },
+      "gpt-4o-mini_task1_formatted_pct": {
+        "0.00-1.50": "99.0-99.1",
+        "1.75": 97.5,
+        "2.00": 90.2
+      },
+      "repo_csv_recomputed": {
+        "gpt-4o_task1_formatted_pct_T0.00": 98.69,
+        "gpt-4o_task1_formatted_pct_T2.00": 89.16
+      }
+    },
+    "original_source": "Tables 1-3; recomputable from sample_size_gpt_responses_all.csv and rct_oncology_gpt_responses_all.csv with analysis.ipynb"
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13 (verified: Methods 'the respective versions that were used were ... gpt-4o-2024-05-13 and gpt-4o-mini-2024-07-18'); secondary arm gpt-4o-mini-2024-07-18",
+    "model_status": "gpt-4o-2024-05-13: dying, shutdown 2026-10-23; gpt-4o-mini-2024-07-18: not in target_models.json (still callable as of card date; verify)",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (openai python 1.40.3)",
+    "prompt_source": "Paper Methods section, verbatim. Task 1 system prompt: 'You will be provided with the abstract of an RCT. Your task will be to extract the number of people who underwent randomization. If this number is not explicitly mentioned, you may use other numerical information (e.g. the number of total participants or adding up the number of patients in each arm). Please return only the number as a single integer. If no information is available, please return null.' Task 2 system prompt: 'You will be provided with the abstract of a medical publication. Your task will be to determine if the abstract reports on a RCT. If the abstract reports on a systematic review or meta-analysis of RCTs or a commentary/editorial, return false. In addition, you will be asked to determine if the abstract focuses on an oncology topic which includes all papers dealing with the prevention, diagnosis or treatment of solid or hematologic cancers. Your response should be a list of two boolean values (True or False), the first indicating if the paper is an RCT and the second indicating if the paper is oncology-related. The list should be enclosed in brackets and separated by a comma, e.g. [True, False].' User message: the abstract text ('abstract' column of the CSVs).",
+    "params": {
+      "temperature": "[0.00, 0.25, 0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 2.00]",
+      "max_tokens": 10,
+      "top_p": "API default (not set)",
+      "seed": "not set; one call per abstract per temperature",
+      "other": "all other parameters left at API defaults (paper cites the API reference)"
+    },
+    "n_items": "Task 1: 996 RCT abstracts (CSV: 996 rows); Task 2: 900 abstracts (CSV: 899 rows)",
+    "samples_per_item": "1 per temperature (9 temperatures) in the paper; re-run: 3 repeated runs per temperature (ANALYSIS_PLAN), prompt paraphrase = 2 system-prompt variants",
+    "evaluation": "Automatic: parse raw response to int (task 1) or to [bool, bool] via ast (task 2); metrics as in analysis.ipynb cells 17-34 (formatted %, MAPE, within-10%/1%, accuracy/precision/recall/F1 with the notebook's denominators: metrics computed on formatted predictions only)",
+    "execution_environment": "Single Python 3.11 process (pandas 2.1, openai 1.40.3 per paper; environment.yaml lists the conda env); no tools, GPU, or docker; ~17K calls per full pass, ~1-2 h with modest concurrency. Must be re-implemented (~50 lines) from the paper's description since no calling script is in the repo.",
+    "representative_subset": "Task 1 (996 abstracts) at temperatures {0.00, 1.00, 1.50, 1.75, 2.00} x 2 repeated runs with gpt-4o-2024-05-13 - captures the plateau and the drop; task 2 and gpt-4o-mini omitted."
+  },
+  "artifacts": {
+    "prompts_path": "null in repo (prompts verbatim in the paper Methods; see protocol.prompt_source)",
+    "data_path": "sample_size_gpt_responses_all.csv (doi, date, journal, title, abstract, Number_randomized + raw/parsed responses for 2 models x 9 temperatures); rct_oncology_gpt_responses_all.csv (doi, ..., abstract, RCT_actual, Oncology_actual + responses); Dryad 10.5061/dryad.gb5mkkx00 and 10.5061/dryad.g1jwstr0b",
+    "eval_path": "analysis.ipynb",
+    "data_public": true,
+    "data_license": "Repo: none. Article: CC BY 4.0. Dryad: page shows no license field (Dryad deposits are CC0 by policy; verify). Abstracts are PubMed abstracts of NEJM/Lancet/JAMA/BMJ articles (publisher copyright) redistributed by the authors.",
+    "redistributable": "partial",
+    "notes": "CSV metadata differs from the paper's description: journals in the CSV are N Engl J Med (443), Lancet (269), JAMA (224), BMJ (60) and years 2020-2023, whereas the paper says seven journals (incl. JAMA Oncology, JCO, Lancet Oncology) and 2010-2022; task 2 has 899 rows vs '900'. Per-item original outputs enable a paired comparison per abstract and temperature."
+  },
+  "blockers": [
+    "API-calling code not released (re-implementation from the paper; low risk)",
+    "Dataset description mismatch between paper and CSV (journals, years, n=899 vs 900) must be resolved before claiming exact replication",
+    "Redistribution status of the abstracts (publisher copyright) is unclear for public archiving of full request logs",
+    "Temperature 2.0 outputs are partly non-UTF-8 gibberish (paper examples); logging/parsing must be robust"
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4o-2024-05-13",
+      "purpose": "live baseline (exact snapshot used); optional second alive arm gpt-4o-mini-2024-07-18"
+    },
+    "successors": [
+      "gpt-5-2025-08-07 (note: temperature parameter may be unsupported/ignored on gpt-5 reasoning models - record API behaviour)",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated snapshot; temperature range 0-1 only -> partial grid)",
+      "gemini (current dated snapshot; temperature range 0-2)",
+      "llama (open weights, weight hash pinned; full 0-2 grid via vLLM)",
+      "qwen (open weights, weight hash pinned; full 0-2 grid via vLLM)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": {
+      "gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      },
+      "gpt-4o-mini-2024-07-18": {
+        "input": 0.15,
+        "output": 0.6
+      }
+    },
+    "unit_basis": "Per call ~550 input tokens (system prompt ~120 + abstract ~430) and <= 10 output tokens; 1,895 abstracts x 9 temperatures = 17,055 calls per model per pass",
+    "full": {
+      "definition": "gpt-4o-2024-05-13, both tasks, 9 temperatures, 3 repeated runs (x2 paraphrases -> 6 passes); gpt-4o-mini adds ~$1 per pass",
+      "est_calls": 102330,
+      "est_tokens_in": 56300000,
+      "est_tokens_out": 820000,
+      "est_cost_usd": 295
+    },
+    "subset": {
+      "definition": "gpt-4o-2024-05-13, task 1 (996), temperatures {0, 1.0, 1.5, 1.75, 2.0}, 2 runs",
+      "est_calls": 9960,
+      "est_tokens_in": 5500000,
+      "est_tokens_out": 80000,
+      "est_cost_usd": 29
+    },
+    "single_pass_usd": 50,
+    "cap_usd": "recommend 100 (subset + one full pass)"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1, method_effect. Direction: formatted-output rate is flat (>= 98%) for T <= 1.50 and falls at T >= 1.75, with the largest drop at 2.00 (original drop 98.7 -> 89.2 = 9.5 points; exact binomial 95% CI half-width ~0.7 points at n=996), while MAPE / within-10% (formatted subset) do not degrade. SURVIVED if the median re-run shows formatted rate >= 97% at every T <= 1.50, a drop >= 3 points at T = 2.00 relative to T = 0, and MAPE within +/-2 points of the original at each T. PARTIAL if the drop exists but starts at T <= 1.25 or is < 3 points, or error metrics drift by 2-5 points. DEAD if formatted rate at T = 2.00 is within 1 point of T = 0 (no temperature effect) or if formatted rate falls below 95% already at T <= 1.0 (the 'safe range <= 1.5' conclusion fails).",
+    "notes": "Paired per-abstract comparison with the released raw responses is possible for every temperature. The classification task (100% formatted up to 1.25; F1 flat) is secondary and cheap to add. Successor reasoning models may reject or ignore temperature; record HTTP errors as protocol-level non-reproducibility rather than as a judgment."
+  },
+  "status": "done",
+  "user_checks": [
+    "Which data description is authoritative for the re-run: the paper (seven journals, 2010-2022, n=900) or the repository CSVs (four journal labels, 2020-2023, n=996/899)? Recommend using the CSVs as-is and documenting the discrepancy.",
+    "Include gpt-4o-mini-2024-07-18 as a second alive arm (~$1 per pass)? Recommended, it is part of Tables 1-3.",
+    "Approve public archiving of request logs containing the abstracts (publisher-copyrighted text), or store abstract text only by DOI reference in the public archive?",
+    "Accept the two-sided system-prompt paraphrase (ANALYSIS_PLAN) for a claim that is explicitly about a decoding parameter, or run paraphrase = 1 (original prompt only) and 3 repeats?"
+  ],
+  "domain_notes": "This is a clean, cheap, fully specified card: exact snapshot alive, prompts verbatim in the paper, per-item original responses in the repo, automatic metrics. The scientific content is a decoding-parameter robustness statement; the interesting failure mode for successors is that reasoning-model APIs may not expose temperature at all, which is itself a reproducibility finding. The only fidelity risk is the dataset-description mismatch and the missing calling script (trivial to re-implement).",
+  "decisions_2026_09_18": [
+    "use the repository CSVs as the item set (Task 1 n=996, Task 2 n=899) and document the discrepancy with the paper's description (journals, years, n=900)",
+    "primary model gpt-4o-2024-05-13 at all nine temperatures; gpt-4o-mini-2024-07-18 included as a second alive model (about $1 per pass)",
+    "public archive stores abstracts by DOI plus sha256 of the text, not the abstract text (publisher copyright); the private archive keeps the full requests",
+    "no prompt paraphrase: the claim is about a decoding parameter, so run the original prompts only, one pass per temperature paired with the released per-item responses, plus two extra repeats at T=0.00 and T=2.00 for run-to-run variance",
+    "both tasks are run (Task 1 numeric extraction, Task 2 RCT/oncology classification); per-paper cap $40, expected about $32"
+  ],
+  "notes_2026_09_18": "Run stopped at the $58 cap after 38,978 of 49,270 planned requests: gpt-4o Task 1 complete at all nine temperatures with three passes at T=0.00 and T=2.00, gpt-4o-mini both tasks complete, gpt-4o Task 2 not run (about $57 more). The 183 MB call archive is kept out of git (deposit separately)."
+}

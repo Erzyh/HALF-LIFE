@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404354805",
+  "title": "Long Context RAG Performance of Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (also gpt-4-turbo-2024-04-09; gpt-4-0125-preview dead)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Table S3: 'gpt-4o-2024-05-13 0.709 0.467 0.671 0.721 0.752 0.759 0.769 0.769 0.767' (answer correctness by context length); 'gpt-4-turbo-2024-04-09 0.588 ...'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E (E.1 Databricks DocsQA, E.2 FinanceBench, E.3 Natural Questions prompt templates)",
+    "note": "retrieved chunks fill the context budget; temperature 0, max 1024 output tokens"
+  },
+  "claim": {
+    "metric": "answer correctness (LLM-judged), averaged over 3 datasets and 8 context lengths",
+    "value": 0.709,
+    "n_items": 823,
+    "location": "Table S3, row gpt-4o-2024-05-13, column av. (per context length: 139 + 150 + 534 questions)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (Databricks Agent Evaluation judge, snapshot not stated)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Natural Questions dev and FinanceBench (public); Databricks DocsQA (internal, not released); chunks embedded with OpenAI text-embedding-3-large"
+  },
+  "cost": {
+    "est_calls": 20000,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "DocsQA is an internal benchmark and the correctness judge is Databricks' proprietary calibrated GPT-4o judge, so the averaged number cannot be recomputed; NQ/FinanceBench-only results appear only in figures. Calls run up to 125k tokens."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4415372210",
+  "title": "Masked Prediction of Onomatopoeic Expressions in Depressive Tweets Using LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (no snapshot stated)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 2.4.4: 'three generative AI models developed by OpenAI (GPT-4o mini, GPT-4 Turbo, o1-preview) were used via the API ... a seed and a temperature of 0'; Table 2: 'GPT-4 Turbo Zero-Shot 0.84'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 2.4.1 (Zero-Shot prompt printed with the 10 candidate tokens and LangChain format instructions); 2.4.2-2.4.3 ReAct / ICL prompts",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy of top-3 masked onomatopoeia prediction (10 classes)",
+    "value": 0.84,
+    "n_items": 319,
+    "location": "Table 2, row GPT-4 Turbo / Zero-Shot, column Accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "319 Japanese depressive ('Yami') tweets collected from X; not released (platform terms, ethics approval)"
+  },
+  "cost": {
+    "est_calls": 957,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Preprint posted October 2025 but experiments date from late 2024 (o1-preview era); snapshot not stated, alias resolved by rule. Tweets cannot be redistributed."
+}

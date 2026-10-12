@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4408069345",
+ "title": "Accurate AI Assistance in Contract Law Using Retrieval-Augmented Generation to Advance Legal Technology",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table II: \"gpt-4-turbo 1 0,971 3.12\" (Faithfulness, Answer Relevance, Response time) vs. Llama3 (\"0.84 0.79 0.86\"), using the Ragas evaluation framework."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Example Q&A pairs shown (Table III) but no reusable prompt template printed."
+ },
+ "claim": {
+  "metric": "Answer Relevance (RAGAS), contract-law RAG system",
+  "value": 0.971,
+  "n_items": null,
+  "location": "Table II",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Custom set of contract-law questions (size and release status not stated in the excerpt reviewed)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Number of evaluation questions is not stated (Table III shows only illustrative examples); the Faithfulness score of exactly 1.0 suggests a small test set. No reusable prompt template is printed, and the underlying question set's public status is unconfirmed, so this falls below the eligible/maybe bar despite a real, clean-looking metric."
+}

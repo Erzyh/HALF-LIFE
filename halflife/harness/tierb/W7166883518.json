@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166883518",
+  "title": "Pub-LawBench: Public-Oriented Benchmarking for LegalAI",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (OpenAI, 2023)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'Commercial: GPT-4 Turbo (OpenAI, 2023), Claude Sonnet 4.5 ...'; 'nucleus sampling with p = 0.9 and temperature T = 0.2'; Table 4: 'GPT-4 Turbo 46.2 44.0 80.7 ... 63.6'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 public-oriented prompt template (role / style / general-constraint blocks); task-specific instructions in the repo",
+    "note": ""
+  },
+  "claim": {
+    "metric": "average score (Avg.) across the performance-oriented metrics",
+    "value": 63.6,
+    "n_items": null,
+    "location": "Table 4, row GPT-4 Turbo, column Avg. (first task Acc. 46.2)",
+    "task_type": "mcq",
+    "judge": "llm:gpt-4o (generation tasks only, unpinned)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/Statistical-NLP-Lab/ (Pub-LawBench: CAIL, JEC-QA, COLIEE, CaseHOLD, Unfair-ToS, LEdGAR, Laws-QA, CaseGen ...)"
+  },
+  "cost": {
+    "est_calls": 10000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Two soft gaps: per-task instructions are not printed and per-task test sizes are not stated (Table 2 lists corpus sizes). GPT-4 Turbo is cited as OpenAI 2023 without a snapshot; per the alias rule resolved to the GA."
+}

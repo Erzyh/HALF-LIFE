@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7164447651",
+  "title": "From Confident Closing to Silent Failure: Characterizing False Success in LLM Agents",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "B",
+    "evidence": "\"We evaluate 5 judge models ...: GPT-4o, Claude Sonnet 4.5, Llama 3.3-70B-Instruct, DeepSeek-R1, and o3-mini. Each judge is queried under 5 prompt conditions\" (Sec. 3.5); Table 5 row o3-mini"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D 'Judge Prompts' (common system prompt, condition variants, AppWorld prompts)",
+    "note": "Paper states verbatim prompts for all conditions are in Appendix D"
+  },
+  "claim": {
+    "metric": "AUROC, false-success vs true-success detection by the o3-mini judge, 'no closing' condition",
+    "value": 0.554,
+    "n_items": 295,
+    "location": "Table 5, row o3-mini, column 'no cl.'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "tau2-bench leaderboard trajectories (Sierra, public) labelled with the authors' regexes; the stratified 295-trajectory judge set is not released"
+  },
+  "cost": {
+    "est_calls": 885,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "GPT-4-Turbo appears only as the source model of public AppWorld trajectories (role C). The 295-item sample and FS/TS/HF labels must be rebuilt from leaderboard runs with the Appendix A regexes; long trajectories make o3-mini calls expensive.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "Rebuild the tau2-bench corpus from the public Sierra leaderboard runs of the 8 named model families, label failures FS/HF/ambiguous with the Appendix A regex sets, and draw a seeded stratified sample of ~95 FS / 105 TS / 105 HF balanced across the 3 domains and source models. Run the Appendix D 'no closing' judge prompt with o3-mini-2025-01-31 and compute AUROC (FS vs TS) vs Table 5 (0.554) at set level.",
+    "approximation": "Different 295 trajectories; leaderboard contents may have changed; an AUROC near chance is sensitive to sampling.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7127041604",
+  "title": "Exploration of AI Software Generation Methods Based on Work Flow Knowledge and Domain Constraints",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 1: 'GPT-4-Turbo EW-Fin 68.2± 1.5 61.4± 2.1 74.5' (Pass@1, CSR, WCS)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Baseline described as a 'thinking chain prompt'; no prompt printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Pass@1 (%) on EW-Fin",
+    "value": 68.2,
+    "n_items": 400,
+    "location": "Table 1, row GPT-4-Turbo / EW-Fin, column Pass@1",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "EW-Bench (800 scenarios built from BankScope and supplychainlarge data); not released"
+  },
+  "cost": {
+    "est_calls": 400,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Short conference paper; unit tests and Petri-net constraint checkers for EW-Bench are unavailable."
+}

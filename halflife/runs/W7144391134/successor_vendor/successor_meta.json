@@ -1,0 +1,26 @@
+{
+  "wid": "W7144391134",
+  "baseline_model": "gpt-4.1-nano-2025-04-14",
+  "successor_model": "gpt-5.6-luna",
+  "arm": "vendor",
+  "cap_usd": 12.0,
+  "adapter_args": [
+    "--run",
+    "--zs-molecules",
+    "500",
+    "--zs-last"
+  ],
+  "paths_redirected": [
+    [
+      "RUN",
+      "runs\\W7144391134\\successor_vendor"
+    ]
+  ],
+  "body_rule": "successor_body in scripts/tiera_successor.py",
+  "zero_shot_subset": {
+    "molecules": 500,
+    "seed": 20260907,
+    "rule": "first 500 of one seeded permutation of the 1,128 molecules; 17 molecules outside the subset were answered before the run was restarted on 2026-10-01 and are kept (n = 517)",
+    "reason": "the successor's reasoning output made the 5,640 zero-shot calls alone cost about the whole 12 USD cap; the in-context claims were run first and in full"
+  }
+}

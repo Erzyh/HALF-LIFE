@@ -1,0 +1,66 @@
+{
+  "wid": "W4400611869",
+  "title": "Lynx: An Open Source Hallucination Evaluation Model",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 82.2,
+  "original_location": "Table 3, row GPT-4-Turbo, column FinanceBench (the Overall column across all six HaluBench subsets is 85.0%)",
+  "reexecution": {
+    "mean_over_seeds": 0.8430656934306568,
+    "per_seed": {
+      "0": {
+        "value": 0.8394160583941606,
+        "n": 411,
+        "ci95": [
+          0.8029197080291971,
+          0.8734793187347932
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.8467153284671532,
+        "n": 411,
+        "ci95": [
+          0.8102189781021898,
+          0.8807785888077859
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4400611869",
+    "n_items": 411,
+    "n_requests": 822,
+    "seeds": 2,
+    "est_usd": 4.02,
+    "subset_note": "cost cap $2.0: seeded random subset of 411 items (seed 20260907); repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 82.2,
+    "cap_usd": 5.98,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4400611869"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 38
+  },
+  "approximation": "none; the same zero-shot prompt is used for every model and task (Sec. 4.1), and the FinanceBench column of Table 3 is scored over the whole released subset.",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4400611869"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 84.30656934306569,
+    "delta": 2.1065693430656864,
+    "original_inside_ci95": true
+  }
+}

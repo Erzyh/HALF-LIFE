@@ -1,0 +1,66 @@
+{
+  "wid": "W4404782525",
+  "title": "Characterizing LLM Abstention Behavior in Science QA with Context Perturbations",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 61.2,
+  "original_location": "Table 3(a) 'Given context', row GPT4o, column PubmedQA",
+  "reexecution": {
+    "mean_over_seeds": 0.761,
+    "per_seed": {
+      "0": {
+        "value": 0.762,
+        "n": 500,
+        "ci95": [
+          0.724,
+          0.8
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.76,
+        "n": 500,
+        "ci95": [
+          0.722,
+          0.7960499999999998
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404782525",
+    "n_items": 500,
+    "n_requests": 1000,
+    "seeds": 2,
+    "est_usd": 0.38,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 61.2,
+    "cap_usd": 1.22,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4404782525"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the 500-question test set is taken as the official PQA-L test fold; the context is the CONTEXTS list joined with a space",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W4404782525"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 76.1,
+    "delta": 14.899999999999991,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "wid": "W4404352845",
+  "title": "EcoAct: Economic Agent Determines When to Register What Action",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; Appendix B says only that, where not specified, 'we use the same hyperparameters as it is used in ToolBench')",
+    "seeds": 1
+  },
+  "task": {
+    "type": "agentic",
+    "n_items": 632,
+    "subset_rule": "the six filtered ToolBench subsets used in the paper: G1-I 115, G1-T 132, G1-C 142, G2-I 107, G2-C 98, G3-I 38 = 632 queries (Sec. 3.1)",
+    "approximation": "Blocked before an approximation can be chosen - see open_points."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "ToolBench (Qin et al. 2023), filtered as in AnyTool (Du et al. 2024) - only the queries AnyTool's manual review retained as solvable",
+    "config_or_split": "G1-Instruction, G1-Tool, G1-Category, G2-Instruction, G2-Category, G3-Instruction",
+    "filter": null,
+    "fields": {
+      "input": "the user query plus the retrieved API-candidate pool (max size 64, Appendix B)",
+      "options": null,
+      "label": "none - pass/fail is decided by a judge model over the whole trajectory",
+      "id": "ToolBench query id"
+    },
+    "license": "unknown",
+    "access_checked": false,
+    "size_mb": null,
+    "file_url": null,
+    "label_map": null,
+    "access_note": "Not checked: the blockers below are decisive regardless of whether the ToolBench release is reachable, and the specific 632-query filtered list is an artefact of AnyTool's manual review rather than a file this paper publishes."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": null,
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Sec. 3.1/3.2 and Appendix A.2 say the agent follows the public ToolBench/ReAct setup and that pass rates are obtained 'applying the same prompts as those used in ToolBench'; Appendix C.1 (Table 5) prints the EcoAct prompt",
+    "verbatim": "unavailable for this cell. The only prompt printed is EcoAct's own AutoGPT-style agent prompt (Appendix C.1), and the claim being re-executed is the VANILLA ReAct baseline WITHOUT EcoAct, whose prompt is ToolBench's and is not reproduced. The ToolBench judge prompts referenced in Appendix A.2 are likewise not printed."
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the reply is one Thought/function-call step of a trajectory of up to 24 steps; the trajectory, not a single reply, is what gets judged"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Pass Rate = Solved / (Solved + Unsolved), the AnyTool variant of ToolBench's two-stage protocol in which the non-solvable queries have already been removed by manual review (Appendix A.2, Eq. 5), averaged over the G1-G3 subsets.",
+    "judge": "llm:gpt-4-turbo-2024-04-09 - Sec. 3.1: 'We utilize GPT-4-turbo to make the pass rate evaluations, applying the same prompts as those used in ToolBench.' The judge model is still callable, but its prompt is not printed in this paper, so the ANALYSIS_PLAN's condition is only half met. It is also self-judging: the same snapshot both produces and grades the trajectories.",
+    "original_value": 16.0,
+    "original_location": "Table 1, row 'GPT-4-turbo ReaAct' (vanilla ReAct, no EcoAct), Average Pass Rate column across G1-G3; the per-subset values in the same row are 16.2 / 6.3 / 18.5 / 8.1 / 13.2 / 11.5 with average PR 16.0 and cost 8.6 cents",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 150.0,
+    "tier": "high",
+    "est_usd_prepare": null,
+    "prepare_note": "not prepared. The paper's own Table 1 reports 8.6 US cents per query for this row, i.e. about $54 for 632 queries in agent calls alone, before judge calls; the triage's 3,000-call figure assumes roughly 5 reasoning steps per query against a documented maximum of 24."
+  },
+  "open_points": [
+    "Live third-party tool execution. ToolBench agents call 16,464 real RESTful APIs on the RapidAPI Hub, over up to 24 reasoning steps per query (Appendix B). That needs a RapidAPI account and keys, and the APIs themselves decay independently of the model, so a 2026 re-execution measures API availability as much as it measures gpt-4-turbo. tierb_runner.py has no tool-execution loop and hooks may not call anything.",
+    "The prompt for this cell is not printed. The claim is the vanilla-ReAct baseline; the only prompt in the paper is EcoAct's own (Appendix C.1), which is the method being compared against, not the baseline.",
+    "The judge prompts are not printed either: Appendix A.2 defers to ToolBench's own evaluation prompts and to AnyTool's evaluation script.",
+    "The 632-query item list is not released by this paper. It is ToolBench filtered by AnyTool's manual solvability review, so reproducing the denominator of Eq. 5 depends on recovering someone else's manual annotation."
+  ],
+  "notes": "Cleanly identified claim cell (Table 1, GPT-4-turbo ReAct, Average PR 16.0) and a still-callable model and judge, but three independent blockers - live external APIs, unprinted baseline prompt, unprinted judge prompt - each of which would be enough on its own. The companion GPT-4o rows of Table 1 have exactly the same problems."
+}

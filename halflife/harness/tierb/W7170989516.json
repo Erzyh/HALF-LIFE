@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7170989516",
+  "title": "Auto-Fill: Learning to Predict Missing Values Accurately with Specialist Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o4-mini; o3-pro; GPT-4.1 / GPT-4.1 mini",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "Sec. 6 Baselines: \"Closed-source baselines include GPT-4.1 and GPT-4.1 mini, frontier OpenAI models (o4-mini, o3-pro, GPT-5.2)\"; Table 2 row o4-mini ... Mean 0.56 / 0.54, cost 1.09e-2."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 2 (example prompt with [MISSING] cell and verbalized confidence); Appendix A.4 covers only non-LLM baselines",
+    "note": "Vanilla-LLM prompt shown by example, not as a full template."
+  },
+  "claim": {
+    "metric": "R@P=0.9 (recall at 90% precision), mean over 11 datasets",
+    "value": 0.56,
+    "n_items": null,
+    "location": "Table 2, row o4-mini, column Mean (R@P=0.9 0.56 / pAUPRC 0.54)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/lyrain2001/auto-fill (11 benchmark datasets released with the code)"
+  },
+  "cost": {
+    "est_calls": 6000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gaps: the baseline prompt is only exemplified and the per-dataset test-case counts are not stated in the extracted text (2,000 held-out ID cases mentioned in Sec. 5). Snapshots for o4-mini/o3-pro are not given. gpt-4.1-nano from live_ids does not appear as a baseline.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "The vanilla-LLM prompt is shown only as Figure 2 examples ('In the table below, one cell is marked as [MISSING], please predict its value and answer using JSON: {value, confidence}') and the 11 benchmark test sets (ID held-out tables from five training sources plus six OOD sources) are released with the code. Take the template and test files from the repository, run o4-mini (single snapshot 2025-04-16) with verbalized confidence, compute R@P=0.9 per dataset with the footnote-6 tie rule, and compare the 11-dataset mean with 0.56 (Table 2).",
+    "approximation": "o4-mini/o3-pro snapshots unstated; per-dataset counts come from the released files.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/lyrain2001/auto-fill",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

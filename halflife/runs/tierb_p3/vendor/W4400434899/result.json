@@ -1,0 +1,56 @@
+{
+  "wid": "W4400434899",
+  "title": "Are Large Language Models Strategic Decision Makers? A Study of Performance and Bias in Two-Player Non-Zero-Sum Games",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 25.5,
+  "original_location": "Table 1, row GPT-4-Turbo / A, column SH AO A->B (B = 74.5)",
+  "reexecution": {
+    "mean_over_seeds": 0.505524861878453,
+    "per_seed": {
+      "0": {
+        "value": 0.505524861878453,
+        "n": 724,
+        "ci95": [
+          0.46957872928176797,
+          0.5428176795580111
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4400434899",
+    "n_items": 724,
+    "n_requests": 724,
+    "seeds": 1,
+    "est_usd": 11.0,
+    "subset_note": "cost cap $11.0: seeded random subset of 724 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 25.5,
+    "cap_usd": 11.0
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the preference sentences are printed as template slots ('acting agent's preferred behaviour (CG v SG)'); filled as 'prioritise Common-Gain' / 'prioritise Self-Gain' following the paper's wording; Table 1 pools the A->B setups, so the config pools the 800 runs; the statistic is computed as accuracy against the constant gold 'A' (share of runs choosing A); replies without a parsable action count as non-A instead of being dropped from the denominator",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4400434899"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 50.552486187845304,
+    "delta": 25.052486187845304,
+    "original_inside_ci95": false
+  }
+}

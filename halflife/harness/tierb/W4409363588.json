@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4409363588",
+  "title": "InverseCoder: Self-improving Instruction-Tuned Code LLMs with Inverse-Instruct",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (April 2024)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "\"GPT-4-Turbo (April 2024) 90.2 (86.6) 85.7 (73.3)\" (Table 3) - identical to EvalPlus leaderboard values; no statement that the authors ran it"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "pass@1 HumanEval(+)",
+    "value": 90.2,
+    "n_items": 164,
+    "location": "Table 3, row GPT-4-Turbo (April 2024)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HumanEval+, MBPP+"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Closed-model rows are reference numbers; GPT-4 (unspecified) is used as the data generator for Inverse-Instruct."
+}

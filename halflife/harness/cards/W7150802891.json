@@ -1,0 +1,127 @@
+{
+  "card_id": "W7150802891",
+  "openalex_id": "https://openalex.org/W7150802891",
+  "title": "Are large pre-trained vision language models effective construction safety inspectors?",
+  "doi": "10.1017/dce.2026.10044",
+  "paper": {
+    "authors": "Xuezheng Chen (UBC Vancouver), Zhengbo Zou (Columbia University)",
+    "year": 2026,
+    "venue": "Data-Centric Engineering 7: e11 (received 2025-06-24, accepted 2026-02-18), CC BY 4.0",
+    "repo": "none - the paper releases no code repository. Only the dataset is published (Hugging Face LouisChen15/ConstructionSite), and the Data Availability Statement names no code archive.",
+    "repo_commit": "n/a (nothing to clone; no shallow clone under external/repos/W7150802891/)",
+    "repo_license": "n/a",
+    "other_artifacts": "Dataset ConstructionSite 10k: 10,013 images with captions, safety-rule VQA labels and grounding boxes (train 7,009 / test 3,004); metric tooling is the third-party MSCOCO caption suite (github.com/tylin/coco-caption) cited in footnote 3"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The Table 6 row for GPT4o is measured directly on the model's own captions, so the number exists only as long as the snapshot is callable. GPT-4V (dead since 2024-12-06) was additionally used as an annotation aid for part of the caption corpus, but that corpus is frozen, human-corrected and released."
+  },
+  "claim": {
+    "statement": "In a 5-shot setting on the 3,004 ConstructionSite test images, gpt-4o-2024-05-13 captions score CIDEr-D 169.9 against the human captions, with SPICE 24.9, METEOR 39.4, BERTScore 37.7 and CLIPScore 81.8 at 80 words per caption, beating GPT-4V 5-shot (152.1) and every open-source VLM tested, and beating the MSCOCO rule-based SOTA reference (155.1) while trailing Gemini-2.5 5-shot (183.0) (Table 6).",
+    "claim_type": "capability_level",
+    "metric": "CIDEr-D (Vedantam et al. 2015) of the generated caption against the human reference caption(s) of each test image, computed with the official MSCOCO caption tools and averaged over the 3,004 test images (x100). Secondary metrics in the same row: SPICE, METEOR, BERTScore, CLIPScore, mean words per caption.",
+    "original_values": {
+      "gpt4o_5shot": {
+        "SPICE": 24.9,
+        "CIDEr_D": 169.9,
+        "METEOR": 39.4,
+        "BERTScore": 37.7,
+        "CLIPScore": 81.8,
+        "avg_words_per_caption": 80
+      },
+      "comparators": {
+        "gpt4v_zero_shot_CIDEr_D": 120.5,
+        "gpt4v_5shot_CIDEr_D": 152.1,
+        "gemini_2_5_5shot_CIDEr_D": 183.0,
+        "qwen_7b_5shot_CIDEr_D": 119.4,
+        "llava_13b_5shot_CIDEr_D": 70.5,
+        "minigpt4_CIDEr_D": 73.2,
+        "table_average_CIDEr_D": 113.3,
+        "mscoco_sota_reference_CIDEr_D": 155.1
+      },
+      "test_set": {
+        "images": 3004,
+        "reference_sentences": 10754,
+        "train_images": 7009
+      }
+    },
+    "original_source": "Paper Table 6 (image description with automatic metrics), row GPT4o 5-shot; split sizes from Table 3; the GPT4o snapshot from Sec. 4 (model selection)."
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json priority 1)",
+    "model_usage_verified": "yes, dated snapshot in the paper: Sec. 4 states that the GPT-4 variants employed are GPT-4-1106-vision-preview (GPT4V) and GPT-4o-2024-05-13 (GPT4o). No alias inference needed and no code to cross-check.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions with image content parts (multimodal); the paper gives no client code, so the transport is reconstructed from the prose",
+    "prompt_source": "Paper Sec. 5.1, both prompts quoted verbatim in the text. System: a construction-site-inspector persona. User: a request to describe the image covering people, construction equipment and material stockpiles, without assumptions, concise, facts only, one paragraph. The five in-context examples precede the test image as user(image + same user prompt) / assistant(human caption) turns.",
+    "params": {
+      "temperature": 0.2,
+      "top_p": 1.0,
+      "max_tokens": 1024,
+      "seed": "not set",
+      "image_detail": "unreported (drives cost by roughly a factor of 3; must be logged)"
+    },
+    "n_items": 3004,
+    "samples_per_item": 1,
+    "samples_note": "one seed, not three: Sec. 5.1 says a single seed was used for the GPT and Gemini models because of inference cost (open-source models got five seeds), so the paper's own sampling scheme overrides our 3-seed default",
+    "few_shot": "k = 5, images plus their human-annotated captions randomly sampled from the training split; the authors do not identify which five, so a seeded draw is an unavoidable approximation",
+    "evaluation": "MSCOCO caption tools (pycocoevalcap: CIDEr-D, SPICE, METEOR) plus BERTScore and CLIPScore; SPICE additionally needs a JVM (Stanford Scene Graph Parser). No evaluation script is published, so the scorer must be rebuilt from the cited tools.",
+    "environment": "text-only harness cannot carry this card: six image parts per call, a gated multi-GB image download, and a Java-dependent scorer are all outside the current runner"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "prompts_path_reason": "no repository; both prompts are printed verbatim in Sec. 5.1 and are transcribed into harness/tierb/configs/W7150802891.json",
+    "data_path": "https://huggingface.co/datasets/LouisChen15/ConstructionSite (gated, terms must be accepted by a human; about 1.5 GB; test.parquet 3,004 images with human captions, train parquet 7,009 images for the exemplars)",
+    "eval_path": null,
+    "eval_path_reason": "no evaluation code published; footnote 3 points at the third-party MSCOCO caption tools (github.com/tylin/coco-caption)",
+    "data_public": true,
+    "data_license": "CC BY-NC 4.0 (Hugging Face dataset tag); the article itself is CC BY 4.0",
+    "redistributable": "non-commercial only; the images stay on Hugging Face and only our generated captions and scores go into the L1 archive",
+    "notes": "The dataset carries an Open Data badge and the split is fixed, so item identity is not at risk. The unknown part is the five in-context exemplars: Sec. 5.1 says they were randomly sampled from the training split and never lists them. The Tier B config already fixes a seeded draw (seed 20260907) for that reason."
+  },
+  "blockers": [
+    "Image inputs: every call carries six images (5 exemplars + the test image) and the paper ships no code that handles them, so our text-only runner cannot execute this card as specified.",
+    "Cost above the image-input threshold: about USD 100 for the single seed the paper used (roughly USD 60 if detail=low is acceptable), against the ~USD 30 ceiling for image work; the paper itself cites inference cost as the reason it ran one seed.",
+    "Gated dataset: LouisChen15/ConstructionSite requires a human to accept CC BY-NC terms and to download about 1.5 GB before any call can be made.",
+    "No code at all: prompts, exemplar draw, image detail setting, caption tokenisation and the CIDEr-D/SPICE scorer must all be rebuilt from prose and third-party tools, so the re-execution is a paraphrase of the pipeline rather than a replay of it.",
+    "The five in-context exemplars are an unlisted random draw from the training split, which shifts the output format and therefore the n-gram metrics."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4o-2024-05-13",
+      "purpose": "live baseline (P0) and the only OpenAI row in Table 6 - blocked at present (image inputs and cost), so it is a candidate only if the user lifts the image-input rule for this card"
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for gpt-4o on the OpenAI deprecations page; vision support must be confirmed before use)",
+      "gpt-4.1-2025-04-14 (GPT-4-class comparator, vision-capable)"
+    ],
+    "dead_comparators_not_runnable": [
+      "gpt-4-1106-vision-preview (GPT4V rows of Tables 5-7; shut down 2024-12-06)"
+    ],
+    "open_weight_reference": "LLaVA v1.5 13B, MiniGPT-4 v2 and Qwen 7B rows are open weights and can be re-run permanently on the same test split"
+  },
+  "budget": {
+    "est_calls": 3004,
+    "est_tokens_in": 19800000,
+    "est_tokens_out": 330000,
+    "est_cost_usd": 100,
+    "pricing_usd_per_1m": {
+      "gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      }
+    },
+    "assumptions": "3,004 test images x 1 seed (the paper's own scheme). Per call: 6 images at detail=high (about 1,105 tokens each for a 1024x768 photo) plus 5 exemplar captions and the two prompts, about 6,600 input tokens, and about 110 output tokens for an 80-word caption. That is about USD 99 input + USD 5 output. With detail=low (85 tokens per image) the same run is about USD 60, which is the figure in the existing Tier B config; the paper does not say which detail level it used, so the high-detail figure is the conservative one. A three-seed run would be USD 300."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1, only if the card is unblocked. Primary number: CIDEr-D over the 3,004 test images against 169.9, bootstrapped over images (the per-image CIDEr-D spread is wide, so report the CI rather than the point value alone). Survival = re-run CIDEr-D inside the bootstrap 95% CI of the original AND the ordering claims hold: GPT4o 5-shot above GPT4V 5-shot (152.1) and above every open-source model, below Gemini-2.5 (183.0). Partial = level outside the CI but GPT4o stays the best OpenAI row and above the open-source models. Death = GPT4o drops to the open-source band (about 70-120) or below its own GPT4V comparator.",
+    "notes": "The exemplar draw is an acknowledged approximation: because few-shot examples are used as format conditioning (Sec. 5.1) rather than as teaching signal, caption length drives CIDEr-D strongly, so an exemplar-sensitivity check (two independent seeded draws) should precede any survival call. Metric rebuild risk is the second caveat: our pycocoevalcap version must be logged, since CIDEr-D depends on the corpus-level IDF computed over the reference set."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Lift the image-input rule and the ~USD 30 image ceiling for this one card (about USD 100 for the single seed the paper ran, or USD 60 at detail=low)? Without that, the card stays blocked.",
+    "If yes: who accepts the CC BY-NC terms and downloads the gated 1.5 GB dataset, and do we accept a seeded exemplar draw (with a second draw as a sensitivity check)?",
+    "Accept a rebuilt pycocoevalcap scorer (CIDEr-D, METEOR; SPICE needs a JVM) as a documented pipeline paraphrase, or restrict the judgment to CIDEr-D only?"
+  ],
+  "domain_notes": "ConstructionSite 10k is a construction-safety benchmark with three tasks (captioning, safety-rule violation VQA, visual grounding); GPT4o appears only in the captioning table, not in the VQA table, so the captioning row is its single number in the paper. A Tier B config already exists for this paper (harness/tierb/configs/W7150802891.json, status needs_human) because the prompts are printed verbatim and need no repository. Since there is no repository at all, no upgrade from prompt-level to repository-based re-execution is possible: the two protocols are the same calls on the same 3,004 items, and this card adds only (a) the pinned CIDEr-D scorer and its version, (b) an explicit exemplar-draw seed plus a second draw as a sensitivity check, and (c) a corrected cost estimate, since the Tier B figure of USD 60 implicitly assumed low-detail image tokens. The blocking reasons are identical in both protocols, which is why the Tier B record was already marked needs_human."
+}

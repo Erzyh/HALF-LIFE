@@ -1,0 +1,58 @@
+[
+ {
+  "wid": "W4406058562",
+  "cap": 22.67,
+  "seeds": 1,
+  "arm": "temp1",
+  "arm_model": "gpt-4-turbo-2024-04-09",
+  "model": "gpt-4-turbo-2024-04-09",
+  "paraphrase": "t1",
+  "baseline_cost_usd": 17.44,
+  "baseline_class": "재현",
+  "task_type": "generation",
+  "title": "Applicability of Large Language Models and Generat",
+  "note": "temperature check: baseline items and seed-0 bodies on the pinned model at temperature 1.0 (API default), 1 independent call(s) per item as in the baseline"
+ },
+ {
+  "wid": "W4411120580",
+  "cap": 10.05,
+  "seeds": 1,
+  "arm": "temp1",
+  "arm_model": "gpt-4-turbo-2024-04-09",
+  "model": "gpt-4-turbo-2024-04-09",
+  "paraphrase": "t1",
+  "baseline_cost_usd": 7.73,
+  "baseline_class": "근접",
+  "task_type": "generation",
+  "title": "QSpell 250K: A Large-Scale, Practical Dataset for ",
+  "note": "temperature check: baseline items and seed-0 bodies on the pinned model at temperature 1.0 (API default), 1 independent call(s) per item as in the baseline"
+ },
+ {
+  "wid": "W4416034248",
+  "cap": 13.57,
+  "seeds": 3,
+  "arm": "temp1",
+  "arm_model": "gpt-4-turbo-2024-04-09",
+  "model": "gpt-4-turbo-2024-04-09",
+  "paraphrase": "t1",
+  "baseline_cost_usd": 10.44,
+  "baseline_class": "편차",
+  "task_type": "generation",
+  "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of",
+  "note": "temperature check: baseline items and seed-0 bodies on the pinned model at temperature 1.0 (API default), 3 independent call(s) per item as in the baseline"
+ },
+ {
+  "wid": "W4416683695",
+  "cap": 24.22,
+  "seeds": 1,
+  "arm": "temp1",
+  "arm_model": "gpt-4-turbo-2024-04-09",
+  "model": "gpt-4-turbo-2024-04-09",
+  "paraphrase": "t1",
+  "baseline_cost_usd": 18.63,
+  "baseline_class": "편차",
+  "task_type": "generation",
+  "title": "AI Self-preferencing in Algorithmic Hiring: Empiri",
+  "note": "temperature check: baseline items and seed-0 bodies on the pinned model at temperature 1.0 (API default), 1 independent call(s) per item as in the baseline"
+ }
+]

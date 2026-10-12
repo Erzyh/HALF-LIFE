@@ -1,0 +1,58 @@
+{
+  "openalex_id": "https://openalex.org/W4398794862",
+  "title": "Divergent Creativity in Humans and Large Language Models",
+  "doi": "https://doi.org/10.48550/arxiv.2405.13012",
+  "field": "Psychology",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-4-0314|gpt-4-0613",
+  "flags": "",
+  "all_links": [
+    "github.com/AntoineBellemare/DAT_GPT",
+    "osf.io/s49qv",
+    "osf.io/z4c9a"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/AntoineBellemare/DAT_GPT",
+      "cloned": true,
+      "audit": {
+        "n_files": 60,
+        "ext_top": {
+          ".py": 24,
+          ".csv": 12,
+          ".ipynb": 10,
+          ".docx": 4,
+          "": 3,
+          ".txt": 2,
+          ".xlsx": 2,
+          ".yaml": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 10,
+        "n_py": 24,
+        "n_data_files": 15,
+        "files_mentioning_prompt": 16,
+        "files_with_eval_terms": 18,
+        "model_ids_in_code": {
+          "o3": 1750,
+          "o1": 1663,
+          "o4": 1246,
+          "gpt-4": 62,
+          "gpt-4-": 11,
+          "gpt-4-turbo": 7,
+          "gpt-4o-mini": 5,
+          "o4-mini": 5,
+          "gpt-4o": 4,
+          "gemini-1.5-pro-latest": 3
+        },
+        "readme_head": "# Divergent Creativity in Humans and Large Language Models\n\nThis repository contains the code and data for the paper [\"Divergent Creativity in Humans and Large Language Models\"](https://arxiv.org/abs/2405.13012).\n\n## Abstract\n\nIn a computational creativity showdown, some LLMs top humans in generating diverse words but falls short in writing stories and poetry. The size of generative language models does not matter, plus humans still write more divergent haikus and synopses.\n\n## Data\n\nThe data for this paper is located in the `human_data_dat` and `machine_data_stories` directories.\n\n*   `human_data_dat` contains the data from the Divergent Association Task (DAT) for 100,000 human participants.\n*   `human_data_synopsis` contains data for human-written synopses, scraped from IMDB\n*   `machine_data_dat` contains the data from all LLMs on the DAT, >500 responses per model \n*   `machine_data_stories` contains the data from the Divergent Semantic Integration (DSI) analyses, haiku, and flash fiction tasks for a variety of LLMs.\n\n## Code\n\nThe code for this paper is located in the `notebook` and `scripts` directories.\n\n*   `notebook` contains Jupyter notebooks that reproduce the figures in the paper. ``dat_visualization.ipynb`` and ``dsi_visualization.ipynb`` contain main figures\n*   `scripts` contains Python scripts that perform API calls to closed-source LLMs, local inference for open-source models, and the DAT (from [Olson et al. 2019](https://www.pnas.org/doi/pdf/10.1073/pnas.20223"
+      },
+      "commit": "f16aca5f79950100792a92c1b119dfef253d1988"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4398794862.txt",
+  "paper_text_status": "pdf"
+}

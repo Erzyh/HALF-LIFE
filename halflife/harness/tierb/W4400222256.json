@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4400222256",
+  "title": "Scaling Synthetic Data Creation with 1,000,000,000 Personas",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Table 1 (in-distribution evaluation on 11.6K synthetic test instances): 'gpt-4-turbo-2024-04-09 ? 88.1', 'gpt-4o-2024-05-13 ? 91.2'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (evaluation prompt not printed; OpenAI simple-evals protocol cited for MATH)",
+    "note": "Synthesis prompts (Figures 7-8) are printed, but they are not the evaluation prompt."
+  },
+  "claim": {
+    "metric": "accuracy on synthetic math test set",
+    "value": 91.2,
+    "n_items": 11600,
+    "location": "Table 1, row gpt-4o-2024-05-13",
+    "task_type": "other",
+    "judge": "llm:Llama-3-70B-Instruct (equality checker)"
+  },
+  "data": {
+    "public": "no",
+    "source": "11.6K held-out synthetic test set not released (only 200k personas and 50k synthetic problems released); MATH numbers in Table 2 likely provider-reported"
+  },
+  "cost": {
+    "est_calls": 34800,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt"
+  ],
+  "notes": "Baselines run only to contextualize the fine-tuned Qwen2-7B."
+}

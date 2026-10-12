@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414586724",
+  "title": "Multi-Agent Collaboration via Evolving Orchestration",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 1 (Titan): 'GPT-4-Turbo 0.2750† 0.6800† 0.6244† 0.7632† 0.5856†' (GSM-Hard, MMLU-Pro, SRDD, CommonGen-Hard, AVG)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendix B.2 (Figs. 12-13) gives role/action prompts for the orchestrated agents; the pure-model baseline prompt is not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (MMLU-Pro, pure model baseline)",
+    "value": 0.68,
+    "n_items": null,
+    "location": "Table 1, Titan block, row GPT-4-Turbo, column MMLU-Pro",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "GSM-Hard, MMLU-Pro, SRDD, CommonGen-Hard (public); evaluation subset sizes not stated"
+  },
+  "cost": {
+    "est_calls": 200,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Accuracies at 0.005 resolution suggest ~200-item subsets. SRDD/CommonGen-Hard use LLM-based composite metrics. Code at github.com/OpenBMB/ChatDev/tree/puppeteer."
+}

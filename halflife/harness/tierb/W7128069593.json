@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7128069593",
+  "title": "Employing GPT and NeRF for Intelligent Robotic-Controlled Building Envelope Inspections",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (related work); GPT-3.5-turbo (used)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 2: 'Edge systems, such as those employing GPT-4-Turbo ...'; Sec. 3: 'commands to operation functions is based on prompt engineering of GPT-3.5-turbo'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3.3 / Fig. 1 (custom system prompt structure: role, allowed functions, Question/Code/Explanation sections)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Pilot demonstration on one building without quantitative evaluation",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "drone pilot study on a single building"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Framework/demo paper."
+}

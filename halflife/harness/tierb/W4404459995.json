@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404459995",
+ "title": "AI Chatbots: Fast Tracking Sustainability Report Analysis for Enhanced Decision Making",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Chatbase supports the following Open AI models: gpt-3.5-turbo, gpt-4-turbo, and gpt-4. For this paper, we have chosen the freely available gpt-3.5-turbo model...\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec (Chatbase system prompt quoted in full: \"I want you to act as a support agent...\")",
+  "note": "The printed prompt was used with gpt-3.5-turbo, not gpt-4-turbo."
+ },
+ "claim": {
+  "metric": "none for gpt-4-turbo (explicitly not selected; the paper's own chatbot experiments use gpt-3.5-turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "sustainability reports fed to a commercial chatbot platform (Chatbase); not released as a dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-4-turbo is only listed as one of three selectable options on the Chatbase platform; the authors explicitly picked gpt-3.5-turbo instead, for cost reasons."
+}

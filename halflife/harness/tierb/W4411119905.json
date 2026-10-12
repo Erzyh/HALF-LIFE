@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4411119905",
+  "title": "Entangled Relations: Leveraging NLI and Meta-analysis to Enhance Biomedical Relation Extraction",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT 4 (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Footnote 5: \"we use gpt-3.5-turbo-0125 and gpt-4-turbo-2024-04-09 via OpenAI's API\"; Table 1 row \"GPT 4\" ChemProt=0.626."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.2.3 (\"GPT 3.5 and GPT 4\")",
+    "note": "Few-shot in-context-learning prompt listing the NLI labels plus four examples, used via OpenAI's API."
+  },
+  "claim": {
+    "metric": "Micro F1, ChemProt (RE-as-NLI via in-context learning)",
+    "value": 0.626,
+    "n_items": null,
+    "location": "Table 1, row 'GPT 4', ChemProt column; averaged over five runs",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ChemProt / BC5CDR / DDI13 / BioRED / GAD, standard public biomedical relation-extraction benchmarks"
+  },
+  "cost": {
+    "est_calls": 5000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Test-set sizes are not printed in the reviewed sections (published splits exist for ChemProt/BC5CDR/DDI13 but were not located in-text), so n_items and cost are approximate; results are averaged over five runs rather than three seeds. GAD is flagged by the authors as unreliable and excluded from this pick."
+}

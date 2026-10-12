@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7134290865",
+  "title": "Agentic retrieval-augmented reasoning reshapes collective reliability under model variability in radiology question answering",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Methods model list: 'GPT-4-Turbo (2024-04-09)'; Table 1: 'GPT-4-turbo 77 +- 3 [70, 83] 130 82 +- 3 [76, 88] 138 0.277' (zero-shot vs agentic accuracy over 169 questions)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Supplementary Note 5: zero-shot template shown abbreviated ('You are a highly knowledgeable medical expert... {question} {options}')",
+    "note": "Automated option matching with Mistral Large adjudication check; standardized template across 34 models."
+  },
+  "claim": {
+    "metric": "accuracy (zero-shot)",
+    "value": 77,
+    "n_items": 169,
+    "location": "Table 1, row GPT-4-turbo, Zero-shot Accuracy (130/169 correct)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Board-RadQA (public); https://github.com/minafarajiamiri/stability"
+  },
+  "cost": {
+    "est_calls": 507,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The prompt is elided in the supplement; the agentic number needs the LangGraph retrieval pipeline with GPT-4o-mini orchestration.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Supplementary Note 5 prints only the opening of the standardized zero-shot template ('You are a highly knowledgeable medical expert... {question} {options}'); take the full template and the option-matching scripts from the repository. Run gpt-4-turbo-2024-04-09 on the 169 pooled questions (Board-RadQA 65 + Benchmark-RadQA 104, RaR release github.com/sopajeta/RaR) and compare 130/169 (77%).",
+    "approximation": "Mistral Large adjudication replaced by exact option matching if not reproducible; temperature not stated.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/minafarajiamiri/stability",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

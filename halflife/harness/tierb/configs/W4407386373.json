@@ -1,0 +1,95 @@
+{
+  "wid": "W4407386373",
+  "title": "Is a Peeled Apple Still Red? Evaluating LLMs' Ability for Conceptual Combination with Property Type",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "max_tokens": 128
+    },
+    "params_source": "paper Appendix B.1 ('Nucleus sampling with T = 0.7 and p = 0.95 ... Model responses are generated using three different seeds'); max_tokens 128 is ours, the Base answer is a single {\"property\": \"...\"} dictionary",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 200,
+    "subset_rule": "paper-defined split: the 200 PROPERTY INDUCTION - EMERGENT test instances, i.e. the rows of ccpt_emergent.csv whose positional index is listed under 'pi_emergent' in the repository's test_index.json (Sec. 4: 'N=200 for PROPERTY INDUCTION -EMERGENT')",
+    "approximation": "The paper draws its three seeds as num_return_sequences=3 within one sampling call (experiment/run/gen_property.py); the runner issues three independent calls with the same body instead, which is equivalent for nucleus sampling but not byte-identical. The judge stage is re-run rather than reusing the released relevance columns."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/seokwon99/CCPT (branch master): ccpt_emergent.csv (2,500 emergent-property rows) filtered to the 200 indices in test_index.json['pi_emergent']",
+    "config_or_split": "PROPERTY INDUCTION - EMERGENT test split, 200 instances",
+    "filter": null,
+    "fields": {
+      "input": "combination",
+      "label": null,
+      "id": "id"
+    },
+    "license": "unknown (the repository carries no LICENSE file; the dataset is also mirrored as huggingface.co/datasets/seokwon99/CCPT_12.3K)",
+    "access_checked": true,
+    "size_mb": 1.0,
+    "file_url": "https://raw.githubusercontent.com/seokwon99/CCPT/master/ccpt_emergent.csv",
+    "fields_prose": {
+      "input": "combination (the noun phrase), with root (head noun) and modifier used only by the judge stage",
+      "label": "none - E is computed from judge relevance scores over the model's own generated property, not against a gold label",
+      "id": "positional index in ccpt_emergent.csv"
+    },
+    "local_files": {
+      "dir": "external/data/tierb_items/W4407386373/",
+      "files": [
+        "ccpt_emergent.csv (827,157 B)",
+        "test_index.json (7,211 B; pi_emergent 200 / pi_canceled 167 / npc_emergent 167)",
+        "results_pi_emergent_gpt-4o_naive.csv (150,957 B; the authors' own 3-seed run, used to verify the metric)",
+        "experiment_prompts.py, experiment_run_gen_property.py, experiment_eval_eval_property.py, experiment_utils.py"
+      ]
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "five small raw.githubusercontent.com files, ~1.1 MB in total; no archive and nothing over 50 MB"
+    }
+  },
+  "prompt": {
+    "system": "Conceptual combination is a task that combines two concepts, which can result in new properties. It involves a head noun, a modifier, and corresponding properties.\nHere's the definition of each component:\n1. Head Noun: The original concept in the conceptual combination.\n2. Modifier: The word that modify head noun to create a new conceptual combination.\n3. Component Property: A property inherent to individual concepts (head noun or modifier).\n4. Emergent Property: A new property that arises from the combination of the head noun and the modifier. This property does not exist in either concept individually (head noun or modifier) but emerge in conceptual combination.\n5. Canceled Property: A property that is inherent to individual concept (head noun or modifier) and negated due to the combination.",
+    "user_template": "Instructions:\n1. You are given a combination of concepts. Your task is to generate emergent property of a combination.\n2. Find a property that does not belong to any of the individual component in the combination but emerges when the words are combined.\n3. Use the previous examples to learn how to do this.\n4. Answer in dictionary format: {\"property\": \"{generated_property}\"}. Do not include other formatting.\n\n<Example 1>\n- Combination: Brown apple\n- Correct answer: {\"property\": \"unappetizing\"}\n\nAbove answer is correct because property \"unappetizing\" does not belong to either \"brown\" and \"apple\", but belong to brown apple\n\n<Example 2>\n- Combination: burned banknote\n- Wrong answer: {\"property\": \"useless\"}\n\nAbove answer is wrong because \"burned\" something can directly belong to property \"useless\". Ensure that the emergent property you generate does not directly describe any of the individual words but is a characteristic of the combination as a whole.\n\nThen let's begin:\n- Combination: {combination}\n- Answer:",
+    "placeholders": {
+      "generated_property": "literal:{generated_property}",
+      "combination": "items.combination"
+    },
+    "few_shot": "k=2 fixed examples printed in Table 13 (one correct, one wrong)",
+    "source_location": "Appendix B.2: Table 9 (system prompt) and Table 13 (Task instruction for Base Method in PROPERTY INDUCTION)",
+    "verbatim": "full for the printed text, with the paper's doubled braces unescaped: Tables 9/13 print {{\"property\": \"{{generated_property}}\"}} because they show Python format strings, so the single-brace form the model actually received is used. The trailing '- Combination: {combination}\\n- Answer:' block is not printed in Table 13 itself; it is the repository's input_format_pi plus baseline_instruction (experiment/prompts.py), which is what Table 13's 'Then let's begin:' leads into. System prompt follows the paper's Table 9 wording; the repository's task_instructions differs in item 2 ('The word that you will generate to create a new conceptual combination with the head noun').",
+    "placeholders_paper": {
+      "generated_property": "a literal placeholder inside the answer-format example, not filled in",
+      "combination": "items.combination (the noun phrase)"
+    }
+  },
+  "output": {
+    "parse": "hook (harness/tierb/hooks/W4407386373.py): the value of the \"property\" key of the dictionary in the reply",
+    "postprocess": "strip, lower-case; a reply with no parsable property is dropped from the item's mean (the authors' code retries such calls)",
+    "parse_paper": "ast.literal_eval of the reply and read the 'property' key (experiment/eval/eval_property.py)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Emergence score E, averaged over the 200 items and reported x100 (Eq. 2). Per item: R_{N,P} = relevance of the noun phrase to the generated property, R_{H,M,P} = max(R_{H,P}, R_{M,P}) over head noun and modifier, E = max(R_{N,P} - R_{H,M,P}, 0). Each relevance is (judge_rating - 1) / 9 for a rating in 1..10.",
+    "judge": "llm:gpt-4o-2024-05-13, prompt location Appendix B.2 Table 17 ('Prompt for LLM-as-a-Judge'), judge temperature 0.0 (experiment/utils.py get_relevance_score)",
+    "original_value": 40.8,
+    "original_location": "Table 3, block (1) PROPERTY INDUCTION - EMERGENT, row GPT-4o / Base, column E (with R_{H,M,P} 44.1 and R_{N,P} 83.3)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 2400,
+    "est_usd": 9.5,
+    "tier": "mid",
+    "est_usd_prepare": 2.57,
+    "prepare_note": "runner --prepare --dry-run 2026-09-19 gives $2.57 for the 600 generation calls; the judge stage adds 1,800 short calls (3 per response) at roughly $7 more"
+  },
+  "open_points": [
+    "CLAIM CELL: the triage record and data/tierb_triage/config_10.csv give the claim as 'Emergence score (E), Property Induction - Emergent, Base prompting = 36.3, n=200, Table 3'. 36.3 is not in Table 3; it is the GPT-4o/Base cell of **Table 4**, which is the *human* evaluation on a sub-sample of N=30 ('The relevance scores are calculated by the average scores of two annotators'), so it cannot be re-executed without recruiting annotators. The matching LLM-as-a-judge cell is Table 3, GPT-4o/Base, E = 40.8 +/- 0.7 over N=200, which this config targets. A human must confirm the substitution of the claim cell (40.8 / Table 3 / N=200) before the run.",
+    "The judge is gpt-4o-2024-05-13, i.e. the same still-callable snapshot that is under test; scoring the 2026 generations with the 2024 judge is the paper's own protocol but means judge drift and model drift cannot be separated."
+  ],
+  "notes": "Metric verified against the authors' released run before writing the config: results/pi_emergent_gpt-4o_naive.csv reproduces Table 3 exactly - per-seed E = 39.9 / 41.7 / 40.7 (mean 40.8), R_{N,P} = 82.8 / 83.7 / 83.4 (mean 83.3), R_{H,M,P} = 44.6 / 43.2 / 44.5 (mean 44.1); indiv_max == max(root, modifier) and E == max(combination - indiv_max, 0) hold for every row, and the relevance values are exactly k/9 for k in 0..9, confirming (rating - 1)/9. || The same dataset and prompts also cover PROPERTY INDUCTION - CANCELED (Table 13 variant, N=167) and NOUN PHRASE COMPLETION (Table 10, N=167), plus the CoT and Spread-Activation rows, so sibling configs are cheap once the claim cell is settled."
+}

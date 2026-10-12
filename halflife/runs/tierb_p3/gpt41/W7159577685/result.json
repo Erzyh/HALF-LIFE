@@ -1,0 +1,56 @@
+{
+  "wid": "W7159577685",
+  "title": "Breaking the Chains of Probability: Neutrosophic Logic as a New Framework for Epistemic Uncertainty in Large Language Models",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 1.36,
+  "original_location": "Table 2, row gpt-4-turbo, column Sum (T+I+F) (1.360 +/- 0.319)",
+  "reexecution": {
+    "mean_over_seeds": 1.3719999999999999,
+    "per_seed": {
+      "0": {
+        "value": 1.3719999999999999,
+        "n": 25,
+        "ci95": [
+          1.216,
+          1.5360000000000003
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7159577685",
+    "n_items": 25,
+    "n_requests": 25,
+    "seeds": 1,
+    "est_usd": 0.04,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 1.36,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 5
+  },
+  "approximation": "'tomorrow' in the future-contingency statement was anchored to 1 May 2026 in the paper; the item is kept verbatim (a fixed past date would change the stimulus).",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W7159577685"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 1.3719999999999999,
+    "delta": 0.011999999999999789,
+    "original_inside_ci95": true
+  }
+}

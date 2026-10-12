@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119967",
+  "title": "MAQA: Evaluating Uncertainty Quantification in LLMs Regarding Data Uncertainty",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-0125",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "\"For black-box LLMs, we use GPT-3.5-turbo-0125 (Ouyang et al., 2022) and GPT-4-turbo-0125 (Achiam et al., 2023)\" (Sec. 5); MAQA built with GPT-4-turbo"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A (dataset construction prompts), Appendix C (UQ prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "AUROC, verbalized confidence, GPT-4",
+    "value": 69.28,
+    "n_items": null,
+    "location": "Table 4, row GPT-4 Verbalize, first column",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MAQA (released)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "Both black-box models are dead 0125 previews."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036562",
+  "title": "Are Checklists Really Useful for Automatic Evaluation of Generative Tasks?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (related work); gpt-4o-2024-08-06 (used)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 2: '... question task by using GPT-4-Turbo and Claude-3-...' (prior work); Sec. 3: 'gpt-4o-2024-08-06 (GPT-4o)'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.8 (checklist-generation prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Checklist-evaluation results are for gpt-4o-2024-08-06 and open models",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-08-06"
+  },
+  "data": {
+    "public": "yes",
+    "source": "public evaluation sets (code link in footnote 1)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Mention only in related work."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7202365389",
+ "title": "Deployment Decision Reliability: A Generalizability-Theory Framework for Sizing Long-Horizon Agent Evaluations",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Sec 5.5: \"Per-family rank correlations between TheAgentCompany and AppWorld across the three shared model families (GPT-4o, GPT-4-Turbo, Llama 3) give Spearman rho=-0.50 (n=3).\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - no LLM is queried by these authors",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none run by these authors; this is a statistical (REML variance-decomposition) re-analysis of existing benchmark result data",
+  "value": null,
+  "n_items": null,
+  "location": "Sec 4 (\"we merged the canonical appworld download experiment-outputs bundle... with four additional agents pulled from the public leaderboard\"); Table 1",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "TheAgentCompany, tau2-bench, AppWorld, MAST/MAD (public agent-evaluation benchmarks); code/data loaders at github.com/vasundras/agent-reliability-engineering-lab"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is a measurement-methodology paper: it downloads and statistically re-analyzes already-published agent-benchmark results (including o4-mini at 78% accuracy on tau2-bench action_checks, Sec 5.3) rather than calling any LLM itself. Every model mention (GPT-4-Turbo, GPT-4.1, o4-mini, Claude 3.7 Sonnet) is role C for this paper's own methodology, even though the underlying source benchmarks are public and reproducible in their own right."
+}

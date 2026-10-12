@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7203473845",
+ "title": "Cascading Hazards, Contested Futures: Media Analysis of the 2025 Blatten Disaster in the Swiss Alps",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-5-nano-2025-08-07",
+  "resolved": "gpt-5-nano-2025-08-07",
+  "role": "S",
+  "evidence": "\"A structured output extraction approach...gpt-5-nano-2025-08-07, temperature=0...to extract information from the 2387 news contents\"; results of model evaluation are only in supplementary material."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (tagging-prompt principles and Pydantic schema described); no verbatim prompt text quoted",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none accessible (extraction-accuracy validation vs. the 10% human-annotated sample is stated to exist but is only in the supplementary material, not the provided text)",
+  "value": null,
+  "n_items": null,
+  "location": "Results (Sec \"General characteristics of the corpus\"): \"Results of the model evaluations are detailed in the supplementary material\"",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "2,052-2,387 German/French/Italian/English news articles about the Blatten disaster (copyrighted news text, not released)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Methodology is otherwise clean and fully described (structured-output schema, temperature=0, controlled vocabularies), but the actual extraction-accuracy number against the human-annotated validation subset is explicitly deferred to supplementary material not included in the extracted paper text."
+}

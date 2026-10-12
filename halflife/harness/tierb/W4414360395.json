@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4414360395",
+  "title": "Classifying and Tracking International Aid Contribution Towards SDGs",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4 Turbo uses in-context learning for inference\"; Table 4 row \"GPT-4 Turbo 0.7407 0.8049 / 0.7381 -\" (Precision/Recall/F1/AUROC)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 4 (\"Decision-Driven Attention\"), Table 3 (goal definitions used to build the prompt)",
+    "note": "Baseline uses in-context learning with the same 17 SDG goal definitions (Table 3) used elsewhere to build prompts; no literal prompt template is quoted for the GPT-4/GPT-4-Turbo baselines specifically."
+  },
+  "claim": {
+    "metric": "F1-score, multi-label SDG classification",
+    "value": 0.7381,
+    "n_items": null,
+    "location": "Table 4, row 'GPT-4 Turbo'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "OECD Creditor Reporting System aid-activity records (151,832 documents gathered by the authors; OECD CRS data is public, but the authors' specific curated/labeled split is not confirmed released)"
+  },
+  "cost": {
+    "est_calls": 113874,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Test set is a 1/4 split of 151,832 gathered documents (~37,958 items); exact test n is not restated next to Table 4, so n_items/cost are approximate (est_calls assumes ~37,958 x 3 seeds). GPT-4o-mini is used separately, non-comparably, inside the paper's own model's text encoder."
+}

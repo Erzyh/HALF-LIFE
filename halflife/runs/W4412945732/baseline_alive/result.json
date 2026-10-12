@@ -1,0 +1,644 @@
+{
+  "card": "W4412945732",
+  "run_dir": "runs\\W4412945732\\baseline_alive",
+  "n_calls": 5856,
+  "items": {
+    "n": 976,
+    "revision": "9a2ee7489bf7dc73c72510a02b99128a732226fe"
+  },
+  "original": {
+    "gpt-4o-2024-05-13": {
+      "en_gpt": 0.74,
+      "en_claude": 0.72,
+      "fr_gpt": 0.69,
+      "fr_claude": 0.71,
+      "overall": 0.715,
+      "en": 0.731,
+      "fr": 0.699
+    },
+    "gpt-4-turbo-2024-04-09": {
+      "en_gpt": 0.65,
+      "en_claude": 0.69,
+      "fr_gpt": 0.68,
+      "fr_claude": 0.68,
+      "overall": 0.674,
+      "en": 0.668,
+      "fr": 0.68
+    }
+  },
+  "models": {
+    "gpt-4o-2024-05-13": {
+      "model": "gpt-4o-2024-05-13",
+      "n_calls": 2928,
+      "seeds_seen": [
+        0,
+        1,
+        2
+      ],
+      "parse_modes": {
+        "strict": 2928
+      },
+      "finish_reasons": {
+        "length": 2928
+      },
+      "served": [
+        "gpt-4o-2024-05-13"
+      ],
+      "n_fingerprints": 6,
+      "cost_usd": 4.4663,
+      "cells": {
+        "en_gpt": {
+          "acc_median_seeds": 0.7576,
+          "median_seed": 1,
+          "k": 200,
+          "n": 264,
+          "acc_mean_seeds": 0.7576,
+          "acc_ci95": [
+            0.7058,
+            0.8068
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.7538,
+              "k": 199,
+              "n": 264
+            },
+            "1": {
+              "acc": 0.7576,
+              "k": 200,
+              "n": 264
+            },
+            "2": {
+              "acc": 0.7614,
+              "k": 201,
+              "n": 264
+            }
+          },
+          "n_items_with_reply": 264,
+          "n_items": 264,
+          "orig": 0.74,
+          "orig_ci95": [
+            0.6821,
+            0.7979
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 7.9422468765203e-67,
+          "verdict": "생존 (survived)"
+        },
+        "en_claude": {
+          "acc_median_seeds": 0.7232,
+          "median_seed": 1,
+          "k": 162,
+          "n": 224,
+          "acc_mean_seeds": 0.7232,
+          "acc_ci95": [
+            0.6637,
+            0.7812
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.7277,
+              "k": 163,
+              "n": 224
+            },
+            "1": {
+              "acc": 0.7232,
+              "k": 162,
+              "n": 224
+            },
+            "2": {
+              "acc": 0.7188,
+              "k": 161,
+              "n": 224
+            }
+          },
+          "n_items_with_reply": 224,
+          "n_items": 224,
+          "orig": 0.72,
+          "orig_ci95": [
+            0.6562,
+            0.7838
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 8.690287279732161e-50,
+          "verdict": "생존 (survived)"
+        },
+        "fr_gpt": {
+          "acc_median_seeds": 0.7083,
+          "median_seed": 1,
+          "k": 187,
+          "n": 264,
+          "acc_mean_seeds": 0.7045,
+          "acc_ci95": [
+            0.649,
+            0.7551
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.697,
+              "k": 184,
+              "n": 264
+            },
+            "1": {
+              "acc": 0.7083,
+              "k": 187,
+              "n": 264
+            },
+            "2": {
+              "acc": 0.7083,
+              "k": 187,
+              "n": 264
+            }
+          },
+          "n_items_with_reply": 264,
+          "n_items": 264,
+          "orig": 0.69,
+          "orig_ci95": [
+            0.6292,
+            0.7508
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 6.300033302326901e-55,
+          "verdict": "생존 (survived)"
+        },
+        "fr_claude": {
+          "acc_median_seeds": 0.7188,
+          "median_seed": 1,
+          "k": 161,
+          "n": 224,
+          "acc_mean_seeds": 0.7202,
+          "acc_ci95": [
+            0.6592,
+            0.7769
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.7232,
+              "k": 162,
+              "n": 224
+            },
+            "1": {
+              "acc": 0.7188,
+              "k": 161,
+              "n": 224
+            },
+            "2": {
+              "acc": 0.7188,
+              "k": 161,
+              "n": 224
+            }
+          },
+          "n_items_with_reply": 224,
+          "n_items": 224,
+          "orig": 0.71,
+          "orig_ci95": [
+            0.6456,
+            0.7744
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 6.7256834557270394e-49,
+          "verdict": "생존 (survived)"
+        }
+      },
+      "rows": {
+        "overall": {
+          "acc_median_seeds": 0.7275,
+          "median_seed": 1,
+          "k": 710,
+          "n": 976,
+          "acc_mean_seeds": 0.7268,
+          "acc_ci95": [
+            0.7001,
+            0.7527
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.7254,
+              "k": 708,
+              "n": 976
+            },
+            "1": {
+              "acc": 0.7275,
+              "k": 710,
+              "n": 976
+            },
+            "2": {
+              "acc": 0.7275,
+              "k": 710,
+              "n": 976
+            }
+          },
+          "n_items_with_reply": 976,
+          "n_items": 976,
+          "orig_derived": 0.715,
+          "orig_ci95_derived": [
+            0.6817,
+            0.7483
+          ],
+          "rerun_inside_orig_ci": true
+        },
+        "en": {
+          "acc_median_seeds": 0.7418,
+          "median_seed": 0,
+          "k": 362,
+          "n": 488,
+          "acc_mean_seeds": 0.7418,
+          "acc_ci95": [
+            0.7035,
+            0.7801
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.7418,
+              "k": 362,
+              "n": 488
+            },
+            "1": {
+              "acc": 0.7418,
+              "k": 362,
+              "n": 488
+            },
+            "2": {
+              "acc": 0.7418,
+              "k": 362,
+              "n": 488
+            }
+          },
+          "n_items_with_reply": 488,
+          "n_items": 488,
+          "orig_derived": 0.731,
+          "orig_ci95_derived": [
+            0.6867,
+            0.7753
+          ],
+          "rerun_inside_orig_ci": true
+        },
+        "fr": {
+          "acc_median_seeds": 0.7131,
+          "median_seed": 1,
+          "k": 348,
+          "n": 488,
+          "acc_mean_seeds": 0.7117,
+          "acc_ci95": [
+            0.6701,
+            0.7528
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.709,
+              "k": 346,
+              "n": 488
+            },
+            "1": {
+              "acc": 0.7131,
+              "k": 348,
+              "n": 488
+            },
+            "2": {
+              "acc": 0.7131,
+              "k": 348,
+              "n": 488
+            }
+          },
+          "n_items_with_reply": 488,
+          "n_items": 488,
+          "orig_derived": 0.699,
+          "orig_ci95_derived": [
+            0.6533,
+            0.7447
+          ],
+          "rerun_inside_orig_ci": true
+        }
+      },
+      "unparsable_examples": [],
+      "lenient_would_recover": 0,
+      "central_contrast": {
+        "description": "fictional-organ accuracy vs chance 0.25 and vs the physicians' 0.27 (paper 4.2.1); the paper has no original-vs-modified arm",
+        "acc_overall": 0.7275,
+        "p_above_chance": 1.288242186645374e-214,
+        "p_above_physicians": 5.312155747054451e-194,
+        "acc_en": 0.7418,
+        "p_en_above_physicians": 4.538226830321178e-104,
+        "en_minus_fr": 0.0287,
+        "orig_en_minus_fr": 0.032,
+        "direction_holds": true
+      }
+    },
+    "gpt-4-turbo-2024-04-09": {
+      "model": "gpt-4-turbo-2024-04-09",
+      "n_calls": 2928,
+      "seeds_seen": [
+        0,
+        1,
+        2
+      ],
+      "parse_modes": {
+        "strict": 2928
+      },
+      "finish_reasons": {
+        "length": 2928
+      },
+      "served": [
+        "gpt-4-turbo-2024-04-09"
+      ],
+      "n_fingerprints": 13,
+      "cost_usd": 9.6927,
+      "cells": {
+        "en_gpt": {
+          "acc_median_seeds": 0.6591,
+          "median_seed": 2,
+          "k": 174,
+          "n": 264,
+          "acc_mean_seeds": 0.6591,
+          "acc_ci95": [
+            0.6048,
+            0.7172
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.6629,
+              "k": 175,
+              "n": 264
+            },
+            "1": {
+              "acc": 0.6553,
+              "k": 173,
+              "n": 264
+            },
+            "2": {
+              "acc": 0.6591,
+              "k": 174,
+              "n": 264
+            }
+          },
+          "n_items_with_reply": 264,
+          "n_items": 264,
+          "orig": 0.65,
+          "orig_ci95": [
+            0.5875,
+            0.7125
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 2.2820353513616543e-44,
+          "verdict": "생존 (survived)"
+        },
+        "en_claude": {
+          "acc_median_seeds": 0.692,
+          "median_seed": 1,
+          "k": 155,
+          "n": 224,
+          "acc_mean_seeds": 0.6905,
+          "acc_ci95": [
+            0.6279,
+            0.7485
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.6875,
+              "k": 154,
+              "n": 224
+            },
+            "1": {
+              "acc": 0.692,
+              "k": 155,
+              "n": 224
+            },
+            "2": {
+              "acc": 0.692,
+              "k": 155,
+              "n": 224
+            }
+          },
+          "n_items_with_reply": 224,
+          "n_items": 224,
+          "orig": 0.69,
+          "orig_ci95": [
+            0.6244,
+            0.7556
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 9.190464879653786e-44,
+          "verdict": "생존 (survived)"
+        },
+        "fr_gpt": {
+          "acc_median_seeds": 0.6591,
+          "median_seed": 2,
+          "k": 174,
+          "n": 264,
+          "acc_mean_seeds": 0.6578,
+          "acc_ci95": [
+            0.596,
+            0.7121
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.6515,
+              "k": 172,
+              "n": 264
+            },
+            "1": {
+              "acc": 0.6629,
+              "k": 175,
+              "n": 264
+            },
+            "2": {
+              "acc": 0.6591,
+              "k": 174,
+              "n": 264
+            }
+          },
+          "n_items_with_reply": 264,
+          "n_items": 264,
+          "orig": 0.68,
+          "orig_ci95": [
+            0.6187,
+            0.7413
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 2.2820353513616543e-44,
+          "verdict": "생존 (survived)"
+        },
+        "fr_claude": {
+          "acc_median_seeds": 0.6741,
+          "median_seed": 0,
+          "k": 151,
+          "n": 224,
+          "acc_mean_seeds": 0.6771,
+          "acc_ci95": [
+            0.6131,
+            0.7336
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.6741,
+              "k": 151,
+              "n": 224
+            },
+            "1": {
+              "acc": 0.6741,
+              "k": 151,
+              "n": 224
+            },
+            "2": {
+              "acc": 0.683,
+              "k": 153,
+              "n": 224
+            }
+          },
+          "n_items_with_reply": 224,
+          "n_items": 224,
+          "orig": 0.68,
+          "orig_ci95": [
+            0.6139,
+            0.7461
+          ],
+          "rerun_inside_orig_ci": true,
+          "orig_inside_rerun_ci": true,
+          "p_above_chance": 1.6056247682017986e-40,
+          "verdict": "생존 (survived)"
+        }
+      },
+      "rows": {
+        "overall": {
+          "acc_median_seeds": 0.6701,
+          "median_seed": 1,
+          "k": 654,
+          "n": 976,
+          "acc_mean_seeds": 0.6701,
+          "acc_ci95": [
+            0.6417,
+            0.6998
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.668,
+              "k": 652,
+              "n": 976
+            },
+            "1": {
+              "acc": 0.6701,
+              "k": 654,
+              "n": 976
+            },
+            "2": {
+              "acc": 0.6721,
+              "k": 656,
+              "n": 976
+            }
+          },
+          "n_items_with_reply": 976,
+          "n_items": 976,
+          "orig_derived": 0.674,
+          "orig_ci95_derived": [
+            0.6396,
+            0.7084
+          ],
+          "rerun_inside_orig_ci": true
+        },
+        "en": {
+          "acc_median_seeds": 0.6742,
+          "median_seed": 0,
+          "k": 329,
+          "n": 488,
+          "acc_mean_seeds": 0.6735,
+          "acc_ci95": [
+            0.6332,
+            0.7145
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.6742,
+              "k": 329,
+              "n": 488
+            },
+            "1": {
+              "acc": 0.6721,
+              "k": 328,
+              "n": 488
+            },
+            "2": {
+              "acc": 0.6742,
+              "k": 329,
+              "n": 488
+            }
+          },
+          "n_items_with_reply": 488,
+          "n_items": 488,
+          "orig_derived": 0.668,
+          "orig_ci95_derived": [
+            0.6212,
+            0.7148
+          ],
+          "rerun_inside_orig_ci": true
+        },
+        "fr": {
+          "acc_median_seeds": 0.668,
+          "median_seed": 1,
+          "k": 326,
+          "n": 488,
+          "acc_mean_seeds": 0.6667,
+          "acc_ci95": [
+            0.6263,
+            0.7104
+          ],
+          "per_seed": {
+            "0": {
+              "acc": 0.6619,
+              "k": 323,
+              "n": 488
+            },
+            "1": {
+              "acc": 0.668,
+              "k": 326,
+              "n": 488
+            },
+            "2": {
+              "acc": 0.6701,
+              "k": 327,
+              "n": 488
+            }
+          },
+          "n_items_with_reply": 488,
+          "n_items": 488,
+          "orig_derived": 0.68,
+          "orig_ci95_derived": [
+            0.6336,
+            0.7264
+          ],
+          "rerun_inside_orig_ci": true
+        }
+      },
+      "unparsable_examples": [],
+      "lenient_would_recover": 0,
+      "central_contrast": {
+        "description": "fictional-organ accuracy vs chance 0.25 and vs the physicians' 0.27 (paper 4.2.1); the paper has no original-vs-modified arm",
+        "acc_overall": 0.6701,
+        "p_above_chance": 2.086949813363903e-167,
+        "p_above_physicians": 2.5602920976524794e-149,
+        "acc_en": 0.6742,
+        "p_en_above_physicians": 4.2354736665956275e-77,
+        "en_minus_fr": 0.0062,
+        "orig_en_minus_fr": -0.012,
+        "direction_holds": true
+      }
+    }
+  },
+  "cost_usd": 14.159,
+  "gpt4o_minus_gpt4turbo": {
+    "n_items": 976,
+    "diff": 0.0567,
+    "diff_ci95": [
+      0.03,
+      0.0847
+    ],
+    "orig_diff_derived": 0.041
+  },
+  "judgment": "생존 (survived)"
+}

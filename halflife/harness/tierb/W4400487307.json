@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4400487307",
+ "title": "PAS: Data-Efficient Plug-and-Play Prompt Augmentation System",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"GPT-4-turbo-2024-04-09 - 76.60 46.12 55.02 59.25 -\" (no prompt augmentation, baseline row); \"...PAS 76.90 65.31 56.54 66.62 +7.37\" (with the authors' PAS method)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method section (PAS/BPO prompt-augmentation approach described); dynamically-generated optimized prompts are the paper's core contribution",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Average score, GPT-4-turbo-2024-04-09 with no prompt optimization (baseline)",
+  "value": 59.25,
+  "n_items": null,
+  "location": "Results table, row GPT-4-turbo-2024-04-09 (baseline, no BPO/PAS)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Benchmark identity and scoring methodology for the 4-column results table not confirmed in the excerpt reviewed"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4-turbo-2024-04-09 is tested directly as a base model under three prompting conditions (none / BPO / PAS) across several tables (e.g. also a LLaMA-2-7b-Instruct comparison and a 'wo prompt selection' / 'wo regeneration' ablation). The specific benchmark(s) and n behind the 4 score columns, and whether scoring involves an LLM judge, were not confirmed in the text reviewed — the soft gap behind 'maybe'."
+}

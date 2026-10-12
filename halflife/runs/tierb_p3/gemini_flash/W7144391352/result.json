@@ -1,0 +1,56 @@
+{
+  "wid": "W7144391352",
+  "title": "CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Korean Law",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 0.754,
+  "original_location": "Table 1, row GPT-5* (l), Type-ISR Avg (Suff. 0.973, Insuff. 0.756, Part. 0.651)",
+  "reexecution": {
+    "mean_over_seeds": 0.7168458781362007,
+    "per_seed": {
+      "0": {
+        "value": 0.7168458781362007,
+        "n": 279,
+        "ci95": [
+          0.6630824372759857,
+          0.7671146953405014
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7144391352",
+    "n_items": 279,
+    "n_requests": 279,
+    "seeds": 1,
+    "est_usd": 0.09,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 0.754,
+    "cap_usd": 2.1
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "direct OpenAI API instead of OpenRouter; GPT-5 is not deterministic under a seed; the Korean prompt assembly (instruction, question, options) follows the repository items and the Appendix A.2.2 layout",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-5-2025-08-07",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W7144391352"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7168458781362007,
+    "delta": -0.037154121863799294,
+    "original_inside_ci95": true
+  }
+}

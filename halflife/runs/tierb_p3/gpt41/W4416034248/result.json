@@ -1,0 +1,56 @@
+{
+  "wid": "W4416034248",
+  "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of Planning Capabilities",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 17.65,
+  "original_location": "Table 2, row GPT-4-turbo, column Math (Korean 10.78%, English 10.78%)",
+  "reexecution": {
+    "mean_over_seeds": 0.28921568627450983,
+    "per_seed": {
+      "0": {
+        "value": 0.28921568627450983,
+        "n": 204,
+        "ci95": [
+          0.23039215686274508,
+          0.34816176470588167
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416034248",
+    "n_items": 204,
+    "n_requests": 204,
+    "seeds": 1,
+    "est_usd": 0.82,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 17.65,
+    "cap_usd": 1.5
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 43
+  },
+  "approximation": "Figure 1 is a few-shot template and Sec. 3.1 says the examples were 'randomly selected examples from the dataset'; Table 2 is the 1-shot setting (its Korean column 10.78% equals the 1-shot column of Table 12), but the drawn example is not printed, so each item gets one demonstration drawn from the other 203 scenarios with the harness RNG (seed 20260907). Appendix F.1 prints the visit/fly regular expressions in English only while the Math split's gold plans are Korean, so the hook applies the same two sentence shapes in Korean as well; a reply written in English is therefore scored wrong against the Korean gold, as in the paper's own script.",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4416034248"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 28.921568627450984,
+    "delta": 11.271568627450986,
+    "original_inside_ci95": false
+  }
+}

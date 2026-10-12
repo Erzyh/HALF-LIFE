@@ -1,0 +1,56 @@
+{
+  "wid": "W4416035547",
+  "title": "Agent-to-Agent Theory of Mind: Testing Interlocutor Awareness among Large Language Models",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 0.64,
+  "original_location": "Figure 11(a), Math accuracy heatmap, row o4-mini (identifier), column o4-mini (target) = 0.64 (read from the rendered figure on 2026-09-21; the earlier 0.93 in this config was the XSum/UltraChat cell of the same row)",
+  "reexecution": {
+    "mean_over_seeds": 0.89,
+    "per_seed": {
+      "0": {
+        "value": 0.89,
+        "n": 100,
+        "ci95": [
+          0.83,
+          0.95
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416035547",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 0.16,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 0.64,
+    "cap_usd": 0.92
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "two calls per item with the same model: the target solves the problem (stage 1), the identifier classifies the solution (judge stage); the repository code uses MATH-500 (all levels) while Appendix B says level-5 problems - the code's exact 100 items are used; target prompt = Figure 1 wording joined as in the repository (template, blank line, problem; the repository's own wording is 'Solve the following mathematical problem step by step.'); the repository config caps max_tokens at 1024 while Appendix C.1 states provider defaults - the config keeps 16384 (max_completion_tokens)",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "o4-mini-2025-04-16",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4416035547"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.89,
+    "delta": 0.25,
+    "original_inside_ci95": false
+  }
+}

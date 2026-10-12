@@ -1,0 +1,180 @@
+{
+  "card_id": "W4403345251",
+  "openalex_id": "https://openalex.org/W4403345251",
+  "title": "ING-VP: MLLMs cannot Play Easy Vision-based Games Yet",
+  "doi": "10.48550/arxiv.2410.06555",
+  "paper": {
+    "authors": "Haoran Zhang, Hangyu Guo, Shuyue Guo, Meng Cao, Wenhao Huang, Jiaheng Liu, Ge Zhang",
+    "year": 2024,
+    "venue": "arXiv 2410.06555 (Oct 2024), preprint",
+    "repo": "https://github.com/Thisisus7/ING-VP",
+    "repo_commit": "92cc2a5f4aa4d904283311b3963b847b14864cde (HEAD 2025-02-24; shallow clone external/repos/W4403345251/Thisisus7__ING-VP)",
+    "repo_license": "none - no LICENSE file at the repository root (GitHub reports no licence), so the code is all-rights-reserved by default",
+    "other_artifacts": "The repository carries the full benchmark inline: data/<game>/levels_50.{txt,jsonl} (50 levels each for maze, sokoban, n_queens, n_puzzle, hanoi, sudoku = 300 levels), data/<game>/LevelImages/level_*.png, the game engines under game/, reference solvers under src/solver/, and all 36 prompts under prompts/. outputs/ is gitignored, so no model outputs are released. Upstream level sources: Sokoban from David W. Skinner's Sasquatch sets, Sudoku from a Kaggle '4 million sudoku puzzles' dataset."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The models are the object of study and every number is a deterministic function of their outputs plus a rule-based game engine - no human raters and no LLM judge. GPT-4 Turbo is one of seven closed-source arms; it is the only GPT-4-class arm in the table with a still-callable snapshot, and uniquely among the closed models it was evaluated in the text-only settings only (all three image-text cells are 'null'), which puts it inside our text-only runner."
+  },
+  "claim": {
+    "statement": "GPT-4 Turbo solves almost none of ING-VP's 300 easy game levels in the text-only settings: 2.30% accuracy in multi-step without history, 2.30% with history and 1.00% in one-step, averaging 1.87% (Table 1; per-game breakdown in Table 3, where every point comes from maze at 14.00% in the two multi-step settings and from sokoban/n_queens/n_puzzle at 2.00% each in one-step, with hanoi and sudoku at 0.00% throughout) - below the benchmark's best model, Claude-3.5 Sonnet at 3.37%, and consistent with the paper's thesis that current MLLMs lack spatial imagination and multi-step planning.",
+    "claim_type": "capability_limit",
+    "metric": "Accuracy = share of the 50 levels per game solved within the step budget (MAX_STEPS = 50 for multi-step; a single action sequence for one-step), averaged over the six games; the game engine under game/<name>/ decides completion. Secondary metrics in the same rows: completion degree (Comp.) and action efficiency (Eff.), both produced by src/multi_step/score.py, src/one_step/score.py and src/summary.py.",
+    "original_values": {
+      "gpt-4-turbo_text_only": {
+        "multi_step_without_history": {
+          "acc": 2.3,
+          "comp": 4.8,
+          "eff": 12.2,
+          "per_game_acc": [
+            14.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "multi_step_with_history": {
+          "acc": 2.3,
+          "comp": 4.8,
+          "eff": 12.3,
+          "per_game_acc": [
+            14.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "one_step": {
+          "acc": 1.0,
+          "comp": 9.1,
+          "eff": 41.0,
+          "per_game_acc": [
+            0.0,
+            2.0,
+            2.0,
+            2.0,
+            0.0,
+            0.0
+          ]
+        },
+        "average": {
+          "acc": 1.87,
+          "comp": 6.23,
+          "eff": 21.83
+        },
+        "image_text_cells": "null (not evaluated)"
+      },
+      "comparators": {
+        "Claude-3.5 Sonnet (best overall)": 3.37,
+        "GPT-4o": 2.75,
+        "Gemini-1.5-Pro": 2.72,
+        "GPT-4o mini": 1.05,
+        "GPT-4V": 0.32,
+        "Claude-3 Opus": 1.87,
+        "best open source (InternVL2-Llama3-76B)": 2.5
+      },
+      "per_game_column_order": [
+        "maze",
+        "sokoban",
+        "n_queens",
+        "n_puzzle",
+        "hanoi",
+        "sudoku"
+      ],
+      "n_levels": 300
+    },
+    "original_source": "Paper Table 1 (Main results, row 'GPT-4 Turbo'), Table 3 in Appendix C ('Results for all of the MLLMs', per-game breakdown). Column order taken from src/summary.py's tasks list."
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+    "model_usage_verified": "partial - Table 2 lists 'GPT-4 Turbo' with only the generic platform.openai.com model-page link, and src/model.py asks a third-party gateway (OpenAI client with base_url redacted to 'xxxx') for the string 'gpt-4-turbo-128k', which is not an OpenAI model id. The date rule applies to the paper's undated 'GPT-4 Turbo' in an October 2024 preprint and resolves it to gpt-4-turbo-2024-04-09; the '128k' string is a gateway alias and leaves residual doubt (128k context was the headline of the retired gpt-4-1106-preview).",
+    "endpoint": "Original: an unnamed OpenAI-compatible proxy (src/model.py APIInferencer.load_client with api_key='xxxx', base_url='xxxx'). Re-run: POST https://api.openai.com/v1/chat/completions with the same message shape.",
+    "prompt_source": "prompts/multi_step_text/prt_<game>_{system_prompt,instruction}.txt for the two multi-step settings (with prt_<game>_text_history.txt under prompts/multi_step_history_text/), prompts/one_step_text/prt_<game>_os_text.txt for one-step; all 36 prompts are also printed in Appendix B.",
+    "messages": [
+      {
+        "role": "system",
+        "content": "multi-step only: prt_<game>_system_prompt.txt, e.g. maze 'You are a player of Maze game. And you will be given a text matrix ... Use JSON as your output format: {\"output\": \"L\"} ... Output only one move at a time, wait for confirmation before proceeding to the next step.'"
+      },
+      {
+        "role": "user",
+        "content": "multi-step: prt_<game>_instruction.txt with {text_representation_path} replaced by the board; one-step: prt_<game>_os_text.txt with the board, no system message (src/one_step/infer.py passes '')"
+      }
+    ],
+    "params": {
+      "temperature": 0,
+      "temperature_source": "run.sh passes --temperature 0 for all four multi-step modes; src/one_step/infer.py hard-codes 0 in inferencer.infer('', prompt, image_path, 0). The paper itself never states a decoding setting.",
+      "max_tokens": "not set",
+      "top_p": "not set",
+      "seed": "not set",
+      "max_steps": 50,
+      "levels": "START_LEVEL 1 to END_LEVEL 50 per game"
+    },
+    "n_items": 300,
+    "samples_per_item": 1,
+    "calls_per_item": "one-step 1; multi-step up to 51 (while step <= MAX_STEPS and not solved), and with ~2% solve rates almost every level runs the full budget",
+    "evaluation": "Fully automatic and offline: the per-game engines game/<name>/<name>_ms.py apply the parsed JSON action and report validity, then src/multi_step/score.py, src/one_step/score.py, the matching completion.py files and src/summary.py emit acc/comp/eff CSVs into outputs/*/final and outputs/summary. Actions are extracted from the reply with a regular expression looking for the JSON {\"output\": ...} form.",
+    "environment": "Python with openai==1.51.2, Pillow, pygame (needed only for the image settings); no GPU for the GPT arm. Two small edits are required before anything can run: set a real api_key/base_url in src/model.py, and add 'gpt4turbo' to the --model-name argparse choices (the factory dict knows the key but argparse rejects it)."
+  },
+  "artifacts": {
+    "prompts_path": "prompts/ (36 files: one_step_{image,text}, multi_step_{image,text}, multi_step_history_{image,text})",
+    "data_path": "data/<game>/levels_50.txt (maze, sokoban) and levels_50.jsonl (n_queens, n_puzzle, hanoi, sudoku), 50 levels each, in-repo; data/<game>/LevelImages/*.png for the image settings (not needed here)",
+    "eval_path": "src/multi_step/score.py, src/multi_step/completion.py, src/one_step/score.py, src/one_step/completion.py, src/summary.py; game engines under game/; reference solvers under src/solver/",
+    "data_public": true,
+    "data_license": "unstated - the repository has no LICENSE; the Sokoban levels come from David W. Skinner's published sets and the Sudoku levels from a Kaggle dataset, both with their own terms",
+    "redistributable": "no - treat as fetch-at-run-time; the levels ship inside an unlicensed repository and two games' levels are derived from third-party puzzle collections",
+    "notes": "outputs/ is gitignored, so no per-level GPT-4 Turbo transcripts or per-step states were released: drift can only be measured against the published acc/comp/eff numbers. The benchmark is self-contained otherwise - engines, solvers, prompts and levels are all present and the text settings need no images."
+  },
+  "blockers": [
+    "Cost: the full text-only protocol is ~30,300 calls per seed (300 levels x up to 50 steps x 2 multi-step settings, plus 300 one-step calls), about $236 per seed and ~$708 at 3 seeds. The card is only cheap if it is scoped down (see budget and user_checks).",
+    "Two live bugs in the released multi-step text path that shaped the published numbers and that a faithful re-run would reproduce. (1) Frozen board: process_level() reassigns `prompt = add_level_to_prompt(prompt, ...)` inside the step loop, so after step 1 the {text_representation_path} placeholder is gone and the .replace() is a no-op - the model is shown the initial board for all 50 steps while the engine advances the real state. (2) Empty history: add_conversation_history() reads outputs/multi_step/history/models/... but config.py writes text history to outputs/multi_step/text_only/history, so the file never exists and {conversation_history_path} is replaced by an empty string. Together these make the 'multi-step with history' and 'without history' text conditions the same prompt, which matches the identical published accuracies (2.30 / 2.30, per-game 14.00 0 0 0 0 0 in both) for GPT-4 Turbo and for Claude-3 Opus.",
+    "Model-identifier confusion in src/model.py: two classes are both named GPT4TurboInference, and the second definition - the one Python keeps, and the one the factory dict binds to the key 'gpt4turbo' - asks the gateway for 'claude3_opus'. Running the released code unmodified with --model-name gpt4turbo would therefore query Claude 3 Opus, which is also the row whose accuracies match GPT-4 Turbo's exactly (1.87 average in both). The class must be repaired before the GPT arm can be run at all.",
+    "Snapshot is a gateway alias: the code names 'gpt-4-turbo-128k' against a redacted base_url, not an OpenAI snapshot, so the mapping to gpt-4-turbo-2024-04-09 rests on the date rule rather than on the code.",
+    "APIInferencer.model_chat retries by unbounded recursion on any exception and get_correct_response recurses whenever the reply is falsy - with a dead or rate-limited endpoint this is an infinite loop and a budget hazard; it needs a bounded-retry wrapper before any paid run."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4-turbo-2024-04-09",
+      "purpose": "live baseline (P0): the three text-only settings of the GPT-4 Turbo row"
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for gpt-4-turbo)",
+      "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+    ],
+    "dead_comparators_not_runnable": [
+      "GPT-4V (gpt-4-vision-preview, retired)",
+      "gpt-4o-2024-05-13 and gpt-4o-mini-2024-07-18 are alive but were run only in the image-text settings plus text-only, i.e. they would need the multimodal path for a full row",
+      "claude-3-opus-20240229 (retired)"
+    ]
+  },
+  "budget": {
+    "est_calls": 90900,
+    "est_tokens_in": 66400000,
+    "est_tokens_out": 1460000,
+    "est_cost_usd": 708,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      }
+    },
+    "assumptions": "Full text-only protocol at 3 seeds. Prompt sizes measured from the repository: multi-step system+instruction+board averages 1,194 characters (~340 tokens) across the six games, one-step 987 characters (~280 tokens). Multi-step without history: 15,000 calls/seed at ~360 in / ~15 out = $61/seed. Multi-step with history: the accumulated 'step N: {output}' log adds ~750 tokens on average by the end of a 50-step level, so ~1,110 in / ~15 out = $173/seed (this is the cost the empty-history bug does NOT actually incur - if the bug is reproduced faithfully the history arm costs the same $61 as the base arm, bringing a seed to ~$124 and three seeds to ~$372). One-step: 300 calls/seed at ~300 in / ~120 out = $2/seed. Cheap reduced scopes: one-step text only = $6 at 3 seeds; one-step plus multi-step-without-history = $190 at 3 seeds; single seed of everything = $236 (or $126 with the bug reproduced)."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary number: GPT-4 Turbo's text-only average accuracy over the 300 levels and three settings (published 1.87%). Survival = the re-run average (median of 3 seeds) stays inside the bootstrap 95% CI over levels of the original (n=300 per setting; at ~2% the CI is roughly +/-1.7 pp) AND the capability_limit direction holds, i.e. accuracy stays in the low single digits and hanoi/sudoku stay at or near 0. Partial = the level moves outside the CI but accuracy remains below 10%. Death = the model now solves a substantial share of levels (say >20% overall), which would retire the paper's 'MLLMs cannot play easy vision-based games yet' claim for this arm.",
+    "notes": "Because the two multi-step text conditions are the same prompt in the released code, treat them as one condition with two draws rather than as a history ablation, and say so. Per-game structure is the more informative signal than the average: the published row's entire multi-step score comes from maze (14%), so a survival check should confirm that maze is still the only game with non-zero multi-step accuracy. If the frozen-board and empty-history bugs are repaired instead of reproduced, the run measures a different protocol and must be logged as a variant, not as a replication."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Scope and budget: full text-only protocol at 3 seeds is ~$708 (~$372 if the empty-history bug is reproduced faithfully, since the history arm then costs the same as the base arm). Cheaper options: one-step only (~$6), one-step + multi-step-without-history (~$190), or a single seed of everything (~$236). Which?",
+    "Bug policy: reproduce the frozen-board and empty-history bugs verbatim - which is what the published numbers embody - or also run a repaired variant so the 'with history' condition actually has history? A repaired variant is a second, separately-labelled run, not a replication.",
+    "Snapshot: accept gpt-4-turbo-2024-04-09 by the date rule, given that the code asks a redacted gateway for 'gpt-4-turbo-128k' and the paper cites only the generic model page?",
+    "Code repairs needed before any paid run: fix the duplicated GPT4TurboInference class (the surviving one calls claude3_opus), add 'gpt4turbo' to the argparse choices, and replace the unbounded recursive retry with a bounded one. Confirm these three edits are acceptable as harness-level fixes rather than protocol changes."
+  ],
+  "domain_notes": "This is the rare vision benchmark that fits a text-only runner: the paper evaluated GPT-4 Turbo in the text-only settings only (its three image-text cells in Table 1 are 'null'), so the levels arrive as ASCII matrices and JSON position lists rather than as PNGs and no multimodal path is needed. Everything else is in the repository - engines, solvers, prompts, 300 levels - which makes this a repository-based re-execution rather than a prompt-level one; the paper is not in the Tier B set. The interesting reproducibility finding is that the two multi-step text conditions are, in the released code, the same experiment run twice, and the published table shows exactly the signature of that: identical accuracies for the with- and without-history rows of both GPT-4 Turbo and Claude-3 Opus."
+}

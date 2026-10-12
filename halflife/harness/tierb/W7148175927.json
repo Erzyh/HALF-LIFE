@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7148175927",
+  "title": "Learning to Predict Future-Aligned Research Proposals with Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1 nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "C",
+    "evidence": "Only in the reference list: 'OpenAI. 2025a. Introducing gpt-4.1 in the api ... GPT-4.1, GPT-4.1 mini, and GPT-4.1 nano.'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 5 (system prompts for proposal generation), Figure 8, Appendix E.7 (LLM judge prompt)",
+    "note": "Prompts are for open-weight subject models and the GPT-4.1-mini judge."
+  },
+  "claim": {
+    "metric": "Future Alignment Score (FAS)",
+    "value": null,
+    "n_items": null,
+    "location": "Table 1 (subjects are Qwen2.5/Llama-3.1; no number for gpt-4.1-nano)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4.1-mini"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Paper corpus with citation graph (4,084 papers); release not verified"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-4.1-nano is cited only. GPT-4.1-mini (judge) and GPT-4.1 (paper conversion) are auxiliary models; subjects are open-weight models."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7167933623",
+  "title": "Assessment of Zero-Shot Large Language Model (LLM) Assisted Clinical Trial Matching Processes: A Metastatic Cancer Use Case",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Step 3: 'The patient narrative was then inserted into the prompt of the underlying LLM (GPT-4 Turbo)'; Table 2: 207 trials, 177 concordant with human assessment"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix I (zero-shot prompt for GPT-4 Turbo)",
+    "note": "Snapshot not stated; resolved by the post-2024-07 alias rule."
+  },
+  "claim": {
+    "metric": "accuracy vs human adjudication, trial eligibility",
+    "value": 85.5,
+    "n_items": 207,
+    "location": "Results text and Table 2 (concordance matrix)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "Single patient narrative printed with redactions; 207 ClinicalTrials.gov trials not enumerated; human labels not released"
+  },
+  "cost": {
+    "est_calls": 621,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Custom UI wraps the API (Appendix II)."
+}

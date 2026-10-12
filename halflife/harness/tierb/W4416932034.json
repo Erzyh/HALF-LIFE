@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4416932034",
+ "title": "Development and Benchmarking of a Blended Human-AI Qualitative Research Assistant",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o3-2025-04-16",
+  "resolved": "o3-2025-04-16",
+  "role": "B",
+  "evidence": "Table 2: \"o3-2025-04-16-global 0.520 [0.423, 0.617] 0.590 [0.508, 0.672]\" (Untuned/Code-tuned Cohen's kappa vs. human qualitative coders, top-8 shown)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.3.2 / Appendix D.1-D.4 (batch size, few-shot count, CoT, binary vs. discretized scoring all specified); no single verbatim coding-prompt template located",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Cohen's kappa vs. human coders (code-tuned)",
+  "value": 0.59,
+  "n_items": null,
+  "location": "Table 2; pooled across the 11 benchmark datasets in Table 4 (12 to 163K documents each, exact pooled N not given)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Table 4: Reuters-21578, arXiv Categories, Medical Abstracts, Hate Speech, Catalonia Independence (public) plus several qualitative-research interview/Reddit corpora of uncertain redistribution rights"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-5-2025-08-07 and o4-mini-2025-04-16 appear in the same table (kappa 0.578 and 0.546) and are equally usable; gpt-4.1-2025-04-14 scores highest (0.593) but is off the tracked list. Soft gaps: no single pooled n_items is stated for the headline IRR table, and no verbatim coding prompt was located (only its hyperparameters)."
+}

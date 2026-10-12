@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7140088470",
+ "title": "Feedback-Aware Prompt Optimization Framework for Generating Job Postings",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"Thakur et al. showed that large models like GPT-4 Turbo, Llama-3.1;70B, and Llama-3;70B achieve stronger alignment with humans.\" (Sec. \"LLM-as-a-Judge\", related work)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (GPT-4 Turbo is mentioned only while summarizing a cited third-party study, Thakur et al.; this paper's own generation/judge models are not identified as GPT-4-Turbo in the extracted text)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a for this mention"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This Amazon industry-track paper's own pipeline uses Claude 3.7 Sonnet for structured extraction (Sec. 4.1) and an unspecified LLM-as-a-Judge; GPT-4 Turbo appears only in a related-work sentence about a different paper (Thakur et al.)."
+}

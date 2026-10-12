@@ -1,0 +1,93 @@
+{
+ "wid": "W7162149911",
+ "title": "Refining and Reusing Annotation Guidelines for LLM Annotation",
+ "status": "ready",
+ "model": {
+  "id": "gpt-5-2025-08-07",
+  "params": {
+   "reasoning_effort": "medium",
+   "max_tokens": 12000
+  },
+  "params_source": "paper Sec. 4.3 (gpt-5-2025-08-07, reasoning_effort in {low, high} evaluated in Table 2) and the released OpenAIProvider (src/llm_guideline_moderation/providers/openai.py: reasoning_effort=None, i.e. no effort field is sent and the API default 'medium' applies; max_output_tokens=12000; temperature unset). Table 1's rows are therefore most plausibly the default-effort run. Runs so far: high (2026-09-20, 97 of 113 replies empty under the 12,000-token limit; archived at runs/tierb/W7162149911_v1_effort_high_12k/), low (2026-09-20, F1 0.287; archived at runs/tierb/W7162149911_v2_effort_low_12k/); this run uses medium as the best-evidence setting.",
+  "seeds": 3,
+  "params_source_v1": "paper Sec. 4.3 (gpt-5-2025-08-07 with reasoning_effort in {low, high}; Table 1 is the reasoning variant, i.e. high - its G column 0.73 equals the 'Reason' cell of Table 2) and the released OpenAIProvider (max_output_tokens 12000, temperature left unset because GPT-5 does not support it)"
+ },
+ "task": {
+  "type": "extraction",
+  "n_items": 100,
+  "subset_rule": "paper-defined split: the NCBI Disease development split used in full as the evaluation set (100 documents, 791 gold entities; Sec. 4.2). Canonical medium run (2026-09-21): the first 49 documents in file order, where the $15 cap stopped the run (48 documents with all three seeds); the archived low run covers all 100",
+  "approximation": "The runner sends the prompt as a chat completion without response_format={'type':'json_object'} (the runner drops response_format for reasoning models); the paper's provider sets it together with the JSON-mode system message, which is kept. Span realignment is a simplified version of the repo's align_annotations (exact offsets first, otherwise the nearest occurrence of the returned span text). Strict-match scoring is re-implemented (exact begin/end/label, one-to-one) instead of calling the authors' PubAnnotation evaluator with soft_match 0."
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/KonWooKim/llm-guideline-moderation, directory data/datasets/ncbi_disease/valid (100 PubAnnotation JSON documents, released with the paper)",
+  "config_or_split": "valid (the NCBI Disease development split, 100 documents)",
+  "filter": null,
+  "fields": {
+   "input": "input_text",
+   "label": "gold",
+   "id": "id"
+  },
+  "license": "unknown (repository has no LICENSE file; the underlying NCBI Disease Corpus is US public domain)",
+  "access_checked": true,
+  "size_mb": 0.2,
+  "file_url": "https://raw.githubusercontent.com/KonWooKim/llm-guideline-moderation/main/data/datasets/ncbi_disease/valid/<sourceid>.json",
+  "fields_source": {
+   "input": "text",
+   "label": "denotations (list of {id, span:{begin,end}, obj})",
+   "id": "sourceid"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W7162149911/valid/",
+   "n_files": 100,
+   "bytes": 201154
+  },
+  "download": {
+   "date": "2026-09-19",
+   "tool": "urllib over the GitHub trees API + raw.githubusercontent",
+   "check": "100 documents, 791 gold entities (SpecificDisease 409, Modifier 218, DiseaseClass 127, CompositeMention 37) - exactly the counts of Table 1 'NCBI (791)' and Appendix Table 5"
+  }
+ },
+ "prompt": {
+  "system": "You are a helpful assistant that outputs valid json. Always respond with a JSON object.",
+  "user_template": "You are an expert AI for text annotation. Your task is to annotate all entities from the provided text based on a strict schema and guidelines.\n\n**ENTITY SCHEMA:**\n- SpecificDisease\n- DiseaseClass\n- Modifier\n- CompositeMention\n\n**HIGH-LEVEL INSTRUCTIONS:**\nFollow the provided guidelines exactly.\n\n**ANNOTATION RULES:**\n- Output MUST be a valid JSON object with a single key \"annotations\".\n- \"annotations\" MUST be an array of objects following this JSON schema:\n  {\n  \"start\": integer,\n  \"end\": integer,\n  \"text\": string,\n  \"entity\": string,\n  \"rationale\": string,\n  \"guideline_section\": string\n}\n- Every annotation MUST include a meaningful \"rationale\" and cite the corresponding \"guideline_section\".\n- If no entities are found, return {\"annotations\": []}\n- Spans must match the original text exactly. Do not alter spacing, casing, or punctuation.\n\n**ANNOTATION GUIDELINES:**\n(no guidelines provided)\n\n**TEXT TO ANNOTATE:**\n---\n{input_text}\n---\n\nProvide your response as a single JSON object.",
+  "placeholders": {
+   "input_text": "items.input_text"
+  },
+  "few_shot": "none (simple prompting / prompt-only baseline, column S of Table 1)",
+  "source_location": "Figure 5a (prompt template); the slot fillers for the prompt-only condition come from the released code of the same paper (prompts.py 'annotate_with_guidelines', pipeline.annotate_with_guidelines defaults, prompt_utils.generate_schema_parts, providers/_shared.JSON_MODE_SYSTEM_PROMPT, data/schemas/ncbi_entities.schema.json)",
+  "verbatim": "full - the paper prints the template with the slots {{entitySchema}} / {{guidelines}} / {{jsonSchema}} / {{inputText}}; the slots are filled with the released code's own defaults: entity schema = the four NCBI labels one per line, guidelines = '(no guidelines provided)' (prompt-only), high-level instructions = 'Follow the provided guidelines exactly.', JSON schema = the six-field object with rationale and guideline_section, plus the matching rationale instruction. The markdown bold markers of the code template are kept; the figure renders them as plain headings."
+ },
+ "output": {
+  "parse": "json field annotations",
+  "postprocess": "hook parse(): strip an optional ```json fence, json.loads, take obj['annotations'], keep entries with a known label, realign offsets to the document text, return the set of (begin, end, label) triples",
+  "parse_paper": "the released code parses the reply with json.loads and reads the key 'annotations', then calls align_annotations(text, ...)"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "strict-match micro F1 over all 100 documents: a prediction counts as a true positive when its begin, end and entity label equal a gold denotation's (one-to-one); P = TP/#pred, R = TP/#gold (791), F1 = 2PR/(P+R)",
+  "judge": "rule",
+  "original_value": 0.46,
+  "original_location": "Table 1, block NCBI (791), row GPT-5, column group S (simple prompting): P 0.45, R 0.48, F1 0.46, TP 378",
+  "bootstrap_unit": "document (set-level resample: micro F1 recomputed on resampled documents)",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 300,
+  "est_usd": 8.0,
+  "tier": "mid",
+  "est_usd_prepare": 2.39,
+  "est_usd_dryrun_max": 36.23,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 100 items x 3 seeds = 300 calls, prepare estimate $2.39 (120-token json guess + 600 reasoning tokens), dry-run upper bound $36.23 (all 12,000 completion tokens used). est_usd is the middle case, about 2,500 output tokens per reply.",
+  "repair_note": "third run 2026-09-21: reasoning_effort medium, 100 documents x 3 seeds = 300 calls, max_output_tokens 12000 as released; expected $10-15, cap $15. Actual: about $0.10 per call (median 10,360 completion tokens, most of them reasoning), stopped at the cap after 145 calls / 49 documents, $15.25"
+ },
+ "open_points": [
+  "The paper prints the template but not the slot fillers; the values above are the released repository's defaults. In particular the prompt-only condition is assumed to fill {{guidelines}} with the code's fallback '(no guidelines provided)' and to keep the rationale / guideline_section fields of the default OutputConfiguration (include_rationale and include_guideline_section both True in annotate_pubannotation_directory). A different OutputConfiguration would change the prompt slightly.",
+  "Table 1 does not name the reasoning_effort of its rows; high is inferred from Table 2 (the 'Reason' column equals the Table 1 G value 0.73 for NCBI GPT). If Table 1's S column were the low-effort run, the baseline would be a different number (Table 2 gives only the G-column pair 0.69 / 0.73).",
+  "The cost estimate uses the runner's 120-token guess for a json answer plus 600 reasoning tokens; real replies carry one rationale per entity, so the true spend is likely a few times higher (still well under USD 30 for 300 calls).",
+  "Effort level: the high-effort run cannot fit the authors' 12,000-token limit on 86% of documents (see params_source); if the authors' Responses-API path counts tokens differently, the S row may still have been a high-effort run - a human should compare against the released run logs if any exist in the repository.",
+  "2026-09-21: effort resolved from the released provider code (no effort field -> API default medium); medium run launched as the canonical attempt, high and low kept as sensitivity archives.",
+  "2026-09-21 20:54: the medium run stopped at its $15 cap after 145 calls ($15.25): 49 documents in file order, 48 of them with all three seeds and one with a single seed. 61 of the 145 replies (42%) were empty because the 12,000-token output limit was spent on hidden reasoning (finish_reason length). Strict-match F1 0.268 (seeds 0.272 / 0.283 / 0.249; document-resample 95% CI about 0.17-0.37) against the paper's 0.46 -> deviated, the same class as the low run (0.287 on all 100 documents, replies filled). Finishing the remaining 51 documents would cost about $17 and cannot move the class, so the cap-stopped subset stands as the canonical medium result; the effort level changes how many replies come back empty, not whether Table 1's S column is reproduced."
+ ],
+ "notes": "Authors' artefacts: prompts, entity schema, guidelines and the 100 evaluation documents are all in github.com/KonWooKim/llm-guideline-moderation; PubAnnotation project ncbi-valid holds the stored annotations. The G (original guidelines) and M (moderation) columns of the same row use the same base template with data/guidelines/ncbi_disease_guidelines.txt in the guidelines slot and an agentic refinement loop respectively; only S is a single call per document and is therefore the config here."
+}

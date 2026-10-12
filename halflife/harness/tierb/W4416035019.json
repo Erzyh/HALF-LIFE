@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416035019",
+  "title": "PersonaGym: Evaluating Persona Agents and LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 O (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "A",
+    "evidence": "Sec 4.1: \"We use GPT-4 O (gpt-4o-2024-05-13) for: (1) selecting persona-relevant environments, (2) generating task-specific questions\"; also one of two \"Evaluator Models\" (judge) alongside LLAMA-3-70B"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 4.1 + Appendix A.4 (evaluation rubric/criteria referenced, following Liu et al. 2023)",
+    "note": "GPT-4o is the environment/question generator and judge, not one of the seven benchmarked persona-agent models (Llama-2-13B/70B, Llama-3.3-70B, Llama-3-8B, DeepSeek-V3, GPT3.5, Claude 3 Haiku, GPT4.1, GPT4.5, Claude 3.5 Sonnet)."
+  },
+  "claim": {
+    "metric": "none isolated to GPT-4o (Table 3 correlation scores are for GPT-3.5/Llama-2-13B/Llama-2-70B PersonaScore vs. human judgment, using GPT-4o+Llama-3-70B jointly as the scoring ensemble)",
+    "value": null,
+    "n_items": 100,
+    "location": "Table 3 (100 sampled personas); no per-judge breakdown isolating GPT-4o",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-05-13 + llama-3-70b (ensemble)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PersonaGym benchmark, released under MIT license"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4o's own judging/generation quality is never isolated from the co-judge Llama-3-70B or reported as a standalone figure. The benchmarked subject models are entirely different LLMs (GPT4.1/GPT4.5/Claude/Llama/DeepSeek), none pinned to a live snapshot in this CSV row."
+}

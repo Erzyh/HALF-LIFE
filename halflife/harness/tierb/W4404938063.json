@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4404938063",
+  "title": "Evaluating the impact of cell-penetrating motif position on the cellular uptake of magnetite nanoparticles",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT (GPT-4, model \"gpt-4-turbo-16k\")",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Generative AI use: Generative AI technology, specifically OpenAI's ChatGPT (version GPT-4, model 'gpt-4-turbo-16k'), was used to enhance the text by suggesting revisions for clarity and conciseness.\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This is a journal-mandated AI-use disclosure for manuscript editing, not a research experiment."
+  },
+  "claim": {
+    "metric": "none (no experiment; writing-assistance disclosure only)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "\"gpt-4-turbo-16k\" is a ChatGPT-UI label, not a real API snapshot id. The paper's actual science is wet-lab peptide/nanoparticle work, unrelated to any LLM benchmark."
+}

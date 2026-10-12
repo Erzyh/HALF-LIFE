@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4417302310",
+  "title": "AutoGEEval: A Multimodal and Automated Framework for Geospatial Code Generation on GEE with Large Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o3-mini (GPT-4 Turbo appears only in a token-price remark)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Table 4 lists 'o3-mini OpenAI N/A 2025'; accuracy table: 'o3-mini 56.98 68.91 (+11.93) 71.02 (+2.11) 0.198 59.30' (pass@1/3/5, CV, SA)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 7 'Prompt for submission program' (rendered as an image; text not present in the extracted file)",
+    "note": "Sec. 4.1 describes the design: the model receives the function header and must return only the function body."
+  },
+  "claim": {
+    "metric": "pass@1 (%) on AutoGEEval-Bench",
+    "value": 56.98,
+    "n_items": 1325,
+    "location": "Sec. 6.1 accuracy table, row o3-mini, pass@1 (pass@5 71.02)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AutoGEEval-Bench (1,325 GEE unit tests, 26 output types), https://github.com/szx-0633/AutoGEEval"
+  },
+  "cost": {
+    "est_calls": 3975,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Scoring requires executing generated code in Google Earth Engine (account needed) and the benchmark's judge program; pass@5 needs ~20k calls. o3-mini snapshot not stated (only one existed in 2025). Prompt text could not be verified from the figure image.",
+  "resolution": {
+    "gap": "prompt_as_image",
+    "plan": "Read the submission prompt from Figure 7 in the PDF; prompt o3-mini-2025-01-31 with each of the 1,325 function headers from AutoGEEval-Bench, execute the returned bodies in Google Earth Engine with the repository's judge program, and compare pass@1 56.98 (pass@5 71.02 would need ~20k calls).",
+    "approximation": "Google Earth Engine account and quota required; only one o3-mini snapshot existed; reasoning-model nondeterminism.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/szx-0633/AutoGEEval",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4403694843",
+ "title": "The Role of Artificial Intelligence in Diagnostic Radiology",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-4 per alias_note)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"AI analysis was performed using ChatGPT... we used 50 X-ray images (n=50)\"; Discussion only: \"ChatGPT Plus, which operates on GPT-4, offers improved reasoning abilities\" (no gpt-4-turbo API run)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "diagnostic accuracy of ChatGPT on X-ray images",
+  "value": null,
+  "n_items": 50,
+  "location": "Table 1 (\"Evaluation of correct answers provided by the ChatGPT\")",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "50 X-ray images used by the authors (not stated as released)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Small Cureus case-study using the ChatGPT consumer interface on 50 X-ray images, manually graded by two researchers; no API, temperature, or pinned snapshot/date is given, so the model version actually used cannot be resolved."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412886705",
+  "title": "Confidence v.s. Critique: A Decomposition of Self-Correction Capability for LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Appendix F: 'we utilize the latest version of GPT-3.5 Turbo (gpt-3.5-turbo-0125) and GPT-4 Turbo (gpt-4-turbo-2024-04-09)'; 'we only sample 3 times for each question'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix H, Table 8 (confidence/critique prompts for the Sec. 5 manipulation); the default Sec. 4 self-correction prompt is only described (Appendix D)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (%) before self-correction (Acc1), GSM8k",
+    "value": 93.6,
+    "n_items": 500,
+    "location": "Table 1, row GPT-4 Turbo, GSM8k Acc1",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "GSM8k, MMLU, BoolQ (public); 'for a dataset with more than 500 items, we randomly sample 500 items' (subset not released)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "CL/CS metrics need repeated sampling (3 per question, 2 turns). The unreleased random 500-item subset is an additional soft gap."
+}

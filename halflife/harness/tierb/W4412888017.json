@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412888017",
+ "title": "DeRAGEC: Denoising Named Entity Candidates with Synthetic Rationale for ASR Error Correction",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "o1 (o1-2024-12-17)",
+  "resolved": "o1-2024-12-17",
+  "role": "A",
+  "evidence": "\"we use o1 (o1-2024-12-17) (Jaech et al., 2024) for rationale synthesis\"; Algorithm 1 \"Synthesize Rationales\" uses a Rationale Generator to produce training-time denoising rationales."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 4.1 / Algorithm 1 (rationale-synthesis procedure described); no verbatim generation prompt located",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for o1 itself (WER/NE-F1 results in Table 1 are for the downstream ASR-correction pipeline, not o1's own output)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "CommonVoice (CV) and STOP datasets (public speech benchmarks)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "o1-2024-12-17 is a one-time synthetic-rationale generator for building the DeRAGEC training/inference pipeline (paired with a phonetic-similarity retriever); the paper's reported WER and NE-detection metrics belong to the full ASR-correction system (Whisper + Llama-3.1/GPT-4o-mini + retrieval), not to o1 in isolation."
+}

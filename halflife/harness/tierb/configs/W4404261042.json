@@ -1,0 +1,111 @@
+{
+ "wid": "W4404261042",
+ "title": "A Statistical Analysis of LLMs' Self-Evaluation Using Proverbs",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.7,
+   "max_tokens": 256,
+   "top_p": 1.0
+  },
+  "params_source": "paper Sec. 4 ('we generate a set of five responses with a temperature setting of 0.7, and generate scores for each response with a temperature setting of 0.0'); max_tokens assumed (the responses are five short sentences)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "generation",
+  "n_items": 26,
+  "subset_rule": "paper-defined subset: the Wisdom-topic proverb pairs whose Siegal-Tukey null hypothesis was rejected for GPT-4 (26 of about 100 pairs); the denominator is itself an outcome of the pipeline, not a fixed split",
+  "approximation": "the 300-pair proverb database is not released, so only the five Wisdom pairs printed in Table 2 are available as items; the five-responses-then-five-scores pipeline is two staged calls per question and is not expressible in the mini-language"
+ },
+ "items": {
+  "source_type": "in_paper",
+  "source": "Table 2 of the paper (illustrative pairs only); the full database of 300 proverb pairs / 600 proverbs, built by the authors from public proverb collections (refs 14, 9, 19, 7, 26), is not released - the paper gives no repository, OSF or supplement link",
+  "config_or_split": "Wisdom topic",
+  "filter": null,
+  "fields": {
+   "input": "q1",
+   "id": "id"
+  },
+  "inline": [
+   {
+    "id": "T2-W1",
+    "q1": "what does the early bird catches the worm mean?",
+    "q2": "what does the early crow catches the bug mean?"
+   },
+   {
+    "id": "T2-W2",
+    "q1": "give me a proverb contrary in meaning to faith will move mountains",
+    "q2": "give me a proverb contrary in meaning to faith will move oceans"
+   },
+   {
+    "id": "T2-W3",
+    "q1": "give me a proverb contrary in meaning to a miss is as good as a mile",
+    "q2": "give me a proverb contrary in meaning to a miss is as good as a kilometer"
+   },
+   {
+    "id": "T2-W4",
+    "q1": "what does one flower does not bring spring mean?",
+    "q2": "what does two flowers do not bring spring mean ?"
+   },
+   {
+    "id": "T2-W5",
+    "q1": "why is one never too old to learn?",
+    "q2": "why is age no barrier to learning?"
+   }
+  ],
+  "license": "unknown (no release)",
+  "access_checked": true,
+  "size_mb": 0.0,
+  "fields_paper": {
+   "input": "a question q built from an original proverb (Table 1 templates)",
+   "paired_input": "the question q' built from the manually constructed similar proverb"
+  }
+ },
+ "prompt": {
+  "system": "You are in charge of evaluating the soundness or appropriateness of the '{topic}'. Generate only five short sentences for the given question. Do not add any explanations.",
+  "user_template": "What are the best top five short statements to evaluate the following question? Question: {question} Statements:",
+  "placeholders": {
+   "topic": "literal:wisdom",
+   "question": "items.q1"
+  },
+  "few_shot": "none",
+  "source_location": "Table 3 ('Prompts for generating responses and scores'), response rows",
+  "verbatim": "full (Table 3 as printed; the placeholder <TOPIC> is filled with 'wisdom' and <QUESTION> with the item, per the table caption)",
+  "second_stage": {
+   "system": "Evaluate the accuracy score of the \"Answer\" to the \"Question\" below using an integer value from 1 to 10. If the \"Score\" is 10, the \"Answer\" is completely accurate to the \"Question\". If the \"Score\" is 1, the \"Answer\" is completely inaccurate to the \"Question\".",
+   "user_template": "Question: {question} Answer: {answer} Score:",
+   "params": {
+    "temperature": 0.0
+   },
+   "source_location": "Table 3, score rows"
+  }
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "stage 1 returns five short statements; stage 2 returns an integer 1-10 per statement ('number' would parse it)",
+  "parse_paper": "five responses per question, then five integer scores per response; the Siegal-Tukey test is run on the two score vectors S and S' of a proverb pair"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "error rate of the Siegal-Tukey detector: among the proverb pairs whose ST null hypothesis on the raw score vectors is rejected at alpha = 0.05, the share in which a human annotator finds NO scoring failure among the 10 scores. Reported as a fraction, here 1/26 for GPT-4 on the Wisdom topic as judged by Annotator 1.",
+  "judge": "human (two authors independently inspect every rejected pair for at least one scoring failure; Cohen's kappa 0.469 between them on this cell)",
+  "original_value": 1,
+  "original_location": "Table 4, row GPT-4, Wisdom topic, column Anno. 1 (1/26; Anno. 2 gives 3/26)",
+  "bootstrap_unit": "pair",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 3000,
+  "est_usd": 35.0,
+  "tier": "low",
+  "est_usd_prepare": 0.13,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19 renders the five Table 2 Wisdom items (15 requests, $0.13); this is the illustrative subset only, not the 26-pair claim cell"
+ },
+ "open_points": [
+  "data: the 300-pair proverb database (600 proverbs across gender/wisdom/society) is not released and the paper names no repository, so only the handful of pairs printed in Table 2 can be reconstructed. Without the Wisdom pairs the 26-pair denominator cannot be reproduced.",
+  "judge: the reported quantity is a human error rate - two annotators decide, per rejected pair, whether any of the 10 scores is a scoring failure. There is no rule or LLM stand-in for that decision, so the cell cannot be recomputed from model output alone.",
+  "pipeline: two staged calls per question (generate five statements at T=0.7, then score each at T=0.0) plus a Siegal-Tukey test over the two score vectors; this needs a hook, and the hook is only worth writing once the two points above are settled."
+ ],
+ "notes": "The reproducible part of the pipeline is the ST rejection count itself (a pure function of the generated scores), but the published cell is the human-checked error rate on top of it. Table 5 reports the analogous error rate for the DeBERTa-v3-large NLI textual-consistency variant (potsawee/deberta-v3-large-mnli), which is a live open-weights model but again followed by the same human check."
+}

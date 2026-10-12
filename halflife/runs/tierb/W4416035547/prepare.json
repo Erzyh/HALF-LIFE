@@ -1,0 +1,11 @@
+{
+  "wid": "W4416035547",
+  "n_items": 100,
+  "n_requests": 300,
+  "seeds": 3,
+  "est_usd": 1.34,
+  "subset_note": null,
+  "model": "o4-mini-2025-04-16",
+  "metric": "accuracy",
+  "original_value": 0.93
+}

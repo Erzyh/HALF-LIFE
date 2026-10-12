@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4403754117",
+  "title": "InvAgent: A Large Language Model based Multi-Agent System for Inventory Management in Supply Chains",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we utilize ... LLMs including GPT-4, GPT-4O, and GPT-4-Turbo (Achiam et al. 2023)\" (Sec. 4.3); Table 4 row \"GPT-4-Turbo ... -636.40 (195.26) -89.07%\" (variable-demand ablation, full prompt configuration)"
+  },
+  "prompt": {"verbatim": "full", "location": "Figure 4 (base InvAgent prompt) with the constant-demand modification quoted in Sec. 4.3", "note": "Multi-agent AutoGen pipeline; GPT-4-Turbo used as the InvAgent backbone LLM."},
+  "claim": {
+    "metric": "Mean episode reward, variable-demand scenario, GPT-4-Turbo backbone (Demand+Downstream+Strategy+CoT+History)", "value": -636.40, "n_items": 5,
+    "location": "Table 4, row GPT-4-Turbo, Variable-demand Reward column (averaged over 5 episodes)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "Multi-echelon supply-chain simulation built on Gymnasium/AutoGen/RLlib (OR-Gym-style InvManagement environment); exact scenario configuration not fully confirmed as released"},
+  "cost": {"est_calls": null, "tier": "mid"},
+  "blockers": [],
+  "notes": "arXiv 2024 (SOC domain). n_items=5 episodes is what the paper averages over, but each episode itself runs many simulation periods with one LLM call per period/stage, so the true API-call count needed to reproduce Table 4 is materially higher and not stated precisely -- treated as the soft gap that keeps this at 'maybe' rather than 'eligible'."
+}

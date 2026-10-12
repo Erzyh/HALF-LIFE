@@ -1,0 +1,63 @@
+{
+  "wid": "W4416683695",
+  "title": "AI Self-preferencing in Algorithmic Hiring: Empirical Evidence and Insights",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 93.0,
+  "original_location": "Figure 3a ('LLM-vs-Human Statistical Parity Self-preference Bias'), GPT-4-turbo bar: 93.0% (GPT-4o-mini 93.6%, GPT-4o 97.6%); Sec. 5.1.1 gives the range 26% to 98% over the nine models",
+  "reexecution": {
+    "mean_over_seeds": 0.15217391304347827,
+    "per_seed": {
+      "0": {
+        "value": 0.15217391304347827,
+        "n": 460,
+        "ci95": [
+          0.06521739130434782,
+          0.24347826086956523
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416683695",
+    "n_items": 460,
+    "n_requests": 460,
+    "seeds": 1,
+    "est_usd": 10.04,
+    "subset_note": "cost cap $10.0: seeded random subset of 460 items (seed 20260907); paraphrase t1: 0 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: []; parameters added {'temperature': 1.0}",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "source_model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 93.0,
+    "cap_usd": 12.11,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416683695",
+    "paraphrase": "t1",
+    "pairs": [],
+    "params_added": {
+      "temperature": 1.0
+    }
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 15
+  },
+  "approximation": "The paper does not describe how it isolated the executive summary, so the section is located here through the Resume_html section id SECTION_SUMM and cut out of Resume_str; the section heading stays in place and only the body is replaced, which makes the counterfactual differ from the original in exactly that one block (Sec. 4.2.1). The reconstruction lands on 2,243 resumes with summary length mean 68.8 words and quartiles 31 / 48 / 82 against the paper's Table 1 mean 70.74 and quartiles 32 / 50 / 84. Which side is shown as Resume A is our choice (fixed per resume by sha256(id + 20260907) parity); the paper does not say. Both stages use gpt-4-turbo-2024-04-09, as the self-preference design requires (generator and evaluator are the same model).",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\temp1\\W4416683695"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 15.217391304347828,
+    "delta": -77.78260869565217,
+    "original_inside_ci95": false
+  }
+}

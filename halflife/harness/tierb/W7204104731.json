@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7204104731",
+ "title": "Using Human-LLM Disagreement to Improve Checklist-Based Quality Appraisal",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-5-mini-2025-08-07",
+  "resolved": "gpt-5-mini-2025-08-07",
+  "role": "B",
+  "evidence": "\"item-level agreement between human experts and multiple LLMs (GPT-5-mini-2025-08-07 (OpenAI, 2025)...)\"; Figure 5: mean item-level accuracy on the GRoLTS v1 PTSD checklist, gpt-5-mini=0.75."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec \"Prompt Construction\"; full code/prompts released at github.com/timovdk/grolts-llm",
+  "note": "RAG pipeline: GRoLTS checklist question + retrieved evidence chunk -> structured binary (yes/no) prompt."
+ },
+ "claim": {
+  "metric": "item-level accuracy vs. human labels, GRoLTS v1 checklist (21 binary items), PTSD studies",
+  "value": 0.75,
+  "n_items": 38,
+  "location": "Figure 5 (bottom-row mean accuracy per model); PTSD dataset = 38 previously annotated studies (from the original GRoLTS study, osf.io/vw3t7)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "GRoLTS PTSD dataset (osf.io/vw3t7) plus the paper's own code/outputs, github.com/timovdk/grolts-llm"
+ },
+ "cost": {
+  "est_calls": 798,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "38 studies x 21 checklist items = 798 individual yes/no judgments behind the 0.75 mean. A second, larger GRoLTS v2 corpus (Achievement/Delinquency/PTSD, 37 of 65 studies retained) is also evaluated with the same models (Appendix E), giving a second independent claim if needed."
+}

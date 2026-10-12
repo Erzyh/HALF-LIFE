@@ -1,0 +1,151 @@
+{
+ "card_id": "W7166808082",
+ "openalex_id": "https://openalex.org/W7166808082",
+ "title": "TURTLEAI: Benchmarking Multimodal Models for Visual Programming in Turtle Graphics",
+ "doi": "https://doi.org/10.18653/v1/2026.findings-acl.334",
+ "paper": {
+  "authors": "Wen, Staub, Singla (MPI-SWS / Trier)",
+  "year": 2026,
+  "venue": "Findings of ACL 2026, pp. 6718-6745 (arXiv 2606.03626)",
+  "repo": "https://github.com/machine-teaching-group/acl2026-turtleai",
+  "repo_commit": "d916dab0bcf6a0d0647e17cab4089d70d0b402d1 (2026-07-04; shallow clone at external/repos/W7166808082/machine-teaching-group__acl2026-turtleai, 16 MB)",
+  "repo_license": "no LICENSE file in the repository (code licence unstated). The dataset is licensed CC BY-NC 4.0 per paper App. C.1; the source tasks come from XLogoOnline (xlogo.inf.ethz.ch/terms.html).",
+  "tierb_relation": "UPGRADE. A prompt-level Tier B config already exists (harness/tierb/configs/W7166808082.json, status needs_human) with two runner gaps: (1) the task image is the whole input and our runner sends text-only messages, (2) scoring needs an external program-execution scorer. The repository closes both gaps, so this card replaces the prompt-level plan with a repository-based re-execution."
+ },
+ "dependence": {
+  "type": "subject",
+  "strength": "core",
+  "note": "The benchmark score is computed directly from the model's own generated turtle program; no LLM annotator or judge is involved anywhere in the metric. The DSReal tasks and their reference programs are human-authored (XLogoOnline levels, reference solutions written by the authors), so only the generation arm has to be re-run."
+ },
+ "claim": {
+  "statement": "On TURTLEAI-DSReal (102 real XLogoOnline image-to-code tasks, zero-shot, one image plus the fixed Figure 15 prompt) o3-2025-04-16 at reasoning_effort=medium attains a 40.20% symbolic success rate (44.12% under the embedding metric), the best of all 22 evaluated VLMs but still a failure on ~60% of tasks (Table 1, row o3, columns TURTLEAI-DSReal Sym./Emb.; Sec. 5.2: 'o3, achieves only a 40.2% symbolic success rate').",
+  "claim_type": "capability_limit",
+  "metric": "Symbolic success rate (%) = successes / 102 x 100. A task is a success when the candidate draw(t) program executes in the benchmark's recording Turtle emulator and its canonicalised line drawing (coordinates rescaled so the pattern bounding box has maximum dimension 300, centred, unit line width) differs from the reference drawing by no more than the automatically chosen tolerance of non-white pixels (turtleai.evaluate(method='symbolic'), Sec. 4.2 / App. F.4).",
+  "original_values": {
+   "o3_dsreal_symbolic_pct": 40.2,
+   "o3_dsreal_embedding_pct": 44.12,
+   "o3_dscraft_symbolic_pct": 8.82,
+   "o3_dssyn_symbolic_pct": 10.18,
+   "o3_ds_all_symbolic_pct": 13.73,
+   "implied_successes_of_102": 41,
+   "comparators_dsreal_symbolic_pct": {
+    "o4-mini-2025-04-16": 36.27,
+    "gpt-5-2025-08-07 (medium)": 27.45,
+    "gpt-4o-2024-11-20": 26.47,
+    "gpt-4-turbo-2024-04-09 (paper's 'GPT-4V')": 15.69,
+    "Qwen2-VL-72B-TURTLE (fine-tuned)": 35.29
+   }
+  },
+  "original_source": "Table 1 (p. 6724), rows under 'Reasoning:'; model-version mapping in App. F.2 table ('o3  o3-2025-04-16 (reasoning_effort=medium)'); Sec. 5.2 narrative; dataset sizes in Figure 3(e)."
+ },
+ "protocol": {
+  "model": "o3-2025-04-16",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+  "model_usage_verified": "yes - App. F.2 version table names o3-2025-04-16 explicitly with reasoning_effort=medium. No alias inference needed. The paper's GPT-4o row is gpt-4o-2024-11-20, which is NOT on the retiring-snapshot list; its gpt-4-turbo-2024-04-09 row ('GPT-4V', 15.69%) is a second retiring snapshot available as a cheaper cross-check.",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (examples/common.py -> client.chat.completions.create; openai>=2.44.0 per pyproject.toml)",
+  "prompt_source": "src/turtleai/prompts/template_code_synthesis.md (364 words), loaded verbatim by examples/common.py as PROMPT_TEMPLATE; identical to paper App. H Figure 15 but with the markdown emphasis that the PDF extraction dropped.",
+  "messages": [
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "text",
+      "text": "<src/turtleai/prompts/template_code_synthesis.md verbatim>"
+     },
+     {
+      "type": "image_url",
+      "image_url": {
+       "url": "data:image/png;base64,<data/test/images/{file_name}>"
+      }
+     }
+    ]
+   }
+  ],
+  "params": {
+   "reasoning_effort": "medium",
+   "max_completion_tokens": 8192,
+   "temperature": "not applicable to o3 (open-weight arms used temperature 0, App. F.3)",
+   "top_p": "not set",
+   "seed": "not set",
+   "image_detail": "not set (API default; the images are 146x145 to ~578x288 px)",
+   "params_source": "paper App. F.3: 'For reasoning mod-els, we set reasoning_effort to medium and max_completion_tokens to 8192.' The released examples/common.py passes NO decoding parameters at all, so these two must be added to match the paper."
+  },
+  "n_items": 102,
+  "n_items_note": "data/test/metadata.jsonl filtered to source == 'dsreal' (verified: 823 rows total, dssyn 619 / dsreal 102 / dscraft 102)",
+  "samples_per_item": 1,
+  "seeds_planned": 3,
+  "evaluation": "turtleai.evaluate(code=..., ref_code=task['code'], method='symbolic') from src/turtleai/evaluate.py; execution via src/turtleai/emulate/{emulator,xturtle}.py, canonicalisation and tolerance via src/turtleai/eval/lines.py (get_normalized_images_from_code, get_tolerance_from_codes), pixel comparison via src/turtleai/utils/img_utils.compare_images. Code extraction: src/turtleai/utils/extract_python.extract_python_code_from_text (all ```python fenced blocks).",
+  "deviation_to_patch": "examples/eval_model_dataset.py scores only the FIRST extracted code block (codes[0]); App. F.3 specifies that for symbolic comparison ALL extracted snippets are executed and the task counts as a success if ANY snippet succeeds (src/turtleai/eval/eval_responses.py implements the paper's rule). Re-execution must use the eval_responses.py rule, not the example script's.",
+  "environment": "Python 3.9+ with tkinter (the emulator subclasses the stdlib turtle module); uv sync per README. Model-generated turtle programs are executed locally - run them in the repo's pebble ProcessPool with a timeout (as eval_responses.py does) inside a container."
+ },
+ "artifacts": {
+  "prompts_path": "src/turtleai/prompts/template_code_synthesis.md",
+  "data_path": "data/test/metadata.jsonl (823 rows: id, file_name, code, source, category, difficulty) with data/test/images/*.png (823 files, 9 MB); loaded as load_dataset('imagefolder', data_dir='data')['test']",
+  "eval_path": "src/turtleai/evaluate.py, src/turtleai/eval/{eval_responses,lines,embeddings_resnet18}.py, src/turtleai/emulate/{emulator,xturtle}.py, examples/eval_model_dataset.py",
+  "data_public": true,
+  "data_license": "CC BY-NC 4.0 for the dataset (paper App. C.1); the repository ships no LICENSE file, so the code licence is unstated",
+  "redistributable": "dataset: yes for non-commercial research with attribution; our generated programs and scores: yes. We do not re-host the images (they stay in gitignored external/).",
+  "notes": "No released model outputs: Table 1 reports only aggregate percentages, so the comparison is at the success-rate level. The repo does provide the scorer, the reference programs and the exact prompt, which is everything needed to recompute the number. The embedding metric needs the optional torch/torchvision extra and is not required for the primary claim."
+ },
+ "blockers": [
+  "No item-level original outputs or per-task result files are released, so the comparison is percentage-to-percentage (n = 102, bootstrap CI about +/- 9.5 pp - a narrow claim on a small benchmark).",
+  "Environment dependency: the scorer needs a Python built with Tk and executes model-generated turtle code; it must run sandboxed with timeouts (the repo's pebble ProcessPool path), and any emulator/Tk version drift shows up as a scoring difference rather than a model difference. Run the 102 reference programs against themselves first as an environment check.",
+  "Reasoning-token truncation risk: at reasoning_effort=medium with max_completion_tokens=8192 some o3 replies can exhaust the budget on reasoning and return no visible code; those are scored as failures by the paper's rule and must be logged separately as a format/truncation artifact rather than a capability result."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "o3-2025-04-16",
+   "purpose": "live baseline (P0); the paper's best-performing arm and the headline number"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for o3 per the OpenAI deprecations page)"
+  ],
+  "secondary_live_arms": [
+   "o4-mini-2025-04-16 (36.27% DSReal Sym.) - successor would be gpt-5.6-terra",
+   "gpt-5-2025-08-07 medium (27.45%) - successor gpt-5.6-sol",
+   "gpt-4-turbo-2024-04-09 ('GPT-4V', 15.69%) - successor gpt-5.6-sol plus gpt-4.1-2025-04-14 as the GPT-4-class comparator"
+  ],
+  "open_weight_anchor": "Qwen2.5-VL-72B-Instruct / Pixtral-12B (hash-pinned) are in Table 1 and give a permanent re-execution axis; the fine-tuned *-TURTLE checkpoints are not released."
+ },
+ "budget": {
+  "est_calls": 306,
+  "est_tokens_in": 260000,
+  "est_tokens_out": 1836000,
+  "est_cost_usd": 15,
+  "pricing_usd_per_1m": {
+   "o3-2025-04-16": {
+    "input": 2.0,
+    "output": 8.0
+   }
+  },
+  "assumptions": "102 DSReal tasks x 1 sample x 3 seeds = 306 calls. Input ~850 tokens per call (the 364-word prompt ~550 tokens plus ~300 image tokens for a 146x145 to 578x288 PNG). Output is billed reasoning + visible tokens under an 8,192 cap; budgeted conservatively at 6,000 per call ($14.7) - at a more typical 4,000 the arm costs ~$10. Adding the gpt-4-turbo-2024-04-09 cross-check arm (306 calls, ~900 visible output tokens) would add ~$11 at $10/$30 per 1M."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: o3-2025-04-16 symbolic success rate on the 102 DSReal tasks (median of 3 seeds) against the reported 40.20%. Survival = the re-run rate falls inside the bootstrap 95% CI over the 102 items around 40.20% (about 31-50%) AND the capability-limit direction holds (still far from solving the benchmark, i.e. below ~60%). Partial = the level moves outside that CI but o3 remains the best arm and still fails the majority of tasks. Death = the success rate rises above ~60% (the 'models struggle at visual programming' claim would not hold) or collapses to near zero for reasons other than truncation. Secondary checks: the DSReal > DSCraft > DSSyn ordering (40.20 / 8.82 / 10.18) and the o3 > o4-mini > gpt-5 ordering on DSReal.",
+  "notes": "Truncated/no-code replies are reported separately before being folded into the failure count, following the unscorable-run rule used in the P3 batch."
+ },
+ "status": "done",
+ "user_checks": [
+  "Scope: DSReal only (102 items, ~$15) as the Tier B config already fixed, or add DSCraft (+102, ~$15) so the DSReal/DSCraft contrast in Table 1 can also be judged?",
+  "Add the gpt-4-turbo-2024-04-09 'GPT-4V' row (15.69%) as a second retiring-snapshot arm for ~$11, or keep this card single-arm?"
+ ],
+ "domain_notes": "Each task is a single PNG of a turtle-graphics pattern; the model must emit a self-contained draw(t) function. DSReal tasks are real XLogoOnline Midi/Maxi exercises for grades 3-6 with author-written reference programs; DSCraft is hand-drawn, DSSyn synthetic. The symbolic metric is invariant to size, position and line width, so it rewards structural fidelity rather than pixel-exact reproduction, and the embedding metric (ResNet18) tracks it closely (40.20 vs 44.12 for o3). The Tier B prompt-level plan transcribed the prompt from the PDF figure and placed the image before the text; the repository's own message layout is text first, image second, with the markdown formatting intact - the repository version is authoritative for this card.",
+ "decisions_2026_09_19": [
+  "scope: DSReal only (102 items), single arm o3-2025-04-16 at reasoning_effort=medium, max_completion_tokens=8192, no temperature/top_p/seed; the user_checks options (adding DSCraft, adding the gpt-4-turbo-2024-04-09 'GPT-4V' row) stay unrun",
+  "the task image is sent as a base64 image_url content part exactly as the repository builds it (examples/common.py:generate_code): ONE user message whose content is [{'type':'text', prompt verbatim}, {'type':'image_url', url: convert_img_to_base64(PIL image)}] - text first, image second, url = 'data:image/png;base64,<PIL PNG re-encode of the file>', image detail NOT set",
+  "the repository's symbolic scorer is used: turtleai.evaluate(code=..., ref_code=..., method='symbolic'), imported from external/repos/ rather than copied; the per-response rule is eval_responses.py's (paper App. F.3) - every fenced block is executed and the task counts as a success if ANY matches - not examples/eval_model_dataset.py's codes[0]",
+  "3 seeds (3 repeats; o3 takes no seed parameter); the judged number is the median of the 3 per-seed success rates, with a bootstrap 95% CI resampling the 102 items",
+  "per-paper cost cap USD 25. Dry-run estimate for 306 calls: ~276k input tokens and ~$15.24 at 6,000 billed output tokens per call, ~$10.34 at 4,000, absolute ceiling ~$21.06 if every reply exhausts the 8,192 cap",
+  "items are loaded from data/test/metadata.jsonl + PIL.Image.open instead of load_dataset('imagefolder', data_dir='data'), which is what that loader does internally (file_name -> PIL image); avoids the `datasets` dependency. Verified: 823 rows, 102 with source=='dsreal', and the base64 payload decodes pixel-identical to the source PNG",
+  "ENVIRONMENT DEVIATION (Ghostscript): emulator._turtle_worker rasterises the Tk canvas PostScript through PIL, which shells out to Ghostscript; the run host has none, so every program - including the reference solutions - fails with 'Unable to locate Ghostscript on paths'. Inside the scoring subprocess turtleai.emulate.emulator.convert_img_to_base64 is therefore replaced by a placeholder when PIL reports no Ghostscript. The symbolic metric compares the recorded turtle states (eval/lines.py), never that raster, and every other emulator check (bbox, max size, aspect ratio, canvas.postscript itself) still runs. With the shim: 102/102 reference programs reproduce themselves, a deliberately wrong program scores 0/102 (executing successfully on all 102, so it is a mismatch and not a crash) and a permutation control (each reference against the next task's reference) scores 0/102",
+  "model-generated turtle code is executed only in a fresh isolated interpreter per response (subprocess -I -X utf8, cwd = temp dir, OPENAI_API_KEY stripped from the child environment) with a 120 s wall clock; the repository's own AST pass (utils/code_modifier.remove_turtle_setup_calls) strips every import statement before exec. Tk runs headless on Windows via the emulator's root.withdraw(); pebble is not installed, so the repo's ProcessPool-with-timeout path is replaced by this one",
+  "card correction: the DSReal PNGs are 47x47 to 846x527 px (74 distinct sizes, all mode RGB), not the '146x145 to ~578x288' recorded under protocol.params.image_detail. Image tokens are estimated with the OpenAI tile rule, o1/o3 row (75 base + 150 per 512x512 tile); `detail` is unset so the API default applies and is priced as 'high', and small images are not upscaled -> ~249 image tokens per call (the card assumed ~300). The upscale-to-768 reading of the rule (~993/call) is reported as a sensitivity bound",
+  "adapter: harness/adapters/turtleai_W7166808082.py with --check / --dry-run / --run / --analyze; offline artefacts runs/W7166808082/environment_check.json and runs/W7166808082/baseline_alive/requests.jsonl (1.6 MB, base64 images inline - consider a .gitignore entry before committing)"
+ ],
+ "judgment_provisional": {
+  "value": "생존 (survived)",
+  "cost_usd": 5.175,
+  "run_date": "2026-09-19",
+  "source": "runs/W7166808082/run_meta.json"
+ }
+}

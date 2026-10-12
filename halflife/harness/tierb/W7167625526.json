@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7167625526",
+  "title": "Mapping the otoactive landscape: an LLM-aided extraction of compounds and their targets",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano-2025-04-14",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Sec. 2.2: \"Prompts were submitted to the gpt-4.1-nano-2025-04-14 model through the OpenAI API, using a zero-temperature configuration\"; Sec. 3: \"350 abstracts were manually curated ... 456 compound mentions, resulting in an accuracy of 97.1%\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 2.2 (user prompt quoted: definitions and instructions 1-3); system prompt paraphrased",
+    "note": "The printed user prompt appears truncated after instruction 3; the LangChain wrapper adds the article text."
+  },
+  "claim": {
+    "metric": "extraction accuracy of compound mentions vs manual curation",
+    "value": 0.971,
+    "n_items": 350,
+    "location": "Sec. 3, validation paragraph (456 compound mentions in 350 manually curated abstracts; separate benchmarking precision 90% on a 364-compound reference set)",
+    "task_type": "extraction",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "PubMed abstracts (13,186 articles, public); extraction outputs at https://github.com/aylindmm/Ototoxic_DB.git; the 350 curated abstracts and their manual labels are not identified in the text"
+  },
+  "cost": {
+    "est_calls": 1050,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the manually curated validation subset must be available in the repository for the 97.1% figure to be checked; the prompt is printed only in part. Zero-temperature nano calls make the run cheap.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The user prompt is printed in full in Sec. 2.2 (definitions plus instructions 1-3, closing quote present; the system prompt is paraphrased). The 350 manually curated abstracts and their 456 compound-mention labels are referenced only as Supplementary Table S3 and must be located in the repository or supplement. Run gpt-4.1-nano-2025-04-14 at temperature 0 with the printed prompt and each abstract, and compare correctly identified and classified mentions with 443/456 (97.1%).",
+    "approximation": "The system prompt wording and the LangChain message layout are reconstructed; matching extracted names to curated mentions needs the repository's standardization step.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/aylindmm/Ototoxic_DB.git",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

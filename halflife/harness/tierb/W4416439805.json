@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416439805",
+  "title": "MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents via Model, Context, and Interactive Scaling",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini-2025-01-31",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "A",
+    "evidence": "BrowseComp, and BrowseComp-ZH are judged with gpt-4.1-2025-04-14, while Humanity's Last Exam follows its official setup using o3-mini-2025-01-31 (Section 4, evaluation)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (judge prompts follow the benchmarks' official setups)",
+    "note": ""
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (o3-mini is a judge; OpenAI-o3 rows in Table 1 are cited numbers)",
+    "task_type": "agentic",
+    "judge": "llm:o3-mini-2025-01-31"
+  },
+  "data": {
+    "public": "yes",
+    "source": "GAIA, HLE, BrowseComp, BrowseComp-ZH"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Subject is the open-weight MiroThinker agent; the live model only grades answers."
+}

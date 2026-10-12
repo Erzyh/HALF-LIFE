@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4403795327",
+  "title": "HAICOSYSTEM: An Ecosystem for Sandboxing Safety Risks in Human-AI Interactions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "App. E.1: 'GPT-4-turbo (OpenAI, 2023): gpt-4-turbo-2024-04-09'; Sec. 4: 'We simulate 660 episodes for each of 12 different models, namely GPT-4-turbo ...'; simulator/evaluator gpt-4o-2024-08-06"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E.2 (AI agent prompt), Appendix C.1 (GPT-4o evaluator prompts), simulated-user and environment prompts in Appendix",
+    "note": "multi-turn role-play with a simulated user and tool environment"
+  },
+  "claim": {
+    "metric": "overall risk ratio",
+    "value": null,
+    "n_items": 660,
+    "location": "Figure 4 (per-model bars; GPT-4-turbo value not printed in text)",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o-2024-08-06"
+  },
+  "data": {
+    "public": "yes",
+    "source": "132 HAICOSYSTEM scenarios (github.com/HAICosystem; HuggingFace)"
+  },
+  "cost": {
+    "est_calls": 20000,
+    "tier": "high"
+  },
+  "blockers": [
+    "aux_model_dead",
+    "tos"
+  ],
+  "notes": "gpt-4o-2024-08-06 serves as user simulator, environment engine and evaluator and is not in the live list; scenarios include malicious users pursuing harmful outcomes; numeric risk ratios in the text are for O1/R1 only."
+}

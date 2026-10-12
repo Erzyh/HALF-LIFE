@@ -1,0 +1,56 @@
+{
+  "wid": "W4402345509",
+  "title": "LAB-Bench: Measuring Capabilities of Language Models for Biology Research",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 0.12,
+  "original_location": "Supplementary Table 1, row LitQA2, column gpt-4-turbo (mean of three runs over public and private splits)",
+  "reexecution": {
+    "mean_over_seeds": 0.49246231155778897,
+    "per_seed": {
+      "0": {
+        "value": 0.49246231155778897,
+        "n": 199,
+        "ci95": [
+          0.4221105527638191,
+          0.5577889447236181
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4402345509",
+    "n_items": 199,
+    "n_requests": 199,
+    "seeds": 1,
+    "est_usd": 0.33,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 0.12,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "20% private items unavailable (Appendix B.1: public/private accuracies differ by under 5 points); Claude 2 fallback parser replaced by regex-only parsing; option order permuted with a fixed seed per item",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4402345509"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.49246231155778897,
+    "delta": 0.37246231155778897,
+    "original_inside_ci95": false
+  }
+}

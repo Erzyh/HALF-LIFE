@@ -1,0 +1,303 @@
+{
+  "text-davinci-003": {
+    "count": 3241,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-01-04",
+    "vendor": "openai"
+  },
+  "text-davinci-002": {
+    "count": 1136,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-01-04",
+    "vendor": "openai"
+  },
+  "text-davinci-001": {
+    "count": 239,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-01-04",
+    "vendor": "openai"
+  },
+  "text-curie-001": {
+    "count": 249,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-01-04",
+    "vendor": "openai"
+  },
+  "gpt-3.5-turbo-0301": {
+    "count": 612,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-09-13",
+    "vendor": "openai"
+  },
+  "gpt-3.5-turbo-0613": {
+    "count": 1009,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-09-13",
+    "vendor": "openai"
+  },
+  "gpt-3.5-turbo-16k": {
+    "count": 594,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "openai"
+  },
+  "gpt-4-0314": {
+    "count": 570,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-06-13 (earliest, 페이지 표기)",
+    "vendor": "openai"
+  },
+  "gpt-4-0613": {
+    "count": 1943,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-09-13",
+    "vendor": "openai"
+  },
+  "gpt-4-32k": {
+    "count": 351,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2025-06-06",
+    "vendor": "openai"
+  },
+  "gpt-4-1106-preview": {
+    "count": 1365,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "openai"
+  },
+  "gpt-4-0125-preview": {
+    "count": 754,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "openai"
+  },
+  "gpt-4-vision-preview": {
+    "count": 254,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-12-06",
+    "vendor": "openai"
+  },
+  "gpt-4-1106-vision-preview": {
+    "count": 69,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2024-12-06",
+    "vendor": "openai"
+  },
+  "gpt-4.5-preview": {
+    "count": 85,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2025-07-14",
+    "vendor": "openai"
+  },
+  "chatgpt-4o-latest": {
+    "count": 121,
+    "status": "dead",
+    "priority": 3,
+    "shutdown": "2026-02-17",
+    "vendor": "openai"
+  },
+  "gpt-4o-2024-05-13": {
+    "count": 1257,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "gpt-4-turbo": {
+    "count": 7068,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "gpt-4-turbo-2024-04-09": {
+    "count": 738,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "gpt-4.1-nano": {
+    "count": 719,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "gpt-4.1-nano-2025-04-14": {
+    "count": 54,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "o1-preview": {
+    "count": 1872,
+    "status": "verify",
+    "priority": 1,
+    "shutdown": null,
+    "vendor": "openai"
+  },
+  "o1-mini": {
+    "count": 1059,
+    "status": "verify",
+    "priority": 1,
+    "shutdown": null,
+    "vendor": "openai"
+  },
+  "o1-2024-12-17": {
+    "count": 155,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "o1-pro-2025-03-19": {
+    "count": 1,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "o3-mini-2025-01-31": {
+    "count": 184,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "o4-mini-2025-04-16": {
+    "count": 171,
+    "status": "dying",
+    "priority": 1,
+    "shutdown": "2026-10-23",
+    "vendor": "openai"
+  },
+  "o3-2025-04-16": {
+    "count": 175,
+    "status": "dying",
+    "priority": 2,
+    "shutdown": "2026-12-11",
+    "vendor": "openai"
+  },
+  "o3-pro-2025-06-10": {
+    "count": 5,
+    "status": "dying",
+    "priority": 2,
+    "shutdown": "2026-12-11",
+    "vendor": "openai"
+  },
+  "gpt-5-2025-08-07": {
+    "count": 353,
+    "status": "dying",
+    "priority": 2,
+    "shutdown": "2026-12-11",
+    "vendor": "openai"
+  },
+  "gpt-5-mini-2025-08-07": {
+    "count": 228,
+    "status": "dying",
+    "priority": 2,
+    "shutdown": "2026-12-11",
+    "vendor": "openai"
+  },
+  "gpt-5-nano-2025-08-07": {
+    "count": 72,
+    "status": "dying",
+    "priority": 2,
+    "shutdown": "2026-12-11",
+    "vendor": "openai"
+  },
+  "claude-1": {
+    "count": 682,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "anthropic"
+  },
+  "claude-2": {
+    "count": 2311,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "anthropic"
+  },
+  "claude-2.1": {
+    "count": 411,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "anthropic"
+  },
+  "claude-instant-1.2": {
+    "count": 57,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "anthropic"
+  },
+  "claude-3-sonnet-20240229": {
+    "count": 176,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": "2025-07 (보도 기준, 공식 확인 필요)",
+    "vendor": "anthropic"
+  },
+  "claude-3-opus-20240229": {
+    "count": 314,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "anthropic"
+  },
+  "claude-3-5-sonnet-20240620": {
+    "count": 278,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "anthropic"
+  },
+  "text-bison": {
+    "count": 239,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": "PaLM API 종료 (2024-10 보도, 공식 확인 필요)",
+    "vendor": "google"
+  },
+  "gemini-1.0-pro": {
+    "count": 644,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "google"
+  },
+  "gemini-1.5-pro": {
+    "count": 4375,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "google"
+  },
+  "gemini-1.5-flash": {
+    "count": 2243,
+    "status": "verify",
+    "priority": 3,
+    "shutdown": null,
+    "vendor": "google"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4404314294",
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLMs in Disaster Response",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We chose to test five different LLMs on our benchmark dataset: GPT-3.5 Turbo, GPT-4 Turbo, GPT-4o, Llama 3.1, and Gemini\" (Sec. III.B); logprobs analysed, i.e. API access"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section III.B: question + answer choices + fixed suffix ('Please answer the question above and end your answer with ...'); DSP/CoT/few-shot/emotional prefixes quoted",
+    "note": "No-Prompting condition = question + suffix"
+  },
+  "claim": {
+    "metric": "accuracy, 1st-index answer, No Prompting",
+    "value": 0.817,
+    "n_items": 707,
+    "location": "Table II, row GPT-4 Turbo, column 1st Index",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "DisasterQA on HuggingFace (707 MCQs); question sources listed in Sec. III.A"
+  },
+  "cost": {
+    "est_calls": 2121,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Temperature not stated; self-consistency used 5 completions per question (majority vote 82.10%). Alias resolved by date rule (Oct 2024, no preview string)."
+}

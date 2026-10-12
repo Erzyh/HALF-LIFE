@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7161915612",
+  "title": "Why Do Safety Guardrails Degrade Across Languages?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 6 lists gpt-4.1-nano among the 61 model configurations (four temperature/top-p settings); Table 7: \"gpt-4.1-nano 0.618 0.29\" (Fleiss kappa, JSR spread)."
+  },
+  "prompt": {"verbatim": "none", "location": "MultiJail prompts (Deng et al., 2024) referenced; judge system prompt in Appendix", "note": "Jailbreak prompts are the dataset itself; the judge rubric for GPT-5.2 is printed."},
+  "claim": {
+    "metric": "within-model configuration agreement (Fleiss kappa) on safety decisions", "value": 0.618, "n_items": 3150, "location": "Table 7 (Appendix F.2), row gpt-4.1-nano; MultiJail has 3,150 prompts in 10 languages",
+    "task_type": "generation",
+    "judge": "llm:gpt-5.2"
+  },
+  "data": {"public": "yes", "source": "MultiJail (Deng et al., 2024); https://huggingface.co/datasets/aims-foundations/safety-irt"},
+  "cost": {"est_calls": 37800, "tier": "high"},
+  "blockers": ["tos"],
+  "notes": "Responses to 3,150 multilingual jailbreak prompts are scored for harmful compliance by GPT-5.2; the harmful-prompt content triggers the tos blocker. Snapshot for gpt-4.1-nano is not named. JSR per model is shown by family in Table 1 and per configuration in figures."
+}

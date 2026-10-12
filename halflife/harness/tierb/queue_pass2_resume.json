@@ -1,0 +1,39 @@
+[
+ {
+  "wid": "W4411120580",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "note": "QSpell 250K: resume of the pass-2 run stopped at 1,375 of 7,658 calls (credits exhausted 2026-09-20 04:16); archived replies are reused by item id, the cap includes the $1.39 already spent"
+ },
+ {
+  "wid": "W4415332749",
+  "cap": 20.0,
+  "model": "o1-2024-12-17",
+  "note": "J4R (pass-2 queue, not started)"
+ },
+ {
+  "wid": "W4414979614",
+  "cap": 4.1,
+  "model": "gpt-5-2025-08-07",
+  "note": "Multilingual annotation (pass-2 queue, not started)"
+ },
+ {
+  "wid": "W7162149911",
+  "cap": 12.5,
+  "model": "gpt-5-2025-08-07",
+  "note": "Annotation guidelines (pass-2 queue, not started)"
+ },
+ {
+  "wid": "W7126280993",
+  "cap": 20.0,
+  "model": "o3-2025-04-16",
+  "note": "Semantic content / algorithmic performance (pass-2 queue, not started)"
+ },
+ {
+  "wid": "W4411119343",
+  "cap": 3.0,
+  "force": true,
+  "model": "gpt-4-turbo-2024-04-09",
+  "note": "gap fill: 28 of 394 items lost to HTTP 520 on 2026-09-19; the resumable re-run fills only the missing calls"
+ }
+]

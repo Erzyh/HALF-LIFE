@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402302940",
+  "title": "Performance of Open-Source LLMs in Challenging Radiological Cases – A Benchmark Study on 1,933 Eurorad Case Reports",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"A recent study indicated that Llama-3-70B, along with GPT-4 Turbo, demonstrated the closest alignment with human evaluations, making it particularly suitable for this task.\" (Methods)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods (Llama-3-70B filtering instruction and diagnosis prompt)",
+    "note": "Prompts are for open-source models run with llama.cpp."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4 Turbo is only cited)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "1,933 Eurorad case reports (public case library); code at GitHub per Methods"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Study evaluates open-source LLMs only (temperature 0, Q5_K_M quantization); Llama-3-70B is the judge."
+}

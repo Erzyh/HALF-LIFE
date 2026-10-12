@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4409361799",
+  "title": "Knowledge Tagging with Large Language Model Based Multi-Agent System",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Table 2: 'GPT-Large: gpt-4o-2024-05-13'; text: 'we chose OpenAI's GPT-4o (with temperature=0.7) for the numerical judger in all following experiments'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Method section: instruction templates for Task Planner, Question Solver and Semantic Judger (with [Example] placeholders)",
+    "note": "Few-shot examples are sampled from the dataset (2 per concept); exact examples and the numerical judger code prompt are not printed."
+  },
+  "claim": {
+    "metric": "accuracy (%)",
+    "value": 86.91,
+    "n_items": 2400,
+    "location": "Table 4, block Multi-Agent LLMs, GPT Large, row Accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MathKnowCT (Li et al. 2024a), 24 knowledge concepts with ~100 samples each (Table 1)"
+  },
+  "cost": {
+    "est_calls": 12000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "n is approximate (per-concept counts in Table 1; some concepts have fewer than 100). Pipeline is multi-agent with code execution by the numerical judger at temperature 0.7, so the call count is several per item.",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "The Task Planner, Question Solver, Semantic Judger and two-step Numerical Judger templates are printed with [Example] placeholders that the paper fills with two examples randomly sampled per knowledge concept from MathKnowCT (Sec. Dataset Overview). Fill the placeholders with two seeded-random labelled examples per concept from the public MathKnowCT (Li et al. 2024a), run all agents with gpt-4o-2024-05-13 (numerical judger at temperature 0.7, generated Python executed locally), and compute accuracy over the ~2,400 concept-question pairs (Table 1 counts).",
+    "approximation": "Different random demonstrations; the paper adjusts prompt text per LLM without printing the variants; per-concept counts under 100 make n approximate.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

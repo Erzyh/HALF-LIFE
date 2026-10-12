@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4413114601",
+ "title": "Is Large Language Model-Assisted Citation Screening Feasible in a Scoping Review on Nonpharmacological Interventions for Delirium in Patients With Cancer?",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (also GPT-4o, model o1)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Abstract: 'three LLMs, GPT-4 Turbo, GPT-4o, and model o1...The sensitivity and specificity were 0.43 (95% CI, 0.06-0.80) and 0.99 (95% CI, 0.99-1.00) for GPT-4 Turbo' (vs. reference standard 1, title/abstract)"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (prose): prompt instructs PCC-framework inclusion/exclusion criteria and to err toward inclusion when information is missing; 'programming code and full version of the prompts...available on the GitHub repository'",
+  "note": "Full literal prompt text is only in the cited GitHub repo, not printed in the paper."
+ },
+ "claim": {
+  "metric": "sensitivity vs. reference standard 1 (title/abstract screening)",
+  "value": 0.43,
+  "n_items": null,
+  "location": "Abstract; comparison Table (GPT-4 Turbo row, reference standard 1)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Citation set derived from a previously conducted, presumably published scoping review (not re-printed in full here)"
+ },
+ "cost": {
+  "est_calls": 200,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Exact number of citations screened not located in the excerpt read. GPT-4o and o1 are also evaluated in parallel (o1 undated in text, so its snapshot cannot be confidently pinned to o1-2024-12-17 vs. an earlier preview without further checking)."
+}

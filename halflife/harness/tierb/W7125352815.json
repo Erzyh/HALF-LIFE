@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7125352815",
+  "title": "SciCoQA: Quality Assurance for Scientific Paper--Code Alignment",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-5 Mini (gpt-5-mini-2025-08-07); GPT-5 (gpt-5-2025-08-07) also used to build ground truth",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Table 3: 'GPT-5 Mini OpenAI (2025a) gpt-5-mini-2025-08-07 272k May 2024 Aug 2025'; Sec. 5: 'Gemini 3.1 Pro and GPT-5 Mini perform best, achieving a recall of 46.7%'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix F (prompt sections; F.7 is the matching-judge prompt); the detection prompt takes the paper text plus repository files",
+    "note": ""
+  },
+  "claim": {
+    "metric": "recall of real-world paper-code discrepancies",
+    "value": 46.7,
+    "n_items": 92,
+    "location": "Sec. 5 / Figure 4 / Table 10, row GPT-5 Mini, real subset (92 discrepancies from 72 papers)",
+    "task_type": "other",
+    "judge": "llm:gpt-oss-20b (open-weight matching judge) plus EmbeddingGemma top-3 filter"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SciCoQA, https://hf.co/datasets/ukplab/scicoqa (papers, versioned repository snapshots, 635 discrepancies)"
+  },
+  "cost": {
+    "est_calls": 216,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Inputs are whole papers plus code repositories (73 of 276 papers exceed 100k tokens); matching needs a hosted open-weight judge; reported values are means over five runs. GPT-5 also helps construct the ground truth (role A).",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Inputs are the markdown paper plus the processed repository snapshot (notebooks converted, file list prepended, prompt filled to 90% of context, whole files truncated from the end; A.5-A.6) with the F.6 detection prompt, and predictions are matched to ground truth by an EmbeddingGemma top-3 filter and a gpt-oss-20b judge (F.7); the file ordering/formatting and the matching pipeline are code in the released repository. Run gpt-5-mini-2025-08-07 five times over the 72 real-discrepancy papers (hf.co/datasets/ukplab/scicoqa), match against the 92 discrepancies, and compare recall with 46.7 (Sec. 5 / Table 10).",
+    "approximation": "Open-weight judge and embedding model hosted locally; five-run mean; ground truth partly built with GPT-5 (role A).",
+    "needs_repo": true,
+    "repo_url": "https://github.com/ukplab/scicoqa",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

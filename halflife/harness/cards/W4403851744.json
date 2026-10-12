@@ -1,0 +1,148 @@
+{
+  "card_id": "W4403851744",
+  "openalex_id": "https://openalex.org/W4403851744",
+  "title": "MedQA-CS: Objective Structured Clinical Examination (OSCE)-Style Benchmark for Evaluating LLM Clinical Skills",
+  "doi": "https://doi.org/10.48550/arxiv.2410.01553",
+  "paper": {
+    "authors": "Yao, Zhang, Tang, Bian, Zhao, Yang, Wang, Zhou, Jang, Ouyang, Yu (UMass Amherst / Emory / UMinnesota / UMass Lowell / UMass Chan)",
+    "year": 2024,
+    "venue": "arXiv 2410.01553 (2024-10-02)",
+    "repo": "https://github.com/bio-nlp/MedQA-CS",
+    "repo_commit": "b1f7a66f062367f7368b4aad1d5b0d9cbd9644a3 (2025-06-07; shallow clone at external/repos/W4403851744/bio-nlp__MedQA-CS)",
+    "repo_license": "CC BY-NC 4.0 (LICENSE.md; same licence stated for the two HF datasets)",
+    "other_artifacts": "HF datasets bio-nlp-umass/MedQA-CS-Student and bio-nlp-umass/MedQA-CS-Exam; the repo ships the same two files as data/med-student.json (13.9 MB) and data/med-exam.json (19.7 MB), 1,667 rows each, including every released model output and every examiner verdict"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "Table 3 is a pure model-output measurement: each row is an LLM's free-text answer to four OSCE sections, scored by a second LLM (MedExamLLM). Humans appear only in the RQ1 reliability study (3 experts, 10 cases). Both the subject and the judge are commercial snapshots, so the claim depends twice over on callable models."
+  },
+  "claim": {
+    "statement": "On the 1,667 MedQA-CS instruction-following items, the paper's GPT-4 subject arm scores 62.79 / 48.97 / 77.21 / 50.58 on InfoGatherQA / Physical Exam / Closure / Diagnosis for an average of 59.89, below GPT-4o (61.93) and Claude-3.5-Sonnet (62.35) - i.e. state-of-the-art LLMs reach only ~48-62 on clinical-skill instruction following, far below the 90+ they reach on knowledge MCQ benchmarks (Table 3, Sec. 4.2).",
+    "claim_type": "capability_limit",
+    "metric": "Per-section score on a 0-100 scale assigned by MedExamLLM (an LLM judge), averaged over the section's items; 'Avg.' is the unweighted mean of the four section means (not an item-level mean).",
+    "original_values": {
+      "GPT-4": {
+        "InfoGatherQA": 62.79,
+        "PhysicalExam": 48.97,
+        "Closure": 77.21,
+        "Diagnosis": 50.58,
+        "Avg": 59.89
+      },
+      "GPT-4o": {
+        "InfoGatherQA": 62.12,
+        "PhysicalExam": 52.08,
+        "Closure": 78.45,
+        "Diagnosis": 55.05,
+        "Avg": 61.93
+      },
+      "GPT-3.5": {
+        "Avg": 48.44
+      },
+      "Claude3-Opus": {
+        "Avg": 62.14
+      },
+      "Claude3.5-Sonnet": {
+        "Avg": 62.35
+      },
+      "section_item_counts": {
+        "qa": 1535,
+        "physical_exam": 44,
+        "closure": 44,
+        "diagnosis": 44,
+        "cases": 44
+      },
+      "our_recomputation_from_released_judge_outputs": {
+        "note": "Scoring the released med-exam.json verdicts ourselves reproduces InfoGatherQA almost exactly but not the other three sections, so the published section scaling is only partly recoverable.",
+        "InfoGatherQA_gpt-4-1106-preview": 62.74,
+        "InfoGatherQA_gpt-4o": 63.0,
+        "InfoGatherQA_gpt-3.5-turbo-1106": 39.67,
+        "PhysicalExam_gpt-4-1106-preview_sum_of_subscores": 43.14,
+        "Closure_gpt-4-1106-preview_sum_of_subscores": 79.58,
+        "Diagnosis_gpt-4-1106-preview_total_over_max": 47.99
+      }
+    },
+    "original_source": "Table 3 (Benchmarking results, MedExamLLM (GPT-4) as metric); Sec. 4.2; Sec. 3 Experimental Settings. Recomputation from data/med-exam.json in the repo at the commit above."
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13 (only still-callable subject arm; Table 3 row 'GPT-4o')",
+    "model_status": "dying, OpenAI shutdown 2026-10-23",
+    "model_usage_verified": "Alias false positive on 'GPT-4-turbo'. The released outputs in data/med-student.json and data/med-exam.json carry exactly six subject keys - gpt-4o, gpt-4-1106-preview, gpt-3.5-turbo-1106, claude-3-opus/sonnet/haiku-2024* - and a single examiner key, gpt-4-1106-preview. Table 3 row 'GPT-4' therefore = gpt-4-1106-preview (dead), confirmed numerically: our InfoGatherQA recomputation gives 62.74 vs the printed 62.79.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (langchain_openai.ChatOpenAI, langchain 0.2.1 / langchain-openai 0.1.7 / openai 1.30.2 per requirements.txt)",
+    "prompt_source": "Per-row rendered templates in the released data: data/med-student.json -> prompt.template + input (subject), data/med-exam.json -> prompt.template + input (examiner). main.py uses these templates unchanged (llm_as_medical_student / llm_as_examiner, use_dataset_prompt_template). The same prompts are printed in the paper as Appendix C Tables 8-10.",
+    "params": {
+      "temperature": 0.9,
+      "temperature_source": "Sec. 3 RQ2 ('all default parameters in their official API with temperature=0.9 for GPT and Claude 3'); main.py hard-codes model_parameters={'model_name': args.student_model, 'temperature': 0.9} for the student task",
+      "examiner_temperature": 0.0,
+      "examiner_model_in_code": "gpt-4-1106-preview (main.py default and the only key in the released verdicts) - DEAD",
+      "max_tokens": "not set (langchain/OpenAI default)",
+      "top_p": "not set",
+      "seed": "not set",
+      "samples_note": "Sec. I.2: InfoGatherQA was run once only because of its size; the other sections' repeat count is not stated"
+    },
+    "n_items": 1667,
+    "samples_per_item": 1,
+    "evaluation": "Two stages. (1) subject call per row, post-processed by utils.py (JSON repair + section-specific extraction). (2) examiner call per row with the section's judge template; utils.examiner_diagnosis_post_processing rescales the diagnosis total by max_score = 30 + 9 + physical_finding_count + 10. The section means and the 'Avg.' column are NOT in the repository - no aggregation script exists.",
+    "environment": "Python 3.10, requirements.txt (pinned, UTF-16 encoded); optional LangFuse tracing"
+  },
+  "artifacts": {
+    "prompts_path": "data/med-student.json (prompt.template per row) and data/med-exam.json (prompt.template per row); paper Appendix C Tables 8-10",
+    "data_path": "data/med-student.json, data/med-exam.json (in-repo, also on HF as bio-nlp-umass/MedQA-CS-Student and -Exam)",
+    "eval_path": "main.py (llm_as_examiner) + utils.py (per-item post-processing). No section-aggregation / Table-3 script.",
+    "data_public": true,
+    "data_license": "CC BY-NC 4.0",
+    "redistributable": "yes for non-commercial use with attribution; derived from USMLE Step-2 CS style cases written by the authors",
+    "notes": "Original per-item outputs AND per-item examiner verdicts are released for all six subject models, which is unusually complete: the whole judge stage can be re-scored offline without any API call. data_viewer.py browses the JSON; metadata/*_croissant.json holds the dataset metadata."
+  },
+  "blockers": [
+    "DEAD SNAPSHOT (subject): the paper's 'GPT-4-turbo' / Table 3 'GPT-4' arm is gpt-4-1106-preview, proved by the released output keys and by our 62.74-vs-62.79 recomputation. gpt-4-1106-preview is retired, so the headline row cannot be re-executed.",
+    "DEAD SNAPSHOT (judge): MedExamLLM - the metric itself - is gpt-4-1106-preview at temperature 0 (main.py default, only examiner key in med-exam.json). Every number in Table 3, including the runnable GPT-4o row, is defined by a judge that can no longer be called; any re-run needs a substitute examiner and is then a different metric.",
+    "The section aggregation is not in the repository: we reproduce InfoGatherQA to 0.05 points from the released verdicts but land 2-6 points away on Physical Exam (43.14 vs 48.97), Closure (79.58 vs 77.21) and Diagnosis (47.99 vs 50.58), so the published scaling constants for those three sections are unknown.",
+    "Subject runs used temperature 0.9 with no seed and a single sample per item, so item-level agreement with the released outputs is not expected even for a live snapshot."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4o-2024-05-13",
+      "purpose": "the only still-callable subject arm the paper ran (Table 3 row GPT-4o, Avg. 61.93); runnable only under a substituted examiner"
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for gpt-4o per the OpenAI deprecations page)",
+      "gpt-4.1-2025-04-14 (GPT-4-class reference arm)"
+    ],
+    "dead_comparators_not_runnable": [
+      "gpt-4-1106-preview (Table 3 'GPT-4' subject row AND the MedExamLLM judge)",
+      "gpt-3.5-turbo-1106 (Table 3 'GPT-3.5')"
+    ]
+  },
+  "budget": {
+    "est_calls": 10002,
+    "est_tokens_in": 13650000,
+    "est_tokens_out": 1760000,
+    "est_cost_usd": 95,
+    "pricing_usd_per_1m": {
+      "gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      }
+    },
+    "assumptions": "CONDITIONAL - only payable if a substitute examiner is approved. 1,667 subject + 1,667 examiner calls per seed x 3 seeds. Measured prompt sizes from the released data: subject 1.87M input tokens per pass (qa ~1,034, physical_exam ~1,514, closure ~1,935, diagnosis ~2,995 tokens per item), examiner 2.68M per pass (qa ~1,572 ... diagnosis ~2,140). Output ~0.59M per pass from the released outputs. One seed alone is ~USD 32. Temperature 0.9 makes multiple seeds necessary rather than optional."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 - NOT APPLICABLE as specified, because the metric's judge snapshot is dead. If the user approves a substituted examiner, the primary number becomes the gpt-4o-2024-05-13 four-section average against the original 61.93, judged as: survival = re-run Avg. within the item-bootstrap 95% CI of the original AND the direction of the paper's claim holds (all sections far below the 90+ of knowledge MCQ benchmarks, Closure highest and Physical Exam / Diagnosis around 50). A judge substitution must first be calibrated by re-scoring the released 1,667 gpt-4o outputs with the new examiner: the judge-drift term has to be reported separately from the subject-drift term, otherwise the two are not identifiable."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm the alias finding: Table 3 'GPT-4' = gpt-4-1106-preview (dead), so this paper leaves the gpt-4-turbo census as a false positive - keep it as a census correction rather than a run?",
+    "Accept gpt-4o-2024-05-13 as the resolution of the undated 'gpt-4o' key (runs predate the 2024-10-02 alias move; paper posted 2024-10-02)?",
+    "If a substituted examiner is approved, re-score the released 1,667 gpt-4o outputs with it first (judge-drift baseline) before spending on new subject calls?",
+    "Physical Exam / Closure / Diagnosis scaling constants are unrecoverable - restrict any re-run to InfoGatherQA (1,535 items, reproduces to 0.05 points)?"
+  ],
+  "tierb_relation": {
+    "in_tierb": true,
+    "tierb_config": "harness/tierb/configs/W4403851744.json (status needs_human)",
+    "upgrade": "Repository-based re-execution is a real upgrade over the Tier B prompt-level config on three counts: (1) the Tier B config re-typed the four Table 8 prompts into one concatenated template with hand-guessed slot names, whereas the repo ships the exact rendered template plus its input dict per row; (2) the examiner templates and the scoring post-processing (including the diagnosis max_score formula) are code, not prose; (3) the original per-item outputs and judge verdicts are released, so judge drift can be measured without any new call.",
+    "protocol_differences": "Tier B ran subject-only at temperature 0.9 and treated the examiner as an unresolved open point; the repository protocol is two-stage (subject 0.9, examiner 0.0) and pins the examiner to gpt-4-1106-preview. The Tier B open point 'aux_model_dead' is now confirmed from the artifact rather than inferred, and the new finding is that the subject row is dead too.",
+    "unchanged": "The unprinted section-aggregation constants remain unresolved; the repo contains no aggregation code."
+  },
+  "domain_notes": "MedQA-CS is built from 44 USMLE Step-2 CS style cases split into four sections; InfoGatherQA carries 1,535 of the 1,667 items (one per dialogue turn) and therefore dominates cost while contributing one quarter of the 'Avg.'. The benchmark's own thesis - that an LLM judge is a usable metric for clinical skills - was validated in RQ1 against three human experts on 10 cases, so the judge is not incidental to the claim but part of it; that is the deeper reason a judge substitution changes what is being measured."
+}

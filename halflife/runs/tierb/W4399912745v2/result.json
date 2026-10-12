@@ -1,0 +1,49 @@
+{
+  "wid": "W4399912745v2",
+  "title": "ALiiCE: Evaluating Positional Fine-grained Citation Generation [variant: code-release prompt format]",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 47.0,
+  "original_location": "Table 1, ASQA block, row GPT-4 (5-psg), column Correct.",
+  "reexecution": {
+    "mean_over_seeds": 0.3712904360056259,
+    "per_seed": {
+      "0": {
+        "value": 0.3712904360056259,
+        "n": 948,
+        "ci95": [
+          0.35196642053445854,
+          0.39105397327707453
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399912745v2",
+    "n_items": 948,
+    "n_requests": 948,
+    "seeds": 1,
+    "est_usd": 20.15,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 47.0,
+    "cap_usd": 30.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "Variant with the released code's prompt (shorter instruction, two citation examples, 'Document [k] Title: T: text' lines) instead of the paper's Table 7 text, to test the format hypothesis for the 47.0 -> 37.6 deviation; 5 passages = docs[0:5]; temperature 0.5 as in the paper.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 37.12904360056259,
+    "delta": -9.87095639943741,
+    "original_inside_ci95": false
+  }
+}

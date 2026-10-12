@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4401660192",
+ "title": "Qwen2 Technical Report",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo-0409",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Table 13: \"multilingual human evaluation. We compare Qwen2-72B-Instruct with GPT-3.5-Turbo-1106, GPT-4-Turbo-0409, GPT-4o-0513, Claude-3-Opus-0229\" (10 languages, 1-5 scale)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "\"we design diverse test cases\" for a proprietary internal multilingual human evaluation; the test cases themselves are not published."
+ },
+ "claim": {
+  "metric": "none re-executable (human-graded proprietary multilingual test set, not released)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 13",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "internal multilingual test cases designed by the Qwen2 authors, not released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "gpt-4o-2024-05-13 is also compared (Tables 2 area) on some public academic benchmarks, but the GPT-4-Turbo comparison specifically sits only in the closed, self-designed multilingual human-eval set (Table 13), scored by hired professional annotators rather than an automatic metric."
+}

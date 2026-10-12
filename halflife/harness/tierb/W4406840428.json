@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406840428",
+  "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'To ensure direct comparability with MemGPT's DMR results, we also conducted the DMR evaluation using gpt-4-turbo-2024-04-09'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix 6.1 (graph-construction prompts only); the DMR answer and judge prompts are not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "DMR accuracy (%), full-conversation baseline",
+    "value": 94.4,
+    "n_items": 500,
+    "location": "Table 1, row 'Full-conversation gpt-4-turbo'",
+    "task_type": "other",
+    "judge": "llm:unspecified"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Deep Memory Retrieval: 500 multi-session conversations from MemGPT (Multi-Session Chat subset); LongMemEval_s"
+  },
+  "cost": {
+    "est_calls": 500,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "The Zep result (94.8%) requires the Zep/Graphiti system; even the full-context baseline lacks the QA prompt and the identity of the LLM judge."
+}

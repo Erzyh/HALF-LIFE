@@ -1,0 +1,16 @@
+[
+ {"name": "AgentMisalignment run (cap 3)", "group": "agentmis", "args": ["agentmis_W4416074906.py", "--run", "--cap", "3"]},
+ {"name": "AgentMisalignment analyze", "group": "agentmis", "args": ["agentmis_W4416074906.py", "--analyze"]},
+ {"name": "OffsetBias run (cap 3)", "group": "offsetbias", "args": ["offsetbias_W4404781910.py", "--run", "--cap", "3"]},
+ {"name": "OffsetBias analyze", "group": "offsetbias", "args": ["offsetbias_W4404781910.py", "--analyze"]},
+ {"name": "BADGE run (caps fixed in the adapter: writer 3, judge 12, paper 15)", "group": "badge", "args": ["badge_W4400103831.py", "--run"]},
+ {"name": "BADGE analyze", "group": "badge", "args": ["badge_W4400103831.py", "--analyze"]},
+ {"name": "TURTLEAI run (cap 25)", "group": "turtleai", "args": ["turtleai_W7166808082.py", "--run", "--cap", "25"]},
+ {"name": "TURTLEAI analyze", "group": "turtleai", "args": ["turtleai_W7166808082.py", "--analyze"]},
+ {"name": "ReIFE run (cap 20)", "group": "reife", "args": ["reife_W4411119263.py", "--run", "--cap", "20"]},
+ {"name": "ReIFE analyze", "group": "reife", "args": ["reife_W4411119263.py", "--analyze"]},
+ {"name": "Judge bias 2 run (cap 35)", "group": "judgebias2", "args": ["judgebias2_W4403885225.py", "--run", "--cap", "35"]},
+ {"name": "Judge bias 2 analyze", "group": "judgebias2", "args": ["judgebias2_W4403885225.py", "--analyze"]},
+ {"name": "AI-text detection run (cap 50)", "group": "detect", "args": ["detect_W4406880877.py", "--run", "--cap", "50"]},
+ {"name": "AI-text detection analyze", "group": "detect", "args": ["detect_W4406880877.py", "--analyze"]}
+]

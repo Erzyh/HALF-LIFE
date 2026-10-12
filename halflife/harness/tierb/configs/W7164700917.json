@@ -1,0 +1,92 @@
+{
+ "wid": "W7164700917",
+ "title": "Recursive Agent Harnesses",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-5-2025-08-07",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 8192
+  },
+  "params_source": "paper Sec. 4.1 ('All runs use temperature zero'); gpt-5 is a reasoning model and ignores temperature, so only max_completion_tokens is sent, set generously because subagent outputs and the extraction call are free-form",
+  "seeds": 1
+ },
+ "task": {
+  "type": "other",
+  "n_items": 199,
+  "subset_rule": "paper-defined: 199 samples drawn from the Oolong-Synthetic validation split, stratified across all 13 context-length buckets (1K to 4M tokens, average 629K tokens per instance); the same 199-sample protocol as the baselines of Cao et al.",
+  "approximation": "RAH is a recursive multi-agent harness: a parent agent writes and executes a script that spawns one full subagent harness per entry (thousands in parallel), each with filesystem and shell tools, and a final GPT-5 answer-extraction call. Nothing of that fits a single chat completion."
+ },
+ "items": {
+  "source_type": "hf",
+  "source": "huggingface.co/datasets/oolongbench/oolong-synth (Oolong-Synthetic; the paper attributes the data and the baseline numbers to Cao et al. and Zhang et al.)",
+  "config_or_split": "split validation (1,300 examples, 4.43 GB) - far above the 50 MB download limit, so the rows were not fetched; the 199-sample stratified subset is not enumerated in the paper",
+  "filter": null,
+  "fields": {
+   "input": "context_window_text + question",
+   "label": "answer",
+   "id": "id"
+  },
+  "license": "unknown (the dataset card declares no licence)",
+  "access_checked": true,
+  "size_mb": 4430,
+  "columns": [
+   "id",
+   "context_len",
+   "dataset",
+   "context_window_text",
+   "context_window_text_with_labels",
+   "question",
+   "task_group",
+   "task",
+   "answer",
+   "answer_type",
+   "input_subset",
+   "num_labels",
+   "context_window_id"
+  ],
+  "hf_paper": {
+   "dataset": "oolongbench/oolong-synth",
+   "split": "validation"
+  },
+  "file_url": null,
+  "size_limit_note": "items.hf is deliberately NOT set. The validation split is 4.43 GB, so a --prepare with a machine-readable hf block starts a download far above the project's 50 MB rule; the hub id is kept under items.hf_paper instead and the runner stops with NEEDS_HUMAN."
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "The following is the output of an AI agent given this task:\n\nTASK: {question}\n\nAGENT OUTPUT:\n{raw_output}\n\nExtract ONLY the final answer in the exact format the task specifies. Return just the answer value - no explanation, no punctuation, no extra words. If the answer is a label like 'spam' or 'ham', return only that word. If it is a number, return only the number. If it is a name or ID, return only that value.",
+  "placeholders": {
+   "question": "the Oolong question",
+   "raw_output": "the subagent's raw output for that instance"
+  },
+  "few_shot": "none",
+  "source_location": "Appendix C ('Answer-Extraction Prompt'); Appendices A and B hold the parent and subagent prompts",
+  "verbatim": "full for the answer-extraction prompt of Appendix C (the last stage only). The parent and subagent system prompts of Appendices A and B are printed as fragments in the extracted text and are not the stage that produces the score."
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "the extraction call returns the bare answer value; a regular-expression parser is the documented fallback (never used on the 199 instances)",
+  "parse_paper": "same"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "Oolong Score = micro-average over the 199 instances of a per-instance score that is exact match for LABEL, COMPARISON, USER and DATE answer types and 0.75^|y - yhat| for NUMERIC answers; deterministic, no model judge (Sec. 4.1)",
+  "judge": "none for scoring; gpt-5-2025-08-07 is used as a format extractor before scoring, and its prompt is printed (Appendix C)",
+  "original_value": 81.36,
+  "original_location": "Table 1 / Figure 2, row 'RAH, GPT-5 (ours)' (baselines in the same table: full-context 59.22, RLM 64.38, Codex no-retriever 71.75, all measured by Cao et al.)",
+  "bootstrap_unit": "instance",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 199,
+  "est_usd": 900.0,
+  "tier": "high"
+ },
+ "open_points": [
+  "harness not released: 'The Recursive Agent Harness implementation and the evaluation and scoring scripts will be released shortly.' Without them the parent/subagent orchestration, the spawning script and the scorer would all have to be re-implemented from the prose, so the number would not be a re-run of the published system.",
+  "data over the limit: the Oolong-Synthetic validation split is 4.43 GB (average 629K tokens per instance, up to 4M), far above the 50 MB rule, and the 199-instance stratified subset is not enumerated. items.hf is therefore left unset on purpose so that --prepare cannot start the download; a human has to decide how to obtain and subset the rows.",
+  "architecture: thousands of parallel subagent harnesses with filesystem and shell access per instance, plus a separate extraction call, is outside the Tier B runner and would need its own sandbox.",
+  "cost: 199 instances at an average of 629K context tokens spread over a parent plus many subagents runs into the high hundreds of dollars even before retries - an explicit budget decision."
+ ],
+ "notes": "The only piece of this paper that is fully specified and cheap is the answer-extraction stage of Appendix C, and it presupposes subagent outputs to extract from. The Claude Sonnet 4.5 configuration in the same table (89.77) is out of scope."
+}

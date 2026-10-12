@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416033599",
+  "title": "Investigating Factuality in Long-Form Text Generation: The Roles of Self-Known and Self-Unknown",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "A",
+    "evidence": "Sec. 3: 'a question-answer pair can be derived ... with GPT-4 Turbo'; Appendix A lists 'GPT-4, GPT-4-Turbo (OpenAI, 2023b)' among models used"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (Self-Known/Self-Unknown prompt templates; QA-pair creation prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Figures report Self-Known/Self-Unknown for ChatGPT, Claude-3-opus, Gemini-1.5-pro, Mistral-Large etc.; no GPT-4-Turbo row in Table 1",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "biographical generations (FActScore-style) decomposed into atomic claims with human labels from prior work"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "2023-cited GPT-4 Turbo used for QA-pair derivation; likely a preview-era run (dead_alias risk)."
+}

@@ -1,0 +1,57 @@
+{
+  "wid": "W4416034777",
+  "title": "The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decision-Making in Rock-Paper-Scissors Games?",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 0.107,
+  "original_location": "Table 1, row GPT-4-turbo (mean TVD)",
+  "reexecution": {
+    "mean_over_seeds": 0.07482993197278912,
+    "per_seed": {
+      "0": {
+        "value": 0.07482993197278912,
+        "n": 100,
+        "ci95": [
+          0.018616578152660625,
+          0.18181818181818182
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4416034777",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 3.79,
+    "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+    "dropped_unrenderable": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 0.107,
+    "cap_usd": 1.56,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416034777"
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 12
+  },
+  "approximation": "the paper's 'GPT-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (EMNLP Findings 2025, no version string)",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\drift_ctrl\\W4416034777"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.07482993197278912,
+    "delta": -0.03217006802721088,
+    "original_inside_ci95": true
+  }
+}

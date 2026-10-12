@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4417002225",
+  "title": "What emotions reveal about patient safety: GPT-4-based sentiment and emotion analysis of 11056 German CIRS medical reports (2005-2024)",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Methods: model version \"2024-04-09, accessed March 2025\" with temperature setting; \"GPT-4 was prompted in a zero-shot ...\" (Methods, online supplemental material 2)."
+  },
+  "prompt": {"verbatim": "none", "location": "online supplemental material 2 (full narrative prompts), not in the main text", "note": ""},
+  "claim": {
+    "metric": "mean emotion scores per report group (descriptive)", "value": null, "n_items": 11056, "location": "Table 1 (group differences by specialty and care type), Table 3 (feedback presence)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "CIRS reports are publicly readable online (German critical incident reporting system); no identifier list or extraction snapshot is provided"},
+  "cost": {"est_calls": 0, "tier": "high"},
+  "blockers": ["no_number"],
+  "notes": "The output is a descriptive emotion analysis without an accuracy against a reference label, and the prompts are only in the supplement; 11,056 long reports would also exceed the low-cost range."
+}

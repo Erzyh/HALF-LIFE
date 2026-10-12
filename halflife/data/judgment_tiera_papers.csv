@@ -1,0 +1,26 @@
+﻿wid,title,claims,judged,automatic,changed,conclusion,claims_survived,claims_partial,claims_died,claims_cannot_judge
+T1,Benchmarking Large Language Models for Bio-Image Analysis Code Generation,1,생존,생존,no,핵심 주장 성립,1,0,0,0
+W7171749161,Tag Questions and the Generational Reversal of Sycophancy Across 45 Language Models,1,생존,생존,no,핵심 주장 성립,1,0,0,0
+W7140135941,Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty,4,부분 생존,부분 생존,no,부분 성립,3,1,0,0
+W4362598103,Accuracy and Political Bias of News Source Credibility Ratings by Large Language Models,2,부분 생존,부분 생존,no,부분 성립,1,1,0,0
+W7144391134,In-Context Molecular Property Prediction with LLMs: A Blinding Study on Memorization and K,3,생존,생존,no,핵심 주장 성립,3,0,0,0
+W4402565126,Cultural bias and cultural alignment of large language models,2,부분 생존,생존,yes,부분 성립,1,1,0,0
+W4412887943,MEDEC: A Benchmark for Medical Error Detection and Correction in Clinical Notes,2,부분 생존,부분 생존,no,부분 성립,0,2,0,0
+W4412945732,Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Me,8,생존,생존,no,핵심 주장 성립,8,0,0,0
+W4396768794,Assessing DxGPT: Diagnosing Rare Diseases with Various Large Language Models,2,생존,생존,no,핵심 주장 성립,2,0,0,0
+W4405408496,The Impact of Temperature on Extracting Information From Clinical Trial Publications Using,7,부분 생존,생존,yes,부분 성립,6,1,0,0
+W4400435289,"Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs",7,부분 생존,생존,yes,부분 성립,6,1,0,0
+W4404782878,Humans or LLMs as the Judge? A Study on Judgement Bias,4,부분 생존,부분 생존,no,핵심 주장 성립,3,1,0,0
+W4411120389,"The Good, The Bad, and The Greedy: Evaluation of LLMs Should Not Ignore Non-Determinism",3,부분 생존,부분 생존,no,부분 성립,2,1,0,0
+W4416074906,AgentMisalignment: Measuring the Propensity for Misaligned Behaviour in LLM-Based Agents,7,생존,생존,no,핵심 주장 성립,7,0,0,0
+W4404781910,OffsetBias: Leveraging Debiased Data for Tuning Evaluators,7,생존,생존,no,핵심 주장 성립,7,0,0,0
+W4400103831,BADGE: BADminton report Generation and Evaluation with LLM,3,판정 불능,생존,yes,판단 불가,0,0,0,3
+W7166808082,TURTLEAI: Benchmarking Multimodal Models for Visual Programming in Turtle Graphics,1,생존,생존,no,핵심 주장 성립,1,0,0,0
+W4411119263,ReIFE: Re-evaluating Instruction-Following Evaluation,5,생존,생존,no,핵심 주장 성립,5,0,0,0
+W4416035547,Agent-to-Agent Theory of Mind: Testing Interlocutor Awareness among Large Language Models,1,부분 생존,부분 생존,no,부분 성립,0,1,0,0
+W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,2,부분 생존,부분 생존,no,부분 성립,1,1,0,0
+W4406880877,People who frequently use ChatGPT for writing tasks are accurate and robust detectors of A,2,생존,생존,no,핵심 주장 성립,2,0,0,0
+W4412887747,Rethinking Table Instruction Tuning,2,부분 생존,부분 생존,no,부분 성립,1,1,0,0
+W4407012395,MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding,6,생존,생존,no,핵심 주장 성립,6,0,0,0
+W4416034576,AIRepr: An Analyst-Inspector Framework for Evaluating Reproducibility of LLMs in Data Scie,3,부분 생존,부분 생존,no,부분 성립,1,2,0,0
+W4399442646,ACCORD: Closing the Commonsense Measurability Gap,10,생존,생존,no,핵심 주장 성립,10,0,0,0

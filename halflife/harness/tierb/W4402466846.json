@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4402466846",
+ "title": "The Structure of Financial Equity Research Reports -- Identification of the Most Frequently Asked Questions in Financial Analyst Reports to Automate Equity Research Using Llama 3 and GPT-4",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec IV-D: \"the closed-source GPT-4-turbo-2024-04-09 model... We set the temperatures of both models to zero...\"; \"GPT-4 is able to extract the correct answer in 26% of the questions (figure 5).\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec IV-D (annual-report text supplied as context, then the single question asked; temperature 0, no output-token cap)",
+  "note": "No exact wording is quoted, but the template (report-as-context + question) is simple and fully specified."
+ },
+ "claim": {
+  "metric": "extraction accuracy on text-extractable ERR questions",
+  "value": 26,
+  "n_items": 200,
+  "location": "Sec V-A / Fig. 5, GPT-4-turbo-2024-04-09 row",
+  "task_type": "extraction",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "72 company annual reports / equity research reports (individually public filings, not bundled as a released dataset); authors' own 169-question list"
+ },
+ "cost": {
+  "est_calls": 200,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Llama-3-70B scores 27% on the same 200 questions; an ensemble of both models reaches 84%, but that combined figure is not attributable to GPT-4-turbo alone. Annual reports run ~100k tokens, so per-call cost may exceed the 'short call' heuristic."
+}

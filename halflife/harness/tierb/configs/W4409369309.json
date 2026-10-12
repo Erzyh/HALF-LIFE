@@ -1,0 +1,70 @@
+{
+ "wid": "W4409369309",
+ "title": "VerilogCoder: Autonomous Verilog Coding Agents with Graph-based Planning and Abstract Syntax Tree (AST)-based Waveform Tracing Tool",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.1,
+   "top_p": 1.0,
+   "max_tokens": 4096
+  },
+  "params_source": "paper 'Main Results' ('The temperature and top_p parameters of the LLMs are set to 0.1 and 1.0, respectively'); max_tokens assumed (Verilog modules plus Thought-Action-Observation turns)",
+  "seeds": 1
+ },
+ "task": {
+  "type": "generation",
+  "n_items": 156,
+  "subset_rule": "all 156 VerilogEval-Human v2 specification-to-RTL problems; VerilogCoder is run once per problem",
+  "approximation": "cannot be expressed by the runner: one claim item is a whole multi-agent session, not a single call (see open_points)"
+ },
+ "items": {
+  "source_type": "github",
+  "source": "VerilogEval-Human v2 (Pinckney et al. 2024), 156 specification-to-RTL problems with golden testbenches; the agent framework is at https://github.com/NVlabs/VerilogCoder",
+  "config_or_split": "VerilogEval-Human v2, all 156 problems",
+  "filter": null,
+  "fields": {
+   "input": "problem specification (spec-to-RTL prompt)",
+   "label": "golden testbench - pass/fail comes from simulation, not string comparison",
+   "id": "problem name"
+  },
+  "license": "the VerilogCoder repository is public (NVlabs); VerilogEval ships under its own open licence",
+  "access_checked": true,
+  "size_mb": null,
+  "file_url": null,
+  "access_note": "github.com/NVlabs/VerilogCoder returns HTTP 200 (checked 2026-09-19); the problems and golden testbenches ship with VerilogEval v2."
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": null,
+  "few_shot": "unknown",
+  "source_location": "Section 'Experimental Results' ('We use the same planning, coding, and debugging prompts for these 156 problems'); Figure 4 shows one example Thought-Action-Observation interaction",
+  "verbatim": "none in the paper body. The planner, coder and debugger role prompts are described but not printed; they ship with the released Autogen-based framework."
+ },
+ "output": {
+  "parse": "free text -> the final Verilog module extracted by the framework",
+  "postprocess": "the generated module is compiled and simulated against the problem's golden testbench; pass/fail is the simulator's verdict"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "Verilog functional correctness pass-rate = #passed / #total over the 156 problems, one VerilogCoder run per problem",
+  "judge": "rule (Verilog simulation against the golden testbench)",
+  "original_value": 94.2,
+  "original_location": "Table 1, row 'VerilogCoder (GPT-4 Turbo)' (VerilogCoder (Llama3) 67.3; plain GPT-4 Turbo 60.3)",
+  "bootstrap_unit": "problem",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 1560,
+  "est_usd": 150.0,
+  "tier": "mid",
+  "est_note": "hand estimate: about 10 calls per problem x 156 problems on gpt-4-turbo-2024-04-09 with long agent transcripts. Highly uncertain - the loop length is data-dependent. No prepare run: the claim is not expressible as a run config."
+ },
+ "open_points": [
+  "Agentic, multi-call method. The claim is the pass-rate of a whole multi-agent system (task-graph planner, coder, AST-based waveform tracing tool, iterative debugging loop) built on Autogen; each of the 156 problems consumes an unbounded number of interdependent calls whose contents depend on simulator feedback. The Tier B runner executes exactly one independent call per item, so this claim cannot be expressed as a run config - it needs the released framework driven directly.",
+  "Scoring needs a local toolchain. Functional correctness is decided by compiling and simulating the generated Verilog against the golden testbench (e.g. iverilog), which is outside the runner and a human decision about local tooling.",
+  "Prompts not printed. The planning / coding / debugging role prompts have to be read out of the released repository, and the AST waveform tracing tool's observations are part of the prompt stream."
+ ],
+ "notes": "The non-agentic row in the same table, 'GPT-4 Trubo [sic] 60.3', is a pass@1 number quoted from Pinckney et al. (2024) rather than measured here, so it is not an alternative claim for this paper either."
+}

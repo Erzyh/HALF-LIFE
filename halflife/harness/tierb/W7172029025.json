@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7172029025",
+ "title": "Agreement between artificial intelligence and expert evaluation in assessing the quality of asthma health education videos on YouTube and Bilibili: cross-sectional study",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4 (gpt-4-turbo)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"All evaluations were performed using GPT-4 (gpt-4-turbo) between February 10 to February 25, 2026...temperature parameter was set to 0, top-p to 1.0...\"; Table 2 \"GQS Spearman rho=0.55, p<0.001\"."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "\"The complete prompt template is provided in Supplementary Additional File 5\" (named released supplementary file, not embedded in main text)",
+  "note": "Prompt instructs GPT-4 to score GQS, mDISCERN and PEMAT using each instrument's original scoring rules."
+ },
+ "claim": {
+  "metric": "AI-expert rating agreement, GQS (Spearman correlation)",
+  "value": 0.55,
+  "n_items": 200,
+  "location": "Table 2, AI vs. expert rating agreement, GQS row (200 asthma health-education videos, Sec Results)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "200 publicly available asthma health-education videos from YouTube and Bilibili"
+ },
+ "cost": {
+  "est_calls": 200,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "The same GPT-4 calls also produce mDISCERN (rho=0.49) and PEMAT understandability/actionability scores (Fig. 1B), all equally reproducible alternates. Human inter-rater agreement (Table 1, ICC ~0.32-0.34) is notably lower than the AI-expert correlation, which is itself an interesting angle if reproduced."
+}

@@ -1,0 +1,66 @@
+{
+  "wid": "W4407374917",
+  "title": "Large language models possess some ecological knowledge, but how much?",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 78.0,
+  "original_location": "Table 1, row GPT-4o, Task 1a Mean Acc. (78.0 +/- 11.9 %, 0 invalid)",
+  "reexecution": {
+    "mean_over_seeds": 0.7220277777777777,
+    "per_seed": {
+      "0": {
+        "value": 0.7347222222222223,
+        "n": 100,
+        "ci95": [
+          0.7013541666666666,
+          0.7666666666666667
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7093333333333333,
+        "n": 100,
+        "ci95": [
+          0.6786666666666666,
+          0.74
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 53
+  },
+  "prepare": {
+    "wid": "W4407374917",
+    "n_items": 100,
+    "n_requests": 200,
+    "seeds": 2,
+    "est_usd": 0.08,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 78.0,
+    "cap_usd": 1.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4407374917"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none (species, locations and ground truth are released; the model snapshot is the paper's)",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W4407374917"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 72.20277777777777,
+    "delta": -5.797222222222231,
+    "original_inside_ci95": false
+  }
+}

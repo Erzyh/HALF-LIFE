@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4408749848",
+  "title": "From Large to Mammoth: A Comparative Evaluation of Large Language Models in Zero-Shot Vulnerability Detection",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-0125-preview",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "Sec. 3: 'such as GPT-4-0613 with an 8192-token CW and GPT-4-turbo-0125-preview with up to 128,000 tokens'; results table: 'GPT-4 - - - 37.86 51.35 100.0 100.0'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix (prompt design for zero-shot vulnerability detection)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "average precision (AP, %) on the curated Java vulnerability dataset",
+    "value": 37.86,
+    "n_items": null,
+    "location": "Results table, row GPT-4 (AP column); text: 'higher AP (78.57%) than GPT-4 (37.86%)'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "curated Java code-sample dataset (OWASP / Juliet-derived); release not stated"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "The only OpenAI model is the retired 0125-preview snapshot; the exact GPT-4 snapshot used for the table is not tied to a date beyond that mention."
+}

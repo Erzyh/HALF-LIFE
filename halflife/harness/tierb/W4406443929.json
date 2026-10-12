@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4406443929",
+ "title": "Agentic LLM Workflows for Generating Patient-Friendly Medical Reports",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"The LLM used in our tests was OpenAI's GPT-4o (gpt-4o-2024-05-13)\"; \"From 16 test radiology reports...accuracy was 26.71% better...in reflected...letters vs. zero-shot.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 2 (overall_score formula given exactly: readability*0.3 + accuracy*0.7); exact system/user prompt text not quoted (footnote: \"LLM prompts have been programmed and cannot be altered by users\")",
+  "note": ""
+ },
+ "claim": {
+  "metric": "ICD-10 code accuracy improvement, reflection-agent vs. zero-shot",
+  "value": 26.71,
+  "n_items": 16,
+  "location": "Sec 3 Results",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "16 (plus 15 additional) test radiology reports; source/provenance not stated, not confirmed public"
+ },
+ "cost": {
+  "est_calls": 16,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Accuracy is measured deterministically (generated ICD-10 codes checked against a code database via string matching, simple_icd_10 package), so no LLM-judge dependency. Soft gaps: the exact prompt text is not printed, and the radiology-report source/dataset is not identified as public."
+}

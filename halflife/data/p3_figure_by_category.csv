@@ -1,0 +1,51 @@
+﻿dimension,category,arm,n,median_difference,ci_lo,ci_hi,share_beyond_5,unit
+task type,classification,baseline,36,-0.23,-1.01,0.63,0.333,points
+task type,classification,vendor,34,3.99,0.2,7.1,0.559,points
+task type,classification,gpt41,23,1.01,-1.31,3.77,0.478,points
+task type,classification,open70b,29,-4.21,-8.41,1.1,0.69,points
+task type,classification,gemini_flash,30,5.72,1.13,7.4,0.7,points
+task type,multiple choice,baseline,12,0.57,-1.36,1.32,0.25,points
+task type,multiple choice,vendor,11,10.2,2.75,18.3,0.545,points
+task type,multiple choice,gpt41,6,4.45,1.34,16.7,0.5,points
+task type,multiple choice,open70b,11,-7.3,-9.17,7.5,0.818,points
+task type,multiple choice,gemini_flash,12,6.4,-0.05,22.35,0.583,points
+task type,generation,baseline,9,0.29,-75.0,4.07,0.444,points
+task type,generation,vendor,9,-0.28,-36.33,28.74,0.444,points
+task type,generation,gpt41,8,-0.55,-7.3,8.35,0.5,points
+task type,generation,open70b,7,-3.43,-48.68,2.03,0.429,points
+task type,generation,gemini_flash,7,0.14,-36.21,31.54,0.714,points
+task type,other / agentic,baseline,8,-3.52,-5.34,1.66,0.5,points
+task type,other / agentic,vendor,8,18.45,-9.8,46.35,0.875,points
+task type,other / agentic,gpt41,6,4.29,-5.98,27.45,0.667,points
+task type,other / agentic,open70b,8,18.17,-2.25,24.5,0.875,points
+task type,other / agentic,gemini_flash,8,25.65,-0.76,48.78,1.0,points
+task type,extraction,baseline,5,-3.94,-19.2,0.59,0.2,points
+task type,extraction,vendor,5,-1.2,-3.3,51.4,0.2,points
+task type,extraction,gpt41,1,-0.26,,,0.0,points
+task type,extraction,open70b,5,-7.1,-29.5,24.3,0.8,points
+task type,extraction,gemini_flash,5,2.47,-0.2,60.0,0.4,points
+field group,social science,baseline,38,-0.29,-1.9,0.67,0.342,points
+field group,social science,vendor,37,2.79,-1.09,6.9,0.514,points
+field group,social science,gpt41,26,0.66,-1.31,3.54,0.462,points
+field group,social science,open70b,31,-5.7,-8.6,-0.55,0.742,points
+field group,social science,gemini_flash,32,2.98,0.38,6.5,0.625,points
+field group,life science,baseline,10,0.48,-1.31,7.41,0.4,points
+field group,life science,vendor,9,11.63,-1.82,47.0,0.667,points
+field group,life science,gpt41,3,3.11,,,0.333,points
+field group,life science,open70b,9,2.03,-6.3,24.3,0.667,points
+field group,life science,gemini_flash,10,9.97,-7.5,31.05,0.7,points
+field group,medicine,baseline,9,-1.01,-33.33,0.67,0.444,points
+field group,medicine,vendor,9,0.2,-27.8,10.2,0.556,points
+field group,medicine,gpt41,4,1.1,-7.3,5.6,0.5,points
+field group,medicine,open70b,9,-22.0,-46.0,2.1,0.667,points
+field group,medicine,gemini_flash,9,5.6,-19.0,16.1,0.778,points
+field group,engineering,baseline,7,-0.72,-5.21,2.66,0.429,points
+field group,engineering,vendor,7,16.85,-1.2,28.74,0.714,points
+field group,engineering,gpt41,5,16.34,-3.77,42.0,0.8,points
+field group,engineering,open70b,7,5.07,-7.1,21.4,0.857,points
+field group,engineering,gemini_flash,7,21.1,6.8,38.0,0.857,points
+field group,computer science,baseline,6,0.84,-2.29,2.3,0.0,points
+field group,computer science,vendor,5,4.09,3.29,59.9,0.4,points
+field group,computer science,gpt41,6,-0.09,-5.98,13.52,0.5,points
+field group,computer science,open70b,4,1.6,-6.65,20.23,0.5,points
+field group,computer science,gemini_flash,4,9.65,4.45,59.4,0.75,points

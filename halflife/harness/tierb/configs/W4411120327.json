@@ -1,0 +1,70 @@
+{
+  "wid": "W4411120327",
+  "title": "Investigating the Shortcomings of LLMs in Step-by-Step Legal Reasoning",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 175,
+    "subset_rule": "all (Civ. Pro. dataset, 175 scenarios)",
+    "approximation": "prompt layout reconstructed from Figure 2 (section labels and format lines); the repository script adds a 'Task:' line with a system sentence that the paper does not print (open_points)"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/VenkyMishra/Legal-Reasoning (redirect of VenkyMishra/legal_reasoning); the Civ. Pro. data itself must be requested through https://github.com/trusthlt/legal-argument-reasoning-task (copyrighted Glannon Guide material)",
+    "config_or_split": "Civ. Pro. dataset (175 items)",
+    "filter": "none",
+    "fields": {
+      "input": "legal context, question",
+      "options": "lettered options A-D",
+      "label": "correct option",
+      "id": "item index"
+    },
+    "license": "unknown (dataset released on request under the trusthlt terms)",
+    "access_checked": true,
+    "size_mb": 0
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Legal Context:\n{legal_context}\n\nQuestion:\n{question}\n\nOptions:\n{options}\n\nWhile answering make sure to use the following format:\n\n[Explanation of your legal reasoning step by step as numbered points]\n\n[Final Answer with the correct option]",
+    "placeholders": {
+      "legal_context": "items.legal context",
+      "question": "items.question",
+      "options": "items.options as 'A. ...' lines"
+    },
+    "few_shot": "none (zero-shot CoT)",
+    "source_location": "Figure 2 (answer-format template: Legal Context / Question / Options / format lines); example in Figure 18",
+    "verbatim": "partial (the section labels and the three format lines are printed in Figure 2; their order and spacing are reconstructed and agree with the repository's zero-shot script)"
+  },
+  "output": {
+    "parse": "regex \\[Final Answer[^\\]]*\\]\\s*:?\\s*([A-D]) on the last matching line, else the last standalone letter A-D",
+    "postprocess": "strip; unparsable counts as incorrect"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 175 scenarios whose final option equals the correct option",
+    "judge": "none",
+    "original_value": 0.725,
+    "original_location": "Table 4, row GPT-4-turbo, column A (accuracy)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 525,
+    "est_usd": 8.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "no hook: the Civ. Pro. items (175 Glannon Guide scenarios) are released only on request via trusthlt/legal-argument-reasoning-task, i.e. gated; once obtained, place the file locally and a loader (items.inline or a hook) can be added in minutes - prompt, parse and accuracy are otherwise machine-ready.",
+    "the repository's inference script prefixes 'Task:' and 'You are a helpful legal assistant. Choose the correct option by performing legal reasoning while strictly adhering to the legal context below.' which the paper does not print; the paper-only version is the default here."
+  ],
+  "notes": "Soundness and correctness columns of Table 4 need the GPT-4o auto-evaluator and are not targeted. ~1K input and ~500 output tokens per call."
+}

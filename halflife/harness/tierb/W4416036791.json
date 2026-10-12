@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416036791",
+  "title": "From General Reward to Targeted Reward: Improving Open-ended Long-context Generation Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "dead-preview",
+    "role": "C",
+    "evidence": "Table 3 lists 'GPT-4-Turbo 33.94' alongside 'ReAct (GPT-4-Turbo)', 'Bard (Gemini Pro)' and 'New Bing (Creative Mode)', i.e. the reference rows of the ProxyQA paper (Tan et al., 2024)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix (prompts for response generation, meta-question generation, proxy QA pairs, ProxyReward signal, LLM-as-a-Judge)",
+    "note": "Printed prompts belong to the training pipeline and judge, not to GPT-4-Turbo."
+  },
+  "claim": {
+    "metric": "ProxyQA accuracy (%)",
+    "value": 33.94,
+    "n_items": null,
+    "location": "Table 3, row GPT-4-Turbo",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (unversioned)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ProxyQA benchmark (Tan et al., 2024)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "no_number"
+  ],
+  "notes": "The closed-model rows appear to be copied from the ProxyQA paper (January 2024, gpt-4-1106-preview era); the text does not state that GPT-4-Turbo was re-run. ProxyQA scoring uses an unversioned GPT-4o evaluator."
+}

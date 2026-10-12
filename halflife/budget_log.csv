@@ -1,0 +1,549 @@
+date,card,arm,model,calls,cost_usd,cumulative_usd,note
+2026-09-02,T1,baseline_alive,gpt-4-turbo-2024-04-09,570,5.93,5.93,pilot T1 bio-image code generation x10 samples; judgment 생존 (survived); row restored 2026-09-18 so the cost column sums to the cumulative column
+2026-09-07,W7171749161,baseline_alive,gpt-4-turbo-2024-04-09,960,0.347,6.277,tag-question battery x3; judgment 생존 (survived)
+2026-09-07,W7140135941,baseline_alive,gpt-4.1-nano-2025-04-14,7049,0.181,6.458,MedQA 7 conditions; judgment 부분 생존 (partial)
+2026-09-07,W4362598103,baseline_alive,gpt-4-turbo-2024-04-09,7523,27.47,33.93,"7,523 domains default config; judgment 부분 생존 (partial)"
+2026-09-07,W7144391134,baseline_alive,gpt-4.1-nano-2025-04-14,6252,1.92,35.85,Delaney L1 zero/60/1000-shot; judgment 생존 (survived)
+2026-09-07,W4402565126,baseline_alive,gpt-4-turbo-2024-04-09,10800,13.2,49.05,IVS 10 items x 10 variants x 108; judgment 생존 (survived)
+2026-09-08,W7140084705,tierb,gpt-4.1-nano-2025-04-14,,0.01,49.06,queue run
+2026-09-08,W7139147531,tierb,gpt-4.1-nano-2025-04-14,,0.01,49.07,queue run
+2026-09-08,W7166799942,tierb,gpt-4.1-nano-2025-04-14,,0.09,49.16,queue run
+2026-09-08,W7135428702,tierb,gpt-4.1-nano-2025-04-14,,0.04,49.2,queue run
+2026-09-08,W4412888118,tierb,gpt-4o-2024-05-13,,0.05,49.25,queue run
+2026-09-08,W4404792825,tierb,gpt-4o-2024-05-13,,0.06,49.31,queue run
+2026-09-08,W7134094238,tierb,gpt-4o-2024-05-13,,0.16,49.47,queue run
+2026-09-08,W7159577685,tierb,gpt-4-turbo-2024-04-09,,0.24,49.71,queue run
+2026-09-08,W7166852552,tierb,gpt-4.1-nano,,0.98,50.69,queue run
+2026-09-08,W7164614711,tierb,gpt-4.1-nano-2025-04-14,,0.4,51.09,queue run
+2026-09-08,W4414758400,tierb,gpt-4-turbo-2024-04-09,,3.31,54.4,queue run
+2026-09-08,W4416339332,tierb,o3-mini-2025-01-31,,1.1,55.5,queue run
+2026-09-08,W4416035547,tierb,o4-mini-2025-04-16,,2.86,58.36,queue run
+2026-09-08,W4407374917,tierb,gpt-4o-2024-05-13,,1.41,59.77,queue run
+2026-09-08,W4404782525,tierb,gpt-4o-2024-05-13,,2.82,62.59,queue run
+2026-09-08,W4401545735,tierb,gpt-4o-2024-05-13,,2.3,64.89,queue run
+2026-09-08,W4416034777,tierb,gpt-4-turbo-2024-04-09,,2.51,67.4,queue run
+2026-09-08,W4416034223,tierb,gpt-4o-2024-05-13,,2.98,70.38,queue run
+2026-09-08,W4399911276,tierb,gpt-4o-2024-05-13,,0.62,71.0,queue run
+2026-09-08,W4415035710,tierb,gpt-4-turbo-2024-04-09,,9.09,80.09,queue run
+2026-09-08,W4416037849,tierb,o3-mini-2025-01-31,,7.35,87.44,queue run
+2026-09-08,W4403786592,tierb,gpt-4-turbo-2024-04-09,,6.55,93.99,queue run
+2026-09-08,W4411119490,tierb,gpt-4-turbo-2024-04-09,,6.39,100.38,queue run
+2026-09-08,W4402345509,tierb,gpt-4-turbo-2024-04-09,,1.28,101.66,queue run
+2026-09-08,W4414494504,tierb,gpt-4-turbo-2024-04-09,,4.63,106.29,queue run
+2026-09-08,W4404985489,tierb,gpt-4-turbo-2024-04-09,,11.64,117.93,queue run
+2026-09-08,W4400375186,tierb,gpt-4-turbo-2024-04-09,,0.62,118.55,queue run
+2026-09-08,W4406880877,tierb,o1-2024-12-17,,16.5,135.05,queue run
+2026-09-08,W4416034345,tierb,o3-mini-2025-01-31,,10.72,145.77,queue run
+2026-09-08,W4407571428,tierb,gpt-4-turbo-2024-04-09,,21.95,167.72,queue run
+2026-09-08,W4400434899,tierb,gpt-4-turbo-2024-04-09,,5.11,172.83,queue run
+2026-09-08,W4404781158,tierb,gpt-4-turbo-2024-04-09,,3.05,175.88,queue run
+2026-09-08,W4411080278,tierb,gpt-4o-2024-05-13,,14.7,190.58,queue run
+2026-09-08,W4399911213,tierb,gpt-4-turbo-2024-04-09,,11.91,202.49,queue run
+2026-09-08,W4403885225,tierb,gpt-4-turbo-2024-04-09,,15.11,217.6,queue run
+2026-09-08,W4406058562,tierb,gpt-4-turbo-2024-04-09,,17.44,235.04,queue run
+2026-09-09,W4404314294,tierb,gpt-4-turbo-2024-04-09,,7.1,242.14,queue run
+2026-09-09,W4403758464,tierb,gpt-4-turbo-2024-04-09,,20.82,262.96,queue run
+2026-09-09,W4403882451,tierb,gpt-4-turbo-2024-04-09,,31.63,294.59,queue run
+2026-09-09,W4410110677,tierb,o1-2024-12-17,,7.01,301.6,queue run
+2026-09-09,W4406058598,tierb,gpt-4o-2024-05-13,,28.43,330.03,queue run
+2026-09-09,W4399404161,tierb,gpt-4-turbo-2024-04-09,,36.53,366.56,queue run
+2026-09-09,W4401545735,tierb,gpt-4o-2024-05-13,,2.61,369.17,queue run
+2026-09-09,W4403570177,tierb,gpt-4o-2024-05-13,,30.06,399.23,queue run
+2026-09-09,W4411119263,tierb,gpt-4o-2024-05-13,,32.59,431.82,queue run
+2026-09-09,W4403443823,tierb,gpt-4-turbo-2024-04-09,,29.63,461.45,queue run
+2026-09-09,W4403370432,tierb,gpt-4-turbo-2024-04-09,,28.92,490.37,queue run
+2026-09-10,W4411112894,tierb,gpt-4-turbo-2024-04-09,,30.38,520.75,queue run
+2026-09-10,W4403556032,tierb,gpt-4-turbo-2024-04-09,,37.46,558.21,queue run
+2026-09-10,W4416035248,tierb,gpt-4-turbo-2024-04-09,,40.03,598.24,queue run
+2026-09-11,W7161421448,tierb,gpt-4-turbo-2024-04-09,,78.68,676.92,queue 2 interrupted when the balance ran out (main $40.09 + judge 1400/2348 $38.59)
+2026-09-17,W4399317891,tierb,gpt-4-turbo-2024-04-09,,16.36,693.28,queue run
+2026-09-17,W7117377764,tierb,o3-2025-04-16,,3.54,696.82,queue run
+2026-09-17,W7131319772,tierb,gpt-5-mini-2025-08-07,,0.3,697.12,queue run
+2026-09-17,W7140138327,tierb,gpt-5-mini-2025-08-07,,1.32,698.44,queue run
+2026-09-17,W4417257719,tierb,gpt-5-2025-08-07,,20.35,718.79,queue run
+2026-09-17,W7197053912,tierb,gpt-5-mini-2025-08-07,,14.58,733.37,queue run
+2026-09-17,W7144391352,tierb,gpt-5-2025-08-07,,4.0,737.37,queue run
+2026-09-17,W7134885605,tierb,gpt-5-2025-08-07,,3.51,740.88,queue run
+2026-09-17,W4417257719,tierb,gpt-5-2025-08-07,,5.09,745.97,queue run
+2026-09-17,W4399317891,tierb,gpt-4-turbo-2024-04-09,,4.66,750.63,queue run
+2026-09-18,W7161421448,tierb,gpt-4-turbo-2024-04-09,,26.93,777.56,"judge stage completed for the 2,348 generated stories (top-up approved 2026-09-17)"
+2026-09-18,W4416035248,tierb,gpt-4-turbo-2024-04-09,,19.3,796.86,queue run
+2026-09-18,W4403556032,tierb,gpt-4-turbo-2024-04-09,,20.4,817.26,queue run
+2026-09-18,W4403443823,tierb,gpt-4-turbo-2024-04-09,,26.42,843.68,queue run
+2026-09-18,W4411119263,tierb,gpt-4o-2024-05-13,,0.52,844.2,queue run
+2026-09-18,W4412887943,tierA,gpt-4o-2024-05-13,1791,3.87,848.07,MEDEC baseline run (approved 2026-09-18)
+2026-09-18,W4412945732,tierA,"['gpt-4o-2024-05-13', 'gpt-4-turbo-2024-04-09']",5856,14.16,862.23,Glianorex baseline run (approved 2026-09-18)
+2026-09-18,W4396768794,tierA,gpt-4-turbo-2024-04-09,1400,12.24,874.47,DxGPT baseline run (approved 2026-09-18)
+2026-09-18,W4405408496,tierA,gpt-4o-2024-05-13 + gpt-4o-mini-2024-07-18,38978,58.02,932.49,"temperature paper baseline run, stopped at the $58 cap (approved 2026-09-18)"
+2026-09-18,W4416036577,tierb,gpt-4o-2024-05-13,,0.76,933.25,queue run
+2026-09-18,W4399912745,tierb,gpt-4-turbo-2024-04-09,,9.07,942.32,queue run
+2026-09-18,W7166837475,tierb,o3-mini-2025-01-31,,20.02,962.34,queue run
+2026-09-18,W4400435289,tierA,,8715,8.16,970.5,SAD-mini baseline run (approved 2026-09-18)
+2026-09-18,W4404782878,tierA,,4260,15.62,986.12,judgement bias baseline run (approved 2026-09-18)
+2026-09-18,W4411120389,tierA,,5740,30.13,1016.25,greedy vs sampling baseline run (approved 2026-09-18)
+2026-09-18,W7140084705,tierb_p3,gpt-5.6-luna,,0.01,1016.26,queue run arm=vendor
+2026-09-18,W4404792825,tierb_p3,gpt-5.6-sol,,0.03,1016.29,queue run arm=vendor
+2026-09-18,W7166799942,tierb_p3,gpt-5.6-luna,,0.09,1016.38,queue run arm=vendor
+2026-09-18,W7159577685,tierb_p3,gpt-5.6-sol,,0.07,1016.45,queue run arm=vendor
+2026-09-18,W4412888118,tierb_p3,gpt-5.6-sol,,0.02,1016.47,queue run arm=vendor
+2026-09-18,W7134094238,tierb_p3,gpt-5.6-sol,,0.04,1016.51,queue run arm=vendor
+2026-09-18,W7135428702,tierb_p3,gpt-5.6-luna,,0.05,1016.56,queue run arm=vendor
+2026-09-18,W4414758400,tierb_p3,gpt-5.6-sol,,1.24,1017.8,queue run arm=vendor
+2026-09-18,W4416034777,tierb_p3,gpt-5.6-sol,,0.15,1017.95,queue run arm=vendor
+2026-09-18,W4407374917,tierb_p3,gpt-5.6-sol,,1.44,1019.39,queue run arm=vendor
+2026-09-18,W4400375186,tierb_p3,gpt-5.6-sol,,0.12,1019.51,queue run arm=vendor
+2026-09-18,W4402345509,tierb_p3,gpt-5.6-sol,,1.24,1020.75,queue run arm=vendor
+2026-09-18,W4416339332,tierb_p3,gpt-5.6-sol,,0.57,1021.32,queue run arm=vendor
+2026-09-18,W4399911276,tierb_p3,gpt-5.6-sol,,1.26,1022.58,queue run arm=vendor
+2026-09-18,W4416035547,tierb_p3,gpt-5.6-terra,,0.79,1023.37,queue run arm=vendor
+2026-09-18,W4414494504,tierb_p3,gpt-5.6-sol,,0.77,1024.14,queue run arm=vendor
+2026-09-18,W4416034223,tierb_p3,gpt-5.6-sol,,2.39,1026.53,queue run arm=vendor
+2026-09-18,W4404781158,tierb_p3,gpt-5.6-sol,,0.44,1026.97,queue run arm=vendor
+2026-09-18,W4415035710,tierb_p3,gpt-5.6-sol,,2.99,1029.96,queue run arm=vendor
+2026-09-18,W7117377764,tierb_p3,gpt-5.6-sol,,3.07,1033.03,queue run arm=vendor
+2026-09-18,W4416036577,tierb_p3,gpt-5.6-sol,,0.82,1033.85,queue run arm=vendor
+2026-09-18,W4399911213,tierb_p3,gpt-5.6-sol,,1.91,1035.76,queue run arm=vendor
+2026-09-18,W4410110677,tierb_p3,gpt-5.6-sol,,0.74,1036.5,queue run arm=vendor
+2026-09-18,W7134885605,tierb_p3,gpt-5.6-sol,,0.88,1037.38,queue run arm=vendor
+2026-09-19,W7166852552,tierb_p3,gpt-5.6-luna,,3.72,1041.1,queue run arm=vendor
+2026-09-19,W4404782525,tierb_p3,gpt-5.6-sol,,0.93,1042.03,queue run arm=vendor
+2026-09-19,W4407571428,tierb_p3,gpt-5.6-sol,,4.23,1046.26,queue run arm=vendor
+2026-09-19,W7144391352,tierb_p3,gpt-5.6-sol,,1.15,1047.41,queue run arm=vendor
+2026-09-19,W7131319772,tierb_p3,gpt-5.6-terra,,0.68,1048.09,queue run arm=vendor
+2026-09-19,W7164614711,tierb_p3,gpt-5.6-luna,,0.98,1049.07,queue run arm=vendor
+2026-09-19,W4406880877,tierb_p3,gpt-5.6-sol,,1.05,1050.12,queue run arm=vendor
+2026-09-19,W4404314294,tierb_p3,gpt-5.6-sol,,0.92,1051.04,queue run arm=vendor
+2026-09-19,W4400434899,tierb_p3,gpt-5.6-sol,,1.86,1052.9,queue run arm=vendor
+2026-09-19,W4412888118,tierb_p3,gpt-4.1-2025-04-14,,0.01,1052.91,queue run arm=gpt41
+2026-09-19,W4404792825,tierb_p3,gpt-4.1-2025-04-14,,0.01,1052.92,queue run arm=gpt41
+2026-09-19,W7159577685,tierb_p3,gpt-4.1-2025-04-14,,0.02,1052.94,queue run arm=gpt41
+2026-09-19,W7134094238,tierb_p3,gpt-4.1-2025-04-14,,0.02,1052.96,queue run arm=gpt41
+2026-09-19,W4400375186,tierb_p3,gpt-4.1-2025-04-14,,0.04,1053.0,queue run arm=gpt41
+2026-09-19,W4399911276,tierb_p3,gpt-4.1-2025-04-14,,0.08,1053.08,queue run arm=gpt41
+2026-09-19,W4402345509,tierb_p3,gpt-4.1-2025-04-14,,0.09,1053.17,queue run arm=gpt41
+2026-09-19,W4416036577,tierb_p3,gpt-4.1-2025-04-14,,0.11,1053.28,queue run arm=gpt41
+2026-09-19,W4416034777,tierb_p3,gpt-4.1-2025-04-14,,0.15,1053.43,queue run arm=gpt41
+2026-09-19,W4407374917,tierb_p3,gpt-4.1-2025-04-14,,0.16,1053.59,queue run arm=gpt41
+2026-09-19,W4404781158,tierb_p3,gpt-4.1-2025-04-14,,0.3,1053.89,queue run arm=gpt41
+2026-09-19,W4414758400,tierb_p3,gpt-4.1-2025-04-14,,0.2,1054.09,queue run arm=gpt41
+2026-09-19,W4400434899,tierb_p3,gpt-4.1-2025-04-14,,0.32,1054.41,queue run arm=gpt41
+2026-09-19,W4404782525,tierb_p3,gpt-4.1-2025-04-14,,0.38,1054.79,queue run arm=gpt41
+2026-09-19,W4414494504,tierb_p3,gpt-4.1-2025-04-14,,0.42,1055.21,queue run arm=gpt41
+2026-09-19,W4416034223,tierb_p3,gpt-4.1-2025-04-14,,0.44,1055.65,queue run arm=gpt41
+2026-09-19,W4404314294,tierb_p3,gpt-4.1-2025-04-14,,0.17,1055.82,queue run arm=gpt41
+2026-09-19,W4415035710,tierb_p3,gpt-4.1-2025-04-14,,0.98,1056.8,queue run arm=gpt41
+2026-09-19,W4399911213,tierb_p3,gpt-4.1-2025-04-14,,0.83,1057.63,queue run arm=gpt41
+2026-09-19,W4407571428,tierb_p3,gpt-4.1-2025-04-14,,1.8,1059.43,queue run arm=gpt41
+2026-09-19,W4401545735,tierb_p3,gpt-4.1-2025-04-14,,0.26,1059.69,queue run arm=gpt41
+2026-09-19,W4403786592,tierb_p3,gpt-4.1-2025-04-14,,0.43,1060.12,queue run arm=gpt41
+2026-09-19,W4411119490,tierb_p3,gpt-4.1-2025-04-14,,1.27,1061.39,queue run arm=gpt41
+2026-09-19,W4403758464,tierb_p3,gpt-4.1-2025-04-14,,0.95,1062.34,queue run arm=gpt41
+2026-09-19,W4399912745,tierb_p3,gpt-4.1-2025-04-14,,1.33,1063.67,queue run arm=gpt41
+2026-09-19,W4403370432,tierb_p3,gpt-4.1-2025-04-14,,2.04,1065.71,queue run arm=gpt41
+2026-09-19,W4411080278,tierb_p3,gpt-4.1-2025-04-14,,1.03,1066.74,queue run arm=gpt41
+2026-09-19,W4411112894,tierb_p3,gpt-4.1-2025-04-14,,1.82,1068.56,queue run arm=gpt41
+2026-09-19,W4403885225,tierb_p3,gpt-4.1-2025-04-14,,2.8,1071.36,queue run arm=gpt41
+2026-09-19,W4406058562,tierb_p3,gpt-4.1-2025-04-14,,4.17,1075.53,queue run arm=gpt41
+2026-09-19,W4399317891,tierb_p3,gpt-4.1-2025-04-14,,6.16,1081.69,queue run arm=gpt41
+2026-09-19,W4406058598,tierb_p3,gpt-4.1-2025-04-14,,3.5,1085.19,queue run arm=gpt41
+2026-09-19,W4411119263,tierb_p3,gpt-4.1-2025-04-14,,4.43,1089.62,queue run arm=gpt41
+2026-09-19,W4399317891,tierb_p3,gpt-5.6-sol,,7.29,1096.91,queue run arm=vendor
+2026-09-19,W4406058562,tierb_p3,gpt-5.6-sol,,13.73,1110.64,queue run arm=vendor
+2026-09-19,W4403758464,tierb_p3,gpt-5.6-sol,,3.42,1114.06,queue run arm=vendor
+2026-09-19,W7140138327,tierb_p3,gpt-5.6-terra,,1.35,1115.41,queue run arm=vendor
+2026-09-19,W4403786592,tierb_p3,gpt-5.6-sol,,1.36,1116.77,queue run arm=vendor
+2026-09-19,W4399912745,tierb_p3,gpt-5.6-sol,,3.91,1120.68,queue run arm=vendor
+2026-09-19,W4403882451,tierb_p3,gpt-5.6-sol,,4.88,1125.56,queue run arm=vendor
+2026-09-19,W4411080278,tierb_p3,gpt-5.6-sol,,5.56,1131.12,queue run arm=vendor
+2026-09-19,W4416037849,tierb_p3,gpt-5.6-sol,,2.98,1134.1,queue run arm=vendor
+2026-09-19,W4404985489,tierb_p3,gpt-5.6-sol,,12.37,1146.47,queue run arm=vendor
+2026-09-19,W4416036577v2,tierb,gpt-4o-2024-05-13,,1.67,1148.14,queue run
+2026-09-19,W4411112894,tierb_p3,gpt-5.6-sol,,1.95,1150.09,queue run arm=vendor
+2026-09-19,W4399912745v2,tierb,gpt-4-turbo-2024-04-09,,8.82,1158.91,queue run
+2026-09-19,W4403370432,tierb_p3,gpt-5.6-sol,,6.16,1165.07,queue run arm=vendor
+2026-09-19,W4403885225,tierb_p3,gpt-5.6-sol,,4.31,1169.38,queue run arm=vendor
+2026-09-19,W4406058598,tierb_p3,gpt-5.6-sol,,5.85,1175.23,queue run arm=vendor
+2026-09-19,W4401545735,tierb_p3,gpt-5.6-sol,,0.63,1175.86,queue run arm=vendor
+2026-09-19,W4403556032,tierb_p3,gpt-5.6-sol,,12.99,1188.85,queue run arm=vendor
+2026-09-19,W4403882451,tierb_p3,gpt-4.1-2025-04-14,,4.29,1193.14,queue run arm=gpt41
+2026-09-19,W4416074906,tierA,o4-mini-2025-04-16,216,0.79,1193.93,AgentMisalignment household management (Tier A pass 2)
+2026-09-19,W4404781910,tierA,gpt-4o-2024-05-13,480,1.07,1195.0,OffsetBias EvalBiasBench (Tier A pass 2)
+2026-09-19,W4400103831,tierA,gpt-4-turbo-2024-04-09,510,5.8,1200.8,BADGE writer+judge (Tier A pass 2)
+2026-09-19,W7166808082,tierA,o3-2025-04-16,306,5.17,1205.97,TURTLEAI DSReal (Tier A pass 2)
+2026-09-19,W4411119263,tierA,gpt-4o-2024-05-13,2060,11.07,1217.04,"ReIFE four datasets (Tier A pass 2, Tier B upgrade)"
+2026-09-19,W4416035547,tierA,o4-mini-2025-04-16,600,2.85,1219.89,"interlocutor awareness, two stages (Tier A pass 2, Tier B upgrade)"
+2026-09-19,W4403885225,tierA,gpt-4-turbo-2024-04-09,1500,22.26,1242.15,"judge bias verbosity robustness + repeat (Tier A pass 2, Tier B upgrade)"
+2026-09-19,W4412887747,tierA,gpt-4-turbo-2024-04-09,2445,16.5,1258.65,TAMA AIT-QA + InfoTabs (Tier A pass 2)
+2026-09-19,W4406880877,tierA,o1-2024-12-17,300,28.21,1286.86,"AI-text detection, 300 articles (Tier A pass 2, Tier B upgrade)"
+2026-09-19,W7160514285,tierb,gpt-4.1-nano,,0.01,1286.87,queue run
+2026-09-19,W4411119985,tierb,gpt-4-turbo-2024-04-09,,0.59,1287.46,queue run
+2026-09-19,W4411119343,tierb,gpt-4-turbo-2024-04-09,,0.53,1287.99,queue run
+2026-09-19,W4403574994,tierb,gpt-4-turbo-2024-04-09,,0.61,1288.6,queue run
+2026-09-19,W7106207151,tierb,gpt-4-turbo-2024-04-09,,0.85,1289.45,queue run
+2026-09-19,W7140953907,tierb,o3-mini-2025-01-31,,4.16,1293.61,queue run
+2026-09-19,W7169474262,tierb,gpt-4-turbo-2024-04-09,,0.09,1293.7,queue run
+2026-09-20,W7166872685,tierb,o3-mini-2025-01-31,,2.89,1296.59,queue run
+2026-09-20,W4411119711,tierb,gpt-4-turbo-2024-04-09,,4.01,1300.6,queue run
+2026-09-20,W4407012395,tierA,o1-2024-12-17 + o3-mini-2025-01-31,1928,42.24,1342.84,"MedXpertQA Text subset, o1 1 seed + o3-mini 3 seeds (Tier A pass 2)"
+2026-09-20,W4415270561,tierb,gpt-4.1-nano-2025-04-14,,0.52,1343.36,queue run
+2026-09-20,W4399911093,tierb,gpt-4-turbo-2024-04-09,,2.51,1345.87,queue run
+2026-09-20,W4416034248,tierb,gpt-4-turbo-2024-04-09,,10.44,1356.31,queue run
+2026-09-20,W7166821175,tierb,gpt-4-turbo-2024-04-09,,16.19,1372.5,queue run
+2026-09-20,W4400065264,tierb,gpt-4-turbo-2024-04-09,,6.64,1379.14,queue run
+2026-09-20,W4404573318,tierb,gpt-4-turbo-2024-04-09,,20.12,1399.26,queue run
+2026-09-20,W4403580619,tierb,gpt-4-turbo-2024-04-09,,23.51,1422.77,queue run
+2026-09-20,W4416036063,tierb,o1-2024-12-17,,11.76,1434.53,queue run
+2026-09-20,W4400611869,tierb,gpt-4-turbo-2024-04-09,,14.66,1449.19,queue run
+2026-09-20,W4416034576,tierA,o3-mini-2025-01-31,8611,24.49,1473.68,"AIRepr DiscoveryBench CoT/RoT 239 tasks x 3 seeds, o3-mini inspector; partial (RoT-CoT +8.37 pp CI 1.67-15.06; levels 12-15 pp below Table 6)"
+2026-09-20,W4406975432,tierb,gpt-4-turbo-2024-04-09,,18.49,1492.17,queue run
+2026-09-20,W4416683695,tierb,gpt-4-turbo-2024-04-09,,18.63,1510.8,queue run
+2026-09-20,W4411120580,tierb,gpt-4-turbo-2024-04-09,1375,1.39,1512.19,"queue run, partial: stopped at 1,375 of 7,658 calls when the OpenAI account ran out of credits (HTTP 429 'no credits remaining'); resumable by item id"
+2026-09-20,W4411120580,tierb,gpt-4-turbo-2024-04-09,,6.34,1518.53,queue run
+2026-09-20,W4415332749,tierb,o1-2024-12-17,,21.17,1539.7,queue run
+2026-09-20,W4414979614,tierb,gpt-5-2025-08-07,,1.2,1540.9,queue run
+2026-09-20,W7162149911,tierb,gpt-5-2025-08-07,,13.15,1554.05,queue run
+2026-09-20,W4415332749,tierb,o1-2024-12-17,,23.46,1577.51,queue run
+2026-09-20,W7126280993,tierb,o3-2025-04-16,200,10.84,1588.35,"queue run, partial: stopped when credits ran out (auto-recharge exhausted) 2026-09-20 09:20; resumable by item id"
+2026-09-20,W7162149911,tierb,gpt-5-2025-08-07,25,1.16,1589.51,"repair run (effort low), partial: stopped when credits ran out 2026-09-20 09:20; resumable by item id"
+2026-09-20,W7162149911,tierb,gpt-5-2025-08-07,,11.24,1600.75,queue run
+2026-09-20,W7126280993,tierb,o3-2025-04-16,,9.66,1610.41,queue run
+2026-09-20,W4411119343,tierb,gpt-4-turbo-2024-04-09,,0.04,1610.45,queue run
+2026-09-20,W7160514285,tierb_p3,gpt-5.6-luna,,0.01,1610.46,queue run arm=vendor
+2026-09-20,W7106207151,tierb_p3,gpt-5.6-sol,,0.2,1610.66,queue run arm=vendor
+2026-09-20,W4415270561,tierb_p3,gpt-5.6-luna,,0.53,1611.19,queue run arm=vendor
+2026-09-20,W4414979614,tierb_p3,gpt-5.6-sol,,0.57,1611.76,queue run arm=vendor
+2026-09-20,W4411119985,tierb_p3,gpt-5.6-sol,,0.22,1611.98,queue run arm=vendor
+2026-09-20,W4399911093,tierb_p3,gpt-5.6-sol,,0.79,1612.77,queue run arm=vendor
+2026-09-20,W7169474262,tierb_p3,gpt-5.6-sol,,0.02,1612.79,queue run arm=vendor
+2026-09-20,W4403574994,tierb_p3,gpt-5.6-sol,,0.18,1612.97,queue run arm=vendor
+2026-09-20,W4416034248,tierb_p3,gpt-5.6-sol,,2.36,1615.33,queue run arm=vendor
+2026-09-20,W4411119343,tierb_p3,gpt-5.6-sol,,0.27,1615.6,queue run arm=vendor
+2026-09-20,W4400611869,tierb_p3,gpt-5.6-sol,,3.76,1619.36,queue run arm=vendor
+2026-09-20,W4404573318,tierb_p3,gpt-5.6-sol,,4.01,1623.37,queue run arm=vendor
+2026-09-20,W4415332749,tierb_p3,gpt-5.6-sol,,2.73,1626.1,queue run arm=vendor
+2026-09-20,W7162149911,tierb_p3,gpt-5.6-sol,,5.72,1631.82,queue run arm=vendor
+2026-09-20,W7166872685,tierb_p3,gpt-5.6-sol,,0.72,1632.54,queue run arm=vendor
+2026-09-20,W4416036063,tierb_p3,gpt-5.6-sol,,2.38,1634.92,queue run arm=vendor
+2026-09-20,W7166821175,tierb_p3,gpt-5.6-sol,,3.34,1638.26,queue run arm=vendor
+2026-09-20,W4411119711,tierb_p3,gpt-5.6-sol,,2.09,1640.35,queue run arm=vendor
+2026-09-20,W4400065264,tierb_p3,gpt-5.6-sol,,5.53,1645.88,queue run arm=vendor
+2026-09-20,W7126280993,tierb_p3,gpt-5.6-sol,,26.35,1672.23,queue run arm=vendor
+2026-09-20,W4416683695,tierb_p3,gpt-5.6-sol,,17.78,1690.01,queue run arm=vendor
+2026-09-20,W4406975432,tierb_p3,gpt-5.6-sol,,7.45,1697.46,queue run arm=vendor
+2026-09-20,W4406975432,tierb_p3,gpt-5.6-sol,831,4.34,1701.80,"queue run arm=vendor, judge stage rerun after the runner fix (max_tokens -> max_completion_tokens); DPD 0.216 vs paper 0.513 (baseline 0.561)"
+2026-09-20,W4403580619,tierb_p3,gpt-5.6-sol,,3.03,1704.83,queue run arm=vendor
+2026-09-20,W7140953907,tierb_p3,gpt-5.6-sol,,1.18,1706.01,queue run arm=vendor
+2026-09-20,W4411120580,tierb_p3,gpt-5.6-sol,,3.65,1709.66,queue run arm=vendor
+2026-09-20,W7169474262,tierb_p3,gpt-4.1-2025-04-14,,0.01,1709.67,queue run arm=gpt41
+2026-09-20,W4403574994,tierb_p3,gpt-4.1-2025-04-14,,0.04,1709.71,queue run arm=gpt41
+2026-09-20,W4411119985,tierb_p3,gpt-4.1-2025-04-14,,0.03,1709.74,queue run arm=gpt41
+2026-09-20,W7106207151,tierb_p3,gpt-4.1-2025-04-14,,0.06,1709.8,queue run arm=gpt41
+2026-09-20,W4411119343,tierb_p3,gpt-4.1-2025-04-14,,0.11,1709.91,queue run arm=gpt41
+2026-09-20,W4399911093,tierb_p3,gpt-4.1-2025-04-14,,0.17,1710.08,queue run arm=gpt41
+2026-09-20,W4416034248,tierb_p3,gpt-4.1-2025-04-14,,0.61,1710.69,queue run arm=gpt41
+2026-09-20,W4411119711,tierb_p3,gpt-4.1-2025-04-14,,0.92,1711.61,queue run arm=gpt41
+2026-09-20,W4400611869,tierb_p3,gpt-4.1-2025-04-14,,1.37,1712.98,queue run arm=gpt41
+2026-09-20,W7166821175,tierb_p3,gpt-4.1-2025-04-14,,1.18,1714.16,queue run arm=gpt41
+2026-09-20,W4404573318,tierb_p3,gpt-4.1-2025-04-14,,2.85,1717.01,queue run arm=gpt41
+2026-09-20,W4411120580,tierb_p3,gpt-4.1-2025-04-14,,0.8,1717.81,queue run arm=gpt41
+2026-09-20,W4400065264,tierb_p3,gpt-4.1-2025-04-14,,1.51,1719.32,queue run arm=gpt41
+2026-09-20,W4403580619,tierb_p3,gpt-4.1-2025-04-14,,1.38,1720.7,queue run arm=gpt41
+2026-09-20,W4406975432,tierb_p3,gpt-4.1-2025-04-14,,16.39,1737.09,queue run arm=gpt41
+2026-09-20,W4416683695,tierb_p3,gpt-4.1-2025-04-14,2002,5.87,1742.96,"queue run arm=gpt41, partial: stopped when OpenAI returned HTTP 429 'access terminated' 2026-09-20 14:2x"
+2026-09-20,W4412888118,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.0,1742.96,queue run arm=open70b
+2026-09-20,W7169474262,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.01,1742.97,queue run arm=open70b
+2026-09-20,W4404792825,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.0,1742.97,queue run arm=open70b
+2026-09-20,W7134094238,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.01,1742.98,queue run arm=open70b
+2026-09-20,W7159577685,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.01,1742.99,queue run arm=open70b
+2026-09-20,W4411119985,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.02,1743.01,queue run arm=open70b
+2026-09-20,W4403574994,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.02,1743.03,queue run arm=open70b
+2026-09-20,W7140084705,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.02,1743.05,queue run arm=open70b
+2026-09-20,W4416034777,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.05,1743.1,queue run arm=open70b
+2026-09-20,W4402345509,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.04,1743.14,queue run arm=open70b
+2026-09-20,W7160514285,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.03,1743.17,queue run arm=open70b
+2026-09-20,W4399911276,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.04,1743.21,queue run arm=open70b
+2026-09-20,W4416036577,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.05,1743.26,queue run arm=open70b
+2026-09-20,W4407374917,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.03,1743.29,queue run arm=open70b
+2026-09-20,W4411119343,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.06,1743.35,queue run arm=open70b
+2026-09-20,W4404781158,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.05,1743.4,queue run arm=open70b
+2026-09-20,W4414494504,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.11,1743.51,queue run arm=open70b
+2026-09-20,W4399911093,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.07,1743.58,queue run arm=open70b
+2026-09-20,W4416034223,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.14,1743.72,queue run arm=open70b
+2026-09-20,W7166799942,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.13,1743.85,queue run arm=open70b
+2026-09-20,W4404314294,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.18,1744.03,queue run arm=open70b
+2026-09-20,W7135428702,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.15,1744.18,queue run arm=open70b
+2026-09-20,W4401545735,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.2,1744.38,queue run arm=open70b
+2026-09-20,W4416035547,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.06,1744.44,queue run arm=open70b
+2026-09-20,W4414979614,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.11,1744.55,queue run arm=open70b
+2026-09-20,W7117377764,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.01,1744.56,queue run arm=open70b
+2026-09-20,W4400434899,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.16,1744.72,queue run arm=open70b
+2026-09-20,W4404782525,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.18,1744.9,queue run arm=open70b
+2026-09-20,W4403786592,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.22,1745.12,queue run arm=open70b
+2026-09-20,W4404985489,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.25,1745.37,queue run arm=open70b
+2026-09-20,W4410110677,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.16,1745.53,queue run arm=open70b
+2026-09-20,W4400065264,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.17,1745.7,queue run arm=open70b
+2026-09-20,W7134885605,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.16,1745.86,queue run arm=open70b
+2026-09-20,W4416034248,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.2,1746.06,queue run arm=open70b
+2026-09-20,W4416036063,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.44,1746.5,queue run arm=open70b
+2026-09-20,W7131319772,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.28,1746.78,queue run arm=open70b
+2026-09-20,W7166821175,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.32,1747.1,queue run arm=open70b
+2026-09-20,W7144391352,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.25,1747.35,queue run arm=open70b
+2026-09-20,W4400611869,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.0,1748.35,queue run arm=open70b
+2026-09-20,W4399911213,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.34,1748.69,queue run arm=open70b
+2026-09-20,W4411112894,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.94,1749.63,queue run arm=open70b
+2026-09-20,W4406880877,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.18,1749.81,queue run arm=open70b
+2026-09-20,W4403882451,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.3,1750.11,queue run arm=open70b
+2026-09-20,W4403758464,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.3,1750.41,queue run arm=open70b
+2026-09-20,W4411119711,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.39,1750.8,queue run arm=open70b
+2026-09-20,W7162149911,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.12,1750.92,queue run arm=open70b
+2026-09-20,W4415332749,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.19,1751.11,queue run arm=open70b
+2026-09-20,W4411120580,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.83,1751.94,queue run arm=open70b
+2026-09-20,W4407571428,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.57,1752.51,queue run arm=open70b
+2026-09-20,W4403370432,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.73,1753.24,queue run arm=open70b
+2026-09-20,W4415270561,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.74,1753.98,queue run arm=open70b
+2026-09-20,W4399912745,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.86,1754.84,queue run arm=open70b
+2026-09-20,W4403885225,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.79,1755.63,queue run arm=open70b
+2026-09-20,W4416037849,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.57,1756.2,queue run arm=open70b
+2026-09-20,W7164614711,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.58,1757.78,queue run arm=open70b
+2026-09-20,W7126280993,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.97,1759.75,queue run arm=open70b
+2026-09-20,W4406058598,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.53,1761.28,queue run arm=open70b
+2026-09-20,W7166852552,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,3.23,1764.51,queue run arm=open70b
+2026-09-20,W7106207151,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.02,1764.53,queue run arm=open70b
+2026-09-20,W4416339332,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.13,1764.66,queue run arm=open70b
+2026-09-20,W7166872685,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.08,1764.74,queue run arm=open70b
+2026-09-20,W4404573318,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.52,1765.26,queue run arm=open70b
+2026-09-21,W7140138327,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.78,1766.04,queue run arm=open70b
+2026-09-21,W4411080278,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.59,1766.63,queue run arm=open70b
+2026-09-21,W7140953907,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.06,1766.69,queue run arm=open70b
+2026-09-21,W4403556032,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.05,1767.74,queue run arm=open70b
+2026-09-21,W4406058562,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.44,1769.18,queue run arm=open70b
+2026-09-21,W7126280993,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.15,1769.33,queue run arm=open70b
+2026-09-21,W7126280993,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.63,1769.96,queue run arm=open70b
+2026-09-21,W4399442646,tierA,gpt-4o-2024-05-13,8592,19.89,1789.85,"ACCORD-CSQA Small regenerated in-repo, 2,864 items x 3 seeds; survived (gap positive and Wald-significant at every hop, anti-factual accuracy crosses chance at n=4 as in Figure 3)"
+2026-09-21,W7162149911,tierb,gpt-5-2025-08-07,,15.25,1805.1,queue run
+2026-09-21,W4404985489,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,10.02,1815.12,queue run arm=open70b
+2026-09-21,W4403882451,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,3.45,1818.57,queue run arm=open70b
+2026-09-21,W4412888118,tierb_p3,gemini-3.8-flash,,0.0,1818.57,queue run arm=gemini_flash
+2026-09-21,W7169474262,tierb_p3,gemini-3.8-flash,,0.01,1818.58,queue run arm=gemini_flash
+2026-09-21,W4404792825,tierb_p3,gemini-3.8-flash,,0.01,1818.59,queue run arm=gemini_flash
+2026-09-21,W7159577685,tierb_p3,gemini-3.8-flash,,0.03,1818.62,queue run arm=gemini_flash
+2026-09-21,W7134094238,tierb_p3,gemini-3.8-flash,,0.01,1818.63,queue run arm=gemini_flash
+2026-09-21,W7140084705,tierb_p3,gemini-3.8-flash,,0.02,1818.65,queue run arm=gemini_flash
+2026-09-21,W4403574994,tierb_p3,gemini-3.8-flash,,0.08,1818.73,queue run arm=gemini_flash
+2026-09-21,W4411119985,tierb_p3,gemini-3.8-flash,,0.1,1818.83,queue run arm=gemini_flash
+2026-09-21,W4399911276,tierb_p3,gemini-3.8-flash,,0.96,1819.79,queue run arm=gemini_flash
+2026-09-21,W7160514285,tierb_p3,gemini-3.8-flash,,0.07,1819.86,queue run arm=gemini_flash
+2026-09-21,W4402345509,tierb_p3,gemini-3.8-flash,,0.45,1820.31,queue run arm=gemini_flash
+2026-09-21,W4411119343,tierb_p3,gemini-3.8-flash,,0.09,1820.4,queue run arm=gemini_flash
+2026-09-21,W4414979614,tierb_p3,gemini-3.8-flash,,0.11,1820.51,queue run arm=gemini_flash
+2026-09-21,W4399911093,tierb_p3,gemini-3.8-flash,,0.22,1820.73,queue run arm=gemini_flash
+2026-09-21,W4416034777,tierb_p3,gemini-3.8-flash,,0.14,1820.87,queue run arm=gemini_flash
+2026-09-21,W4407374917,tierb_p3,gemini-3.8-flash,,0.0,1820.87,queue run arm=gemini_flash
+2026-09-21,W7117377764,tierb_p3,gemini-3.8-flash,,0.22,1821.09,queue run arm=gemini_flash
+2026-09-21,W4414494504,tierb_p3,gemini-3.8-flash,,0.37,1821.46,queue run arm=gemini_flash
+2026-09-21,W4416034223,tierb_p3,gemini-3.8-flash,,0.6,1822.06,queue run arm=gemini_flash
+2026-09-21,W4416034248,tierb_p3,gemini-3.8-flash,,0.79,1822.85,queue run arm=gemini_flash
+2026-09-21,W4404781158,tierb_p3,gemini-3.8-flash,,0.14,1822.99,queue run arm=gemini_flash
+2026-09-21,W4399911213,tierb_p3,gemini-3.8-flash,,0.4,1823.39,queue run arm=gemini_flash
+2026-09-21,W7166799942,tierb_p3,gemini-3.8-flash,,0.39,1823.78,queue run arm=gemini_flash
+2026-09-21,W7134885605,tierb_p3,gemini-3.8-flash,,0.19,1823.97,queue run arm=gemini_flash
+2026-09-21,W4416036577,tierb_p3,gemini-3.8-flash,,0.02,1823.99,queue run arm=gemini_flash
+2026-09-21,W4410110677,tierb_p3,gemini-3.8-flash,,0.2,1824.19,queue run arm=gemini_flash
+2026-09-21,W4416035547,tierb_p3,gemini-3.8-flash,,0.44,1824.63,queue run arm=gemini_flash
+2026-09-21,W4407571428,tierb_p3,gemini-3.8-flash,,1.05,1825.68,queue run arm=gemini_flash
+2026-09-21,W7144391352,tierb_p3,gemini-3.8-flash,,0.4,1826.08,queue run arm=gemini_flash
+2026-09-21,W4400611869,tierb_p3,gemini-3.8-flash,,2.13,1828.21,queue run arm=gemini_flash
+2026-09-21,W4404782525,tierb_p3,gemini-3.8-flash,,0.47,1828.68,queue run arm=gemini_flash
+2026-09-21,W4406880877,tierb_p3,gemini-3.8-flash,,0.2,1828.88,queue run arm=gemini_flash
+2026-09-21,W4415332749,tierb_p3,gemini-3.8-flash,,0.44,1829.32,queue run arm=gemini_flash
+2026-09-21,W4416036063,tierb_p3,gemini-3.8-flash,,0.72,1830.04,queue run arm=gemini_flash
+2026-09-22,W4404314294,tierb_p3,gemini-3.8-flash,,0.6,1830.64,queue run arm=gemini_flash
+2026-09-22,W7166821175,tierb_p3,gemini-3.8-flash,,0.68,1831.32,queue run arm=gemini_flash
+2026-09-22,W4400434899,tierb_p3,gemini-3.8-flash,,1.03,1832.35,queue run arm=gemini_flash
+2026-09-22,W4411119711,tierb_p3,gemini-3.8-flash,,0.74,1833.09,queue run arm=gemini_flash
+2026-09-22,W7162149911,tierb_p3,gemini-3.8-flash,,0.28,1833.37,queue run arm=gemini_flash
+2026-09-22,W4403758464,tierb_p3,gemini-3.8-flash,,0.72,1834.09,queue run arm=gemini_flash
+2026-09-22,W4404985489,tierb_p3,gemini-3.8-flash,,9.99,1844.08,queue run arm=gemini_flash
+2026-09-22,W7135428702,tierb_p3,gemini-3.8-flash,,0.52,1844.6,queue run arm=gemini_flash
+2026-09-22,W4403786592,tierb_p3,gemini-3.8-flash,,0.3,1844.9,queue run arm=gemini_flash
+2026-09-22,W7131319772,tierb_p3,gemini-3.8-flash,,0.58,1845.48,queue run arm=gemini_flash
+2026-09-22,W4400065264,tierb_p3,gemini-3.8-flash,,0.97,1846.45,queue run arm=gemini_flash
+2026-09-22,W4399912745,tierb_p3,gemini-3.8-flash,,0.93,1847.38,queue run arm=gemini_flash
+2026-09-22,W4416037849,tierb_p3,gemini-3.8-flash,,0.53,1847.91,queue run arm=gemini_flash
+2026-09-22,W4403882451,tierb_p3,gemini-3.8-flash,,4.06,1851.97,queue run arm=gemini_flash
+2026-09-22,W7126280993,tierb_p3,gemini-3.8-flash,,6.26,1858.23,queue run arm=gemini_flash
+2026-09-22,W4411112894,tierb_p3,gemini-3.8-flash,,2.3,1860.53,queue run arm=gemini_flash
+2026-09-22,W4415270561,tierb_p3,gemini-3.8-flash,,1.88,1862.41,queue run arm=gemini_flash
+2026-09-22,W4403885225,tierb_p3,gemini-3.8-flash,,1.14,1863.55,queue run arm=gemini_flash
+2026-09-22,W4403370432,tierb_p3,gemini-3.8-flash,,0.92,1864.47,queue run arm=gemini_flash
+2026-09-22,W4406058598,tierb_p3,gemini-3.8-flash,,1.48,1865.95,queue run arm=gemini_flash
+2026-09-22,W4401545735,tierb_p3,gemini-3.8-flash,,0.4,1866.35,queue run arm=gemini_flash
+2026-09-22,W4411120580,tierb_p3,gemini-3.8-flash,,7.95,1874.3,queue run arm=gemini_flash
+2026-09-22,W7166852552,tierb_p3,gemini-3.8-flash,,11.55,1885.85,queue run arm=gemini_flash
+2026-09-22,W7164614711,tierb_p3,gemini-3.8-flash,,4.82,1890.67,queue run arm=gemini_flash
+2026-09-22,W7106207151,tierb_p3,gemini-3.8-flash,,0.05,1890.72,queue run arm=gemini_flash
+2026-09-22,W4416339332,tierb_p3,gemini-3.8-flash,,0.16,1890.88,queue run arm=gemini_flash
+2026-09-22,W4404573318,tierb_p3,gemini-3.8-flash,,1.93,1892.81,queue run arm=gemini_flash
+2026-09-22,W4406058562,tierb_p3,gemini-3.8-flash,,1.98,1894.79,queue run arm=gemini_flash
+2026-09-22,W7166872685,tierb_p3,gemini-3.8-flash,,0.73,1895.52,queue run arm=gemini_flash
+2026-09-22,W4411080278,tierb_p3,gemini-3.8-flash,,1.79,1897.31,queue run arm=gemini_flash
+2026-09-22,W7140138327,tierb_p3,gemini-3.8-flash,,1.4,1898.71,queue run arm=gemini_flash
+2026-09-22,W4403556032,tierb_p3,gemini-3.8-flash,,1.94,1900.65,queue run arm=gemini_flash
+2026-09-22,W7140953907,tierb_p3,gemini-3.8-flash,,0.63,1901.28,queue run arm=gemini_flash
+2026-09-22,W4400611869,tierb_p3,gemini-3.8-flash,,0.05,1901.33,queue run arm=gemini_flash
+2026-09-22,W7126280993,tierb_p3,gemini-3.8-flash,,9.43,1910.76,queue run arm=gemini_flash
+2026-09-22,gemini_flash,tierb_p3,gemini-3.8-flash,,0.61,1911.37,"reconciliation: partial stages of the two invocations stopped on 2026-09-21 (caps rebuilt, workers raised) were not logged as deltas; arm total per budget files = Google $79.68 + OpenAI second stages $13.11"
+2026-09-23,W4404792825,tierb_p3,gpt-4o-2024-05-13,,0.02,1911.39,queue run arm=drift_ctrl
+2026-09-23,W7169474262,tierb_p3,gpt-4-turbo-2024-04-09,,0.03,1911.42,queue run arm=drift_ctrl
+2026-09-23,W4415270561,tierb_p3,gpt-4.1-nano-2025-04-14,,0.17,1911.59,queue run arm=drift_ctrl
+2026-09-23,W4411119985,tierb_p3,gpt-4-turbo-2024-04-09,,0.19,1911.78,queue run arm=drift_ctrl
+2026-09-23,W4403574994,tierb_p3,gpt-4-turbo-2024-04-09,,0.2,1911.98,queue run arm=drift_ctrl
+2026-09-23,W7166852552,tierb_p3,gpt-4.1-nano,,0.33,1912.31,queue run arm=drift_ctrl
+2026-09-23,W4414979614,tierb_p3,gpt-5-2025-08-07,,0.39,1912.7,queue run arm=drift_ctrl
+2026-09-23,W4416034777,tierb_p3,gpt-4-turbo-2024-04-09,,0.83,1913.53,queue run arm=drift_ctrl
+2026-09-23,W4401545735,tierb_p3,gpt-4o-2024-05-13,,0.88,1914.41,queue run arm=drift_ctrl
+2026-09-23,W4404781158,tierb_p3,gpt-4-turbo-2024-04-09,,0.86,1915.27,queue run arm=drift_ctrl
+2026-09-23,W7134885605,tierb_p3,gpt-5-2025-08-07,,1.2,1916.47,queue run arm=drift_ctrl
+2026-09-23,W4403786592,tierb_p3,gpt-4-turbo-2024-04-09,,2.18,1918.65,queue run arm=drift_ctrl
+2026-09-23,W4404314294,tierb_p3,gpt-4-turbo-2024-04-09,,2.38,1921.03,queue run arm=drift_ctrl
+2026-09-23,W4416037849,tierb_p3,o3-mini-2025-01-31,,2.42,1923.45,queue run arm=drift_ctrl
+2026-09-23,W7140953907,tierb_p3,o3-mini-2025-01-31,,4.12,1927.57,queue run arm=drift_ctrl
+2026-09-23,W7166821175,tierb_p3,gpt-4-turbo-2024-04-09,,5.4,1932.97,queue run arm=drift_ctrl
+2026-09-23,W4411119490,tierb_p3,gpt-4-turbo-2024-04-09,,6.39,1939.36,queue run arm=drift_ctrl
+2026-09-23,W4404573318,tierb_p3,gpt-4-turbo-2024-04-09,,7.59,1946.95,queue run arm=drift_ctrl
+2026-09-23,W4403882451,tierb_p3,gpt-4-turbo-2024-04-09,,8.15,1955.1,queue run arm=drift_ctrl
+2026-09-23,W4407571428,tierb_p3,gpt-4-turbo-2024-04-09,,7.36,1962.46,queue run arm=drift_ctrl
+2026-09-23,W4403882451,tierb_p3,gpt-4-turbo-2024-04-09,,2.39,1964.85,queue run arm=drift_ctrl
+2026-09-28,W4399911093,tierb_p3,gpt-5.6-sol,,1.65,1966.5,queue run arm=vendor_rep
+2026-09-28,W4399911213,tierb_p3,gpt-5.6-sol,,3.78,1970.28,queue run arm=vendor_rep
+2026-09-28,W4399911093,tierb_p3,gemini-3.8-flash,,0.4,1970.68,queue run arm=gemini_flash_rep
+2026-09-28,W4399911213,tierb_p3,gemini-3.8-flash,,0.82,1971.5,queue run arm=gemini_flash_rep
+2026-09-28,W4399911093,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.13,1971.63,queue run arm=open70b_rep
+2026-09-28,W4399911276,tierb_p3,gemini-3.8-flash,,1.86,1973.49,queue run arm=gemini_flash_rep
+2026-09-28,W4399911276,tierb_p3,gpt-5.6-sol,,2.43,1975.92,queue run arm=vendor_rep
+2026-09-28,W4399911213,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.67,1976.59,queue run arm=open70b_rep
+2026-09-28,W4400611869,tierb_p3,gemini-3.8-flash,,4.3,1980.89,queue run arm=gemini_flash_rep
+2026-09-28,W4402345509,tierb_p3,gemini-3.8-flash,,0.9,1981.79,queue run arm=gemini_flash_rep
+2026-09-28,W4403574994,tierb_p3,gemini-3.8-flash,,0.18,1981.97,queue run arm=gemini_flash_rep
+2026-09-28,W4400611869,tierb_p3,gpt-5.6-sol,,7.49,1989.46,queue run arm=vendor_rep
+2026-09-28,W4403758464,tierb_p3,gemini-3.8-flash,,1.42,1990.88,queue run arm=gemini_flash_rep
+2026-09-28,W4399911276,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.09,1990.97,queue run arm=open70b_rep
+2026-09-28,W4402345509,tierb_p3,gpt-5.6-sol,,2.63,1993.6,queue run arm=vendor_rep
+2026-09-28,W4403786592,tierb_p3,gemini-3.8-flash,,0.59,1994.19,queue run arm=gemini_flash_rep
+2026-09-28,W4403574994,tierb_p3,gpt-5.6-sol,,0.37,1994.56,queue run arm=vendor_rep
+2026-09-28,W4403885225,tierb_p3,gemini-3.8-flash,,2.25,1996.81,queue run arm=gemini_flash_rep
+2026-09-28,W4404314294,tierb_p3,gemini-3.8-flash,,1.21,1998.02,queue run arm=gemini_flash_rep
+2026-09-28,W4404781158,tierb_p3,gemini-3.8-flash,,0.44,1998.46,queue run arm=gemini_flash_rep
+2026-09-28,W4403758464,tierb_p3,gpt-5.6-sol,,6.75,2005.21,queue run arm=vendor_rep
+2026-09-28,W4404782525,tierb_p3,gemini-3.8-flash,,0.93,2006.14,queue run arm=gemini_flash_rep
+2026-09-28,W4404792825,tierb_p3,gemini-3.8-flash,,0.02,2006.16,queue run arm=gemini_flash_rep
+2026-09-28,W4407374917,tierb_p3,gemini-3.8-flash,,0.57,2006.73,queue run arm=gemini_flash_rep
+2026-09-28,W4403786592,tierb_p3,gpt-5.6-sol,,2.65,2009.38,queue run arm=vendor_rep
+2026-09-28,W4411112894,tierb_p3,gemini-3.8-flash,,4.59,2013.97,queue run arm=gemini_flash_rep
+2026-09-28,W4411119711,tierb_p3,gemini-3.8-flash,,1.47,2015.44,queue run arm=gemini_flash_rep
+2026-09-28,W4403885225,tierb_p3,gpt-5.6-sol,,8.49,2023.93,queue run arm=vendor_rep
+2026-09-28,W4416034223,tierb_p3,gemini-3.8-flash,,1.35,2025.28,queue run arm=gemini_flash_rep
+2026-09-28,W4416034777,tierb_p3,gemini-3.8-flash,,0.31,2025.59,queue run arm=gemini_flash_rep
+2026-09-28,W7106207151,tierb_p3,gemini-3.8-flash,,0.08,2025.67,queue run arm=gemini_flash_rep
+2026-09-28,W4404314294,tierb_p3,gpt-5.6-sol,,1.85,2027.52,queue run arm=vendor_rep
+2026-09-28,W7166821175,tierb_p3,gemini-3.8-flash,,1.36,2028.88,queue run arm=gemini_flash_rep
+2026-09-28,W4404781158,tierb_p3,gpt-5.6-sol,,0.87,2029.75,queue run arm=vendor_rep
+2026-09-28,W4404782525,tierb_p3,gpt-5.6-sol,,1.87,2031.62,queue run arm=vendor_rep
+2026-09-28,W4404792825,tierb_p3,gpt-5.6-sol,,0.07,2031.69,queue run arm=vendor_rep
+2026-09-28,W4407374917,tierb_p3,gpt-5.6-sol,,3.08,2034.77,queue run arm=vendor_rep
+2026-09-28,W4411112894,tierb_p3,gpt-5.6-sol,,3.8,2038.57,queue run arm=vendor_rep
+2026-09-28,W4411119711,tierb_p3,gpt-5.6-sol,,4.31,2042.88,queue run arm=vendor_rep
+2026-09-28,W4400611869,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,2.0,2044.88,queue run arm=open70b_rep
+2026-09-28,W4402345509,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.09,2044.97,queue run arm=open70b_rep
+2026-09-28,W4403574994,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.04,2045.01,queue run arm=open70b_rep
+2026-09-28,W4416034223,tierb_p3,gpt-5.6-sol,,5.18,2050.19,queue run arm=vendor_rep
+2026-09-28,W4416034777,tierb_p3,gpt-5.6-sol,,0.31,2050.5,queue run arm=vendor_rep
+2026-09-28,W7106207151,tierb_p3,gpt-5.6-sol,,0.39,2050.89,queue run arm=vendor_rep
+2026-09-28,W7166821175,tierb_p3,gpt-5.6-sol,,6.76,2057.65,queue run arm=vendor_rep
+2026-09-28,W4399911093,tierb_p3,gpt-4.1-2025-04-14,,0.34,2057.99,queue run arm=gpt41_rep
+2026-09-28,W4399911213,tierb_p3,gpt-4.1-2025-04-14,,1.66,2059.65,queue run arm=gpt41_rep
+2026-09-28,W4399911276,tierb_p3,gpt-4.1-2025-04-14,,0.17,2059.82,queue run arm=gpt41_rep
+2026-09-28,W4403758464,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.59,2060.41,queue run arm=open70b_rep
+2026-09-28,W4400611869,tierb_p3,gpt-4.1-2025-04-14,,2.74,2063.15,queue run arm=gpt41_rep
+2026-09-28,W4402345509,tierb_p3,gpt-4.1-2025-04-14,,0.17,2063.32,queue run arm=gpt41_rep
+2026-09-28,W4403574994,tierb_p3,gpt-4.1-2025-04-14,,0.08,2063.4,queue run arm=gpt41_rep
+2026-09-28,W4403758464,tierb_p3,gpt-4.1-2025-04-14,,1.89,2065.29,queue run arm=gpt41_rep
+2026-09-28,W4403786592,tierb_p3,gpt-4.1-2025-04-14,,0.86,2066.15,queue run arm=gpt41_rep
+2026-09-28,W4403786592,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.43,2066.58,queue run arm=open70b_rep
+2026-09-28,W4403885225,tierb_p3,gpt-4.1-2025-04-14,,5.55,2072.13,queue run arm=gpt41_rep
+2026-09-28,W4404314294,tierb_p3,gpt-4.1-2025-04-14,,0.35,2072.48,queue run arm=gpt41_rep
+2026-09-28,W4404781158,tierb_p3,gpt-4.1-2025-04-14,,0.62,2073.1,queue run arm=gpt41_rep
+2026-09-28,W4404782525,tierb_p3,gpt-4.1-2025-04-14,,0.76,2073.86,queue run arm=gpt41_rep
+2026-09-28,W4404792825,tierb_p3,gpt-4.1-2025-04-14,,0.02,2073.88,queue run arm=gpt41_rep
+2026-09-28,W4407374917,tierb_p3,gpt-4.1-2025-04-14,,0.31,2074.19,queue run arm=gpt41_rep
+2026-09-28,W4411112894,tierb_p3,gpt-4.1-2025-04-14,,3.65,2077.84,queue run arm=gpt41_rep
+2026-09-28,W4411119711,tierb_p3,gpt-4.1-2025-04-14,,1.83,2079.67,queue run arm=gpt41_rep
+2026-09-28,W4416034223,tierb_p3,gpt-4.1-2025-04-14,,0.89,2080.56,queue run arm=gpt41_rep
+2026-09-28,W4416034777,tierb_p3,gpt-4.1-2025-04-14,,0.31,2080.87,queue run arm=gpt41_rep
+2026-09-28,W7106207151,tierb_p3,gpt-4.1-2025-04-14,,0.13,2081.0,queue run arm=gpt41_rep
+2026-09-28,W7166821175,tierb_p3,gpt-4.1-2025-04-14,,2.37,2083.37,queue run arm=gpt41_rep
+2026-09-28,W4403885225,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.59,2084.96,queue run arm=open70b_rep
+2026-09-28,W4404314294,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.37,2085.33,queue run arm=open70b_rep
+2026-09-28,W4404781158,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.1,2085.43,queue run arm=open70b_rep
+2026-09-28,W4404782525,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.36,2085.79,queue run arm=open70b_rep
+2026-09-28,W4404792825,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.01,2085.8,queue run arm=open70b_rep
+2026-09-28,W4407374917,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.06,2085.86,queue run arm=open70b_rep
+2026-09-28,endpoint,tierb_p3,erzyh34-1842/halflife-bf16,,9.84,2095.7,"dedicated endpoint hours for the BF16 check (arm=open70b_bf16): 37 min from creation to stop x 15.96 USD/h, 4x H100 BF16"
+2026-09-28,W4411112894,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,1.87,2097.57,queue run arm=open70b_rep
+2026-09-28,W4411119711,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.77,2098.34,queue run arm=open70b_rep
+2026-09-28,W4416034223,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.28,2098.62,queue run arm=open70b_rep
+2026-09-28,W4416034777,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.1,2098.72,queue run arm=open70b_rep
+2026-09-28,W7106207151,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.04,2098.76,queue run arm=open70b_rep
+2026-09-28,W7166821175,tierb_p3,meta-llama/Llama-3.3-70B-Instruct-Turbo,,0.64,2099.4,queue run arm=open70b_rep
+2026-10-01,W4404792825,tierb_p3,gpt-4o-2024-05-13,,0.02,2099.42,queue run arm=para_p1
+2026-10-01,W4415270561,tierb_p3,gpt-4.1-nano-2025-04-14,,0.17,2099.59,queue run arm=para_p1
+2026-10-01,W4411119985,tierb_p3,gpt-4-turbo-2024-04-09,,0.13,2099.72,queue run arm=para_p1
+2026-10-01,W4403574994,tierb_p3,gpt-4-turbo-2024-04-09,,0.21,2099.93,queue run arm=para_p1
+2026-10-01,W7166852552,tierb_p3,gpt-4.1-nano,,0.32,2100.25,queue run arm=para_p1
+2026-10-01,W4414979614,tierb_p3,gpt-5-2025-08-07,,0.41,2100.66,queue run arm=para_p1
+2026-10-01,W4416034777,tierb_p3,gpt-4-turbo-2024-04-09,,0.8,2101.46,queue run arm=para_p1
+2026-10-01,W4401545735,tierb_p3,gpt-4o-2024-05-13,,0.75,2102.21,queue run arm=para_p1
+2026-10-01,W7134885605,tierb_p3,gpt-5-2025-08-07,,1.12,2103.33,queue run arm=para_p1
+2026-10-01,W4403786592,tierb_p3,gpt-4-turbo-2024-04-09,,2.23,2105.56,queue run arm=para_p1
+2026-10-01,W4404314294,tierb_p3,gpt-4-turbo-2024-04-09,,1.48,2107.04,queue run arm=para_p1
+2026-10-01,W4416037849,tierb_p3,o3-mini-2025-01-31,,2.46,2109.5,queue run arm=para_p1
+2026-10-02,W7140953907,tierb_p3,o3-mini-2025-01-31,,2.84,2112.34,queue run arm=para_p1
+2026-10-02,W7166821175,tierb_p3,gpt-4-turbo-2024-04-09,,5.55,2117.89,queue run arm=para_p1
+2026-10-02,W4411119490,tierb_p3,gpt-4-turbo-2024-04-09,,6.0,2123.89,queue run arm=para_p1
+2026-10-02,W4404573318,tierb_p3,gpt-4-turbo-2024-04-09,,7.72,2131.61,queue run arm=para_p1
+2026-10-02,W4403882451,tierb_p3,gpt-4-turbo-2024-04-09,,9.64,2141.25,queue run arm=para_p1
+2026-10-02,W4407571428,tierb_p3,gpt-4-turbo-2024-04-09,,7.54,2148.79,queue run arm=para_p1
+2026-10-02,W4404792825,tierb_p3,gpt-4o-2024-05-13,,0.02,2148.81,queue run arm=para_p2
+2026-10-02,W4415270561,tierb_p3,gpt-4.1-nano-2025-04-14,,0.17,2148.98,queue run arm=para_p2
+2026-10-02,W4411119985,tierb_p3,gpt-4-turbo-2024-04-09,,0.28,2149.26,queue run arm=para_p2
+2026-10-02,W4403574994,tierb_p3,gpt-4-turbo-2024-04-09,,0.2,2149.46,queue run arm=para_p2
+2026-10-02,W7166852552,tierb_p3,gpt-4.1-nano,,0.32,2149.78,queue run arm=para_p2
+2026-10-02,W4414979614,tierb_p3,gpt-5-2025-08-07,,0.41,2150.19,queue run arm=para_p2
+2026-10-02,W4416034777,tierb_p3,gpt-4-turbo-2024-04-09,,0.16,2150.35,queue run arm=para_p2
+2026-10-02,W4401545735,tierb_p3,gpt-4o-2024-05-13,,1.01,2151.36,queue run arm=para_p2
+2026-10-02,W7134885605,tierb_p3,gpt-5-2025-08-07,,1.12,2152.48,queue run arm=para_p2
+2026-10-02,W4403786592,tierb_p3,gpt-4-turbo-2024-04-09,,2.18,2154.66,queue run arm=para_p2
+2026-10-02,W4404314294,tierb_p3,gpt-4-turbo-2024-04-09,,2.23,2156.89,queue run arm=para_p2
+2026-10-02,W4416037849,tierb_p3,o3-mini-2025-01-31,,2.43,2159.32,queue run arm=para_p2
+2026-10-02,W7140953907,tierb_p3,o3-mini-2025-01-31,,4.11,2163.43,queue run arm=para_p2
+2026-10-02,W7166821175,tierb_p3,gpt-4-turbo-2024-04-09,,5.33,2168.76,queue run arm=para_p2
+2026-10-02,W4411119490,tierb_p3,gpt-4-turbo-2024-04-09,,6.12,2174.88,queue run arm=para_p2
+2026-10-02,W4404573318,tierb_p3,gpt-4-turbo-2024-04-09,,7.68,2182.56,queue run arm=para_p2
+2026-10-02,W4403882451,tierb_p3,gpt-4-turbo-2024-04-09,,9.31,2191.87,queue run arm=para_p2
+2026-10-02,W4407571428,tierb_p3,gpt-4-turbo-2024-04-09,,7.47,2199.34,queue run arm=para_p2
+2026-10-02,W7171749161,tierA_successor,gpt-5.6-sol,960,0.8,2200.14,"successor condition approved 2026-10-01: gpt-4-turbo-2024-04-09 -> gpt-5.6-sol, cap 20.0"
+2026-10-02,W4404781910,tierA_successor,gpt-5.6-sol,480,0.96,2201.1,"successor condition approved 2026-10-01: gpt-4o-2024-05-13 -> gpt-5.6-sol, cap 12.0"
+2026-10-02,W7144391134,tierA_successor,gpt-5.6-luna,3193,10.41,2211.51,"successor condition approved 2026-10-01: gpt-4.1-nano-2025-04-14 -> gpt-5.6-luna, cap 12.0, adapter args --zs-molecules 500 --zs-last (zero-shot on a seeded subset of 500 of 1,128 molecules, in-context predictions first; restarted once after ~120 calls)"
+2026-10-02,W4416074906,tierA_successor,gpt-5.6-terra,216,0.65,2212.16,"successor condition approved 2026-10-01: o4-mini-2025-04-16 -> gpt-5.6-terra, cap 8.0"
+2026-10-02,W4412887943,tierA_successor,gpt-5.6-sol,1791,12.56,2224.72,"successor condition approved 2026-10-01: gpt-4o-2024-05-13 -> gpt-5.6-sol, cap 25.0"
+2026-10-02,W4403556032,tierb_p3,gpt-5.6-sol,,12.28,2237.0,queue run arm=format_f1
+2026-10-02,W7166799942,tierb_p3,gpt-5.6-luna,,0.09,2237.09,queue run arm=format_f1
+2026-10-02,W4416034248,tierb_p3,gpt-5.6-sol,,2.44,2239.53,queue run arm=format_f1
+2026-10-02,W4403556032,tierb_p3,gpt-5.6-sol,,5.87,2245.4,queue run arm=format_f2
+2026-10-02,W7166799942,tierb_p3,gpt-5.6-luna,,0.03,2245.43,queue run arm=format_f2
+2026-10-02,W4416034248,tierb_p3,gpt-5.6-sol,,1.31,2246.74,queue run arm=format_f2
+2026-10-02,W4406058562,tierb_p3,gpt-4-turbo-2024-04-09,,17.55,2264.29,queue run arm=temp1
+2026-10-02,W4411120580,tierb_p3,gpt-4-turbo-2024-04-09,,7.81,2272.1,queue run arm=temp1
+2026-10-02,W4416034248,tierb_p3,gpt-4-turbo-2024-04-09,,10.46,2282.56,queue run arm=temp1
+2026-10-02,W4416683695,tierb_p3,gpt-4-turbo-2024-04-09,,18.63,2301.19,queue run arm=temp1
+2026-10-04,triage_crossjudge,triage_crossjudge,gpt-4.1-2025-04-14,60,2.57,2303.76,"triage cross-judgement, 60 verdicts re-read by a second model"

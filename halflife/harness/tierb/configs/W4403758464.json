@@ -1,0 +1,92 @@
+{
+  "wid": "W4403758464",
+  "title": "LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's o1 on PlanBench",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding for the GPT-4 Turbo column; resolution plan fixes temperature 0)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 600,
+    "subset_rule": "all 600 PlanBench Blocksworld static test instances (3-5 blocks)",
+    "approximation": "the paper's GPT-4 Turbo column carries no snapshot or decoding parameters and may aggregate runs made before 2024-04-09 (temperature 0 assumed); plan extraction mirrors the repository's rule-based extractor after stripping markdown emphasis (the o1-paper pipeline also offers an LLM-based translator; which one produced the GPT-4 Turbo cell is not stated); VAL replaced by an exact domain simulator"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "karthikv792/LLMs-Planning, plan-bench/prompts/blocksworld/task_1_plan_generation.json (600 instances with query and ground_truth_plan; 1.4 MB); PDDL instances in plan-bench/instances/blocksworld/generated_basic/ and the domain file plan-bench/instances/blocksworld/generated_domain.pddl for VAL",
+    "config_or_split": "task_1_plan_generation, domain blocksworld, prompt_type oneshot (example stripped)",
+    "filter": null,
+    "fields": {
+      "input": "initial_conditions",
+      "goal": "goal",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "unknown (repository license not read)",
+    "access_checked": true,
+    "size_mb": 1.4,
+    "file_url": "https://raw.githubusercontent.com/karthikv792/LLMs-Planning/main/plan-bench/prompts/blocksworld/task_1_plan_generation.json",
+    "fields_paper": {
+      "input": "query: keep the domain description and the last [STATEMENT] block (initial conditions + goal); drop the example [STATEMENT]/[PLAN] block; replace the trailing 'My plan is as follows:\\n\\n[PLAN]' with the zero-shot question",
+      "label": "ground_truth_plan (reference only; scoring is VAL validation against the instance PDDL)",
+      "id": "instance_id"
+    },
+    "filter_paper": "none",
+    "file_url_2": "https://raw.githubusercontent.com/karthikv792/LLMs-Planning/main/plan-bench/prompts/blocksworld_3/task_1_plan_generation.json"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\n{initial_conditions}\n{goal}\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+    "placeholders": {
+      "initial_conditions": "items.initial_conditions",
+      "goal": "items.goal"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix D.1 '(Solvable) Blocksworld Instances - Zero-Shot in Natural Language'",
+    "verbatim": "full (PDF line wraps re-joined; identical to the repository query text)",
+    "placeholders_paper": {
+      "initial_conditions": "the instance's 'As initial conditions I have that, ...' sentence (last [STATEMENT] block of the repository query)",
+      "goal": "the instance's 'My goal is to have that ...' sentence"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "lowercase; the resulting plan is written to a file and checked with VAL against the instance PDDL and domain",
+    "parse_paper": "free text; extract action lines matching 'pick up the X block', 'unstack the X block from on top of the Y block', 'put down the X block', 'stack the X block on top of the Y block' (numbering, markdown and explanations ignored) and map them to PDDL (pick-up x), (unstack x y), (put-down x), (stack x y) with the repository's text_to_plan utility"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 600 instances whose extracted plan is validated by VAL as reaching the goal from the initial state",
+    "judge": "rule (VAL plan validator, KCL-Planning/VAL)",
+    "original_value": 40.1,
+    "original_location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1800,
+    "est_usd": 29.4,
+    "tier": "mid",
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens",
+    "est_usd_prepare": 29.4,
+    "est_usd_dryrun_max_tokens": 63.09
+  },
+  "open_points": [],
+  "notes": "Identical run to W4403882451 (same 600 instances, same prompt, same 241/600 cell): execute once and compare twice. The one-shot cell (138/600) needs the repository's example instance per query. || [hook 2026-09-07] load_items() reads plan-bench/prompts/blocksworld (500 four/five-block instances) + blocksworld_3 (100 three-block instances) = the paper's 600 three-to-five-block static set and cuts the target [STATEMENT] out of the one-shot query, so the runner renders the Appendix D.1 zero-shot prompt verbatim; parse() mirrors the repository's rule-based text_to_plan_blocksworld (action word + ordered '<colour> block' mentions per line, wrong object count -> line skipped) after stripping markdown emphasis; score() replaces VAL by an exact simulation of the four-operator domain from the natural-language initial state (checked: all 600 ground-truth plans validate, truncated or reversed plans do not). || [triage 2026-09-09] DEVIATION with a reference-cell caveat. Audit against the paper's released replies (llm_planning_analysis/results/{blocksworld,blocksworld_3}/gpt-4-turbo_chat/task_1_plan_generation_zero_shot.json): the released extracted_llm_plan fields are reproduced 600/600 by the PRE-FIX rule-based extractor (no line.replace('*','')), i.e. Table 1's 241/600 silently dropped markdown-bold action lines (83 replies contain '**'); the current repository extractor (this hook's replica) scores the same replies 254/600 = 42.3%, a parenthetical-tolerant extraction 331/600 = 55.2%. Our replies: pre-fix 31.4% (30.2/31.0/33.0), current 35.9% (35.7/35.2/36.8), tolerant 54.8% (54.5/54.8/55.2); the sister run W4403882451 gives 34.9% / 30.8% / 54.3% (gpt-4o judge 54.7%). The model's actual plan validity is therefore unchanged (about 55%); the reported-number gap comes from reply style: the rule-based extractor skips any action line whose parenthetical mentions an extra block (arity check) and 87% of our replies carry such parentheticals vs 65% of the paper's (only 27/600 of our replies are identical to the released ones, so the paper's GPT-4 Turbo replies were not temperature-0 gpt-4-turbo-2024-04-09 output). Primary number kept = current repository extractor; like-for-like reference on the paper's own replies = 42.3%.",
+  "hook": {
+    "path": "harness/tierb/hooks/W4403758464.py",
+    "functions": [
+      "load_items",
+      "parse",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

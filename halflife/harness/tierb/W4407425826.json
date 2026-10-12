@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4407425826",
+  "title": "Verifying LLM-Generated Code in the Context of Software Verification with Ada/SPARK",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Abstract: \"Marmaragan with GPT-4o...correct annotations generated for 50.7% of the benchmark cases\"; \"the model gpt-4o-2024-05-13\" (Sec. 5.1)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Listing 2 (\"The base prompt used to query the LLM\"), Sec. 2.3",
+    "note": "Base prompt for generating SPARK annotations; chain-of-thought variant and medium-in-prompt feature also described."
+  },
+  "claim": {
+    "metric": "correct-annotation rate (Marmaragan + GPT-4o)",
+    "value": 50.7,
+    "n_items": 140,
+    "location": "Abstract / Sec. 5.2 (\"71 (50.7%) of the benchmark cases\"); Table 2 (per-benchmark breakdown)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "curated set of SPARK/Ada programs (drawn from open-source repositories), released with the Marmaragan tool"
+  },
+  "cost": {
+    "est_calls": 420,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Correctness is verified automatically via SPARK/GNATprove formal verification, not an LLM judge. Some configurations use N=5 sampled solutions with retries (Table 1), which would raise the call count for those specific rows above the base N=1 estimate used here."
+}

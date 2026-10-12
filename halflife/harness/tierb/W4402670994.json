@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4402670994",
+  "title": "FinanceMATH: Knowledge-Intensive Math Reasoning in Finance Domains",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 3 row 'GPT-4-Turbo 59.7 38.9 ... 56.2 50.9'; Table 7 lists gpt-4-turbo-2024-04-09 (the GPT-4-Turbo/GPT-4o snapshot IDs are swapped in that table); temperature 1.0, top-p 1.0, max 512 tokens"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 4 (zero-shot CoT prompt: system and user templates); Figure 6 (PoT prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, zero-shot CoT, average over topics (test set)",
+    "value": 50.9,
+    "n_items": 1000,
+    "location": "Table 3, row GPT-4-Turbo, column Avg CoT (PoT avg 56.2)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "https://github.com/yale-nlp/FinanceMath; test-set answers withheld (online evaluation platform); 200-example dev set with answers"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Soft gap: test answers are hidden, so a local re-run must use the 200-item dev set (Table 8), whose GPT-4-Turbo row carries identical numbers to Table 3 in the extracted text. Temperature 1.0 adds sampling noise. Checkpoints selected as of 2024-08-01.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Test-set answers are withheld (online leaderboard only), so run the 200-item development set released in the repository with the Figure 4 zero-shot CoT prompt, gpt-4-turbo-2024-04-09, temperature 1.0, top-p 1.0, max 512 tokens, 3 seeds, and compare average CoT accuracy with the GPT-4-Turbo row of Table 8 (development set). The extracted text renders Table 8's proprietary rows identically to Table 3 (both give 50.9 CoT / 56.2 PoT), so the dev-set target must be read from the PDF.",
+    "approximation": "200-item development set instead of the 1,000-item test set; temperature-1.0 sampling noise; Table 8 value to be verified in the PDF (expected 50.9 if the extraction is right).",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

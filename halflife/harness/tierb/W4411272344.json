@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411272344",
+ "title": "FormalSpecCpp: A Dataset of C++ Formal Specifications created using LLMs",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Cost Analysis: \"105 files with preconditions and postconditions were processed with a 100% success rate, achieving all conversions on the first attempt...Total cost $2.07, Average cost per file $0.02.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Code Translation section: \"prompt-driven approach...to systematically translate Dafny programs into C++, ensuring the generated code preserves its formal specifications\"",
+  "note": "General task description given; exact prompt wording is not quoted."
+ },
+ "claim": {
+  "metric": "Dafny-to-C++ conversion success rate",
+  "value": 100,
+  "n_items": 105,
+  "location": "Table I (Overall Statistics)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FormalSpecCpp dataset, released on GitHub; derived from the public Dafny-synthesis benchmark"
+ },
+ "cost": {
+  "est_calls": 105,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Paper directly states the actual incurred API cost ($2.07 for 105 files), which independently supports the low cost-tier estimate."
+}

@@ -1,0 +1,56 @@
+{
+  "wid": "W7135428702",
+  "title": "SommBench: Assessing Sommelier Expertise of Language Models",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.73,
+  "original_location": "Table 1, row gpt-4.1-nano, column WTQA",
+  "reexecution": {
+    "mean_over_seeds": 0.8046875,
+    "per_seed": {
+      "0": {
+        "value": 0.8046875,
+        "n": 1024,
+        "ci95": [
+          0.7802734375,
+          0.8281494140624999
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7135428702",
+    "n_items": 1024,
+    "n_requests": 1024,
+    "seeds": 1,
+    "est_usd": 0.1,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.73,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4.1-nano-2025-04-14",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7135428702"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.8046875,
+    "delta": 0.07468750000000002,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4417409739",
+  "title": "ProMQA-Assembly: Multimodal Procedural QA Dataset on Assembly",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-5 (gpt-5-2025-08-07); o3-mini (o3-mini-2025-01-31, QA-generator comparison only)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Appendix C.1: 'GPT-5 (gpt-5-2025-08-07)'; Table 6 (Multimodal): 'GPT-5 w/ think 58.0 53.2 81.9 53.3 65.9 72.5 ...'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix Figure 11 (benchmarking prompt example: parts image, task graph in DOT, sampled frames, question); Figure 12 (LLM-judge prompt)",
+    "note": "'We slightly adapted the prompt for each model. Refer to our code attached.'"
+  },
+  "claim": {
+    "metric": "LLM-judged score (0-100), all questions, multimodal input, reasoning effort medium",
+    "value": 58.0,
+    "n_items": 646,
+    "location": "Table 6, Multimodal block, row GPT-5 w/ think, column All",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (snapshot unstated; gpt-4o-2024-11-20 is the GPT-4o used elsewhere)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "ProMQA-Assembly (646 QA pairs, released for evaluation only) over Assembly101 recordings (access by request)"
+  },
+  "cost": {
+    "est_calls": 646,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "20 uniformly sampled frames at 640x360 per question plus the parts image; the authors report API cost under 1 USD per model. o3-mini is only compared as an annotation generator (Sec. 3).",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Figure 11 shows the benchmarking prompt but Appendix C.1 says it was 'slightly adapted' per model with the details in the attached code; the frame sampling (20 uniform frames from the end, 640x360) and the parts image are also produced by the code. Take the prompt and sampling from the repository, run gpt-5-2025-08-07 with reasoning effort medium on the 646 questions, and judge with GPT-4o using the Figure 12 prompt (0-100 scale).",
+    "approximation": "The frames come from Assembly101 recordings, which are obtained under a data-use agreement rather than an open download; the GPT-4o judge snapshot is unstated.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/kimihiroh/promqa-assembly",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

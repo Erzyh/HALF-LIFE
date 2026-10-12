@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403345251",
+  "title": "ING-VP: MLLMs cannot Play Easy Vision-based Games Yet",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Closed-source models include GPT-4o, GPT-4o Mini, GPT-4v, GPT-4 Turbo, Claude-3.5 Sonnet, Claude-3 Opus, and Gemini-1.5 Pro\" (Sec. 4.1); row GPT-4 Turbo in Table 1 (text-only columns only)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (36 prompts, B.1-B.6 by setting and game)",
+    "note": "System and instruction prompts printed per game and setting; text-only settings use textual level representations from the repo."
+  },
+  "claim": {
+    "metric": "accuracy (%), text-only one-step without history",
+    "value": 2.3,
+    "n_items": 300,
+    "location": "Table 1, row GPT-4 Turbo, Text-only One-step column (6 games x 50 levels)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/Thisisus7/ING-VP.git (levels, images and text representations)"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Paper dated 2024-10-09 with no preview string, so GPT-4 Turbo resolves to the GA snapshot. Scoring accuracy requires replaying the JSON move sequence in the game simulators (Sokoban, Maze, Hanoi, n-queens, 15-puzzle, Sudoku); simulators live in the public repo, so the number cannot be checked from the prompt alone. GPT-4 Turbo was run text-only (image columns null). Overall GPT-4 Turbo accuracy 1.87 averages three text-only settings.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Accuracy is decided by replaying the model's JSON move sequence in the game environment. Take the 50 text-representation levels per game (6 games) and the text-only one-step prompts of Appendix B from the repository, call gpt-4-turbo-2024-04-09 once per level, extract the JSON action list with the printed regular-expression rule and replay it in the repository's simulators (Sokoban, Maze, Hanoi, n-queens, 15-puzzle, Sudoku) to decide completion within the step limit; accuracy over 300 levels vs 2.30%.",
+    "approximation": "Decoding parameters are not stated in the text (repository defaults assumed); the simulators must be the repository's.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/Thisisus7/ING-VP.git",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

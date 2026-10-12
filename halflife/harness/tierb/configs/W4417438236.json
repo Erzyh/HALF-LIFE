@@ -1,0 +1,68 @@
+{
+  "wid": "W4417438236",
+  "title": "Evaluating Multimodal Large Language Model (LLM) (Generative Pre-trained Transformer 5 (GPT-5)) for Meniscal Tear Detection on Knee Magnetic Resonance Imaging (MRI): A Pilot Study",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "reasoning_effort": "medium",
+      "verbosity": "medium",
+      "max_completion_tokens": 1024
+    },
+    "params_source": "assumed (paper states only the model id and the default service tier; reasoning effort and verbosity not stated; temperature not settable)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 100,
+    "subset_rule": "seeded random 100 cases (seed 20260907) from the MRNet validation set (120 exams): 50 meniscal-tear positive, 50 negative, requiring complete sagittal and coronal series (resolution plan)",
+    "approximation": "the paper's 100 cases and its quality exclusions are not listed; slices are min-max normalized to PNG as described; image detail parameter not stated; the comparison is set-level and should fall inside the reported CI"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "MRNet (Stanford AIMI), https://stanfordmlgroup.github.io/competitions/mrnet/ (registration and data-use agreement required): valid/sagittal/*.npy, valid/coronal/*.npy, valid-meniscus.csv",
+    "config_or_split": "validation set (120 exams)",
+    "filter": "complete sagittal and coronal series; adequate image quality (manual check in the paper)",
+    "fields": {
+      "input": "sagittal series (20-44 slices) and coronal series as 256x256 PNGs",
+      "label": "valid-meniscus.csv label (1 = tear)",
+      "id": "exam id (case number)"
+    },
+    "license": "MRNet Dataset Research Use Agreement (registration required)",
+    "access_checked": true,
+    "size_mb": 5800
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Analyze these knee MRI images (coronal and sagittal views) and determine whether meniscal tear presents. Respond only with 'yes' or 'no'.",
+    "placeholders": {
+      "<images>": "all slices of the sagittal series followed by all slices of the coronal series, attached as image parts of the same user message (one request per case)"
+    },
+    "few_shot": "none",
+    "source_location": "Methods, 'Image analysis procedure' (prompt quoted verbatim)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "label from set [yes, no]: first occurrence (case-insensitive)",
+    "postprocess": "strip, lowercase; neither word -> counted as incorrect and reported"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 100 cases whose yes/no equals the meniscal-tear label",
+    "judge": "none",
+    "original_value": 0.76,
+    "original_location": "Results / Table 1: accuracy 0.76 (95% CI 0.668-0.833), sensitivity 0.84, specificity 0.68",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 300,
+    "est_usd": 20.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "no hook: MRNet is gated (Stanford AIMI research-use agreement, ~5.8 GB) and every request carries 40-88 image parts; the runner builds text-only messages.",
+    "image detail level (low/high) is not stated; confirm that all slices fit one gpt-5 request.",
+    "if the validation set has fewer than 50 positive meniscal-tear cases, decide the class balance."
+  ],
+  "notes": "Each request carries two series (40-88 images); at low detail ~85 tokens per image, ~$0.02-0.07 per call. The paper's precision 0.72 / recall 0.84 / F1 0.78 follow from the same predictions."
+}

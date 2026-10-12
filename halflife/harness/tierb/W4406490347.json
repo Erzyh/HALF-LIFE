@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406490347",
+  "title": "Is Large Language Model Good at Database Knob Tuning? A Comprehensive Experimental Evaluation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 5: 'closed-source LLMs: GPT-3.5, GPT-4o, GPT-4-Turbo, and Claude-3-Opus'; knob-pruning table: 'GPT-4-Turbo 145.06 155.30 9' (IR, TPS, ODP/TES)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 2 (knob selection prompt) and Figure 3 (model initialization prompt), text extracted",
+    "note": "Prompts embed live workload statistics and the current knob configuration of the DBMS."
+  },
+  "claim": {
+    "metric": "best throughput (TPS) after SMAC tuning on LLM-selected knobs",
+    "value": 155.3,
+    "n_items": null,
+    "location": "Sec. 5.2 table, row GPT-4-Turbo, column TPS",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/intlyy/Knob-Tuning-with-LLM (MySQL workloads, 8 vCPU / 16 GB setting)"
+  },
+  "cost": {
+    "est_calls": 10,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Every reported number is a database benchmark outcome (throughput/latency after 120 SMAC iterations on MySQL), i.e. hardware- and DBMS-dependent rather than a function of the LLM output; the knob list itself has no printed score. Temperature 0 for pruning."
+}

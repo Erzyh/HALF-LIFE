@@ -1,0 +1,96 @@
+﻿wid,label,original,rerun,ci_lo,ci_hi,rule,judgment,note,judgment_auto,conclusion
+T1,Bio-image code generation: pass@1,0.4736842105263157,0.48070175438596496,0.374,0.581,x100,생존 (judged),,"생존 (survived): point estimate inside original CI, pass@10 identical (42/57 tasks solved at least once in both); dated snapshot shows no detectable drift 17 months after the original run",핵심 주장 성립
+W7171749161,Tag Questions: tag effect on agreement,-0.075,-0.10208333333333335,-0.16458333333333333,-0.05208333333333333,x100,생존 (judged),90% interval as in the paper,생존 (survived),핵심 주장 성립
+W7140135941,"MedAbstain: accuracy, no abstain option",0.5404,0.5418,0.502,0.58,x100,생존 (judged),,부분 생존 (partial),핵심 주장 성립
+W7140135941,"MedAbstain: accuracy, abstain option",0.4099,0.4113,0.376,0.445,x100,생존 (judged),,부분 생존 (partial),핵심 주장 성립
+W7140135941,"MedAbstain: accuracy, distractor + abstain",0.3688,0.3603,0.325,0.396,x100,생존 (judged),,부분 생존 (partial),핵심 주장 성립
+W7140135941,MedAbstain: abstention rate (abstain option),0.0,0.025,,,x100,부분 생존 (judged),,부분 생존 (partial),부분 성립
+W4362598103,News credibility: Spearman rho x100 vs expert ratings,0.62418425191157,0.6294006060439428,0.6097127453036062,0.6482506154734634,x100,생존 (judged),,부분 생존 (partial),핵심 주장 성립
+W4362598103,News credibility: refusal share,0.412202578758474,0.35429407072587077,,,x100,부분 생존 (judged),,부분 생존 (partial),부분 성립
+W7144391134,"BlindingLLMs: Pearson r x100, 1000-shot",75.6,76.6,69.2,82.8,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W7144391134,"BlindingLLMs: Pearson r x100, 60-shot",42.9,37.6,21.7,52.2,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W7144391134,"BlindingLLMs: Pearson r, 0-shot",0.407,0.406,,,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4402565126,Cultural bias: distance reduction (107 countries),0.9341047340598979,0.933069834475639,0.7109273668504316,1.1404791342495615,other:distance,생존 (judged),,생존 (survived),핵심 주장 성립
+W4402565126,Cultural bias: share of countries improved,0.8130841121495327,0.7850467289719626,,,x100,부분 생존 (judged),,생존 (survived),부분 성립
+W4412887943,MEDEC: error flag accuracy (vs Table 2 GPT-4o),0.6584,0.5611,0.5215,0.5997,x100,부분 생존 (judged),MS subset 597/925; GPT-4o-mini row 0.6086,부분 생존 (partial) [subset: MS 597/925],부분 성립
+W4412887943,MEDEC: error sentence accuracy (vs Table 2 GPT-4o),0.5665,0.4606,0.4204,0.5003,x100,부분 생존 (judged),MS subset 597/925; GPT-4o-mini row 0.4757,부분 생존 (partial) [subset: MS 597/925],부분 성립
+W4412945732,"Glianorex gpt-4o: accuracy, en gpt",0.74,0.7576,0.7058,0.8068,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412945732,"Glianorex gpt-4o: accuracy, en claude",0.72,0.7232,0.6637,0.7812,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412945732,"Glianorex gpt-4o: accuracy, fr gpt",0.69,0.7083,0.649,0.7551,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412945732,"Glianorex gpt-4o: accuracy, fr claude",0.71,0.7188,0.6592,0.7769,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412945732,"Glianorex gpt-4-turbo: accuracy, en gpt",0.65,0.6591,0.6048,0.7172,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412945732,"Glianorex gpt-4-turbo: accuracy, en claude",0.69,0.692,0.6279,0.7485,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412945732,"Glianorex gpt-4-turbo: accuracy, fr gpt",0.68,0.6591,0.596,0.7121,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412945732,"Glianorex gpt-4-turbo: accuracy, fr claude",0.68,0.6741,0.6131,0.7336,x100,생존 (judged),,생존 (survived),핵심 주장 성립
+W4396768794,"DxGPT: strict top-1 (new vs archived diagnoses, same judge)",58.5,57.0,51.0,64.0,pts,생존 (judged),judge-matched comparison; Table 3 with the original judge 54.0,생존 (survival),핵심 주장 성립
+W4396768794,"DxGPT: top-5 (new vs archived diagnoses, same judge)",69.0,69.5,63.4875,76.0,pts,생존 (judged),,생존 (survival),핵심 주장 성립
+W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=0.00",98.7,98.39357429718876,97.28915662650603,98.99598393574297,pts,생존 (judged),median over 3 pass(es),생존 (survived),핵심 주장 성립
+W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=1.50",98.7,97.89156626506023,96.98544176706827,98.69477911646585,pts,생존 (judged),median over 1 pass(es),생존 (survived),핵심 주장 성립
+W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=1.75",95.6,96.285140562249,95.08032128514057,97.38955823293173,pts,생존 (judged),median over 1 pass(es),생존 (survived),핵심 주장 성립
+W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=2.00",89.2,86.84738955823293,84.73895582329317,88.85542168674698,pts,부분 생존 (judged),median over 3 pass(es),생존 (survived),부분 성립
+W4405408496,"Temperature study gpt-4o: MAPE of formatted answers, T=0.00",1.7,1.4012268205938478,0.8436038324242859,2.100719648433817,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4405408496,"Temperature study gpt-4o: MAPE of formatted answers, T=2.00",1.0,1.804749127215897,0.8975495328730105,4.221439568029343,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4405408496,"Temperature study gpt-4o-mini: formatted numeric answers, T=2.00",90.2,90.16064257028113,88.25301204819277,91.86997991967871,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4400435289,SAD-mini facts_human_defaults: accuracy,0.75,0.7975,0.774,0.8199,x100,부분 생존 (judged),substitute snapshot gpt-4o-2024-05-13,생존 (survived),부분 성립
+W4400435289,SAD-mini facts_llms: accuracy,0.891566265060241,0.8755020080321285,0.8353,0.9157,x100,생존 (judged),substitute snapshot gpt-4o-2024-05-13,생존 (survived),핵심 주장 성립
+W4400435289,SAD-mini influence: accuracy,0.678125,0.703125,0.6497,0.7565,x100,생존 (judged),substitute snapshot gpt-4o-2024-05-13,생존 (survived),핵심 주장 성립
+W4400435289,SAD-mini stages_full: accuracy,0.3375,0.33875,0.305,0.37,x100,생존 (judged),substitute snapshot gpt-4o-2024-05-13,생존 (survived),핵심 주장 성립
+W4400435289,SAD-mini stages_oversight: accuracy,0.4575,0.4575,0.4067,0.4983,x100,생존 (judged),substitute snapshot gpt-4o-2024-05-13,생존 (survived),핵심 주장 성립
+W4400435289,SAD-mini SAD-mini/paper_unweighted: accuracy,0.623,0.6319754016064257,0.614,0.6509,x100,생존 (judged),substitute snapshot gpt-4o-2024-05-13,생존 (survived),핵심 주장 성립
+W4400435289,SAD-mini SAD-mini/repo_weighted: accuracy,0.594406626506024,0.6053002008032129,0.58,0.6332,x100,생존 (judged),substitute snapshot gpt-4o-2024-05-13,생존 (survived),핵심 주장 성립
+W4404782878,"Judgement bias: attack success rate, factual error",0.06,0.0816,0.0306,0.1386,x100,생존 (judged),substitute snapshot; 6-vote composition assumed,부분 생존 (partial),핵심 주장 성립
+W4404782878,"Judgement bias: attack success rate, gender",0.16,0.0947,0.04,0.16,x100,생존 (judged),substitute snapshot; 6-vote composition assumed,부분 생존 (partial),핵심 주장 성립
+W4404782878,"Judgement bias: attack success rate, reference",0.32,0.3298,0.234,0.4286,x100,생존 (judged),substitute snapshot; 6-vote composition assumed,부분 생존 (partial),핵심 주장 성립
+W4404782878,"Judgement bias: attack success rate, rich content",0.07,0.2421,0.1613,0.3301,x100,부분 생존 (judged),substitute snapshot; 6-vote composition assumed,부분 생존 (partial),핵심 주장 성립
+W4411120389,"Greedy vs sampling (HumanEval): greedy pass@1, median of 3 repeats",89.6,88.41463414634147,82.92682926829268,92.6829268292683,pts,생존 (judged),,부분 생존 (partial),핵심 주장 성립
+W4411120389,"Greedy vs sampling (HumanEval): sampled pass@1, mean of 32 runs",84.1,86.92835365853658,83.07783917682927,90.45350609756098,pts,생존 (judged),paper states N=128; the released archive holds 32 runs,부분 생존 (partial),핵심 주장 성립
+W4411120389,Greedy vs sampling (HumanEval): greedy minus sampled gap,5.5,1.4862804878048905,-1.5434451219512089,4.212080792682933,pts,부분 생존 (judged),,부분 생존 (partial),부분 성립
+W4416074906,"AgentMisalignment: misalignment score, persona None",0.208,0.2083,0.0417,0.4167,x100,생존 (judged),6 scenarios per persona,생존 (survived),핵심 주장 성립
+W4416074906,"AgentMisalignment: misalignment score, persona Analyst",0.208,0.2083,0.0417,0.375,x100,생존 (judged),6 scenarios per persona,생존 (survived),핵심 주장 성립
+W4416074906,"AgentMisalignment: misalignment score, persona Executor",0.25,0.25,0.0833,0.4167,x100,생존 (judged),6 scenarios per persona,생존 (survived),핵심 주장 성립
+W4416074906,"AgentMisalignment: misalignment score, persona Inventor",0.208,0.25,0.0833,0.4167,x100,생존 (judged),6 scenarios per persona,생존 (survived),핵심 주장 성립
+W4416074906,"AgentMisalignment: misalignment score, persona Custodian",0.208,0.25,0.0833,0.4167,x100,생존 (judged),6 scenarios per persona,생존 (survived),핵심 주장 성립
+W4416074906,"AgentMisalignment: misalignment score, persona Pragmatist",0.25,0.2083,0.0833,0.3333,x100,생존 (judged),6 scenarios per persona,생존 (survived),핵심 주장 성립
+W4416074906,"AgentMisalignment: misalignment score, persona row_mean",0.222,0.2292,0.1665,0.2986,x100,생존 (judged),6 scenarios per persona,생존 (survived),핵심 주장 성립
+W4404781910,"OffsetBias: EvalBiasBench accuracy, length",91.2,91.2,76.47058823529412,100.0,pts,생존 (judged),n=34 pairs x 2 orders,생존 (survived),핵심 주장 성립
+W4404781910,"OffsetBias: EvalBiasBench accuracy, concreteness",92.9,92.9,82.14285714285714,100.0,pts,생존 (judged),n=28 pairs x 2 orders,생존 (survived),핵심 주장 성립
+W4404781910,"OffsetBias: EvalBiasBench accuracy, empty reference",50.0,61.5,37.17948717948719,82.05128205128206,pts,생존 (judged),n=26 pairs x 2 orders,생존 (survived),핵심 주장 성립
+W4404781910,"OffsetBias: EvalBiasBench accuracy, content continuation",100.0,100.0,100.0,100.0,pts,생존 (judged),n=24 pairs x 2 orders,생존 (survived),핵심 주장 성립
+W4404781910,"OffsetBias: EvalBiasBench accuracy, nested instruction",91.7,91.7,79.16666666666666,100.0,pts,생존 (judged),n=24 pairs x 2 orders,생존 (survived),핵심 주장 성립
+W4404781910,"OffsetBias: EvalBiasBench accuracy, familiar knowledge",95.8,95.8,87.5,100.0,pts,생존 (judged),n=24 pairs x 2 orders,생존 (survived),핵심 주장 성립
+W4404781910,"OffsetBias: EvalBiasBench accuracy, total",86.9,88.8,82.29166666666666,93.95833333333334,pts,생존 (judged),n=160 pairs x 2 orders,생존 (survived),핵심 주장 성립
+W4400103831,BADGE: GPT-4 judge score of GPT-4 reports (1-10),8.825,8.75,,,other:1-10 judge score,판정 불능 (judged),GPT-4 reports regenerated; other writers' released reports re-judged,생존 (survived),판단 불가
+W4400103831,BADGE: GPT-4 judge score of GPT-3.5 reports (1-10),8.625,8.266666666666666,,,other:1-10 judge score,판정 불능 (judged),GPT-4 reports regenerated; other writers' released reports re-judged,생존 (survived),판단 불가
+W4400103831,BADGE: GPT-4 judge score of human reports (1-10),7.925,7.908333333333334,,,other:1-10 judge score,판정 불능 (judged),GPT-4 reports regenerated; other writers' released reports re-judged,생존 (survived),판단 불가
+W7166808082,"TURTLEAI: symbolic success rate, DSReal (o3)",40.2,34.31,27.45,43.14,pts,생존 (judged),102 tasks x 3 seeds; 30 replies without code,생존 (survived),핵심 주장 성립
+W4411119263,"ReIFE: evaluator accuracy vs human preference, macro mean of 4 datasets",84.0,84.155,82.157,86.083,pts,생존 (judged),repository run; prompt-level Tier B run 84.39,생존 (survived),핵심 주장 성립
+W4411119263,"ReIFE: accuracy, llmbar_natural",95.5,95.5,,,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4411119263,"ReIFE: accuracy, llmbar_adversarial",80.7,80.564,,,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4411119263,"ReIFE: accuracy, mtbench",79.5,80.75,,,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4411119263,"ReIFE: accuracy, instrusum",80.3,79.805,,,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4416035547,"Interlocutor awareness: self-identification accuracy, MATH-500 (o4-mini)",0.64,0.94,0.9033,0.9567,x100,부분 생존 (judged),card reads Figure 11 as 0.64; the Tier B config carried 0.93 (open),부분 생존 (partial),부분 성립
+W4403885225,Judge bias: verbosity robustness rate (500 fact items),0.915,0.9495,0.9293,0.9677,x100,부분 생존 (judged),unparsable verdicts dropped (1%),부분 생존 (partial),부분 성립
+W4403885225,Judge bias: unperturbed consistency rate (noise floor),0.99,0.9737,0.9578,0.9859,x100,생존 (judged),,부분 생존 (partial),핵심 주장 성립
+W4406880877,"AI-text detection (o1 zero-shot CoT): true positive rate, 150 AI articles",54.0,55.3333,47.3431,63.0572,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4406880877,"AI-text detection (o1 zero-shot CoT): false positive rate, 150 human articles",4.0,4.0,1.8459,8.4513,pts,생존 (judged),,생존 (survived),핵심 주장 성립
+W4412887747,"TAMA: GPT-4-turbo exact-match accuracy, AIT-QA (repository scorer)",88.57,87.9365,84.2328,91.4286,pts,생존 (judged),repository scorer counts containment; strict scorer 0.0 (verbose replies),부분 생존 (partial),핵심 주장 성립
+W4412887747,"TAMA: GPT-4-turbo exact-match accuracy, InfoTabs (repository scorer)",58.6,73.0,69.1333,76.6667,pts,부분 생존 (judged),repository scorer counts containment; strict scorer 0.0 (verbose replies),부분 생존 (partial),부분 성립
+W4407012395,"MedXpertQA Text: accuracy, Reasoning (o1-2024-12-17)",46.24,48.0226,40.113,55.3672,pts,생존 (judged),n=177,생존 (survived),핵심 주장 성립
+W4407012395,"MedXpertQA Text: accuracy, Understanding (o1-2024-12-17)",39.66,40.0,27.2727,52.7273,pts,생존 (judged),n=55,생존 (survived),핵심 주장 성립
+W4407012395,"MedXpertQA Text: accuracy, Avg (o1-2024-12-17)",44.67,46.1207,40.0862,52.5862,pts,생존 (judged),n=232,생존 (survived),핵심 주장 성립
+W4407012395,"MedXpertQA Text: accuracy, Reasoning (o3-mini-2025-01-31)",37.63,40.3226,33.3199,47.3118,pts,생존 (judged),n=186,생존 (survived),핵심 주장 성립
+W4407012395,"MedXpertQA Text: accuracy, Understanding (o3-mini-2025-01-31)",36.21,32.7586,20.6897,44.8276,pts,생존 (judged),n=58,생존 (survived),핵심 주장 성립
+W4407012395,"MedXpertQA Text: accuracy, Avg (o3-mini-2025-01-31)",37.3,38.5246,32.377,44.6721,pts,생존 (judged),n=244,생존 (survived),핵심 주장 성립
+W4416034576,"AIRepr: o3-mini overall reproducibility on DiscoveryBench, CoT prompt",55.23,39.75,33.89,46.03,pts,부분 생존 (judged),n=239 tasks x 3 seeds; o3-mini as inspector,부분 생존 (partial),부분 성립
+W4416034576,"AIRepr: o3-mini overall reproducibility on DiscoveryBench, RoT prompt",60.25,48.12,41.42,54.81,pts,부분 생존 (judged),n=239 tasks x 3 seeds; o3-mini as inspector,부분 생존 (partial),부분 성립
+W4416034576,AIRepr: RoT minus CoT reproducibility difference (pp),5.02,8.37,1.67,15.06,pts,생존 (judged),paired task-level bootstrap; the card's primary quantity,부분 생존 (partial),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o anti-factual accuracy at 1 reasoning hops (Figure 3 series),0.8946236559139785,0.886021505376344,0.8425666301569915,0.926015037593985,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o anti-factual accuracy at 2 reasoning hops (Figure 3 series),0.5967741935483871,0.5833333333333334,0.5206180740569134,0.6482456140350877,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o anti-factual accuracy at 3 reasoning hops (Figure 3 series),0.2831541218637993,0.27956989247311825,0.2272713085915333,0.3344459064327485,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o anti-factual accuracy at 4 reasoning hops (Figure 3 series),0.14516129032258066,0.1774193548387097,0.12626140041188585,0.23810277275467143,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o anti-factual accuracy at 5 reasoning hops (Figure 3 series),0.15053763440860216,0.1935483870967742,0.1137211807800043,0.25818627450980386,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o factual accuracy at 1 reasoning hops (Figure 3 series),0.9849462365591398,0.989247311827957,0.976984126984127,0.9985819335572975,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o factual accuracy at 2 reasoning hops (Figure 3 series),0.8817204301075269,0.8709677419354839,0.8333333333333334,0.9145886001872658,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o factual accuracy at 3 reasoning hops (Figure 3 series),0.6845878136200717,0.6666666666666666,0.5994472900796778,0.7286849490150314,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o factual accuracy at 4 reasoning hops (Figure 3 series),0.543010752688172,0.4731182795698925,0.39108199613064754,0.5495519455625839,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립
+W4399442646,ACCORD: gpt-4o factual accuracy at 5 reasoning hops (Figure 3 series),0.5053763440860215,0.5053763440860215,0.4015112863327149,0.5992870240324593,x100,생존 (judged),reference digitised from the Figure 3 SVG; 95% CI = pairing-cluster bootstrap,생존 (survived),핵심 주장 성립

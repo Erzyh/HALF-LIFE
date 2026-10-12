@@ -1,0 +1,66 @@
+{
+  "wid": "W4411112894",
+  "title": "The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Case Study on Media Bias Detection",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 0.683,
+  "original_location": "Table 1, row GPT-4 Turbo, column '0-shot + sys prompt'",
+  "reexecution": {
+    "mean_over_seeds": 0.7594499341170087,
+    "per_seed": {
+      "0": {
+        "value": 0.7619676495478882,
+        "n": 1624,
+        "ci95": [
+          0.7341101419024086,
+          0.795968443081316
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.756932218686129,
+        "n": 1624,
+        "ci95": [
+          0.7271221538955106,
+          0.7901514109305067
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411112894",
+    "n_items": 1624,
+    "n_requests": 3248,
+    "seeds": 2,
+    "est_usd": 11.2,
+    "subset_note": "cost cap $5.6: seeded random subset of 1624 items (seed 20260907); repeat of the gemini_flash condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 0.683,
+    "cap_usd": 9.7,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gemini_flash\\W4411112894"
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the paper's 'openai/gpt-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (run date not given)",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash_rep\\W4411112894"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7594499341170087,
+    "delta": 0.07644993411700862,
+    "original_inside_ci95": false
+  }
+}

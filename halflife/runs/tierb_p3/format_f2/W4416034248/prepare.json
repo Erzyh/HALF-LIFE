@@ -1,0 +1,25 @@
+{
+  "wid": "W4416034248",
+  "n_items": 204,
+  "n_requests": 204,
+  "seeds": 1,
+  "est_usd": 9.79,
+  "subset_note": "paraphrase f2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [204]; model field rewritten from gpt-4-turbo-2024-04-09 to gpt-5.6-sol in 204 bodies; parameters added {'reasoning_effort': 'none'}",
+  "dropped_unrenderable": 0,
+  "model": "gpt-5.6-sol",
+  "source_model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 17.65,
+  "cap_usd": 3.54,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416034248",
+  "paraphrase": "f2",
+  "pairs": [
+    [
+      "Your solution should be concise, and you should omit any additional explanations.",
+      "Your solution should be concise, and you should omit any additional explanations; output only the plan lines, in exactly the format of the example, and nothing else."
+    ]
+  ],
+  "params_added": {
+    "reasoning_effort": "none"
+  }
+}

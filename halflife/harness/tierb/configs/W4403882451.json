@@ -1,0 +1,81 @@
+{
+  "wid": "W4403882451",
+  "title": "Planning in Strawberry Fields: Evaluating and Improving the Planning and Scheduling Capabilities of LRM o1",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding for the GPT-4 Turbo column; resolution plan fixes temperature 0)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 600,
+    "subset_rule": "all 600 instances = the released zero-shot query files blocksworld (500, 4-5 blocks) + blocksworld_3 (100, 3 blocks); their llm_correct flags sum to 241/600 = Table 1",
+    "approximation": "GPT-4 Turbo snapshot/decoding of the paper's column unknown (only 27/600 of our temperature-0 replies are identical to the released ones); plan extraction = the repository's rule-based text_to_plan_blocksworld (current version, strips markdown '*'); the paper's own 241/600 came from the pre-fix version of that extractor (reproduces the released extracted plans 600/600), which scores the released replies 241 vs 254 for the current version"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "karthikv792/LLMs-Planning, llm_planning_analysis/results/{blocksworld,blocksworld_3}/gpt-4-turbo_chat/task_1_plan_generation_zero_shot.json (500 + 100 instances: instance_id, query = the zero-shot prompt, ground_truth_plan, plus the paper's own llm_raw_response / extracted_llm_plan / llm_correct)",
+    "config_or_split": "task_1_plan_generation_zero_shot (blocksworld 500 + blocksworld_3 100 = 600 instances)",
+    "filter": null,
+    "fields": {
+      "input": "query",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "unknown (repository license not read)",
+    "access_checked": true,
+    "size_mb": 1.4,
+    "file_url": "https://raw.githubusercontent.com/karthikv792/LLMs-Planning/main/llm_planning_analysis/results/blocksworld/gpt-4-turbo_chat/task_1_plan_generation_zero_shot.json (+ .../blocksworld_3/... in the hook)",
+    "fields_prose": {
+      "input": "query (zero-shot prompt verbatim: domain description + [STATEMENT] + 'What is the plan to achieve my goal? Just give the actions in the plan.')",
+      "label": "gold {init, goal} parsed from the [STATEMENT] block (hook)",
+      "id": "instance_id ('bw3_' prefix for the three-block file)"
+    },
+    "label_map": null,
+    "structure_verified": "JSON object {task, prompt_type, domain, instances: [ {instance_id, example_instance_ids, query, ground_truth_plan} ]} with 500 instances (the paper reports x/600); query is the ONE-SHOT prompt (domain text + example [STATEMENT]/[PLAN] + target [STATEMENT] + 'My plan is as follows:\\n\\n[PLAN]'); no zero-shot file at prompts/blocksworld/ on main"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\n{initial_conditions}\n{goal}\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+    "placeholders": {
+      "initial_conditions": "inside items.query (hook renders the query verbatim)",
+      "goal": "inside items.query"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix H.1 '(Solvable) Blocksworld Instances - Zero-Shot in Natural Language'",
+    "verbatim": "full (the released zero-shot query text is identical to the printed Appendix H.1 template)",
+    "placeholders_prose": {
+      "initial_conditions": "the instance's 'As initial conditions I have that, ...' sentence (last [STATEMENT] block of the repository query)",
+      "goal": "the instance's 'My goal is to have that ...' sentence"
+    }
+  },
+  "output": {
+    "parse": "hook: repository text_to_plan_blocksworld replica (rule-based) -> PDDL actions (primary); parse(strip_star=False) = pre-fix paper version; the gpt-4o translation (side file W4403882451_translation_prompt.txt) is a secondary diagnostic",
+    "postprocess": "lowercase; the resulting plan is written to a file and checked with VAL against the instance PDDL and domain",
+    "parse_prose": "free text; extract action lines matching 'pick up the X block', 'unstack the X block from on top of the Y block', 'put down the X block', 'stack the X block on top of the Y block' (numbering, markdown and explanations ignored) and map them to PDDL (pick-up x), (unstack x y), (put-down x), (stack x y) with the repository's text_to_plan utility"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 600 instances whose extracted plan is valid (every action applicable, goal reached) under the Blocksworld 4-op domain - hook simulator with VAL semantics; it reproduces all 600 released llm_correct flags (241 correct = Table 1) from the released extracted plans",
+    "judge": "rule (repository text_to_plan_blocksworld replica + Blocksworld simulator = VAL semantics) for the primary number; the gpt-4o translation stage remains available as a secondary diagnostic only (judge_summary.json), it is NOT the paper's path for this cell",
+    "original_value": 40.1,
+    "original_location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 2400,
+    "est_usd": 30.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Identical run to W4403758464 (same PlanBench cell); execute once and compare twice. Table 1 mixes current and previous-generation runs, so a mismatch may reflect alias drift rather than a failed replication. || [hooks_2 2026-09-07] released zero-shot queries used verbatim; simulator validated (600/600 llm_correct reproduced, 241 correct = Table 1); judge stage = gpt-4o translation (pricing entry gpt-4o-2024-08-06 added); prepare verified (600 items x 3 seeds). W4403758464 (same cell) has its own hook from the hooks_1 pass; compare the two validators before running both. || [triage 2026-09-09] DEFECT (scorer choice), fixed: the batch-1 number 54.67% (52.3 / 57.0 / 54.7) was scored through the gpt-4o translation stage, but the Table 1 GPT-4 Turbo cell was produced by the rule-based extractor - the released extracted_llm_plan fields are reproduced 600/600 by the pre-fix rule-based text_to_plan_blocksworld (241 correct), and the o1 paper's footnote 5 reserves the LLM translation (GPT-4o-mini) for o1. The translator measures the model's true plan validity (agrees with a parenthetical-tolerant rule extraction in 1,790 of 1,800 replies; the paper's own released replies reach 55.2% under that extraction) and is not comparable with 40.1. score_with_judge now returns the rule-based number (current repository extractor, identical to the sister run W4403758464): 34.9% (34.2 / 35.2 / 35.3); pre-fix extractor 30.8% (30.2 / 30.8 / 31.5); judge 54.7%. Batteries of the two runs are identical except one instance per file (results files hold ids 1-500/1-100, prompt files 2-501/2-101). Explanation of the remaining gap to 40.1 (like-for-like reference on the paper's replies with the current extractor: 42.3%): see W4403758464 notes (reply style with more parenthetical block mentions -> arity check drops action lines).",
+  "runner_gaps": [],
+  "hook": "harness/tierb/hooks/W4403882451.py: load_items (released zero-shot file, NL statement -> init/goal), render, parse (rule-based extraction, strip_star option), score (simulator), judge_requests + score_with_judge (returns the rule-based primary; logs pre-fix and gpt-4o-translation numbers to runs/tierb/W4403882451/judge_summary.json)"
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404313648",
+ "title": "Architectural Flaw Detection in Civil Engineering Using GPT-4",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (vision) / ChatGPT4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "'Images converted to Base64...(2) The GPT-4 Turbo model analyzes these images'; 'ChatGPT4 Turbo on a dataset of 100 floor plans'; Fig. 5B: F1 0.61"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Fig. 2 ('Prompt message to AI assistant', printed as a figure)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "F1-score, flaw detection (missing doors/windows) on floor plans",
+  "value": 0.61,
+  "n_items": 100,
+  "location": "Fig. 5B (precision 0.65, recall 0.57, F1 0.61); separate missing-doors-only breakdown in Fig. 6B (F1 0.23)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "100 floor plans compiled by the authors; not indicated as a public/released dataset"
+ },
+ "cost": {
+  "est_calls": 100,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Images are Base64-encoded and sent programmatically (consistent with API use, not a manual ChatGPT web session), supporting role S via the API. Floor-plan source/licensing not confirmed public, which is the main soft gap."
+}

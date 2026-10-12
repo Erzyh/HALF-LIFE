@@ -1,0 +1,78 @@
+{
+  "refresh_date": "2026-10-02",
+  "identifiers_added": [
+    "gpt-3.5-turbo-0125",
+    "gpt-3.5-turbo",
+    "gpt-4o",
+    "gpt-5-pro-2025-10-06",
+    "gpt-5-pro",
+    "claude-sonnet-4-5-20250929",
+    "claude-sonnet-4-5",
+    "gemini-2.0-flash",
+    "gemini-2.0-flash-001",
+    "gemini-2.0-flash-lite",
+    "gemini-2.0-flash-lite-001",
+    "gemini-2.5-pro-preview-03-25",
+    "gemini-2.5-pro-preview-05-06",
+    "gemini-2.5-pro-preview-06-05",
+    "gemini-2.5-flash-preview-05-20",
+    "gemini-2.5-flash-preview-09-25",
+    "gemini-2.5-flash-lite-preview-09-2025",
+    "gemini-3-pro-preview",
+    "gemini-3.1-flash-lite-preview",
+    "gemini-3.1-flash-lite"
+  ],
+  "identifiers_total": 75,
+  "vendor_counts": {
+    "openai": 41,
+    "anthropic": 16,
+    "google": 18
+  },
+  "extension_records_read": 159102,
+  "extension_unique_works": 99799,
+  "papers_before": 27044,
+  "papers_added": 12403,
+  "papers_after": 39447,
+  "base_papers_with_new_identifiers": 5191,
+  "records_of_added_papers": 22411,
+  "filters_on_additions": {
+    "duplicate title": 3360,
+    "publication year before the release of every named identifier": 180,
+    "no persistent identifier": 664,
+    "no date": 164
+  },
+  "alias_resolution": {
+    "gpt-3.5-turbo -> 0125": 10065,
+    "gpt-4o -> still-served snapshot, outside the census": 46701,
+    "gpt-4o -> 2024-05-13": 2950,
+    "gpt-3.5-turbo -> 0613": 2271,
+    "gpt-3.5-turbo unresolved (1106 window), dropped": 2189
+  },
+  "statuses_after": {
+    "dying": 18759,
+    "dead": 14587,
+    "dead|dying": 6101
+  },
+  "papers_per_added_identifier": {
+    "gpt-3.5-turbo-0125": 1073,
+    "gpt-3.5-turbo": 9905,
+    "gpt-4o": 2317,
+    "gpt-5-pro-2025-10-06": 1,
+    "gpt-5-pro": 131,
+    "claude-sonnet-4-5-20250929": 172,
+    "claude-sonnet-4-5": 751,
+    "gemini-2.0-flash": 2992,
+    "gemini-2.0-flash-001": 114,
+    "gemini-2.0-flash-lite": 207,
+    "gemini-2.0-flash-lite-001": 17,
+    "gemini-2.5-pro-preview-03-25": 48,
+    "gemini-2.5-pro-preview-05-06": 35,
+    "gemini-2.5-pro-preview-06-05": 14,
+    "gemini-2.5-flash-preview-05-20": 45,
+    "gemini-2.5-flash-preview-09-25": 1,
+    "gemini-2.5-flash-lite-preview-09-2025": 4,
+    "gemini-3-pro-preview": 427,
+    "gemini-3.1-flash-lite-preview": 94,
+    "gemini-3.1-flash-lite": 555
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416037167",
+  "title": "Permutative Preference Alignment from Listwise Ranking of Human Judgments",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "\"we employ GPT-4 Turbo (Achiam et al., 2023) as the standard judge model to determine which of...\"; Table 7/8: GPT Judge = GPT-4-Turbo."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "AlpacaEval/MT-Bench judge templates are external (alpaca_eval_gpt4_turbo_fn); not printed in this paper."
+  },
+  "claim": {
+    "metric": "none for GPT-4 Turbo itself (it judges win-rates of the trained policy/reward models, e.g. ArmoRM, Proxy models)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AlpacaEval (805 prompts) and MT-Bench (80 prompts), both public"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo is used only as the AlpacaEval/MT-Bench automatic judge scoring the paper's trained reward/policy models; no reported number is an output of GPT-4 Turbo performing the task itself."
+}

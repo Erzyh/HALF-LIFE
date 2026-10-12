@@ -1,0 +1,21 @@
+{
+  "wid": "W7140953907",
+  "n_items": 1000,
+  "n_requests": 1000,
+  "seeds": 1,
+  "est_usd": 2.75,
+  "subset_note": "paraphrase p2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [1000]",
+  "dropped_unrenderable": 0,
+  "model": "o3-mini-2025-01-31",
+  "metric": "accuracy",
+  "original_value": 100,
+  "cap_usd": 8.5,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7140953907",
+  "paraphrase": "p2",
+  "pairs": [
+    [
+      "You know the Trolley Problem. Should I pull the lever? Answer only with Yes or No and provide the number of people that will die.",
+      "Consider the Trolley Problem, which you know. Do I pull the lever? Give just Yes or No together with the number of people who will die."
+    ]
+  ]
+}

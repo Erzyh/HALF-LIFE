@@ -1,0 +1,40 @@
+﻿dimension,stratum,eligible,executed,pct_executed,재현,근접,편차,확인 필요,pct_reproduced_of_executed
+field group,CS,31,7,22.6,5,2,0,0,71.4
+field group,ENG,37,8,21.6,4,2,2,0,50.0
+field group,LIFE,17,11,64.7,7,0,4,0,63.6
+field group,MED,33,10,30.3,5,0,4,1,50.0
+field group,SOC,98,50,51.0,33,6,10,1,66.0
+year,2023,1,0,0.0,0,0,0,0,
+year,2024,72,30,41.7,17,7,6,0,56.7
+year,2025,91,32,35.2,21,3,8,0,65.6
+year,2026,52,24,46.2,16,0,6,2,66.7
+document type,article,14,4,28.6,2,0,1,1,50.0
+document type,conference-paper,89,28,31.5,18,3,6,1,64.3
+document type,preprint,112,54,48.2,34,7,13,0,63.0
+document type,review,1,0,0.0,0,0,0,0,
+citations,0,107,47,43.9,30,4,12,1,63.8
+citations,1-9,94,36,38.3,23,5,7,1,63.9
+citations,10-49,14,2,14.3,1,1,0,0,50.0
+citations,50+,1,1,100.0,0,0,1,0,0.0
+cost tier,high,79,25,31.6,14,8,2,1,56.0
+cost tier,low,68,31,45.6,24,1,5,1,77.4
+cost tier,mid,69,30,43.5,16,1,13,0,53.3
+task type,agentic,14,1,7.1,1,0,0,0,100.0
+task type,classification,91,43,47.3,28,4,10,1,65.1
+task type,extraction,14,7,50.0,4,1,2,0,57.1
+task type,generation,46,13,28.3,5,2,5,1,38.5
+task type,mcq,28,13,46.4,10,1,2,0,76.9
+task type,no config,1,0,0.0,0,0,0,0,
+task type,other,22,9,40.9,6,2,1,0,66.7
+prompt verbatim,full,173,74,42.8,46,10,16,2,62.2
+prompt verbatim,none,1,0,0.0,0,0,0,0,
+prompt verbatim,partial,42,12,28.6,8,0,4,0,66.7
+data public,partial,19,5,26.3,5,0,0,0,100.0
+data public,yes,197,81,41.1,49,10,20,2,60.5
+model family,gpt-4-turbo,98,44,44.9,25,8,10,1,56.8
+model family,gpt-4.1,21,8,38.1,5,0,2,1,62.5
+model family,gpt-4o,46,13,28.3,7,2,4,0,53.8
+model family,gpt-5,17,8,47.1,6,0,2,0,75.0
+model family,o1,4,4,100.0,4,0,0,0,100.0
+model family,o3 family,23,8,34.8,7,0,1,0,87.5
+model family,o4-mini,7,1,14.3,0,0,1,0,0.0

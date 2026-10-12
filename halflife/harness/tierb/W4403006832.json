@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403006832",
+  "title": "AI-Driven Review Systems: Evaluating LLMs in Scalable and Bias-Aware Academic Reviews",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 (Turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 3: 'five potential reviewers: Human, GPT-4 (Turbo-2024-04-09), Claude 3 Opus, Gemini Pro (Bard), and Command R+'; Table 1 'GPT-4 Turbo (April 9, 2024) 0.558'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 29 (editorial meta prompt), Tables 10-12 (venue review questions); review-generation prompt not printed in full",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Bradley-Terry coefficient, human preference",
+    "value": 0.558,
+    "n_items": 150,
+    "location": "Table 1, row 1 GPT-4 Turbo (April 9, 2024)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "150 papers with OpenReview human reviews (list not given)"
+  },
+  "cost": {
+    "est_calls": 450,
+    "tier": "mid"
+  },
+  "blockers": [
+    "human_outcome"
+  ],
+  "notes": "Table 2 LLM-preference variant uses an unspecified 'GPT-4' judge."
+}

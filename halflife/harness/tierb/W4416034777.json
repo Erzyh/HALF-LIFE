@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416034777",
+  "title": "The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decision-Making in Rock-Paper-Scissors Games?",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'GPT-4o-2024-08-06 (Hurst et al., 2024), GPT-4-turbo (Achiam et al., 2023), GPT-3.5-turbo'; 'temperature = 1, top-p = 1'; EMNLP Findings Nov 2025, no preview string."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 4.2 (RPS prompt box below Table 1); Appendix A.2 (game variants)",
+    "note": "Footnote 2: RPS is spelled out as Rock-Paper-Scissors and {R,P,S} as Rock, Paper, Scissors in the real prompt."
+  },
+  "claim": {
+    "metric": "mean total variation distance from the uniform 1/3 distribution (TVD)",
+    "value": 0.107,
+    "n_items": 100,
+    "location": "Table 1, row GPT-4-turbo",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "No external dataset; the game prompt printed in Sec. 4.2 is the entire input; 100 independent single-turn games, new session per call"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Also runs o1-2024-12-17 (TVD 0.203) and o3-mini (0.647). The chosen action is read from the response. Alias 'GPT-4-turbo' resolved by the post-GA rule."
+}

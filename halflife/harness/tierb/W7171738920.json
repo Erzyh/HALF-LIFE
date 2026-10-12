@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7171738920",
+  "title": "GPT outperforms BERT and LIWC for stance and anger detection in German news articles and user comments",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'We compared OpenAI's GPT-3.5 and GPT-4 Turbo' ... 'The GPT model's temperature was set to 0' (Methods, Language processing and model comparison)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary materials B, C (online only; not in the paper body)",
+    "note": "Paper: 'The exact prompts are provided in Supplementary materials B, C'; only the output format 'Support = [.]; Anger = [.]' is described."
+  },
+  "claim": {
+    "metric": "Kendall W vs human majority vote (stance, news articles)",
+    "value": 0.81,
+    "n_items": 160,
+    "location": "Table 3, row GPT-4 Turbo, News articles (W = 0.81, ICC = 0.68); user comments W = 0.91, kappa = 0.64",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "OSF https://osf.io/yr7gk/ (annotated news articles and user comments; 160 news articles, 310 texts with stance labels, 340 with anger labels)"
+  },
+  "cost": {
+    "est_calls": 1020,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "API run at temperature 0, top_p 1. Only defect is that the prompts live in the Frontiers supplementary files rather than the paper; 2026 paper with no preview string, so the alias resolves to the GA snapshot."
+}

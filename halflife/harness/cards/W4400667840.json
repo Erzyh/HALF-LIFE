@@ -1,0 +1,90 @@
+{
+  "card_id": "W4400667840",
+  "openalex_id": "https://openalex.org/W4400667840",
+  "title": "Leveraging large language models for nano synthesis mechanism explanation: solid foundations or mere conjectures?",
+  "doi": "10.48550/arxiv.2407.08922",
+  "paper": {
+    "authors": "Pu, Huang, Lin, Chen (Zhejiang University / Westlake University)",
+    "year": 2024,
+    "venue": "arXiv 2407.08922 (preprint); workshop version at NeurIPS 2024 AI4Mat (openreview I6jYRbaai8) titled 'Leveraging Large Language Models for Explaining Material Synthesis Mechanisms: The Foundation of Materials Discovery'",
+    "repo": "https://github.com/Dandelionym/llm_for_mechanisms (paper prints 'Dandelionym/llm for mechanisms.git'; also mirrored under the name LLM_for_mechanisms)",
+    "repo_commit": "9ca16e1542e6601aed21887e80110ca9365d7e81 (HEAD 2024-12-29; shallow clone external/repos/W4400667840/Dandelionym__llm_for_mechanisms)",
+    "repo_license": "none - no LICENSE file in the repository (README asks users to cite the paper)",
+    "other_artifacts": "data/eval_data.json (775 four-option MCQs, FastChat/ShareGPT format, answer letter as 'gpt' turn); eval_chatgpt.py, eval_claude.py, eval_opensourced_llms.py; eval_results/<model>_eval___FCO775__temp<T>_status.json with per-question predictions and running accuracy for every model and temperature (full L1-style archive of the original outputs)"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The benchmark result (accuracy of 12 LLMs on 775 gold-nanoparticle synthesis-mechanism MCQs, Figure 3a / Table S1) is entirely LLM output; GPT-4 was also used auxiliarily to extract condition-observation records from papers and to rephrase them into MCQs (frozen in data/eval_data.json). The c-score analysis needs output logits and was applied only to open-weight models."
+  },
+  "claim": {
+    "statement": "On the 775-question gold-nanoparticle synthesis-mechanism benchmark, GPT-4 (gpt-4-0125-preview) answers 80.5% correctly (mean over temperatures 0.1-0.9) and Claude 3 Opus 84.8%, both far above the 25% random baseline and well above all open-weight models (best Mixtral-8x7B ~70.4%), supporting the conclusion that LLMs 'understand the underlying physicochemical mechanisms rather than relying on conjecture' (Figure 3a, Section 3.2; Table S1).",
+    "claim_type": "capability_level",
+    "metric": "Accuracy = share of the 775 MCQs whose extracted answer letter (regex ##X## in the reply) equals the gold letter; one pass per temperature in {0.1,0.3,0.5,0.7,0.9}; averaged over the five temperatures.",
+    "original_values": {
+      "gpt-4-0125-preview_by_temperature": { "0.1": 0.8116, "0.3": 0.8065, "0.5": 0.8052, "0.7": 0.7987, "0.9": 0.8052, "mean": 0.8054 },
+      "claude-3-opus-20240229_by_temperature": { "0.1": 0.8477, "0.3": 0.8477, "0.5": 0.8516, "0.7": 0.8413, "0.9": 0.8581, "mean": 0.8493 },
+      "gpt-3.5-turbo_by_temperature_mean": 0.6571,
+      "paper_reported": { "GPT-4": 0.805, "Claude": 0.848, "Mixtral-8x7B": 0.704, "Gemma": 0.447 },
+      "n_items": 775
+    },
+    "original_source": "Paper Section 3.2 and Figure 3a (Table S1 in the unavailable supplement); per-temperature values recomputed here from eval_results/gpt-4-0125-preview_eval___FCO775__temp{0.1..0.9}___status.json 'final_score' fields (775 questions each) - the mean 0.8054 matches the paper's 80.5%."
+  },
+  "protocol": {
+    "model": "NONE ALIVE - experimental arms are gpt-4-0125-preview (dead 2026-03-26), claude-3-opus-20240229 (dead 2026-01-05), gpt-3.5-turbo (dead alias) and open-weight models (Vicuna, Mistral/Mixtral, Qwen 7B/14B, Gemma, chatglm3, pythia). The scaffold's 'gpt-4-turbo' hit occurs only in reference [34] (Rampal et al., 'question-answering datasets for reticular chemistry with gpt-4-turbo') - it was never an experimental model.",
+    "model_status": "all closed arms dead; open-weight arms re-runnable from hashes (Mixtral-8x7B-Instruct-v0.1, Mistral-7B-Instruct-v0.2, Vicuna-33B-v1.3, Qwen-14B-Chat, Gemma-7B, etc.)",
+    "endpoint": "OpenAI chat completions (eval_chatgpt.py, openai python SDK v1) / Anthropic messages (eval_claude.py) / FastChat OpenAI-compatible server for open models",
+    "prompt_source": "eval_chatgpt.py chat_completion(): system prompt + user question from data/eval_data.json",
+    "messages": [
+      { "role": "system", "content": "Now you should choose the correct answer regarding the question and options. You should ONLY return the correct answer by following this template: \n\nAnswer: ##X##\n\n(Note: 'X' is the answer choosed from A, B, C and D)\n\n\n You **MUST** follow the template to answer!!! Other format answers will be strongly rejected!" },
+      { "role": "user", "content": "Question: <stem>\n\nGiven options:\nA. ...\nB. ...\nC. ...\nD. ...\n" }
+    ],
+    "params": {
+      "temperature": "0.1, 0.3, 0.5, 0.7, 0.9 (five separate passes; the committed script hard-codes 0.9 - the value was evidently edited per run)",
+      "max_tokens": 50,
+      "seed": "not set",
+      "top_p": "not set"
+    },
+    "n_items": 775,
+    "samples_per_item": "1 per temperature (5 temperatures)",
+    "evaluation": "Automatic: regex ##(.*?)## on the reply (fallback: 9th character), exact match with the gold letter; accuracy per temperature and mean. The c-score (Eq. 1) requires option-token logits and is only computable for open-weight models (or via top_logprobs on a chat API, which the paper did not use for closed models).",
+    "environment": "Python, openai SDK; FastChat + GPU for open-weight arms"
+  },
+  "artifacts": {
+    "prompts_path": "eval_chatgpt.py (system/user construction), eval_claude.py, eval_opensourced_llms.py",
+    "data_path": "data/eval_data.json (775 MCQs with gold letters; derived by GPT-4 from >220 IF>15 papers - question text paraphrases copyrighted articles)",
+    "eval_path": "eval_chatgpt.py Evaluator.evaluate (); archived outputs eval_results/*_status.json",
+    "data_public": true,
+    "data_license": "none stated (no LICENSE); README: 'If you are interested in using this dataset, please reference our paper'",
+    "redistributable": "unknown",
+    "notes": "Complete original per-question predictions are archived for every model/temperature (an unusually complete L1 case), so a substitute or successor run can be compared item-by-item; question text is GPT-4-rephrased content from paywalled journal articles - reuse in public logs should be checked."
+  },
+  "blockers": [
+    "Live model not an experimental arm: 'gpt-4-turbo' appears only in a cited reference title; the closed arms (gpt-4-0125-preview, claude-3-opus-20240229, gpt-3.5-turbo) are all dead, so no P0 live baseline exists.",
+    "No repository license; dataset derived from copyrighted papers - redistribution status unclear.",
+    "c-score component requires logits (open-weight models only) - not applicable to API arms."
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "purpose": "not available - all closed arms dead; open-weight arms (Mixtral-8x7B-Instruct-v0.1 etc.) remain runnable as the permanent axis" },
+    "successors": [ "gpt-4-turbo-2024-04-09 (nearest surviving sibling of gpt-4-0125-preview; dying)", "gpt-5 family (gpt-5-2025-08-07 / gpt-5-mini / gpt-5-nano)", "claude (current Anthropic release)", "gemini (current Google release)", "llama (open weights, hash-pinned)", "qwen (open weights, hash-pinned)" ]
+  },
+  "budget": {
+    "est_calls": 0,
+    "est_tokens_in": 0,
+    "est_tokens_out": 0,
+    "est_cost_usd": 0,
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09 (hypothetical sibling run)": { "input": 10.0, "output": 30.0 } },
+    "assumptions": "Blocked - no live baseline. A successor-only (P3) pass with gpt-4-turbo-2024-04-09 replicating the 5-temperature scheme = 3,875 calls x ~250 input / ~10 output tokens ~ $11; with 3 seeds ~ $33. Open-weight arms cost GPU time only."
+  },
+  "judgment": {
+    "rule": "Not applicable for P0 (blocked). For a P3 successor-only run: survival if accuracy (mean over the 5 temperatures) stays within the bootstrap 95% CI over 775 items of 0.8054 (about +/-2.8 pp) and remains > open-weight best (~0.70) - direction 'closed >> open >> random' preserved.",
+    "notes": "Item-level originals are archived, so per-item agreement (Cohen's kappa vs the dead model's answers) can be reported as an extra descriptive statistic."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm 'blocked: live model not an experimental arm' (gpt-4-turbo only in reference [34]); reclassify the census hit as a false positive of the full-text match?",
+    "Worth a cheap (~$11-33) successor-only run with gpt-4-turbo-2024-04-09 given the complete item-level archive of the dead gpt-4-0125-preview outputs?",
+    "Copyright/licensing: the 775 questions paraphrase IF>15 journal papers and the repo has no license - may we include question text in published logs?"
+  ],
+  "domain_notes": "The benchmark encodes condition-observation-mechanism triples from gold nanoparticle synthesis literature (seed-mediated growth, ligand coverage, supersaturation effects). Many distractors are logical inversions of the correct statement (e.g. opposite direction of an effect), so high accuracy may reflect recognition of consistent causal phrasing rather than mechanistic understanding - the authors' own c-score analysis addresses this only for open models. Temperature had a small, non-monotonic effect (all five GPT-4 passes within 0.80-0.81)."
+}

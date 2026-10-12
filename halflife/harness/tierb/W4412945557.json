@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4412945557",
+  "title": "AGrail: A Lifelong Agent Guardrail with Effective and Adaptive Safety Detection",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 5.1: 'we use GPT-4-Turbo as the OS agent's foundation model for prompt injection attacks and GPT-4o for other attacks'; App.: 'at least a 90% ASR on GPT-4-turbo'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix (guardrail prompts, Safe-OS agent prompts, action-converter prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "attack success rate on the undefended OS agent",
+    "value": null,
+    "n_items": 100,
+    "location": "Appendix dataset description: 'red-team attacks, prompt injection attacks, and environment attacks achieve at least a 90% ASR on GPT-4-turbo' (no table)",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o-mini and claude-3.5-sonnet (metric assessment)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Safe-OS (100 items), Mind2Web-SC and EICU-AC (Xiang et al. 2024); project page https://eddyluo1232.github.io/AGrail/"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "tos"
+  ],
+  "notes": "All reported tables measure guardrails (AGrail with GPT-4o or Claude-3.5-Sonnet), not GPT-4-Turbo; the only GPT-4-Turbo figure is a '>= 90% ASR' validation statement. Safe-OS contains system-sabotage commands and prompt injections."
+}

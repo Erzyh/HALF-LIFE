@@ -1,0 +1,87 @@
+{
+  "wid": "W4404781378",
+  "title": "Learning the Bitter Lesson: Empirical Evidence from 20 Years of CVPR Proceedings",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 2048
+    },
+    "params_source": "assumed (the paper states no decoding parameters; it only says the models are driven through the Magentic library with Chain-of-Thought prompting). max_tokens 2048 covers five explanation+score pairs.",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 171,
+    "subset_rule": "paper-defined split: the 2024 stratum of the study's sample, 'a representative random sample of 200 papers from each year' which for 2024 yields N = 171 (Table 1)",
+    "approximation": "NOT DETERMINED - the 171 sampled 2024 CVPR papers are not identified anywhere, and the citation counts are a snapshot taken on 20 July 2024 that the Semantic Scholar API will not return again."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "CVF Open Access CVPR 2024 proceedings (titles and abstracts) plus the Semantic Scholar citation-count API, queried 20 July 2024",
+    "config_or_split": "2024 stratum, 171 papers",
+    "filter": null,
+    "fields": {
+      "input": "title + abstract",
+      "label": "citation count (the regression's dependent variable, log-transformed)",
+      "id": null
+    },
+    "license": "unknown",
+    "access_checked": false,
+    "size_mb": null,
+    "fields_prose": {
+      "input": "the paper's title and abstract, the only text the model sees",
+      "label": "there is no per-item label; the claim is a regression R-squared over the whole stratum",
+      "id": "none published"
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "nothing to download. The paper contains no URL of any kind - no repository, no data release, no supplementary archive (grep for 'http' over the extracted text returns zero hits), and the Limitations section does not offer one. The proceedings themselves are public, but the study's random sample and its citation snapshot are not."
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Title: {title}\nAbstract: {abstract}\nWe want to evalute this abstract in terms of alignment with \"The Bitter Lesson\". The main idea of Rich Sutton's \"The Bitter Lesson\" is that the most effective AI approaches in the long run are those that leverage computation and general-purpose methods like search and learning, rather than human-designed systems that try to build in human knowledge. Evaluate the alignment of the abstract with the following principles, assigning a score from 0 to 10 for each.",
+    "placeholders": {
+      "title": "the paper title",
+      "abstract": "the paper abstract"
+    },
+    "few_shot": "none; the five dimensions carry 0/5/10 anchor descriptions inside the response schema",
+    "source_location": "Appendix A 'Prompt and Example Usage' (the @prompt docstring of evaluate_bitter_lesson_alignment, plus the BitterLessonScores / Score pydantic models whose Field descriptions define the five dimensions)",
+    "verbatim": "partial. The docstring above is copied verbatim (including the paper's own typo 'evalute'), with the extraction's line-continuation arrows removed. What is NOT recoverable is how Magentic serialised the five Field descriptions and the nested Score model into the actual request: the appendix prints Python source, not the function/JSON schema that reached the API, and the serialisation depends on the Magentic version, which the paper does not pin.",
+    "placeholders_paper": {
+      "title": "Title of the CVPR paper",
+      "abstract": "Abstract of the CVPR paper"
+    }
+  },
+  "output": {
+    "parse": "structured output: a BitterLessonScores object with five Score sub-objects, each {explanation: str, score: int in 0..10}",
+    "postprocess": "the overall alignment score is the sum of the five dimension scores (Sec. 3.1)",
+    "parse_paper": "Magentic parses the model's structured reply into the pydantic model; the paper prints no fallback rule"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "R-squared of an OLS regression of log citation count on the five 'bitter lesson' dimension scores, fitted within the 2024 stratum (Table 1 is the five-predictor model; Table 2 is the single-predictor model on the overall alignment score, whose 2024 R-squared is 0.092).",
+    "judge": "none (the LLM produces the regressors, not a judgement of correctness)",
+    "original_value": 0.178,
+    "original_location": "Table 1, row 2024 (R-squared 0.178, N 171; coefficients Learning -0.619***, Search 0.314, Scalability 0.808***, Generality 0.282, Principles -0.020)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 513,
+    "est_usd": 4.0,
+    "tier": "low",
+    "prepare_note": "--prepare not run: there are no items to load. 171 papers x 3 seeds at gpt-4o-2024-05-13 with ~400-token abstracts and ~700-token structured answers would be roughly $4."
+  },
+  "open_points": [
+    "NO ITEMS: the study's sample is 'a representative random sample of 200 papers from each year' and the specific 171 papers of the 2024 stratum are never listed. The paper releases no code, no data and no repository (the extracted text contains no URL at all), so the sample cannot be reconstructed; redrawing our own 171 papers from the CVF proceedings would be a different sample and a different regression.",
+    "NO DEPENDENT VARIABLE: citation counts were 'queried on July 20th 2024' from the Semantic Scholar API. That endpoint returns current counts, not a 2024 snapshot, and 2024 CVPR papers accrue citations quickly, so the regressand cannot be reproduced even for a matched sample.",
+    "PROMPT NOT FULLY RECOVERABLE: the request was built by the Magentic library from pydantic models. The appendix prints the Python source, not the serialised schema; without the Magentic version the exact wire format of the five Field descriptions (which carry the whole rubric) is a reconstruction.",
+    "METRIC IS SET-LEVEL AND HAS NO GOLD: R-squared is a property of a regression fitted over the whole stratum, so 'reproducing' it means re-running the pipeline end to end and refitting, not scoring items. The runner has no such metric; it would need a hook that fits OLS over the per-item scores and the citation counts.",
+    "A HUMAN SHOULD DECIDE whether this paper is reclassified as not re-executable. Nothing short of a new sample plus a new citation snapshot can produce a comparable number, and that measures a different quantity."
+  ],
+  "notes": "The five dimensions (Learning Over Engineering, Search over Heuristics, Scalability with Computation, Generality over Specificity, Favoring Fundamental Principles) and their 0/5/10 anchors are printed in full in Sec. 3.1 and Appendix A, so the rubric itself is recoverable; it is the sample, the citation snapshot and the Magentic serialisation that are not. || gpt-4o-mini-2024-07-18 and claude-3-5-sonnet-20240620 are scored identically and would inherit exactly the same blockers. || Table 2 (single-predictor model, 2024 R-squared 0.092, N 171) is the alternative reading of the triage record's wording 'regression of overall bitter-lesson alignment score on citation count'; the value 0.178 is unambiguously the Table 1 row, so the claim cell is Table 1."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406165121",
+ "title": "Toward Inclusive Educational AI: Auditing Frontier LLMs through a Multiplexity Lens",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o",
+  "resolved": "unresolved",
+  "role": "B",
+  "evidence": "Table III (PDS Entropy of LLMs across each strategy): 'GPT-4o 2% 28% 98%' (Baseline / Contextually-Implemented / MAS-implemented Multiplexity columns)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Box 3 (Multi-Agent LLMs WorkForce Task Template, printed verbatim) and an 'Islamic Agent' persona prompt (printed verbatim) among several culture-agent prompts",
+  "note": "Several full agent-persona and task prompts are printed as boxes in the paper."
+ },
+ "claim": {
+  "metric": "PDS (Perspective Diversity Score) Entropy, MAS-implemented Multiplexity",
+  "value": 98,
+  "n_items": null,
+  "location": "Table III, row GPT-4o, MAS-implemented Multiplexity(S) column",
+  "task_type": "generation",
+  "judge": "llm:unresolved (GPT-4o-based zero-shot Sentiment Analyzer / Perspectives Extractor)"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Topics/questions used for the multiplexity audit; exact source/public status not located in the excerpt read"
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "mid"
+ },
+ "blockers": [
+  "alias_unpinned"
+ ],
+ "notes": "GPT-4o is undated and the paper appears to postdate 2024-10-02 (alias_note: post-GA alias 2025-01-02), so per the project's dating rule it cannot be pinned to gpt-4o-2024-05-13. GPT-4o also plays an auxiliary role A as the Sentiment Analyzer / Perspectives Extractor for the same pipeline."
+}

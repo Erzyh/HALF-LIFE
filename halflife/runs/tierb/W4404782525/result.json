@@ -1,0 +1,65 @@
+{
+  "wid": "W4404782525",
+  "title": "Characterizing LLM Abstention Behavior in Science QA with Context Perturbations",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "accuracy",
+  "original_value": 61.2,
+  "original_location": "Table 3(a) 'Given context', row GPT4o, column PubmedQA",
+  "reexecution": {
+    "mean_over_seeds": 0.6133333333333333,
+    "per_seed": {
+      "0": {
+        "value": 0.61,
+        "n": 500,
+        "ci95": [
+          0.566,
+          0.652
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.616,
+        "n": 500,
+        "ci95": [
+          0.572,
+          0.658
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.614,
+        "n": 500,
+        "ci95": [
+          0.57,
+          0.656
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404782525",
+    "n_items": 500,
+    "n_requests": 1500,
+    "seeds": 3,
+    "est_usd": 3.53,
+    "subset_note": null,
+    "model": "gpt-4o-2024-05-13",
+    "metric": "accuracy",
+    "original_value": 61.2
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 6
+  },
+  "approximation": "the 500-question test set is taken as the official PQA-L test fold; the context is the CONTEXTS list joined with a space",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 61.33333333333333,
+    "delta": 0.13333333333332575,
+    "original_inside_ci95": true
+  }
+}

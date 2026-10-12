@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403663239",
+ "title": "Experimenting with Legal AI Solutions: The Case of Question-Answering for Access to Justice",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-1106",
+  "resolved": "dead-preview",
+  "role": "S",
+  "evidence": "\"gpt-4-turbo-1106 outperforms even retrieval...\" (repeated at 3 locations, always with the 1106 suffix)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method (legal QA task setup); exact prompt template not isolated in the retrieved excerpt",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none recorded for this record (verdict decided on model-retirement grounds)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Legal question-answering dataset for access-to-justice; specifics not reviewed given the dead-alias verdict"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias"
+ ],
+ "notes": "The paper consistently and explicitly identifies its GPT-4-turbo snapshot as gpt-4-turbo-1106, the retired preview, not a still-callable snapshot. No other GPT-4-Turbo dating is present, so this record is closed out on the alias rule alone."
+}

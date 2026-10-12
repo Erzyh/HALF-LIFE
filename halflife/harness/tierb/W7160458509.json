@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7160458509",
+  "title": "Foresight Arena: An On-Chain Benchmark for Evaluating AI Forecasting Agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "ForecastBench [Zou et al., 2024] ... state-of-the-art models (Claude 3.5 Sonnet, GPT-4 Turbo) reached Brier scores of approximately 0.122 (Section 2, related work)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Simulation study with gpt-5-2, gemini-3-pro etc. as simulated agents."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/foresight-arena/ (contracts, analysis)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo appears only in a cited benchmark result."
+}

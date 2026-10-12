@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402670152",
+  "title": "StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Table 4 caption: 'We use gpt-4-turbo-2024-04-09 as the evaluator'; Sec. 4.2: 'we use gpt-4-turbo as the backbone of the API simulator'; the '4 Turbo' baseline is gpt-4-turbo-preview."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix F-H, Tables 13-15 (API simulation, solvable-task filter, API-call prompts)",
+    "note": "Printed prompts belong to the simulator and evaluator, not to the evaluated agent."
+  },
+  "claim": {
+    "metric": "solvable pass rate (SoPR, %) averaged over groups",
+    "value": 73.2,
+    "n_items": 765,
+    "location": "Table 6, row '4 Turbo (D)', column 1106-preview T=1",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "StableToolBench solvable tasks (765) derived from ToolBench; cache and virtual API server released"
+  },
+  "cost": {
+    "est_calls": 765,
+    "tier": "high"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "The subject 'GPT 4 Turbo' is gpt-4-turbo-preview (1106/0125); the callable 2024-04-09 snapshot only serves as evaluator and simulator backbone. Re-execution also needs the virtual API server (code)."
+}

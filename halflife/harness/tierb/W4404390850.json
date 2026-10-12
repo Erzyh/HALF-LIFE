@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404390850",
+ "title": "The Dark Patterns of Personalized Persuasion in Large Language Models: Exposing Persuasive Linguistic Features for Big Five Personality Traits in LLMs Responses",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 2 row \"GPT-4 Turbo OpenAI 128k [31] 1257 86.5 [32]\" (one of 19 evaluated LLMs); Sec 4.5: \"GPT-4 Turbo was the model most influenced by psychological traits in the prompt.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec Prompt construction: \"Prompt 1. 'You want to convince your {gender} interlocutor with a {level} level of {trait}, and answer \\\"{belief}\\\" to the [question]...'\"",
+  "note": "Each model, including GPT-4 Turbo, was prompted 600 times (Table 1)."
+ },
+ "claim": {
+  "metric": "none printed as text specific to GPT-4 Turbo (per-model obedience/completion rates and persuasive-feature significance counts are reported only in Figures 3, 6 and 7, not as numbers in the text; only qualitative rank statements like \"most influenced\" are given in prose)",
+  "value": null,
+  "n_items": 600,
+  "location": "Sec 4.1/4.5 (prose); Figures 3, 6, 7 (charts only)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Authors' own persuasion-topic question set (abortion, immigration, climate change) and 13 linguistic features"
+ },
+ "cost": {
+  "est_calls": 600,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Table 2's 86.5 value is an external MMLU-style benchmark citation [32], not this paper's own result. This paper's own experiment (persuasion prompting, n=600 per model) has a fully quoted prompt and clear role S, but GPT-4 Turbo's specific outcome numbers (completion rate, trait-feature significance) appear only in charts, never as printed text values."
+}

@@ -1,0 +1,54 @@
+{
+  "openalex_id": "https://openalex.org/W4411119520",
+  "title": "How Can We Diagnose and Treat Bias in Large Language Models for Clinical Decision-Making?",
+  "doi": "https://doi.org/10.18653/v1/2025.naacl-long.114",
+  "field": "Medicine",
+  "year": "2025",
+  "live_models": "gpt-4-turbo|gpt-4-turbo-2024-04-09|gpt-4o-2024-05-13",
+  "dead_models": "gpt-3.5-turbo-0301",
+  "flags": "",
+  "all_links": [
+    "github.com/kenza-ily/diagnose_treat_bias_llm",
+    "github.com/kenza-ily/diagnose_treat_bias_llmFigure",
+    "huggingface.co/sentence-transformers/all-distilroberta-v12266Iw"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/kenza-ily/diagnose_treat_bias_llm",
+      "cloned": true,
+      "audit": {
+        "n_files": 64,
+        "ext_top": {
+          ".py": 33,
+          ".txt": 19,
+          ".md": 7,
+          ".ipynb": 3,
+          "": 1,
+          ".toml": 1
+        },
+        "has_license": false,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 3,
+        "n_py": 33,
+        "n_data_files": 0,
+        "files_mentioning_prompt": 2,
+        "files_with_eval_terms": 20,
+        "model_ids_in_code": {
+          "gpt-4": 3,
+          "gpt-4o": 3,
+          "gpt-3.5": 2,
+          "gpt-4o-mini-2024-07-18": 2
+        },
+        "readme_head": "# How Can We Diagnose and Treat Bias in LLMs for Clinical Decision-Making?\n\n**[Paper (NAACL 2025)](https://arxiv.org/abs/2410.16574)** | **[HuggingFace datasets collection](https://huggingface.co/collections/kenza-ily/counterfactual-patient-variations-cpv)** | Contact: [contact@kenza-ily.com](mailto:contact@kenza-ily.com)\n\n## Overview\n\nThis repository contains the **Counterfactual Patient Variations (CPV)** framework — a method for detecting and quantifying gender and ethnicity biases in LLMs applied to clinical decision-making.\n\nCPV constructs counterfactual patient vignettes from medical QA datasets by varying demographic attributes (gender, ethnicity) while holding the clinical content fixed. Bias is measured by comparing LLM outputs across these variations using a suite of lexical and semantic metrics.\n\n## Citation\n\n```bibtex\n@inproceedings{benkirane2025diagnose,\n  title={How Can We Diagnose and Treat Bias in Large Language Models for Clinical Decision-Making?},\n  author={Benkirane, Kenza and others},\n  booktitle={Proceedings of NAACL 2025},\n  year={2025},\n  url={https://arxiv.org/abs/2410.16574}\n}\n```\n\n---\n\n## CPV Datasets\n\nThree public CPV datasets are available on HuggingFace, each built from a different medical QA benchmark:\n\n| Dataset | Source | HuggingFace |\n|---|---|---|\n| MedQA CPV | USMLE Step 1/2/3 exam questions | [`kenza-ily/medqa-cpv`](https://huggingface.co/datasets/kenza-ily/medqa-cpv) |\n| MedMCQA CPV | Indian medical entrance exam | [`kenza-ily/medmcqa-cpv"
+      },
+      "commit": "a7d92ffc27041fda9a76049db9a93d19bc8cc35e"
+    },
+    {
+      "url": "https://github.com/kenza-ily/diagnose_treat_bias_llmFigure",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4411119520.txt",
+  "paper_text_status": "pdf"
+}

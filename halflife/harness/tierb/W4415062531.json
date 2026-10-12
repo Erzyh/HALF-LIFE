@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4415062531",
+  "title": "Using large language models to produce literature reviews: Usages and systematic biases of microphysics parametrizations in 2699 publications",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'we set a prompt (Fig. 4a) in GPT-4 Turbo to identify the relevance of the remaining 3559 abstracts' ... '810 out of 897 (90.3%) GPT-4 Turbo answers were accurate' (Section 2.3)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 4 (a: relevance prompt, b: eight extraction questions) is an image not present in the extracted text; question names in Table 1",
+    "note": "Temperature adjusted from default (Section 2.4)."
+  },
+  "claim": {
+    "metric": "accuracy vs manual relevance labels",
+    "value": 0.903,
+    "n_items": 897,
+    "location": "Section 2.3 and Fig. 3c: 810 of 897 abstracts (extraction: 94% average over 300 publications, Table 1)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "Scopus/Web of Science abstracts of 3,559 WRF publications (subscription access); manual labels for the 897 validation abstracts not released"
+  },
+  "cost": {
+    "est_calls": 2691,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Inputs are paywalled abstracts/PDFs and the human labels are not shared; the prompt exists only as a figure image."
+}

@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4407569651",
+  "title": "CIRCUIT: A Benchmark for Circuit Interpretation and Reasoning Capabilities of LLMs",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We evaluated gpt-4-turbo [OpenAI, 2024], gpt-4o [OpenAI, 2024] and gemini-1.5-pro\" (Sec. 5.1); Table 1 row \"GPT 4-turbo 0-s ... Glob. 38.4\""
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix C (full 0-shot system prompt and 1-shot worked example printed verbatim)", "note": "Four prompt configurations tested (0-shot/1-shot x with/without netlist); max_tokens=1536; answers parsed via regex to 6 decimal places."},
+  "claim": {
+    "metric": "Global accuracy (%), 0-shot, entire CIRCUIT dataset", "value": 38.4, "n_items": 510,
+    "location": "Table 1, row GPT-4-turbo, 0-s, Glob. column; CIRCUIT = 510 questions from 102 templates (Sec. 4.1)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "CIRCUIT dataset (510 questions/102 templates), extensively described with worked examples in the paper; no confirmed public download link found"},
+  "cost": {"est_calls": 1530, "tier": "mid"},
+  "blockers": [],
+  "notes": "arXiv Feb 2025. GPT-4o also appears in the same table but is undated in text; GPT-4-turbo is used here since it resolves cleanly via the post-2024-07-01 rule. Reproducing all 4 prompt configs x 2 models would roughly double/quadruple this single-cell cost estimate."
+}

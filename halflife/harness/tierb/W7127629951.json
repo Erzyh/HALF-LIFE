@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7127629951",
+  "title": "Psychological distance and efficacy: analyzing the framing of climate change on US agricultural news websites using LLM-assisted content analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Hohenwalde et al. (2025) tested ... model versions (gpt-3.5-turbo, gpt-4-turbo, gpt-4o) ... GPT-4-turbo performs best (F1 = 0.82)\" (literature review)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "2,662 scraped agricultural news articles"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Study's own coder has a 4,097-token context window (GPT-3.5 class); gpt-4-turbo is cited only."
+}

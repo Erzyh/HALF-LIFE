@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7135428702",
+  "title": "SommBench: Assessing Sommelier Expertise of Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "Sec. 4: 'gpt-4.1 family (OpenAI, 2025b) (gpt-4.1, gpt-4.1-mini, gpt-4.1-nano) ... All models were evaluated in a zero-shot setting with the temperature set to 0'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A, Listings/Figures 4-11 (prompt templates per task and language)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "WTQA accuracy (average over 8 languages)",
+    "value": 0.73,
+    "n_items": 1024,
+    "location": "Table 1, row gpt-4.1-nano, column WTQA",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SommBench, github.com/sommify/sommbench (WTQA 128 questions x 8 languages; WFC 1,000 wines; FWP pairings)"
+  },
+  "cost": {
+    "est_calls": 1024,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Single run in the paper; the generated letter is matched against the gold option. gpt-5 (0.97) and gpt-4.1 (0.9) are alternative rows."
+}

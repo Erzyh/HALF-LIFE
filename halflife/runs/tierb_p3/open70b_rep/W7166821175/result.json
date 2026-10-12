@@ -1,0 +1,67 @@
+{
+  "wid": "W7166821175",
+  "title": "From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiovascular Device Traceability",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 60.1,
+  "original_location": "Table 2, Group B, row GPT-4-turbo, column R@Gold (repeated as Table 14, row GPT-4-turbo, Recall 60.1)",
+  "reexecution": {
+    "mean_over_seeds": 0.7726495726495727,
+    "per_seed": {
+      "0": {
+        "value": 0.7726495726495727,
+        "n": 585,
+        "ci95": [
+          0.7384615384615385,
+          0.8034188034188035
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7726495726495727,
+        "n": 585,
+        "ci95": [
+          0.7384615384615385,
+          0.8051282051282052
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 10
+  },
+  "prepare": {
+    "wid": "W7166821175",
+    "n_items": 585,
+    "n_requests": 1170,
+    "seeds": 2,
+    "est_usd": 0.56,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 60.1,
+    "cap_usd": 1.78,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W7166821175",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Only the gold positives are run: R@Gold is recall over the 585 verified pairs, so the negatives of the paper's 'balanced evaluation set' (hard negatives with S >= 70 and sim > 0.8, plus random negatives, counts unreported) are not needed for this claim and the companion FPR (28.6%) is therefore not reproduced. The prompt's two entity slots are filled with the released ontology entity lists (ent_names_d / ent_names_p); the repository's few-shot script instead fills them with an entity-overlap score hint, and the paper does not say which filling the Table 14 0-shot run used. Device and patent text are truncated to 400 characters, as that script does. The released gold standard covers 74 devices, the paper's Table 14 caption says 85.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W7166821175"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 77.26495726495727,
+    "delta": 17.164957264957273,
+    "original_inside_ci95": false
+  }
+}

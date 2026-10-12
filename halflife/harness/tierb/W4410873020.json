@@ -1,0 +1,38 @@
+{
+ "openalex_id": "W4410873020",
+ "title": "Exploring the medical ethical limitations of GPT-4 in clinical decision-making scenarios: a pilot survey",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "Abstract: \"This study aims to conduct an examination of GPT-4's tendencies...To assess the responses of GPT-4 to these dilemmas, a series [of ethical scenarios]...Questionnaire analysis was used to assess GPT-4's ability to provide clinical decision-making recommendations\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (ethical-dilemma scenarios and questionnaire instrument described)",
+  "note": "No 'GPT-4 Turbo' or dated snapshot string, and no API/programmatic access described anywhere in the retrieved text; consistent with generic ChatGPT/GPT-4 web-interface use common in this genre."
+ },
+ "claim": {
+  "metric": "5-point Likert questionnaire score, principal adherence analysis",
+  "value": 3.82,
+  "n_items": null,
+  "location": "Abstract: \"the principal adherence analysis showed GPT-4 achieved (3.82)\"",
+  "task_type": "other",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "Author-constructed ethical dilemma scenarios and a Likert questionnaire; not shown to be released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "alias_unpinned",
+  "human_outcome",
+  "webui"
+ ],
+ "notes": "Only bare 'GPT-4' is used throughout (never 'GPT-4 Turbo' or a dated snapshot); the live_ids screen's 'gpt-4-turbo' flag did not match any string actually in the text. The headline metric is a human-rater Likert score of GPT-4's responses to ethics vignettes, not an automatically computed capability score."
+}

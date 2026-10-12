@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119753",
+  "title": "EmojiPrompt: Generative Prompt Obfuscation for Privacy-Preserving Communication with Cloud-based LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we employ GPT-4 Turbo (Bubeck et al., 2023) as the LLMI\"; \"For the LLMI, we set the temperature to 0\" (Sec. 5, Experimental Setup)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Figures 2-3 show obfuscation examples only; per-task inference prompts not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, Movie Review, unobfuscated prompts",
+    "value": 0.957,
+    "n_items": null,
+    "location": "Table 1, row 'GPT-4', column MR (acc)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Amazon Beauty/Toy reviews (jmcauley), IMDB 50k movie reviews, spam, UCI Census Income and Heart Disease"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Per-dataset sample sizes not stated (300-pair subsets used in attack experiments). Version not printed; date rule."
+}

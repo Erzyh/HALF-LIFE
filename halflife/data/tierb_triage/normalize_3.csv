@@ -1,0 +1,28 @@
+﻿wid,status,model,task,n_items,est_usd,title,config_path
+W4412888118,ready,gpt-4o-2024-05-13,mcq,31,0.5,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,halflife/harness/tierb/configs/W4412888118.json
+W7159577685,ready,gpt-4-turbo-2024-04-09,other,25,1.0,Breaking the Chains of Probability: Neutrosophic Logic as a ,halflife/harness/tierb/configs/W7159577685.json
+W4412889033,needs_download_check,gpt-4-turbo-2024-04-09,classification,50,2.0,Applying the Character-Role Narrative Framework with LLMs to,halflife/harness/tierb/configs/W4412889033.json
+W4400375186,ready,gpt-4-turbo-2024-04-09,classification,100,3.0,CEB: Compositional Evaluation Benchmark for Fairness in Larg,halflife/harness/tierb/configs/W4400375186.json
+W4416034777,ready,gpt-4-turbo-2024-04-09,other,100,3.0,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,halflife/harness/tierb/configs/W4416034777.json
+W4412888351,ready,gpt-4-turbo-2024-04-09,generation,164,5.0,HumanEval Pro and MBPP Pro: Evaluating Large Language Models,halflife/harness/tierb/configs/W4412888351.json
+W4416036577,needs_download_check,gpt-4o-2024-05-13,classification,400,6.0,Cross-domain Rumor Detection via Test-Time Adaptation and La,halflife/harness/tierb/configs/W4416036577.json
+W4404782525,ready,gpt-4o-2024-05-13,classification,500,7.5,Characterizing LLM Abstention Behavior in Science QA with Co,halflife/harness/tierb/configs/W4404782525.json
+W4404781158,ready,gpt-4-turbo-2024-04-09,mcq,300,9.0,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,halflife/harness/tierb/configs/W4404781158.json
+W4415035710,ready,gpt-4-turbo-2024-04-09,generation,158,10.0,Do LLMs have a Gender (Entropy) Bias?,halflife/harness/tierb/configs/W4415035710.json
+W4407571428,needs_download_check,gpt-4-turbo-2024-04-09,mcq,200,12.0,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,halflife/harness/tierb/configs/W4407571428.json
+W4406058824,needs_download_check,gpt-4-turbo-2024-04-09,generation,338,15.0,SciCode: A Research Coding Benchmark Curated by Scientists,halflife/harness/tierb/configs/W4406058824.json
+W7164614711,ready,gpt-4.1-nano-2025-04-14,classification,12780,19.0,I Understand How You Feel: Enhancing Deeper Emotional Suppor,halflife/harness/tierb/configs/W7164614711.json
+W4403758464,ready,gpt-4-turbo-2024-04-09,other,600,22.0,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,halflife/harness/tierb/configs/W4403758464.json
+W4412888091,needs_download_check,gpt-4-turbo-2024-04-09,generation,250,23.0,LoFTI: Localization and Factuality Transfer to Indian Locale,halflife/harness/tierb/configs/W4412888091.json
+W7144391352,needs_download_check,gpt-5-2025-08-07,mcq,279,25.0,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,halflife/harness/tierb/configs/W7144391352.json
+W4412887844,needs_download_check,gpt-4-turbo-2024-04-09,classification,3339,27.0,Chumor 2.0: Towards Better Benchmarking Chinese Humor Unders,halflife/harness/tierb/configs/W4412887844.json
+W4411119490,ready,gpt-4-turbo-2024-04-09,classification,3000,30.0,Are We Done with MMLU?,halflife/harness/tierb/configs/W4411119490.json
+W4401545735,ready,gpt-4o-2024-05-13,classification,2264,34.0,Designing Heterogeneous LLM Agents for Financial Sentiment A,halflife/harness/tierb/configs/W4401545735.json
+W4403443823,needs_download_check,gpt-4-turbo-2024-04-09,classification,3736,45.0,Science is Exploration: Computational Frontiers for Conceptu,halflife/harness/tierb/configs/W4403443823.json
+W4412944996,ready,gpt-4-turbo-2024-04-09,other,3000,45.0,Chinese SimpleQA: A Chinese Factuality Evaluation for Large ,halflife/harness/tierb/configs/W4412944996.json
+W4404352371,ready,gpt-4-turbo-2024-04-09,mcq,2860,59.0,EEE-Bench: A Comprehensive Multimodal Electrical And Electro,halflife/harness/tierb/configs/W4404352371.json
+W4404985489,needs_download_check,gpt-4-turbo-2024-04-09,extraction,556,75.0,Variable Extraction for Model Recovery in Scientific Literat,halflife/harness/tierb/configs/W4404985489.json
+W7166873827,needs_download_check,o3-mini-2025-01-31,classification,1857,85.0,Reward Modeling for Scientific Writing Evaluation,halflife/harness/tierb/configs/W7166873827.json
+W4416035248,ready,gpt-4-turbo-2024-04-09,classification,10342,103.0,CANDY: Benchmarking LLMs' Limitations and Assistive Potentia,halflife/harness/tierb/configs/W4416035248.json
+W4414992335,ready,o3-2025-04-16,mcq,2548,127.0,VMMU: A Vietnamese Multitask Multimodal Understanding and Re,halflife/harness/tierb/configs/W4414992335.json
+W4399404161,ready,gpt-4-turbo-2024-04-09,mcq,12032,420.0,MMLU-Pro: A More Robust and Challenging Multi-Task Language ,halflife/harness/tierb/configs/W4399404161.json

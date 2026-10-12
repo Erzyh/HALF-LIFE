@@ -1,0 +1,131 @@
+{
+  "card_id": "W4396768794",
+  "openalex_id": "https://openalex.org/W4396768794",
+  "title": "Assessing DxGPT: Diagnosing Rare Diseases with Various Large Language Models",
+  "doi": "10.1101/2024.05.08.24307062",
+  "paper": {
+    "authors": "do Olmo, Logrono, Mascias, Martinez, Isla (Foundation 29)",
+    "year": 2024,
+    "venue": "medRxiv preprint (2024-05-09), not peer reviewed",
+    "repo": "https://github.com/foundation29org/dxgpt_testing",
+    "repo_commit": "c7abe550ccad59465bdf53b67e9629e3f239f0eb (HEAD 2025-01-20; shallow clone external/repos/W4396768794/foundation29org__dxgpt_testing; note: PDF link extraction gave 'dxgpt_testi', real name is dxgpt_testing)",
+    "repo_license": "MIT (LICENSE, Foundation29hub 2023)",
+    "other_artifacts": "RAMEDIS and PUMCH cases loaded from Hugging Face dataset chenxz/RareBench (configs 'RAMEDIS', 'PUMCH_ADM', split 'test'); synthetic 200-case set in repo data/synthetic_data_v2.csv"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The paper is a benchmark of diagnostic accuracy of 13 LLMs; every number depends on model outputs. Additionally the metric itself is LLM-judged (GPT-4-0613 classifies P1/P5/P0), so the paper has a second, auxiliary 'judge' dependence on a now-dead model. Raw diagnoses and judge scores for every model/dataset are archived in the repo (data/diagnoses_*.csv, data/scores_*.csv) - a strong L1 case."
+  },
+  "claim": {
+    "statement": "On the 200 real-world RAMEDIS rare-disease cases (HPO symptom lists), GPT-4 Turbo 0409 (gpt-4-turbo-2024-04-09) reaches 54.04% Strict Accuracy (P1) and 68.69% Top-5 Accuracy (P1+P5), i.e. second among closed models behind Claude 3 Opus (55.00/70.00) and ahead of GPT-4 0613 (50.25/63.32) (Table 3, Section 3.1.2).",
+    "claim_type": "capability_level",
+    "metric": "Strict Accuracy = share of cases whose top-1 suggestion is judged 'P1'; Top-5 Accuracy = share judged P1 or P2..P5 ('P5' = GT contained within / broader term for any of the 5 predictions); judged by an LLM (GPT-4-0613) from the diagnosis text; denominator = cases with a parseable score.",
+    "original_values": {
+      "RAMEDIS_strict_P1": 54.04,
+      "RAMEDIS_top5": 68.69,
+      "RAMEDIS_counts": "P1=107, P2-P5=29, P0=62 of 198 scored rows (2 of 200 rows carry malformed quoted scores and are excluded by the paper's counting) - recomputed from data/scores_RAMEDIS_gpt4turbo0409.csv",
+      "secondary_PUMCH_strict_P1": 47.3,
+      "secondary_PUMCH_top5": 58.11,
+      "secondary_synthetic_strict_P1": 67.0,
+      "secondary_synthetic_top5": 91.0
+    },
+    "original_source": "Paper Table 3 (RAMEDIS, 200 cases), Table 5 (PUMCH, 75 cases), Table 1 (synthetic, 200 cases); all three reproduced exactly from repo score files data/scores_RAMEDIS_gpt4turbo0409.csv, data/scores_PUMCH_ADM_gpt4turbo0409.csv, data/scores_v2_gpt4turbo0409.csv using the counting in src/dashboard_scores.py"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+    "model_usage_verified": "yes - src/batch_diagnosis_v2.py instantiates ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0, max_tokens=800) and the paper labels it 'GPT-4 Turbo 0409'",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (original via langchain ChatOpenAI, direct OpenAI key; GPT-4-0613/1106 arms used Azure deployments)",
+    "prompt_source": "src/batch_diagnosis_v2.py PROMPT_TEMPLATE (identical text in paper Appendix 6 'Diagnostic prompt')",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Behave like a hypotethical doctor who has to do a diagnosis for a patient. Give me a list of potential diseases with a short description. Shows for each potential diseases always with '\n\n+' and a number, starting with '\n\n+1', for example '\n\n+23.' (never return \n\n-), the name of the disease and finish with ':'. Dont return '\n\n-', return '\n\n+' instead. You have to indicate which symptoms the patient has in common with the proposed disease and which symptoms the patient does not have in common. The text is \n Symptoms:{description}"
+      }
+    ],
+    "input_construction": "RareBench RAMEDIS test split: 'Phenotype' = list of HPO ids mapped to HPO term names with pyhpo (Ontology.get_hpo_object(id).name); the Python list repr of the names is inserted as {description}. Ground truth = Orphanet preferred names resolved through api.orphacode.org (hard-coded apiKey 'f29dev') from ORPHA codes in 'RareDisease' (mapping_fn_with_hpo3_plus_orpha_api). The archived data/diagnoses_RAMEDIS_gpt4turbo0409.csv already contains GT strings and can be reused if the Orpha API is unavailable.",
+    "params": {
+      "temperature": 0,
+      "max_tokens": 800,
+      "top_p": "not set (default)",
+      "seed": "not set; system_fingerprint to be logged",
+      "retries": "2 attempts per case in original code"
+    },
+    "n_items": 200,
+    "samples_per_item": 1,
+    "evaluation": "Automatic LLM-as-judge: for each case the GT and the full diagnosis text are placed in the evaluation prompt (src/diagnoses_analisis.py; paper Appendix 'Evaluation prompt') and an Azure deployment 'nav29' (GPT-4-0613 per paper Sections 2.4 and 4.4.2; temperature 0, max_tokens 800) returns 'P1', 'P5' or 'P0'. Strict = P1/(P1+P5+P0); Top-5 = (P1+P5)/(P1+P5+P0). No logprobs needed. Judge model is DEAD (gpt-4-0613 shut down 2024-09-13) -> a substitute judge must be used (see blockers/user_checks).",
+    "evaluation_prompt": "Behave like a medical doctor reviewing patient diagnoses. You will be given a Ground Truth diagnosis (GT) and 5 Predicted diagnoses (P1-P5). Compare the GT to the predictions and return a classification: \n\n    If GT exactly matches P1, return \"P1\".  \n    If GT is contained within or is a broader term for P1-P5, return \"P5\".\n    If GT does not match any of P1-P5, return \"P0\".\n\n    The GT may be a more general diagnosis, while predictions may include specific conditions. Broadly match GT to any prediction it reasonably encompasses.\n    ----------------------------------------\n    The text is:\n\n    GT: {gt}\n\n    Predictions:\n\n    {predictions} \n    ----------------------------------------\n    Return either \"P1\", \"P5\", or \"P0\". Do not return any other text.",
+    "environment": "Python: datasets (HF), pyhpo (HPO ontology download), pandas; Orphanet REST API for GT names; no code execution or GPU needed"
+  },
+  "artifacts": {
+    "prompts_path": "src/batch_diagnosis_v2.py (PROMPT_TEMPLATE) and src/diagnoses_analisis.py (judge PROMPT_TEMPLATE)",
+    "data_path": "external (HF chenxz/RareBench, configs RAMEDIS / PUMCH_ADM); archived model outputs: data/diagnoses_RAMEDIS_gpt4turbo0409.csv, data/diagnoses_PUMCH_ADM_gpt4turbo0409.csv; archived judge scores: data/scores_RAMEDIS_gpt4turbo0409.csv, data/scores_PUMCH_ADM_gpt4turbo0409.csv; synthetic set data/synthetic_data_v2.csv",
+    "eval_path": "src/diagnoses_analisis.py (judge), src/dashboard_scores.py (P1/P5/P0 counting)",
+    "data_public": true,
+    "data_license": "Repo MIT; RareBench (RAMEDIS/PUMCH) license as published on HF chenxz/RareBench - not verified here (user check); PUMCH cases are the 75 'publicly available' subset only",
+    "redistributable": "unknown",
+    "notes": "Blob-size filter left a few large CSVs unfetched and one filename with a trailing '*' breaks checkout on Windows (data/scores_URG_Torre_Dic_1000_gpt4o.csv*); the files needed for this card were checked out explicitly. Judge model deployment name 'nav29' is an Azure alias - exact snapshot not verifiable from code."
+  },
+  "blockers": [
+    "Judge model is dead: the P1/P5/P0 scores were produced by GPT-4-0613 (Azure 'nav29'); re-execution requires a substitute judge. Mitigation built into this card: re-judge the ARCHIVED gpt-4-turbo-0409 diagnoses with the same substitute judge so that generator drift and judge drift are separable.",
+    "Ground-truth names come from a live Orphanet API with a hard-coded key; fall back to GT strings already stored in the archived diagnoses CSV.",
+    "RareBench license / redistribution terms not verified; our full-log archive will contain patient-derived HPO lists from RAMEDIS/PUMCH.",
+    "2 of 200 RAMEDIS rows have malformed judge outputs in the original; denominator 198 must be reproduced or documented."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4-turbo-2024-04-09",
+      "purpose": "live baseline (P0); judge = substitute (proposed gpt-4o-2024-05-13, dying, or gpt-4.1)"
+    },
+    "successors": [
+      "gpt-5 family (gpt-5-2025-08-07 / gpt-5-mini / gpt-5-nano)",
+      "claude (current Anthropic release)",
+      "gemini (current Google release)",
+      "llama (open weights, hash-pinned)",
+      "qwen (open weights, hash-pinned)"
+    ],
+    "dead_comparators_not_runnable": [
+      "gpt-4-0613",
+      "gpt-4-1106-preview",
+      "claude-3-opus-20240229",
+      "claude-3-sonnet-20240229",
+      "gemini-1.5-pro-preview-0409"
+    ]
+  },
+  "budget": {
+    "est_calls": 1400,
+    "est_tokens_in": 870000,
+    "est_tokens_out": 364000,
+    "est_cost_usd": 16,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      },
+      "judge gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      }
+    },
+    "assumptions": "RAMEDIS only: 200 cases x 3 seeds = 600 generation calls (~250 in / ~600 out tokens, max_tokens 800) = $12.3; judge: 600 new + 200 archived re-judge = 800 calls (~900 in / 5 out) = $3.7. Adding PUMCH (75 cases) costs ~+$6; adding the synthetic set ~+$16. Temperature 0 means seeds mostly measure API nondeterminism."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary number: RAMEDIS Strict Accuracy (P1) of gpt-4-turbo-2024-04-09. Survival = re-run P1 (median over 3 seeds, substitute judge) lies within the bootstrap 95% CI over the 200 cases of the archived-original P1 re-scored by the SAME substitute judge (judge-matched comparison), and Top-5 keeps the same direction (Top-5 > Strict by roughly 15 pp). Partial = P1 within CI of the paper's 54.04 but not of the judge-matched value (or vice versa). Death = P1 outside both CIs or Top-5 ordering reversed.",
+    "notes": "Because the original judge is dead, the paper's published 54.04 can only be compared indirectly; report both the judge-matched comparison (primary) and the raw comparison to 54.04 (secondary). Cross-model ranking claims (Opus > Turbo-0409 > GPT-4-0613) are not testable since the comparators are dead."
+  },
+  "status": "done",
+  "user_checks": [
+    "Accept the two-track design (re-judge archived originals + new generations with one substitute judge)? Which substitute judge: gpt-4o-2024-05-13 (dying, closest era) or gpt-4.1 (alive)?",
+    "Core claim = RAMEDIS Table 3 (real cases). OK, or should PUMCH (Table 5, 75 cases) / synthetic (Table 1) be added as secondary rows in the same run?",
+    "Confirm RareBench (HF chenxz/RareBench) license permits use and that archiving full request/response logs containing RAMEDIS/PUMCH HPO lists is acceptable.",
+    "Orphanet API: reuse GT strings from the archived diagnoses CSV instead of calling api.orphacode.org (avoids the hard-coded key)?"
+  ],
+  "domain_notes": "Inputs are HPO term lists (not narrative vignettes) and ground truths are Orphanet disease names, so the task is closer to phenotype-to-diagnosis retrieval than clinical reasoning. The 'P5' rule (GT is contained within or a broader term for a prediction) is lenient and highly judge-dependent; a domain reviewer should spot-check ~30 judged rows per arm for agreement with the original judge labels, which are archived. The preprint is not peer reviewed and uses the evaluator LLM's own family (GPT-4) as judge, a known bias the authors acknowledge (Section 4.4.2).",
+  "decisions_2026_09_18": [
+    "two-track design accepted: re-judge the archived original diagnoses and judge the new generations with the same substitute judge, gpt-4o-2024-05-13",
+    "core claim = RAMEDIS Table 3 (200 real cases) only; PUMCH and synthetic cases are not run",
+    "RAMEDIS only (public case reports); if RareBench terms forbid redistribution the archive keeps item ids and hashes instead of item text",
+    "reuse the ground-truth strings from the archived diagnoses CSV; no Orphanet API call"
+  ]
+}

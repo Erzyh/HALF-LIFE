@@ -1,0 +1,16 @@
+[
+ {
+  "wid": "W4415332749",
+  "cap": 40.0,
+  "force": true,
+  "model": "o1-2024-12-17",
+  "note": "J4R repair: 50 samples x 2 orders (paired hook subset), max_tokens 16384; the first run (cap 20, max_tokens 4096) is archived at runs/tierb/W4415332749_v1_cap20_maxtok4096/"
+ },
+ {
+  "wid": "W7162149911",
+  "cap": 12.0,
+  "force": true,
+  "model": "gpt-5-2025-08-07",
+  "note": "annotation guidelines repair: reasoning_effort low under the authors' 12,000-token limit, 100 documents x 3 seeds; the high-effort run (97 of 113 replies empty after exhausting the limit) is archived at runs/tierb/W7162149911_v1_effort_high_12k/"
+ }
+]

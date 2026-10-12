@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7158423340",
+  "title": "DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 5.1: \"three off-the-shelf LLMs as DeepImagine backbones: GPT-5-2025-08-07, GPT-5-mini-2025-08-07, o3-mini-2025-01-31\"; Table 1 row GPT-5, DeepImagine (n=7, diff anchors)=80.8"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 5.1 describes Direct/RAG/DeepImagine strategies narratively; no literal prompt or template text is printed anywhere (Appendices A/B/C/E are proofs and ML-baseline hyperparameters)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "macro-F1, DeepImagine (n=7, different anchors)",
+    "value": 80.8,
+    "n_items": 701,
+    "location": "Table 1, row GPT-5; n from Sec. 5.1 (Summer 2025 CT Open benchmark, 701 questions, 442 positive/259 negative)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CT Open benchmark (time-stamped Summer 2025 split)"
+  },
+  "cost": {
+    "est_calls": 701,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "GPT-5-mini-2025-08-07 and o3-mini-2025-01-31 are run identically in the same table (also live) and face the same no_prompt gap. All three backbones show consistent DeepImagine gains over Direct/RAG baselines, but no prompt wording is reproduced anywhere in the paper."
+}

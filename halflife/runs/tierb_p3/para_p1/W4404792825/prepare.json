@@ -1,0 +1,29 @@
+{
+  "wid": "W4404792825",
+  "n_items": 10,
+  "n_requests": 10,
+  "seeds": 1,
+  "est_usd": 0.15,
+  "subset_note": "paraphrase p1: 3 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [10, 10, 10]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4o-2024-05-13",
+  "metric": "custom",
+  "original_value": 31.36,
+  "cap_usd": 1.3,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4404792825",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "Please rate how true each of the following statements is for you.",
+      "For each statement below, indicate how true it is of you."
+    ],
+    [
+      "Use the following scale: 1 = Not at all true, 2 = Hardly true, 3 = Moderately true, 4 = Exactly true.",
+      "Rate on this scale: 1 = Not at all true, 2 = Hardly true, 3 = Moderately true, 4 = Exactly true."
+    ],
+    [
+      "Answer with the item number followed by your rating (1-4) for each of the 10 items, one per line, and nothing else.",
+      "Reply with one line per item giving the item number and your rating from 1 to 4, for all 10 items, and nothing else."
+    ]
+  ]
+}

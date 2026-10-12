@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403322813",
+  "title": "KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 4.4: 'Among the baselines, GPT-4-Turbo achieves the highest accuracy at 65.0%, while LLaMA3.1-8B reaches 55.5%.' (AfriMed-QA expert multiple-choice)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E.1 'Prompt Template for Evaluating Baseline Models Under Multi-choice Reasoning Setting' (plain and CoT variants)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (%) on AfriMed-QA expert-level multiple-choice questions, pure LLM",
+    "value": 65.0,
+    "n_items": null,
+    "location": "Sec. 4.4 text and Figure 6, 'Pure LLMs' bar for GPT-4-Turbo",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AfriMed-QA (Olatunji et al., 2024; 15,275 items, expert MCQ subset) plus MMLU-Med, MedQA, PubMedQA, BioASQ"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Size of the expert MCQ subset is not stated in the text. The model is also the backbone of the KGARevion agent (69.6%), which needs the repo and knowledge graph. Paper 2024-10, no preview string, so alias resolved to the GA.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n is unstated but defined: Sec. 4.5 evaluates 'all expert-level multiple-choice questions in AfriMed-QA', so take every expert-tier MCQ item in the public AfriMed-QA release (Olatunji et al., 2024). Prompt is the Appendix E.1 multiple-choice template (plain variant; run the CoT variant as a sensitivity check since Figure 6 does not say which was used), parse the option letter, and compare accuracy with 65.0%.",
+    "approximation": "Item count comes from the public release (likely several thousand, so cost may exceed the mid tier); plain-vs-CoT variant not stated; template names options A-D while some AfriMed-QA items have five options.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

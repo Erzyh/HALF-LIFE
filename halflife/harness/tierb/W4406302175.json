@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406302175",
+  "title": "Let Me Speak Freely? A Study on the Impact of Format Restrictions on Performance of Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 6 / Appendix: 'we use gpt-4-turbo as a human reference' parser; Table 4 'Alignment between GPT-4-Turbo and human'; text: 'agreement of 97.7% between GPT-4-turbo and human'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix (Figures 16-18 task prompts; Table 7 parser alignment)",
+    "note": "Printed prompts are for the subject models (gpt-3.5-turbo-0125, claude-3-haiku, gemini-1.5-flash, llama-3-8b, gpt-4o-mini-2024-07-18)."
+  },
+  "claim": {
+    "metric": "agreement with human-parsed answers (%)",
+    "value": 97.7,
+    "n_items": 1200,
+    "location": "Appendix, Table 7 and text ('1,200 samples ... agreement of 97.7%')",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "GSM8K, Last Letter, Shuffled Objects, DDXPlus, Sports, Task280, MultiFin (public)"
+  },
+  "cost": {
+    "est_calls": 1200,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-4-turbo only parses answers; the subject models' raw outputs are not released, so the parser-agreement number cannot be recomputed. gpt-4o-mini-2024-07-18 (Table 2) is a subject model not in the live_ids column."
+}

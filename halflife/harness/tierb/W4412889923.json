@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4412889923",
+  "title": "ASPERA: A Simulated Environment to Evaluate Planning for Complex Action Execution",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Table 3: 'GPT-4o gpt-4o-2024-05-13 - 45.33' (CCK task success, 5 ICEs); Table 18 adds o3 (o3-2025-04-16) 75.07 and o3-mini (o3-mini-2025-01-31) 64.27."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D, Figure 19 (AEP generation prompt template, Jinja) and Figure 20 (primitive selection prompt)",
+    "note": "Prompt embeds the assistant library documentation and 5 in-context examples per program type."
+  },
+  "claim": {
+    "metric": "task success rate",
+    "value": 45.33,
+    "n_items": 250,
+    "location": "Table 3, row GPT-4o (CCK setting, 5 ICEs); Asper-Bench 250 tasks",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/apple/ml-aspera (Asper-Bench, simulator, evaluation programs)"
+  },
+  "cost": {
+    "est_calls": 750,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Task success is measured by executing generated programs inside the ASPERA runtime (public code, but a non-trivial harness). Prompts run to ~10k+ tokens, hence high cost at 3 seeds. o-series rows use temperature 1.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Task success is measured by executing the generated program inside the ASPERA runtime against the Asper-Bench evaluation programs, all of which live in the repository together with the 250 tasks, the assistant library documentation and the in-context examples that the Figure 19 Jinja template embeds. Take these from the repo, run gpt-4o-2024-05-13 in the CCK setting with 5 ICEs, execute in the simulator, and report task success over 250 (45.33).",
+    "approximation": "None; prompts exceed 10k tokens so three seeds are costly.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/apple/ml-aspera",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

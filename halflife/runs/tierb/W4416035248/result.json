@@ -1,0 +1,48 @@
+{
+  "wid": "W4416035248",
+  "title": "CANDY: Benchmarking LLMs' Limitations and Assistive Potential in Chinese Misinformation Fact-Checking",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 72.2,
+  "original_location": "Table 4, row GPT-4-Turbo (2023.5), column Zero-shot w/o CoT Acc., value outside the parentheses",
+  "reexecution": {
+    "mean_over_seeds": 0.7527557532392187,
+    "per_seed": {
+      "0": {
+        "value": 0.7527557532392187,
+        "n": 10342,
+        "ci95": [
+          0.7445368400696191,
+          0.7609746664088184
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416035248",
+    "n_items": 10342,
+    "n_requests": 10342,
+    "seeds": 1,
+    "est_usd": 10.85,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 72.2
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 14
+  },
+  "approximation": "Exact cut-off day not printed (2023-05-31 used; >= 2023-05-01 gives 10,951 rows); sampling variance at temperature 0.7; the Chinese prompt is used (the English print is a translation); 1,027 rows have partial (year-month or year) dates and 3 have none - treat partial dates as their first day.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 75.27557532392187,
+    "delta": 3.0755753239218677,
+    "original_inside_ci95": false
+  }
+}

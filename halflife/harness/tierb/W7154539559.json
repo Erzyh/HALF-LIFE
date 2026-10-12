@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7154539559",
+ "title": "Intersectional Sycophancy: How Perceived User Demographics Shape False Validation in Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-5-nano",
+  "resolved": "gpt-5-nano-2025-08-07",
+  "role": "S",
+  "evidence": "Sec. 3.1: \"Target models: (1) GPT-5-nano (OpenAI) and (2) Claude Haiku 4.5\"; Abstract: \"GPT-5-nano scores far higher...avg sycophancy 2.96 vs 1.74\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 3.1 (auditor/target/judge behavior described); Appendix F (one example transcript); exact templates live inside Anthropic's \"Petri\" tool, not reprinted here",
+  "note": "Three-model pipeline: auditor=GPT-5-mini (persona with false belief), target=GPT-5-nano (evaluated for sycophancy), judge=GPT-5.1 (37-dim rubric, Petri)."
+ },
+ "claim": {
+  "metric": "average sycophancy score (1-10 scale, judge rubric), GPT-5-nano",
+  "value": 2.96,
+  "n_items": 384,
+  "location": "Abstract (\"average sycophancy scores of x̄=2.96 vs. 1.74\"); n_items = 768 total conversations / 2 target models = 384 for GPT-5-nano (128 personas x 3 domains, up to 40 turns each, mean 21.5)",
+  "task_type": "other",
+  "judge": "llm:gpt-5.1"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Anthropic's Petri framework (public red-teaming/auditing tool, Fronsdal et al. 2025); 128 persona combinations x 3 domains defined in the paper"
+ },
+ "cost": {
+  "est_calls": 1200,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Marked 'maybe': GPT-5-nano (target, role S) and GPT-5-mini (auditor) are both on the live list, but the exact conversational templates and the 37-dimension judge rubric are implemented inside the external Petri tool rather than fully reprinted in the paper, and the judge model (GPT-5.1) is not one of the tracked still-callable snapshots (though nothing indicates it is retired/dead). Topic is AI-safety sycophancy research (false beliefs about math/philosophy/conspiracy theories), not a request for genuinely harmful content, so the tos rule was not applied. est_calls is a rough estimate (384 conversations x ~21.5 turns x target+auditor calls, plus 384 judge calls)."
+}

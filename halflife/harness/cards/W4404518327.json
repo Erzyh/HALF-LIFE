@@ -1,0 +1,90 @@
+{
+  "card_id": "W4404518327",
+  "openalex_id": "https://openalex.org/W4404518327",
+  "title": "LLM Voting: Human Choices and AI Collective Decision-Making",
+  "doi": "10.1609/aies.v7i1.31758",
+  "paper": {
+    "doi": "10.1609/aies.v7i1.31758 (AIES 2024, pp. 1696-1708); extended version arXiv 2402.01766",
+    "authors": "Joshua C. Yang, Damian Dailisan, Marcin Korecki, Carina I. Hausladen, Dirk Helbing",
+    "year": 2024,
+    "venue": "Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (AIES) 7",
+    "repo": "https://github.com/ethz-coss/LLM_voting (code + all LLM votes/outcomes); human data: https://github.com/joshuay1/zurich-pb-voting",
+    "repo_commit": "ethz-coss/LLM_voting 409d41c322f77ad0929d8316b623d4814331a34c; joshuay1/zurich-pb-voting 54cf9d7328ba432f15430a8f239c101fcaa7380d",
+    "repo_license": "none (no LICENSE file in either repo)"
+  },
+  "dependence": {
+    "type": "simulated_participant",
+    "strength": "core",
+    "note": "180 LLM agents stand in for the 180 human participants of a Zurich participatory-budgeting experiment (24 projects, CHF 60,000); every result compares LLM votes with the archived human votes. No new humans are needed."
+  },
+  "claim": {
+    "statement": "GPT-4 Turbo agents voting on the 24 Zurich PB projects produce collective outcomes only moderately aligned with the human outcome - Kendall's tau = 0.39 at temperature 1.0 (0.37 at 1.5; Figure 7A) - and much less diverse than human voters (mean Jaccard dissimilarity between individual votes 0.44 at t = 1.0 vs 0.67 at t = 1.5, Figure 7B; approval counts concentrated around a median of 5 projects vs a 2-24 range for humans, Figure 3); no temperature preserves both diversity and human-likeness (Conclusion).",
+    "claim_type": "capability_limit",
+    "metric": "Kendall's tau between LLM and human aggregate project rankings (5-approval baseline; Borda for ranked votes); Jaccard dissimilarity between individual vote sets; distribution of the number of approved projects",
+    "original_values": {
+      "kendall_tau_gpt4_vs_human_t1.0": 0.39,
+      "kendall_tau_gpt4_vs_human_t1.5": 0.37,
+      "jaccard_dissimilarity_gpt4_t1.0": 0.44,
+      "jaccard_dissimilarity_gpt4_t1.5": 0.67,
+      "kendall_tau_llama2_vs_human": "~0 across temperatures",
+      "gpt4_approval_count_median": 5,
+      "within_llm_tau_across_temperatures": "> 0.8"
+    },
+    "original_source": "Results 'Diversity in Different Temperature Settings' and Figure 7 (AIES version, p. 1703); Figure 3; released outcome files outcome/gpt_temp/*/outcome.csv and votes.json"
+  },
+  "protocol": {
+    "model": "gpt-4-1106-preview (paper: 'GPT-4 Turbo (GPT-4-1106-preview)'; hard-coded in llm/api.py)",
+    "model_status": "DEAD - shut down 2026-03-26 (target_models.json). The census hit 'gpt-4-turbo' is the product name only; gpt-4-turbo-2024-04-09 was not an arm.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (llm/api.py chat_request); LLaMA-2 70B Q8_0 via a local llama.cpp-style server",
+    "prompt_source": "scripts/pb_voting_basic.py (project-list CSV block, voting instructions), agent/agent.py (initial context), data/lab_persona.csv (persona sentences); Figure 2 and Appendix C of the paper",
+    "messages": "Initial Context (same instructions/background as the human experiment) [+ persona: 'You are a university student from Nord district in Zurich. In urban topics, you have a strong preference for transport. ...'] [+ CoT reflection turn before seeing the projects] -> Voting Prompt with the 24-project table and one instruction: 'Select any number of projects.' | 'Select exactly 5 projects.' | 'Distribute 10 points among the projects you like. List each of the project id you choose and the points you allocate together.' | 'Select 5 projects and rank them from the most preferred to the 5th most preferred.'; votes parsed by regex on '#<id>'",
+    "params": {"temperature": "0, 0.5, 1.0, 1.5, 2.0 (baseline 1.0; agent default 1.0)", "max_tokens": "0 = unlimited (api.py)", "seed": "not set", "recall": "3 messages of memory"},
+    "n_items": "180 agents per condition; conditions: 4 voting methods, reversed order / reversed IDs, 5 temperatures, persona, CoT",
+    "samples_per_item": "1 vote per agent per condition",
+    "evaluation": "Automatic: parse votes -> aggregate (Borda for ranks, normalised cumulative points) -> Kendall tau vs the human outcome (outcome/lab_vote/*.csv), Jaccard similarity/distance vs human individual votes (outcome/analyse_outcome.ipynb).",
+    "environment_check": "Recompute tau = 0.39 / dissimilarity 0.44 from the released votes.json + human data before any call."
+  },
+  "artifacts": {
+    "prompts_path": "external/repos/W4404518327/ethz-coss__LLM_voting/scripts/pb_voting_basic.py; agent/agent.py; data/lab_persona.csv",
+    "data_path": "external/repos/W4404518327/ethz-coss__LLM_voting/outcome/** (all GPT-4 and LLaMA-2 votes and outcomes); human votes: outcome/lab_vote/ and external/repos/W4404518327/joshuay1__zurich-pb-voting (180 participants, March 2023, ETH ethics EK 2022-N-143)",
+    "eval_path": "external/repos/W4404518327/ethz-coss__LLM_voting/outcome/analyse_outcome.ipynb",
+    "data_public": true,
+    "data_license": "none stated (both repos lack a LICENSE)",
+    "redistributable": "unknown",
+    "notes": "Complete L1-style release of LLM votes; the only missing piece is a license."
+  },
+  "blockers": [
+    "live model not an experimental arm: the paper used gpt-4-1106-preview (dead); gpt-4-turbo-2024-04-09 would be a sibling snapshot only",
+    "no license on code/data (redistribution of our archive needs author consent)",
+    "LLaMA-2 arm ran on a local quantised server with non-default sampling flags (top_k 5, mirostat 2, penalties) - not reproducible via API"
+  ],
+  "arms": {
+    "baseline_alive": {"model": null, "note": "none - optional sibling arm gpt-4-turbo-2024-04-09 (P3), labelled as sibling"},
+    "successors": [
+      "gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm) - note: temperature is not adjustable on some gpt-5 endpoints, which breaks the temperature sweep",
+      "claude (current Anthropic flagship, dated snapshot fixed at run time)",
+      "gemini (current Google flagship, dated snapshot fixed at run time)",
+      "llama (open weights, e.g. Llama-3.3-70B-Instruct, weights hash fixed)",
+      "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct, weights hash fixed)"
+    ]
+  },
+  "budget": {
+    "est_calls": 7560,
+    "est_tokens_in": 4910000,
+    "est_tokens_out": 910000,
+    "est_cost_usd": 76,
+    "pricing_usd_per_1m": {"gpt-4-turbo-2024-04-09": {"input": 10.0, "output": 30.0}},
+    "assumptions": "sibling arm, full design: 180 agents x ~14 conditions (4 methods + 2 order variants + 5 temperatures + persona + 2 CoT turns) = 2,520 calls per seed x 3 seeds; ~650 input tokens (context + 24-project table), ~120 output tokens. Core subset only (5-approval at t = 1.0 and 1.5): 360 calls per seed, ~$3 for 3 seeds."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (sibling arm only): survival if Kendall tau (GPT vs human, 5-approval, t = 1.0) stays 'moderate' (within +/- 0.15 of 0.39, bootstrap over agents) and the diversity ordering holds (dissimilarity at t = 1.5 > t = 1.0, both below the human level); partial if tau leaves the band but stays in (0.1, 0.8) with the diversity ordering intact; death if tau <= 0 or the LLM becomes as diverse as humans while matching them (tau >= 0.8).",
+    "notes": "Kendall tau over 24 projects has a wide sampling distribution; report a CI from bootstrapping agents."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Approve a sibling-snapshot arm (gpt-4-turbo-2024-04-09) for the core subset (5-approval at t = 1.0/1.5, ~$3) or the full design (~$76)?",
+    "Confirm the core-claim choice (tau 0.39 / diversity trade-off) versus the ordering/labeling bias claims (reversed order and reversed IDs, Figure 4) or the persona-alignment claim (Figures 5-6).",
+    "Contact the authors about licensing the released votes for redistribution."
+  ],
+  "domain_notes": "The human baseline is a lab experiment with 180 ETH/UZH students (payoff-linked PB vote, March 2023), so 'human' preferences are those of a specific student sample. Kendall tau is computed on aggregate rankings of 24 projects; Jaccard on individual vote sets. Temperature is the paper's lever for diversity, so successor endpoints that fix temperature (reasoning models) cannot reproduce the sweep."
+}

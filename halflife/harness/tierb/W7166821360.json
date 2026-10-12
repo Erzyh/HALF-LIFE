@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166821360",
+ "title": "Modeling and Solving Stable Matching under Probabilistic Preferences with Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec. 4.1: \"For quantal response validation, we fix a single LLM model: GPT-4-Turbo...For matching and mechanism experiments, we consider 5 representative LLMs:...GPT-4-Turbo...\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix A (\"Full prompt templates are provided in Appendix A\")",
+  "note": "Two task-oriented prompts (single-state and engaged-state decisions) with structured inputs and strictly formatted binary outputs."
+ },
+ "claim": {
+  "metric": "logit quantal-response parameter, switching-sensitivity ratio -β/λ",
+  "value": 27.56,
+  "n_items": null,
+  "location": "Table 1, row \"GPT-4-Turbo\" (λ=0.09, β=-2.48, -β/λ=27.56)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Columbia Business School speed-dating dataset (2002-2004 speed-dating experiments; 21 groups)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Marked 'maybe': n_items for the Table 1 logit-QR fit is not explicitly stated (a separate quantal-response-validation figure for GPT-4-Turbo alone shows on the order of several thousand score-difference observations, Fig. 4), and reproducing the exact parameter requires an added statistical-fitting step (minimizing cross-entropy over the logit model) on top of the raw prompted decisions, not just a direct read-off metric."
+}

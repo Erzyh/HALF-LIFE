@@ -1,0 +1,70 @@
+{
+  "wid": "W4414580657",
+  "title": "Seeing Through Deception: Uncovering Misleading Creator Intent in Multimodal News with Vision-Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "o4-mini-2025-04-16",
+    "params": {
+      "temperature": null,
+      "max_tokens": 4096,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Appendix D.1 (temperature 0, single run); o4-mini ignores temperature/top_p, reasoning_effort not stated (API default medium assumed); max_completion_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 6000,
+    "subset_rule": "paper-defined split: text-modified instances {I, T', A}: M-Sub (Text) 2,000, M-Sig (Text) 2,000 and NM 2,000",
+    "approximation": "Reasoning effort unstated; the NM class is shared between the text and image splits (assumed the same 2,000 originals)."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "jiayingwu19/DeceptionDecoded (gated, auto-approval): deceptiondecoded.json, data.tar.gz (images), visualnews_data_mapping.json; code at https://github.com/jiayingwu19/DeceptionDecoded",
+    "config_or_split": "text-modified subset (M-Sub Text, M-Sig Text, NM)",
+    "filter": "intent class in {M-Sub (Text), M-Sig (Text), NM}",
+    "fields": {
+      "input": "image, caption, reference article",
+      "label": "misleading (M) / non-misleading (NM) and class",
+      "id": "instance id"
+    },
+    "license": "CC-BY-4.0 (Hugging Face tag)",
+    "access_checked": true,
+    "size_mb": 2000
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{image}Your task is to determine whether a news piece has been intentionally distorted to mislead readers.\nThe news piece consists of an image with its caption: {caption}. You are also provided a trustworthy reference article related to the same event: {article}.\nFollow the structured steps below and strictly adhere to the output format.\nImportant Note: Focus only on the content of the news piece. The use of AI tools to assist image creation does not, by itself, indicate distortion.\nAnswer the following questions:\nQ1. Has the news piece been intentionally distorted by its creator to mislead readers, such that it conveys a biased, controversial, or manipulated message?\n- Respond with one of the following: [Yes, No]. Then provide a brief explanation.\nQ2. What is the source of the manipulation—text or image?\n- If answer to Q1 is “Yes”, answer with one of the following: [Text, Image].\n- If answer to Q1 is “No”, answer: “NA”.\nQ3. What does the distortion suggest about the news publisher's intent?\n- If answer to Q1 is “Yes” :\nPrimary Influence (Desire): Select up to three from the following list, ranked by relevance: [Political Polarization, Social Polarization, Cultural and Religious Polarization, Economic Misinformation, Public Health and Safety, Environmental and Scientific Polarization, Geopolitical and International Relations, Psychological and Emotional Manipulation].\n- If answer to Q1 is “No”, respond with “NA” for Q3.\nOutput Format: Respond in the following exact JSON format, preserving the structure, punctuation, and delimiters. Do not add any extra line breaks or formatting outside this structure:\n{ “pred”: “Answer to Q1, followed by a brief explanation”,\n“source”: \"Answer to Q2\",\n“desire”: \"Answer to Q3\" }",
+    "placeholders": {
+      "image": "the news image attached to the message",
+      "caption": "items.caption (original or modified)",
+      "article": "items.article (trustworthy reference article text)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix D.4, Figure 14 (implication-oriented prompt)",
+    "verbatim": "full (one extraction join 'thatit' split into 'that it')"
+  },
+  "output": {
+    "parse": "json field pred: leading Yes/No (regex ^\\s*(Yes|No)) -> misleading / non-misleading",
+    "postprocess": "strip; malformed JSON: first 'Yes'/'No' token after 'pred'; no match = incorrect"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "Text Avg.: unweighted mean of the per-class accuracies on M-Sub (Text), M-Sig (Text) (correct = Yes) and NM (correct = No), each over 2,000 instances.",
+    "judge": "none",
+    "original_value": 83.8,
+    "original_location": "Table 2, row o4-mini / I, column Text Avg. (64.8 / 91.2 / 95.4 per class)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 6000,
+    "est_usd": 90.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Gated Hugging Face dataset (jiayingwu19/DeceptionDecoded, ~2 GB image archive) must be accepted and downloaded by a human, and each call needs the news image attached; text-only messages cannot reproduce the {I, T', A} setting."
+  ],
+  "notes": "Articles plus images make each call ~2k input tokens; o4-mini reasoning output adds cost. The paper's default paradigm is consistency-oriented (C); the claim uses the implication-oriented (I) row. || [hooks_2 2026-09-07] reviewed for a per-paper hook: gated data + image inputs; no hook written.",
+  "hook": "none (needs_human: gated data + image inputs)"
+}

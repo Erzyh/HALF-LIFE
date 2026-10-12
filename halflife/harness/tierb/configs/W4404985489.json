@@ -1,0 +1,92 @@
+{
+  "wid": "W4404985489",
+  "title": "Variable Extraction for Model Recovery in Scientific Literature",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0,
+      "judge_max_tokens": 1
+    },
+    "params_source": "assumed (temperature not found in the extracted text; the triage note records 0); judge output limited to one token (Sec. 'GPT-4 as a Similarity Evaluator')",
+    "seeds": 1
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 589,
+    "subset_rule": "all (556 annotated text chunks, 2,083 annotations)",
+    "approximation": "pure setup: the Figure 4 template without the few-shot and tool-extraction segments; pairwise similarity judged by the same live snapshot; the pair text handed to the judge is 'name | description' / 'name | value' (format not printed); F1 pooled over chunks (Table 1 says 'average performance'; per-chunk averages are printed as the alternative)",
+    "n_items_prepare": 589
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/mitdbg/scivar, file benchmark/chunkset/askem_variable_dataset.json",
+    "config_or_split": "chunkset (556 chunks)",
+    "filter": null,
+    "fields": {
+      "input": "all_text",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "unknown (no license file in the repository)",
+    "access_checked": true,
+    "size_mb": 37,
+    "file_url": "https://raw.githubusercontent.com/mitdbg/scivar/main/benchmark/chunkset/askem_variable_dataset.json",
+    "fields_paper": {
+      "input": "all_text",
+      "label": "annotation records per chunk with type (variable description / variable value), highlighted text and span (key names unverified)",
+      "id": "chunk index"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Please extract variable names and descriptions from the following paper text.\nHere is some paper text:\n{text}\nThis text may contain model related variables or parameters, their initial values and what they mean. If it does, list each of the variables on a separate line with the following attributes separated by \"|\":\nname | description | numerical value.\nIf the variable's value uses other variables or there is no value for the variable, output \"None\" for that variable value; do not hallucinate a variable value or variable description that does not exist in the text.",
+    "placeholders": {
+      "text": "items.all_text"
+    },
+    "few_shot": "none (the 3-shot variant is a different Table 1 row)",
+    "source_location": "Figure 4 (prompt templates for variable extraction; black-font standard template)",
+    "verbatim": "partial (the sentence 'You may refer to the provided tool extractions for your reference.' and the [TOOL EXTRACTION] paragraph belong to the tool-enhanced variant and are omitted; [OPTIONAL EXAMPLES] omitted for the pure setup)",
+    "placeholders_paper": {
+      "text": "items.all_text"
+    }
+  },
+  "output": {
+    "parse": "regex ^(.+?)\\s*\\|\\s*(.+?)\\s*\\|\\s*(.+?)$",
+    "postprocess": "build prediction entries of type 'var desc' (name + description) and 'var val' (name + value, value != None); for each chunk form the Cartesian product of predictions and gold entries of the same type and ask the judge 'y'/'n'",
+    "parse_paper": "regex per line ^(.+?)\\s*\\|\\s*(.+?)\\s*\\|\\s*(.+?)$ -> (name, description, value); value 'None' means no value entry"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "recall = share of gold entries with at least one judged match, precision = share of predicted entries with at least one judged match, F1 = harmonic mean (Sec. 'Evaluation Metrics'), pooled over all chunks",
+    "judge": "llm:gpt-4-turbo-2024-04-09, prompt location Figure 6 ('You are a human evaluator. The following pair of text describes a variable and its description/value.\\n{a}\\n{b}\\nPlease check if they mean the same. Answer y or n.')",
+    "original_value": 0.491,
+    "original_location": "Table 1, row pureGPT4T, Overall F1",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 589,
+    "est_usd": 9.16,
+    "tier": "high",
+    "est_usd_prepare": 9.16,
+    "prepare_note": "runner --prepare 2026-09-07: est_usd_prepare counts <=400 output tokens per free-text call (runner out_guess); est_usd_dryrun_max_tokens counts the full max_tokens",
+    "est_usd_dryrun_max_tokens": 20.19
+  },
+  "open_points": [],
+  "notes": "556 extraction calls (~$0.02) plus roughly 30K judge pairs at one output token (~$0.002 each). Cost is dominated by the judge. || [hook 2026-09-07] load_items() uses all 589 chunks of askem_variable_dataset.json (they carry exactly the paper's 2,083 annotations: 1,236 var desc + 847 var val; the paper's chunk count 556 is not reproducible from the file); parse() reads 'name | description | value' lines into 'var desc' (name | description) and 'var val' (name | value != None) entries; judge_requests() forms the per-chunk, per-type Cartesian product of prediction and gold entries and asks gpt-4-turbo-2024-04-09 with the Figure 6 prompt (temperature 0, max_tokens 1, y/n) - run with --judge after --run, roughly 25-35K one-token calls (~$25-30); score_with_judge() = pooled recall/precision/F1 (value), per-chunk averages printed. score() without the judge stage raises a message.",
+  "hook": {
+    "path": "harness/tierb/hooks/W4404985489.py",
+    "functions": [
+      "load_items",
+      "parse",
+      "judge_requests",
+      "score_with_judge",
+      "score"
+    ],
+    "prepared": "2026-09-07 --prepare --dry-run ok (no API calls)"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4407571428",
+  "title": "The Stochastic Parrot on LLM's Shoulder: A Summative Assessment of Physical Concept Understanding",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 and GPT-4v (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4: 'GPT-4 and GPT-4v (gpt-4-turbo-2024-04-09), GPT-4o (gpt-4o-2024-05-13) ... default inference configurations ... run each experiment 3 times'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix, Figure 7 (RQ3 text-grid prompt template); Figure 8 (visual variant); Figures 4-5 (low-level subtasks)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (%), PhysiCo-CORE-Test, text-only, mean of 3 runs",
+    "value": 28.2,
+    "n_items": 200,
+    "location": "Table 3, text-only block, row GPT-4, column CORE-Test (28.2 +/- 2.3)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PhysiCo benchmark (physico-benchmark.github.io): CORE-Dev 200, CORE-Test 200, ASSOCIATIVE 200 four-choice items"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Also gpt-4o-2024-05-13 (31.3 text), o1-2024-12-17 (42.5 visual) and o3-mini-2025-01-31 (46.5, single run). Grid inputs are long text matrices, hence the mid cost tier for 3 x 3 runs."
+}

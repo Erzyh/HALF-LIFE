@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7139147531",
+  "title": "LLMs learn scientific taste from institutional traces across the social sciences",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "SI: 'Management base-architecture cells in ST13 (Qwen3-30B-A3B base 22.5%; Qwen3-4B base 26.7%; GPT-4.1-nano base 25.0%) ... first-token log-probability resolver'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Supplementary Methods 2 (SM2): pre-specified general social-science evaluation prompt; management expert-rubric prompt",
+    "note": "Base controls used the general prompt zero-shot with a deterministic first-token log-probability resolver."
+  },
+  "claim": {
+    "metric": "four-class accuracy (%)",
+    "value": 25.0,
+    "n_items": 120,
+    "location": "Table ST13c, row Management, column Base accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Benchmark pitches, labels and predictions in the reproducibility package github.com/FutureTech-OB/ai-taste (CC BY)"
+  },
+  "cost": {
+    "est_calls": 120,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Headline results are fine-tuned (SFT) GPT-4.1-nano (57.5% management) and need OpenAI fine-tuning; only the un-fine-tuned base control is Tier-B. Base accuracy is at chance (25%), so the claim is weak but checkable; the logprob resolver must be replicated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Take the 120 management pitches with tier labels from the CC BY reproducibility package named in the paper (github.com/FutureTech-OB/ai-taste); send the SM2 general evaluation prompt plus pitch to gpt-4.1-nano-2025-04-14 with logprobs enabled and, at the first decoded token, softmax over the four tier tokens (exceptional, strong, fair, limited), argmax with the alphabetical tie-break of SM2; four-class accuracy vs 25.0% (ST13c, Management, Base).",
+    "approximation": "Restricted-vocabulary first-token scoring is emulated through the chat API's top-k logprobs (tokens outside the top-k get zero mass); the value sits at chance, so agreement is weakly informative.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

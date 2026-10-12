@@ -1,0 +1,548 @@
+{
+  "original": {
+    "pass@1": 0.47368421052631576,
+    "ci95": [
+      0.37719298245614036,
+      0.5701754385964912
+    ],
+    "n_samples": 570
+  },
+  "reexecution": {
+    "pass@1": 0.4807017543859649,
+    "ci95": [
+      0.3736842105263158,
+      0.5807017543859649
+    ],
+    "n_samples": 570
+  },
+  "environment_reference_passk": {
+    "pass@1": 1.0
+  },
+  "task_level": {
+    "n_tasks": 57,
+    "within_0.2_of_original": 46,
+    "majority_flipped": [
+      "binary_closing",
+      "convolve_images",
+      "count_objects_over_time",
+      "measure_properties_of_regions",
+      "rotate_image_by_90_degrees",
+      "transpose_image_axes"
+    ]
+  },
+  "rows": [
+    {
+      "task": "apply_otsu_threshold_and_count_postiive_pixels",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "binary_closing",
+      "orig_n": 10,
+      "orig_c": 4,
+      "orig_rate": 0.4,
+      "ours_n": 10,
+      "ours_c": 5,
+      "ours_rate": 0.5
+    },
+    {
+      "task": "binary_skeleton",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 6,
+      "ours_rate": 0.6
+    },
+    {
+      "task": "bland_altman",
+      "orig_n": 10,
+      "orig_c": 10,
+      "orig_rate": 1.0,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "combine_columns_of_tables",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 8,
+      "ours_rate": 0.8
+    },
+    {
+      "task": "convex_hull_measure_area",
+      "orig_n": 10,
+      "orig_c": 9,
+      "orig_rate": 0.9,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "convolve_images",
+      "orig_n": 10,
+      "orig_c": 5,
+      "orig_rate": 0.5,
+      "ours_n": 10,
+      "ours_c": 4,
+      "ours_rate": 0.4
+    },
+    {
+      "task": "count_number_of_touching_neighbors",
+      "orig_n": 10,
+      "orig_c": 6,
+      "orig_rate": 0.6,
+      "ours_n": 10,
+      "ours_c": 5,
+      "ours_rate": 0.5
+    },
+    {
+      "task": "count_objects_over_time",
+      "orig_n": 10,
+      "orig_c": 5,
+      "orig_rate": 0.5,
+      "ours_n": 10,
+      "ours_c": 2,
+      "ours_rate": 0.2
+    },
+    {
+      "task": "count_overlapping_regions",
+      "orig_n": 10,
+      "orig_c": 10,
+      "orig_rate": 1.0,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "create_umap",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 9,
+      "ours_rate": 0.9
+    },
+    {
+      "task": "crop_quarter_image",
+      "orig_n": 10,
+      "orig_c": 7,
+      "orig_rate": 0.7,
+      "ours_n": 10,
+      "ours_c": 6,
+      "ours_rate": 0.6
+    },
+    {
+      "task": "deconvolve_image",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "detect_edges",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "expand_labels_without_overlap",
+      "orig_n": 10,
+      "orig_c": 1,
+      "orig_rate": 0.1,
+      "ours_n": 10,
+      "ours_c": 1,
+      "ours_rate": 0.1
+    },
+    {
+      "task": "extract_surface_measure_area",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "fit_circle",
+      "orig_n": 10,
+      "orig_c": 9,
+      "orig_rate": 0.9,
+      "ours_n": 10,
+      "ours_c": 7,
+      "ours_rate": 0.7
+    },
+    {
+      "task": "label_binary_image_and_count_labels",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 9,
+      "ours_rate": 0.9
+    },
+    {
+      "task": "label_sequentially",
+      "orig_n": 10,
+      "orig_c": 7,
+      "orig_rate": 0.7,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "list_image_files_in_folder",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 3,
+      "ours_rate": 0.3
+    },
+    {
+      "task": "map_pixel_count_of_labels",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "mask_image",
+      "orig_n": 10,
+      "orig_c": 3,
+      "orig_rate": 0.3,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "maximum_intensity_projection",
+      "orig_n": 10,
+      "orig_c": 10,
+      "orig_rate": 1.0,
+      "ours_n": 10,
+      "ours_c": 9,
+      "ours_rate": 0.9
+    },
+    {
+      "task": "mean_squared_error",
+      "orig_n": 10,
+      "orig_c": 1,
+      "orig_rate": 0.1,
+      "ours_n": 10,
+      "ours_c": 2,
+      "ours_rate": 0.2
+    },
+    {
+      "task": "mean_std_column",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "measure_aspect_ratio_of_regions",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "measure_intensity_of_labels",
+      "orig_n": 10,
+      "orig_c": 2,
+      "orig_rate": 0.2,
+      "ours_n": 10,
+      "ours_c": 3,
+      "ours_rate": 0.3
+    },
+    {
+      "task": "measure_intensity_over_time",
+      "orig_n": 10,
+      "orig_c": 9,
+      "orig_rate": 0.9,
+      "ours_n": 10,
+      "ours_c": 9,
+      "ours_rate": 0.9
+    },
+    {
+      "task": "measure_mean_image_intensity",
+      "orig_n": 10,
+      "orig_c": 7,
+      "orig_rate": 0.7,
+      "ours_n": 10,
+      "ours_c": 7,
+      "ours_rate": 0.7
+    },
+    {
+      "task": "measure_pixel_count_of_labels",
+      "orig_n": 10,
+      "orig_c": 2,
+      "orig_rate": 0.2,
+      "ours_n": 10,
+      "ours_c": 1,
+      "ours_rate": 0.1
+    },
+    {
+      "task": "measure_properties_of_regions",
+      "orig_n": 10,
+      "orig_c": 4,
+      "orig_rate": 0.4,
+      "ours_n": 10,
+      "ours_c": 7,
+      "ours_rate": 0.7
+    },
+    {
+      "task": "open_image_read_voxel_size",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "open_image_return_dimensions",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "open_nifti_image",
+      "orig_n": 10,
+      "orig_c": 10,
+      "orig_rate": 1.0,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "open_zarr",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "pair_wise_correlation_matrix",
+      "orig_n": 10,
+      "orig_c": 10,
+      "orig_rate": 1.0,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "radial_intensity_profile",
+      "orig_n": 10,
+      "orig_c": 7,
+      "orig_rate": 0.7,
+      "ours_n": 10,
+      "ours_c": 8,
+      "ours_rate": 0.8
+    },
+    {
+      "task": "region_growing_segmentation",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 1,
+      "ours_rate": 0.1
+    },
+    {
+      "task": "remove_labels_on_edges",
+      "orig_n": 10,
+      "orig_c": 7,
+      "orig_rate": 0.7,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "remove_noise_edge_preserving",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "remove_small_labels",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 9,
+      "ours_rate": 0.9
+    },
+    {
+      "task": "return_hello_world",
+      "orig_n": 10,
+      "orig_c": 10,
+      "orig_rate": 1.0,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "rgb_to_grey_image_transform",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "rotate_image_by_90_degrees",
+      "orig_n": 10,
+      "orig_c": 6,
+      "orig_rate": 0.6,
+      "ours_n": 10,
+      "ours_c": 4,
+      "ours_rate": 0.4
+    },
+    {
+      "task": "subsample_image",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 9,
+      "ours_rate": 0.9
+    },
+    {
+      "task": "subtract_background_tophat",
+      "orig_n": 10,
+      "orig_c": 3,
+      "orig_rate": 0.3,
+      "ours_n": 10,
+      "ours_c": 1,
+      "ours_rate": 0.1
+    },
+    {
+      "task": "sum_images",
+      "orig_n": 10,
+      "orig_c": 1,
+      "orig_rate": 0.1,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    },
+    {
+      "task": "sum_intensity_projection",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 7,
+      "ours_rate": 0.7
+    },
+    {
+      "task": "t_test",
+      "orig_n": 10,
+      "orig_c": 10,
+      "orig_rate": 1.0,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "tiled_image_processing",
+      "orig_n": 10,
+      "orig_c": 2,
+      "orig_rate": 0.2,
+      "ours_n": 10,
+      "ours_c": 2,
+      "ours_rate": 0.2
+    },
+    {
+      "task": "transpose_image_axes",
+      "orig_n": 10,
+      "orig_c": 6,
+      "orig_rate": 0.6,
+      "ours_n": 10,
+      "ours_c": 4,
+      "ours_rate": 0.4
+    },
+    {
+      "task": "workflow_batch_process_folder_count_labels",
+      "orig_n": 10,
+      "orig_c": 1,
+      "orig_rate": 0.1,
+      "ours_n": 10,
+      "ours_c": 4,
+      "ours_rate": 0.4
+    },
+    {
+      "task": "workflow_batch_process_folder_measure_intensity",
+      "orig_n": 10,
+      "orig_c": 5,
+      "orig_rate": 0.5,
+      "ours_n": 10,
+      "ours_c": 8,
+      "ours_rate": 0.8
+    },
+    {
+      "task": "workflow_segment_measure_umap",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 8,
+      "ours_rate": 0.8
+    },
+    {
+      "task": "workflow_segmentation_counting",
+      "orig_n": 10,
+      "orig_c": 8,
+      "orig_rate": 0.8,
+      "ours_n": 10,
+      "ours_c": 6,
+      "ours_rate": 0.6
+    },
+    {
+      "task": "workflow_segmentation_measurement_summary",
+      "orig_n": 10,
+      "orig_c": 9,
+      "orig_rate": 0.9,
+      "ours_n": 10,
+      "ours_c": 10,
+      "ours_rate": 1.0
+    },
+    {
+      "task": "workflow_watershed_segmentation_correction_measurement",
+      "orig_n": 10,
+      "orig_c": 0,
+      "orig_rate": 0.0,
+      "ours_n": 10,
+      "ours_c": 0,
+      "ours_rate": 0.0
+    }
+  ]
+}

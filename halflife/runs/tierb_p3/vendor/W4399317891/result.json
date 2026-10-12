@@ -1,0 +1,56 @@
+{
+  "wid": "W4399317891",
+  "title": "OR-Bench: An Over-Refusal Benchmark for Large Language Models",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 12.7,
+  "original_location": "Table 2, row GPT-4-turbo-2024-04-09, column overall",
+  "reexecution": {
+    "mean_over_seeds": 0.1598639455782313,
+    "per_seed": {
+      "0": {
+        "value": 0.1598639455782313,
+        "n": 294,
+        "ci95": [
+          0.11904761904761904,
+          0.20408163265306123
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399317891",
+    "n_items": 295,
+    "n_requests": 295,
+    "seeds": 1,
+    "est_usd": 5.94,
+    "subset_note": "cost cap $5.95: seeded random subset of 295 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 12.7,
+    "cap_usd": 5.95
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Refusal judge substituted: gpt-4-turbo-2024-04-09 stands in for the undated 'GPT-4' judge (resolution plan); the paper reports keyword matching within about 2 points of the judge, so the Appendix M keyword rule is run as a cross-check.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4399317891"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 15.98639455782313,
+    "delta": 3.2863945578231313,
+    "original_inside_ci95": true
+  }
+}

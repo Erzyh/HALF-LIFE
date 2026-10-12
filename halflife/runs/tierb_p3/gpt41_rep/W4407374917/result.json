@@ -1,0 +1,66 @@
+{
+  "wid": "W4407374917",
+  "title": "Large language models possess some ecological knowledge, but how much?",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 78.0,
+  "original_location": "Table 1, row GPT-4o, Task 1a Mean Acc. (78.0 +/- 11.9 %, 0 invalid)",
+  "reexecution": {
+    "mean_over_seeds": 0.78781179138322,
+    "per_seed": {
+      "0": {
+        "value": 0.7888888888888889,
+        "n": 100,
+        "ci95": [
+          0.7666666666666666,
+          0.8121212121212121
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7867346938775511,
+        "n": 100,
+        "ci95": [
+          0.7642857142857143,
+          0.8102040816326531
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 3
+  },
+  "prepare": {
+    "wid": "W4407374917",
+    "n_items": 100,
+    "n_requests": 200,
+    "seeds": 2,
+    "est_usd": 0.46,
+    "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 78.0,
+    "cap_usd": 1.14,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4407374917"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 42
+  },
+  "approximation": "none (species, locations and ground truth are released; the model snapshot is the paper's)",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4407374917"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 78.781179138322,
+    "delta": 0.7811791383220026,
+    "original_inside_ci95": true
+  }
+}

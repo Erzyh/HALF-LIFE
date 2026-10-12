@@ -1,0 +1,94 @@
+{
+  "wid": "W7140099019",
+  "title": "When Does Auxiliary Modality Matter in Solving Geometric Problems? A Comprehensive Study of Textual, Formal, and Visual Modalities",
+  "status": "needs_human",
+  "model": {
+    "id": "o4-mini-2025-04-16",
+    "params": {
+      "temperature": null,
+      "max_tokens": null,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "assumed (paper silent on decoding; o4-mini defaults)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 601,
+    "subset_rule": "paper-defined split: Geometry3K test set (601 problems)",
+    "approximation": "three runs instead of the paper's five; the secondary equivalence check uses gemini-2.0-flash-lite if still callable, otherwise o4-mini-2025-04-16 with the same Figure 7 prompt (resolution plan); the hiyouga/geometry3k mirror stores answers as strings that may differ in form from the authors' copy"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "hiyouga/geometry3k",
+    "config_or_split": "default / test (601 rows)",
+    "filter": null,
+    "fields": {
+      "input": "problem",
+      "images": "images",
+      "label": "answer"
+    },
+    "license": "mit",
+    "access_checked": true,
+    "size_mb": 61,
+    "hf": {
+      "dataset": "hiyouga/geometry3k",
+      "config": "default",
+      "split": "test"
+    },
+    "fields_prose": {
+      "input": "images (diagram) and problem",
+      "label": "answer",
+      "id": "row index"
+    },
+    "label_map": null,
+    "hf_verified": "Hub parquet listing: default/train, validation, test (parquet not downloaded: 61 MB with embedded images; column names from the dataset card)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Using the provided geometric image and question, always end with the final answer in the following format:\nThe final answer is: \\boxed{{your_answer}}\nThe question is:\n{question}",
+    "placeholders": {
+      "image": "attach items.images[0] as an image content part before the text (NOT expressible)",
+      "question": "items.problem"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix, Figure 8 (geometry problem-solving prompt), baseline condition without the CDL / TCDL / DES / IMG segments",
+    "verbatim": "full (auxiliary-modality segments omitted for the baseline as the caption specifies)",
+    "placeholders_prose": {
+      "image": "the original geometric diagram attached first (Figure 8: 'Prompt begins with the geometric diagram as input')",
+      "question": "items.problem",
+      "{{your_answer}}": "literal doubled braces as printed (Python-format escaping of the boxed answer)"
+    }
+  },
+  "output": {
+    "parse": "regex \\\\boxed\\{([^{}]*)\\}",
+    "postprocess": "normalise (strip $, spaces, degree signs, trailing units); exact string match against answer; residual mismatches go to the equivalence judge which answers True/False",
+    "parse_prose": "regex \\\\boxed\\{([^{}]*)\\} (last occurrence)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 601 problems whose boxed answer matches the ground truth after normalisation or is judged mathematically equivalent, in percent, averaged over runs",
+    "judge": "llm:gemini-2.0-flash-lite (substitute o4-mini-2025-04-16 if retired), prompt location Appendix Figure 7 (mathematical equivalence prompt, output True/False)",
+    "original_value": 77.9,
+    "original_location": "Appendix Table 1, Geometry3k block, row Baseline, column GPT-o4-mini 2025-04-16 (mean of five runs)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1803,
+    "est_usd": 27.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "Image input: the Geometry3K diagram must be attached to the user message (text-only runner).",
+    "Runner defect: the unfilled-slot check rejects the literal '\\boxed{your_answer}' of the Figure 8 prompt; a hook render() would bypass it, but the image blocker remains.",
+    "Residual mismatches go to an equivalence judge on gemini-2.0-flash-lite (not callable through the battery's OpenAI client; aux model, substitute o4-mini per the resolution plan); the parse must keep the LAST boxed answer."
+  ],
+  "notes": "The CSV tier is high (five runs); with three runs and ~$0.015 per image call the cost is mid. The equivalence-judge calls (mismatches only) are a small extra. || [hook pass 2026-09-07] no hook: image input.",
+  "runner_gaps": [
+    "prompt: image attachment placeholder",
+    "prompt: literal braces in the rendered text",
+    "metric: LLM judge stage"
+  ]
+}

@@ -1,0 +1,6 @@
+﻿rule,dependent_papers,no_dated_event,born_dead,in_curve,pct_lost_by_today,weighting,median_months,q25_months,q75_months
+first retirement among every named identifier (census rule),360,0.0,75.0,285.0,64.9,unweighted,9.5,4.4,15.7
+first retirement among every named identifier (census rule),360,0.0,75.0,285.0,64.9,post-stratified to the sampling frame,9.5,4.5,15.7
+first retirement among the identifiers coded as executed,360,0.0,69.0,291.0,61.2,unweighted,10.2,4.7,15.9
+first retirement among the identifiers coded as executed,360,0.0,69.0,291.0,61.2,post-stratified to the sampling frame,10.2,4.9,15.9
+comparison on papers with both events,360,,,,,"executed-only event later than the census event in 29 papers, identical in 331",,,

@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4405033839",
+  "title": "The Promise and Peril of Generative AI: Evidence from GPT as Sell-Side Analysts",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "quarters after GPT-4 Turbo's knowledge cutoff date of April 30, 2023 (Section 2.1); 'We use GPT-4 Turbo in our main analysis' (Section 4.5.2)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Internet Appendix Tables IA1-IA2 and IA7 (not part of the paper text)",
+    "note": "Three-stage prompt is described in Section 2.2 but the full text is only in the Internet Appendix."
+  },
+  "claim": {
+    "metric": "directional accuracy of one-year-ahead GAAP EPS forecast (explicit direction prompt)",
+    "value": 0.477,
+    "n_items": 7114,
+    "location": "Section 4.5.3 text (untabulated); 49.3% when direction is inferred from numeric forecasts",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Earnings press releases from EDGAR 8-K Item 2.02 (public); actual EPS and analyst forecasts from Compustat/CRSP/I-B-E-S (licensed)"
+  },
+  "cost": {
+    "est_calls": 21342,
+    "tier": "high"
+  },
+  "blockers": [
+    "dead_alias",
+    "data_closed",
+    "no_prompt"
+  ],
+  "notes": "The stated April 2023 knowledge cutoff matches gpt-4-1106-preview/gpt-4-0125-preview, not gpt-4-turbo-2024-04-09 (Dec 2023 cutoff), so the runs used a retired preview. Main results are regression coefficients; each call carries a full press release plus 10 financial statements."
+}

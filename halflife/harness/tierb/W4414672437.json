@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4414672437",
+  "title": "Artificial Intelligence in Pediatric Urology: Accuracy and Consistency of ChatGPT's Responses on Hypospadias",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Each question was entered sequentially into ChatGPT (GPT-4-turbo, OpenAI) ... All questions were submitted to ChatGPT (GPT-4-turbo, OpenAI) between March 1 and March 15, 2025, using separate browser sessions\" (Methods)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Methods (question curation/categorization described; individual questions not all quoted)", "note": "Each question asked twice via separate browser sessions/devices for reproducibility scoring."},
+  "claim": {
+    "metric": "4-point expert rating scale score (1=Completely correct ... 4=Completely incorrect), pooled across hypospadias questions", "value": null, "n_items": null,
+    "location": "Results (per-domain and per-question scoring tables)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {"public": "no", "source": "Author-curated clinical questions based on AUA/EAU hypospadias guidelines; not released as a dataset"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["webui"],
+  "notes": "Explicitly uses the ChatGPT web interface via separate browser sessions (not the API), and grading is a subjective 1-4 expert rating rather than an automatically-checkable numeric answer."
+}

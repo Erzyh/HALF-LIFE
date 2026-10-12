@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7165816542",
+  "title": "A11YRepair: Bridging Web Accessibility Barriers via Knowledge-Enhanced Divide-and-Conquer Repair",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini-2025-04-16",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Sec. 5.2: 'We use o4-mini-2025-04-16 [47] as the chat model and text-embedding-3-small [48] as the embedding model'; Table 5: 'o4-mini 78.15% 172 $59.43'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Prompts are in the artifact (website / Figshare), not in the paper",
+    "note": ""
+  },
+  "claim": {
+    "metric": "violation solve rate (%) on A11YBench-Lite",
+    "value": 78.15,
+    "n_items": 2622,
+    "location": "Table 3 total row / Table 5 row o4-mini (2,622 violations over 10 repositories)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "A11YBench-Lite (10 open-source repositories) scored with the IBM A11Y Checker; artifact on Figshare"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Multi-stage agentless repair pipeline (localisation, WCAG knowledge retrieval, divide-and-conquer patching) needs the artifact code; a full run cost the authors $59.43."
+}

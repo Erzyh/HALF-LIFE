@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416095533",
+  "title": "ChatGPT for automated grading of short-answer questions in mechanical ventilation examinations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT 4o API (model 'gpt-4-turbo')",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Methods: 'submitted together as prompts to the ChatGPT 4o API (model \"gpt-4-turbo\"), with maximum token value of 4,000 and a temperature setting of 0.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix 'Prompt' (grading instruction text printed)",
+    "note": "Question stems and rubrics are part of the closed course material."
+  },
+  "claim": {
+    "metric": "mean difference LLM minus human grade (10-point scale)",
+    "value": -1.34,
+    "n_items": 557,
+    "location": "Abstract and Table 2 (mean difference -1.34; ICC1=0.086; Cohen's kappa=-0.0786)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "557 de-identified student answers, rubrics and human grades from a University of Sydney postgraduate course (not released)"
+  },
+  "cost": {
+    "est_calls": 1671,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Model naming is contradictory ('ChatGPT 4o API' with model id gpt-4-turbo); five sessions were run to measure session variance."
+}

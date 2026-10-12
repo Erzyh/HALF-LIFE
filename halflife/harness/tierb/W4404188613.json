@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4404188613",
+  "title": "Knowledge Graph Modeling-Driven Large Language Model Operating System (LLM OS) for Task Automation in Process Engineering Problem-Solving",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (listed separately from GPT-4-1106)",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "Table 2 (MathComp): 'GPT-4 Turbo 87.54 82.80 84.67' and 'GPT-4-1106 76.65 72.77 74.91' (Tool Usage Awareness, Pass Rate, Acc)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not printed (framework and evaluation criteria described only)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "task-planning accuracy (%) on MathComp",
+    "value": 84.67,
+    "n_items": null,
+    "location": "Table 2, MathComp block, row GPT-4 Turbo, Acc column",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Custom MathComp (8,500 QA pairs) and ChemProc (7,000 QA pairs) datasets compiled from textbooks; no release link"
+  },
+  "cost": {
+    "est_calls": 2000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt",
+    "dead_alias"
+  ],
+  "notes": "'GPT-4 Turbo' sits next to a separate 'GPT-4-1106' row, so the alias is ambiguous (0125-preview or the 2024-04-09 GA). Metrics are framework-specific (tool usage awareness, pass rate) and partly human-rated without a printed protocol."
+}

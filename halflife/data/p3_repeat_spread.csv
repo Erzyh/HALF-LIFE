@@ -1,0 +1,81 @@
+﻿condition,arm,wid,title,metric,original,calls,values_pts,range_pts,sd_pts,classes,class_stable,repeat_done
+designated replacement,vendor,W4399911093,Leveraging Large Language Models to Measure Gender Representation Bias,custom,90.24,3,94.51; 94.71; 94.71,0.21,0.1,근접; 근접; 근접,True,True
+designated replacement,vendor,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledg,accuracy,86.7,3,85.47; 87.18; 85.90,1.71,0.73,재현; 재현; 재현,True,True
+designated replacement,vendor,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities,accuracy,19.6,3,69.94; 72.25; 68.79,3.47,1.44,편차; 편차; 편차,True,True
+designated replacement,vendor,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,3,90.78; 90.59; 90.98,0.39,0.16,편차; 편차; 편차,True,True
+designated replacement,vendor,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Biology Resea,accuracy,0.12,3,0.54; 0.51; 0.49,0.05,0.02,재현; 재현; 재현,True,True
+designated replacement,vendor,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,3,55.72; 62.08; 52.54,9.53,3.96,재현; 재현; 재현,True,True
+designated replacement,vendor,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's ,accuracy,40.1,3,100.00; 100.00; 99.83,0.17,0.08,편차; 편차; 편차,True,True
+designated replacement,vendor,W4403786592,A Comprehensive Evaluation of Large Language Models on Mental Illnesse,custom,39.6,3,37.80; 37.00; 36.60,1.2,0.5,재현; 재현; 재현,True,True
+designated replacement,vendor,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,3,0.99; 0.98; 0.98,0.01,0.0,재현; 재현; 재현,True,True
+designated replacement,vendor,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLMs in Disas,accuracy,0.817,3,0.92; 0.91; 0.91,0.01,0.0,재현; 재현; 재현,True,True
+designated replacement,vendor,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Mod,accuracy,75.28,3,87.12; 87.12; 87.55,0.43,0.2,편차; 편차; 편차,True,True
+designated replacement,vendor,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Context Pert,accuracy,61.2,3,78.20; 78.40; 78.20,0.2,0.09,편차; 편차; 편차,True,True
+designated replacement,vendor,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure,custom,31.36,3,31.70; 33.00; 31.90,1.3,0.57,재현; 재현; 재현,True,True
+designated replacement,vendor,W4407374917,"Large language models possess some ecological knowledge, but how much?",custom,78.0,3,81.60; 82.40; 82.50,0.9,0.4,근접; 근접; 근접,True,True
+designated replacement,vendor,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Ca,custom,0.683,3,0.71; 0.71; 0.69,0.02,0.01,재현; 재현; 재현,True,True
+designated replacement,vendor,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarization by Mod,custom,55.96,3,60.05; 60.34; 60.56,0.52,0.21,근접; 근접; 근접,True,True
+designated replacement,vendor,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Capabilities ,custom,0.57,3,0.90; 0.89; 0.88,0.02,0.01,재현; 재현; 재현,True,True
+designated replacement,vendor,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decisi,custom,0.107,3,0.06; 0.29; 0.24,0.23,0.1,재현; 재현; 재현,True,True
+designated replacement,vendor,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Framework for,accuracy,0.72,3,0.76; 0.72; 0.76,0.04,0.02,재현; 재현; 재현,True,True
+designated replacement,vendor,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiov,accuracy,60.1,3,75.21; 76.58; 76.24,1.37,0.58,편차; 편차; 편차,True,True
+gpt-4.1,gpt41,W4399911093,Leveraging Large Language Models to Measure Gender Representation Bias,custom,90.24,3,84.16; 84.19; 83.42,0.77,0.36,편차; 편차; 편차,True,True
+gpt-4.1,gpt41,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledg,accuracy,86.7,3,84.58; 85.00; 84.17,0.83,0.34,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities,accuracy,19.6,3,15.20; 16.40; 16.00,1.2,0.5,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,3,83.21; 83.94; 84.67,1.46,0.6,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Biology Resea,accuracy,0.12,3,0.39; 0.39; 0.38,0.01,0.0,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,3,52.54; 52.54; 52.54,0.0,0.0,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's ,accuracy,40.1,3,36.33; 36.83; 37.33,1.0,0.41,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4403786592,A Comprehensive Evaluation of Large Language Models on Mental Illnesse,custom,39.6,3,32.40; 32.70; 32.80,0.4,0.17,편차; 편차; 편차,True,True
+gpt-4.1,gpt41,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,3,0.99; 0.99; 0.99,0.0,0.0,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLMs in Disas,accuracy,0.817,3,0.87; 0.87; 0.87,0.01,0.0,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Mod,accuracy,75.28,3,67.08; 67.92; 66.25,1.67,0.68,편차; 편차; 편차,True,True
+gpt-4.1,gpt41,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Context Pert,accuracy,61.2,3,75.20; 75.20; 75.40,0.2,0.09,편차; 편차; 편차,True,True
+gpt-4.1,gpt41,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure,custom,31.36,3,37.30; 35.60; 34.90,2.4,1.01,편차; 근접; 근접,False,True
+gpt-4.1,gpt41,W4407374917,"Large language models possess some ecological knowledge, but how much?",custom,78.0,3,78.37; 78.89; 78.67,0.52,0.21,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Ca,custom,0.683,3,0.72; 0.70; 0.70,0.02,0.01,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarization by Mod,custom,55.96,3,55.42; 55.43; 55.42,0.01,0.01,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Capabilities ,custom,0.57,3,0.70; 0.71; 0.72,0.02,0.01,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decisi,custom,0.107,3,0.53; 0.54; 0.60,0.07,0.03,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Framework for,accuracy,0.72,3,0.72; 0.72; 0.72,0.0,0.0,재현; 재현; 재현,True,True
+gpt-4.1,gpt41,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiov,accuracy,60.1,3,60.34; 61.54; 61.88,1.54,0.66,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4399911093,Leveraging Large Language Models to Measure Gender Representation Bias,custom,90.24,3,80.31; 80.55; 81.94,1.63,0.72,편차; 편차; 편차,True,True
+open-weight Llama 3.3 70B,open70b,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledg,accuracy,86.7,3,85.00; 84.58; 86.25,1.67,0.71,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities,accuracy,19.6,3,0.00; 0.00; 0.00,0.0,0.0,편차; 편차; 편차,True,True
+open-weight Llama 3.3 70B,open70b,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,3,72.32; 71.68; 72.65,0.97,0.4,편차; 편차; 편차,True,True
+open-weight Llama 3.3 70B,open70b,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Biology Resea,accuracy,0.12,3,0.32; 0.34; 0.32,0.03,0.01,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,3,57.30; 57.30; 57.30,0.0,0.0,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's ,accuracy,40.1,3,60.33; 61.00; 59.83,1.17,0.48,편차; 편차; 편차,True,True
+open-weight Llama 3.3 70B,open70b,W4403786592,A Comprehensive Evaluation of Large Language Models on Mental Illnesse,custom,39.6,3,33.90; 33.60; 33.70,0.3,0.12,편차; 편차; 편차,True,True
+open-weight Llama 3.3 70B,open70b,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,3,0.97; 0.96; 0.96,0.01,0.01,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLMs in Disas,accuracy,0.817,3,0.84; 0.84; 0.84,0.0,0.0,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Mod,accuracy,75.28,3,77.08; 77.92; 78.75,1.67,0.68,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Context Pert,accuracy,61.2,3,75.60; 76.20; 76.00,0.6,0.25,편차; 편차; 편차,True,True
+open-weight Llama 3.3 70B,open70b,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure,custom,31.36,3,10.00; 10.00; 10.00,0.0,0.0,편차; 편차; 편차,True,True
+open-weight Llama 3.3 70B,open70b,W4407374917,"Large language models possess some ecological knowledge, but how much?",custom,78.0,3,71.35; 73.47; 70.93,2.54,1.11,편차; 근접; 편차,False,True
+open-weight Llama 3.3 70B,open70b,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Ca,custom,0.683,3,0.67; 0.65; 0.66,0.01,0.01,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarization by Mod,custom,55.96,3,57.35; 57.07; 57.07,0.28,0.13,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Capabilities ,custom,0.57,3,0.73; 0.73; 0.72,0.01,0.01,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decisi,custom,0.107,3,0.62; 0.64; 0.60,0.04,0.02,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Framework for,accuracy,0.72,3,0.74; 0.72; 0.74,0.02,0.01,재현; 재현; 재현,True,True
+open-weight Llama 3.3 70B,open70b,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiov,accuracy,60.1,3,75.04; 77.26; 77.26,2.22,1.05,편차; 편차; 편차,True,True
+Gemini 3.8 Flash,gemini_flash,W4399911093,Leveraging Large Language Models to Measure Gender Representation Bias,custom,90.24,3,95.26; 94.45; 93.27,1.98,0.81,편차; 근접; 재현,False,True
+Gemini 3.8 Flash,gemini_flash,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledg,accuracy,86.7,3,86.67; 85.83; 88.33,2.5,1.04,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities,accuracy,19.6,3,80.00; 80.00; 82.40,2.4,1.13,편차; 편차; 편차,True,True
+Gemini 3.8 Flash,gemini_flash,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,3,88.28; 88.28; 87.68,0.61,0.29,편차; 편차; 편차,True,True
+Gemini 3.8 Flash,gemini_flash,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Biology Resea,accuracy,0.12,3,0.49; 0.49; 0.50,0.01,0.0,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,3,50.21; 50.00; 54.45,4.45,2.05,근접; 근접; 재현,False,True
+Gemini 3.8 Flash,gemini_flash,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's ,accuracy,40.1,3,99.50; 99.50; 99.83,0.33,0.16,편차; 편차; 편차,True,True
+Gemini 3.8 Flash,gemini_flash,W4403786592,A Comprehensive Evaluation of Large Language Models on Mental Illnesse,custom,39.6,3,38.60; 38.20; 37.40,1.2,0.5,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,3,0.98; 0.97; 0.97,0.01,0.0,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLMs in Disas,accuracy,0.817,3,0.90; 0.91; 0.91,0.01,0.0,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Mod,accuracy,75.28,3,88.75; 89.58; 90.00,1.25,0.52,편차; 편차; 편차,True,True
+Gemini 3.8 Flash,gemini_flash,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Context Pert,accuracy,61.2,3,68.00; 68.80; 68.80,0.8,0.38,편차; 편차; 편차,True,True
+Gemini 3.8 Flash,gemini_flash,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure,custom,31.36,3,30.60; 29.00; 26.60,4.0,1.64,재현; 재현; 근접,False,True
+Gemini 3.8 Flash,gemini_flash,W4407374917,"Large language models possess some ecological knowledge, but how much?",custom,78.0,3,83.84; 82.45; 84.54,2.09,0.87,편차; 근접; 편차,False,True
+Gemini 3.8 Flash,gemini_flash,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Ca,custom,0.683,3,0.78; 0.76; 0.76,0.02,0.01,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarization by Mod,custom,55.96,3,60.40; 60.42; 60.73,0.32,0.15,근접; 근접; 근접,True,True
+Gemini 3.8 Flash,gemini_flash,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Capabilities ,custom,0.57,3,0.84; 0.86; 0.86,0.02,0.01,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochastic Decisi,custom,0.107,3,0.49; 0.57; 0.51,0.08,0.03,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Framework for,accuracy,0.72,3,0.76; 0.78; 0.80,0.04,0.02,재현; 재현; 재현,True,True
+Gemini 3.8 Flash,gemini_flash,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiov,accuracy,60.1,3,90.94; 91.28; 91.11,0.34,0.14,편차; 편차; 편차,True,True

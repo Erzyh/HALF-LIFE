@@ -1,0 +1,45 @@
+{
+  "openalex_id": "https://openalex.org/W4407394923",
+  "title": "Performance of DeepSeek-R1 in Ophthalmology: An Evaluation of Clinical Decision-Making and Cost-Effectiveness",
+  "doi": "https://doi.org/10.1101/2025.02.10.25322041",
+  "field": "Economics, Econometrics and Finance",
+  "year": "2025",
+  "live_models": "o1-2024-12-17",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/MoonshotAI/Kimi-k1.5",
+    "huggingface.co/deepseek-ai/DeepSeek-R1"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/MoonshotAI/Kimi-k1.5",
+      "cloned": true,
+      "audit": {
+        "n_files": 7,
+        "ext_top": {
+          ".png": 3,
+          ".jpeg": 2,
+          ".pdf": 1,
+          ".md": 1
+        },
+        "has_license": false,
+        "has_requirements": false,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 0,
+        "n_data_files": 0,
+        "files_mentioning_prompt": 0,
+        "files_with_eval_terms": 0,
+        "model_ids_in_code": {
+          "o1": 2,
+          "gpt-4o": 1
+        },
+        "readme_head": "<p align=\"center\">\n  <a href=\"Kimi_k1.5.pdf\"><img width=\"80%\" src=\"images/kimi_k1.5.png\"></a>\n</p>\n\n# Kimi k1.5: Scaling Reinforcement Learning with LLMs\n\n<p align=\"center\">\n  <b>Kimi Team</b></a>\n</p>\n\n\n<p align=\"center\">\n  <a href=\"https://arxiv.org/abs/2501.12599\"><img src=\"images/logo.png\" height=\"16\" width=\"16\" style=\"vertical-align:middle\"><b> Full Report</b></a>\n</p>\n\n🚀 Introducing Kimi k1.5 --- an o1-level multi-modal model\n\n- Sota short-CoT performance, outperforming GPT-4o and Claude Sonnet 3.5 on 📐AIME, 📐MATH-500, 💻 LiveCodeBench by a large margin (up to +550%)\n- Long-CoT performance matches o1 across multiple modalities (👀MathVista, 📐AIME, 💻Codeforces, etc)\n\n<p align=\"center\">\n  <img width=\"100%\" src=\"images/benchmark-long.jpeg\">\n</p>\n\n<p align=\"center\">\n  <img width=\"100%\" src=\"images/benchmark-short.jpeg\">\n</p>\n\n\n## Key Ingredients of Kimi k1.5\n\n<div style=\"display: flex; justify-content: space-between;\">\n  <img src=\"images/system.png\" alt=\"The Reinforcement Learning Training System for LLM\" style=\"width: 100%;\">\n</div>\n\nThere are a few key ingredients about the design and training of k1.5.\n\n\n- **Long context scaling**. We scale the context window of RL to 128k and observe continued improvement of performance with an increased context length. A key idea behind our approach is to use partial rollouts to improve training efficiency---i.e., sampling new trajectories by reusing a large chunk of previous trajectories, avoiding the cost to re-generate the new trajecto"
+      },
+      "commit": "cf9a8785730c7e59d788956e1e40dc9fc31ebf08"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4407394923.txt",
+  "paper_text_status": "pdf"
+}

@@ -1,0 +1,65 @@
+{
+  "wid": "W7166852552",
+  "title": "LexGenius: An Expert-Level Benchmark for Large Language Models in Legal General Intelligence",
+  "model": "gpt-4.1-nano",
+  "metric": "accuracy",
+  "original_value": 46.51,
+  "original_location": "Table 2, row GPT-4.1 nano, column Overall Nai. (CoT: 54.62)",
+  "reexecution": {
+    "mean_over_seeds": 0.48052726183343325,
+    "per_seed": {
+      "0": {
+        "value": 0.48064709406830436,
+        "n": 8345,
+        "ci95": [
+          0.46998202516476933,
+          0.4919143199520671
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.4812462552426603,
+        "n": 8345,
+        "ci95": [
+          0.47081785500299583,
+          0.49251048532055125
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.47968843618933493,
+        "n": 8345,
+        "ci95": [
+          0.46925704014379865,
+          0.4911923307369682
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 16
+  },
+  "prepare": {
+    "wid": "W7166852552",
+    "n_items": 8345,
+    "n_requests": 25035,
+    "seeds": 3,
+    "est_usd": 0.48,
+    "subset_note": null,
+    "model": "gpt-4.1-nano",
+    "metric": "accuracy",
+    "original_value": 46.51
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 9
+  },
+  "approximation": "our own two seeded shuffles (seed 20260907 + item index); the way the Naive instruction and the question/options are joined is not printed; single pass in the released option order (the runner has no seeded option shuffle; the paper averages two shuffled passes)",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 48.052726183343324,
+    "delta": 1.5427261833433263,
+    "original_inside_ci95": false
+  }
+}

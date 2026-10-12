@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416034199",
+  "title": "Guess What I am Thinking: A Benchmark for Inner Thought Reasoning of Role-Playing Language Agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o1",
+    "resolved": "o1-2024-12-17",
+    "role": "S",
+    "evidence": "'The versions in this paper are gpt-4o-2024-11-20, o1-2024-12-17, claude-3-5-sonnet-20241022, gemini-2.5-pro-preview-05-06' (footnote 4, Section 5.2)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (Tables 6-15); Table 8 'Prompt III: Thought Generation' is the task prompt (profile + context + [MASK])",
+    "note": "Prompts for benchmark construction, MIRROR and evaluation are printed in full."
+  },
+  "claim": {
+    "metric": "BLEU (Gold Set, zero-shot profiling)",
+    "value": 5.82,
+    "n_items": 4189,
+    "location": "Table 2, row o1 under Zero-shot, Gold Set text metrics (BLEU 5.82, ROUGE-L 13.15, NLI 32.43; LLM-eval 2.28)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-11-20 (LLM-eval column only; BLEU/ROUGE-L/NLI need no judge)"
+  },
+  "data": {
+    "public": "no",
+    "source": "ROLETHINK benchmark (Gold 4,189 / Silver 1,869 data points from 253/188 characters); no release URL or availability statement in the text"
+  },
+  "cost": {
+    "est_calls": 12567,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Downstream public MCQ benchmarks (LifeChoice 59.77, CROSS-MR 64.24, RoleEval 77.08 accuracy for o1, Table 3) would be re-runnable but their evaluation prompt is not printed."
+}

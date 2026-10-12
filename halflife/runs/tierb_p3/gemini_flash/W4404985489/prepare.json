@@ -1,0 +1,13 @@
+{
+  "wid": "W4404985489",
+  "n_items": 589,
+  "n_requests": 589,
+  "seeds": 1,
+  "est_usd": 2.14,
+  "subset_note": null,
+  "dropped_unrenderable": 0,
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 0.491,
+  "cap_usd": 7.5
+}

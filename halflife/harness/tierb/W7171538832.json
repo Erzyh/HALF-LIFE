@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7171538832",
+ "title": "GPT Fusion: Integrating Convolutional Neural Networks with GPT-5.5 for Melanoma Diagnosis",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (GPT-4T)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Related work: \"Using the Human Against Machine with 10,000 training images (HAM10K) dataset, Sattler et al. evaluated GPT-4 Turbo (GPT-4T) and ChatGPT-4 Omni (GPT-4o), reporting variable diagnostic sensitivity, specificity, and accuracy [18].\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - the result being cited belongs to a different paper (Sattler et al.)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none run by these authors (GPT-4 Turbo's numbers, if any, belong to the cited Sattler et al. study, not reproduced here)",
+  "value": null,
+  "n_items": null,
+  "location": "Related work paragraph only",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ISIC Archive, HAM10K, Derm7pt, SIIM-90 (public dermatology datasets); irrelevant since the live id is a citation, not a live call"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo appears only in a related-work sentence citing another paper's (Sattler et al.) results. This paper's own new \"GPT Fusion\" experiments run \"GPT-5.5\" (Tables 1-2), which is outside the tracked still-callable identifier list."
+}

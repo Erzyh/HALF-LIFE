@@ -1,0 +1,12 @@
+﻿variant,n,reproduced,close,deviated,needs review
+base: |d| <= 2 or inside CI / <= 5,86,54,11,20,1
+stricter: |d| <= 1 or inside CI / <= 3,86,52,6,27,1
+looser: |d| <= 3 or inside CI / <= 10,86,58,14,13,1
+"CI only (inside CI = reproduced, else deviated)",86,51,0,34,1
+"points only, CI ignored: <= 2 / <= 5",86,40,19,26,1
+"base rule, CI clause only when CI half-width <= 10 points",86,51,11,23,1
+"base rule, CI clause only when CI half-width <= 5 points",86,45,15,25,1
+"base rule, cost-cap subset runs",15,8,4,3,0
+"base rule, full-set runs",71,46,7,17,1
+"base rule, low-precision runs (CI half-width > 10 points)",6,5,0,1,0
+"base rule, precise runs (CI half-width <= 10 points)",80,49,11,19,1

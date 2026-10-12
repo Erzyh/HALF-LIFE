@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4417523078",
+ "title": "LegalEase: An AI-Driven Assistant for Legal Query Resolution and Document Summarization in India",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"Larger models with more precision, such as LLaMA-13B or GPT-4-turbo, come at a much higher cost and computational overhead\" (architecture-choice justification)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt; GPT-4-Turbo is cited only as a rejected, costlier alternative."
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "System paper for an Indian legal-assistant tool built on a smaller model; GPT-4-Turbo is mentioned only to justify not using it."
+}

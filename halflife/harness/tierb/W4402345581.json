@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4402345581",
+  "title": "NinjaLLM: Fast, Scalable and Cost-effective RAG using Amazon SageMaker and AWS Trainium and Inferentia2",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT 4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Table 1 presents the results of our analysis compared to published results for other existing systems\"; Table 1 row \"GPT 4 Turbo 63.90% 62.90%\" (NQ/HotPotQA accuracy)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "GPT-4-Turbo's number is copied from a prior publication for comparison, not produced by these authors."},
+  "claim": {
+    "metric": "none produced by this paper (GPT-4-Turbo's 63.90%/62.90% NQ/HotPotQA accuracy is a cited, previously-published number, not a run by these authors)", "value": null, "n_items": null, "location": "Table 1 (comparison table)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Natural Questions and HotPotQA (public); NinjaLLM's own RAG results are the paper's contribution, not GPT-4-Turbo's"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "arXiv 2024. GPT-4-Turbo and GPT-3.5-Turbo rows in Table 1 are explicitly 'published results for other existing systems' used as a comparison point, not the authors' own execution."
+}

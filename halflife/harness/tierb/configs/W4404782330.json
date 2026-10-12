@@ -1,0 +1,76 @@
+{
+  "wid": "W4404782330",
+  "title": "Multi-hop Evidence Pursuit Meets the Web: Team Papelo at FEVER 2024",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0,
+      "seed": 42
+    },
+    "params_source": "paper Sec. 4 (gpt-4o-2024-05-13, seed 42); temperature and max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 200,
+    "subset_rule": "paper-defined split: first 200 examples of the AVeriTeC dev set",
+    "approximation": "live Google search and trafilatura scraping at run time differ from mid-2024 results; LLM+LLM configuration (all question generation by the LLM, no fine-tuned T5); the official AVeriTeC scorer (lambda = 0.25) is run as released"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "chenxwh/AVeriTeC (data/dev.json, official release) or dataset mirror pminervini/averitec (split dev, 500 rows)",
+    "config_or_split": "dev, rows 0-199",
+    "filter": "none",
+    "fields": {
+      "input": "claim, speaker, claim_date",
+      "label": "label (Supported / Refuted / Not Enough Evidence / Conflicting Evidence/Cherrypicking) and questions (gold question-answer evidence for the AVeriTeC score)",
+      "id": "row index"
+    },
+    "license": "cc-by-nc-4.0",
+    "access_checked": true,
+    "size_mb": 7
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "### FUNCTION: GetFirstQuestion\nWe are trying to verify the following claim by {speaker} on {date}. Claim: {claim} We aren't sure whether this claim is true or false. Please write one or more questions that would help us verify this claim, as a JSON list of strings. Keep the list short.\n\n### FUNCTION: GetNextQuestion\nWe are trying to verify the following claim by {speaker} on {date}. Claim: {claim} So far we have asked the questions: {qa_list} Based on these questions and answers, can you verify whether the claim is true or false? Please answer [[True]] or [[False]], or ask one more question that would help you verify.\n\n### FUNCTION: LLMBestDoc\nWe searched the web and found the following information. {search_results} Based on the above information, please answer the following question, referring to the one document that best answers the question. {question}\n\n### FUNCTION: LLMAnswer\nWe searched the web and found the following information. Document ({title}, from {site}, published {date_doc}): {context} Based on the above information, please answer the following question.{question}\n\n### FUNCTION: Paraphrase\nPlease give four ways to rephrase the following question. Give your answer as a JSON list of strings, each string being one question. Question: {question}\n\n### FUNCTION: LLMVerify\nWe are trying to verify the following claim: {claim} Based on our web searches, we resolved the following questions. {numbered_qa_list} Is the claim (A) fully supported by the evidence, or (B) contradicted by the evidence? Please respond in the format [[A]] or [[B]].",
+    "placeholders": {
+      "FUNCTION": "Algorithm 1 / 2 call each block in turn: GetFirstQuestion -> loop {GetAnswer = WebSearch(claim + question) -> LLMBestDoc -> FullDocument(trafilatura) -> AlignContext(5-sentence window) -> LLMAnswer} -> GetNextQuestion until [[True]]/[[False]] or n questions -> Paraphrase to fill up to n QA pairs -> LLMVerify",
+      "speaker": "items.speaker",
+      "date": "items.claim_date",
+      "claim": "items.claim",
+      "qa_list": "'Question 0: {q0} Answer: {a0} Question 1: {q1} Answer: {a1}...'",
+      "search_results": "'Document 0 ({title0}, from {site0}, published {date0}): {snippet0} ... Document 9 (...)' from the top-10 web results",
+      "title|site|date_doc|context": "metadata and the aligned five-sentence window of the chosen document",
+      "numbered_qa_list": "'0. {q0} {a0} ... k. {qk} {ak}'"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B (prompts for GetFirstQuestion, GetNextQuestion, LLMBestDoc, LLMAnswer, Paraphrase, LLMVerify)",
+    "verbatim": "full (italic slot names turned into placeholders; the blocks are concatenated under '### FUNCTION:' headers that are not part of any prompt)"
+  },
+  "output": {
+    "parse": "GetFirstQuestion/Paraphrase: json list of strings; GetNextQuestion: regex \\[\\[(True|False)\\]\\] else first sentence containing '?'; LLMBestDoc: regex Document\\s+([0-9]) or Documents[ 0-9,]+and ([0-9]+); LLMVerify: regex \\[\\[(A|B)\\]\\] -> Supported / Refuted",
+    "postprocess": "verdict plus the generated question-answer pairs are written in the AVeriTeC submission format and scored with the official evaluate script"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "AVeriTeC score at lambda = 0.25: accuracy of the veracity label counted only for claims whose generated evidence reaches Hungarian-METEOR >= 0.25 against the gold questions/answers (official scorer)",
+    "judge": "rule",
+    "original_value": 0.385,
+    "original_location": "Table 2, row LLM+LLM, column AVeriTeC 0.25 (first 200 dev examples)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 9000,
+    "est_usd": 45.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Agent loop with external services: live Google web search + trafilatura scraping inside a multi-call question/answer/verify loop (about 45 calls per claim) and the official AVeriTeC scorer with its METEOR dependency; beyond one main + one judge stage and outside the hook rules (no network at run time, stdlib/numpy/pandas only).",
+    "The maximum number of questions n per claim (Algorithm 1) is not printed."
+  ],
+  "notes": "About 45 short gpt-4o calls per claim (record estimate 9,000 calls at ~$0.005). Verdicts are limited to Supported/Refuted as in the paper's best configuration. || [hooks_2 2026-09-07] reviewed for a per-paper hook: multi-call agent loop + web search; no hook written.",
+  "hook": "none (needs_human: multi-call agent loop + web search)"
+}

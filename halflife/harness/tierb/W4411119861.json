@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119861",
+  "title": "Alleviating Hallucinations of Large Language Models through Induced Hallucinations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "A",
+    "evidence": "'win rate compared to GPT-4-turbo outputs evaluated by GPT-4-turbo on AlpacaEval2.0' (Section 4.3, Table 3)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A.1 (negative system prompt for inducing hallucinations); AlpacaEval prompts are external",
+    "note": ""
+  },
+  "claim": {
+    "metric": "AlpacaEval 2.0 win rate (Llama2-7B-Chat with ICD)",
+    "value": null,
+    "n_items": 805,
+    "location": "Table 3",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TruthfulQA, FactScore, AlpacaEval 2.0 (public); code https://github.com/hillzhang1999/ICD"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4-turbo is the AlpacaEval reference and judge; subject models are open-weight models with contrastive decoding."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7128515724",
+ "title": "Learn, Achieve, Predict, Propose, Forget, Suffer: Analysing and Classifying Anthropomorphisms of LLMs",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"We accessed GPT-4o and GPT-4 Turbo on the 8th November 2024 via the web-based API\"; Table 9 row GPT-4-Turbo Acc 0.766, F1 0.274."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "footnote 1: \"information on the prompt setting via GitHub\"",
+  "note": "100-shot in-context classification; ICL structure described in prose (Sec 5.2.4) but exact wording only released via GitHub, not printed in the paper."
+ },
+ "claim": {
+  "metric": "accuracy, 100-shot ICL anthropomorphism classification",
+  "value": 0.766,
+  "n_items": 884,
+  "location": "Table 9, row GPT-4-Turbo (Acc 0.766, F1 0.274)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "authors state materials incl. corpora released via GitHub (footnote 1)"
+ },
+ "cost": {
+  "est_calls": 884,
+  "tier": "high"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "Paper explicitly states the exact 100-shot prompt content is only available via the authors' GitHub repo, not in the paper text (\"information on the prompt setting via GitHub\"). Cost is explicit: paper reports $33 for this single GPT-4 Turbo run over the full 884-item test set."
+}

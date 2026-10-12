@@ -1,0 +1,47 @@
+{
+  "wid": "W4403570177",
+  "title": "RMB: Comprehensively Benchmarking Reward Models in LLM Alignment",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "accuracy",
+  "original_value": 0.815,
+  "original_location": "Table 3, row GPT-4o-2024-05-13, column Helpfulness Pairwise",
+  "reexecution": {
+    "mean_over_seeds": 0.7919036467045835,
+    "per_seed": {
+      "0": {
+        "value": 0.7919036467045835,
+        "n": 2989,
+        "ci95": [
+          0.7775175644028103,
+          0.8066242890598863
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403570177",
+    "n_items": 2989,
+    "n_requests": 2989,
+    "seeds": 1,
+    "est_usd": 39.93,
+    "subset_note": "cost cap $40.0: seeded random subset of 2989 items (seed 20260907)",
+    "model": "gpt-4o-2024-05-13",
+    "metric": "accuracy",
+    "original_value": 0.815
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 4
+  },
+  "approximation": "the paper does not state how chosen/rejected were mapped to Assistant A/B: seeded coin flip per pair, judged once; multi-turn dialog histories rendered as 'User:'/'Assistant:' lines (rendering not printed); the $40 cap subsets to 2,989 of 10,067 pairs",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7919036467045835,
+    "delta": -0.023096353295416483,
+    "original_inside_ci95": false
+  }
+}

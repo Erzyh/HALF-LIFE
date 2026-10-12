@@ -1,0 +1,67 @@
+{
+  "wid": "W7162149911",
+  "title": "Refining and Reusing Annotation Guidelines for LLM Annotation",
+  "model": "gpt-5-2025-08-07",
+  "metric": "custom",
+  "original_value": 0.46,
+  "original_location": "Table 1, block NCBI (791), row GPT-5, column group S (simple prompting): P 0.45, R 0.48, F1 0.46, TP 378",
+  "reexecution": {
+    "mean_over_seeds": 0.2680086491190757,
+    "per_seed": {
+      "0": {
+        "value": 0.271523178807947,
+        "n": 49,
+        "ci95": [
+          0.17348267622461172,
+          0.35941071354361465
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.2833333333333333,
+        "n": 48,
+        "ci95": [
+          0.19096231940281697,
+          0.37432359926208886
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.24916943521594684,
+        "n": 48,
+        "ci95": [
+          0.16903377110694184,
+          0.3291078360891445
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 61
+  },
+  "prepare": {
+    "wid": "W7162149911",
+    "n_items": 100,
+    "n_requests": 300,
+    "seeds": 3,
+    "est_usd": 2.39,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-2025-08-07",
+    "metric": "custom",
+    "original_value": 0.46,
+    "cap_usd": 15.0
+  },
+  "served": {
+    "models": [
+      "gpt-5-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The runner sends the prompt as a chat completion without response_format={'type':'json_object'} (the runner drops response_format for reasoning models); the paper's provider sets it together with the JSON-mode system message, which is kept. Span realignment is a simplified version of the repo's align_annotations (exact offsets first, otherwise the nearest occurrence of the returned span text). Strict-match scoring is re-implemented (exact begin/end/label, one-to-one) instead of calling the authors' PubAnnotation evaluator with soft_match 0.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.2680086491190757,
+    "delta": -0.19199135088092434,
+    "original_inside_ci95": false
+  }
+}

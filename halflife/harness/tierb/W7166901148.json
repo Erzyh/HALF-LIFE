@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166901148",
+ "title": "Is Lying an Emergent Behaviour in LLMs? Evidence from Gaslighting AI agents in a Sustainability Game",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-5-mini",
+  "resolved": "gpt-5-mini-2025-08-07",
+  "role": "S",
+  "evidence": "Table 2 (Baseline simulation configuration): \"LLM model gpt-5-mini\"; text confirms \"gpt-5-mini-2025-08-07 [through] OpenAI API\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 3.3 and Table 1 (prompt feature descriptions); a literal fragment is quoted (\"There are Br=<value> left in the shared...\")",
+  "note": "Prompt structure and each feature's effect are described in detail, with one quoted fragment, but no single appendix reproduces the full prompt template verbatim."
+ },
+ "claim": {
+  "metric": "lie rate among next-turn declarations, deception explicitly permitted (l=1)",
+  "value": 65,
+  "n_items": 48,
+  "location": "Sec. 4 (Table 4 taxonomy of declarations; 'permission amplifies...to 65%'); run count from '39 of 48 runs' cited for a comparable regime",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Synthetic multi-agent sustainability-game simulation; environment, network topology (Erdos-Renyi, 20 agents) and parameters fully specified in Tables 1-3 and Sec. 3"
+ },
+ "cost": {
+  "est_calls": 30000,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Benign game-theoretic deception-in-games research (agents may bluff about in-game attack intentions); not a real-world harmful request, so no tos concern. Soft gaps: prompt is only partially quoted verbatim, and the exact n backing the 65% lie-rate statistic is approximate (paper reports per-regime run counts like 48 elsewhere, not itemized for this specific statistic). Each of 20 agents calls the LLM every time step for up to 40 steps per run, so full reproduction is expensive."
+}

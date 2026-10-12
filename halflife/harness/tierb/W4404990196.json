@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404990196",
+  "title": "Engineering AI Judge Systems",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "A",
+    "evidence": "Sec. 5: '(i.e., GPT-4o-2024-05-13) as our jury FM for constructing the ...' (judge system)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 4 (example prompt template for an FM-based metric)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "llm:gpt-4o-2024-05-13"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MCMD dataset (GitHub repositories)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model is the jury/judge; subjects are FMware outputs."
+}

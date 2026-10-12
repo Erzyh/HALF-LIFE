@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4405715387",
+  "title": "AutoLife: Automatic Life Journaling with Smartphones and LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Sec. 5: 'we evaluate the performance of GPT-4o (gpt-4o-2024-05-13), Gemini Flash, and Claude 3 Sonnet' on map interpretation; 18 volunteers rated descriptions"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (instruction described, not printed)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean volunteer rating (1-4), map description",
+    "value": 3.68,
+    "n_items": 330,
+    "location": "Sec. 5 text / Figure 7 (330 ratings)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "Self-collected smartphone sensing data and 300 Hong Kong map segments"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [
+    "human_outcome",
+    "data_closed"
+  ],
+  "notes": ""
+}

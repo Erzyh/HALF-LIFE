@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4412889412",
+ "title": "Making Sense of Korean Sentences: A Comprehensive Evaluation of LLMs through KoSEnd Dataset",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"we instructed the latest gpt-4-turbo model to perform zero-shot classification\" (Sec 3.2, fn.6); Table 3 reports its accuracy vs. majority-vote human annotation."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix A.3 (annotation example and prompt configurations; cyclic-permutation MCQ)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "accuracy vs. human majority-vote label, Easy difficulty (w/o None)",
+  "value": 79.51,
+  "n_items": 300,
+  "location": "Table 3 (Easy, w/o None); initial annotation subset is ~300 instances/difficulty (Sec 3, fn.5)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "KoSEnd dataset, https://github.com/seungukyu/KoSEnd"
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "gpt-4-turbo is used to fill in annotations the two human annotators didn't cover (Sec 3.2), but Table 3 reports a genuine accuracy-vs-gold classification result. Soft gaps: prompt is only described (Appendix A.3, not quoted), and the exact n behind each Table 3 cell is not stated precisely -- it is not among the models in the paper's main SE-always benchmark (Table 4)."
+}

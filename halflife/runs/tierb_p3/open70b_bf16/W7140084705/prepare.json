@@ -1,0 +1,15 @@
+{
+  "wid": "W7140084705",
+  "n_items": 138,
+  "n_requests": 138,
+  "seeds": 1,
+  "est_usd": 0.02,
+  "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+  "dropped_unrenderable": 0,
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "macro_f1",
+  "original_value": 0.92,
+  "cap_usd": 5.0,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W7140084705",
+  "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+}

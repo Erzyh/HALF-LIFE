@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4397048985",
+  "title": "Many-Shot In-Context Learning in Multimodal Foundation Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13); GPT-4(V)-Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 3.1: 'The specific endpoint for GPT-4o is \"gpt-4o-2024-05-13\", for GPT-4(V)-Turbo is \"gpt-4-turbo-2024-04-09\"'; Table 2: 'HAM10000 34.93 53.59 (+18.66) 5.91'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.1 (image classification prompt), A.2 (batched variant), A.4-A.5 (VQA, localisation); Appendix B prompt variants",
+    "note": "Temperature 0 with a fixed seed; demo sets drawn from the listed train splits."
+  },
+  "claim": {
+    "metric": "accuracy (%) at the best many-shot demo-set size, HAM10000",
+    "value": 53.59,
+    "n_items": 210,
+    "location": "Table 2, row HAM10000, column GPT-4o Best",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HAM10000 (805 demo / 210 test) plus FIVES, CheXpert, Camelyon17, TerraIncognita, UCMerced, EuroSAT, Oxford Pets, DTD, DrugOOD Assay (Table 1)"
+  },
+  "cost": {
+    "est_calls": 40,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Many-shot requests carry up to ~800 demo images (batched 50 queries per call), so cost is dominated by image tokens; the zero-shot column (34.93) is a cheap fallback. GPT-4-Turbo results are in Appendix C."
+}

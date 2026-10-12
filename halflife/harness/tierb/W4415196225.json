@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4415196225",
+  "title": "Hummus: A Dataset of Humorous Multimodal Metaphor Use",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09); GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 6: 'GPT-4 Omni (GPT-4o, gpt-4o-2024-05-13), and GPT-4 Turbo (gpt-4-turbo-2024-04-09)'; Table 2: 'GPT-4 Turbo 0.64 0.47 0.56' (Classification F1 Pos / Neg / Avg)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (task prompts for Classification, Naming, ImageBbox, ImageLabel, CaptionHL, Explanation); Figure 11 (combined annotation-style prompt)",
+    "note": "image plus caption input; Yes / No / WIDLII classification"
+  },
+  "claim": {
+    "metric": "average F1 (positive and negative classes), humorous multimodal metaphor classification",
+    "value": 0.56,
+    "n_items": 286,
+    "location": "Table 2, row GPT-4 Turbo, column Classification Avg (test set = doubly annotated 30% subset, Table 6: 286 items)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HUMMUS (1,000 New Yorker Caption Contest image-caption pairs; CapCon corpus CC-BY-4.0 via HuggingFace), dataset and code on GitHub (xiaoyuisrain)"
+  },
+  "cost": {
+    "est_calls": 858,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Test-set identity (286 items) is inferred from Table 6; GPT-4 Turbo success rate on Naming was 96%. GPT-4o row: 0.70 / 0.39 / 0.55. Naming and ImageLabel tasks need LaBSE similarity scoring."
+}

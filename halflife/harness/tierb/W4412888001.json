@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412888001",
+ "title": "“I understand your perspective”: LLM Persuasion through the Lens of Communicative Action Theory",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"Costello et al. (2024) engaged conspiracy believers in personalized dialogues with GPT-4-turbo and reported a reduction in conspiracy beliefs by 20%.\" (Related Work)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (GPT-4-turbo is discussed only while summarizing Costello et al. 2024's separate DebunkBot study)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a for this mention"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This paper's own persuasion experiments (framed via Communicative Action Theory) do not identify GPT-4-turbo as the model used in the extracted text; the only GPT-4-turbo mention is a related-work citation of a different paper."
+}

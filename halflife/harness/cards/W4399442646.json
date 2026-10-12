@@ -1,0 +1,217 @@
+{
+ "card_id": "W4399442646",
+ "openalex_id": "https://openalex.org/W4399442646",
+ "title": "ACCORD: Closing the Commonsense Measurability Gap",
+ "doi": "https://doi.org/10.48550/arxiv.2406.02804",
+ "paper": {
+  "authors": "Roewer-Despres, Feng, Zhu, Rudzicz (Toronto / Stevens / Dalhousie / Vector)",
+  "year": 2024,
+  "venue": "arXiv 2406.02804v2 (6 Feb 2025)",
+  "repo": "https://github.com/francois-rd/accord",
+  "repo_commit": "dd75a4e0429877407b1059c617eee4a45c39fda0 (2024-06-06; shallow clone at external/repos/W4399442646/francois-rd__accord, 28 MB)",
+  "repo_license": "MIT (LICENSE, (c) 2024 Francois Roewer-Despres); benchmark data released CC BY-SA 4.0 per paper App. I.1, croissant_metadata.json says cc-by-4.0",
+  "other_artifacts": "Benchmark release + leaderboard on Codabench competition 3160 (ACCORD CSQA Small 0-5, 2,864 instances; Large 0-5, 245,514). The repo can regenerate both from committed preprocessed data (README 'Generating the Official Release')."
+ },
+ "dependence": {
+  "type": "subject",
+  "strength": "core",
+  "note": "Every reported number is an accuracy measured directly on LLM answers to ACCORD items; no LLM annotator or judge is involved. The benchmark itself is built symbolically from CSQA + ConceptNet (no LLM in the generation loop), so only the answering arm has to be re-run. Item-level original outputs were not released - only the Figure 3 plot."
+ },
+ "claim": {
+  "statement": "On ACCORD-CSQA Small 0-5 (2,864 zero-shot 5-option items) gpt-4o-2024-05-13 answers factual variants significantly better than the ceteris-paribus anti-factual variants at every reasoning-hop count and distractor count, and its anti-factual accuracy falls below the 20% random-chance baseline once reasoning hops exceed its multi-hop capacity, while reasoning hops (not distractors) dominate the degradation (Figure 3, all three columns; Sec. 4).",
+  "claim_type": "capability_limit",
+  "metric": "Accuracy (exact match of the parsed JSON {\"answer\": <label>} against the gold label), reported separately for factual and anti-factual items and binned by reasoning hops n (1-5) and distractors d (0-4); variation indicator = Wald standard error over the 93 pairings (not over reruns).",
+  "original_values": {
+   "reporting_format": "Figure 3 is a line plot; the paper prints NO per-cell accuracy table for any model, so the original per-bin values must be digitised from Figure 3 (left/middle/right panels, GPT-4o series) or re-derived from the Codabench leaderboard entry.",
+   "qualitative_anchors_from_text": {
+    "factual_vs_antifactual": "'For any given n (Columns 1 and 3) or d (Columns 2 and 3) in Figure 3, factual reasoning significantly outperforms anti-factual reasoning.'",
+    "below_chance": "'anti-factual performance quickly degrades to be-low random chance with only very moderate scal-ing of reasoning complexity' (Sec. 4); abstract: 'performance degrading to below random chance with only moderate scaling'",
+    "hops_vs_distractors": "'Reasoning hops are dominant while distractors' effect is negligible' (Figure 3 caption); accuracy rises with d when marginalising over n (Column 2) and this is an artifact of the T = n + d coupling"
+   },
+   "random_chance": 0.2,
+   "no_context_baseline_items": 74,
+   "subset_sizes": {
+    "ACCORD0_no_context": 74,
+    "ACCORD1": 186,
+    "ACCORD2": 372,
+    "ACCORD3": 558,
+    "ACCORD4": 744,
+    "ACCORD5": 930,
+    "total": 2864
+   }
+  },
+  "original_source": "Figure 3 (p. 6) and Sec. 4 'Results and Discussion'; Table 5 (App. E.1) for the 2,864-instance size distribution; App. E.3 for the run protocol. Each ACCORD-N subset contains both the factual and the anti-factual variant of every pairing (186 = 2 x 93 pairings)."
+ },
+ "protocol": {
+  "model": "gpt-4o-2024-05-13",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+  "model_usage_verified": "yes - App. I.2 lists 'GPT-4o (gpt-4o-2024-05-13)'; Sec. 3 says 'GPT-4o (2024-05-13)'; the repo ships configs/CSQA_and_ConceptNet/arguments/gpt-4o-2024-05-13.txt. No alias inference needed. The paper's other OpenAI arm, gpt-3.5-turbo-0125, is dead and is not re-run.",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (openai>=1.14.2 via src/accord/llms/openai.py, OpenAILLM.__call__, use_chat: true)",
+  "prompt_source": "configs/CSQA_and_ConceptNet/openai.yaml (system prompt, sizes 1-5) and openai_tree_size_0.yaml (system prompt, size 0); user text assembled by configs/CSQA_and_ConceptNet/surfacer.yaml; arguments/gpt-4o-2024-05-13.txt blanks prefix_surfacer so the instruction appears only as the system message. Verbatim examples in paper App. H.",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You will be provided with statements relating to a multiple-choice question. The contents of the statements may disagree with your prior knowledge of the world. That is ok. Your task is to provide the most appropriate answer to the multiple-choice question based on the reasoning presented in the statements. Provide your answer in JSON format using the following schema: {\"answer\": <label>} where <label> is exactly one of: \"A\", \"B\", \"C\", \"D\", or \"E\". Do not output anything else."
+   },
+   {
+    "role": "user",
+    "content": "Statements:\n- Suppose that [<term>] <relation surface form> [<term>]\n... (n + d statements, shuffled)\n\nQuestion:\n<CSQA question>\nA: <choice>    B: <choice>    C: <choice>    D: <choice>    E: <choice>\n\nAnswer:"
+   }
+  ],
+  "params": {
+   "temperature": "not set -> OpenAI default 1.0 ('we used its default hyper-parameters', App. E.3)",
+   "max_tokens": 20,
+   "seed": 314159,
+   "response_format": "{\"type\": \"json_object\"} (arguments/gpt-4o-2024-05-13.txt)",
+   "top_p": "not set",
+   "answer_extraction": "LLMOutputParser cascade: JSON parse, then match against labels or answer terms (src/accord/components/llm.py); paper reports >99% extraction success, failures counted in the FAILED table"
+  },
+  "n_items": 2864,
+  "samples_per_item": 1,
+  "seeds_planned": 3,
+  "seeds_note": "The paper ran ONE evaluation run per model with the API seed pinned at 314159 and reported dispersion over the 93 pairings, not over reruns (App. E.3). Because temperature is the API default 1.0 and the OpenAI seed is best-effort only, this card budgets 3 re-runs and takes the median, reporting the run-to-run spread as an additional (new) number.",
+  "evaluation": "src/accord/commands/analyze/basic/analyze.py + src/accord/components/analysis.py (accuracy and FAILED rate by factuality x REASONING_HOPS / DISTRACTORS bins, configs/basic_analysis.yaml) and .../analyze/interaction/ for the Column 3 interaction panel; Wald SE in src/accord/components/statistics.py",
+  "environment": "Python with the repo installed (requirements.txt pins torch==2.0.0 for the local-model path only; the OpenAI path needs only openai, coma, dacite, networkx, pandas, plotly, retry). Benchmark items are either downloaded from Codabench or regenerated in-repo with the dummy LLM snapshot command (no API calls)."
+ },
+ "artifacts": {
+  "prompts_path": "configs/CSQA_and_ConceptNet/openai.yaml, openai_tree_size_0.yaml, surfacer.yaml, surfacer_tree_size_0.yaml, arguments/gpt-4o-2024-05-13.txt",
+  "data_path": "Regenerable in-repo: data/CSQA/converted/dev_13_314159.jsonl (74 instances), data/CSQA/paired/dev_13_314159/ (93 pairing templates in 74 files), data/ConceptNet/preprocessed/{AtLocation,Causes,HasPrerequisite,IsA,PartOf,UsedFor}.csv, configs/filters/filter_0..5.yaml, general.yaml random_seed 314159. Alternative: the frozen ACCORD CSQA Small 0-5 release at https://www.codabench.org/competitions/3160/",
+  "eval_path": "src/accord/commands/analyze/basic/{analyze,base,pretty}.py, src/accord/commands/analyze/interaction/*.py, src/accord/components/{analysis,statistics}.py, leaderboard/utils.py",
+  "data_public": true,
+  "data_license": "ACCORD-CSQA CC BY-SA 4.0 (paper App. I.1; croissant_metadata.json says cc-by-4.0 - minor inconsistency); code MIT; ConceptNet CC BY-SA 4.0; CSQA released with no license at all (paper App. I.1)",
+  "redistributable": "true for our generated outputs and for ACCORD-CSQA itself; the underlying CSQA dev items carry no licence, so we cite rather than re-host them",
+  "notes": "The repo does NOT ship the benchmark instances or any per-model result file - only the preprocessing artifacts, the generator and the configs. Everything needed to regenerate ACCORD CSQA Small 0-5 deterministically (random_seed 314159) is committed, so the 10 GB raw ConceptNet / raw CSQA downloads named in the README can be skipped. Two CSQA items were rejected for inciting violence and are already excluded upstream (74 of 78 kept)."
+ },
+ "blockers": [
+  "No numeric table for Figure 3: the paper prints only a plot, and no per-model result file is released, so the original per-bin accuracies must be digitised from Figure 3 (or pulled from the Codabench leaderboard). Judgment must therefore lean on the directional/threshold claims rather than on point-value agreement.",
+  "Temperature is the API default 1.0 with a best-effort seed, so the original single run is itself a draw from a distribution; our 3-run median is a stricter estimate than the published one.",
+  "Prompt-order randomisation (shuffle_tree_order / shuffle_*_template_order in surfacer.yaml) is applied at surfacing time; it is reproducible only because general.yaml pins random_seed 314159 - regenerating with a different seed would change the exact prompts."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "gpt-4o-2024-05-13",
+   "purpose": "live baseline (P0); the paper's only still-callable OpenAI arm"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for gpt-4o per the OpenAI deprecations page) and gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+  ],
+  "dead_comparators_not_runnable": [
+   "gpt-3.5-turbo-0125"
+  ],
+  "open_weight_anchor": "Meta-Llama-3-70B-Instruct and Mixtral-8x22B-Instruct-v0.1 were the paper's other Figure 3 series and can be hash-pinned as a permanent re-execution axis."
+ },
+ "budget": {
+  "est_calls": 8592,
+  "est_tokens_in": 3370000,
+  "est_tokens_out": 86000,
+  "est_cost_usd": 18,
+  "pricing_usd_per_1m": {
+   "gpt-4o-2024-05-13": {
+    "input": 5.0,
+    "output": 15.0
+   }
+  },
+  "assumptions": "2,864 items x 1 sample x 3 seeds = 8,592 calls. Input estimated from Table 5's word counts (826,250 words with prompt for the 2,864 items, i.e. ~288 words ~ 392 tokens per item, size-weighted: ~80 tokens at size 0 up to ~500 at size 5) -> ~1.12M input tokens per seed. Output is capped at max_tokens 20 and the answer is a ~10-token JSON object. 3.37M in x $5/1M = $16.9 plus 0.086M out x $15/1M = $1.3. A single-seed replication of the paper's own protocol costs ~$6."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary quantities: (a) the factual-minus-anti-factual accuracy gap at each reasoning-hop bin n = 1..5, and (b) the smallest n at which gpt-4o's anti-factual accuracy drops below the 20% chance line. Survival = the gap stays positive and Wald-significant at every n AND anti-factual accuracy still crosses below chance at the same n (+/- 1 hop) as Figure 3. Partial = the gap survives but the below-chance crossing moves by more than one hop or disappears while accuracy still degrades monotonically in n. Death = the gap vanishes or reverses, or anti-factual accuracy no longer degrades with n (the paper's construct-validity argument would not hold). Secondary: the hops-dominate-distractors interaction (Figure 3 Column 3) and the FAILED/extraction-failure rate (paper: <1%).",
+  "notes": "Because the original values are only plotted, point-value agreement is not the criterion; the card judges direction, significance and the chance-line crossing. Contamination caveat: ACCORD-CSQA has been public since mid-2024, so successor arms may have seen it - the repo can regenerate a fresh private variant with a different random_seed as a contamination control."
+ },
+ "decisions_2026_09_19": {
+  "date": "2026-09-19",
+  "decided_by": "project default, user delegated",
+  "scope": "all 2,864 items of ACCORD-CSQA Small 0-5 (sizes 0-5), not the 1,190-item subset (answers user_check 2).",
+  "decoding": "the paper's own settings untouched: max_tokens 20, API seed 314159, response_format {\"type\": \"json_object\"}, and NO temperature or top_p field, so the effective temperature is the OpenAI default 1.0 (App. E.3 'default hyper-parameters'). No temperature-0 arm (answers user_check 4). Verified that coma's CLI override merges rather than replaces, so arguments/gpt-4o-2024-05-13.txt keeps openai.yaml's max_tokens 20 and seed 314159 while adding the JSON response format.",
+  "seeds": "3 re-runs at the same pinned API seed; median judged, run-to-run spread reported as a new number (the paper ran one).",
+  "benchmark_items": "REGENERATED IN-REPO with random_seed 314159 (answers user_check 3). The frozen Codabench release could not be downloaded anonymously and therefore could not be diffed: competition 3160's Files tab requires a logged-in account (its own Participate page says so), GET /api/datasets/e42d606f-e587-4699-b7e9-fa1568cb2c6c/ returns HTTP 403, and the dataset is flagged is_public false. Regeneration follows the README's 'Generating Official Benchmark Releases' recipe (prompt.dummy with snapshot::ignore=false, default_num_llm_prompts=1), written under runs/W4399442646/benchmark, never into the clone.",
+  "original_values": "Figure 3 GPT-4o series, DIGITISED FROM THE PUBLISHED SVG and recovered exactly. The Codabench leaderboard fallback does not exist: phase 5477 get_leaderboard returns an empty submissions list (competition submissions_count 0), so it carries no GPT-4o entry. Method: the LaTeXML render of v2 (arxiv.org/html/2406.02804v2) ships Figure 3 as SVG and columns 1-2 are a grouped bar chart (px.bar per basic_pretty.yaml), so every bar is a filled path; bar tops and the 0/50/100 y-ticks of each facet row were read from SVG user-space geometry with the full ancestor transform chain applied, then converted linearly. Reading uncertainty about 0.05 pp; in fact every value has a unique integer pre-image over the Table 5 denominators (max |plotted - exact| = 0.009 pp) and the plotted Wald bars reproduce sqrt(p(1-p)/N) from those counts to within 0.003 pp, so the original counts are recovered rather than approximated. Stored at runs/W4399442646/reference_series.json (answers user_check 1).",
+  "original_gpt4o_counts_recovered": {
+   "by_reasoning_hops_factual": {
+    "1": "458/465",
+    "2": "328/372",
+    "3": "191/279",
+    "4": "101/186",
+    "5": "47/93"
+   },
+   "by_reasoning_hops_anti_factual": {
+    "1": "416/465",
+    "2": "222/372",
+    "3": "79/279",
+    "4": "27/186",
+    "5": "14/93"
+   },
+   "by_distractors_factual": {
+    "0": "350/465",
+    "1": "287/372",
+    "2": "228/279",
+    "3": "171/186",
+    "4": "89/93"
+   },
+   "by_distractors_anti_factual": {
+    "0": "226/465",
+    "1": "170/372",
+    "2": "154/279",
+    "3": "127/186",
+    "4": "81/93"
+   },
+   "af_below_chance_from_hop": 4,
+   "note": "Llama-3-70B and Mixtral-8x22B rows were recovered the same way and are stored alongside them as the open-weight re-execution axis."
+  },
+  "judgment_basis": "primary: the factual-minus-anti-factual gap at each hop bin (direction and Wald significance) and the smallest n at which anti-factual accuracy falls below the 20% chance line (original n=4, tolerance +/- 1 hop); secondary: per-bin value agreement against the recovered series and the hops-dominate-distractors contrast.",
+  "cost_cap_usd": 25.0,
+  "adapter": "harness/adapters/accord_W4399442646.py (--check / --dry-run / --run / --analyze). The repository's own code is called, not copied: src/main.py by subprocess for item generation, leaderboard/utils.py for prompt surfacing, accord.components.llm.SimpleLLMOutputParser for parsing and accord.commands.analyze.basic.base for per-bin scoring.",
+  "measured_2026_09_19_dry_run": {
+   "calls": 8592,
+   "items": 2864,
+   "seeds": 3,
+   "tokens_in": 3758457,
+   "tokens_in_per_seed": 1252819,
+   "mean_tokens_in_per_call": 437,
+   "tokens_out_expected": 51552,
+   "usd_expected": 19.57,
+   "usd_max_tokens_bound": 21.37,
+   "battery_chars_over_4_estimate_usd": 21.83,
+   "tokens_in_per_size_per_seed": {
+    "0": 8167,
+    "1": 45054,
+    "2": 116300,
+    "3": 219395,
+    "4": 350528,
+    "5": 513375
+   },
+   "note": "all six sizes measured with tiktoken o200k_base on the actually rendered prompts (no extrapolation). The card's budget block assumed 3.37M input tokens and $18; measured 3.76M and $19.57 (437 tokens per call against the card's ~392), worst case $21.37 if every reply used all 20 output tokens. Cap $25."
+  },
+  "environment_check_2026_09_19": {
+   "repo_head": "dd75a4e0429877407b1059c617eee4a45c39fda0 (matches the card)",
+   "items": "ALL 2,864 instances regenerated in-repo (random_seed 314159) and verified: per-size counts 74/186/372/558/744/930 exactly as Table 5; 93 distinct pairings, matching the 93 rows with description 'pairing' in data/CSQA/paired/dev_13_314159/*.csv qa item by qa item; and all 1,395 pairing x reasoning-hop x distractor cells hold exactly one factual and one anti-factual instance, which is the paper's own definition of the Small release. Per-hop denominators are 465/372/279/186/93 per factuality, the same denominators that invert Figure 3 to integer counts. Wall clock: 8 h 50 m (size 2 20 min, size 3 50 min, size 4 1 h 52 m, size 5 5 h 48 m), single process.",
+   "prompts": "rendered by leaderboard/utils.py; surfacer.yaml's parameters are identical to the starting kit's hardcoded ones; the prefix surfacer is blanked per arguments/gpt-4o-2024-05-13.txt, so the user turn starts with a bare newline and the instruction appears only as the system message, matching the paper's Figure 2 / App. H example verbatim.",
+   "scorer": "accord.commands.analyze.basic.base run on synthetic replies across all five hop bins: oracle 1.00 factual and anti-factual; gold-parrot 1.00 factual / 0.00 anti-factual (the parroting extreme the claim is about); always-A 0.16-0.22; non-JSON prose 1.00 (the parser cascade recovers it); refusal 0.00 with a 100% FAILED rate."
+  },
+  "deviations_and_findings": [
+   "the Codabench leaderboard named in user_checks 1 as a source of original values is EMPTY (zero submissions since 2024-06), so that option does not exist; the digitisation of Figure 3 is the only route, and it turned out to be exact",
+   "the frozen Codabench release cannot be fetched anonymously, so the regenerated benchmark could not be diffed against it; the regeneration is instead verified structurally (Table 5 counts, 93 pairings against the paired CSVs, and one factual + one anti-factual instance in each of the 1,395 pairing x hop x distractor cells)",
+   "requirements.txt pins coma>=1.0.1 but PyPI now serves coma 3.0.1, whose API dropped register/initiate/forget: src/main.py does not even import on a fresh install. coma==1.0.1 (2022-05-23) had to be pinned by hand",
+   "accord/io.py save_lines() appends os.linesep in text mode, which doubles the CR on Windows; every one of the repository's own loaders then raises JSONDecodeError on the repository's own output, so the generator cannot run on Windows unmodified",
+   "SimpleQACheckpointManager keys on a checkpoint directory whose default job_id is -1, so the README's own command sequence silently no-ops after the first QAData-iterating step (and writes checkpoints into the clone)",
+   "accord.commands imports plotly at package import although the benchmarking path draws no figure, so plotly has to be installed or stubbed even to reach the answer parser",
+   "the paper released no per-model result file and no per-cell table; that the original numbers are recoverable at all is an accident of the figure being published as SVG, not a reproducibility practice",
+   "term spelling is inconsistent between problem sizes: the hand-crafted pairing term keeps its raw CSV form at size 1 (140 of the 186 size-1 prompts read '[fast_food_restaurants]') while sizes 2-5 carry the un-formatted lowercase ConceptNet form ('[fast food restaurants]'), because ConceptNetUnFormatter only rewrites /c/xx/ URIs. Both the experiment pipeline and the official starting kit produce the same text, so the original run sent the underscored form too and the re-run reproduces it verbatim",
+   "remove_duplicate_templates drops the pairing statement from one of the five answer trees in 12 of the 2,864 instances, so those instances present a pairing statement for only four answer choices"
+  ]
+ },
+ "status": "done",
+ "user_checks": [
+  "Original values exist only as Figure 3. Digitise the GPT-4o series from the figure, or pull the reference numbers from the Codabench leaderboard (competition 3160), or judge on direction/threshold only?",
+  "Run all 2,864 items (~$18 for 3 seeds), or restrict to the 74 no-context items plus sizes 1-3 (1,190 items, ~$5) and treat sizes 4-5 as a stretch goal?",
+  "Regenerate the benchmark in-repo with random_seed 314159 (deterministic, matches the paper's prompts) or download the frozen Codabench release? Regeneration is the stronger reproduction but must be diffed against the release first.",
+  "Keep the paper's temperature 1.0 / seed 314159 setting, or add a temperature-0 arm to separate sampling noise from model drift?"
+ ],
+ "domain_notes": "ACCORD builds anti-factual counterfactual statement sets around CSQA dev items: the factual and anti-factual variants of a pairing are identical except that the supporting statements point at a different answer choice, so any factual-over-anti-factual advantage is context unfaithfulness rather than reasoning. Chance is 20% (five choices). Reasoning hops n and distractors d are complementary within a fixed problem size T = n + d, which is why the marginal distractor trend in Figure 3 Column 2 looks inverted. The benchmark is fully synthetic from ConceptNet, contains no personal data, and two violent CSQA items were dropped upstream.",
+ "judgment_provisional": {
+  "value": "생존 (survived)",
+  "cost_usd": 19.8878,
+  "run_date": "2026-09-21",
+  "source": "runs/W4399442646/run_meta.json",
+  "note": "2,864 regenerated ACCORD-CSQA items x 3 seeds, gpt-4o-2024-05-13 with the repository's request body; factual minus anti-factual gap positive and significant at every reasoning-hop bin; anti-factual accuracy falls below chance from n=4, as read from Figure 3; reference series digitised from the Figure 3 SVG (integer pre-images verified)."
+ }
+}

@@ -1,0 +1,67 @@
+{
+  "wid": "W7166872685",
+  "title": "Machine Behavior in Relational Moral Dilemmas: Moral Rightness, Predicted Human Behavior, and Model Decisions",
+  "model": "o3-mini-2025-01-31",
+  "metric": "accuracy",
+  "original_value": 0.53,
+  "original_location": "Figure 3, row o3-mini, first value (Moral Rightness); the three values printed are 0.53 / 1.00 / 1.00 for the three perspectives",
+  "reexecution": {
+    "mean_over_seeds": 0.9984567901234568,
+    "per_seed": {
+      "0": {
+        "value": 1.0,
+        "n": 432,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.9976851851851852,
+        "n": 432,
+        "ci95": [
+          0.9930555555555556,
+          1.0
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.9976851851851852,
+        "n": 432,
+        "ci95": [
+          0.9907407407407407,
+          1.0
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7166872685",
+    "n_items": 432,
+    "n_requests": 1296,
+    "seeds": 3,
+    "est_usd": 4.21,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "o3-mini-2025-01-31",
+    "metric": "accuracy",
+    "original_value": 0.53,
+    "cap_usd": 7.2
+  },
+  "served": {
+    "models": [
+      "o3-mini-2025-01-31"
+    ],
+    "n_fingerprints": 7
+  },
+  "approximation": "The paper says the 27 instances per (severity, closeness) cell come from '3 crime types, 3 different scenarios for the severity description, and 3 paraphrased descriptions for closeness levels'. Only three severity wordings per level are printed (one per crime type, Table 1 and Table 5), while exactly three template variants are printed (Sec. 3.1 and Table 3), so 27 is built here as 3 crime types x 3 closeness paraphrases x 3 template variants. Seeds: Sec. 4 says each instance was run three times with distinct seeds, Appendix B.3 says a single deterministic pass was used; three seeds are run.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.9984567901234568,
+    "delta": 0.46845679012345676,
+    "original_inside_ci95": false
+  }
+}

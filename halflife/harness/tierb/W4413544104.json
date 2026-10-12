@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4413544104",
+ "title": "Epidemiology of ocular trauma in limited-resource settings: a narrative review",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo (via Microsoft Copilot)",
+  "resolved": "unresolved",
+  "role": "B",
+  "evidence": "Acknowledgments: \"Microsoft Copilot, which is powered by OpenAI's GPT-4-turbo, was used to assist with identifying key differences between pediatric and adult populations (Table 1)...The input prompt and outputs can be found in our Supplementary files.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Supplementary File (not part of the retrieved main text)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (Table 1 is a qualitative differences list, not a scored metric)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Accessed via the Microsoft Copilot consumer product rather than a pinned API snapshot; the output is a qualitative table of narrative differences (pediatric vs. adult ocular trauma), not a numeric claim with n_items."
+}

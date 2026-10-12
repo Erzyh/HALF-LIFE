@@ -1,0 +1,66 @@
+{
+  "wid": "W4403758464",
+  "title": "LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of OpenAI's o1 on PlanBench",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 40.1,
+  "original_location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+  "reexecution": {
+    "mean_over_seeds": 0.37083333333333335,
+    "per_seed": {
+      "0": {
+        "value": 0.36833333333333335,
+        "n": 600,
+        "ci95": [
+          0.33166666666666667,
+          0.4067083333333331
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.37333333333333335,
+        "n": 600,
+        "ci95": [
+          0.3333333333333333,
+          0.41333333333333333
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403758464",
+    "n_items": 600,
+    "n_requests": 1200,
+    "seeds": 2,
+    "est_usd": 4.88,
+    "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 40.1,
+    "cap_usd": 4.3,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4403758464"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 12
+  },
+  "approximation": "the paper's GPT-4 Turbo column carries no snapshot or decoding parameters and may aggregate runs made before 2024-04-09 (temperature 0 assumed); plan extraction mirrors the repository's rule-based extractor after stripping markdown emphasis (the o1-paper pipeline also offers an LLM-based translator; which one produced the GPT-4 Turbo cell is not stated); VAL replaced by an exact domain simulator",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4403758464"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 37.083333333333336,
+    "delta": -3.0166666666666657,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4403586339",
+  "title": "Multi-Programming Language Ensemble for Code Generation in Large Language Model",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"Proprietary LLMs: GPT3.5-turbo (gpt-3.5-turbo-0125), GPT-4o-mini (gpt-4o-mini-2024-07-18), GPT-4o (gpt-4o-2024-05-13)\" (Sec. 3.1); Table 1 row \"GPT-4o 90.62% 91.67% 94.37% 95.00%\" (Baseline/MPLE/MPLE+Reflection/MPLE+MCTS, HumanEval Pass@1)"
+  },
+  "prompt": {"verbatim": "none", "location": "Appendix A/B contain only orchestration pseudocode (Reflection and MCTS control-flow algorithms), not the literal LLM prompt text", "note": "\"Baseline: The model is directly prompted to generate code based on the task description\" -- exact wording not given; \"the code will be released at [GitHub]\" indicates prompts live in the repo."},
+  "claim": {
+    "metric": "Pass@1 accuracy (%), HumanEval, Baseline (direct prompting)", "value": 90.62, "n_items": 164,
+    "location": "Table 1, row GPT-4o, Baseline column; HumanEval has 164 problems",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "HumanEval and HumanEval-plus (standard public code-generation benchmarks)"},
+  "cost": {"est_calls": 492, "tier": "low"},
+  "blockers": ["prompt_none"],
+  "notes": "Clean dated model and public benchmark, but the actual prompt text for any of the four methods (Baseline, MPLE, +Reflection, +MCTS) is never printed -- only algorithmic pseudocode and a pointer to the forthcoming GitHub code release."
+}

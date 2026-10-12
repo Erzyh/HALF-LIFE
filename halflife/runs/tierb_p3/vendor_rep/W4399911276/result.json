@@ -1,0 +1,66 @@
+{
+  "wid": "W4399911276",
+  "title": "Whiteboard-of-Thought: Thinking Step-by-Step Across Modalities",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 19.6,
+  "original_location": "Table 1, row Direct, column MNIST",
+  "reexecution": {
+    "mean_over_seeds": 0.7052023121387283,
+    "per_seed": {
+      "0": {
+        "value": 0.7225433526011561,
+        "n": 173,
+        "ci95": [
+          0.653179190751445,
+          0.7861271676300579
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.6878612716763006,
+        "n": 173,
+        "ci95": [
+          0.6184971098265896,
+          0.7572254335260116
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911276",
+    "n_items": 173,
+    "n_requests": 346,
+    "seeds": 2,
+    "est_usd": 7.2,
+    "subset_note": "cost cap $3.6: seeded random subset of 173 items (seed 20260907); repeat of the vendor condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 19.6,
+    "cap_usd": 5.54,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\vendor\\W4399911276"
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Different 250 items from the paper's unlisted draw and no manual answerability filter (resolution plan); frequency_penalty 0.05 must be passed as an extra API parameter; multiple-choice options removed as in the paper; gold is the target_scores dict; items.label_map maps each of its ten string forms to the digit (runner has no argmax-of-dict facility); item ids are positions in the seeded subset; the paper's frequency_penalty 0.05 is listed in model.params but the runner does not forward it",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor_rep\\W4399911276"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 70.52023121387283,
+    "delta": 50.92023121387283,
+    "original_inside_ci95": false
+  }
+}

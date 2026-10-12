@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7164614711",
+  "title": "I Understand How You Feel: Enhancing Deeper Emotional Support Through Multilingual Emotional Validation in Dialogue System",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1 nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "B",
+    "evidence": "Sec. 3.2: 'instruction-tuned large language models: Llama-3.1 8B-Instruct and GPT-4.1 nano, each in zero-shot, 3-shot prompt-engineering, CoT and LoRA regimes'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix K.4 (validation timing detection: definition + instruction printed; the three-shot example dialogues are described, not printed)",
+    "note": "The zero-shot variant is effectively fully printed; formatting of the dialogue context fed to the model is not specified."
+  },
+  "claim": {
+    "metric": "macro-F1 (%), validation timing detection, multilingual M-EDESConv test, zero-shot",
+    "value": 51.68,
+    "n_items": 12780,
+    "location": "Table 2, Multilingual block, row 'GPT 4.1 Nano - Zero-shot', M-EDESConv Overall M-F1",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "M-EDESConv and M-TESC released on GitHub (zihaurpang); M-EDESConv test = 4,636 validating + 8,144 non-validating utterances"
+  },
+  "cost": {
+    "est_calls": 12780,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Datasets are GPT-4.1-mini-translated extensions of EmpatheticDialogues/ESConv with 94% automatic labels; the human-validated subset (500 per language block) is a smaller alternative target.",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "Appendix K.4 prints the zero-shot prompt (validation definition plus the validate/non-validate instruction); the three-shot examples are not printed but the Table 2 zero-shot row does not need them. Feed each M-EDESConv test utterance with its preceding dialogue context (Sec. 3: classification given the context up to the utterance) to gpt-4.1-nano, map the output to validate/non-validate, and compute macro-F1 over the 12,780 test utterances (4,636 validating, 8,144 non-validating) from the project GitHub release.",
+    "approximation": "Context formatting (speaker tags, number of prior turns) unspecified; the trailing 'Let's think step by step' line may belong only to the CoT regime; temperature unstated.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "per_pass": {
+    "0": {
+      "n_answered": 597,
+      "n_missing_calls": 0,
+      "n_unparsed": 0,
+      "err_flag_acc": 0.7437185929648241,
+      "err_flag_acc_ci95": [
+        0.7085427135678392,
+        0.7772613065326632
+      ],
+      "err_sentence_acc": 0.7236180904522613,
+      "err_sentence_acc_ci95": [
+        0.6900753768844221,
+        0.7588358458961473
+      ],
+      "lenient_err_flag_acc": 0.7437185929648241,
+      "lenient_err_sentence_acc": 0.7236180904522613,
+      "predicted_error_rate": 0.6867671691792295,
+      "recall_by_error_type": {
+        "diagnosis": {
+          "flag": 0.9482758620689655,
+          "sentence": 0.9224137931034483
+        },
+        "management": {
+          "flag": 0.845360824742268,
+          "sentence": 0.7835051546391752
+        },
+        "treatment": {
+          "flag": 0.9411764705882353,
+          "sentence": 0.9019607843137255
+        },
+        "pharmacotherapy": {
+          "flag": 0.9166666666666666,
+          "sentence": 0.8888888888888888
+        },
+        "causalOrganism": {
+          "flag": 1.0,
+          "sentence": 1.0
+        }
+      }
+    },
+    "1": {
+      "n_answered": 597,
+      "n_missing_calls": 0,
+      "n_unparsed": 0,
+      "err_flag_acc": 0.7520938023450586,
+      "err_flag_acc_ci95": [
+        0.7202680067001676,
+        0.7872696817420436
+      ],
+      "err_sentence_acc": 0.7336683417085427,
+      "err_sentence_acc_ci95": [
+        0.6968174204355109,
+        0.7688442211055276
+      ],
+      "lenient_err_flag_acc": 0.7520938023450586,
+      "lenient_err_sentence_acc": 0.7336683417085427,
+      "predicted_error_rate": 0.6884422110552764,
+      "recall_by_error_type": {
+        "diagnosis": {
+          "flag": 0.9396551724137931,
+          "sentence": 0.9224137931034483
+        },
+        "management": {
+          "flag": 0.8762886597938144,
+          "sentence": 0.8144329896907216
+        },
+        "treatment": {
+          "flag": 0.9607843137254902,
+          "sentence": 0.9215686274509803
+        },
+        "pharmacotherapy": {
+          "flag": 0.9166666666666666,
+          "sentence": 0.8888888888888888
+        },
+        "causalOrganism": {
+          "flag": 1.0,
+          "sentence": 1.0
+        }
+      }
+    },
+    "2": {
+      "n_answered": 597,
+      "n_missing_calls": 0,
+      "n_unparsed": 0,
+      "err_flag_acc": 0.7621440536013401,
+      "err_flag_acc_ci95": [
+        0.7252931323283082,
+        0.7956448911222781
+      ],
+      "err_sentence_acc": 0.7437185929648241,
+      "err_sentence_acc_ci95": [
+        0.7102177554438861,
+        0.7805695142378559
+      ],
+      "lenient_err_flag_acc": 0.7621440536013401,
+      "lenient_err_sentence_acc": 0.7437185929648241,
+      "predicted_error_rate": 0.6984924623115578,
+      "recall_by_error_type": {
+        "diagnosis": {
+          "flag": 0.9741379310344828,
+          "sentence": 0.9482758620689655
+        },
+        "management": {
+          "flag": 0.8969072164948454,
+          "sentence": 0.845360824742268
+        },
+        "treatment": {
+          "flag": 0.9607843137254902,
+          "sentence": 0.9215686274509803
+        },
+        "pharmacotherapy": {
+          "flag": 0.9166666666666666,
+          "sentence": 0.8888888888888888
+        },
+        "causalOrganism": {
+          "flag": 1.0,
+          "sentence": 1.0
+        }
+      }
+    }
+  },
+  "rows": {
+    "err_flag_acc": {
+      "value": 0.7521,
+      "per_pass": [
+        0.7437,
+        0.7521,
+        0.7621
+      ],
+      "pooled_mean": 0.7527,
+      "ci95_pooled": [
+        0.7219,
+        0.7845
+      ],
+      "orig": 0.6584,
+      "delta": 0.0937,
+      "within_0.05": false,
+      "orig_inside_ci": false,
+      "alt_orig_gpt4o_mini": 0.6086,
+      "alt_delta": 0.1435,
+      "alt_within_0.05": false,
+      "alt_orig_inside_ci": false
+    },
+    "err_sentence_acc": {
+      "value": 0.7337,
+      "per_pass": [
+        0.7236,
+        0.7337,
+        0.7437
+      ],
+      "pooled_mean": 0.7337,
+      "ci95_pooled": [
+        0.7013,
+        0.7655
+      ],
+      "orig": 0.5665,
+      "delta": 0.1672,
+      "within_0.05": false,
+      "orig_inside_ci": false,
+      "alt_orig_gpt4o_mini": 0.4757,
+      "alt_delta": 0.258,
+      "alt_within_0.05": false,
+      "alt_orig_inside_ci": false
+    }
+  },
+  "status_counts": {
+    "error": 1238,
+    "correct": 553
+  }
+}

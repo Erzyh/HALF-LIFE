@@ -1,0 +1,89 @@
+{
+ "wid": "W7126280993",
+ "title": "Semantic Content Determines Algorithmic Performance",
+ "status": "ready",
+ "model": {
+  "id": "o3-2025-04-16",
+  "params": {
+   "temperature": 1.0,
+   "top_p": 1.0,
+   "max_tokens": 100000,
+   "reasoning_effort": "medium"
+  },
+  "params_source": "paper Appendix C, Table C.1, o3 column (temperature 1.0, top-p 1.0, max tokens 100000, reasoning effort medium). The runner drops temperature/top_p for reasoning models and sends max_completion_tokens + reasoning_effort.",
+  "seeds": 3
+ },
+ "task": {
+  "type": "other",
+  "n_items": 480,
+  "subset_rule": "all 480 questions of the explicit-separator condition: 6 semantic classes x 4 count ranges (7-17, 85-115, 550-650, 950-1050) x 20 questions",
+  "approximation": "none - the archived reports hold the exact prompts the paper sent, so the items are the paper's own, not a regeneration"
+ },
+ "items": {
+  "source_type": "github",
+  "source": "github.com/lamalab-org/whatcounts, reports/o3/reports/shuffle_entity/general_entity/reports/default_benchmark/ (24 benchmark reports, one per class x range)",
+  "config_or_split": "ablation shuffle_entity / location general_entity (the 'Explicit Separator' column of Table 1 is computed from this key, shuffle_entity_general_entity, in data/semantic_gap_all_ablations.json)",
+  "filter": null,
+  "fields": {
+   "input": "list_text",
+   "label": "gold",
+   "id": "id"
+  },
+  "license": "MIT (repository LICENSE)",
+  "access_checked": true,
+  "size_mb": 8,
+  "file_url": "https://raw.githubusercontent.com/lamalab-org/whatcounts/main/data/compiled_results.json (index; the 24 report files are listed in it and are fetched by their own raw URLs)",
+  "fields_source": {
+   "list_text": "the pipe-joined list of entities, recovered from the archived user message",
+   "field_name": "the class word used in the question ('addresses', 'chemicals', ...)",
+   "separator": "the separator as printed in the question, always |",
+   "label": "'<entity class>|<true count>' (targets[0] of the report record), so the scorer can group by class"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W7126280993/",
+   "files": "compiled_results.json (1.6 MB index) + reports/<entity>_<range>.json (24 files, 8.3 MB; the upstream names contain '|' and cannot be stored on Windows, so reports/_index.json maps the safe names back to the repository paths)"
+  },
+  "download": {
+   "date": "2026-09-19",
+   "bytes": 8333279,
+   "note": "24 files, 20 questions each; every record carries prompts.batch[0].messages (the exact user message sent to o3) and targets (the gold count)"
+  }
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "The following is a question that you must answer as truthfully as possible.\n\nQuestion: {list_text}\n\nHow many {field_name} separated by '{separator}' are above?\n\nYou MUST include the final answer within the following tags: [ANSWER] and [/ANSWER].\nFor example, '[ANSWER]<answer>[/ANSWER]', where <answer> is only one number. Always answer in exactly this format, with ONE NUMBER between the two tags, even if you are unsure. Use dots as decimal separator. We require this because we use automatic parsing.",
+  "placeholders": {
+   "list_text": "items.list_text",
+   "field_name": "items.field_name",
+   "separator": "items.separator"
+  },
+  "few_shot": "none",
+  "source_location": "Listing 2 (Appendix D, \"Prompt used when mentioning the separator\"); the surrounding answer-format wrapper is the benchmark harness's and is taken verbatim from the archived prompts",
+  "verbatim": "full. Listing 2 prints only the core two lines ({input_text} / How many {field_name} separated by '{separator}' are above?). The archived reports show that the harness wraps them in a fixed preamble and an [ANSWER]...[/ANSWER] answer-format instruction; the template above is that complete message and re-renders all 480 archived prompts byte-for-byte (verified in the hook's self-test)."
+ },
+ "output": {
+  "parse": "regex \\[ANSWER\\]\\s*([-+]?[0-9]+(?:\\.[0-9]+)?)\\s*\\[/ANSWER\\]",
+  "postprocess": "the captured number is compared numerically with the gold count; a reply with no well-formed tag counts as wrong",
+  "parse_paper": "the benchmark parses the same tags and falls back to an LLM extraction step (llm_extraction = 0 in all 24 archived reports, i.e. it never fired)"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "Semantic Gap: per class e, Acc(e) = share of that class's 80 questions answered with the exact count; Delta_sem = max_e Acc(e) - min_e Acc(e). Computed by hooks/W7126280993.py score().",
+  "judge": "none (exact-count rule)",
+  "original_value": 0.4,
+  "original_location": "Table 1, row o3, column \"Delta_sem with Explicit Separator\" (= 0.9625 cities - 0.5625 chemicals in data/semantic_gap_all_ablations.json, key shuffle_entity_general_entity)",
+  "bootstrap_unit": "item (set-level statistic: the runner resamples items and recomputes Delta_sem)",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 1440,
+  "est_usd": 20.9,
+  "tier": "mid",
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19 capped the run at 458 of the 480 items (1,374 calls) for $19.94; scaled to 480 items x 3 seeds the same estimate is $20.9. WARNING: that figure assumes 1,000 output tokens per call, which is certainly far too low for o3 counting lists of up to 1,050 entries; the worst case bounded by the paper's max_completion_tokens (100,000) is about $1,100, which is what battery.py's own dry-run prints. A human must fix a cap before any run."
+ },
+ "open_points": [
+  "Cost: the 950-1050 and 550-650 ranges send very long lists and o3 answers them with hidden reasoning tokens, so the three-seed run is the most expensive item of this group. The per-paper cap must be set deliberately before any run; with the cap active the runner keeps a seeded random subset and the class cells shrink below 80 questions, which widens the Delta_sem interval.",
+  "Only the o3 arm is in scope: Claude Sonnet 4, DeepSeek-V3 and Kimi-K2, the three other models of Table 1, are not OpenAI models and the harness cannot call them."
+ ],
+ "notes": "The paper's Appendix A says \"we select four different ranges: (7, 17), (85, 115), or (550, 650)\" and lists three; the archived reports show four ranges (the fourth is 950-1050), which is also what the accuracies in steps of 1/80 imply. n_items is therefore 480, not the 120 recorded in the triage row. || The triage row's est_calls 360 assumed 6 x 3 x 20; 480 items x 3 seeds = 1,440 calls. || Delta_sem is a difference of two class accuracies, so it has no per-item decomposition; the runner's set-level resample supplies the CI."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4409365705",
+ "title": "Active Large Language Model-Based Knowledge Distillation for Session-Based Recommendation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"We adopt the GPT-4-turbo-2024-04-09 as the LLM teacher to distill knowledge from 500 instances for all datasets and backbones\" -- a training-time difficulty/rationale generator for the KD framework."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec Implementation Details (difficulty-based gain-value assignment described); no verbatim teacher prompt located",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for GPT-4-turbo itself (recall@5/10 and ndcg@5/10 in the results tables are for the student recommenders -- FPMC/STAMP/AttMix with various KD methods including the paper's own ALKDRec -- not for GPT-4-turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Hetrec2011-ML, Amazon-Games and other public session-based recommendation datasets"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo-2024-04-09 plays a teacher/annotator role, scoring training-instance difficulty to guide knowledge distillation into small recommender models; no capability metric is reported for GPT-4-turbo's own output."
+}

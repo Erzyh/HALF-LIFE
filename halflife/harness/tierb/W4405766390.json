@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405766390",
+  "title": "OpenAI o1 System Card",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (Ranger, with browser)",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "\"Ranger GPT-4 Turbo (i.e., with browser) 0% 20% 100%\" (Table 13, Biotool and Wet Lab Actions, pass@10); \"GPT-4 Turbo is the most capable in agentic tasks\""
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 5.5.4 (one example task prompt: Ebola FASTA file)",
+    "note": "Only one example prompt is shown; the agent scaffold (Ranger) and task suite are internal."
+  },
+  "claim": {
+    "metric": "pass@10 on the Twist DNA order agentic task",
+    "value": 100,
+    "n_items": 1,
+    "location": "Table 13, row Ranger GPT-4 Turbo, column Twist DNA order",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "OpenAI/Ranger internal biological tooling tasks (not released)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "System card; evaluations use internal datasets and a browsing agent scaffold. No snapshot for GPT-4 Turbo is given. The main subjects (o1 checkpoints) are undated."
+}

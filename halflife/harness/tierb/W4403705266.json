@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403705266",
+ "title": "GPT takes the SAT: Tracing changes in Test Difficulty and Math Performance of Students",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "\"the most advanced model available through API at the time of writing\" / \"GPT4 April update\"",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table D.1 title: \"Yearly National, State, and Massachusetts SAT Score Changes using GPT4 April update\"; \"we used the most advanced model available through API at the time of writing.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix (\"Once GPT-4 receives this API call, it provides a response...\")",
+  "note": "The general API-call procedure is described; exact prompt wording is not quoted in the visible excerpt."
+ },
+ "claim": {
+  "metric": "estimated SAT score change vs. 2008 baseline, National level, 2023",
+  "value": -113.011,
+  "n_items": null,
+  "location": "Table D.1",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "College Board SAT questions (official practice tests are freely released, but full retired exams are not freely redistributable); public SAT score statistics"
+ },
+ "cost": {
+  "est_calls": 1000,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "\"GPT4 April update\" is interpreted as gpt-4-turbo-2024-04-09 given the September-2024 writing date and the explicit \"most advanced model available at the time\" framing (CSV alias_note: post-GA alias 2024-09-16); the exact number of SAT items/administrations feeding each yearly estimate is not cleanly restated in the visible text."
+}

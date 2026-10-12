@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4416346128",
+  "title": "Human-AI collaborative autonomous synthesis with pulsed laser deposition for remote epitaxy",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 snapshot gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "B",
+    "evidence": "\"The LLM was accessed through the OpenAI Responses API using the GPT-5 snapshot gpt-5-2025-08-07 with high reasoning effort enabled (thinking mode). Generation was performed with a temperature of 0.3\" (Methods, Retrieval Augmented Generation)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Methods (RAG pipeline: 345 articles chunked/embedded, top-50 chunks appended to query)", "note": "GPT-5 answers literature-grounded queries that inform Bayesian-optimization-driven synthesis decisions; it does not itself output the physical quality score."},
+  "claim": {
+    "metric": "none directly attributable to GPT-5 (the reported 'graphene quality score' is the outcome of a Bayesian-optimization-guided physical deposition experiment, not a GPT-5 output)", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "345 articles/SI files used to build the RAG knowledge base; code at github.com/sumner-harris/RAGAgent_AutonomousMaterialsSynthesis"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Materials-science/robotics paper. GPT-5 functions as a literature-QA assistant within a larger human/Bayesian-optimization decision loop; no accuracy or task-success number is attributed to GPT-5's own text generation specifically."
+}

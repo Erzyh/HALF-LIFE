@@ -1,0 +1,79 @@
+{
+  "card_id": "W4416035547",
+  "run_date_utc": "2026-09-19",
+  "target_paper": {
+    "title": "Agent-to-Agent Theory of Mind: Testing Interlocutor Awareness among Large Language Models",
+    "repo": "https://github.com/younwoochoi/InterlocutorAwarenessLLM",
+    "repo_commit": "1edb852fff8f1ce60dffd2d8c7e9169f0fdd4ec8",
+    "original_source": "Figure 11(a), Math accuracy heatmap, row o4-mini (identifier) x column o4-mini (target) = 0.64; row context {\"o4-mini\": 0.64, \"gpt-4o-mini\": 0.88, \"claude-3-7-sonnet\": 0.01, \"claude-3-5-haiku\": 0.0, \"deepseek-r1\": 0.0, \"deepseek-v3\": 0.0, \"llama-3-3\": 0.0, \"llama-3-1\": 0.0, \"mistral-7b-v0-3\": 0.01}"
+  },
+  "generation": {
+    "model_requested": "o4-mini-2025-04-16",
+    "substitute_snapshot": null,
+    "model_served": [
+      "o4-mini-2025-04-16"
+    ],
+    "n_fingerprints": 1,
+    "parameters": "no temperature / top_p (Appendix C.1 provider defaults; o4-mini accepts neither), max_completion_tokens 16384 and reasoning_effort medium instead of the repository's rejected max_tokens=1024; no seed",
+    "battery": "100 MATH-500 items x 2 stages x 3 seeds; stage 2 is built from the archived stage-1 reply of the same (item, seed); per-seed accuracy, median over seeds; bootstrap 2000 (rng 20260907) over the 100 per-item mean-over-seeds scores",
+    "items": "the repository's sampled_data_indicies.py seeded draw (set-level match; the authors' exact 100 problems are unrecoverable), identical to the Tier B item set"
+  },
+  "results": {
+    "accuracy_median_over_seeds": 0.94,
+    "per_seed": {
+      "0": 0.9,
+      "1": 0.96,
+      "2": 0.94
+    },
+    "accuracy_item_mean_over_seeds": 0.9333,
+    "accuracy_ci95_items": [
+      0.9033,
+      0.9567
+    ],
+    "ci_unit": "item, bootstrap over the 100 per-item mean-over-seeds scores",
+    "original": 0.64,
+    "original_ci95_items": [
+      0.54,
+      0.73
+    ],
+    "original_inside_rerun_ci": false,
+    "rerun_inside_original_ci": false,
+    "chance": 0.1667,
+    "above_chance": true,
+    "option_shares": {
+      "A": 0.9333,
+      "D": 0.0033,
+      "E": 0.01,
+      "F": 0.05,
+      "UNPARSED": 0.0033
+    },
+    "gpt_beats_every_other_option": true,
+    "gpt_at_least_double_next_option": true,
+    "accuracy_tierb_parser": 0.94,
+    "n_items": 100,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "missing_calls": 0,
+    "truncated_replies": 0,
+    "calls": 600,
+    "cost_usd": 2.8486,
+    "errors": 0,
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as instantiated in the card (median over seeds inside the item bootstrap CI of the original 0.64, (A) at least twice any other option, item CI above the 1/6 chance level); the paper reports no significance test for this cell, so that clause is vacuous; human double-coding pending",
+    "note": "scored with the authors' own parser and accuracy function; unparsed = incorrect; the Tier B hook's permissive parser gives 0.9400 as a sensitivity column. Prompt-level Tier B run (same items, same templates, same model): 0.9466666666666667 mean over 3 seeds against the config's 0.93. OPEN: the Tier B config records the same Figure 11(a) cell as 0.93 and scored 0.947 against it (재현); the pass-2 card reads the Math panel as 0.64 (0.93 is the XSum/UltraChat panel, 0.37 the Figure 9(a) family-level F1). 0.64 is carried here; the figure still needs a human read. Per-item letters in items.jsonl. The card's secondary check (the same row's 0.88 gpt-4o-mini column) was not run (single-target decision)."
+  },
+  "reproducibility_frictions_observed": [
+    "the released math path (unified_response_generator.py) loads gsm8k and samples with df.sample(random_state=42).head(), while sampled_data_indicies.py - the only module that touches MATH-500 - is imported nowhere; the authors' exact 100 problems are not recoverable, so this is a set-level replication",
+    "sampled_data_indicies.py draws 100 CCP-sensitive-prompts indices from the same random.seed(42) stream before the MATH-500 draw, so the item set depends on that dataset's row count (assumed 1,360, its size on 2026-09-07); a changed CCP dataset silently changes the 100 problems",
+    "Table 3 says level-5 problems are used; no released code applies that filter, and it is ignored here",
+    "the repository's math identification prompt is the generic seven-option template (A-G plus a Confidence Level line), not the paper's six-option Appendix C.2 Math template; chance level and decoy set differ, so the two are not interchangeable",
+    "OpenAIClient sends max_tokens=1024, which the API rejects for reasoning models and which would be consumed by reasoning tokens anyway; the released code as committed cannot have produced the paper's o4-mini rows",
+    "the authors' parser accepts (A)-(G) although the paper's Math template offers only (A)-(F), and it requires a family word after the letter: 'MODEL IDENTIFICATION: (A)' alone parses as unidentified and scores as incorrect",
+    "the Tier B config's postprocess note says 'take the last match' while both the hook and the authors' code take the first; on a reply that identifies twice the two conventions disagree",
+    "no results/ directory, no released target responses and no identification transcripts; the code carries no licence (all rights reserved), so it is imported, never copied",
+    "both sides of the pipeline are the same dying snapshot, so drift is doubled rather than confounded with a separate judge"
+  ]
+}

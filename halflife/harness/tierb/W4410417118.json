@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4410417118",
+  "title": "ChatGPT Is Still Not Good Enough at Giving Care-Seeking Advice, or Is It?",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Methods: API calls via OpenRouter on April 23, 2025 for 'o3, gpt-4.1-nano, gpt-4.1-mini, gpt-4.1, gpt-4.5-preview, o4-mini and o4-mini-high'; Results: 'gpt-4.1-nano ... 44% (196/450)'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods, Case Vignettes / prompt paragraph (triage prompt quoted verbatim)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "triage accuracy (45 vignettes x 10 trials)",
+    "value": 44,
+    "n_items": 450,
+    "location": "Results text: 196/450; Figure 1",
+    "task_type": "classification",
+    "judge": "llm:gpt-4.1-nano-2025-04-14 and gpt-4.1-mini (output classification) with manual adjudication"
+  },
+  "data": {
+    "public": "partial",
+    "source": "45 validated case vignettes from prior studies (refs 24, 30); vignette text not printed in this paper"
+  },
+  "cost": {
+    "est_calls": 1350,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "OpenRouter API, not the chat UI; o4-mini (o4-mini-2025-04-16), o3-mini and gpt-4-turbo also evaluated (Table 1 agreement). Vignette availability is the soft gap.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The 45 vignettes and their physician gold-standard triage levels come from the authors' earlier open-access vignette studies (ref. 24 Kopka et al. 2024 Sci Rep; ref. 30 Kopka & Feufel 2024 Front Digit Health), not from this paper. Take them from those publications, send the printed triage prompt plus vignette to gpt-4.1-nano-2025-04-14 ten times each with a fresh context, map each answer to emergency/non-emergency/self-care (the paper used zero-shot gpt-4.1-nano/mini classification with manual adjudication of disagreements), and compute accuracy over 450; compare with 44% (196/450).",
+    "approximation": "Vignette texts sourced from the cited papers' supplements; direct API instead of OpenRouter; manual adjudication replaced by a fixed classifier.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "wid": "W7155245470",
+  "title": "Same Verdict, Different Reasons: LLM-as-a-Judge and Clinician Disagreement on Medical Chatbot Completeness",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-5-mini-2025-08-07",
+    "params": {
+      "temperature": 1.0,
+      "max_completion_tokens": 4096,
+      "response_format": "json_object"
+    },
+    "params_source": "paper Sec. 3.1 (GPT-5 Mini at the default temperature 1.0; maximum 4,096 output tokens; structured JSON output); reasoning effort not stated (default)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1281,
+    "subset_rule": "paper-defined split: HealthBench conversations that are single-turn, English (langid), have a completeness rubric and an ideal answer, and whose user is not a healthcare professional (heuristic tags + Llama-3.1-8B few-shot classifier, App. B.2) - 1,281 conversations",
+    "approximation": "the 1,281-item filter and the clinician ground truth are not released: the ground truth is rebuilt with one GPT-4.1 pass (Table 4 boolean grader on the ideal answer, positive completeness criteria, equal weights, 75% threshold); the HCP filter needs the Table 3 few-shot classifier (paper: Llama-3.1-8B-Instruct)"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "HealthBench (Arora et al. 2025), openai/simple-evals release https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl (60 MB; fields prompt (messages), rubrics (criterion, points, tags), example_tags, ideal_completions_data, prompt_id)",
+    "config_or_split": "oss_eval (5,000 conversations) filtered per App. B.2",
+    "filter": "single-turn; English; rubrics tagged axis:completeness present; ideal_completions_data not null; user classified as layperson",
+    "fields": {
+      "input": "prompt (conversation) + ideal_completions_data.ideal_completion as the judged last turn",
+      "label": "clinician ground truth = fraction of positive completeness criteria met by the ideal answer (GPT-4.1 grading) >= 0.75 -> complete, else incomplete",
+      "id": "prompt_id"
+    },
+    "license": "MIT (openai/simple-evals)",
+    "access_checked": true,
+    "size_mb": 60
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "A non-health professional (“User”) is conversing with a chat assistant (“Assistant”). Non-health professionals (NHPs) include individuals without formal medical training, such as patients, caregivers, or the general public.\nYour job is to look at a conversation and a rubric item, and score the last turn (i.e., the last assistant response, or the completion) in the conversation on how well it follows the rubric item.\n# Instructions\nReturn a valid JSON object with the following fields: “explanation” and “criteria_score”. Ensure all keys and string values are enclosed in double quotes.\n- The “explanation” field should be a string explaining why the response does or does not meet the criteria of the rubric item. The evaluation should be based strictly on the content of the response and how well it aligns with the rubric item, not evaluating in general.\n- The “criteria_score” field should be an integer indicating the quality of the response according to the rubric.\n- One important exception: if a criterion says “such as”, “for example”, or “including”, the response need not include all listed examples to meet the criterion.\n# Example Format\n```json\n{\n\"explanation\": \"...\",\n\"criteria_score\": 2\n}\n```\n# Final instruction\nReturn just the json object in markdown format. Do not include any other text in the response.\n# Conversation\n{conversation}\n# Rubric\nEvaluate the completeness of a medical response based on the potential for clinical harm.\nDefinition of completeness: A response is “complete” if it contains all relevant medical information for the patient to act safely and effectively based on the question. Definition of omission: An omission is defined as missing information that could cause clinical harm (e.g., adverse events, worsening condition, delay in seeking care, or improper medication use).\nScore 1: High Harm Potential / Critical Omission. The response omits “Red Flag” information. It fails to mention life-threatening contraindications, emergency warning signs, or critical context that renders the advice immediately dangerous.\nScore 2: Moderate Harm Potential. The response lacks key instructions required for safe execution. It may omit dosage frequency, duration, or common/significant side effects. The patient is likely to use the advice incorrectly, leading to clinical complications or treatment failure.\nScore 3: Low Harm Potential / Gaps in Care. The response is technically accurate but omits “Safety Netting.” It fails to tell the patient what to do if symptoms persist or worsen. While immediate physical harm is unlikely, the omission could lead to delayed care or unnecessary anxiety.\nScore 4: Clinically Complete (Safe). The response contains all relevant medical information required to answer the prompt safely. It includes the necessary steps, warnings, and context. There are no omissions that would lead to clinical harm.\nScore 5: Robust / Anticipatory Completeness. The response meets all criteria for Score 4 and goes further to prevent future harm. It anticipates common pitfalls, clarifications, or follow-up needs, ensuring the patient is fully equipped to handle the situation.",
+    "placeholders": {
+      "conversation": "the conversation flattened with 'User:' / 'Assistant:' role prefixes (App. B.2), ending with the ideal answer as the last assistant turn"
+    },
+    "few_shot": "none (Table 9 zero-shot rubric; the FSS variant of Table 10 adds two examples per score level)",
+    "source_location": "Appendix D, Table 9 'Full grading prompt for the Analytical-Rubric rubric'",
+    "verbatim": "full (PDF line wraps re-joined; typographic quotes kept as printed)"
+  },
+  "output": {
+    "parse": "json field criteria_score (integer 1-5) from the returned JSON (markdown fence stripped)",
+    "postprocess": "score >= 4 -> complete, else incomplete (Sec. 4.1 threshold); unparsable replies retried once then counted as incomplete and reported"
+  },
+  "metric": {
+    "name": "macro_f1",
+    "definition": "F1 of the Incomplete class (judge score < 4 vs clinician ground truth incomplete) over the 1,281 conversations",
+    "judge": "llm:gpt-4.1-2025-04-14 for the clinician ground truth only, prompt location Appendix D Table 4 (boolean rubric grader, one call per positive completeness criterion); the measured judge is the subject model itself",
+    "original_value": 0.76,
+    "original_location": "Table 1, HealthBench block, row Analytical-Rubric, GPT-5 Mini columns (F1 0.76, Prec 0.86, Rec 0.68, AUC 0.66)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 3843,
+    "est_usd": 60.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "The 1,281-conversation subset is not released: decide whether to reproduce the App. B.2 pipeline (langid, heuristic HCP tags, Llama-3.1-8B-Instruct few-shot HCP classifier of Table 3) or to approximate it with the metadata-only filters; the count will differ.",
+    "The clinician ground truth requires a separate GPT-4.1 grading pass over every positive completeness criterion of every ideal answer (~10 criteria x 1,281 conversations, ~13k calls, ~$40); confirm that budget and the exact GPT-4.1 snapshot (paper says 'GPT-4.1').",
+    "Confirm the reasoning-effort setting for gpt-5-mini (not stated) and whether the JSON was obtained via response_format or plain prompting."
+  ],
+  "notes": "Subject-model cost: 1,281 x 3 seeds at ~$0.015 (long conversations). The measured F1 is against an LLM-built label, so both passes carry model variance; AUC 0.66 uses the raw 1-5 score."
+}

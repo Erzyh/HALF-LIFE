@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7151420297",
+ "title": "TCMI-F-6D benchmark construction and quantitative assessment of interdisciplinary foundational competencies in traditional Chinese medicine informatics using large language models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "ChatGPT-4-turbo / GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec 3.1.4: \"Twenty representative LLMs were selected...including the ChatGPT series (GPT-4-Turbo, GPT-3.5-Turbo)...\"; Table 4 row \"ChatGPT-4-turbo 87.55 86.71 74.00 71.43 94.00 85.95 83.27\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3 (n-shot MCQ prompting on MMLU-derived questions; standard MMLU few-shot question format, not reprinted verbatim in this paper)",
+  "note": "TCMI-F-6D is built directly from public MMLU subsets, so the underlying question format is the well-known MMLU template rather than a paper-specific one."
+ },
+ "claim": {
+  "metric": "average accuracy across six TCM-relevant MMLU subjects (Clin.Knowl, Coll.Med, Coll.CS, Mach.Learn, Med.Genet, Nutrition)",
+  "value": 83.27,
+  "n_items": 1056,
+  "location": "Table 4, row ChatGPT-4-turbo, Average column; Table 6 confirms Mean accuracy = 83.27",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "TCMI-F-6D benchmark, built from public MMLU subsets via huggingface.co/datasets/cais/mmlu (Data availability statement)"
+ },
+ "cost": {
+  "est_calls": 1056,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "The paper also reports 5-shot / n-shot learning-curve results (Tables 7-8, Experiments 2-3) for ChatGPT-4-turbo, which would need the exact few-shot example selection to reproduce precisely. DeepSeek-V3.1 outperforms ChatGPT-4-turbo overall (85.60 vs 83.27) but is outside the tracked OpenAI id list."
+}

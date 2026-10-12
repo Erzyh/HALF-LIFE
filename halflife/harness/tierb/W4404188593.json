@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404188593",
+ "title": "Enhancing Fairness in LLM Evaluations: Unveiling and Mitigating Biases in Standard-Answer-Based Evaluations",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"Three LLMs are evaluated: GPT3.5 (gpt-3.5-turbo-0125), GPT4o (gpt-4o-2024-05-13), and the 8B version of Llama3.\" (Methodology)"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Fig. 1 (attack examples); Methodology (CoT suffix \"Let's analyze step by step\" quoted; evaluation criteria adapted from FairEval, Wang et al. 2023a)",
+  "note": "Base scoring template (helpfulness/relevance/accuracy, 1-10) is from the cited FairEval paper, not fully reprinted here; this paper's own attacks/CoT suffix are verbatim."
+ },
+ "claim": {
+  "metric": "failure rate on the shuffled-list attack, GPT-4o evaluator, no mitigation",
+  "value": 3,
+  "n_items": 38,
+  "location": "Table 2, row \"GPT4o None\" (Failure Rate 3/38, Mean Score 9.921)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FairEval dataset (Wang et al. 2023a) built on the Vicuna benchmark: 80 questions across 8 categories, answered by GPT-3.5 and Vicuna-13B"
+ },
+ "cost": {
+  "est_calls": 350,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "GPT-4o here is the object of study (its own positional/verbosity bias as an evaluator is the paper's finding), so role S applies rather than A. Marked 'maybe' because the exact base FairEval scoring prompt must be pulled from Wang et al. 2023a; only this paper's modifications are quoted verbatim. n=38 for the shuffled-list attack (answers with numbered lists only); n=80 for the repetitive-content attack (Table 3)."
+}

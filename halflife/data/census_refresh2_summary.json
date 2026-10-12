@@ -1,0 +1,62 @@
+{
+  "refresh_date": "2026-10-11",
+  "identifiers_added": [
+    "gpt-3.5-turbo-instruct",
+    "gpt-3.5-turbo-1106",
+    "gpt-5.1-2025-11-13",
+    "gpt-5.1",
+    "gpt-5.4-nano-2026-03-17",
+    "gpt-5.4-nano"
+  ],
+  "identifiers_total": 81,
+  "vendor_counts": {
+    "openai": 47,
+    "anthropic": 16,
+    "google": 18
+  },
+  "records_read": {
+    "add": 3275,
+    "ext": 21342
+  },
+  "unique_works_considered": 22529,
+  "papers_before": 39447,
+  "papers_added": 3280,
+  "papers_after": 42727,
+  "base_papers_with_new_identifiers": 1937,
+  "filters_on_additions": {
+    "duplicate title": 3555,
+    "no persistent identifier": 649,
+    "no date": 33,
+    "publication year before the release of every named identifier": 44
+  },
+  "alias_resolution": {
+    "gpt-4o -> 2024-05-13": 497,
+    "gpt-3.5-turbo -> 0125": 9595,
+    "gpt-3.5-turbo -> 1106 (window dropped on 2 October, now resolved)": 1937,
+    "gpt-3.5-turbo -> 0613": 2229
+  },
+  "added_papers_by_matched_identifier": {
+    "gpt-3.5-turbo-instruct": 27,
+    "gpt-3.5-turbo": 728,
+    "davinci-002": 13,
+    "gpt-3.5-turbo-1106": 40,
+    "babbage-002": 1,
+    "gpt-5.1": 2329,
+    "gpt-5.1-2025-11-13": 45,
+    "gpt-5.4-nano": 227,
+    "gpt-5.4-nano-2026-03-17": 11
+  },
+  "statuses_after": {
+    "dying": 21526,
+    "dead": 14280,
+    "dead|dying": 6921
+  },
+  "papers_per_added_identifier": {
+    "gpt-3.5-turbo-instruct": 281,
+    "gpt-3.5-turbo-1106": 700,
+    "gpt-5.1-2025-11-13": 67,
+    "gpt-5.1": 2690,
+    "gpt-5.4-nano-2026-03-17": 14,
+    "gpt-5.4-nano": 311
+  }
+}

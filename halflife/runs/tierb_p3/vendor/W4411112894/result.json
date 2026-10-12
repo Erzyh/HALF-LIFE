@@ -1,0 +1,56 @@
+{
+  "wid": "W4411112894",
+  "title": "The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Case Study on Media Bias Detection",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 0.683,
+  "original_location": "Table 1, row GPT-4 Turbo, column '0-shot + sys prompt'",
+  "reexecution": {
+    "mean_over_seeds": 0.7121626762328742,
+    "per_seed": {
+      "0": {
+        "value": 0.7121626762328742,
+        "n": 882,
+        "ci95": [
+          0.6628048055853534,
+          0.7545240052401451
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411112894",
+    "n_items": 882,
+    "n_requests": 882,
+    "seeds": 1,
+    "est_usd": 17.98,
+    "subset_note": "cost cap $18.0: seeded random subset of 882 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 0.683,
+    "cap_usd": 18.0
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the paper's 'openai/gpt-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (run date not given)",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4411112894"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7121626762328742,
+    "delta": 0.029162676232874163,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7202383678",
+ "title": "Opening the Black Box of Eviction Court with Document-Conditioned LLM Analysis",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"One recent study... (Shastri et al. 2024). The authors evaluated GPT-4 Turbo on a range of extraction tasks from Massachusetts eviction case files... 95.8% accuracy\" (cited work)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "This paper's own pipeline prompts GPT-4o (Sec.3), not GPT-4 Turbo."
+ },
+ "claim": {
+  "metric": "none (95.8% belongs to the cited Shastri et al. study)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The authors' own extraction pipeline (Pierce County, WA eviction records, 195,050 documents) is built on GPT-4o (\"we prompted GPT-4o using document-conditioned prompts\"); GPT-4 Turbo appears only in a related-work citation."
+}

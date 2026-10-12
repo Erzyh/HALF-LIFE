@@ -1,0 +1,25 @@
+{
+  "openalex_id": "W4404782507",
+  "title": "AIC CTU system at AVeriTeC: Re-framing automated fact-checking as a simple RAG task",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o (version 2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"1. GPT-4o (version 2024-05-13)\"; Table 2 row \"GPT-4o (full-featured pipeline)\" Test Set AVeriTeC = 0.50; Abstract: \"AVeriTeC test set score of 50.4%\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A, Listing 1 (system prompt for the LLMs; claim inserted into the user prompt)",
+    "note": "The few-shot example block is shown once with \"...\" marking omitted repeats of the same structure, not unknown content."
+  },
+  "claim": {
+    "metric": "AVeriTeC score, test set, GPT-4o full-featured pipeline", "value": 0.50, "n_items": null, "location": "Table 2, row \"GPT-4o (full-featured pipeline)\", Test Set AVeriTeC column; Abstract states 50.4%",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "AVeriTeC shared-task dataset (Schlichtkrull et al. 2024); pipeline code released at github.com/aic-factcheck/aic_averitec"},
+  "cost": {"est_calls": 6645, "tier": "high"},
+  "blockers": [],
+  "notes": "Clean role-S claim on a fully public shared-task benchmark with a full system prompt (Appendix A, Listing 1) and a gold AVeriTeC-scoring script, scored via an external EvalAI blackbox. Only gap: this paper never restates the exact dev/test item counts in text (the standard AVeriTeC split is documented in Schlichtkrull et al. 2024, not repeated here), so n_items is not directly citable from this paper's own text -- the one soft gap keeping this at \"maybe\" rather than \"eligible\". The authors' own logged cost ($0.04-0.08 per fact-check, ~9000 calls / $363 during development) confirms a high cost tier."
+}

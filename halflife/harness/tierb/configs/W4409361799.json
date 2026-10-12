@@ -1,0 +1,75 @@
+{
+  "wid": "W4409361799",
+  "title": "Knowledge Tagging with Large Language Model Based Multi-Agent System",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.7,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper 'Implement Settings' (GPT-4o with temperature 0.7 for the numerical judger); temperature for the planner, solver and semantic judger not stated (0.0 assumed); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 2400,
+    "subset_rule": "all (concept, question) pairs of MathKnowCT: 24 knowledge concepts x ~100 questions (Table 1 counts, some concepts < 100)",
+    "approximation": "Two demonstrations per concept are a seeded random draw (the paper's are unlisted); the paper adjusts prompt wording per LLM without printing variants; the numerical judger's generated Python is executed locally."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "MathKnowCT (Li et al. 2024a) - no public release located on GitHub or Hugging Face on 2026-09-07",
+    "config_or_split": "all",
+    "filter": "none",
+    "fields": {
+      "input": "knowledge concept definition + question text",
+      "label": "concept applies (positive / negative)",
+      "id": "knowledge id + question id"
+    },
+    "license": "unknown",
+    "access_checked": false,
+    "size_mb": 1
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "=== Task Planner ===\nInstruction: Your job is to take the following knowledge definition and separate it into one or more simpler Knowledge sub-constraints. Each of these smaller constraints must return Yes or No value when evaluated. examples: {example_1} {example_2}\nKnowledge: {knowledge}\nPlan:\n\n=== Question Solver ===\nInstruction: You are a student. Given a question, provide the answer at the end.\nQuestion: {question}\nAnswer:\n\n=== Semantic Judger ===\nInstruction: You are a knowledge concept annotator. Your job is to judge whether the question is concerning the knowledge. The judgment tokens <Yes> or <No> should be provided at the end of the response. You are also given two examples. {example_1} {example_2}\nKnowledge: {knowledge}\nQuestion: {question}\nJudgment:\n\n=== Numerical Judger step 1 ===\nInstruction1: You are a knowledge concept classifier. You are given a Question, Answer, a Main constraint, and Subconstraints. Identify the numerical arguments for each subconstraint. {example}\nKnowledge: {knowledge}\nQuestion: {question}\nSub-constraints: {sub_constraints}\nArgument:\n\n=== Numerical Judger step 2 ===\nInstruction2: You are a knowledge concept annotator. You are given a Question, Answer, Sub-contraints, and Arguments. Your job is to write a Python script using the sub-constraints and their respective arguments and evaluate them. The script prints True if all the sub-constraints return True, False if else.\nKnowledge: {knowledge}\nQuestion: {question}\nArgument: {argument}\nSub-constraints: {sub_constraints}\nProgram Code:",
+    "placeholders": {
+      "knowledge": "concept definition text",
+      "question": "question text (+ solver answer where 'Copied from Question Solver')",
+      "example_1": "labelled (knowledge, question, plan/judgment) demonstration 1, seeded random per concept",
+      "example_2": "demonstration 2, same rule",
+      "example": "one worked numerical-judging example in the Figure 3 style",
+      "sub_constraints": "numerical sub-constraints produced by the Task Planner",
+      "argument": "arguments extracted in Numerical Judger step 1",
+      "_note": "five templates separated by '=== ... ===' headers; the final label is the AND of the semantic and numerical judgements"
+    },
+    "few_shot": "k=2 examples per knowledge concept, randomly sampled from MathKnowCT (Dataset Overview)",
+    "source_location": "Method section: Task Planner, Question Solver, Semantic Judger and Numerical Judger instruction templates",
+    "verbatim": "partial (templates verbatim; the [Example] slots and the per-LLM wording adjustments are not printed)"
+  },
+  "output": {
+    "parse": "Semantic Judger: regex <(Yes|No)> (last match); Numerical Judger: stdout of the executed script (True/False); final = Yes only if all sub-judgements are Yes/True",
+    "postprocess": "strip; execution error counted as False"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "(TP + TN) / (TP + FP + TN + FN) over all (concept, question) pairs.",
+    "judge": "none",
+    "original_value": 86.91,
+    "original_location": "Table 4, block Multi-Agent LLMs, column GPT, row Accuracy / Large",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 12000,
+    "est_usd": 60.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "MathKnowCT (Li et al. 2024a) could not be found as a public release (GitHub / Hugging Face, checked 2026-09-07); a human must locate it or drop the paper.",
+    "Protocol beyond one main stage: five dependent calls per item (planner, solver, semantic judger, two numerical-judger steps) plus local execution of generated Python.",
+    "Decide the temperature for the non-numerical agents (paper states 0.7 only for the numerical judger)."
+  ],
+  "notes": "About five calls per item (planner, solver, semantic judger, two numerical-judger steps) plus local code execution. || [hook pass 2026-09-07] no hook: data not found + multi-agent protocol with code execution."
+}

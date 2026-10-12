@@ -1,0 +1,134 @@
+{
+  "card_id": "W7131889008",
+  "openalex_id": "https://openalex.org/W7131889008",
+  "title": "The evolving landscape of neuroscience",
+  "doi": "10.52294/001c.156380",
+  "paper": {
+    "authors": "Mario Senden (Department of Cognitive Neuroscience, Maastricht University), single author",
+    "year": 2026,
+    "venue": "Aperture Neuro 6, Issue SI 2 (2026), review article; earlier bioRxiv 10.1101/2025.02.13.638094",
+    "repo": "https://github.com/ccnmaastricht/NeuroScape",
+    "repo_commit": "2ad41e5a3db8a9b9a280184e1f12f859b00b7ec2 (2026-06-26; shallow clone at external/repos/W7131889008/ccnmaastricht__NeuroScape, 5.4 MB)",
+    "repo_license": "MIT, (c) 2025 Cognitive Computational Neuroscience Group Maastricht",
+    "other_artifacts": "Dataset NeuroScape 1.0.1 on Zenodo, doi 10.5281/zenodo.14865161 (not downloaded for this card; contents not verified). Non-OpenAI components: Voyage AI embeddings, a custom PyTorch domain-embedding network, faiss, python-igraph, leidenalg."
+  },
+  "dependence": {
+    "type": "annotator",
+    "strength": "core",
+    "note": "Every semantic result (cluster titles and descriptions, the nine research dimensions, emerging and declining trends, open questions) is an LLM-assigned label over article abstracts, so the reported percentages are properties of the annotator's output. The bibliometric layer (counts, growth rates, citation graph, Krackhardt coefficients) is LLM-free and would survive on its own."
+  },
+  "claim": {
+    "statement": "Characterising all 175 semantic clusters of 461,316 neuroscience abstracts along nine research dimensions with gpt-4o-2024-08-06 (250 abstracts nearest each cluster centroid per call), the field appears predominantly experimental (96% of clusters) and hypothesis-driven (77%) / data-driven (67%), with only 3% of clusters developing or critiquing theory and only 17% employing overarching theoretical frameworks, while translational (55%) and clinical (30%) work sits atop a broad fundamental base (81%) and 82% of clusters score high or very high on interdisciplinarity (Figure 3a; Sec. Results).",
+    "claim_type": "tool_validity",
+    "metric": "Share of the 175 clusters assigned to each (non-mutually-exclusive) category of the nine LLM-rated dimensions, in percent; downstream, the Matthews phi coefficients between category pairs (Figure 3b) with t-tests on 173 degrees of freedom.",
+    "original_values": {
+      "n_clusters": 175,
+      "figure3a_category_shares_pct": {
+        "experimental": 96,
+        "hypothesis_driven": 77,
+        "data_driven": 67,
+        "computational_modeling": 46,
+        "theory_developing_or_critiquing": 3,
+        "micro_theories": 64,
+        "domain_specific_theories": 35,
+        "disease_specific_theories": 39,
+        "overarching_frameworks": 17,
+        "translational": 55,
+        "clinical": 30,
+        "fundamental": 81,
+        "rodents": 74,
+        "humans": 71,
+        "non_human_primates": 33,
+        "other_mammals": 30,
+        "microsecond_scale": 6,
+        "interdisciplinarity_high_or_very_high": 82
+      },
+      "figure3b_examples_phi": {
+        "fundamental_vs_clinical": -0.5496,
+        "fundamental_vs_clinical_t_173": -8.6535,
+        "translational_vs_clinical": 0.4321,
+        "translational_vs_clinical_t_173": 6.3024,
+        "clinical_vs_disease_specific_theory": 0.3539
+      },
+      "corpus": {
+        "articles": 461316,
+        "years": "1999-2023",
+        "cluster_size_range": "9,155 to 117 articles",
+        "clusters_with_absolute_decline_pct": 15.4
+      }
+    },
+    "original_source": "Paper Figure 3a (quantitative overview of how many clusters qualify for each category) with the percentages restated in the Results text; Figure 3b and the accompanying t statistics; Methods section LLM-BASED ANALYSES for the procedure; cluster count and corpus size from the Results."
+  },
+  "protocol": {
+    "model": "none callable - the claim-bearing model is gpt-4o-2024-08-06, which is not in our target snapshot list (target_models.json has no 2024-08-06 entry) and is treated as dead under the project date rule. The only retiring snapshot the paper names, o1-2024-12-17, was used solely to polish the manuscript's language.",
+    "model_status": "blocked. gpt-4o-2024-08-06: not callable / out of scope. o1-2024-12-17: dying (shutdown 2026-10-23) but attached to no result.",
+    "model_usage_verified": "yes, both statements are explicit. Methods: the semantic analyses were conducted with OpenAI's gpt-4o-2024-08-06 via LangChain (langchain 0.3.19, langchain_openai 0.3.6), and config/analysis/semantic.toml in the repo sets model_name = gpt-4o-2024-08-06, temperature = 1.0. Declaration of Generative AI: o1 (o1-2024-12-17) was used to enhance the article's language and readability.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions through langchain_openai.ChatOpenAI (scripts/semantic_analysis/*.py), JSON output parsed by SimpleJsonOutputParser",
+    "prompt_source": "Prompt templates are hardcoded in scripts/semantic_analysis/{cluster_definition,cluster_distinction,assess_dimensions,assess_dimension_categories,extract_trends,extract_open_questions}.py and reprinted verbatim in the paper's Methods; required output fields are listed in config/analysis/semantic.toml",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": "not set",
+      "top_p": "not set",
+      "seed": "not set",
+      "retries": "10 with a 0.2 s delay (config)",
+      "note": "temperature 1.0 with a single pass per cluster: the label assignment is stochastic and no repeat-agreement figure is reported"
+    },
+    "prompt_source_note": "The dimension call sends the cluster title plus up to 250 abstracts; the definition call sends up to 200 abstracts; trends compare an older (<=2010) and a recent (>=2021) block of up to 200 abstracts each",
+    "n_items": 175,
+    "n_items_note": "175 clusters per semantic script; the definition, distinction, dimensions, dimension-categories, trends and open-questions steps are six separate passes over that set",
+    "samples_per_item": 1,
+    "evaluation": "No accuracy metric: the LLM's labels are the measurement. The published numbers are counts over categories, so a re-execution measures annotator stability, not correctness; the repository has no agreement or validation script and the paper reports no inter-rater or repeat-run check."
+  },
+  "artifacts": {
+    "prompts_path": "scripts/semantic_analysis/cluster_definition.py, cluster_distinction.py, assess_dimensions.py, assess_dimension_categories.py, extract_trends.py, extract_open_questions.py (prompt templates inline); config/analysis/semantic.toml (model, temperature, required fields, abstract caps)",
+    "data_path": "Zenodo 10.5281/zenodo.14865161 (NeuroScape 1.0.1); the repo carries only code and config. Abstracts are PubMed-derived and the intermediate CSVs (articles_merged_cleaned_filtered_clustered.csv, clusters_defined.csv) are produced by the pipeline, not committed.",
+    "eval_path": "notebooks/results_00_nutshell.ipynb, results_01_clusters.ipynb, results_02_dimensions.ipynb, results_03_growth_trends.ipynb (figure and table construction, including Figure 3a/3b)",
+    "data_public": true,
+    "data_license": "code MIT; article CC BY 4.0; the Zenodo dataset's licence was not verified (record not downloaded). PubMed abstracts carry publisher-specific terms.",
+    "redistributable": "code yes; abstract text only under its original publisher terms",
+    "notes": "The pipeline is unusually complete for a single-author review (scraping through figures), but the LLM steps sit at the end of a long chain: Voyage AI embeddings, a trained discipline classifier, a trained domain-embedding network and Leiden clustering all precede them, and each is stochastic. Reproducing Figure 3a therefore requires either the released intermediate clustering or a re-run of the whole chain."
+  },
+  "blockers": [
+    "Dead snapshot: the claim-bearing model gpt-4o-2024-08-06 is outside the callable target set (no 2024-08-06 entry in target_models.json), so the LLM-derived numbers have no live arm.",
+    "The only retiring snapshot the paper names, o1-2024-12-17, was used to improve the manuscript's language, not to produce any result - a declaration-only usage that carries no measurable claim.",
+    "No ground truth: the nine dimensions are LLM judgements with no human-labelled reference, no repeat-run agreement and no validation set, so a re-run can only measure annotator stability.",
+    "Upstream stochasticity: the 175 clusters come from Voyage AI embeddings plus a trained domain network plus Leiden community detection; without the exact released intermediates the cluster identity itself changes, and the percentages are defined over clusters.",
+    "Scale and cost: the dimensions step alone sends up to 250 abstracts per cluster (about 82k input tokens per call), so a single full pass over the six semantic scripts is tens of millions of input tokens."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "none",
+      "purpose": "no live arm - gpt-4o-2024-08-06 is not callable in this project and o1-2024-12-17 produced no result. The card is filed for the census (dependence type annotator, strength core), not for execution."
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for both gpt-4o and o1 on the OpenAI deprecations page)",
+      "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+    ],
+    "dead_comparators_not_runnable": [
+      "gpt-4o-2024-08-06 (all semantic analyses)"
+    ],
+    "hypothetical_design": "If the user wants a successor-annotator arm, the cheapest informative slice is the dimensions step alone on a stratified sample of clusters (for example 30 of 175), scoring category agreement against the published Supplementary Table 3 labels rather than against Figure 3a's aggregate."
+  },
+  "budget": {
+    "est_calls": 0,
+    "est_tokens_in": 0,
+    "est_tokens_out": 0,
+    "est_cost_usd": 0,
+    "pricing_usd_per_1m": {
+      "note": "not applicable - no callable snapshot for the claim"
+    },
+    "hypothetical_successor_run_usd": 150,
+    "assumptions": "Blocked, so no spend is planned. For scale only: an abstract is about 330 tokens, so the dimensions pass is 175 calls x ~82k tokens = about 14.4M input tokens, the definition pass about 11.6M, and trends about 23M; a full single pass over the six semantic scripts is roughly 60M input tokens, i.e. about USD 150 at gpt-4o-2024-08-06 list prices (USD 2.5/1M) or about USD 300 at gpt-4o-2024-05-13 prices. The 30-cluster dimensions slice would be about USD 12."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 cannot be applied: with no callable snapshot for the claim-bearing model there is no baseline_alive result to compare against, so the card is recorded as blocked rather than judged. If a successor-annotator arm is ever approved, the rule would be: hold the released clustering fixed, re-label the same clusters, and judge the direction of the headline contrast (experimental >> theory-developing; overarching frameworks a small minority) with the per-category share as secondary; survival = the 96% / 3% / 17% ordering preserved and each headline share inside a bootstrap CI over clusters, death = the theory-developing share rising to the level of the experimental share, which would mean the label distribution was an annotator artifact.",
+    "notes": "This paper is the clean example of a census category we should report: an LLM used as an annotator at the end of a long non-LLM pipeline, with the snapshot named precisely, the prompts published, the code public and the claim still unreproducible because the snapshot is gone. The declaration-only o1 usage is also worth counting separately: full-text snapshot matching finds o1-2024-12-17 here, but the model touched only the prose."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm that a declaration-only usage (o1-2024-12-17 for language editing) is recorded as blocked rather than as an alias false positive - it is a genuine dated-snapshot mention with no result attached.",
+    "Treat gpt-4o-2024-08-06 as dead for card purposes (it is absent from target_models.json), or add it to the target list as a late-2024 snapshot and re-scope this card as runnable?",
+    "Do we want the 30-cluster successor-annotator slice (about USD 12) as a P3 stability probe, or leave the card unexecuted?"
+  ],
+  "domain_notes": "A single-author bibliometric review of 461,316 PubMed abstracts (1999-2023): Voyage AI embeddings, a trained discipline classifier, a domain-specific embedding network and Leiden clustering produce 175 clusters, after which gpt-4o-2024-08-06 supplies every semantic layer (titles, descriptions, nine research dimensions, trends, open questions). The headline conclusions - a predominantly experimental field, only 3% of clusters developing theory, fundamental research at risk of decline, high cross-fertilisation - rest on those LLM labels, with no human-labelled validation. Tier B triage had already marked the paper ineligible (blocker no_number) because the o1 mention is editorial; this card records the stronger reason as well, namely that the claim-bearing snapshot is out of reach, and documents what an executable version would cost."
+}

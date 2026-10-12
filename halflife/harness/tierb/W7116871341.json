@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7116871341",
+ "title": "A Comparative Study of AI-generated and Teacher-constructed Language Tests",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Limitations: \"According to ChatGPT's own comparison, GPT-4-turbo offers improved semantic understanding...\"; the study's own AI-generated test items were produced by GPT-3.5 in early 2024."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Limitations section (discussion only; GPT-4-turbo was never run)",
+  "note": "A separate one-off anecdote says 'ChatGPT-4' suggested a synonym distractor, but that is undated GPT-4, not GPT-4-turbo, and not a benchmarked result."
+ },
+ "claim": {
+  "metric": "none (GPT-4-turbo not run)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Polish high-school study; the actual AI-generated MC vocabulary tests were produced by GPT-3.5 in early 2024. GPT-4-turbo appears only in a Limitations paragraph speculating about future model improvements, never as part of the reported experiment."
+}

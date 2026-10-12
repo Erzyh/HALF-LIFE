@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7169863738",
+  "title": "Recovering Engineering-Change Traceability from Legacy CNC Work Orders: A Pydantic Schema and Few-Shot LLM Extraction Baseline",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "'consistent gains of 1-3% over single-pass GPT-4 Turbo inference' (related work); extraction model is Qwen2.5-3B-Instruct fine-tuned with QLoRA and deployed via Ollama (Section 3.3)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 3.3.2 Prompt Design (three-component structure described)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "strict per-entity F1 (ECM extraction)",
+    "value": null,
+    "n_items": 399,
+    "location": "Section 4 result tables (399 work orders, 217 with change events)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "399 CNC lathe work orders from one company; proprietary manufacturing records"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "data_closed"
+  ],
+  "notes": "Live model only cited in related work."
+}

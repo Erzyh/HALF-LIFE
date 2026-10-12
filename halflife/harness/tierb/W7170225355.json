@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7170225355",
+ "title": "LLM Detection as an Intervention: Downstream Impact under Strategic User Behavior",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-5-nano-2025-08-07",
+  "resolved": "gpt-5-nano-2025-08-07",
+  "role": "A",
+  "evidence": "Appendix G.2: \"We also show ablations where we take GPT-5-nano-2025-08-07 to be the judge (Figure 4). Our results readily generalize across these settings.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix G.1 (judge prompt quoted in full: classify a word's frequency change as 'topic' or 'style')",
+  "note": "The full judge prompt is printed, but it is quoted for the paper's main judge (GPT-5.4-mini, not on the tracked list), with GPT-5-nano-2025-08-07 only used for a robustness-check figure."
+ },
+ "claim": {
+  "metric": "none printed for gpt-5-nano-2025-08-07 (Figure 4 is a chart only, no table of values)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 4 (Appendix G.2)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "arXiv CS abstracts, monthly word-frequency corpus 2013-2025 (construction described in Appendix G.1)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is primarily a game-theoretic/theoretical paper (Appendices A-F are proofs); the empirical section's main judge is 'GPT-5.4-mini' (not a tracked still-callable id, and an oddly forward-dated model name for a 2026 preprint). GPT-5-nano-2025-08-07 is used only in a supplementary robustness figure with no printed numeric values."
+}

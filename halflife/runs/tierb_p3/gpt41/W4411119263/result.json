@@ -1,0 +1,56 @@
+{
+  "wid": "W4411119263",
+  "title": "ReIFE: Re-evaluating Instruction-Following Evaluation",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 84.0,
+  "original_location": "Table 2, row gpt-4o-24-05-13, column Avg.",
+  "reexecution": {
+    "mean_over_seeds": 0.8686975960841743,
+    "per_seed": {
+      "0": {
+        "value": 0.8686975960841743,
+        "n": 2060,
+        "ci95": [
+          0.8409726556243278,
+          0.8958245059931049
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119263",
+    "n_items": 2060,
+    "n_requests": 2060,
+    "seeds": 1,
+    "est_usd": 5.48,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 84.0,
+    "cap_usd": 6.9
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 16
+  },
+  "approximation": "none beyond API nondeterminism under greedy decoding",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4411119263"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 86.86975960841743,
+    "delta": 2.869759608417425,
+    "original_inside_ci95": false
+  }
+}

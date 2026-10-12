@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4416034996",
+ "title": "Turning the Tide: Repository-based Code Reflection",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano-2025-04-14",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Sec 5.1: temperature 0, max_output_tokens 8192, over 40 LLMs incl. GPT-4.1-nano-2025-04-14; Table 1 row 'All' Pass@1 2.1, Pass@2 9.9, WF 71.4, FW 79.0."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix A (standardized repository-task input design); Appendix B (Table 3 prompt-related details)",
+  "note": "Task/input format described; literal solve-prompt text not confirmed verbatim in the excerpt reviewed."
+ },
+ "claim": {
+  "metric": "Pass@1, full-file code generation, All languages",
+  "value": 2.1,
+  "n_items": 1888,
+  "location": "Table 1, row GPT-4.1-nano-2025-04-14, 'All' column",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LiveRepoReflection benchmark, https://LiveRepoReflection.github.io"
+ },
+ "cost": {
+  "est_calls": 3800,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Same Table 1/2 also give clean 'All'-column rows for o3-mini-2025-01-31 (Pass@1 11.9/11.0, Table1/2) and o4-mini-2025-04-16 (Pass@1 14.0/13.0); those are higher cost tier (o-series ~$0.05-0.2/call) than the low-cost gpt-4.1-nano row reported here. LLM-as-judge is used only for training-data quality scoring, not for the Pass@1 metric (test-based)."
+}

@@ -1,0 +1,6 @@
+﻿condition,scorable,median_abs_move_pts,class_deviated,class_deviated_pct,moved_gt_2_pts,moved_gt_2_pct,moved_gt_3_pts,moved_gt_3_pct,moved_gt_5_pts,moved_gt_5_pct,moved_gt_10_pts,moved_gt_10_pct,moved_gt_20_pts,moved_gt_20_pct
+pre-retirement baseline (prompt-level papers on the points scale),79,2.3,19,24.1,41,51.9,34,43.0,25,31.6,13,16.5,5,6.3
+vendor-designated replacement,72,6.7,38,52.8,55,76.4,51,70.8,38,52.8,31,43.1,21,29.2
+gpt-4.1,48,4.1,23,47.9,35,72.9,30,62.5,23,47.9,14,29.2,4,8.3
+open-weight Llama 3.3 70B,64,8.2,43,67.2,52,81.2,49,76.6,45,70.3,25,39.1,18,28.1
+Gemini 3.8 Flash,66,8.2,43,65.2,52,78.8,49,74.2,44,66.7,31,47.0,21,31.8

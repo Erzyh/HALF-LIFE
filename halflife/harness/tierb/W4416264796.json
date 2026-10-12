@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416264796",
+  "title": "Seeing History Unseen: Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "OpenAI GPT-4.1 Nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "C",
+    "evidence": "Footnote 1: 'Cheaper models such as Mistral Pixtral 12B, AllenAI Molmo 7B-D, and OpenAI GPT-4.1 Nano were tested but excluded due to consistently empty or nonsensical outputs.'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 2-3 (system prompt fixes WCAG and output constraints; full pipeline at https://github.com/maehr/chr2025-seeing-history-unseen)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "No result for GPT-4.1 Nano (excluded); GPT-4o mini (not in the live list) is scored by a human survey (Table 3, 20 media objects)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "20 heritage media objects (Stadt.Geschichte.Basel, Zenodo) x 4 models"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "human_outcome"
+  ],
+  "notes": "Evaluated models are Gemini 2.5 Flash Lite, Llama 4 Maverick, GPT-4o mini and Qwen3 VL 8B; ratings are human rankings."
+}

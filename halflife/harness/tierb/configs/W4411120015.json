@@ -1,0 +1,86 @@
+{
+  "wid": "W4411120015",
+  "title": "Moderation Matters: Exploring Large Language Models for Effective Rumor Detection on Social Media",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding parameters; max_tokens generous because the reply is a JSON object with a free-text explanation)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 417,
+    "subset_rule": "the test split of the dataset behind Figure 11; the paper splits each dataset 80/10/10 (Sec. 5.1.1), so the Weibo test fold is about 417 claims of 4,174 and the Twitter one about 231 of 2,308. Figure 11 does not say which dataset the 96.7% belongs to.",
+    "approximation": "BLOCKED: 96.7% is the whole SePro pipeline, not a prompt. Each call's prompt is filled with material produced by unreleased components: {local_cmt} and {global_cmt} are comments selected by the semantic-propagation collaboration module (spectral clustering of the propagation graph, entropy-ranked top-n, hyperparameters k = 50 and alpha = 0.3), and {prediction} is the prediction distribution of a GAT fine-tuned by the authors on the same training split (Appendix A.3, one hour on an A100)."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "Twitter15 + Twitter16 combined (Ma et al. 2017) and Weibo (Ma et al. 2018b), the standard public rumor-detection releases; Table 1: Twitter 2,308 claims / 232 average comments / propagation, labels non-rumor, false, true, unverified; Weibo 4,174 claims / 816 comments, labels non-rumor, rumor",
+    "config_or_split": "test fold of the authors' 80/10/10 split (the split itself is not published)",
+    "filter": null,
+    "fields": {
+      "input": "claim text plus selected local and global comments",
+      "label": "non-rumor / false / true / unverified (Twitter) or non-rumor / rumor (Weibo)",
+      "id": "claim id"
+    },
+    "license": "as released by Ma et al. (research use); the paper adds no data statement",
+    "access_checked": false,
+    "size_mb": null,
+    "file_url": null,
+    "access_note": "Not checked: the missing pieces are the authors' split, the refined comment selection and the fine-tuned model's prediction distribution, none of which are in the public Twitter15/16 or Weibo releases. The paper names no code or data repository."
+  },
+  "prompt": {
+    "system": "You are an AI specialized in rumor detection. Your task is to assess the potential veracity of claim on social media and classify it with an appropriate label.\nYou should consider the following chain of clues step by step to verify the claim.\n{chain-of-clue}\nThere is a claim: {claim}\nThere are selected local comments: {local_cmt}\nThere are selected global comments: {global_cmt}\nThe prediction distribution from fine-tuned models is: {prediction}\n{output formatter}",
+    "user_template": null,
+    "placeholders": {
+      "chain-of-clue": "literal (Prompt 1 Box, Sec. 4.4): '<chain-of-clue>\\n1. Examine the **writing style** of claim for exaggerated language or emotional tone.\\n2. Check for **information consistency** within claim and cross-reference with commonsense knowledge or known facts.\\n3. Review the **local comments**, paying attention to any questions or affirmations.\\n4. Look into **global comments** for in-depth discussions or additional evidence provided by users.\\n5. Assess the **propagation pattern** to understand the spread of the news.\\n6. Reference **prediction distribution** of fine-tuned model to mutual verification.\\n7. Based on above information, choose the answer from the candidate label list and generate explanation.\\n</chain-of-clue>' (clue 6 is dropped in the unsupervised variant SePro-U)",
+      "claim": "the claim text",
+      "local_cmt": "comments selected by the local semantic-propagation module (unreleased)",
+      "global_cmt": "comments selected by the global module (unreleased)",
+      "prediction": "the fine-tuned GAT's prediction distribution (unreleased)",
+      "output formatter": "Box 4 / Table 8: the JSON-schema instruction requiring the fields label, explanation and clues"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A.2 with Table 4 (input system-prompt template), Prompt 1 Box in Sec. 4.4 (chain of clues), Box 4 / Table 8 (output formatter)",
+    "verbatim": "full for the three printed pieces (the template of Table 4, the chain-of-clue box and the output-format box); the line breaks follow the paper's boxes and the hyphenation 'pre-/diction' broken across lines in Table 4 is joined. The paper prints no filled-in example, so the layout of the comment lists and of the prediction distribution inside the slots is unknown. The candidate label list referred to in clue 7 is not printed in the template.",
+    "placeholders_paper": {
+      "chain-of-clue": "{chain-of-clue}",
+      "claim": "{claim}",
+      "local_cmt": "{local_cmt}",
+      "global_cmt": "{global_cmt}",
+      "prediction": "{prediction}",
+      "output formatter": "{output formatter}"
+    }
+  },
+  "output": {
+    "parse": "json field label",
+    "postprocess": "the reply is a JSON object with label / explanation / clues; the label is compared with the gold label",
+    "parse_paper": "same (Box 4 fixes the schema)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of test claims whose predicted label equals the gold label",
+    "judge": "none",
+    "original_value": 96.7,
+    "original_location": "Sec. 5.4 (limitations / foundation-model generalisation) with Figure 11: 'SePro with gpt-4o-2024-05-13 achieved the best performance, reaching an accuracy of 96.7%'",
+    "bootstrap_unit": "claim",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1251,
+    "est_usd": 30.0,
+    "tier": "mid",
+    "cost_note": "about 417 test claims x 3 seeds; the prompt carries up to 50 local plus 50 global comments, so several thousand input tokens per call at gpt-4o prices."
+  },
+  "open_points": [
+    "pipeline: SePro is a framework, not a prompt. Two of its four prompt slots are filled by unreleased components (the spectral-clustering comment selector and a GAT trained by the authors). Reproducing the 96.7% means re-implementing and re-training both on the authors' own 80/10/10 split, which is not published either. A human must decide whether to attempt that, to fall back on the zero-shot LLM baseline of the same figure (a different, much lower cell), or to drop the paper.",
+    "claim cell: Figure 11 is described only in prose and the accompanying text does not say which of the two datasets the 96.7% is on, nor how many test claims it covers. The number is also higher than the SePro row of Table 2 (Twitter 0.9157, Weibo 0.9512), so the Figure 11 configuration differs from the main table in a way the paper does not explain.",
+    "no code or data release is named anywhere in the paper."
+  ],
+  "notes": "The same figure carries a zero-shot gpt-4o-2024-05-13 baseline (framework-independent and promptable from the paper's own text), but the paper reports it only inside the figure, so no numeric target could be read off for it either. Table 2's LLM baselines were all reproduced with GPT-3.5-turbo-0125 'for a fair comparison' (Appendix A.3), so they do not give a gpt-4o cell."
+}

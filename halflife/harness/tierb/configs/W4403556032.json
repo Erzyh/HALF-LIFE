@@ -1,0 +1,84 @@
+{
+  "wid": "W4403556032",
+  "title": "Enhancing Healthcare LLM Trust with Atypical Presentations Recalibration",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 1272,
+    "subset_rule": "paper-defined split: MedQA (USMLE, 4 options) development set, 1,272 questions",
+    "approximation": "Options rendered as 'A. ...' lines inside {question} (format not printed); the printed prompt keeps the optional Difficulty line (Appendix B says it is optional and was used for analysis only)."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "openlifescienceai/medqa (Hub parquet, split dev = the MedQA USMLE 4-option development set; its 1,272 questions are identical to bigbio/med_qa validation, whose options are key/value structs the runner cannot letter)",
+    "config_or_split": "default / dev (1,272 rows verified; nested columns data.Question, data.Options {A-D}, data.Correct Option)",
+    "filter": null,
+    "fields": {
+      "input": "data.Question",
+      "options": "data.Options",
+      "label": "data.Correct Option",
+      "id": "id"
+    },
+    "license": "unknown on the HF card (MedQA is MIT-licensed on GitHub)",
+    "access_checked": true,
+    "size_mb": 1,
+    "hf": {
+      "dataset": "openlifescienceai/medqa",
+      "config": "default",
+      "split": "dev"
+    },
+    "fields_prose": {
+      "input": "question",
+      "options": "options (list of {key, value})",
+      "label": "answer_idx",
+      "id": "row index"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Question and Options:\n{question}\n{options}\nFirst, assess each symptom and signs with respect to its typicality in the described scenario. Assign an atypicality score between 0 and 1, where:\n- 0 indicates a highly atypical situation, uncommon or rare in such scenarios.\n- 1 indicates a very typical situation, commonly expected in such scenarios.\n- Scores between 0 and 1 (such as 0.25, 0.5, 0.75) indicate varying degrees of typicality.\nSymptoms and signs:\n- Symptom 1: [Atypical score]\n- Symptom 2: [Atypical score]\n- Symptom 3: [Atypical score]\n- ...\nThen, provide your response in the following format:\nResponse:\n- Answer (letter): [Letter of the choice]\n- Difficulty: [Score on a scale from 1 to 10 with 10 being the hardest]\n- Confidence: [Percentage score between 0 and 100%]\nAnswer, Difficulty, and Confidence:",
+    "placeholders": {
+      "question": "items.data.Question",
+      "options": "options_lettered(data.Options)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B, Table 3, 'Atypical Presentations' prompt",
+    "verbatim": "full (line breaks restored; a stray '-' glued to 'Symptom 3: [Atypical score]' by the extraction removed); the paper's single 'Question and Options' slot is split into {question}\\n{options} for the runner (rendered text = question followed by the 'A. ...' option lines, as described)",
+    "placeholders_prose": {
+      "question": "items.input followed by the four options as 'A. ...' lines"
+    }
+  },
+  "output": {
+    "parse": "regex (?s).*Answer \\(letter\\):\\s*\\[?([A-D])",
+    "postprocess": "uppercase letter; missing letter = incorrect",
+    "parse_prose": "regex 'Answer \\(letter\\):\\s*\\[?([A-D])' (last match); Confidence percentage kept for ECE"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 1,272 questions whose parsed letter equals answer_idx (ECE 0.114 from the Confidence field is the paper's headline, secondary here)",
+    "judge": "none",
+    "original_value": 0.751,
+    "original_location": "Table 2, block gpt-4-turbo, row 'Atypical presentations', MedQA Acc",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 3816,
+    "est_usd": 57.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Vanilla row (0.756 / ECE 0.133) uses the one-line Table 1 prompt 'Read the following question. Provide your answer and your confidence level (0% to 100%).' Code repo github.com/jeremy-qin/medical_confidence_elicitation exists.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

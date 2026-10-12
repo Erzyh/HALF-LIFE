@@ -1,0 +1,76 @@
+{
+  "wid": "W7172029025",
+  "title": "Agreement between artificial intelligence and expert evaluation in assessing the quality of asthma health education videos on YouTube and Bilibili: cross-sectional study",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "frequency_penalty": 0.0,
+      "presence_penalty": 0.0,
+      "max_tokens": 512
+    },
+    "params_source": "paper Sec. 2.5 ('the temperature parameter was set to 0, top-p to 1.0, and both frequency and presence penalties to 0'); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 200,
+    "subset_rule": "all 200 asthma health-education videos (YouTube and Bilibili), one call per video transcript",
+    "approximation": "The model's ratings are compared with the two reviewers' consensus scores; the paper evaluated each transcript once (Sec. 2.5)."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "200 publicly available YouTube and Bilibili videos; the video list, the transcripts (platform subtitles or the authors' ASR output) and the expert consensus scores are not released. The data availability statement says the raw data will be made available by the authors on request.",
+    "config_or_split": "all 200 videos",
+    "filter": null,
+    "fields": {
+      "input": "transcript",
+      "label": "gqs_expert",
+      "id": "video_id"
+    },
+    "license": "unknown (platform videos; no dataset release)",
+    "access_checked": true,
+    "size_mb": 0,
+    "file_url": null,
+    "checks_2026_09_19": [
+      "the article page (frontiersin.org, doi 10.3389/fpubh.2026.1853895) answers with HTTP 200 and links a supplementary-material section; the individual Additional Files were not retrieved"
+    ]
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "not printed in the article: Sec. 2.5 says 'The complete prompt template is provided in Supplementary Additional File 5'. The article describes it as instructing GPT-4 to score the transcript on GQS, mDISCERN and PEMAT following each instrument's original scoring rules and to return numerical ratings within the specified ranges.",
+    "placeholders": {
+      "transcript": "the video's full spoken content as text (platform subtitles where available, otherwise ASR)"
+    },
+    "few_shot": "none",
+    "source_location": "Supplementary Additional File 5 (named but not embedded in the article text)",
+    "verbatim": "none in the retrieved text"
+  },
+  "output": {
+    "parse": "json field GQS",
+    "postprocess": "numeric 1-5 for GQS; the same call also returns mDISCERN and the two PEMAT scores"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Spearman rank correlation between the AI's GQS score and the expert consensus GQS score over the 200 videos; the runner implements pearson but not spearman, so a hook score() would be needed",
+    "judge": "none (the comparison target is the human consensus rating)",
+    "original_value": 0.55,
+    "original_location": "Table 2 (AI vs. expert rating agreement), GQS row: Spearman rho = 0.55, p < 0.001, mean difference 0.24",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 600,
+    "est_usd": 12.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "The 200 video transcripts are not published and the videos themselves are identified nowhere in the article, so the item set cannot be rebuilt from the public record.",
+    "The expert consensus GQS scores, which are the comparison target, are not published either.",
+    "The prompt template sits in Supplementary Additional File 5; it was not retrieved, so no prompt text can be copied.",
+    "Metric gap: Spearman correlation is not one of the runner's metric names."
+  ],
+  "notes": "The same calls also produce mDISCERN (rho = 0.49) and the two PEMAT scores, and the human inter-rater agreement (ICC 0.32-0.34, Table 1) is lower than the AI-expert correlation. Evaluations were run between 10 and 25 February 2026 on gpt-4-turbo, which is still callable; only the data side blocks this record."
+}

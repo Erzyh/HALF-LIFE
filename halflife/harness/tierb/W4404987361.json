@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404987361",
+  "title": "Preference Optimization for Reasoning with Pseudo Feedback",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-2024-0409",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 1 rows 'GPT-4o-2024-0512 78.7 95.8 46.7' and 'GPT-4-Turbo-2024-0409 72.8 94.8 44.2'; only the 1106-preview row is marked as taken from Chan et al. (2024)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 4.1 states evaluation follows Yang et al. (2024b) with zero-shot prompting and greedy decoding; no prompt text for the API rows",
+    "note": ""
+  },
+  "claim": {
+    "metric": "GSM8K accuracy (%)",
+    "value": 94.8,
+    "n_items": 1319,
+    "location": "Table 1, row GPT-4-Turbo-2024-0409, column GSM8K",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "GSM8K, MATH, College Math test sets (public)"
+  },
+  "cost": {
+    "est_calls": 1319,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "GPT-4o mainly serves as the pseudo-feedback generator (role A); the Table 1 API rows are reference baselines whose prompt and answer extraction follow the Qwen2-Math evaluation code."
+}

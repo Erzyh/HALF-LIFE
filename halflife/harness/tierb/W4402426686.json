@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4402426686",
+  "title": "SAFETY-J: Evaluating Safety with Critique",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Section 4.3 Baselines: 'LLM+Prompt We compare with GPT-3.5 (gpt-3.5-turbo-0125), GPT-4 (gpt-4-turbo-2024-04-09), GPT-4o (gpt-4o-2024-05-13) ... We use the same prompt for training SAFETY-J.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 9 'Input prompt for Safety-J' (English and Chinese versions); Figures 7-8 critique-generation prompts",
+    "note": "Greedy decoding (temperature 0) stated in the appendix for inference."
+  },
+  "claim": {
+    "metric": "critique-level Meta-F1 (English meta-evaluation set)",
+    "value": 67.3,
+    "n_items": 299,
+    "location": "Table 3, row GPT-4, English Meta Evaluation Set, Critique Level (Macro) Meta-F1",
+    "task_type": "classification",
+    "judge": "llm:unspecified (precision/recall matching prompts in Tables 5-6)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/GAIR-NLP/Safety-J (meta-evaluation test set: 299 English DiaSafety + 300 Chinese examples)"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: Table 3 meta-evaluation relies on LLM-based AIU matching whose model is not named; Table 2 label accuracy (GPT-4 avg 76.3) is judge-free but per-dataset n is not stated. gpt-4o-2024-05-13 is a second directly-run baseline. Content is offensive safety-evaluation material (classification only).",
+  "resolution": {
+    "gap": "other",
+    "plan": "The first pass missed that the AIU judge is named: Sec. 3.3 uses Qwen-72B-Chat to parse Atomic Information Units and to score precision (factuality of each AIU) and recall (entailment of each reference AIU) with the Appendix D prompts. Run the Figure 9 English prompt on the 299 DiaSafety meta-evaluation test examples from the GAIR-NLP/Safety-J release with gpt-4-turbo-2024-04-09 at temperature 0, parse the critiques into AIUs and score them with self-hosted Qwen-72B-Chat against the released reference critiques/AIUs (1,712 English AIUs), and compute macro Meta-F1; compare with 67.3 (Table 3).",
+    "approximation": "Judge hosted locally (open weights); AIU parsing of the new critiques is re-done, so matching noise applies.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

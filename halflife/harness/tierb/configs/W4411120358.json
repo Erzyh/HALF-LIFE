@@ -1,0 +1,90 @@
+{
+  "wid": "W4411120358",
+  "title": "CFinBench: A Comprehensive Chinese Financial Benchmark for Large Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 64
+    },
+    "params_source": "paper Sec. 4.1 Inference Details (temperature and top-p 1.0 with greedy decoding via OpenCompass; output length 64; input truncated to 2048 tokens) - for the API 'greedy' is emulated with temperature 0",
+    "seeds": 1
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 79280,
+    "subset_rule": "paper-defined split: CFinBench test split (80% of the validation+test pool; exact count to be read from the release)",
+    "approximation": "the paper's unversioned 'gpt-4-turbo' is resolved to the 2024-04-09 snapshot by the date rule; OpenCompass greedy decoding emulated with temperature 0"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "yanbinwei/CFinBench-Eval (OpenCompass configs, Apache-2.0) with the data archive linked from cfinbench.github.io (Google Drive file id 1f80Od4j-N2uWDwNag0EfQoDFcoCsf3NQ)",
+    "config_or_split": "test split, all 43 second-level categories, three question types (single-choice, multiple-choice, judgment)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "options",
+      "label": "answer",
+      "id": "id"
+    },
+    "license": "code Apache-2.0; data license to be read from the archive",
+    "access_checked": false,
+    "size_mb": null,
+    "fields_prose": {
+      "input": "question text, options (A-D or A-E), second-level category name (subject slot)",
+      "label": "answer (letter(s) or 正确/错误)",
+      "id": "category + question id",
+      "type": "single / multiple / judgment"
+    },
+    "filter_prose": "none",
+    "access_note": "2026-09-18: Google Drive file 1f80Od4j-N2uWDwNag0EfQoDFcoCsf3NQ (the only data link, from cfinbench.github.io and the CFinBench-Eval README 'Data Preparation') is not publicly retrievable: drive.google.com/uc?export=download -> HTTP 404, drive.usercontent.google.com/download -> HTTP 404, file/d/<id>/view -> HTTP 403, gdown 6.1.0 -> 'Cannot retrieve the public link of the file'. No mirror found on Hugging Face (dataset search), ModelScope (dataset search) or GitHub (repository search). Nothing downloaded."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{prompt_by_type}",
+    "placeholders": {
+      "prompt_by_type": "one of three templates selected by question type (not expressible)",
+      "subject": "items.subject",
+      "question": "items.question",
+      "options": "items.options"
+    },
+    "few_shot": "none (0-shot answer-only)",
+    "source_location": "Appendix C, Figure 5 (zero-shot answer-only prompts; Chinese text present in the extraction)",
+    "verbatim": "full (Chinese templates copied; the subject name and question body become placeholders; English translations omitted)",
+    "placeholders_prose": {
+      "prompt_by_type": "one of three zero-shot answer-only templates by question type: single-choice: 请你做一道关于{subject}的单项选择题，你将从A，B，C，D中选出正确的答案，并写在‘答案：’之后，答案应只包含最终结果，不要添加额外语句。例如：答案： B。请你严格按照上述格式作答。题目如下：\\n{question}\\n{options}\\n答案： | multiple-choice: 请你做一道关于{subject}的多项选择题，答案可能是一个到多个选项,请你从四个或者五个选项中选出正确的答案，并将其写在'答案：'之后，答案应只包含最终结果，不要添加额外语句。例如：答案: A D。请你严格按照上述格式作答。题目如下：\\n{question}\\n{options}\\n答案： | judgment: 请回答下面关于{subject}的判断题，将你的判断结果写在'答案：'之后，答案应只包含最终结果，不要添加额外语句。若给定题目表述正确，则回答：'答案：正确'，否则回答：'答案：错误'。请严格按照上述格式作答。题目如下：\\n{question}\\n答案:",
+      "subject": "second-level category name in Chinese (e.g. 金融学, 税务师, 银行业法)",
+      "question": "question stem",
+      "options": "options on one line as printed: 'A、... B、... C、... D、...'"
+    }
+  },
+  "output": {
+    "parse": "regex 答案[:：]\\s*([A-E正确错误 ]+)",
+    "postprocess": "single: first predicted option only (Sec. 4.1); multiple: any option outside the gold set = wrong, otherwise partial credit = predicted/gold count; judgment: exact match",
+    "parse_prose": "regex after '答案' : single-choice -> first letter A-E; multiple-choice -> all letters A-E; judgment -> '正确' or '错误'"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "final = 0.4 x acc(single-choice) + 0.4 x acc(multiple-choice, partial credit) + 0.2 x acc(judgment), averaged over the four first-level categories (Subject, Qualification, Practice, Law) as in Table 2",
+    "judge": "none",
+    "original_value": 57.43,
+    "original_location": "Table 2, row GPT4, column Average 0-shot (3-shot 56.77)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 79280,
+    "est_usd": 800.0,
+    "tier": "high",
+    "cap20_estimate": "At gpt-4-turbo-2024-04-09 prices ($10 in / $30 out per 1M) and the runner's estimator (chars/4 input, 64-token output guess for a regex parse) one ~230-character Chinese prompt costs ~$0.0026, so a $20 cap covers ~7,500 items; with real tokenisation (~1 token per Chinese character, ~8 output tokens) ~$0.0022 per call, i.e. ~9,000 items. That is ~10% of the 79k pool: enough for the headline weighted average (binomial SE ~0.5 points; each first-level category keeps >1,500 items) but only ~60 items per second-level category x type cell, so per-category comparisons would be noisy."
+  },
+  "open_points": [
+    "BLOCKING: the data archive (Google Drive id 1f80Od4j-N2uWDwNag0EfQoDFcoCsf3NQ) is not publicly downloadable on 2026-09-18 (HTTP 404/403; gdown: no public link) and no mirror exists; only a human with Drive access can obtain it (the file may have been unshared or removed).",
+    "if the archive reappears: per the CFinBench-Eval README the test split ships questions only and val ships questions + answers (the OpenCompass configs evaluate _set = 'val'), so task.subset_rule must be changed from 'test' to the val split; expected layout data/CFinBench/{dev,val,test}/{single_choice,multi_choice,judgment}/<1-1..4-11>.jsonl with fields text, OptionList, Answer (opencompass/datasets/cfinbench.py); the exact prompt strings are in configs/datasets/CFinBench/zero_shot/cfinbench_gen_5775b0.py and cfinbench_gen_fce092.py (they carry line breaks the paper's Figure 5 omits).",
+    "runner gap: three prompt templates by question type, multi-answer partial credit (OpenCompass: 2 points exact, 1 point for a strict subset, else 0) and the 0.4/0.4/0.2 category weighting are not runner facilities - needs a hook"
+  ],
+  "notes": "Very large: ~79k calls per seed. A seeded 5% subset (~4,000 items, stratified by category and type) would cost ~$40 and give a set-level comparison; the per-category aggregation must be reproduced from the release's category labels. The OpenCompass configs in the repository hold the exact prompt strings. || [datacheck 2026-09-18] Drive archive unreachable (404/403), no mirror; marked needs_human. $20-cap coverage estimate added to cost.cap20_estimate.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

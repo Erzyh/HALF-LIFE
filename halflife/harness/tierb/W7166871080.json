@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166871080",
+ "title": "100,000+ Movie Reviews from Kazakhstan: Russian, Kazakh, and Code-Switched Texts",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano-2025-04-14",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "\"we employed gpt-4.1-nano-2025-04-14 as a compensatory measure to support annotation reliability\"; \"GPT-generated labels achieved 89.54% accuracy...(Cohen's kappa=0.78)\"."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 3 (inline)",
+  "note": "\"You are a sentiment classifier...Return one digit only: 2/1/0...\" -- a short, complete system prompt quoted in full."
+ },
+ "claim": {
+  "metric": "accuracy vs. single-annotator sentiment labels",
+  "value": 89.54,
+  "n_items": 100502,
+  "location": "Sec 3, over the full corpus (Table 1 total=100,502)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "the paper's own released movie-review corpus (100,502 reviews, ru/kk/code-switched)"
+ },
+ "cost": {
+  "est_calls": 100502,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4.1-nano fills a second annotation pass rather than the paper's headline task, but the accuracy-vs-human comparison is a genuine, fully re-executable classification claim: full 3-way prompt, full corpus, printed accuracy and kappa. The released dataset itself uses human labels as ground truth, not the model's."
+}

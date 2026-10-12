@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4416433961",
+ "title": "O DESAFIO ÉTICO DA IA NA FORMAÇÃO HUMANA: DIRETRIZES PARA UMA EDUCAÇÃO RESPONSIVA E INCLUSIVA",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (via Microsoft Copilot)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"A versão utilizada foi a mais recente do Microsoft Copilot (antigo Bing Chat Enterprise), integrada com GPT-4. Esse modelo é chamado Copilot com GPT-4 Turbo\" (dialogue held May 2025)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Quadro 1 (dialogue box): \"a partir de um prompt genérico, chegou-se ao seguinte diálogo\"",
+  "note": "Only the resulting Copilot dialogue is transcribed verbatim; the generic prompt that elicited it is paraphrased, not quoted."
+ },
+ "claim": {
+  "metric": "none (single qualitative dialogue transcript, no score/metric)",
+  "value": null,
+  "n_items": 1,
+  "location": "Quadro 1",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "One-off dialogue transcript printed in the paper; no dataset released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Philosophy/education essay on AI ethics in human formation; the only empirical content is a single hypothetical ethics dialogue held with Microsoft Copilot's consumer chat interface (webui, not API) in May 2025. No quantitative claim exists to reproduce."
+}

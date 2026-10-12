@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404566238",
+ "title": "Evaluating large language models for anaphylaxis detection in clinical notes",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Abstract: \"destaque para o GPT-4 Turbo, que alcancou 97% de acuracia e 91% de precisao\" (150 EMRs, zero false negatives, all 4 models)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a (only the abstract/landing page was extracted; the article body, if it contains a prompt, was not captured)",
+  "note": "Abstract states \"utilizando diferentes prompts\" (using different prompts) but no prompt text is available in the extracted text."
+ },
+ "claim": {
+  "metric": "accuracy (anaphylaxis detection in EMRs)",
+  "value": 97,
+  "n_items": 150,
+  "location": "Abstract (Resultados): 150 medical reports analyzed; GPT-4 Turbo 97% accuracy, 91% precision, zero false negatives",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "150 real electronic medical records (EMRs) analyzed for anaphylaxis; a Brazilian health-informatics congress paper (CBIS 2024) on institutional clinical notes, not a released public dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Only the journal's abstract/landing page was extracted (citation-export widgets, no article body), so the prompt text and exact data-sharing statement could not be checked directly; but real, identifiable patient EMRs analyzed for a clinical condition are essentially never openly shareable, so data_closed is assessed with high confidence even from the abstract alone."
+}

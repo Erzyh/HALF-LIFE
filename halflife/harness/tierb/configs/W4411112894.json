@@ -1,0 +1,88 @@
+{
+  "wid": "W4411112894",
+  "title": "The Promises and Pitfalls of LLM Annotations in Dataset Labeling: a Case Study on Media Bias Detection",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on decoding parameters; resolution plan fixes temperature 0)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 3121,
+    "subset_rule": "paper-defined split: BABE train/development combined set = the authors' 75% training split (3,121 sentences; the 1,000-sentence test split is excluded)",
+    "approximation": "the paper's 'openai/gpt-4-turbo' alias is resolved to the 2024-04-09 snapshot by rule (run date not given)"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "mediabiasgroup/BABE (train 3,121 / test 1,000; fields text, outlet, label, topic, news_link, biased_words, uuid, type, label_opinion)",
+    "config_or_split": "default, split train",
+    "filter": null,
+    "fields": {
+      "input": "text",
+      "label": "label",
+      "id": "uuid"
+    },
+    "license": "unknown (no license field on the dataset card)",
+    "access_checked": true,
+    "size_mb": 1,
+    "hf": {
+      "dataset": "mediabiasgroup/BABE",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_prose": {
+      "input": "text",
+      "label": "label (1 = biased, 0 = not biased)",
+      "id": "uuid"
+    },
+    "label_map": {
+      "1": "BIASED",
+      "0": "NOT BIASED"
+    },
+    "hf_verified": "Hub parquet default/train: 3,121 rows; columns text, news_link, label (int: 1 = 1740, 0 = 1381), outlet, topic, type, label_opinion, biased_words, uuid"
+  },
+  "prompt": {
+    "system": "You are an expert in media bias.",
+    "user_template": "Instruction: '{sentence}'\nClassify the sentence above as BIASED or NOT BIASED.\nOutput: Let's think step by step.",
+    "placeholders": {
+      "sentence": "items.text"
+    },
+    "few_shot": "none (Table 1 column '0-shot + sys prompt')",
+    "source_location": "Appendix Table 8 'Prompting Template in pseudo-code'",
+    "verbatim": "full (pseudo-code loop over examples dropped for the zero-shot variant; '[SENTENCE]' slot turned into a placeholder)",
+    "placeholders_prose": {
+      "sentence": "items.text (the target sentence; the example loop of Table 8 is empty in the 0-shot setting)"
+    }
+  },
+  "output": {
+    "parse": "regex (?is).*(?<!NOT )\\b((?:NOT )?BIASED)",
+    "postprocess": "the greedy regex returns the LAST standalone 'BIASED' / 'NOT BIASED' in the reply (the negative lookbehind prevents matching the tail of 'NOT BIASED'); gold 1/0 mapped to the same strings by items.label_map; the runner compares case-insensitively",
+    "parse_prose": "regex 'The answer is\\s*(NOT BIASED|BIASED)' (case-insensitive, last match); fallback: last occurrence of 'NOT BIASED' / 'BIASED' in the reply"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Matthews correlation coefficient between predicted (1 = biased) and gold label over the 3,121 sentences",
+    "judge": "none",
+    "original_value": 0.683,
+    "original_location": "Table 1, row GPT-4 Turbo, column '0-shot + sys prompt'",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 9363,
+    "est_usd": 94.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Chain-of-thought replies (~100 tokens) make the call ~ $0.01. The '0-shot Exp' column (0.697) adds a GPT-4-written explanation per example and is not covered here. || [hooks_4 2026-09-07] hook computes the Matthews correlation coefficient.",
+  "runner_gaps": [
+    "metric: mcc (Matthews correlation coefficient)"
+  ],
+  "hook": "harness/tierb/hooks/W4411112894.py: parse (LAST 'The answer is <LABEL>', fallback last standalone label), score (MCC, BIASED positive; unparsable = NOT BIASED; no per-item list)"
+}

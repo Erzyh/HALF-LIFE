@@ -1,0 +1,14 @@
+{
+  "label": "W4416683695",
+  "calls": 2002,
+  "errors": 6,
+  "cost_usd": 5.867011999999986,
+  "tokens_in": 2409446,
+  "tokens_out": 131015,
+  "cap_usd": 10.1,
+  "stopped_at_cap": false,
+  "started": "2026-09-20T05:16:17.278594+00:00",
+  "updated": "2026-09-20T05:23:34.405819+00:00",
+  "last_error": "exhausted retries (last: HTTP 429: {\n    \"error\": {\n        \"message\": \"Your access was terminated due to violation of our policies, please check your email for more information. If you believe t)",
+  "stopped_on_errors": true
+}

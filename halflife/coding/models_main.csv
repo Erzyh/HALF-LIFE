@@ -1,0 +1,1072 @@
+﻿num,openalex_id,coder,models_run
+5,W4389519254,A,GPT-4
+6,W4389421376,A,"GPT-4,GPT-3.5"
+9,W4389519366,A,"davinci-oo2,davinci-003"
+11,W4389519016,A,"GPT-2(davinci-002),GPT-3(davinci-003),GPT-3.5"
+12,W4376122929,A,"davinci-002,OPT-175B,TK-INSTRUCT"
+13,W4390329487,A,"davinci-003,GPT-3.5,GPT-4,0,Vicuna-13B,Vicuna-7B,Alpaca-7B"
+14,W4386907142,A,"davinci-003,gpt-3.5-turbo,GPT-3.5,Alpaca,Vicuna-7b, LLaMa-7b,OPT-IML-1.3b OPT-1.3b"
+15,W4390307198,A,"GPT-4,GPT-3.5,Claude-2,Llama-2,Llava,Vicuna,Mini-GPT-4,CodeLLama"
+16,W4389073311,A,GPT-3.5 text-davinci-003
+18,W4389518925,A,"Alpaca,Vicuna,GPT4(2023b),gpt-3.5-turbo,gpt-4-0314"
+19,W4385568240,A,"davinci-003,GPT-3,"
+21,W4389708369,A,"text-davinci-002, text-davinci-003, ChatGPT(gpt-3.5-turbo),GPT-4"
+23,W4367365649,A,text-davinci-003
+27,W4386793335,A,"Llama2-7b,gpt-3.5-turbo0301"
+30,W4386081016,A,"Text-Davinci-003, gpt-3.5-turbo,GPT-4"
+31,W4389523899,A,"codedavinci-002,gpt-3.5-turbo-16k-0613,CodeLlama-34B-instruct"
+34,W4388022708,A,"GPT-3.5,GPT-4,FLAN-T5,FLAN-UL2,Llama-2,Vicuna"
+36,W4389519986,A,"Textdavinci-003,GPT-4, BELLE-7B-2M, ChatGLM-6B"
+37,W4387225765,A,"LLaMA-7B, LLaMA-13B, LLaMA-30B, Llama 2-7B, Llama 2-13B, Llama2-70B, Llama 2-7B-ft, Llama 2-13B-ft,gpt-3.5-turbo, text-davinci-003, gpt-4, Claude 2"
+38,W4405794488,A,"GPT-4, Claude-2"
+41,W4393027310,A,"gpt-4-vision-preview ,gemini-pro-vision"
+43,W4404781252,A,"gpt-3.5-turbo-0125,gpt-4-1106-preview"
+44,W4403413375,A,"GPT-3.5, Claude2.1, LLama 2, CodeLlama-2, Zephyr Beta, CodeUp"
+45,W4402696907,A,gemini-1.5-flash
+47,W4417412225,A,text-davinci-003
+49,W4391407055,A,ChatGPT 3.5
+52,W4404781864,A,ChatGPT 3.5
+53,W4399418463,A,"GPT2, text-davinci-003, gpt-3.5-turbo"
+55,W4394977886,A,GPT-4-0314
+56,W4401024798,A,"GPT-3.5 Turbo,Claude2.1, Gemini Pro, Llama 2 70B, Mixtral 8x7B"
+57,W4399465325,A,ChatGPT-3.5 Claude-2
+58,W4393160827,A,"GPT-4, LLaVA, MiniGPT-4 ,gpt-3.5-turbo-0613"
+59,W4404792936,A,"Baichuan2,ChatGLM3 ,Qwen, Yi3,GPT-3.5- Turbo4, GPT-4"
+61,W4399419362,A,"GPT-3.5-Turbo-0613 ,Llama-13B"
+64,W4404354862,A,"o1-mini, GPT-4o"
+66,W4403322015,A,"CodeQwen1.5 7B ,DeepSeekCoder-V2-Lite 16B, Codestral 22B, GPT-4o, Claude 3.5 Sonnet, LLaMA 3.1 70B"
+67,W4395064753,A,"GPT-4-1106-preview, open-mixtral-8x22b, MetaLlama-3-70B"
+68,W4405181600,A,"GPT-3.5, GPT-4,PaLM2(text-bison), ChatGLM, Dolly, Vicuna"
+71,W4392736133,A,gpt-3.5-turbo-0613
+74,W4411638747,A,GPT-3.5-Turbo-0301
+76,W4401042217,A,"gpt-3.5-turbo-0613, PaLM-2(text-bison),LLaMA-2-7B, LLaMA-2 -13B, LLaMA-2 -70B, Mixtral-8x-7B, FLAN-T5-80B, FLAN-T5-250M, FLAN-T5-780M"
+80,W4411630019,A,"gpt3.5-turbo, gpt-4-1106-preview"
+81,W4403851705,A,"GPT-4o-mini-2024-07-18 ,LLaMA-2-7B, LLaMA-2-13B ,LLaMA-3-8B , Qwen2.5-7B ,o1-preview, GPT-4o,LLaMA-3, Qwen2.5, gemini-1.5-pro"
+83,W4402671949,A,"GPT4,GPT-3.5, Claude-1,Claude-2, Vicuna (7B-v1.3,13Bv1.3) , Mistral-7B"
+84,W4404783824,A,GPT-4
+85,W4404782177,A,"text-davinci-003, LLaMA-2 13B"
+89,W4401043595,A,"3.5-turbo-0613, gpt-4-0613, LLaMA-2-7B"
+90,W4403334466,A,"gpt-4-0125-preview,GPT-4V"
+91,W4400065260,A,"GPT-4,Claude 3 Opus, Llama 3-8B"
+93,W4401042461,A,"text-davinci-003,gpt3.5-turbo"
+95,W4403621462,A,"GPT-4o,Claude-3.5-Sonnet"
+97,W4416021885,A,gemini-1.5-pro
+99,W4417299406,A,"DeepSeek-R1-Distill-Qwen-1.5B, Qwen2.5-1.5B-Instruct (non-reasoning model)"
+101,W4415682262,A,"GPT-4V, GPT-4o,(LLaVA-NeXT, Phi-3-Vision"
+102,W4416033512,A,"Gemma3-12B,EuroLLM-9B-Instruct, Qwen3-8B, Aya-101,NLLB-200-3.3B,Gemma3-12B, Qwen3-8B, EuroLLM-9BInstruct"
+103,W4415317499,A,"Claude Sonnet 3.5v2, claude-3-7-sonnet"
+108,W4416034096,A,"Llama-2- 13B, GPT-3.5, Llama-3-70B, DeepSeek-Math, GPT-4, Gemini-Pro, GPT-4V ,Gemini-Pro-Vision"
+109,W4406231679,A,"DeepSeek-Coder-Base-6.7B,  GPT-4-Turbo (April 2024),Claude-3.5-Sonnet (June 2024), Qwen2.5-Coder-32B-Instruct ,DeepSeekCoder-6.7b-Instruct,Magicoder-S-DS ,WaveCoder-Ultra-6.7B,OpenCodeInterpreter-DS-6.7B,Qwen2.5-Coder-7B-Base,Qwen2.5-Coder-7B-Instruct,OpenAI o1-preview,OpenAI o1-mini,GPT 4o-0806,Doubao-Coder-Preview,DeepSeek-v2.5Qwen-Max,GLM-4-PlusDeepSeekCoder-v2-Instruct,Qwen2.5-Coder-32B-Instruct,DeepSeekCoder-33B-Instruct,CodeLlama-34B-Instruct,Qwen2.5-Coder-14B-Instruc,DeepSeekCoder-v2-Lite-Instruct,StarCoder2-15B-Instruct-v0.1,CodeLlama-13B-Instruct,Qwen2.5-Coder-7B-Instruct,Yi-Coder-9B-Chat,DeepSeek-Coder-7B-Instruct-v1.5,OpenCoder-8B-Instruct,DeepSeek-Coder-6.7B-Instruct,CodeQwen1.5-7B-Chat,CodeLlama-7B-Instruct ,GPT-4o"
+110,W4411113286,A,"LLaVA-v1.5-13B,LLaVA-v1.6-34B, Qwen-VL, Qwen2-VL-7BInstruct, Cambrian-8B, Molmo-7B,mBLIP, GPT-4V, Gemini-1.5-Pro, Llama3.2-11B, LLaMA2- 70B, textdavinci-0037"
+112,W4415315888,A,R1-Distill 1.5B
+113,W4409885602,A,"ChatGPT1,Claude2"
+115,W4417298797,A,"Gemini-2.0-Flash,GPT-4o, GPT4.1, GPT-4.1-mini,Gemini-2.5-Flash, Gemini-1.5-Flash, Gemini-1.5- Pro,Video-LLaVA,Mantis-Idefics2,LongVA,Qwen2-VL, Qwen2.5-VL,InternVL2.5 , InternVL3 , InternVideo2.5,LLaVA-Video,Phi-4, LongLLaVA,Video-XL,LongVU,Vamba,VideoChat-Flash"
+118,W4411379703,A,GPT-4o
+119,W4410870195,A,"gpt-3.5-turbo-1106, gpt-4-0125-preview, Llama-7B"
+121,W4411119770,A,"GPT-3.5-turbo, GPT-4o-2024-0806,GPT-4o-mini-2024-0718, Claude-3-Haiku, Claude-3-Sonnet, LLaMA-3.1-8B,  LLaMA-3.1-70B,LLaMA-3-8B, LLaMA-370B), Mistral-7B-v0.3, Mistral-Large2407,Qwen-2-7B,Qwen-2-72B"
+122,W7118051802,A,"DeepSeek-R1-Distill-Qwen-1.5B/7B/32B (R1-1.5B/7B/32B) , Qwen3-4B/30B , GPT-OSS-20B"
+128,W4414489324,A,"GPT-4o, Claude-3.5,Gemini-1.5 Flash, Gemini-1.5 Pro, Qwen2.5-VL-72B, InternVL2.5-78B, InternVL3-78B, Qwen2.5-VL-7B, InternVL2.5-8B, MM-Eureka-7B,Vision-R1-7B,R1-VL-7B,R1-Onevision-7B,OpenVLThinker-7B,ThinkLite-VL-7B,VL-Rethinker-7B"
+129,W4416034104,A,GPT-4o
+130,W4416036044,A,"Gemini-1.5-pro, Llama3-8B, Phi4-14B , Qwen2.5-72B"
+132,W4416390049,A,"text davinci 003, LLaMA 2"
+134,W4411226800,A,"DeepSeek, Kimi,Tongyi Qianwen, Xinghuo Spark, ChatGLM, Baidu Yiyan"
+135,W4404652862,A,"gpt-4-0125, claude-3-5-sonnet-20240620"
+136,W4412888255,A,"GPT-4o,GPT-3.5, LLAMA 3.1 , ChatGLM4, InternLM2 , Qwen2.5"
+139,W7105506484,A,"Gemini 2.5 Pro ,Gemini 1.5 Pro Gemini 2.0 Flash ,GPT-4o ,Qwen2.5-VL-72B ,InternVL3-78B ,InternVL2.5-78B,LLaVA-OneVision-72B,Qwen2.5-VL-32B,InternVL3-38B,InternVL2.5-38B,Qwen2.5-VL-7B,VideoChat-Flash-7B ,VideoLLaMA3-7B ,InternVideo2.5-8B,mPLUG-Owl3-7B,InternVL3-8B,InternVL2.5-8B,LLaVA-OneVision-7B ,MiniCPM-o,Slow-Fast-MLLM-7B,MiniCPM-V,LLaVA-Video-7B,LLaVa-NeXT-Video-7B ,Qwen2-7b-LongVILA-1M,Video-XL-2-8B ,Qwen2.5-VL-3B,InternVL2.5-4B ,Video-XL-Pro-3B ,"
+141,W4417129365,A,"GPT-4,gpt-4o-mini"
+142,W4412944912,A,GPT-4
+144,W4412944997,A,"GPT-4o , Claude 3.5 Sonnet V2,Claude 3 Opus , Gemini 2.0 Flash, Gemini 1.5 Pro, Qwen-2.5-32B,Qwen-2.5-14B,Qwen-2.5-7B, Deepseek R1"
+149,W7161655170,A,"Qwen2.5 (1.5B/3B/7B-Instruct, Qwen3 (1.7B/4B/8B-Instruct) , LLaMA-3.3 (3B-Instruct)  Qwen2.5 (32B/72BInstruct), Qwen3 (30B-A3B, 32B), LLaMA-3.3(70B-Instruct), QwQ , DeepSeek-R1, GPT-o4-mini"
+150,W7162335212,A,"Claude,Grok, Gemini"
+155,W7171526612,A,"gemini-1.5-flash,"
+157,W7166821435,A,Claude-3.7-Sonnet
+162,W7141771904,A,"GPT 4,GPT 5,  o3, o4.1, Claude Sonnet 3.7,  Claude Sonnet 4, DeepSeek"
+169,W7171470065,A,Claude-3-Haiku
+170,W7160697791,A,"GPT-4 (OpenAI, March 2024) , Claude 3.5 Sonnet (Anthropic, June 2024) , Gemini 1.5 Pro (Google DeepMind, April 2024)"
+175,W7155573788,A,"DeepSeek-V3, Gemini-1.5-Flash"
+178,W4404342131,A,"gpt-4-1106-preview, gpt-3.5-turbo-1106"
+180,W4404781632,A,"GPT-4(gpt-4-0613),Claude 3(claude-3-opus-20240229), Llama-3.1-405BInstruct"
+181,W4399511161,A,"GPT-4-0613, GLM-4-Plus"
+182,W4392488491,A,"GPT-4-vision (OpenAI, 2023),Qwen-72B ,GPT-4 multi,Qwen-14B,Gemini-1.0-pro ,Yi-34B-Chat ,Qwen1.5-14B-Chat,Claude-1.3 ,GPT-3.5-turbo ,Claude-3.0 Opus ,Qwen-7B,Qwen-7B-Chat ,Yi-9B ,Qwen-1.8B ,Claude-2.0 ,Breeze-7B-Instruct-v1.0 ,ChatGLM3-6B ,Taiwan-LLM-13B ,Taiwan-LLM-7B,Taiwan-LLM-7B-v2.1-chat ,Atom-7B,BlueLM-7B-Base ,DeepSeek-LLM-7B-Chat, BLOSSOM-v3.1-mistral-7b,Yayi-7b ,DeepSeek-LLM-7B-Base,Mistral-7B-80k,Chinese-Llama-2-7b,Yayi-7B-Llama2,"
+189,W7116985459,A,gemini-1.5-pro-002
+192,W7161090805,A,"ChatGPT-4o,Claude-3-5-sonnet,Gemini-2.5-Pro ,Qwen2-VL-7B-Instruct ,LLaVA-v1.5-7B VLM. Qwen2-VL-2B-Instruct ,Tuned LLaVA-7B ,InternVL3.5-7B,MiMo-VL-7B-RL ,Qwen3-VL-8B-Instruct"
+194,W7140347406,A,"GPT 5.2-codex,GPT 5.2, GPT 5, GPT o3, GPT 4o ,GPT 4.1, Claude Opus 4.6, Claude  Sonnet 4.6,Claude  Sonnet 4.5, Claude Haiku 4.5 ,Claude Haiku 3.5 Gemini Pro 3,Gemini Pro 2.5,Gemini Flash 3 ,Gemini Flash 2.5"
+195,W7133482723,A,"GPT-4o , GPT-4o-mini, Claude 3.5 Sonnet,Claude3.5 Haiku,Gemini 1.5 Pro, Gemini 1.5 Flash"
+197,W4391766717,A,"GPT-4, GPT-3.5-Turbo, Gemini Pro, GLM4, GLM3-Turbo,Mistral-7B, Llama2-7B, ChatGLM3-6B,BioMistral-7B, HuatuoGPT2-7B,MedAlpaca-7B"
+199,W4401093689,A,"gemini-1.5-pro ,GPT-4o"
+202,W7131666234,A,"gemini-1.5-pro ,GPT-4o"
+206,W4387815516,A,GPT-3.5-turbo
+207,W4401722596,A,"Pythia-12b,Mpt-30b-chat,Llama-2-70b-chat, Mistral-7b-openorca, Zephyr-7b-alpha, Gpt-4-32k, Gpt-4-FewShots,"
+208,W4404801249,A,GPT-4
+211,W4405079424,A,"GPT-4o mini,GPT-4o,GPT-4,O1-Strawberry(Mini), Claude-3.5 Sonnet,Gemini-1.5 Pro, Gemma-2 (27b),Mistral-Large,Llama 3.1 (405b),Qwen 2.5 (72b)"
+214,W4406549032,A,"o1-mini, o1-preview, claude-3-5-sonnet,GPT-4o, GPT-4o-mini"
+216,W4416078576,A,"Llama3.1-8B-Instruct ,GPT-4, Gemini 1.5 Flash ,Qwen2.5-7B-Instruct,Llama-3.1-8B-Instruct,gemma-2-9B-it,Llama-3.2-11B-Vision-Instruct,Qwen2.5-14B-Instruct"
+217,W4416844854,A,gpt-4-0613
+220,W4414035313,A,"ChatGPT-4o, Gemini 1.5 Pro ,Claude 3.5-Sonnet"
+222,W4416729207,A,"Gemini 1.5 Flash ,Claude 3 Haiku,GPT-4o,GPT-o1"
+225,W7168130110,A,"Gemini 1.5Pro, ChatGPT-4o, DALL-E 3"
+234,W4386302642,A,gpt-3.5-turbo-16k
+239,W4405548121,A,"ChatGPT3.5, ChatGPT-4.0,  Gemini 1.0 Pro"
+241,W4403818822,A,"LLaMA-3.2-11B-Vision, LLaVA-OneVision-7B, Qwen2-VL-7B,GPT-4Vision,GPT-4o, Gemini 1.5 Pro"
+243,W4406586835,A,gemini-1.0-pro-latest
+245,W4404416110,A,"gpt-3.5-turbo,text-davinci-002,code-davinci-002, davinci-codex, curie"
+246,W4393160233,A,"text-davinci-003,gpt-3.5-turbo, gpt-4"
+250,W7111356371,A,GPT-4
+251,W4412889893,A,"Qwen2- 72B-Instruct , InternLM2-20B,Gemini-1.5-Pro, GPT4o-mini,GPT-4o"
+252,W4417036168,A,"Claude-2, GPT-4"
+257,W4416570218,A,"Claude Sonnet 4.0,"
+260,W7161848113,A,"Gemini 1.5 Pro, Gemini 3 Flash"
+261,W7125566560,A,"claude-opus-4-5-20251101, claude-opus-4-20250514 claude-sonnet-4-20250514, gemini-2.0-flash,gemini-2.5-pro qwen2.5:7b-instruct, granite3.3:8b, deepseek-r1:8b, gpt-oss:20b"
+262,W7164899890,A,"ChatGPT-4 Legacy , ChatGPT-4o ,ChatGPT-o1 ChatGPT-o1 mini ,MS Copilot ,Mistral ,Cohere Claude AI ,Gemma,Perplexity ,Google Gemini ,Gemini Flash, Gemini Flash ,Gemini Deep Research ,Jasper ,LLaMA ,Meta (generic) ,DeepSeek General ,DeepSeek DeepThink GROK-3 , GROK-3 DeepSearchm"
+263,W7126035801,A,gpt-4-0613
+265,W7172473355,A,"GPT-4o, GPT-4o-mini, LLaMA3- 8B,LLaMA3.1-8B, Gemma2-9B, Phi-3-mini, Phi-4"
+271,W7204222858,A,"Claude4,GPT4"
+274,W7162766369,A,"Gemini 1.5 Pro  , Gemini 1.5 flash"
+277,W4393905780,A,"gpt-4-1106-preview , LLaMA-2 (13B-chat), Mistral (7B-instruct v0.1) ,"
+279,W4401042915,A,"Llama 2 70B, gpt-3.5-turbo,gpt-4-turbo"
+280,W4399454879,A,"llavav1.5-13b ,gpt-4-vision-preview, gpt-4-turbo"
+282,W4404792946,A,"GPT-4,GPT-4o, GPT-3.5-turbo0125 ,GPT-4-0613 ,GPT-4o-2024-05-13"
+283,W4402671221,A,"GPT-3.5 Turbo 0613,GPT-4 Turbo,GPT-4 0613,GPT-3.5 Turbo ,Claude2,Gemini Pro ,Llama2-7b-chat,Llama2-13b-chat .Llama2-70b-chat,Vicuna-13b ,InternLM-20b,Llama Guard"
+284,W4395064786,A,"gpt-4-1106-preview, claude-3-opus, LLM2Vec-Meta-Llama-3-8BInstruct-mntp,text-embedding-ada-002,voyagelarge-2-instruc,GritLM-7b,"
+288,W4404782882,A,"GPT-4o(2024-04-09), GPT-3.5-Turbo (0125), Claude-3-Opus(2024-02-29)"
+291,W4414979011,A,"GPT-4,GPT-4o7, Microsoft Copilot pro8, LLama3 ,Sonar LLM, Phi3."
+293,W4412930207,A,"gpt-3.5-turbo-0613 ,gpt-4-0613 Llama 2-Chat (70B)"
+294,W4411119926,A,"gpt-4-turbo-2024-04-09 , gpt-4o-2024-08-06), gpt-4o-mini2024-07-18, gpt-3.5-turbo-0125,meta-llama/Llama-3.1-70B ,Qwen/Qwen2.5-72B-Instruct,mistralai/Mixtral-8x7B-Instruct-v0.1, meta-llama/Llama-3.1-8B, glm-4-9b-chat,mistralai/Mistral-7B-Instructv0.3, mistralai/Mistral-7BInstruct-v0.1 ,meta-llama/Llama-2-7b-chat-hf., claude-2.0,claude-2.1,  claude-3-opus-20240229,claude-3-sonnet-20240229,gpt-4-0613,gpt-4-0314"
+296,W4412888613,A,"GPT-4o, Claude-3-sonnet , GLM-4 , GLM-4-9B-chat,Llama-3.1-8B-Instruct, Llama-3.1-70B-Instruct,Mistral-Large-Instruct"
+297,W4412888214,A,"GPT-4o, GPT-4, Claude-Sonnet, Claude Haiku, Claude Opus, LLaMA-3.1-8B ,LLaVicuna-1.5-7B , MA-3.1-70B , LLaMA-3.2-1B,LLaMA-3.3-70B , LLaMA2, , Qwen1.5-7B ,Qwen2-7B,Qwen2.5-7B,LLaMA-2-7B-chat-hf ,Wizardmath-7B"
+299,W4415035363,A,"GPT-4-Turbo,GPT-4-0613 , DeepSeek-R1, Qwen3-235B"
+304,W7163777646,A,"Gemini 3.1 Flash Lite, Gemini 3.1 Flash Lite withreasoning, Claude Haiku 4.5, Claude Sonnet 4, ClaudeSonnet 4.5, GPT-5 Mini, GPT-5 Mini with reasoning"
+305,W7128096114,A,Gemini-3-Flash Gemini-3.5-Flash Claude-Sonnet-4.6 GPT-5.4-Mini Grok-4.3
+310,W7130762659,A,"gpt-5.1-2025-11-13 , claude-sonnet-4-5-20250929,o3-2025-04-16,"
+312,W4399553916,A,"Llama-2-7B-Chat,Llama-2-7B-Chat,"
+313,W4402683166,A,"gpt-3.5-turbo-01253,  gpt-4-0125-preview4"
+316,W4412889692,A,"GPT-4o-mini, GPT-4o ,Llama-3.1-8B , Claude 3Haiku"
+318,W7125352730,A,"Mistral-7B,Mistral-7B-Code,Mistral-7B-Math"
+319,W4405767783,A,"Qwen2-VL (2B, 7B, 72B) DeepSeek-V2.5 , Qwen2.5-Coder-32B"
+324,W4414525096,A,"GPT-4 Turbo Preview,  Gemini 1.5 Pro ,Claude 3 Opus , Llama 3 70B , ERNIE-4.0-8 K"
+325,W4416156707,A,"OWL-ViT, Grounding DINO, Gemini-2.5- Flash,Gemini-2.5-Flash-Thinking, Claude-3.7-Sonnet,Claude-3.7-Sonnet-Thinking,GPT-4o, GPT-5, GPT-o4-mini"
+329,W4409860737,A,"GPT-4, Claude-3 Haiku"
+331,W4407358819,A,"gpt-4o-2024-08-06, Meta-Llama-3-8B (Instruct) ,Meta-Llama-3-70B ,Llama-2-70B, Gemma-2-27B, ( Mistral-Nemo (Instruct-2407),Mistral-Nemo,Mixtral-8x7B (Instruct-v0.1)Phi-3-medium-128K (instruct), Qwen2.5-32B (Instruct) ,Vicuna-13B (v1.5), BioMistral-7B, Medalpaca-13B ,Meditron-7B ,OpenBioLLM-Llama-3-8B ,OpenBioLLM-Llama3-70B"
+335,W4403622645,A,"gpt-3.5-turbo-0613,gpt-4-0613,gpt-4-0125-preview,gemini-1.0-pro-001,claude-2.1,Llama-2-7b-chat-hf,lama-2-13b-chat-hf,Llama-2-70b-chat-hf,Mistral-7B-Instruct-v0.1,"
+337,W4391335020,A,"gpt-4-1106-preview, gpt-3.5-turbo-0613,Llama-2-70B, Llama-2-13B"
+338,W4416034780,A,"GPT-3.5-Turbo, GPT-4-Turbo,Gemini-1.5-Flash,Claude-3.5-Haiku ,LLaMA-3.1-8B, Llama-3.3-70B,Llama-3.1-405B"
+339,W7143904448,A,"gpt-4, gpt-3.5-turbo,gpt-3.5-turbo-instruct,• text-davinci-002, text-davinci-003."
+340,W4417184010,A,GPT-3.5
+341,W7133365501,A,"GPT-5, o3, o1, GPT-4o, o4-mini, o1-mini"
+344,W7169839044,A,"o3-mini, GPT-4.5-preview,GPT-4 ,GPT-4o ,o1"
+347,W7126189904,A,"gpt-4-0613, gpt-4-turbo,gpt-4-turbo-2024-04-09,gpt-5-2025-08-07"
+352,W4391901300,A,"Together LLaMA-2 32K, LongChat v1.5, YaRN Mistral, LongLoRA,LLaMA-2 7B,LLaMA-2 13B"
+355,W4400341964,A,Gpt‐3.5‐turbo‐0125
+358,W4404970691,A,"Mistral-7B ,Mixtral-8x7B, mistral-medium-2312, mistral-large-2402, gpt-3.5-turbo-0125,GPT-4 gpt-4-turbo-2024-04-09,,GPT-4-Vision"
+360,W4403578078,A,GPT-4
+361,W4392826403,A,"GPT 3.5-turbo ,GPT 4 ,GPT 4--turbo"
+362,W4402671321,A,"gpt-4-1106-preview9, Mistral-7B-Instructv0.1-pqa-1011 ,Mistral-7B-Instruct-v0.2-pqa1012"
+366,W4402669975,A,"GPT-4,GPT-3.5,"
+367,W4404377033,A,"Mistral-7B-Instruct-v0.1,MetaLlama-3-8B-Instruct .Meta-Llama-3-70B-Instruct, Meta-Llama-3.3-70B-Instruct,vicuna-7b-v1.5,vicuna-13b-v1.5, Mixtral-8x22B-Instruct-v0.1, gpt-4o-2024-05-13"
+373,W4417143419,A,"Gemini-2.5-Pro1,  Gemini-2.5-Flash ,"
+374,W4412944558,A,"GPT-3.5-Turbo , GPT-4-Turbo, Claude 3, DeepSpeek-Chat ,Llama3-8BInstruct, Llama3.1-8BInstruct ,Gemma-2-9b-it, Phi-3- mini-128k-instruct,Phi-3.5-mini-instruct,Mistral-7B-Instruct-v0.3 , Qwen2.5-7B-Instruct"
+376,W4414808064,A,"Claude-4-sonnet, Claude3.7-sonnet, o4-mini, gpt-4.1"
+379,W4415036031,A,"GPT-4-turbo , GPT-3.5-turbo ,Llama3.1 (405B, 8B) Llama3 , CodeLlama(13B , 7B ),Gemma , CodeGemma , CodeQwen , Mixtral , GPT-o1 ,"
+380,W4415161187,A,"DeepSeek-R1-Distill ,QwQ-32B,LLaMA 3, Qwen2.5,Gemma 2,GPT-4o"
+381,W4411523107,A,"MetaLlama3.1-8b-Instruct,  Qwen2.5-Coder-7B-Instruct , Qwen2-7BInstruct, gpt-4o-2024-05-13 ."
+383,W4406779113,A,"Zephyr-7B-SFT,Zephyr-7B-DPO,Llama-3-8B-Instruc, Orca-2.5-SFT,Mistral-7B-Instruct-v0.2 ,Llama-3-70B-Instruct ,GPT-4 Turbo (04/09)\"
+384,W4416928939,A,"GPT-2, Tiny Llama,"
+385,W4415195964,A,ChatGPT-4.1-mini
+389,W7125377257,A,"GPT-4-turbo , GPT-4o-mini"
+393,W4406880300,A,"GPT-4-Turbo-0613, GPT-4o-2025-0513, Llama-3.1-8B-Instruct,Llama-3.1-70B-Instruct,Llama-3.1-405B-Instruct, Llama-3.1-405BInstruct 델인 Mistral-Large-Instruct-2407QWen-2.5-0.5B-Instruct,QWen-2.5- 72B-Instruct"
+396,W4416117751,A,"GPT-4o,Llama 3.3 70B , GPT o3-mini"
+398,W4411119950,A,"GPT-4o,Qwen2-7BInstruct,Meta-Llama-3- 8binstruct,HuaTuoGPT2-13B"
+400,W4411120226,A,gpt-4o-2024-05-13
+403,W7160727535,A,"Qwen3-8B/32k,Qwen3-32B/32k,"
+404,W7166801607,A,"GPT-4.1, Qwen-3-32b, Llama-3.1-8b ,Llama-3.3-70b , Llama-3.1-8B, Mistral-7B-v0.3, Qwen2.5-7B , Gemma-2-9b ,GPT-4.1-nano"
+405,W7154426895,A,"Qwen3-32B,Qwen2.5-72B-Instruct , DeepSeek-V3 GPT-4o-mini ,GPT-o3-mini ,Doubao-1.5Pro-32k ,LoRA-Qwen2.5-14B-Instruct ,Qwen2.5-32B-Instruct ,QwQ-32B 9.7241 ,Qwen2.5-14B-Instruct ,Qwen2.5-VL-72B-Instruct ,Qwen2.5-7B-Instruct ,GLM-4-9B ,DeepSeek-R1-Distill-Llama-70B ,QVQ-72B-Preview,DeepSeek-R1-Distill-Qwen-32B ,Qwen3-14B ,DeepSeek-R1-Distill-Qwen-7B ,GLM-Z1-Rumination-32B ,GLM-4-9B-Chat"
+407,W7130762282,A,"o4-mini-2025-04-16, o3-2025-04-16"
+408,W7202168386,A,"Gemini 2.0Flash, Gemini 2.5 Flash, OpenAI o4-mini, BgGPT 2"
+412,W7165064544,A,"GPT4o , o3-mini, Qwen 2.5 Coder 32B Instruct , Qwen 3 32BInstruct,  gpt-4o-mini-2024-07-18"
+418,W7166800957,A,"Qwen3-1.7B,Qwen3-4B,Qwen3-8B ,Qwen3-14B ,DeepSeek-V3.2,GPT-5-2025-08-07,"
+420,W4417008182,A,"GPT-4omini, o3-mini ,GPT-5 mini ,Phi-4"
+422,W7139043635,A,o3-mini
+423,W4415316359,A,"GPT-4-Turbo 또는 Qwen2-72B-Instruct ,GPT-4,GPT-4o-05-13, Claude-3.5-Sonnet,GPT4-Turbo-04-09,Llama-3-8BInstructSimPO,Rewarding-70B-Iter3,Llama3-8B-Magpie-SFT-v0.1, Gemma-2-9B-SPPO-Iter3"
+424,W7165454160,A,GPT-5.5
+427,W7165817774,A,Qwen2.5 VL-7B
+428,W7167748912,A,"GPT-4 Turbo, Amber-6.7B,OLMo1/2-7B, Pythia-2.8B/6.9B,K2-65B"
+430,W7158422334,A,"Gemini-2.5-Pro-Thinking, O3,GPT-5, Claude-Sonnet-4.5, Qwen3-VL-32B-Instruct , Qwen3-VL-8B-Instruct ,Step-3 ,GLM-4.5V,UI-Tars-1.5,UGround-V1-7B,OS-Atlas-Base-7B"
+432,W7203643398,A,"Gemini 2.5 Flash & Pro, GPT 4.1 Nano & 4.1, Qwen-7B & 72B"
+435,W7203911671,A,"qwen3.5-9b, qwen3.8-27b, gemma4-26b, gemma4-31b 및 qwen3.5-122b,"
+437,W4392780998,A,"GPT-4-Turbo2,"
+444,W4415947839,A,"GPT-o3,GPTo4-mini, Claude Sonnet 4,Claude Sonnet 4 thinking, Llama 3.3-70B,Qwen3-235B, Qwen3-32B"
+445,W7140076111,A,"GPT3.5-turbo ,GPT4.1-nano,LLaMA3.1-8B ,Qwen2.5-7B,Qwen2.5-14B ,Dsk-R1-Qwen-14B"
+448,W7164233476,A,"gpt-5-mini ,gpt-4.1-mini,gpt-4.1, o4-mini, gpt-5.4"
+451,W4408605330,A,"fine-tuned Llama2-7B,Mistral-7B-v0.1 GPT-4o mini ,gpt-4-turbo"
+459,W4410868719,A,GPT-4 Turbo
+460,W4412884457,A,GPT-4-turbo
+469,W7153235326,A,ChatGPT (o3-mini)
+471,W7165914965,A,gpt-5-2025-08-07
+472,W7167574952,A,"Claude, Anthropic; ChatGPT,Gemini 3 Pro Image"
+473,W4403380283,A,gpt-4-turbo
+475,W4403784471,A,"LLama-3, GPT-4o,Llama-3-70b-chat-hf, GPT-3.5-turbo-1025,GPT-4-turbo"
+476,W4401042768,A,"GPT-4-Turbo,"
+478,W4411452552,A,GPT-4-turbo & o3
+480,W4412641669,A,gpt-4-turbo
+481,W4411120358,A,"gpt-4-turbo , ,Qwen2.5-72B ,Llama3-70B ,DeepSeek-67B-Base,Tigerbot-70B-Base ,Qwen2.5-32B ,Yi1.5-34B ,Qwen2.5-14B ,InternLM2.5-20B, XuanYuan-13B-Base,Phi3-14B-Instruct ,Baichuan2-13B , Skywork-13B,DISC-FinLLM-13B,Tigerbot-13B-Base ,Llama2-13B ,Qwen2.5-7B,YunShan-7B,InternLM2.5-7B ,Yi1.5-9B ,Qwen1.5-7B ,ChatGLM3-6B-Base ,XuanYuan-6B-Base,Llama3.1-8B,Baichuan2-7B,Mistral-7B ,CFGPT1-sft-7B-Full,FinMA-7B,Qwen2.5-3B ,Phi3.5-3.8B-Instruct ,YunShan-1.5B,InternLM2.5-1.8B ,Gemma2-2,gpt-3.5-turbo-0125"
+484,W4416309081,A,"GPT-4-turbo ,GPT-5 ,GPT-4o-mini"
+485,W4407328224,A,"GPT3.5-turbo-0613, GPT3.5-turbo-1106,GPT4-0613, GPT4-1106-preview"
+488,W7170989160,A,"gpt-4.1-mini, gpt-4.1, o4-mini, o3, gpt-oss-120b,gemini-2.5-pro, gemini-2.5-flash, gemini-2.5-flash-lite, Llama-3.3-70B,DeepSeek-V3.1.7"
+489,W7154948972,A,"LLaMA2-70B-Chat , gpt-4-turbo-2024-04-09"
+490,W7202207579,A,"GPT-o3,  Claude Sonnet 4.6 , Llama 4 Scout , Llama 4 Maverick, Llama 3.1 8B , DeepSeek-V3.2, Qwen3.5-9B ,Qwen3-32B , Qwen3-14B , Qwen3-8B ,, Ministral 3 8B , GPT-5.4,GPT-5.4 nano"
+491,W7164880899,A,GPT-4 Turbo
+493,W7110795894,A,GPT-4
+494,W4417066576,A,ChatGPT o4-mini
+499,W7133522590,A,GPT-4-Turbo
+500,W7172210115,A,"GPT-4-Turbo,GPT-OSS (120B),LLaMA 3.1"
+1,W4385573369,B,"text-davinci-002, CF-DPR, 
+bert-base-uncased, 
+diverse paraphraser model (Krishna et al., 2020),
+semantic sentence retriever model (Gao et al., 2021), 
+bert-base-model,
+Tailor, MiCE, Polyjuice"
+2,W4385573809,B,"T5-3B, T5-large, UnifiedQA-v2 (3B size), 
+text-davinci-002, BERT (base)"
+4,W4387430850,B,"GPT-3.5, llama2-13b-chat, T5-Large, ColBERTv2"
+6,W4389421376,B,"T5-3B, T5-11B, Llama2-13B, gpt-3.5-turbo-0301, 
+gpt-3.5-turbo-0613, gpt-4-0613, Flan-T5-large, 
+all-MiniLM-L6-v2, Berkeley Neural Parser"
+7,W4388032243,B,"LlamaV2-7B, MCUNet-5FPS, MobilenetV2, 
+ResNet-50, BERT (base-uncased), DistilBERT, 
+text-davinci-003, ChatGPT-3.5-Turbo, 
+ProxylessNAS"
+10,W4386185625,B,"Code Llama 7B, Code Llama 13B, Code Llama 34B,
+Code Llama 70B, Code Llama - Python 7B, 
+Code Llama - Python 13B, Code Llama - Python 34B, 
+Code Llama - Python 70B, Code Llama - Instruct 7B, 
+Code Llama - Instruct 13B, Code Llama - Instruct 34B, 
+Code Llama - Instruct 70B, Unnatural Code Llama 34B, 
+Llama 2 7B, Llama 2 13B, Llama 2 34B, Llama 2 70B, 
+Llama 2 Chat 7B, Llama 2 Chat 13B, Llama 2 Chat 34B, 
+gpt-3.5-turbo-16k-0613, ChatGPT (GPT3.5 Turbo), 
+Falcon 7B, MPT 7B, StarCoder (Python) 15.5B, 
+Falcon-instruct 7B, MPT-instruct 7B, Llama 2 reward model, 
+Llama 2 70B Safety Reward Model, ToxiGen classifier"
+12,W4376122929,B,"OPT-175B, TEXT-DAVINCI-002 (INSTRUCTGPT), 
+TK-INSTRUCT 11B"
+13,W4390329487,B,"text-davinci-003, GPT-4.0, GPT-3.5, Vicuna-13B, 
+Vicuna-7B, Alpaca-7B"
+17,W4385965642,B,"GPT-4, GPT-3.5-turbo, text-davinci-003, all-MiniLM-L6-v2"
+18,W4389518925,B,"gpt-4-0314, gpt-3.5-turbo, Alpaca (7B), Alpaca (13B), 
+Vicuna (13B), Roberta (330M), GPT2 (1.5B), T5 (770M), 
+Flan-T5 (770M), Flan-T5 (3B), Flan-T5 (11B), LLaMA (7B), 
+FLAN-T5-XL (3B)"
+21,W4389708369,B,"GPT-4, text-davinci-002, text-davinci-003, gpt-3.5-turbo, 
+OPT-66B, BLOOMZ-176B, LLaMA-7B, LLaMA-33B, LLaMA-65B"
+22,W4389519021,B,"microsoft/mpnet-base, SimCSE-BERT-Base-sup, 
+SimCSE-BERT-Large-sup, SimCSE-RoBERTa-Large-sup, 
+SBERT-all-MiniLM-L6-v2, SBERT-all-mpnet-base-v2, 
+Sentence-T5-Base, Sentence-T5-Large, Sentence-T5-XL, 
+Instructor-Base, Instructor-Large, Instructor-XL, 
+OpenAI (text-embedding-ada-002), gpt-3.5-turbo-0301, 
+StanfordCoreNLP"
+23,W4367365649,B,"Text-Davinci-003, castorini/t5-base-canard, MonoT5, 
+facebook/bart-large-cnn, QuReTeC, MPNet, FeedbackMonoT5"
+24,W4391584331,B,"gpt-3.5-turbo-0301, text-davinci-003"
+25,W4385328210,B,"gpt-4, text-davinci-003, text-davinci-002, text-davinci-001, 
+text-curie-001, text-bison-001 (PaLM 2), gpt-3.5-turbo, 
+text-ada-001, text-babbage-001, claude-instant-v1.0, 
+claude-instant-v1.1, claude-v1.3, command-medium, 
+command-xlarge, j2-grande-instruct, j2-jumbo-instruct, 
+flan-T5-small, flan-T5-base, flan-T5-large, flan-T5-xl, 
+opt-iml-1.3B, opt-iml-max-1.3B, bloomz-560m, bloomz-1b1, 
+bloomz-1b7, bloomz-3b, bloomz-7b1, bloomz-7b1-mt"
+33,W4386437502,B,GPT-3.5-turbo-16k
+39,W4392490361,B,"GPT-3.5-turbo-instruct, text-davinci-002, LLaMA-2 (7B), 
+FLAN-T5-XL (3B), text-embedding-ada-002"
+40,W4405307182,B,"GPT-4, GPT-4o, GPT-3.5, Gemini-1.5-Pro, 
+Qwen family models"
+41,W4393027310,B,"gpt-4-vision-preview, gemini-pro-vision"
+43,W4404781252,B,"gpt-4-1106-preview, gpt-3.5-turbo-0125, COMETKIWI-DA-22, 
+COMETKIWI-MULTITASK-22, XLM-RoBERTa (large), LaBSE, 
+FACEBOOK/NLLB-MOE-54B, 1.3B parameter NLLB model, 
+COMET"
+45,W4402696907,B,"Vintern-1B-v2, Vintern-1B-v1, InternVL2-1B, 
+Qwen2-0.5B-Instruct, InternViT-300M-448px, 
+Gemini 1.5 Flash, GPT-4o"
+49,W4391407055,B,"ChatGPT 3.5, MLP neural network, LDA"
+50,W4404106066,B,"gpt-3.5-turbo-16k-0613, gpt-4-0613, Claude-2, OMPAD, 
+MoNav-TT, TRAOD, DSVDD, DAE"
+51,W4403884621,B,"O1-preview, GPT-4o, GPT-4o-mini, GPT-3.5-turbo-16k-0613, 
+Claude-3-sonnet-20240229, Open-mixtral-8x7b"
+52,W4404781864,B,"GPT-4 (32K), text-embedding-ada-002, SentenceBERT"
+53,W4399418463,B,"G-SAP (RoBERTa-xlarge), G-SAP (AristoRoBERTa),
+ G-SAP (RoBERTa-large), RoBERTa-large, BERT-base, 
+GPT2-Large, GPT-3.5 (text-davinci-003), GPT-3.5 (gpt-3.5-turbo),
+Fine-Tuned PLM (w/o KG), RN, KagNet, RGCN, GconAttn, 
+MHGRN, QA-GNN, MVP-Tuning"
+56,W4401024798,B,"Mixtral 8x7B, ESCOXLM-R+, GTE-base embeddings, 
+Multilingual e5-large embeddings"
+59,W4404792936,B,"TransferTOD-7B, Baichuan2-7B-Chat, BlueLM-7B-Chat, 
+ChatGLM3-6B, Qwen-7B-Chat, Yi-6B-Chat, GPT-3.5-Turbo, 
+GPT-4-1106-Preview, BertNLU, SoftLexicon (LSTM), 
+LEBERT+CRF, W2NER"
+62,W4404648511,B,"Video-LLaMA-2-7B-Finetuned, TimeChat, Video-LLaVA, 
+Video-ChatGPT, VideoChat2, Video-LLaMA2, VTimeLLM, 
+VTG-LLM, GPT-4o, Gemini 1.5 Flash, GPT-4o-mini, 
+Llama2-7B, Vicuna-7B, Vicuna-13B, Mistral-7B"
+66,W4403322015,B,"DeepSeek-Coder-V2-Lite-Instruct, CodeQwen1.5-7B-Chat, 
+Codestral-22B-v0.1, GPT-4o, Claude 3.5 Sonnet, 
+LLaMA 3.1 70B, gpt-3.5-turbo-0301"
+69,W4393089652,B,"text-davinci-003, GPT-4, mBERT"
+71,W4392736133,B,"gpt-3.5-turbo-0613, Baichuan2-7B-Chat,
+ GPT-4 (version: 0613)"
+72,W4400025277,B,"gpt-3.5-turbo, gpt-4o-mini, gpt-4o, gemini-1.0-pro,
+gemini-1.5-pro, llama3-8b, llama3-70b"
+75,W4405631011,B,"Claude-3.5-sonnet, GPT-4o"
+78,W4399151368,B,"Claude 3.5 Sonnet, Claude 3 Haiku, Claude v1,
+Claude 3 Sonnet, Claude 3 Opus, GPT-3.5-Turbo, GPT-4o, 
+o1-mini, o1-preview, multi-layer perceptron"
+81,W4403851705,B,"PersonaMath 7B (Qwen2.5-7B), 
+PersonaMath 8B (LLaMA-3-8B), 
+PersonaMath 7B (LLaMA-2-7B), 
+PersonaMath 13B (LLaMA-2-13B), 
+GPT-4o-mini-2024-07-18"
+82,W4405032666,B,"GPT-3.5-Turbo, GPT-4, Gemini 1.0 Pro, LLaMA 2 (70B), 
+PaLM 2"
+83,W4402671949,B,"GPT-4, GPT-3.5, Claude-2, Claude-1, Vicuna 13B,
+Vicuna 7B, Mistral 7B, V-FT 7B (All), V-FT 7B (Suc.), 
+V-FT 13B (All), V-FT 13B (Suc.), V-RLGP 7B, V-RLGP 13B"
+85,W4404782177,B,"text-davinci-003, LLaMA-2 13B, GPT-4, Mixtral 8x7B, 
+GPT-3.5 Turbo"
+87,W4398192165,B,"GPT-4 Vision, Gemini 1.0 Pro, LLaVA demo model"
+91,W4400065260,B,"gpt-4-0125-preview, claude-3-opus-20240229, llama3-8b"
+92,W4402699247,B,"LT-Llama2-7B, LT-Llama2-13B, Llama2-7B, Llama2-13B,
+Llama3-8B, gpt-4-1106-preview"
+93,W4401042461,B,"text-davinci-003, gpt-3.5-turbo, DPR, PROD, DistilBERT"
+97,W4416021885,B,Gemini 1.5 Pro
+98,W7104311476,B,"gemini-1.5-pro, gpt-4o, gpt-4o-mini, gpt-o1, gpt-o3-mini, 
+gemini-2.5-pro, gemini-2.0-flash, gemini-1.5-flash, 
+claude-3.5-sonnet, gpt-oss-20b, llama3-3b-instruct, 
+llama3-8b-instruct"
+101,W4415682262,B,"gpt-4o-2024-02-15-preview, 
+gpt-4-vision-preview (2024-02-15), LLaVA-NeXT v1.6, 
+Phi-3-Vision initial public release checkpoint"
+102,W4416033512,B,"Gemma3-12B, EuroLLM-9B-Instr, Qwen3-8B, Aya-101, 
+NLLB-200-3.3B, metricx-24-hybrid-xl-v2p6"
+103,W4415317499,B,"anthropic.claude-3-5-sonnet-20241022-v2:0, 
+anthropic.claude-3-7-sonnet-20250219-v1:0"
+104,W4407764261,B,"RoBERTa-Large, Mistral-7B-Instruct, Qwen2-7B-instruct, 
+sup-SimCSE-RoBERTa-Large, E5-Mistral-7B-Instruct, 
+gte-Qwen2-7B-instruct, CLIP-ViT-L/14, EVA-CLIP-8B, 
+COMET-Atomic-2020-Bart, ACCENT, VERA-T5-XXL, 
+gpt-3.5-turbo-0125, gpt-4-0125-preview"
+108,W4416034096,B,"GPT-4, GPT-3.5, Llama-2-13B, Llama-3-70B, 
+DeepSeekMath-7B, Gemini-Pro, GPT-4V, Gemini-Pro-Vision, 
+Mistral-7B-v0.3-FT, Phi-3.5-mini-FT, LLaMA-3-8B-FT, 
+Mathstral-7B-v0.1-FT, all-MiniLM-L6-v2, Dragon+, 
+Contriever, CLIP, ALIGN, VisualBERT"
+109,W4406231679,B,"EpiCoder-Qwen-7B, EpiCoder-DS-6.7B, GPT-4o, 
+OpenAI o1-mini, OpenAI o1-preview, Claude-35-Sonnet, 
+GPT 4o-0806, Doubao-Coder-Preview, DeepSeek-v2.5, 
+Qwen-Max, GLM-4-Plus, DeepSeekCoder-v2-Instruct, 
+Qwen2.5-Coder-32B-Instruct, DeepSeekCoder-33B-Instruct, 
+CodeLlama-34B-Instruct, Qwen2.5-Coder-14B-Instruct, 
+DeepSeekCoder-v2-Lite-Instruct, StarCoder2-15B-Instruct-v0.1, 
+CodeLlama-13B-Instruct, Qwen2.5-Coder-7B-Instruct, 
+Yi-Coder-9B-Chat, DeepSeek-Coder-7B-Instruct-v1.5, 
+OpenCoder-8B-Instruct, DeepSeek-Coder-6.7B-Instruct, 
+CodeQwen1.5-7B-Chat, CodeLlama-7B-Instruct, 
+DeepSeek-Coder-Base-6.7B, Qwen2.5-Coder-7B-Base, 
+EpiCoder-DS-6.7B-Sample75k, CodeQwen-7B, 
+EpiCoder-CodeQwen-7B-Sample74k, roberta-large-v1"
+112,W4415315888,B,"deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B, 
+R1-distill-qwen-7B, R1-distill-qwen-14B, GPT-OSS 120B, 
+Qwen/Qwen3-30B-A3B-Thinking-2507"
+115,W4417298797,B,"GPT-4o, GPT-4.1, GPT-4.1-mini, Gemini-2.5-Flash, 
+Gemini-1.5-Flash, Gemini-1.5-Pro, Video-LLaVA, 
+Mantis-Idefics2, LongVA, Qwen2-VL, Qwen2.5-VL, 
+InternVL2.5, InternVL3, InternVideo2.5, LLaVA-Video, 
+Phi-4-Mini, LongLLaVA, Video-XL, LongVU, Vamba, 
+VideoChat-Flash, Gemini-2.0-Flash, GPT-4o-0806"
+116,W4406549107,B,"LLaMA-2 7B, GPT-2 Large, GPT-2 XL, LLaMA 2 13B, 
+tinyLLaMA 1.1B, OPT-350M, OPT-1.3B, GPT-3.5 Turbo, 
+GPT-4o-mini, gpt-4o-2024-08-06, LLaMA-3.1 8B, 
+Falcon-40B, LLaMA 3.1 70B"
+119,W4410870195,B,"gpt-4-0125-preview, gpt-3.5-turbo-1106, STYTRANS, 
+TSST, NAST, STRAP, BSRR, TYB, CTAT, LlaMa-LORA, 
+LlaMa-LORA-INST, Llama 7B, Roberta-base, KenLM, 
+cointegrated/roberta-large-cola-krishna2020"
+123,W7113915998,B,"Gemini 1.5 Pro, GPT-4 Turbo, GPT-3.5, 
+mistralai/Mistral-7B-Instruct-v0.2, 
+meta-llama/Llama-2-7b-chat-hf"
+125,W7144334197,B,"Gemini 1.5 Pro 001, gemini-exp-1206, o1"
+126,W4416037472,B,"Claude-Sonnet-3, Claude-Sonnet 3.5, RoBERTa-base, 
+BART-base, FLAN-T5-base, RoBERTa-large, 
+BART-large, FLAN-T5-large"
+127,W4407123447,B,"gpt-4-1106-preview, gpt-35-turbo-1106, Prometheus-v2, 
+colbert-ir/colbertv2.0"
+128,W4414489324,B,"Vision-G1-7B, Qwen2.5-VL-7B-Instruct, 
+Qwen2.5VL-32B-Instruct, GPT-4o-mini"
+129,W4416034104,B,"GPT-4o, GPT-4, Llama-3.1-8B Instruct, 
+Llama-3.3-70B Instruct, Qwen2.5-14B Instruct, 
+Command-r-plus08-2024 Instruct, Phi-3.5-mini Instruct, 
+AceGPT-v2-32B Instruct, Qwen2.5-72B Instruct"
+130,W4416036044,B,"Gemini-1.5-pro, meta-llama/Meta-Llama-3-8B, 
+microsoft/phi-4, Qwen/Qwen2.5-72B, 
+sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2, 
+google-bert/bert-base-uncased, 
+google-bert/bert-base-german-cased, 
+google-bert/bert-base-chinese, 
+DeepPavlov/rubert-base-cased, l3cube-pune/telugu-bert, 
+google-bert/bert-base-multilingual-cased"
+133,W4411113018,B,"GPT-4o-mini, GPT-4o, o1-preview, o1-mini, 
+claude-3-haiku-20240307, claude-3-opus-20240229, 
+claude-3-5-sonnet-20240620, Meta-Llama-3.1-8B-Instruct, 
+Mistral-7B-Instruct-v0.3, all-MiniLM-L6-v2"
+134,W4411226800,B,"DeepSeek, Kimi, Tongyi Qianwen, Xinghuo Spark, 
+ChatGLM, Baidu Yiyan"
+135,W4404652862,B,"gpt-4-0125, claude-3-5-sonnet-20240620"
+139,W7105506484,B,"Gemini 1.5 Pro, Gemini 2.5 Pro, Gemini 2.0 Flash, GPT-4o,
+ Qwen2.5-VL-72B, InternVL3-78B, InternVL2.5-78B, 
+LLaVA-OneVision-72B, Qwen2.5-VL-32B, InternVL3-38B, 
+InternVL2.5-38B, Qwen2.5-VL-7B, VideoChat-Flash-7B, 
+VideoLLaMA3-7B, InternVideo2.5-8B, mPLUG-Owl3-7B, 
+InternVL3-8B, InternVL2.5-8B, LLaVA-OneVision-7B, 
+MiniCPM-o, Slow-Fast-MLLM-7B, MiniCPM-V, LLaVA-Video-7B, 
+LLaVa-NeXT-Video-7B, Qwen2-7b-LongVILA-1M, 
+Video-XL-2-8B, Qwen2.5-VL-3B, InternVL2.5-4B, 
+Video-XL-Pro-3B"
+147,W7153671935,B,"claude-3-5-sonnet-20241022, gpt-4o, gpt-4.1, 
+claude-haiku-4-5-20251001, gemini-2.5-flash, 
+mistral-large-latest, llama-3.3-70b-versatile, 
+llama-4-scout-17b-16e-instruct"
+149,W7161655170,B,"Qwen3-8B-Instruct, Qwen3-1.7B-Instruct, Qwen3-4B-Instruct, 
+Qwen2.5-1.5B-Instruct, Qwen2.5-3B-Instruct, 
+Qwen2.5-7B-Instruct, LLaMA-3.3-3B-Instruct"
+151,W7154427703,B,"M3-Agent, Gemini-1.5-Pro, GPT-4o, Gemini-2.5-Pro, 
+text-embedding-3-large, Gemini-Agent, Gemini-GPT4o-Hybrid, 
+Qwen2.5-VL-7B-Instruct, Qwen2.5-Omni-7B, 
+MovieChat, MA-LMM, VideoChat-Online, Flash-VStream, 
+TimeChat-Online, StreamForest"
+153,W4417258219,B,"zephyr-7b-sft-full, Llama-3-Base-8B-SFT, 
+Meta-Llama-3-8B-Instruct, gemma-2-9b-it, 
+Llama-3-8B-Instruct v0.1, Llama-3-8B-Instruct v0.2, 
+ArmoRM-Llama3-8B-v0.1, Llama Guard 3-8B, 
+deepseek-v3-0324"
+154,W7154834174,B,"gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18,  
+Llama 3.1-70B, Llama 3.3-70B, DeepSeek-R1, 
+DeepSeek-V3, word2vec-google-news-300, 
+en core web md, distilbert-base-uncased-distilled-squad"
+159,W7167884867,B,"claude-sonnet-4-20250514, claude-opus-4-5, 
+SAM ViT-B, SigLIP 2, DINOv2"
+160,W7163595933,B,deepseek-v4-flash
+161,W7172173057,B,"OpenAI o3, GPT-4.1, Florence-2"
+163,W7148176526,B,"Claude 3.7 Sonnet, GPT-5, GPT-4.1, Claude 4 Sonnet, 
+Gemini 2.5 Pro, DeepSeek-V3, Qwen3-235B-A22b, 
+Qwen3-30B-A3b, Qwen3-4B, Qwen3-8B, Qwen3-14B, 
+Qwen3-32B"
+168,W7160670335,B,"Qwen-3-14B-GRPO (ours), Qwen-3-14B, Step Model (ours), 
+GPT-2, GPT-4o, Claude 3 Haiku, Claude 4.5 Sonnet, 
+Gemini 2.0 Flash, Gemini 2.5 Flash, GPT-3.5-turbo, GPT 4.1, 
+GPT-4o-mini, GPT-5, GPT-5-mini, LLaMA-3.1-8B, 
+Claude-4.6-Sonnet, Claude Code, Qwen-3-8B-GRPO, 
+Nemotron-cascade-14B, Mistral-3-14B-reasoning"
+169,W7171470065,B,"claude-3-Haiku, all-MiniLM-L6-v2, all-MPNet-base-v2, 
+OpenAI Ada-002"
+175,W7155573788,B,"DeepSeek-V3, Gemini-1.5-Flash, Llama-3.1-70B, 
+all-MiniLM-L6-v2"
+176,W7138189915,B,"o1-mini, GPT-4o-mini, GPT-3.5-turbo, DeepSeek-R1, 
+DeepSeek-V3, Qwen3-8b, Qwen3-14b, Qwen3-32b, 
+Qwen3-235b-a22b, Llama-3.1-8B, Llama-3.1-70B, 
+Gemini-2.5-flash, Claude-3.7-sonnet, Phi-4, Gemma-2-9b, 
+Mistral, GPT-4, Gemini-2.5"
+177,W4376167008,B,"gpt-3.5-turbo, gpt-3.5-turbo-16k, GPT-4 (8k), RoBERTa-large"
+178,W4404342131,B,"Phi-3-medium-instruct, gpt-3.5-turbo-1106, 
+gpt-4-1106-preview, GPT-4"
+182,W4392488491,B,"gpt-4-0613, gpt-3.5-turbo-0613, gemini-1.0-pro-001, 
+Claude-1.3, Claude-2.0, Claude-3.0 Opus, Qwen-72B, 
+Qwen-14B, Qwen1.5-14B-Chat, Qwen-7B, Qwen-7B-Chat, 
+Qwen-1.8B, Yi-34B-Chat, Yi-9B, Yi-6B-Chat, Breeze-7B-Instruct-v1.0, 
+ChatGLM3-6B, Taiwan-LLM-13B-v2.0-chat, Taiwan-LLM-7B-v2.1-chat, 
+BlueLM-7B-Base, DeepSeek-LLM-7B-Chat, DeepSeek-LLM-7B-Base, 
+BLOSSOM-v3.1-mistral-7b, Yayi-7b, Yayi-7B-Llama2, Mistral-7B-80k, 
+Chinese-Llama-2-7b, Atom-7B, GPT-4-vision"
+184,W4403780292,B,"GPT-4-1106-preview, GPT-4o"
+186,W4414973407,B,"Wan2.1-T2V-14B, GPT-4o, Gemini-1.5-Flash, SAM2, OmniGen, 
+ViCLIP, RAFT, MUSIQ, LAION aesthetic predictor, VideoBooth, 
+DreamVideo, Wan2.1-I2V, SkyReel-A2"
+188,W4409048882,B,"Gemini 1.5 Flash-001, GPT-4o, DistilBERT"
+191,W4416086013,B,"o3, gpt-4.1-mini, claude-3-haiku-20240307, gemini-2.0-flash, 
+DeepSeep-V3-0324, qwen-plus-2025-04-28"
+193,W7166880412,B,"Qwen2.5-3B-Instruct, Qwen2.5-7B-Instruct, Qwen3-4B-Instruct-2507, 
+Qwen2.5-14B-Instruct, Qwen2.5-72B-Instruct, E5, GPT-5-mini"
+194,W7140347406,B,"GPT 5.2-codex, GPT 5.2, GPT-5, o3, GPT-4o, GPT-4.1, GPT-5-mini, GPT-5-nano, o1-mini, o3-mini, o4-mini, GPT-4o-mini, GPT-4.1-mini, GPT-4.1-nano, Opus 4.6, Sonnet 4.6, Sonnet 4.5, Haiku 4.5, Haiku 3.5, Pro 3, Pro 2.5, Flash 3, Flash 2.5, all-MiniLM-L6-v2, BAAI/bge-base-en-v1.5, BAAI/bge-large-en-v1.5, text-embedding-3-large, BGE-reranker-large"
+195,W7133482723,B,"GPT-4o-mini, GPT-4o, Claude 3.5 Sonnet, Claude 3.5 Haiku, Gemini 1.5 Pro, Gemini 1.5 Flash"
+197,W4391766717,B,"gpt-4-1106-preview, gpt-3.5-turbo-1106, gemini-pro, glm-4, glm-3-turbo, Mistral-7B (instruct-v0.1), Llama2-7B (chat), ChatGLM3-6B, BioMistral-7B, HuatuoGPT2-7B, MedAlpaca-7B, text-embedding-ada-002"
+198,W4403704292,B,"O1-preview, O1-mini, GPT-4o, ChatGPT"
+199,W4401093689,B,"GPT-4o, Gemini 1.5 Pro"
+200,W4412741183,B,Gemini 1.0 Pro
+202,W7131666234,B,"Gemini Pro 1.5, ChatGPT-4"
+204,W7133325455,B,"LLaMA2-7B, ChatGLM2-6B, BERT, ALBERT, DeepSeek-R1-Distill-Qwen-7B, o1-mini, Qwen2.5-32B, DeepSeek-R1-Distill-Qwen-32B"
+206,W4387815516,B,gpt-3.5-turbo-0301
+208,W4404801249,B,gpt-4-0613
+210,W4392165770,B,"ChatGPT, Perplexity AI, YouChat, ChatSonic, Google’s Bard, Microsoft Bing Assistant, HuggingChat, Jasper AI, Quora’s Poe"
+215,W4410371425,B,"claude-3.5-sonnet-20240620, gpt-4o-2024-08-06, gemini-1.5-pro-002"
+216,W4416078576,B,"Llama-3.1-8B-Instruct, Qwen2.5-7B-Instruct, gemma-2-9B-it, Llama-3.2-11B-Vision-Instruct, Qwen2.5-14B-Instruct, GPT-4, KED, xresnet1d_101"
+217,W4416844854,B,")gpt-4-0613, identity social dimension classifier"
+219,W4406782520,B,"ChatGPT 4o, Google Gemini 1.5, Claude 3 Haiku"
+221,W4408576222,B,"ChatGPT, ClaudeAI, ChatGPT-4"
+222,W4416729207,B,"GPT-4o, Gemini-1.5 Flash, Claude-3 Haiku, GPT-o1"
+230,W4402952753,B,"Llama-3.1-8B-Instruct, Mixtral-8x7B-v0.1, gpt-3.5-turbo-1106, gpt-3.5-turbo-0125, gpt-4o-2024-08-06, gemini-2.0-flash, claude-3-5-haiku-20241022"
+231,W7124463313,B,"Claude 3 Haiku, Gemini 2.0 Flash, GPT 4o mini"
+233,W4389523980,B,"gpt-3.5-turbo, curie-instruct-beta, LLaMA-7B, LLaMA-13B, davinci-003, BART-Score, BERT, RoBERTa, MentalBERT, MentalRoBERTa"
+238,W4404388952,B,"Llama-3 Base 8B, Llama-3 Instruct 8B, Llama-3 Instruct 70B, ArmoRM-Llama3-8B, Llama-3.1 Base 8B"
+241,W4403818822,B,"gemini-1.5-pro, gpt-4-vision-preview, gpt-4o, LLaMA-3.2-11B-Vision, LLaVA-OneVision-7B, Qwen2-VL-7B, Qwen2-2B, Qwen2-72B, Molmo, Word2Vec"
+243,W4406586835,B,"gemini-1.0-pro-latest, multilingual2"
+245,W4404416110,B,text-davinci-002
+246,W4393160233,B,"text-davinci-003, gpt-3.5-turbo, gpt-4"
+248,W4409964047,B,"GPT-35-turbo 0125, GPT-4o 2024-05-13, Gemini-1.5-flash 001, text-embedding-ada"
+251,W4412889893,B,"Qwen2-72B-Instruct, InternLM2-20B, Gemini-1.5-Pro, GPT-4o-mini, GPT-4o, BGE-zh-1.5, BGE-en-1.5, InternLM2-1.8B, LLaMA3-8B, InternLM2-7B, Llama-3-8B-ProLong, InterLM-2.5-7B-Enhance, GPT-4"
+254,W4416035804,B,"gpt-4-0314, text-embedding-ada-002, GPT3.5, GPT-4o, google-bert/bert-base-uncased, tals/albert-xlarge-vitaminc-mnli, cardiffnlp/bertweet-base-sentiment, cardiffnlp/twitter-roberta-base-sentiment, TehranNLP/xlnet-base-cased-mnli, Mikael110/llama-2-7b-guanaco-fp16, RLHFlow/ArmoRM-Llama3-8B-v0.1, weqweasdas/RM-Mistral-7B, michelecafagna26/gpt2-medium-finetuned-sst2-sentiment"
+257,W4416570218,B,"Claude-3-5-sonnet-20240620, Claude Sonnet 4.0"
+258,W4411859278,B,gpt-4-0613
+261,W7125566560,B,"claude-sonnet-4-20250514, claude-opus-4-20250514, claude-opus-4-5-20251101, gemini-2.0-flash, gemini-2.5-pro, qwen2.5:7b-instruct, gpt-oss:20b, gpt-oss-120b, deepseek-r1:8b, granite3.3:8b, granite-3-8b-watsonx, llama-3-3-70b, mistral:7b"
+264,W7172557514,B,"LLaVA-1.5-7B, ViT-L/14 (CLIP), GPT-4o, Gemini-1.5-Flash, InstructBLIP-7B, MiniGPT-v2-7B, Gemini-1.5-Pro, Llama-3-70B"
+265,W7172473355,B,"RoBERTa-base, BERT-base, DeBERTa, ALBERT, DistilBERT, T5-base, GPT-4o, GPT-4o-mini, LLaMA3-8B, LLaMA3.1-8B, Gemma2-9B, Phi-3-mini, Phi-4, all-MiniLM-L6-v2"
+267,W7137210562,B,"gpt-4-1106-preview, GPT-4, text-embedding-ada-002, GPT-3.5-turbo, en_core_web_sm, ChatGPT, Google Gemini, Microsoft Copilot, Claude"
+268,W7111160516,B,"RoBERTa_base_go_emotions-NLI-SwapCPC, RoBERTa_base_go_emotions-NLI-M, SamLowe/roberta-base-go_emotions, GPT-3.5-turbo-0613, Llama-2-70b-chat, Qwen-1.5-7B-Chat, COQE, Xu et al. model, UniCOQE"
+272,W7170032271,B,"GPT-4, LLaMA-2-70B-Chat, Gemini-1.0-Pro, Mixtral-8x7B-Instruct, GPT-4o-mini"
+274,W7162766369,B,nv-embedqa-e5-v5
+277,W4393905780,B,"gpt-4-1106-preview, LLaMA-2 (13B-chat), Mistral (7B-instruct v0.1), GPT-4, LLaMA-2 (7B)"
+278,W4399357038,B,GPT-4o
+284,W4395064786,B,"gpt-4-1106-preview, claude-3-opus, gpt-4-0125-preview, gpt-3.5-turbo-16k, claude-2.0, claude-2.1, claude-instant-1.2, text-embedding-ada-002, voyage-large-2-instruct, LLM2Vec-Meta-Llama-3-8B-Instruct-mntp, GritLM-7b, ColBERTv2, DPR (roberta), ANCE (roberta), QAGNN (roberta)"
+285,W4391709828,B,"gpt-4-0613, gpt-4-turbo, gpt-4, gpt-3.5-turbo-0613, gpt-3.5-turbo-0125, gpt-3.5-turbo, chatglm3-6b, llama2-7b-chat, llama3-8b-instruct, llama3.1-8b-instruct, vicuna-7b, deepseek-v3-671b, chat-bison@001, TinyLlama-1.1B-step-50K-105b, GPT-2, Llama-Guard, Meta-Llama-Guard-2-8B, Llama-Guard-3-8B, Prompt-Guard-86M"
+286,W4392781121,B,"gpt-4-1106-preview, gpt-3.5-turbo-1106, all-mpnet-base-v2"
+291,W4414979011,B,"GPT-4, GPT-4o, Microsoft Copilot Pro, Sonar, Meta-Llama-3-8B-Instruct-GGUF, Phi-3-mini-4k-instruct-gguf, Phind instant version"
+292,W4416037402,B,"GLM-4-air, DeepSeek-R1, DeepSeek-V3(671B), Qwen(72B), GPT-4, bge-large-en-v1.5"
+293,W4412930207,B,"gpt-4-0613, gpt-4-1106-preview, gpt-3.5-turbo-0613, Llama 2-Chat (70B)"
+296,W4412888613,B,"GLM-4-9B-LongCite, Llama-3.1-8B-LongCite, GLM-4-9B-LongSFT, Llama-3.1-8B-LongSFT, claude-3-sonnet-20240229, gpt-4o-2024-05-13, GLM-4-0520, GLM-4-9B-chat, Llama-3.1-8B-Instruct, Llama-3.1-70B-Instruct, Mistral-Large-Instruct-2407, GLM-4-9B, Llama-3.1-8B, Zhipu Embedding-2, TRUE"
+298,W4410215516,B,"gemini-1.5-flash-latest, gpt-4o-11-20, grok-3-beta"
+299,W4415035363,B,"DeepSeek-R1 (671B), Qwen3-235B-A22B, GPT-4-Turbo"
+302,W4415330016,B,"DeepSeek-R1-32B, DeepSeek R1-685B, Qwen2.5-7B, DeepSeek R1 (1.5B), DeepSeek R1 (7B), DeepSeek R1 (14B)"
+304,W7163777646,B,"gemini-3.1-flash-lite-preview, claude-haiku-4-5-20251001, claude-sonnet-4-20250514, claude-sonnet-4-5-20250929, gpt-5-mini-2025-08-07, ChatGPT"
+307,W7134992318,B,"gpt-5-mini-2025-08-07, gpt-5.5-2026-04-23, gpt-5.4-2026-03-05, gpt-5-2025-08-07, gpt-4.1-2025-04-14, gpt-4.1-mini-2025-04-14, gpt-4o-mini-2024-07-18, claude-sonnet-4-6, claude-opus-4-7, claude-haiku-4-5-20251001, gemini-3.1-pro-preview, gemini-3-pro-preview, openai/gpt-oss-120b, Qwen/Qwen3-30B-A3B-Instruct-2507, Qwen/Qwen3-32B, allenai/Olmo-3.1-32B-Instruct, allenai/Olmo-3.1-32B-Think, Qwen2.5-32B-Instruct, all-MiniLM-L6-v2"
+317,W7139144810,B,"gpt-5-2025-08-07, claude-sonnet-4-20250514, gemini-2.5-pro, qwen3-coder-480b-a35b-instruct, openai/gpt-oss-120b, anthropic/claude-3-5-sonnet-20241022, Meta Llama 3.3 8B"
+319,W4405767783,B,"Qwen2-VL-72B, Qwen2.5-Coder-32B, DeepSeek-V2.5, Qwen2-VL-7B, Qwen2-VL-2B"
+321,W4402345509,B,"claude-3-5-sonnet-20240620, claude-3-opus-20240229, gemini-1.5-pro-001, gpt-4o, gpt-4-turbo, claude-3-haiku-20240307, Meta-Llama-3-70B-Instruct, Claude 2"
+323,W4413094313,B,"deepseek-chat, glm-4-airx, qwen-plus, GPT-4o-mini, SemRep"
+325,W4416156707,B,"gpt-4o-2024-08-06, gpt-5-2025-08-07, GPT-o4-mini (version unspecified), Gemini-2.5-Flash, Gemini-2.5-Flash-Thinking, claude-3-7-sonnet-20250219, Claude-3.7-Sonnet-Thinking, google/owlvit-base-patch32, GroundingDINO, sam_vit_h_4b8939.pth, YOLO11n"
+326,W7164916435,B,"gemini-1.5-flash-latest, gemini-1.5-flash-8b, gemini-2.0-flash-lite, gemini-2.5-flash-preview-04-17, gpt-4o-mini, gpt-4.1-nano, Llama2, Llama3, Llama4, Claude, ChatGPT, Gemini, BERT"
+328,W4391430636,B,"Stable Diffusion (v1.5), Fine Tuned Diffusion, Low Rank Adapatation, Textual Inversion, Wizard Vicuna 13B, Vicuna 7B, Red Pajama 7B, Red Pajama 3B, GPT-J 6B"
+330,W4417363148,B,"ChatGPT-4o, Gemini 2.5 Flash, Microsoft Copilot, DeepSeek-V3, Meta AI (LLaMA 4)"
+335,W4403622645,B,"gpt-3.5-turbo-0613, gpt-4-0613, gpt-4-0125-preview, gemini-1.0-pro-001, claude-2.1, meta-llama/Llama-2-7b-chat-hf, meta-llama/Llama-2-13b-chat-hf, meta-llama/Llama-2-70b-chat-hf, mistralai/Mistral-7B-Instruct-v0.1"
+336,W4399251648,B,"Mistral-MathChat (Ours), Gemma-MathChat (Ours), gpt-4-0125-preview, GPT-3.5-turbo, GPT-4o, Claude, LLaMA2-7B-chat, Mistral-7B-Instruct, Gemma-7B-it, MAmmoTH-Mistral-7B, MetaMath-Mistral-7B, WizardMath-7B-v1.1, InternLM2-7B-Math, DeepSeek-7B-Math, Mistral-Math, Mistral-Math-IT, Mistral-Math-IT-Chat, Gemma-Math, Gemma-Math-IT, Gemma-Math-IT-Chat, Mistral-7B, Gemma-7B"
+339,W7143904448,B,"gpt-4-0125-preview, gpt-4-1106-preview, gpt-3.5-turbo-0125, gpt-3.5-turbo-1106, gpt-4, gpt-3.5-turbo, gpt-3.5-turbo-instruct, text-davinci-002, text-davinci-003, joeddav/xlm-roberta-large-xnli, Logistic regression, Random forest, Support Vector Machine, Naive Bayes"
+340,W4417184010,B,GPT-3.5
+343,W4392727016,B,"gpt-4-1106-preview, Universal Sentence Encoder (USE), Latent Dirichlet Allocation (LDA)"
+344,W7169839044,B,"GPT-4, GPT-4o, o1, o3-mini, GPT-4.5-preview"
+346,W7128744814,B,"ChatGPT4o, ChatGPT5, ChatGPT5Pro, ChatGPT"
+351,W4402671908,B,"gpt-3.5-turbo-1106, gpt-4-turbo, claude-3-opus, all-MiniLM-L6-v2, all-mpnet-base-v2, all-MiniLM-L12-v2, Dall-E, chatgpt"
+353,W4403579643,B,"gpt-3.5-turbo-0125, gpt-4-turbo-2024-04-09, gpt-4o-2024-05-13"
+354,W4404782629,B,"GPT-4-turbo-2024-04-09, gemini-pro-vision 1.0, Idefics-9B, Idefics-80B, LLaVANext-vicuna-7B, LLaVANext-mistral-7B, LLaVANext-vicuna-13B, LLaVANext-34B, InternLM-XComposer2 (7B), Qwen-VL (7B)"
+355,W4400341964,B,"Gpt-3.5-turbo-0125, GPT-4-turbo, CodeS-15b-spider, Dmeta-embedding"
+356,W4405029777,B,"o3-mini, DeepSeek-Prover-v1.5-RL (@32), Goedel-Prover (@32), ReProver retrieval ✗, ReProver retrieval ✓, Qwen2.5-Math, Llama 3.1"
+358,W4404970691,B,"gpt-4-turbo-2024-04-09, gpt-3.5-turbo-0125, Mistral-7B, Mixtral-8x7B, mistral-medium-2312, mistral-large-2402, jina-embeddings-v2-base-en, mistral-embed, text-embedding-3-small, text-embedding-3-large, RoBERTa, Donut, Amazon Textract, KNN, MLP"
+359,W4404782968,B,"Llama 2 7B Chat, Mistral-7B-Instruct-v0.1, GPT-4-Turbo, fine-tuned Llama 2 13B, Self-RAG, ALIGNScore-base, MINICHECK, pre-trained propositionizer (Chen et al., 2023), google/t5_xxl_true_nli_mixture, SYNCHECKLR, SYNCHECKXGB, SYNCHECKMLP, ChatGPT"
+360,W4403578078,B,"BabyPython, Lua, TinyStories, LuaStories, gpt-4-turbo, sparse auto-encoder"
+364,W4400104738,B,"GPT 4 Turbo model with vision, gpt-3.5-turbo-0125, MPNet"
+367,W4404377033,B,"gpt-4o-2024-05-13, BARTCNN/DM, T5, Flan-T5, mistralai/Mistral-7B-Instruct-v0.1, meta-llama/Meta-Llama-3-8B-Instruct, meta-llama/Meta-Llama-3-70B-Instruct, meta-llama/Meta-Llama-3.3-70B-Instruct, lmsys/vicuna-7b-v1.5, lmsys/vicuna-13b-v1.5, mistralai/Mixtral-8x22B-Instruct-v0.1, deberta-large-xnli, BLEURT-20-D6, SUMMAC, ALIGNSCORE, JointCL, T5-based keyphrase generation model"
+368,W4396913469,B,"DeBERTa-v3-large, DeBERTa-v3-base, ALBERT-v2-base, BERT-base, GPT-4-turbo, GPT-3.5-turbo"
+370,W4412945525,B,"text-embedding-3-large, roberta-large-mnli, text-embedding-ada-002, gpt-4-turbo-preview, Qwen2-7B-Instruct, Llama-3.1-8B-Instruct, Llama-2-13b-chat-hf, Llama-2-7b-chat-hf, Meta-Llama-3-8B-Instruct, Qwen-7B-Chat, Qwen2.5-7B-Instruct, chatglm3-6b-32k, chatglm3-6b, chatglm2-6b, glm-4-9b-chat, Baichuan2-7B-Chat, GPT-3.5-turbo, GPT-4o mini, BERT"
+371,W4416037867,B,"LIONGUARD 2, text-embedding-3-large, gpt-4o-mini, Gemini 2.0 Flash, o3-mini-low, Claude 3.5 Haiku, Llama 3.3 70B, Mistral Small 3, AWS Nova Lite, GPT-4.1 nano, cohere-embed-multilingual-v3.0, cohere-embed-v4.0, BGE-M3, snowflake-arctic-embed-l-v2.0, Qwen3-Embedding-0.6B, sarvam-m, LlamaGuard-3-8B, LionGuard 1.1, OpenAI Moderation API, AWS Bedrock Guardrails, Azure AI Content Safety, Google Cloud Model Armor, LlamaGuard 4 12B"
+372,W7138789249,B,"GPT-4.1-Nano, Gemini-2.5-Flash-Lite, ChatGPT, TituLLM, BongLLaMA"
+373,W4417143419,B,"Gemini-2.5-Pro (2025-06-17 version), Gemini-2.5-Flash, OpenAI-o3, Qwen3-VL-8B"
+374,W4412944558,B,"Llama-3.1-8B-Instruct, GPT-4o, Llama3-8B-Instruct, Gemma-2-9b-it, Phi-3-mini-128k-instruct, Phi-3.5-mini-instruct, Mistral-7B-Instruct-v0.3, Qwen2.5-7B-Instruct, Llama3.1-70B-Instruct"
+375,W4414596160,B,"Gemini 2.5 Pro, o3"
+377,W4416870020,B,"Qwen3-1.7B-LogicIF, o4-mini, o3-mini, gpt-5, o3, gpt-5-mini, Claude-4-Sonnet, GPT-4.1-mini, GPT-4.1, Claude-3.7-Sonnet, Gemini-2.5-Flash, Claude-4-Sonnet-NT, Claude-3.7-Sonnet-NT, DS-Llama-70B, DS-Qwen-32B, Qwen3-32B, Qwen3-8B, GPT-4o, Qwen3-32B-NT, Qwen3-8B-NT, Llama-3.3-70B, Gemma-3-27B, Qwen3-1.7B, text-embedding-3-small"
+378,W4407091797,B,"Qwen3-8B-Instruct, Llama-3.1-8B-Instruct, Falcon3-10B-Instruct, Mistral-NeMo-Instruct-2407, Gemma-2-9B-IT, OLMo-2-7B-Instruct, Qwen3-8B-Base, Llama-3.1-8B, Falcon3-10B-Base, Mistral-NeMo-12B, Gemma-2-9B, OLMo-2-7B, all-mpnet-base-v2, all-distilroberta-v1, all-MiniLM-L6-v2, Claude"
+379,W4415036031,B,"GPT-4-turbo, GPT-3.5-turbo, Llama3.1-405B, Llama3.1-8B, Llama3-8B, CodeLlama-7B, CodeLlama-13B, Gemma-7B, CodeGemma-7B, CodeQwen1.5-7B, Mixtral-7B, GPT-o1, GPT-40"
+380,W4415161187,B,"xVerify-7B-I, xVerify-0.5B-I, xVerify-1B-I, xVerify-1.5B-I, xVerify-2B-I, xVerify-3B-Ia, xVerify-3B-Ib, xVerify-8B-I, xVerify-9B-C, xVerify-9B-I, xVerify-14B-Ia, xVerify-14B-Ib, xVerify-27B-I, xVerify-32B-I, ChatGLM3-6B, GPT-4o, Gemma-2-2B-it, Gemma-2-9B-it, GLM-4-9B-Chat, InternLM2.5-7B-Chat, Qwen2-1.5B-Instruct, Qwen2-7B-Instruct, Llama-3.1-8B-Instruct, Llama-3.2-1B-Instruct, Llama-3.2-3B-Instruct, Qwen2.5-7B-Instruct, Qwen2.5-14B-Instruct, Phi-4, DeepSeek-R1-Distill-Llama-8B, DeepSeek-R1-Distill-Qwen-1.5B, DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-14B, QwQ-32B, Gemma-2-27B-it, Qwen2.5-0.5B-Instruct, Qwen2.5-1.5B-Instruct, Qwen2.5-3B-Instruct, Qwen2.5-32B-Instruct, PandaLM-7B-v1, Auto-J-Bilingual-6B, Auto-J-13B, Prometheus-7B-v2.0, Prometheus-8x7B-v2.0, JudgeLM-7B-v1.0, JudgeLM-13B-v1.0, JudgeLM-33B-v1.0, CompassJudger-1-1.5B, CompassJudger-1-7B, CompassJudger-1-14B, CompassJudger-1-32B"
+382,W4416985160,B,"Llama 3, Gemini 2.5 Flash, Gemini 2.5 Pro, Claude Sonnet 4, ChatGPT-4o, ChatGPT-o3"
+383,W4406779113,B,"Llama-3-8B-Instruct, Zephyr-7B-SFT, llm-blender/PairRM, RLHFlow/ArmoRM-Llama3-8B-v0.1"
+384,W4416928939,B,"BERT (Base) + DL, T5 (Large) + DL, GPT-2 + DL, Tiny Llama + DL"
+385,W4415195964,B,gpt-4.1-mini-2025-05-14
+391,W4411268213,B,"gpt-4o-mini, o3-mini, Python-specific model (CodeBERTScore)"
+392,W4414809533,B,"Command A, Aya Expanse 8B, Gemma3-27B-It, Kimi-K2-Instruct, Qwen3-235B, DeepSeek-V3, Gemma3-4B-It, gpt-4o-2024-05-13, Gemini2.5-Pro, Gemini2.5-Flash, XComet-XL, in-house multilingual Reward Model (RM), 111B instruction-tuned LLM, 7B Base LLM"
+393,W4406880300,B,"GPT-4o at its May 13th 2025 version, GPT-4-Turbo at its June 13th version, GPT-3.5-Turbo at its June 13th version, Llama-3.1-8B-Instruct, Llama-3.1-70B-Instruct, Llama-3.1-405B-Instruct, Mistral-Large-Instruct-2407, QWen-2.5-0.5B-Instruct, QWen-2.5-1.5B-Instruct, QWen-2.5-3B-Instruct, QWen-2.5-7B-Instruct, QWen-2.5-14B-Instruct, QWen-2.5-32B-Instruct, QWen-2.5-72B-Instruct"
+396,W4416117751,B,"GPT-4o, Llama 3.3 70B, GPT-o3-mini"
+402,W4412464020,B,gpt-4.1
+405,W7154426895,B,"Qwen3-32B, Qwen2.5-72B-Instruct, DeepSeek-V3, GPT-4o-mini, GPT-o3-mini, Doubao-1.5Pro-32k, LoRA-Qwen2.5-14B-Instruct, Qwen2.5-32B-Instruct, QwQ-32B, Qwen2.5-14B-Instruct, Qwen2.5-VL-72B-Instruct, Qwen2.5-7B-Instruct, GLM-4-9B, DeepSeek-R1-Distill-Llama-70B, QVQ-72B-Preview, DeepSeek-R1-Distill-Qwen-32B, Qwen3-14B, DeepSeek-R1-Distill-Qwen-7B, GLM-Z1-Rumination-32B, GLM-4-9B-Chat, GPT-4o, FlightPatchNet, DLinear, PatchTST"
+407,W7130762282,B,"o3-2025-04-16, o4-mini-2025-04-16, gpt-4o (snapshot 2024-11-20), Gemini 2.5 (G2.5F), Gemini-3-pro-preview, Gemma 3 (27B)"
+408,W7202168386,B,"XLM-RoBERTa, SambaLingo-Bulgarian-Base, SambaLingo-Bulgarian-Chat, insait/insait-gemma-2-27b-bg-mixed-19847, Gemini 2.0 Flash, Gemini 2.5 Flash, OpenAI o4-mini"
+410,W7153517001,B,"LLaMA-3.2-1B, Qwen2.5-Coder-1.5B"
+411,W7140131338,B,"GPT-2 Base, LLaMA-3-8B, OpenAI o3-mini, en_core_web_sm, ChatGPT-4o, DeepSeek R1"
+412,W7165064544,B,"Qwen 2.5 Coder 32B Base, Qwen 2.5 Coder 32B Instruct, Qwen 3 8B Base, Qwen 3 32B Instruct, o3-mini, GPT-4o, text-embedding-3-large, gpt-4o-mini-2024-07-18, GPT-4.1, ChatGPT"
+413,W7165065735,B,"OpenAI o3, GPT-5, GPT-Image-1.5, Wan2.2-I2V-A14B, Wan2.2-T2V-14B, StoryDiffusion, HoloCine, ViCLIP"
+416,W7166886942,B,"XLM-RoBERTa-Base, XLMR-Base-xTune, Bert-base, GPT-4 Turbo, o3, Gemini 2.5 Pro"
+417,W7165815995,B,"deepseek-v4-pro, qwen3.6-35b-a3b, gemini-2.5-flash, gpt-4.1-nano"
+419,W7154538725,B,"Molmo2-4B Multi-response RM (Ours), Qwen3-VL-4B Multi-response RM (Ours), Molmo2-4B, Qwen3-VL-4B, GPT-5, Claude-Sonnet-4.5, Gemini-2.5-Pro, InternVL3-8B, Qwen2.5-VL-7B, Qwen3-VL-8B, Qwen3-VL-32B, Molmo2-8B, InternVL3-78B, R1-Reward, MM-RLHF-Reward, LLaVA-Critic, Skywork-VL-Reward, IXC-2.5-Reward, Gemini-3-Flash, GPT-5 Mini, Gemini 2.5 Flash, Qwen3-VL-2B, Qwen-7B, LLaVA-7B, InternVL3.5-4B, InternVL3.5-8B, LLaVA-Video-7B, MiniCPM-V4.5, Eagle2.5, VideoChat-Flash, GLM-V4.1, KeyEVL1.5, PLM-3B, PLM-8B, GPT-4, GPT-4-turbo"
+420,W4417008182,B,"GPT-4o mini, GPT-3.5 Turbo, Phi-4, o3-mini, GPT-5 mini"
+424,W7165454160,B,GPT-5.5
+425,W7202230716,B,"GPT-5-mini-2025-08-07, GPT-4o-mini-2025-04-16, Gemini-2.5-flash-preview-05-20, DeepSeek-R1-0528, GPT-4.1-mini-2025-04-14, Gemini-2.0-flash-live-preview-04-09, DeepSeek-V3-0324"
+426,W7139144880,B,"Qwen2.5-7B-Instruct, OmniSQL-7B, Qwen2.5-Coder-7B, SQL-R1 + OmniSQL-7B, Arctic-Text2SQL-R1-7B"
+429,W7161452715,B,"o4-mini (version 2025-04-16), GPT-4o (version 2024-11-20), text-embedding-3-small"
+432,W7203643398,B,"GPT 4.1 Nano, GPT 4.1, Gemini 2.5 Flash, Gemini 2.5 Pro, Qwen-7B, Qwen-72B"
+433,W7140129887,B,"deepseek-ai/DeepSeek-R1-Distill-Qwen-32B, ai21labs/AI21-Jamba-Reasoning-3B, ai21labs/AI21-Jamba-Mini-1.7, ai21labs/AI21-Jamba-Large-1.7, anthropic/claude-haiku-4.5, anthropic/claude-sonnet-4.5, deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B, deepseek-ai/DeepSeek-R1-Distill-Qwen-7B, deepseek-ai/DeepSeek-R1-Distill-Qwen-14B, deepseek-ai/DeepSeek-R1-Distill-Llama-70B, deepseek-ai/DeepSeek-V3.1, google/gemma-3-1b-it, google/gemma-3-4b-it, google/gemma-3-12b-it, google/gemma-3-27b-it, google/gemma-3n-E4B-it, google/gemini-2.5-flash, google/gemini-2.5-flash-lite, google/gemini-2.5-pro, meta-llama/Llama-4-Maverick-17B-128E-Instruct, meta-llama/Llama-4-Scout-17B-16E-Instruct, openai/gpt-4o, openai/gpt-4o-mini, openai/gpt-4.1-mini, openai/gpt-4.1-nano, openai/gpt-5-mini, openai/gpt-5-nano, openai/gpt-5-pro, openai/gpt-oss-20b, openai/gpt-oss-120b, zai-org/GLM-4-9B-0414, zai-org/GLM-4.6, zai-org/GLM-4.5-Base, zai-org/GLM-4.5-Air"
+436,W7128555701,B,"gpt-5-2025-08-07, gpt-4o-2024-08-16, gemini-3-pro-preview, claude-sonnet-4-5-20250929, qwen3-vl-plus-2025-09-23, qwen-vl-max-2025-08-13, OpenBMB/MiniCPM-V-4_5, google/gemma-3-12b-it, OpenGVLab/InternVL3_5-8B-Instruct, zai-org/GLM-4.1V-9B-Thinking, moonshotai/Kimi-VL-A3B-Instruct, XiaomiMiMo/MiMo-VL-7B-RL, Qwen/Qwen3-VL-8B-Instruct, HuggingFaceTB/SmolVLM2-2.2B-Instruct, mistralai/Ministral-3-8B-Instruct-2512, GPT-5.2, Alibaba-NLP/gme-Qwen2-VL-2B-Instruct, Qwen/Qwen3-Embedding-8B"
+440,W4414463052,B,OpenAI o4-mini
+441,W4416026742,B,"gpt-4o-2024-11-20, gpt-4o-2024-05-13, gpt-4o-mini-2024-07-18, gpt-3.5-turbo-0125, SPECTER"
+443,W4416036871,B,"O4-MINI, GPT-4O-MINI, CLAUDE SONNET 3.7"
+448,W7164233476,B,"gpt-5-mini, gpt-4.1-mini, gpt-4.1, o4-mini, gpt-5.4"
+449,W4407236276,B,"gpt-4o-2024-05-13, gpt-4o-2024-08-06, ChatGPT"
+451,W4408605330,B,"GPT-4 Turbo, Mistral-7B, GPT-4o, GPT-4o mini, Claude-3.5-sonnet, Claude-3-opus, Claude-3-sonnet, Gemini-1.5-flash, Gemini-1.5-pro, Gemma-2b, Gemma-7b, GPT-3.5-turbo, Llama2-7b, Llama2-13b, Llama3-8b, Llama3-70b, Llama3.1-8b, Llama3.1-8b-instruct, Mistral-7b, Phi3, Phi3-14b"
+455,W7135428876,B,"Gemma 2 9B Instruct, Llama 3.1 8B Instruct, Llama 3.1 70B Instruct, Mistral 7B v0.3 Instruct, gpt-4.1-mini-2025-04-14, gpt-4.1-nano-2025-04-14, all-MiniLM-L6-v2, all-distilroberta-v1, all-mpnet-base-v2, DeBERTa, SciDeBERTa-v2"
+456,W7135064860,B,"GPT o3-mini, GPT o3-mini-high"
+458,W4405765814,B,"OpenAI’s GPT-4o-mini, OpenAI’s GPT-o3-mini"
+462,W4416983396,B,GPT-4 Turbo variant 2025
+466,W4414520585,B,"RoBERTa-large, sentence-t5-xl, GPT-4-turbo"
+467,W7167794920,B,"GPT o4-mini-high, Gemini 2.5 Pro, gemma-3-27b-it, gpt-oss-20b, gpt-oss-120b, Qwen3-235B-A22B, DeepSeek-V3.1"
+472,W7167574952,B,"Gemini 3 Flash, Gemini 3 Pro, Gemini 3 Pro Image"
+473,W4403380283,B,"GPT-4 Turbo, Google Cloud Vision (GCV) 2.0, VGG16"
+475,W4403784471,B,"GPT-4o, GPT-3.5-turbo-0125, Llama-3-70b-instruct"
+477,W4394973254,B,GPT-4
+481,W4411120358,B,"gpt-4-turbo, gpt-3.5-turbo-0125, Qwen2.5-72B, XuanYuan2-70B-Base, Llama3-70B, DeepSeek-67B-Base, Tigerbot-70B-Base, Qwen2.5-32B, Yi1.5-34B, Qwen2.5-14B, InternLM2.5-20B, XuanYuan-13B-Base, Phi3-14B-Instruct, Baichuan2-13B, Skywork-13B, DISC-FinLLM-13B, Tigerbot-13B-Base, Llama2-13B, Qwen2.5-7B, YunShan-7B, InternLM2.5-7B, Yi1.5-9B, Qwen1.5-7B, ChatGLM3-6B-Base, XuanYuan-6B-Base, Llama3.1-8B, Baichuan2-7B, Mistral-7B, CFGPT1-sft-7B-Full, FinMA-7B, Qwen2.5-3B, Phi3.5-3.8B-Instruct, YunShan-1.5B, InternLM2.5-1.8B, Gemma2-2B, fastText"
+483,W4415061713,B,"GPT-4-Turbo, Google Gemini 2.0 Flash, Claude 3.7 Sonnet, DeepSeek-V3"
+485,W4407328224,B,"GPT3.5-turbo-0613, GPT3.5-turbo-1106, GPT4-0613, GPT4-1106-preview"
+486,W4412889683,B,"gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18, Llama3-8b, Llama3-70b, Gemma2-9b, Gemma2-27b, Mistral-7B-v0.3, Mixtral-8x7B-Instruct-v0.1, SauerkrautLM-gemma-2-9b-it, Llama-3-SauerkrautLM-8b-Instruct-f16"
+488,W7170989160,B,"o3-mini, o4-mini, o3, gpt-4.1-mini, gpt-4.1, gpt-oss-120b, gemini-2.5-pro, gemini-2.5-flash, gemini-2.5-flash-lite, Llama-3.3-70B, DeepSeek-V3.1, GPT-5-mini, GPT-5.2, openai/gpt-4.1-nano, openai/gpt-4.1-mini, text-embedding-3-small, Llama-4-Maverick, Mistral-24B"
+490,W7202207579,B,"GPT-o3, GPT-5.4, Claude Sonnet 4.6, DeepSeek-V3.2, GPT-5.4 nano, Llama 4 Maverick, Llama 4 Scout, Llama 3.1 8B, Qwen3.5-9B, Qwen3-32B, Qwen3-14B, Qwen3-8B, Ministral 3 8B"
+493,W7110795894,B,"GPT4 Turbo, GPT4, GPT 3.5 Turbo, GPT 3.5 Turbo 0125, multilingual distilBERT (mDistilBERT), text-embedding-3-small, OpenAI Whisper (model large-V2), Microsoft Azure speech-to-text (model base), Google Cloud speech-to-text (model V1 - default), Vosk (vosk-model-en-us-0.22-lgraph, vosk-model-small-nl-0.22), OpenAI Text-to-Speech (Echo)"
+496,W7169610321,B,GPT-4.1-Nano
+498,W7170079639,B,gpt-4-turbo-preview
+1,W4385573369,C,"text-davinci-002, DeBERTa-base, bert-base-uncased (CF-DPR), Tailor, Polyjuice"
+2,W4385573809,C,"text-davinci-002, T5-3B, T5-large, BERT (base), UnifiedQA-v2 (3B)"
+3,W4309043734,C,"text-davinci-002, OPT-125M, OPT-350M, OPT-1.3B, OPT-2.7B"
+4,W4387430850,C,"GPT-3.5, llama2-13b-chat, T5-Large"
+7,W4388032243,C,"text-davinci-003, LlamaV2-7B, BERT (base-uncased), DistilBERT, MCUNet-5FPS, MobileNetV2, ResNet-50, ChatGPT-3.5-Turbo"
+10,W4386185625,C,"gpt-3.5-turbo-16k-0613, Code Llama (7B/13B/34B/70B), Code Llama - Python (7B/13B/34B/70B), Code Llama - Instruct (7B/13B/34B/70B), Llama 2 (7B/13B/34B/70B), Llama 2 Chat (7B/13B/34B), Falcon 7B, Falcon-instruct 7B, MPT 7B, MPT-instruct 7B, StarCoder (Python) 15.5B, GPT3.5 Turbo (ChatGPT), Llama 2 70B safety reward model"
+22,W4389519021,C,"gpt-3.5-turbo-0301, SBERT (microsoft/mpnet-base 재학습), SBERT-all-MiniLM-L6-v2, SBERT-all-mpnet-base-v2, SimCSE-BERT-Base-sup, SimCSE-BERT-Large-sup, SimCSE-RoBERTa-Large-sup, Sentence-T5-Base, Sentence-T5-Large, Sentence-T5-XL, Instructor-Base, Instructor-Large, Instructor-XL, text-embedding-ada-002"
+24,W4391584331,C,"gpt-3.5-turbo-0301, text-davinci-003"
+25,W4385328210,C,"text-davinci-003, text-davinci-002, text-davinci-001, text-curie-001, text-babbage-001, text-ada-001, text-bison-001, gpt-4, gpt-3.5-turbo, claude-v1.3, claude-instant-v1.0, claude-instant-v1.1, command-medium, command-xlarge, j2-grande-instruct, j2-jumbo-instruct, flan-t5-small, flan-t5-base, flan-t5-large, flan-t5-xl, bloomz-560m, bloomz-1b1, bloomz-1b7, bloomz-3b, bloomz-7b1, bloomz-7b1-mt, opt-iml-1.3b, opt-iml-max-1.3b"
+26,W4389524566,C,"GPT-3.5-Turbo-0301, GPT-4-0314, Claude-2"
+28,W4385734127,C,"text-davinci-003, RoBERTa-base, DialoGPT-medium"
+29,W4383987287,C,text-davinci-003
+32,W4385571232,C,"text-davinci-003, text-curie-001, ChatGPT, T0"
+33,W4386437502,C,GPT-3.5-turbo-16k
+35,W4380136291,C,"text-davinci-003, RoBERTa-base"
+39,W4392490361,C,"text-davinci-002, GPT-3.5-turbo-instruct, LLaMA-2 (7B), FLAN-T5-XL, text-embedding-ada-002"
+40,W4405307182,C,"GPT-4, GPT-4o, GPT-3.5, Gemini-1.5-Pro, Qwen family"
+42,W4390784213,C,"GPT 3.5 (turbo-16k-0613), PaLM 2-S, Llama-2-17B-chat"
+46,W4401042743,C,"text-bison, LLaMA-7B, LLaMA-13B, Gemini-Pro, text-unicorn, ChatGPT (Vicuna pairwise evaluator), GPT-4"
+50,W4404106066,C,"gpt-3.5-turbo-16k-0613, gpt4-0613, Claude-2"
+51,W4403884621,C,"Claude-3-sonnet-20240229, GPT-35turbo-16k-0613, GPT-4o, GPT-4o-mini, O1-preview, Open-mixtral-8x7b"
+54,W4405182525,C,"ChatGLM3-6B, LLaMA2-7B, Falcon-7B, Dolly-7B-v2, Vicuna-7B-v1.5, GPT-3.5-Turbo, GPT-4, OpenAI Moderation API, Perspective API, BeaverDam-7B, LLaMA Guard2, GradSafe"
+62,W4404648511,C,"Gemini 1.5 Flash, GPT-4o, GPT-4o-mini, TimeChat, VTimeLLM, VTG-LLM, Video-LLaMA, Video-LLaVA, Video-ChatGPT, VideoChat2, Video-LLaMA2"
+63,W4402683850,C,gpt-4-0613
+65,W4404783131,C,"gpt-4-0613, gpt-3.5-turbo-1106, claude-3-opus-20240229, claude-3-sonnet-20240229, claude-3-haiku-20240307, mistral-7b-instruct-v0.1, llama-2-7b-chat"
+70,W4405626016,C,"GPT-4, GPT embeddings"
+72,W4400025277,C,"gpt-4o, gpt-4o-mini, gpt-3.5-turbo, gemini-1.5-pro, gemini-1.0-pro, llama3-70b, llama3-8b, ChatGPT-4, ChatGPT-3.5"
+73,W4403573650,C,"claude-3-5-sonnet-20240620, gpt-4o, gemini-1.5-pro"
+75,W4405631011,C,"Claude-3.5-sonnet, GPT-4o"
+77,W4391800217,C,"text-davinci-003, GPT-4, Bard, GPT-3.5"
+78,W4399151368,C,"claude-3-5-sonnet-20240620, Claude 3 Haiku, Claude v1, Claude 3 Sonnet, Claude 3 Opus, GPT-3.5-Turbo, GPT-4o, o1-mini, o1-preview"
+79,W4408566193,C,gpt-3.5-turbo-16k-0613
+82,W4405032666,C,"Gemini-1.0-pro, GPT-3.5-Turbo, GPT-4, PaLM 2, LLaMA 2 (70B)"
+86,W4405096516,C,"GPT-4, Gemini-1.5-Pro, multilingual BERT"
+87,W4398192165,C,"Gemini 1.0 Pro, GPT-4 Vision"
+88,W4402372408,C,"GPT-4o, ChatGPT-3.5, Gemini 1.5 Pro, Claude 3.5 Sonnet"
+92,W4402699247,C,"gpt-4-1106-preview, LT-Llama2-7B, LT-Llama2-13B, Llama-2-7b, Llama-2-13b, Llama3-8B"
+94,W4403575298,C,"gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18, gpt-3.5-turbo-0125, claude-3-5-sonnet-20240620, LLaMA3.1-8B, LLaMA3.1-70B, LLaMA3.1-405B, Mistral-7B v0.2, Mixtral-8x7B, Mixtral-8x22B, Qwen2-0.5B, Qwen2-1.5B, Qwen2-7B, Qwen2-57B, Qwen2-72B, Qwen1.5-0.5B, Qwen1.5-1.8B, Qwen1.5-7B, Qwen1.5-14B, Qwen1.5-32B, Qwen1.5-72B, Qwen1.5-110B, GPT-3.5, GPT-4"
+96,W4416033890,C,"o1-mini, GPT-4o, LLaMA-3.1-8B, LLaMA-3.1-70B, Phi-4, Mistral 8x22B, DeepSeek-R1-Distill-Llama-8B, DeepSeek-R1-Distill-Llama-70B"
+98,W7104311476,C,"gpt-4o, gpt-4o-mini, gpt-o1, gpt-o3-mini, gemini-2.5-pro, gemini-2.0-flash, gemini-1.5-pro, gemini-1.5-flash, claude-3.5-sonnet, gpt-oss-20b, Llama-3.2-3B-Instruct, Llama-3-8B-Instruct"
+100,W4412888834,C,"LLaMA-2-7B-Chat, LLaMA-2-13B-Chat, LLaMA-3.1-8B-Instruct, LLaMA-3.2-3B-Instruct, Phi-3-mini-128k-Instruct, LLaMA-2-7B-Base, GPT-4"
+104,W4407764261,C,"gpt-4-0125-preview, EVA-CLIP-8B, CLIP-ViT-L/14, RoBERTa-Large, sup-SimCSE-RoBERTa-Large, Mistral-7B-Instruct, E5-Mistral-7B-Instruct, Qwen2-7B-instruct, gte-Qwen2-7B-instruct, gpt-3.5-turbo-0125, COMET-Atomic-2020-Bart, ACCENT, VERA-T5-XXL, GPT-4"
+106,W4411120074,C,"claude-3-5-sonnet-20240620, Mistral-7B-v0.1, phi-2, Llama-3-8B, Llama-2-7b-chat-hf, gpt-j-6B, gpt-neo-1.3B"
+107,W4412888065,C,"GenS (Aria-25B 기반), GPT-4o, Gemini-1.5-Pro, LLaVA-Video-7B, LLaVA-Video-72B, Qwen2-VL-7B, Aria-25B, VILA-v1.5-40B"
+111,W4416097304,C,"GPT-4 (March 2024 snapshot), Claude 2 (July 2023 API version), Mistral 7B, Vicuna-13B"
+116,W4406549107,C,"gpt-4o-202408-06 (GPT-4o), LLaMA-2 7B, GPT-4o-mini, GPT-3.5 Turbo, LLaMA 2 13B, LLaMA-3.1 8B, GPT-2 XL, GPT-2 Large, TinyLLaMA 1.1B, OPT-350M"
+117,W4409788583,C,"Claude 2, Claude 3.5 Sonnet, Qwen2-72b-Instruct, Qwen2-7b-Instruct"
+120,W4415358120,C,"text-davinci-003, 7B LLaMA-2 계열 미세조정 LLM(명칭 없음), BioBERT, ColBERT, ANCE, all-MiniLM-L6-v2"
+123,W7113915998,C,"gemini-1.5-pro-latest, gpt-4-turbo, gpt-3.5-turbo, Mistral-7B-Instruct-v0.2, Llama-2-7b-chat-hf"
+124,W4410031540,C,"GPT4-0613, text-DaVinci-003, GPT-3.5 (fine-tuned grader)"
+125,W7144334197,C,"gemini-exp-1206, Gemini 1.5 Pro 001, o1"
+126,W4416037472,C,"Claude-Sonnet-3, Claude 3.5 Sonnet, BART-base, FLAN-T5-base, RoBERTa-base"
+127,W4407123447,C,"gpt-4-1106-preview, gpt-35-turbo-1106, GPT-4 mini, Prometheus 2, colbert-ir/colbertv2.0"
+131,W4407424147,C,"claude-3-5-sonnet-20241022, o1-mini-2024-09-12, gpt-4o-2024-08-06, Gemini 1.5 Pro, Llama 3.1 405B Instruct, DeepSeek-R1"
+133,W4411113018,C,"GPT-4o-mini, GPT-4o, o1-preview, o1-mini, Claude-3 Haiku, Claude-3 Opus, Claude-3.5 Sonnet, LLaMA 3.1-Inst 8B, Mistral-Inst 7B"
+137,W4416113661,C,"GPT-4o, GPT-o1-mini, DeepSeek-V3 (671B), Kimi, Qwen2.5-Math-72B-Instruct, Qwen-Math-Plus, Qwen-Max, Qwen2.5-Math-7B-Instruct, Qwen2.5-Math-1.5B-Instruct, Skywork-O1-Open-Llama-3.1-8B, Skywork-o1-Open-PRM-Qwen-2.5-7B, math-shepherd-mistral-7b-prm"
+138,W4411119906,C,"ChatGPT4o, Claude Haiku, Gemini 1.5 pro, Qwen 2.5 72b instruct, Wizzard LM2 8x22b, Llama 3.1 70b Turbo"
+140,W4412945206,C,"gpt-4o-mini-2024-07-18, DeepSeek-V3, Claude-sonnet-3.5-0622, GPT-4o-2024-11-20"
+143,W7134884641,C,"GPT-4o-mini, gemini-1.5-pro"
+146,W7165520893,C,"Gemini 1.5 Flash, Gemini 2.5 Flash"
+147,W7153671935,C,"claude-3-5-sonnet-20241022, claude-haiku-4-5-20251001, gpt-4o, gpt-4.1, gemini-2.5-flash, mistral-large-latest, llama-3.3-70b-versatile, llama-4-scout-17b-16e-instruct"
+148,W7166850840,C,"CodeLlama-7B (Ollama, 4-bit)"
+151,W7154427703,C,"M3-Agent (StreamMeCo 압축 적용), Gemini-2.5-Pro, GPT-4o, text-embedding-3-large"
+152,W7140953926,C,"Qwen3-VL-8B-Instruct, GLM-4.5V, Qwen3-VL-235B-A22B-Instruct, GPT-5.2, Gemini-2.5-Pro, Claude-Sonnet-4.5, GPT-4o, Qwen3-VL-2B-Instruct, Qwen3-VL-4B-Instruct, Qwen3-VL-30B-A3B-Instruct"
+153,W4417258219,C,"zephyr-7b-sft-full (Mistral-Base 7B), Llama-3-Base-8B-SFT, Meta-Llama-3-8B-Instruct, gemma-2-9b-it, deepseek-v3-0324, ArmoRM-Llama3-8B-v0.1, Llama Guard 3-8B"
+154,W7154834174,C,"gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18, DeepSeek-R1, DeepSeek-V3, Llama 3.1-70B, Llama 3.3-70B"
+156,W7154086917,C,"gpt-4o-2024-08-06, claude-3-opus-20240229, gemini-2.0-flash-001, deepseek-v3-0324, grok-3, mistral-large-2411"
+158,W7161092078,C,"GPT-4o, GPT-5.1, Gemini-2.5-pro, Gemini-3-flash, Gemini-3-pro, Claude-sonnet-3.5, Claude-sonnet-4, Claude-sonnet-4.5, Claude-opus-4, Llama-3.1-8B-Instruct, Llama-3.3-70B-Instruct, Llama-3.1-405B-Instruct, Qwen-3-max, DeepSeek-V3, Kimi-K2, GLM-4.7"
+159,W7167884867,C,"claude-sonnet-4-20250514, claude-opus-4-5, SAM"
+161,W7172173057,C,"GPT-4.1, o3, Florence-2"
+163,W7148176526,C,"Claude 3.7 Sonnet, GPT-5, GPT-4.1, Claude-Sonnet-4, Gemini-2.5-Pro, DeepSeek-V3, Qwen3-235B-A22b, Qwen3-30B-A3b, Qwen3 (4B/8B/14B/32B)"
+166,W7138915204,C,"Qwen2.5-Math-7B (RLKD), DeepSeek-R1-Distill-Qwen-7B, Qwen2.5-Math-7B-Instruct, Qwen-2.5-7B-Instruct, GPT-4o, Deepseek-V3"
+167,W7203688369,C,"Sonnet (Claude Code), Haiku, Opus, Fable, GPT-5 (Codex CLI), GLM-5.2 (opencode), Gemini, DeepSeek, Qwen, DeepSeek-Coder-V2-Lite, Qwen3-Coder-30BA3B-Instruct"
+168,W7160670335,C,"Qwen-3-14B-GRPO, Qwen-3-14B, Claude 3 Haiku, Claude 4.5 Sonnet, Gemini 2.0 Flash, Gemini 2.5 Flash, GPT-3.5-turbo, GPT 4.1, GPT-4o-mini, GPT-5, GPT-5-mini, LLaMA-3.1-8B, GPT-4o, Claude Code, Qwen-3-8B, Nemotron-cascade-14B, Mistral-3-14B-reasoning"
+171,W7128555727,C,"claude-3-7-sonnet-20250219, Claude Code v1.0.88"
+172,W7162818065,C,"Gemini-3-Flash, GPT-5-mini, Qwen3-235B-A22B, DeepSeek-V3.2, GPT-3.5-Turbo, Llama-2-70B, Qwen3-30B-A3B, Gemini-2.5-Flash, GPT-4o, GPT-4.1-mini, Llama-3.1-70B, GPT-4o-mini, Qwen2.5-72B"
+173,W7164701439,C,"LLaVA-v1.6-Vicuna-7B, LLaVA-v1.6-Vicuna-13B, Qwen3-VL-4B-Instruct, Qwen3-VL-8B-Instruct, Qwen2.5-VL-32B-Instruct, Qwen2.5-VL-72B-Instruct, GLM-4V-Plus, GPT-4o, Gemini, Gemini-2.5-pro, Claude-3-5-sonnet"
+174,W7155244784,C,"Llama-3.2-3B-Instruct, Qwen2.5-3B-Instruct, Qwen3-4B-Instruct-2507"
+176,W7138189915,C,"o1-mini, GPT-4o-mini, GPT-3.5-turbo, DeepSeek-R1, DeepSeek-V3, Qwen3-8b, Qwen3-14b, Qwen3-32b, Qwen3-235b-a22b, Llama-3.1-8B, Llama-3.1-70B, Gemini-2.5-flash, Claude-3.7-sonnet, Phi-4, Gemma-2-9b, Mistral, GPT4, Gemini-2.5"
+177,W4376167008,C,"gpt-3.5-turbo, GPT-4 (8k), gpt-3.5-turbo-16k"
+183,W4404708998,C,"o1-preview, NotebookLM, Anthropic Prompt Generator, ChatGPT-4o with Search, Perplexity AI Pro, Claude 3.5 Sonnet API, GPT-4, Gemini, Claude 3, GPT-4o, Claude 3.5 Sonnet"
+184,W4403780292,C,"GPT-4-1106-preview, GPT-4o"
+185,W4404392049,C,"LLM-1B (자체 사전학습 decoder-only), LLM-4B (자체 사전학습 decoder-only), ResNet-50"
+186,W4414973407,C,"Wan2.1-T2V-14B, GPT-4o, Gemini-1.5-Flash, Wan2.1-I2V, SkyReels-A2, VideoBooth, DreamVideo, OmniGen, ViCLIP"
+187,W4416035558,C,"GPT4-0314, GPT-3.5-Turbo, GPT-4o-mini, LLaMA2-7B, LLaMA3-8B"
+190,W4412069460,C,"gpt-4-0613, LLaMA-7B, llama3-64k, gpt-3.5-turbo-0613"
+193,W7166880412,C,"Qwen2.5-3B-Instruct, Qwen2.5-7B-Instruct, Qwen3-4B-Instruct2507, Qwen2.5-14B-Instruct, Qwen2.5-72B-Instruct, GPT-5-mini"
+198,W4403704292,C,"O1-preview, O1-mini, GPT-4o"
+200,W4412741183,C,Gemini 1.0 Pro
+201,W4412888422,C,"Llama-3.1-8B-Instruct (EC-RAFT), Gemini-1.5-flash-002, Meditron-7B, SciNCL, watt-tool-8B"
+204,W7133325455,C,"LLaMA2-7B, ChatGLM2-6B, Qwen2.5-32B, o1-mini, DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-32B, BERT, ALBERT"
+215,W4410371425,C,"claude-3.5-sonnet-20240620, gpt-4o-2024-08-06, gemini-1.5-pro-002"
+219,W4406782520,C,"ChatGPT 4o, Google Gemini 1.5, Claude 3 Haiku"
+221,W4408576222,C,"ChatGPT (chat.openai.com), ClaudeAI (claude.ai), ChatGPT-4, Typeset, Covidence"
+227,W7161392972,C,"ChatGPT (GPT-4o), Gemini Advanced (Gemini 1.5 Pro), Microsoft Copilot (GPT-4-based)"
+230,W4402952753,C,"gpt-3.5-turbo-0125, Llama-3.1-8B-Instruct, Mixtral-8x7B-v0.1, gpt-4o-2024-08-06, gemini-2.0-flash, claude-3-5-haiku-20241022, gpt-3.5-turbo-1106"
+231,W7124463313,C,"Claude-3-haiku-20240307, Gemini-2.0-flash-lite, GPT-4o-mini"
+233,W4389523980,C,"davinci-003, ChatGPT (gpt-3.5-turbo), InstructGPT-3 (curie-instruct-beta), LLaMA-13B, LLaMA-7B"
+235,W4404989530,C,"gpt-4-0125-preview, Llama-3.1-405B, CORECT, SDT, GPT-3.5"
+237,W4391758695,C,"Claude-1.3, Claude-2, GPT-4, GPT-3.5-turbo, PaLM-2 chat-bison-001, Llama-2, PaLM-2 text-bison-001, DistilRoBERTa, BERT embeddings + neural network, SVM"
+238,W4404388952,C,"Llama-3 Base 8B, Llama-3 Instruct 8B, Llama-3.1 Base 8B, ArmoRM-Llama3-8B, Llama-3 Instruct 70B"
+240,W4399837050,C,"GPT3.5-turbo-0613, Claude-3 Haiku, Llama 3-70B, Mixtral 8x7B"
+242,W7110143318,C,Gemini 1.5 Flash
+248,W4409964047,C,"GPT-4o 2024-05-13, GPT-35-turbo 0125, Gemini-1.5-flash 001"
+249,W4406952329,C,"Gemini-1.5-Flash-exp-0827, Qwen2-VL-72B-Instruct, Claude-3.5-Sonnet, GPT-4o, InternVL2.5-78B-MPO, SenseChat-Vision, JT-VL-Chat-V3.0, Step-1.5V, GLM-4V-Flash, MiniCPM-V-2.6"
+254,W4416035804,C,"gpt-4-0314, GPT3.5, GPT-4o, Llama 2-7B, Llama 3-8B, Mistral-7B, GPT-2, BERT, ALBERT, BERTweet, RoBERTa, XLNet"
+255,W4414012539,C,"gemini-1.5-pro-exp03-25, ChronoStyleNet (llava-onevision-qwen2-7b 기반), gpt-4o, Claude 3.5 Sonnet, LLaMA-3.3-Nemotron-70B-Select, Grok 3 Beta, Qwen2-VL-72B"
+256,W4408750049,C,"gpt-3.5-turbo-0613, gpt-4-0613, LLaMA-7B, LLaMA-13B, LLaMA-33B, ChatGLM2-6B, Vicuna-v1.3, Alpaca, LongForm, Guanaco"
+258,W4411859278,C,gpt-4-0613
+259,W4412888197,C,"Gemini-1.5-pro, Gemini-1.5-flash, GPT4o, GPT4o-mini, Claude3-haiku, BERT, GPT-2"
+264,W7172557514,C,"LLaVA-1.5-7B, GPT-4o, Gemini-1.5-Pro, Gemini-1.5-Flash, Llama-3-70B, InstructBLIP-7B, MiniGPT-v2-7B, CLIP ViT-L/14"
+266,W7160850203,C,"UBC-NLP/AraT5v2-base-1024, GPT-4o, Gemini 1.5 Pro, ALLaM-7B, Jais-13B, LLaMA-3-8B, DeepSeek-7B, Mistral-7B, arabic-triplet-matryoshka-v2"
+267,W7137210562,C,"gpt-4-1106-preview, GPT-3.5-turbo, text-embedding-ada-002, ChatGPT, Google Gemini, Microsoft Copilot, Claude"
+270,W7110994696,C,"BERT with Multi-Head Attention, GPT-3, Claude-2, Llama-2"
+272,W7170032271,C,"Gemini-1.0-Pro, GPT-4, LLaMA-2-70B-Chat, Mixtral-8x7B-Instruct, GPT-4o-mini"
+275,W7143306851,C,"claude-sonnet-4-20250514, Gemini 2.5 Pro, GPT-5 Codex, Gemini 2.5 Flash, Llama 3.3 70B Instruct"
+276,W4388788714,C,"gpt-4o-2024-05-13, gpt-4-1106-preview, gpt-3.5-turbo-16k-0613, Claude-3-Opus, Claude-3-Sonnet, Claude-3-Haiku, CodeLlama-7b-Instruct, DeepSeek-Coder-6.7b-Instruct, Llama-2-7b-chat-hf"
+281,W4404783532,C,"GPT-4-Turbo, Claude 3.5 Sonnet, Claude 3 Haiku, Llama-3.1-405B-Instruct-FP8, Mistral-Large-Instruct, Mistral-Small-Instruct, Llama-3-8B-Instruct, Mixtral-8x7B-Instruct-v0.1"
+285,W4391709828,C,"gpt-4-0613, gpt-3.5-turbo-0613, gpt-3.5-turbo-0125, gpt-4-turbo, deepseek-v3-671b, chat-bison@001, chatglm3-6b, llama2-7b-chat, llama3-8b-instruct, llama3.1-8b-instruct, vicuna-7b, Llama-Guard, Llama-Guard-2, Llama-Guard-3, Prompt-Guard"
+286,W4392781121,C,"gpt-4-1106-preview, gpt-3.5-turbo-1106, all-mpnet-base-v2"
+287,W4399115884,C,"gpt-4-1106-preview, Llama-3-8B, Llama-3-8B-Instruct, Mistral-7B-v0.3, Mistral-7B-Instruct-v0.2, GPT-4o, GPT-4, GPT-3.5-turbo"
+289,W4399795373,C,"GPT3.5 Turbo 0613, GPT-4 0613, Hermes-2-theta-llama-3-8b, GPT-3.5 Turbo 1106, GPT-4 Turbo 1106, Claude 1, Claude 2, Claude 2.1, Gemini Pro, Llama 2 7B/13B/70B Chat, Vicuna 7B/13B v1.5, Baichuan 2 7B/13B, Qwen 7B/14B/72B Chat, Koala 7B/13B, Orca 2 7B/13B, SOLAR 10.7B, Mistral 7B Instruct v0.2, Mixtral 8x7B Instruct v0.1, OpenChat 3.5 1210, Starling 7B, Zephyr 7B Beta"
+290,W4413304709,C,"o3-mini (high), o1 (high), DeepSeek-R1, DeepSeek-V3, GPT-4o, Llama-3.1-8B, Llama-3.1-70B, Qwen2.5-7B, Qwen2.5-72B, QwQ-32B, OpenAI Deep Research"
+292,W4416037402,C,"GLM-4-air, DeepSeek-R1, DeepSeek-V3, Qwen-72B, GPT-4, bge-large-en-v1.5"
+295,W4409203322,C,"gpt-4-turbo-2024-04-09, claude-3-sonnet-20240229, gpt-4o, gpt-3.5-turbo, glm-4, moonshot-v1-8k"
+298,W4410215516,C,"gpt-4o-11-20, gemini-1.5-flash-latest, grok-3-beta"
+300,W4416037247,C,"Z1-7B (Qwen2.5-Coder-7B-Instruct 미세조정), Qwen2.5-Coder-7B-Instruct, R1-Distill-Qwen-7B, QwQ-32B-Preview"
+301,W4411450091,C,"gpt-3.5-turbo-0125, gpt-4-turbo-2024-04-09, gpt-4o-mini-2024-07-18, claude-3-5-sonnet-20240620, Llama-3.1-405b, deepseek-chat"
+302,W4415330016,C,"DeepSeek R1 (685B), DeepSeek-R1-Distill 1.5B, DeepSeek-R1-Distill 7B, DeepSeek-R1-Distill 14B, DeepSeek-R1-Distill 32B, Qwen2.5-7B"
+303,W7133365285,C,"Qwen3-4B, Qwen3-0.6B, Qwen3-1.7B, DeepSeek-R1-Distill-Qwen-7B"
+307,W7134992318,C,"gpt-5-mini-2025-08-07, gpt-5-2025-08-07, gpt-5.4-2026-03-05, gpt-5.5-2026-04-23, gpt-4.1-2025-04-14, gpt-4.1-mini-2025-04-14, gpt-4o-mini-2024-07-18, claude-haiku-4-5-20251001, claude-sonnet-4-6, claude-opus-4-7, gemini-3-pro-preview, gemini-3.1-pro-preview, allenai/Olmo-3.1-32B-Instruct, allenai/Olmo-3.1-32B-Think, Qwen/Qwen3-30B-A3B-Instruct-2507, Qwen/Qwen3-32B, openai/gpt-oss-120b"
+308,W7128864794,C,"Qwen2.5-VL-7B-Instruct, Qwen2.5-VL-3B-Instruct, GPT-4o"
+309,W7128095824,C,"O3-Mini-20250131, Claude3.5-Sonnet, Qwen2.5-72B, Phi4, Gemini2.0-Flash, DeepSeekV3-0324, Llama4-Maverick, GPT4.1-Mini-20250414, GPT4.1-20250414, Qwen3-235B-0428, DeepSeek-R1-0528, Claude4-Sonnet-20250522, Gemini-2.5-Flash, Magistral-Small-2506, MiniMax-M1, Qwen2.5-Coder-32B, Codestral-2501, Mercury-Coder, Codex-Mini"
+311,W4405372230,C,"gpt-4-1106-preview, DaVinci-003"
+314,W4413125085,C,"gpt-3.5-turbo-16k, gpt-4-turbo-preview, gpt-3.5-turbo, text-embedding-3-large"
+315,W4411698389,C,"Claude-3.7-Sonnet-all, GPT-4o-Mini, Grok-3, Gemini-2.0-Flash, Deepseek-Chat, GPT-o4-Mini"
+317,W7139144810,C,"gpt-5-2025-08-07, claude-sonnet-4-20250514, gemini-2.5-pro, qwen3-coder-480b-a35b, claude-3-5-sonnet-20241022, openai/gpt-oss-120b, Meta Llama 3.3 8B"
+320,W4399836663,C,"GPT-4-Turbo-0409, DeepSeek-Coder-V2-Instruct, DeepSeek-Coder-V2-Lite-Instruct, GPT-4-1106, GPT-4o-0513, Claude-3-Opus, Gemini-1.5-Pro, Codestral, DS-Coder-instruct, Llama3-Instruct"
+321,W4402345509,C,"claude-3-5-sonnet-20240620, claude-3-opus-20240229, claude-3-haiku-20240307, gemini-1.5-pro-001, gpt-4o, gpt-4-turbo, Meta-Llama-3-70B-Instruct, Claude 2"
+322,W4409228901,C,"GPT-4-0125-preview, Claude-3-opus-20240229, GPT-3.5-Turbo-0125, Qwen-max-0403, mixtral:8x22b, llama3:8b, llama3:70b, GPT-4o"
+323,W4413094313,C,"deepseek-chat, glm-4-airx, qwen-plus, GPT-4o-mini"
+326,W7164916435,C,"gemini-2.5-flash-preview-04-17, gemini-1.5-flash-latest, gemini-1.5-flash-8b, gemini-2.0-flash-lite, gpt-4o-mini, gpt-4.1-nano, Llama2, Llama3, Llama4, claude-sonnet-4-5, gpt-5.2-chat-latest, gemini-2.5-pro"
+330,W4417363148,C,"ChatGPT-4o, Gemini 2.5 Flash, Microsoft Copilot, DeepSeek 3.0, Meta AI (LLaMA 4)"
+332,W4412886850,C,"gpt-3.5-turbo-0125, gpt-4-0125-preview, gpt-4o-2024-05-13, google/gemma-7b, meta-llama/Llama-2-7b-chat-hf, meta-llama/Meta-Llama-3-8B-Instruct, mistralai/Mistral-7B-Instruct-v0.2, microsoft/Phi-3-mini-4k-instruct, Qwen/Qwen1.5-7B-Chat, mDeBERTa-v3-base-xnli-multilingual-nli-2mil7, bert-base-multilingual-cased"
+334,W4409480044,C,"Qwen3 235B, Qwen 2.5 Max, DeepSeek v3, ChatGPT 4.0 (4o), ChatGPT 4.0 Mini, Gemini 2.5 Pro, Gemini Flash 1.5, Gemma 27B, DeepSeek-Coder-v2 16B, Llama 3.1 8B, Llama 2 7B, Mistral 7B"
+336,W4399251648,C,"gpt-4-0125-preview, Mistral-MathChat (Mistral-7B LoRA), Gemma-MathChat (Gemma-7B LoRA), GPT-4-turbo, GPT-4o, GPT-3.5-turbo, Claude, LLaMA2-7B-chat, Mistral-7B-Instruct, Gemma-7B-it, MAmmoTH-Mistral-7B, MetaMath-Mistral-7B, WizardMath-7B-v1.1, InternLM2-7B-Math, DeepSeek-7B-Math"
+343,W4392727016,C,"gpt-4-1106-preview, Universal Sentence Encoder"
+346,W7128744814,C,"ChatGPT5Pro, ChatGPT5, ChatGPT4o"
+349,W7169666497,C,"GPT-4o-2024-05-13, GPT-4-Turbo, GPT-3.5-Turbo, GPT-4o-latest, GPT-4.1, GPT-5, o3, Claude-3-7-sonnet, Claude-sonnet-4, DeepSeek-R1, LLaMA3-8B-Chat, LLaMA3-70B-Chat, LLaMA3.1-405B-Instruct, Qwen2.5-7B-Instruct, Gemini 3.1 Pro, Claude 4.5 Sonnet"
+350,W7167820841,C,"claude-sonnet-4-20250514, GPT-5.2-chat-latest, GPT-4o, claude-haiku-4-5-20251001, claude-3-haiku-20240307, deepseek/deepseek-r1, deepseek/deepseek-chat-v3-0324, deepseek/deepseek-v3.2, deepseek/deepseek-v4-flash, deepseek/deepseek-v4-pro, google/gemini-2.5-flash, google/gemini-2.5-pro, google/gemini-3.1-pro-preview, google/gemma-4-31b-it, gpt-3.5-turbo, gpt-4-0613, gpt-4-turbo-2024-04-09, gpt-4.1, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-2024-08-06, gpt-4o-2024-11-20, gpt-4o-mini, gpt-5-2025-08-07, gpt-5-chat-latest, gpt-5-mini-2025-08-07, gpt-5.1-2025-11-13, gpt-5.1-chat-latest, gpt-5.3-chat-latest, gpt-5.4-2026-03-05, gpt-5.4-mini-2026-03-17, gpt-5.4-nano-2026-03-17, gpt-5.5-2026-04-23, gpt-5.5-pro-2026-04-23, x-ai/grok-3, x-ai/grok-4.20, x-ai/grok-4.3, meta-llama/llama-3-70b-instruct, meta-llama/llama-3.1-70b-instruct, meta-llama/llama-4-maverick, mistralai/mistral-7b-instruct-v0.1, mistralai/mistral-large-2, mistralai/mistral-small-2603, mistralai/mixtral-8x7b-instruct, o1, o3, o3-mini, o4-mini, claude-opus-4-20250514, claude-opus-4-6, claude-opus-4-7, qwen/qwen3.5-plus-02-15, qwen/qwen3.6-plus:free, qwen/qwen3.6-flash, qwen/qwen3.6-max-preview, claude-sonnet-4-6"
+351,W4402671908,C,"gpt-3.5-turbo-1106, gpt-4-turbo, claude-3-opus, all-MiniLM-L6-v2, Dall-E"
+353,W4403579643,C,"gpt-3.5-turbo-0125, gpt-4-turbo-2024-04-09, gpt-4o-2024-05-13"
+354,W4404782629,C,"GPT-4-turbo-2024-04-09, gemini-pro-vision 1.0, Idefics 9B, Idefics 80B, LLaVA-NeXT (vicuna-7B, mistral-7B, vicuna-13B, 34B), InternLM-XComposer2 7B, Qwen-VL 7B"
+356,W4405029777,C,"o3-mini, DeepSeek-Prover-V1.5-RL, Goedel-Prover-SFT, ReProver, Qwen2.5-Math, Llama 3.1"
+357,W4392972256,C,"GLAN (bert-base-uncased), gpt-4, gpt-3.5-turbo, Llama-2-70b-chat-hf, Branch-BERT, BERT, KEPrompt, CrossNet, TTS, JoinCL"
+359,W4404782968,C,"Llama 2 7B Chat, Mistral-7B-Instruct-v0.1, GPT-4-Turbo, Llama 2 13B (Niu et al. 미세조정판), Llama 2 13B Chat, Llama 2 70B Chat, Self-RAG, AlignScore, MiniCheck, ChatGPT"
+364,W4400104738,C,"gpt-3.5-turbo-0125, GPT 4 Turbo (with vision), MPNet (Sentence Transformer)"
+365,W4401997506,C,"Meta-Llama-3.1-8B-Instruct, GPT-4 Turbo"
+368,W4396913469,C,"DeBERTa-v3-large, DeBERTa-v3-base, ALBERT-v2-base, BERT-base, GPT-4-turbo, GPT-3.5-turbo"
+370,W4412945525,C,"text-embedding-3-large, roberta-large-mnli, gpt-4-turbo-preview, Qwen2-7B-Instruct, GPT-4o mini, GPT-3.5-turbo, Llama-3.1-8B-Instruct, Llama-2-13b-chat-hf, Llama-2-7b-chat-hf, Llama-3-8B-Instruct, Qwen-7B-Chat, Qwen2.5-7B-Instruct, chatglm3-6b-32k, chatglm3-6b, chatglm2-6b, glm-4-9b-chat, Baichuan2-7B-Chat"
+371,W4416037867,C,"LionGuard 2 (text-embedding-3-large + 분류 헤드), text-embedding-3-large, o3-mini-low, Gemini 2.0 Flash, Claude 3.5 Haiku, Llama 3.3 70B, Mistral Small 3, AWS Nova Lite, gpt-4o-mini, GPT-4.1 nano, cohere-embed-multilingual-v3.0, cohere-embed-v4.0, BGE-M3, snowflake-arctic-embed-l-v2.0, Qwen3-Embedding-0.6B, LlamaGuard-3-8B (LoRA), LlamaGuard 4 12B, OpenAI Moderation, AWS Bedrock Guardrails, Azure AI Content Safety, GCP Model Armor"
+372,W7138789249,C,"GPT-4.1-Nano, Gemini-2.5-Flash-Lite, ChatGPT"
+377,W4416870020,C,"o4-mini, gpt-5, o3, gpt-5-mini, o3-mini, Claude-4-Sonnet, Claude-3.7-Sonnet, Gemini-2.5-Flash, GPT-4.1, GPT-4.1-mini, GPT-4o, DeepSeek-R1-Distill-Llama-70B, DeepSeek-R1-Distill-Qwen-32B, Qwen3-32B, Qwen3-8B, Gemma-3-27B, Llama-3.3-70B-Instruct, Qwen3-1.7B (LogicIF RLVR)"
+378,W4407091797,C,"Qwen3-8B, Llama-3.1-8B-Instruct, Falcon3-10B-Instruct, Mistral-NeMo-Instruct-2407, Gemma-2-9B-IT, OLMo-2-7B-Instruct, Qwen3-8B-Base, Llama-3.1-8B, Falcon3-10B, Mistral-NeMo-12B, Gemma-2-9B, OLMo-2-7B, all-mpnet-base-v2"
+382,W4416985160,C,"ChatGPT-4o, ChatGPT-o3, Gemini 2.5 Flash, Gemini 2.5 Pro, Claude Sonnet 4, Llama 3"
+386,W4416037176,C,"GPT-4o (v2024-08-06), GPT-4 (v0125-preview), Llama-3.3 (70B), Mistral Large 2 (v2407 123B), DeepSeek-R1 (671B), Claude Sonnet 3.7"
+388,W4417512500,C,"o3-mini, Claude 3.5 Sonnet, DeepSeek-R1, Llama3.1-405b, Qwen-Max"
+390,W4410768139,C,GPT-4-turbo
+392,W4414809533,C,"gpt-4o-2024-05-13, Command A (111B), Aya Expanse 8B, Gemma3-27B-It, Gemma3-4B-It, Kimi-K2-Instruct, Qwen3-235B, DeepSeek-V3, XCOMET-XL"
+394,W4414654962,C,"OpenAI o3-mini, GPT-4o, o4, Llama-3.1-405, Llama-3.3-70, DeepSeek-V3"
+395,W4416034859,C,"GPT-4o, o3-mini, DeepSeek-V3, DeepSeek-R1"
+399,W4411033148,C,"GPT-4o Preview (September 2024), Claude-3.5-Sonnet (October 2024), Qwen2.5-Coder-32B-Instruct, Llama 3.3-70B, Amazon Nova Pro"
+401,W7106783468,C,"Qwen2.5-VL-7B-Instruct, Qwen2.5-VL-32B-Instruct, InternVL3-9B-Instruct, Kimi-VL-A3B-Instruct, Kimi-VL-A3B-Thinking, Qwen3-VL-8B-Instruct, Qwen3-VL-8B-Thinking"
+402,W4412464020,C,GPT-4.1
+409,W7166850138,C,"DeepSeek-R1-Distill-Qwen-32B, Qwen3-4B, Qwen3-32B, DeepSeek-R1-Distill-Qwen-1.5B"
+410,W7153517001,C,"Qwen2.5-Coder-1.5B, LLaMA-3.2-1B"
+413,W7165065735,C,"OpenAI o3, GPT-5, GPT-Image-1.5, Wan2.2-I2V-A14B, Wan2.2-T2V-14B, StoryDiffusion, HoloCine"
+414,W7135429410,C,"Gemini-2.5-Pro, Gemini-3-Flash, GPT-5-mini, o4-mini, Qwen3-VL-235B-Instruct, Qwen3-VL-32B-Instruct, text-embedding-3-small"
+415,W7164233451,C,"gpt-5-2025-08-07, gpt-4o-2024-11-20, Llama-3.2-Vision"
+416,W7166886942,C,"XLM-RoBERTa-Base (CTTA-T), XLMR-Base-xTune, Bert-base, GPT-4 Turbo, o3, Gemini 2.5 Pro"
+417,W7165815995,C,"deepseek-v4-pro, qwen3.6-35b-a3b, gemini-2.5-flash, gpt-4.1-nano"
+419,W7154538725,C,"Molmo2-4B Multi-response RM, Qwen3-VL-4B Multi-response RM, GPT-5, Claude-Sonnet-4.5, Gemini-2.5-Pro, GPT-5 Mini, Gemini 2.5 Flash, Qwen3-VL-32B, Qwen3-VL-8B, Qwen2.5-VL-7B, InternVL3-8B, Molmo2-8B, R1-Reward, MM-RLHF-Reward, LLaVA-Critic, GPT-4 (judge)"
+421,W7202032726,C,"gpt-5-2025-08-07, BERTje (token-level NER), BERTje 기반 span-based joint NER-RE, spaCy nl_core_news_lg"
+425,W7202230716,C,"GPT-5-mini-2025-08-07, GPT-4o-mini-2025-04-16, GPT-4.1-mini-2025-04-14, Gemini-2.5-flash-preview-0520, Gemini-2.0-flash-livepreview-04-09, DeepSeek-R1-0528, DeepSeek-V3-0324"
+426,W7139144880,C,"Qwen2.5-7B-Instruct, OmniSQL-7B, SQL-R1, Arctic-Text2SQL-R1-7B"
+429,W7161452715,C,"o4-mini (version 2025-04-16), GPT-4o (version 2024-11-20)"
+431,W7166798430,C,"gpt-4o-2024-11-20, MCP-Flow-Qwen-4B, MCP-Flow-Qwen-0.6B, Qwen3-0.6B, Qwen3-4B, Qwen3-8B, meta-llama/Llama-3.1-8B-Instruct, gpt-4o-mini-2024-07-18, GPT-4.1, gemini-2.5-pro, claude-4-sonnet, deepseek-v3-0324, kimi-k2-0905-preview, Llama-3-Groq-8B-Tool-Use, ToolACE-8B, GPT-4.1-nano"
+433,W7140129887,C,"DeepSeek-R1-Distill-Qwen-32B, openai/gpt-4.1-nano, openai/gpt-4.1-mini, openai/gpt-4o, openai/gpt-4o-mini, openai/gpt-5-mini, openai/gpt-5-nano, openai/gpt-5-pro, anthropic/claude-haiku-4.5, anthropic/claude-sonnet-4.5, google/gemini-2.5-flash, google/gemini-2.5-flash-lite, google/gemini-2.5-pro, AI21-Jamba-Reasoning-3B, AI21-Jamba-Mini-1.7, AI21-Jamba-Large-1.7, DeepSeek-R1-Distill-Qwen-1.5B/7B/14B, DeepSeek-R1-Distill-Llama-70B, DeepSeek-V3.1, gemma-3-1b/4b/12b/27b-it, gemma-3n-E4B-it, Llama-4-Maverick-17B-128E-Instruct, Llama-4-Scout-17B-16E-Instruct, gpt-oss-20b, gpt-oss-120b, GLM-4-9B-0414, GLM-4.6, GLM-4.5-Base, GLM-4.5-Air"
+434,W7166836617,C,"gpt-4.1-nano-2025-04-14, mmBERT-base, GLM-4-32B-Base-0414, Qwen2.5-32B, Ministral-3-14B-Base-2512, Qwen2.5-14B, glm-4-9b, Qwen2.5-7B, Ministral-3-8B-Base-2512, Qwen2.5-1.5B, Qwen2.5-0.5B, xlm-roberta-base, xlm-roberta-large, gpt-5.2-2025-12-11, gpt-4.1-2025-04-14, gpt-4.1-mini-2025-04-14, deepseek-chat (DeepSeek-V3.2)"
+436,W7128555701,C,"gpt-5-2025-08-07, gpt-4o-2024-08-16, gemini-3-pro-preview, claude-sonnet-4-5-20250929, qwen3-vl-plus-2025-09-23, qwen-vl-max-2025-08-13, OpenBMB/MiniCPM-V-4_5, google/gemma-3-12b-it, OpenGVLab/InternVL3_5-8B-Instruct, zai-org/GLM-4.1V-9B-Thinking, moonshotai/Kimi-VL-A3B-Instruct, XiaomiMiMo/MiMo-VL-7B-RL, Qwen/Qwen3-VL-8B-Instruct, SmolVLM2-2.2B, Ministral-3-8B, GPT-5.2, Qwen3-Embedding-8B, gme-Qwen2-VL-2B-Instruct"
+438,W4404306985,C,"gpt4o-2024-05-13, gpt-3.5-turbo-0125"
+439,W4416831911,C,"Qwen-2.5-Coder-14B (SOAR), Qwen-2.5-Coder-7B, Qwen-2.5-Coder-32B, Qwen-2.5-72B, Mistral-Large-2407, GPT-4.1, Claude-4-Sonnet, o3-mini, Gemini-2.5-Pro"
+441,W4416026742,C,"gpt-4o-2024-05-13, gpt-4o-2024-11-20, gpt-4o-mini-2024-07-18, gpt-3.5-turbo-0125, SPECTER"
+442,W4416036235,C,"GPT-4o, GPT-4o-mini, Deepseek-V3, Claude-3-Sonnet, o3-mini, Qwen-Plus, Llama-2, GPT-4"
+443,W4416036871,C,"o4-mini-2025-04-16, claude-3-7-sonnet-20250219, gpt-4o-mini"
+446,W7125353054,C,"GPT-5-mini, GPT-5-nano, GPT-4.1-mini, GPT-4.1-nano, GPT-4o-mini, Gemini-2.5-flash, Gemini-2.5-flash-lite, Gemini-2.0-flash, Gemini-2.0-flash-lite, Nova-pro-v1, Nova-lite-v1, Nova-micro-v1, Llama-4-maverick-17b, Llama-4-scout-17b, Llama-3.3-70b, Llama-3.2-3b, Llama-3.1-8b, Mistral-7b-instruct-v0.2, Mixtral-8x7b-instruct-v0.1, Qwen3-32b, Qwen3-coder-30b-a3b"
+449,W4407236276,C,"gpt-4o-2024-05-13, gpt-4o-2024-08-06"
+450,W4412928947,C,"SmartImpute (multi-task GAIN), o4-mini (tpGPT 기본), GPT-4 Turbo, GPT-4.1, o3-mini"
+453,W4409335551,C,"o3-mini, ProtBert"
+455,W7135428876,C,"gpt-4.1-nano-2025-04-14, gpt-4.1-mini-2025-04-14, Llama 3.1 8B Instruct, Llama 3.1 70B Instruct, Mistral 7B v0.3 Instruct, Gemma 2 9B Instruct, all-MiniLM-L6-v2, all-distilroberta-v1, all-mpnet-base-v2"
+456,W7135064860,C,"GPT o3-mini (ChatGPT Pro), GPT o3-mini-high (ChatGPT Pro)"
+458,W4405765814,C,"GPT-o3-mini, GPT-4o-mini"
+461,W4416296392,C,"Deepseek R1, o1, o3 mini, Gemini 2.5 Pro, Gemini 2.0 Flash, QwQ"
+463,W7105613620,C,"gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini, deepseek-chat, Llama3.2-8B-Instruct"
+465,W4411993048,C,"GPT-3.5-turbo, Llama2-7b-chat-hf"
+466,W4414520585,C,"RoBERTa-large, sentence-t5-xl, BERTopic, GPT-4-turbo"
+467,W7167794920,C,"ChatGPT o4-mini-high, Gemini 2.5 Pro, gemma-3-27b-it, gpt-oss-20b, gpt-oss-120b, Qwen3-235B-A22B, DeepSeek-V3.1"
+468,W7161151677,C,"ChatGPT-4o, LLaMA 3 70B, MedItron:7b, Gemma, Mistral, MedLLaMA2, GPT-4o"
+470,W7155063361,C,"GPT-5 Chat, Llama 4 Maverick, Grok 4.20, o3-pro, GPT-5.2, Claude Haiku 4.5, DeepSeek R1, DeepSeek Chat v3, Gemini 3 Pro Preview, GPT-5 Mini, GPT-4.1, GPT-OSS 120B, Claude Opus 4.7, Claude Sonnet 4.6, Claude Sonnet 4.5"
+474,W4403578738,C,"GPT-4o, GPT-4-Turbo"
+477,W4394973254,C,GPT-4
+483,W4415061713,C,"ChatGPT (GPT-4-Turbo), Google Gemini (2.0 Flash), Claude (3.7 Sonnet), DeepSeek-V3"
+486,W4412889683,C,"gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18, Llama3-70b, Llama3-8b, Gemma2-27b, Gemma2-9b, Mistral-7B-v0.3, Mixtral-8x7B-Instruct-v0.1, SauerkrautLM-gemma-2-9b-it, Llama-3-SauerkrautLM-8b-Instruct"
+487,W7143942176,C,GPT-4 Turbo
+496,W7169610321,C,GPT-4.1-Nano
+498,W7170079639,C,"GPT-4 Turbo, MediaPipe Pose"
+3,W4309043734,D,"OPT-125M, OPT-350M, OPT-1.3B, OPT-2.7B, GPT-3 (text-davinci-002), DeBERTa v2 xxlarge (MNLI), DocT5Query, QC, GPT-3 (패러프레이즈 생성, few-shot), DeBERTa v3 large (PAWS 파인튜닝), DeBERTa base (MNLI)"
+5,W4389519254,D,"text-davinci-003, GPT-4"
+8,W4387446498,D,"text-davinci-002, text-davinci-003, gpt-3.5-turbo, roberta-large, DeBERTa-XLarge-MNLI, facebook/blenderbot-400M-distill"
+9,W4389519366,D,"code-davinci-002, text-davinci-003, text-davinci-002, BLIP-2, EVA-CLIP ViT-g/14, FlanT5-XXL, GLIP, MiDaS, X-VLM"
+11,W4389519016,D,"gpt-3.5-turbo, text-davinci-003, text-davinci-002, GPT-2, microsoft/deberta-xlarge-mnli"
+14,W4386907142,D,"Alpaca, Vicuna-7b, LLaMa-7b, OPT-IML-1.3b, OPT-1.3b, LLaMa-2, Code LLaMa, gpt-3.5-turbo, text-davinci-003"
+15,W4390307198,D,"GPT-4, GPT-3.5, Claude-2, GPT-4V, LLama-2, LLava, Vicuna, MiniGPT-4, CodeLLama"
+16,W4389073311,D,text-davinci-003
+19,W4385568240,D,"text-davinci-003, GLM-10B, GLM-2B, GLM-6B"
+20,W4390098205,D,gpt-3.5-turbo-0613
+26,W4389524566,D,"GPT-3.5-Turbo-0301, GPT-4-0314, Claude-2"
+27,W4386793335,D,"gpt-3.5-turbo-0301, Llama-2-7b-chat-hf"
+28,W4385734127,D,"text-davinci-003, DialoGPT-medium"
+29,W4383987287,D,text-davinci-003
+30,W4386081016,D,"gpt-3.5-turbo, GPT-4, Text-Davinci-003"
+31,W4389523899,D,"code-davinci-002, gpt-3.5-turbo-16k-0613, CodeLlama-34B-instruct"
+32,W4385571232,D,"T0, text-curie-001, text-davinci-003, ChatGPT"
+34,W4388022708,D,"GPT-4, GPT-3.5, FLAN-T5, FLAN-UL2, Alpaca, Med-Alpaca, Vicuna, Llama-2"
+35,W4380136291,D,text-davinci-003
+36,W4389519986,D,"GPT-4, ChatGPT, text-davinci-003, ChatGLM-6B, BELLE-7B-2M, ChatYuan"
+37,W4387225765,D,"LLaMA-7B, LLaMA-13B, LLaMA-30B, Llama 2-7B, Llama 2-13B, Llama 2-70B, Llama 2-7B-ft, Llama 2-13B-ft, gpt-3.5-turbo, text-davinci-003, gpt-4, Claude 2"
+38,W4405794488,D,"GPT-4, Claude-2"
+42,W4390784213,D,"PaLM 2-S, gpt-3.5-turbo-16k-0613, Llama-2-17B-chat"
+44,W4403413375,D,"gpt-3.5-turbo-0613, Claude 2.1, llama2:7b, codellama:7b-instruct, zephyr:7b, codeup:13b"
+46,W4401042743,D,"Gemini-Pro, LLaMA-7B, LLaMA-13B, text-unicorn, text-bison, ChatGPT, GPT-4"
+47,W4417412225,D,text-davinci-003
+54,W4405182525,D,"ChatGLM3-6B, LLaMA2-7B, Falcon-7B, Dolly-7B-v2, Vicuna-7B-v1.5, BeaverDam-7B, LLaMA Guard2, GPT-3.5-Turbo, GPT-4"
+55,W4394977886,D,gpt-4-0314
+57,W4399465325,D,"ChatGPT-3.5, Bard, Claude-2"
+58,W4393160827,D,"BLIP-2, FlanT5, LLaVA, MiniGPT-4, mPLUG-Owl, InstructBLIP, LLaVAR, gpt-3.5-turbo-0613, GPT-4"
+61,W4399419362,D,"Llama 13B, GPT-3.5-Turbo-0613"
+63,W4402683850,D,gpt-4-0613
+64,W4404354862,D,"GPT-4o, o1-mini"
+65,W4404783131,D,"gpt-3.5-turbo-1106, gpt-4-0613, claude-3-opus-20240229, claude-3-sonnet-20240229, claude-3-haiku-20240307, mistral-7b-instruct-v0.1, llama-2-7b-chat"
+67,W4395064753,D,"GPT-4-1106-preview, open-mixtral-8x22b, Meta-Llama-3-70B"
+68,W4405181600,D,"gpt-3.5-turbo-0301, gpt-4-0314, text-bison@002, chatglm-6b, dolly-v2-7b, vicuna-7b-v1.1, gpt-3.5-turbo-0613, gpt-3.5-turbo-1106, OpenChatKit moderation model"
+70,W4405626016,D,gpt-4
+73,W4403573650,D,"gpt-4o, claude-3-5-sonnet-20240620, gemini-1.5-pro"
+74,W4411638747,D,"GPT-3.5-Turbo-0301, Llama2-Chat-7B, Llama2-Chat-13B, Llama2-Chat-70B"
+76,W4401042217,D,"gpt-3.5-turbo-0613, text-bison@002, LLaMA-2-7B, LLaMA-2-13B, LLaMA-2-70B, Mixtral-8x7B, TinyLLaMA-1.1B, LiteLLaMA-460M, FLAN-T5-Small-80M, FLAN-T5-Base-250M, FLAN-T5-Large-780M, GPT-4"
+77,W4391800217,D,"GPT-4, GPT-3.5, text-davinci-003, Bard"
+79,W4408566193,D,gpt-3.5-turbo-16k
+80,W4411630019,D,"gpt-3.5-turbo, gpt-4-1106-preview"
+84,W4404783824,D,"GPT-4, Falcon-7B, Falcon-7B-Instruct, GPT-3.5-turbo, GPT-4o, Claude-3 Haiku, Claude-3 Opus, Claude-3 Sonnet, Claude-3.5 Sonnet"
+86,W4405096516,D,"GPT-4, Gemini-1.5-Pro"
+88,W4402372408,D,"GPT-4o, GPT-3.5, Gemini 1.5 Pro, Claude 3.5 Sonnet"
+89,W4401043595,D,"Vicuna, LLaMA-1, Mistral, BLOOM, Mistral-Instruct, BLOOMZ, gpt-3.5-turbo-0613, gpt-4-0613"
+90,W4403334466,D,"GPT-3.5-Turbo, gpt-4-0125-preview, GPT-4V, GPT-4"
+94,W4403575298,D,"gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18, gpt-3.5-turbo-0125, claude-3-5-sonnet-20240620, LLaMA3.1-8B, LLaMA3.1-70B, LLaMA3.1-405B, Mistral-7B v0.2, Mixtral-8x7B, Mixtral-8x22B, Qwen2-0.5B, Qwen2-1.5B, Qwen2-7B, Qwen2-57B, Qwen2-72B, Qwen1.5-0.5B, Qwen1.5-1.8B, Qwen1.5-7B, Qwen1.5-14B, Qwen1.5-32B, Qwen1.5-72B, Qwen1.5-110B, GPT-3.5, GPT-4"
+95,W4403621462,D,"LLaVA-1.5-7B, GPT-4, GPT-4o, Claude-3.5-Sonnet"
+96,W4416033890,D,"o1-mini, GPT-4o, LLaMA-3.1-8B, LLaMA-3.1-70B, DeepSeek-R1-Distill-Llama-8B, DeepSeek-R1-Distill-Llama-70B, Phi-4, Mistral 8x22B"
+99,W4417299406,D,"DeepSeek-R1-Distill-Qwen-1.5B, DeepSeek-R1-Distill-Qwen-7B, Qwen2.5-1.5B-Instruct, Training Efficient-1.5B, Qwen2.5-7B-Instruct, Training Efficient-7B, O1-Pruner-7B, Marco-o1, Gemini 2.5 Flash Preview, DeepSeek-R1-Distill-Llama-8B"
+100,W4412888834,D,"LLaMA-2-7B-Chat, LLaMA-2-13B-Chat, LLaMA-3.1-8B-Instruct, LLaMA-3.2-3B-Instruct, Phi-3-Mini-128K-Instruct, LLaMA-2-7B-Base, GPT-4"
+106,W4411120074,D,"gpt-neo-1.3B, gpt-j-6B, phi-2, Llama2-7b, Mistral-7B, Llama-3-8B, claude-3-5-sonnet-20240620"
+107,W4412888065,D,"Aria, Qwen2-VL-7B, VILA-v1.5-40B, LLaVA-Video-7B, LLaVA-Video-72B, GPT-4o, Gemini-1.5-pro, Qwen2.5VL-3B"
+110,W4411113286,D,"gpt-4-vision-preview, Gemini 1.5 Pro, mBLIP mT0-XL, LLaVA-v1.5-13B, LLaVA-v1.6-34B, Qwen-VL, Qwen2-VL-7B-Instruct, Cambrian-8B, Molmo-7B, Llama3.2-11B, text-davinci-003, LLaMA2-70B, InstructBLIP, GPT-4"
+111,W4416097304,D,"GPT-4, Claude 2, Mistral 7B, Vicuna-13B"
+113,W4409885602,D,"GPT-4o, Claude"
+117,W4409788583,D,"Claude 2, Qwen2-7b-Instruct, Qwen2-72b-Instruct, Claude 3.5 Sonnet, GPT4"
+118,W4411379703,D,GPT-4o
+120,W4415358120,D,text-davinci-003
+121,W4411119770,D,"GPT-3.5-turbo-2024-0125, GPT-4o-2024-0806, GPT-4o-mini-2024-0718, Claude-3-Haiku, Claude-3-Sonnet, LLaMA-3.1-8B, LLaMA-3.1-70B, LLaMA-3-8B, LLaMA-3-70B, Mistral-7B-v0.3, Mistral-Large-2407, Qwen-2-7B, Qwen-2-72B"
+122,W7118051802,D,"DeepSeek-R1-Distill-Qwen-1.5B, DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-32B, Qwen3-4B-Thinking-2507, Qwen3-30B-A3B-Thinking-2507, GPT-OSS-20B"
+124,W4410031540,D,"GPT4-0613, text-davinci-003"
+131,W4407424147,D,"claude-3-5-sonnet-20241022, Llama 3.1 405B Instruct, Gemini 1.5 Pro, gpt-4o-2024-08-06, o1-mini-2024-09-12, DeepSeek-R1"
+136,W4412888255,D,"gpt-4o-2024-08-06, gpt-3.5-turbo-0613, qwen2.5-7B-Instruct, glm-4-9b-chat, llama-3.1-8B-Instruct, internlm2-chat-7b, PROMETHEUS 2, AUTO-J, qwen2.5-72b-instruct, DeepSeek-V2.5-1210"
+137,W4416113661,D,"Qwen2.5-Math-1.5B-Instruct, Qwen2.5-Math-7B-Instruct, Qwen2.5-Math-72B-Instruct, Qwen-Math-Plus, Qwen-Max, Skywork-O1-Open-Llama-3.1-8B, Skywork-O1-Open-PRM-Qwen-2.5-7B, Math-Shepherd-Mistral-7B-PRM, Kimi, GPT-4o, GPT-o1-mini, DeepSeek-V3"
+138,W4411119906,D,"ChatGPT4o, Claude Haiku, Gemini 1.5 pro, Qwen 2.5 72b instruct, Wizzard LM2 8x22b, Llama 3.1 70b Turbo"
+140,W4412945206,D,"DeepSeek-V3, gpt-4o-mini-2024-07-18, Claude-sonnet-3.5-0622, GPT-4o-2024-11-20"
+141,W4417129365,D,openai/gpt-4o-mini
+142,W4412944912,D,gpt-4-0613
+143,W7134884641,D,"GPT-4o-mini, gemini-1.5-pro"
+144,W4412944997,D,"Claude 3.5 Sonnet V2, GPT-4o, Gemini 2.0 Flash, Gemini 1.5 Pro, Deepseek R1, DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-14B, DeepSeek-R1-Distill-Qwen-32B, Deepseek V3, GPT-4o-mini"
+146,W7165520893,D,"Gemini 1.5 Flash, Gemini 2.5 Flash"
+148,W7166850840,D,CodeLlama-7B
+150,W7162335212,D,"Gemini Story Book, Grok, Notebook LM, Claude, ChatGPT, Gemini"
+152,W7140953926,D,"Qwen3-VL-8B-Instruct, GLM-4.5V, Qwen3-VL-235B-A22B-Instruct, GPT-5.2, Gemini-2.5-Pro, Claude-Sonnet-4.5, GPT-4o, Qwen3-VL-2B-Instruct, Qwen3-VL-4B-Instruct, Qwen3-VL-30B-A3B-Instruct"
+155,W7171526612,D,gemini-1.5-flash
+156,W7154086917,D,"gpt-4o-2024-08-06, gemini-2.0-flash-001, claude-3-opus-20240229, mistral-large-2411, grok-3, deepseek-v3-0324"
+157,W7166821435,D,"Llama-3.2-1B-Instruct, Gemma-2-2B-Instruct, Llama-Guard-3-1B, Llama-Guard-3-8B, Granite-Guardian-8B, ShieldGemma-2B, ShieldGemma-9B, Llama-3.1-8B-Instruct, Granite-3.1-Instruct-8B, Gemma-2-9B-Instruct, Claude-3.7-Sonnet"
+158,W7161092078,D,"GPT-4o, GPT-5.1, Gemini-2.5-pro, Gemini-3-flash, Gemini-3-pro, Claude-sonnet-3.5, Claude-sonnet-4, Claude-sonnet-4.5, Claude-opus-4, Llama-3.1-8B-Instruct, Llama-3.3-70B-Instruct, Llama-3.1-405B-Instruct, Qwen-3-max, DeepSeek-V3, Kimi-K2, GLM-4.7"
+162,W7141771904,D,"chatgpt-4o-latest, o3-2025-04-16, gpt-5-chat-latest, gpt-4.1-2025-04-14, claude-3-7-sonnet-20250219, claude-sonnet-4-20250514, deepseek-chat, gpt-3.5-turbo, gpt-4.1, gpt-4.1-mini, gpt-4o, claude-3.7-sonnet-latest, claude-3-haiku-20240307, deepseek-coder, deepseek-reasoner, llama-3.1-8b-instant, llama-3.3-70b-versatile"
+164,W7169730034,D,gemini-1.5-flash
+166,W7138915204,D,"Qwen2.5-Math-7B, DeepSeek-R1-Distill-Qwen-7B, GPT-4o, Deepseek-V3, Qwen2.5-7B-Instruct, Qwen2.5-Math-7B-Instruct, Deepseek-R1"
+167,W7203688369,D,"Sonnet, Haiku, GPT-5, GLM-5.2, DeepSeek-Coder-V2-Lite, Qwen3-Coder-30B-A3B-Instruct, Gemini, Opus, Fable"
+170,W7160697791,D,"GPT-4, Claude 3.5 Sonnet, Gemini 1.5 Pro"
+171,W7128555727,D,claude-3-7-sonnet-20250219
+172,W7162818065,D,"Gemini-3-Flash, GPT-5-mini, Qwen3-235B-A22B, DeepSeek-V3.2, GPT-3.5-Turbo, Llama-2-70B, Qwen3-30B-A3B, Gemini-2.5-Flash, GPT-4o, DeepSeek-V3.1, GPT-4.1-mini, Llama-3.1-70B, GPT-4o-mini, Qwen2.5-72B, Gemini 3 Pro Preview, GPT-5"
+173,W7164701439,D,"LLaVA-v1.6-7B, LLaVA-v1.6-13B, Qwen3-VL-4B-Instruct, GPT-4o, GLM-4V-Plus, Gemini, Qwen3-VL-8B-Instruct, Gemini-2.5-pro, Claude-3-5-sonnet, Qwen2.5-VL-32B-Instruct, Qwen2.5-VL-72B-Instruct"
+174,W7155244784,D,"Llama-3.2-3B-Instruct, Qwen2.5-3B-Instruct, Qwen3-4B-Instruct-2507"
+180,W4404781632,D,"gpt-4-0613, claude-3-opus-20240229, Llama-3.1-405B-Instruct, GPT-2"
+181,W4399511161,D,"Qwen2.5-Coder-7B, Qwen2.5-Coder-3B, Qwen2.5-Coder-1.5B, Deepseek-coder-6.7B, Deepseek-V3, Doubao, GLM, GPT-4-0613, GLM-4-Plus"
+183,W4404708998,D,"o1-preview, GPT-4o, Claude 3.5 Sonnet, GPT-4, Gemini, Claude 3"
+187,W4416035558,D,"GPT-3.5-Turbo, GPT-4-0314, LLaMA2-7B, GPT-4o-mini, LLaMA3-8B"
+189,W7116985459,D,gemini-1.5-pro-002
+190,W4412069460,D,"LLaMA-7B, Vicuna-7B, gpt-3.5-turbo-0613, gpt-4-0613, llama3-64k"
+192,W7161090805,D,"Qwen3-VL-8B-Instruct, ChatGPT-4o-latest, Claude-3-5-sonnet, Gemini-2.5-Pro, Qwen2-VL-7B-Instruct, LLaVA-v1.5-7B, Qwen2-VL-2B-Instruct, Tuned LLaVA-7B, InternVL3.5-7B, MiMo-VL-7B-RL"
+201,W4412888422,D,"Llama-3.1-8B-Instruct, Gemini-1.5-flash-002, watt-tool-8B, Meditron-7B"
+207,W4401722596,D,"Pythia-12b, Mpt-30b-chat, Llama-2-70b-chat, Mistral-7b-openorca, Zephyr-7b-alpha, Gpt-35-turbo-16k, Gpt-4-32k"
+209,W4398132166,D,"Claude 3 Opus, Claude 3 Sonnet, ChatGPT3.5, ChatGPT4, ChatGPT4 Turbo, Gemini 1.5 Pro 1M, Gemini 1.5 Pro, Gemini 1.0, Copilot Balanced, Mistral Large, LlaMA 3 70B, Perplexity"
+211,W4405079424,D,"GPT-4o mini, GPT-4o, GPT-4, O1-Strawberry Mini, Claude-3.5 Sonnet, Gemini-1.5 Pro, Gemma-2 27b, Mistral-Large, Llama 3.1 405b, Qwen 2.5 72b, Llama 3.1 8B, Perplexity"
+214,W4406549032,D,"Qwen2.5-72B-Instruct, GPT-4o, GPT-4o-mini, claude-3-5-sonnet, o1-mini, o1-preview"
+220,W4414035313,D,"ChatGPT-4o, Gemini 1.5 Pro, Claude 3.5 Sonnet"
+223,W7118021345,D,"ChatGPT-4, Gemini-1.5 Pro, DeepSeek-V3"
+226,W7154421172,D,"GPT-4o, Gemini 1.5 Pro"
+227,W7161392972,D,"GPT-4o, Gemini 1.5 Pro, Microsoft Copilot"
+232,W4385548927,D,text-davinci-003
+234,W4386302642,D,gpt-3.5-turbo-16k
+235,W4404989530,D,"gpt-4-0125-preview, Llama-3.1-405B, GPT-3.5"
+237,W4391758695,D,"GPT-3.5-turbo, GPT-4, PaLM-2 chat-bison-001, Claude-1.3, Claude-2, Llama-2-Chat, PaLM-2 text-bison-001"
+239,W4405548121,D,"ChatGPT-3.5-turbo, ChatGPT-4.0, Gemini 1.0 Pro"
+240,W4399837050,D,"Claude-3 Haiku, GPT3.5-turbo-0613, LLaMA3-70B, Mixtral 8×7B"
+242,W7110143318,D,Gemini 1.5 Flash
+244,W4399723231,D,"gpt-3.5-turbo-16k, GPT-3.5"
+249,W4406952329,D,"SenseChat-Vision, InternVL2.5-78B-MPO, Qwen2-VL-72B-Instruct, JT-VL-Chat-V3.0, Step-1.5V, GPT-4o, Claude-3.5-Sonnet, Gemini-1.5-Flash-exp-0827, GLM-4V-Flash, MiniCPM-V-2.6"
+250,W7111356371,D,GPT-4
+253,W4410512173,D,Gemini 1.5 Pro
+255,W4414012539,D,"llava-onevision-qwen2-7b, GPT-4o, Claude 3.5 Sonnet, gemini-1.5-pro-exp-03-25, LLaMA-3.3-Nemotron-70B-Select, Grok 3 Beta, Qwen2-VL-72B, llava-v1.5, llava-next"
+256,W4408750049,D,"LLaMA-7B, LLaMA-13B, LLaMA-33B, ChatGLM2-6B, GPT-3.5-turbo-0613, Alpaca, LongForm, Vicuna-v1.3, Guanaco, GPT-4-0613, GPT-3.5-turbo-0327, Mistral-7B-v0.2, Yi-34B-chat"
+259,W4412888197,D,"GPT4o-mini, GPT4o, Gemini-1.5-flash, Gemini-1.5-pro, Claude3-haiku, BERT-base-cased, GPT-2, Claude Sonnet, Llama"
+262,W7164899890,D,"ChatGPT-4 Legacy, ChatGPT-4o, ChatGPT-o1, ChatGPT-o1 mini, MS Copilot, Mistral, Cohere, Claude AI, Gemma, Perplexity, Google Gemini, Gemini Flash, Gemini Flash Thinking, Gemini Deep Research, Jasper, LLaMA Meta small, Meta generic, DeepSeek, DeepSeek DeepThink, GROK-3, GROK-3 DeepSearch, GPT-o1 preview"
+263,W7126035801,D,gpt-4-0613
+266,W7160850203,D,"UBC-NLP/AraT5v2-base-1024, GPT-4o, Gemini 1.5 Pro, ALLaM-7B, Jais-13B, LLaMA-3-8B, DeepSeek-7B, Mistral-7B"
+270,W7110994696,D,"BERT, GPT-3, Claude-2, Llama-2"
+271,W7204222858,D,"ChatGPT-4, Claude Sonnet 4"
+276,W4388788714,D,"gpt-4o-2024-05-13, gpt-4-1106-preview, gpt-3.5-turbo-16k-0613, Claude-3-Opus, Claude-3-Sonnet, Claude-3-Haiku, CodeLlama-7b-Instruct, DeepSeek-Coder-6.7b-Instruct, Llama-2-7b-chat-hf"
+279,W4401042915,D,"Llama 2 70B Chat, gpt-3.5-turbo, gpt-4-1106-preview"
+280,W4399454879,D,"llava-v1.5-13b, gpt-4-vision-preview, gpt-4-turbo"
+281,W4404783532,D,"GPT-4-Turbo, Claude 3.5 Sonnet, Claude 3 Haiku, Llama-3.1-405B-Instruct-FP8, Mistral-Large-Instruct, Mistral-Small-Instruct, Llama-3-8B-Instruct, Mixtral-8x7B-Instruct-v0.1"
+282,W4404792946,D,"GPT-4-0613, GPT-4o-2024-05-13, GPT-3.5-turbo-0125, T5, Mistral"
+283,W4402671221,D,"GPT-3.5 Turbo 0613, GPT-4 Turbo, GPT-4 0613, Claude2, Gemini Pro, Llama2-7b-chat, Llama2-13b-chat, Llama2-70b-chat, Vicuna-13b, InternLM-20b, Llama Guard"
+287,W4399115884,D,"Llama-3-8B, Llama-3-8B-Instruct, Mistral-7B-v0.3, Mistral-7B-Instruct-v0.2, GPT-4o, GPT-4, GPT-3.5-turbo, gpt-4-1106-preview"
+288,W4404782882,D,"GPT-4o-2024-04-09, GPT-3.5-Turbo-0125, Claude-3-Opus-2024-02-29"
+289,W4399795373,D,"Llama 2 7B Chat, Llama 2 13B Chat, Llama 2 70B Chat, Vicuna 7B, Vicuna 13B, Baichuan 2 7B, Baichuan 2 13B, Qwen 7B Chat, Qwen 14B Chat, Qwen 72B Chat, Koala 7B, Koala 13B, Orca 2 7B, Orca 2 13B, SOLAR 10.7B-Instruct, Mistral 7B, Mixtral 8x7B, OpenChat 3.5 1210, Starling 7B, Zephyr 7B, GPT-3.5 Turbo 0613, GPT-3.5 Turbo 1106, GPT-4 0613, GPT-4 Turbo 1106, Claude 1, Claude 2, Claude 2.1, Gemini Pro, Hermes-2-Theta-Llama-3-8B"
+290,W4413304709,D,"GPT-4o, o1, o3-mini, DeepSeek-R1, DeepSeek-V3, Llama-3.1-8B, Llama-3.1-70B, Qwen2.5-7B, Qwen2.5-72B, QwQ-32B, Deep Research"
+294,W4411119926,D,"gpt-4-turbo-2024-04-09, gpt-4o-2024-08-06, gpt-4o-mini-2024-07-18, gpt-3.5-turbo-0125, Llama-3.1-70B, Qwen2.5-72B-Instruct, Mixtral-8x7B-Instruct-v0.1, Llama-3.1-8B, glm-4-9b-chat, Mistral-7B-Instruct-v0.3, Mistral-7B-Instruct-v0.1, Llama-2-7b-chat-hf"
+295,W4409203322,D,"gpt-3.5-turbo, gpt-4-turbo-2024-04-09, gpt-4o, claude-3-sonnet-20240229, moonshot-v1-8k, glm-4"
+297,W4412888214,D,"gpt-4o-2024-05-13, gpt-4o-2024-08-06, gpt-4o-2024-11-20, chatgpt-4o-latest, gpt-4o-mini-2024-07-18, gpt-4-0613, gpt-4-1106-preview, gpt-4-0125-preview, gpt-4-turbo-2024-04-09, claude-3-sonnet-20240229, claude-3-5-sonnet-20240620, claude-3-5-sonnet-20241022, claude-3-haiku-20240307, claude-3-5-haiku-20241022, claude-3-opus-20240229, Qwen1.5-7B-Chat, Qwen2-7B-Instruct, Qwen2.5-7B-Instruct, Meta-Llama-3.1-8B-Instruct, Meta-Llama-3.1-70B-Instruct, Meta-Llama-3.2-1B-Instruct, Meta-Llama-3.2-3B-Instruct, Meta-Llama-3.3-70B-Instruct, Llama-2-7b-chat-hf, vicuna-7b-v1.5, WizardMath-7B-V1.0, Sheared-LLaMA-1.3B, Sheared-LLaMA-1.3B-Pruned, Sheared-LLaMA-2.7B, Sheared-LLaMA-2.7B-Pruned, Wanda-LLaMA, GPT-3.5-turbo-2024-01-25, GPT-J-6B, GPT-Neo-2.7B, Llama-2-7b-hf, gte-Qwen1.5-7B-instruct"
+300,W4416037247,D,"QwQ-32B-Preview, Qwen2.5-Coder-7B-Instruct, Z1-7B, R1-Distill-Qwen-7B, o1-preview, o1-mini, Deepseek-R1, R1-Distill-Qwen-32B, Deepseek-V3, GPT-4o-0513, Sky-T1-32B-Preview, s1.1-7B, OpenThinker-7B, AdaptThink-7B, Marco-o1-7B-Pruned"
+301,W4411450091,D,"gpt-3.5-turbo-0125, gpt-4-turbo-2024-04-09, gpt-4o-mini-2024-07-18, Llama-3.1-405b, deepseek-chat, claude-3-5-sonnet-20240620"
+303,W7133365285,D,"Qwen3-0.6B, Qwen3-4B, DeepSeek-R1-Distill-Qwen-7B, Qwen3-1.7B"
+305,W7128096114,D,"Interfaze-Beta, Gemini-3-Flash, Gemini-3.5-Flash, Claude-Sonnet-4.6, GPT-5.4-Mini, Grok-4.3"
+308,W7128864794,D,"Qwen2.5-VL-3B-Instruct, Qwen2.5-VL-7B-Instruct, GPT-4o, Qwen2.5-1.5B-Instruct, GPT-4o-2024-11-20, Claude-Sonnet-4-20250514-thinking, InfiGUIAgent, OS-Genesis, GUI-PRA, Aguvis, GUI-Critic-R1, MobileGUI-7B, UI-TARS-1.5-7B, Qwen2.5-VL-72B, GUI-Shepherd, GLM-4.1V-9B-Thinking"
+309,W7128095824,D,"Qwen2.5-72B, Claude3.5-Sonnet, Phi4, Gemini2.0-Flash, DeepSeekV3-0324, Llama4-Maverick, GPT4.1-Mini-20250414, GPT4.1-20250414, O3-Mini-20250131, Qwen3-235B-0428, DeepSeek-R1-0528, Claude4-Sonnet-20250522, Gemini-2.5-Flash, Magistral-Small-2506, Qwen2.5-Coder, Codestral-2501, Mercury-Coder, Codex-Mini"
+310,W7130762659,D,"o3-2025-04-16, gpt-5-2025-08-07, Qwen3-8B, Qwen3-32B, DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-32B, DeepSeek-R1-Distill-Llama-8B, DeepSeek-R1-Distill-Llama-70B, gpt-oss-20b, gpt-oss-120b, MiMo-7B-RL, MiMo-7B-RL-Zero, Magistral-Small-2506, Llama-3.3-Nemotron-Super-49B v1, Olmo-3-7B, gpt-5.1-2025-11-13, claude-sonnet-4-5-20250929"
+311,W4405372230,D,"gpt-4-1106-preview, DaVinci-003"
+312,W4399553916,D,"Llama-2-7B, Gemma-7B, Llama-2-7B-Chat, Gemma-1.1-7B-IT, GPT-4-Turbo, GPT-3.5-Turbo, Llama-2-7B-Chat-Augmented"
+313,W4402683166,D,"gpt-3.5-turbo-0125, gpt-4-0125-preview"
+314,W4413125085,D,"gpt-3.5-turbo-16k, gpt-4-turbo-preview, gpt-3.5-turbo"
+315,W4411698389,D,"GPT-4o-Mini, Grok-3, Claude-3.7-Sonnet-all, Gemini-2.0-Flash, Deepseek-Chat"
+316,W4412889692,D,"GPT-4o-mini, GPT-4o, Llama-3.1-8B, Claude-3-Haiku"
+320,W4399836663,D,"DeepSeek-Coder-V2-Instruct, DeepSeek-Coder-V2-Lite-Instruct, DeepSeek-Coder-V2-Lite-Base, DeepSeek-Coder-V2-1B, DeepSeek-Coder-1B, Gemini-1.5-Pro, Claude-3-Opus, GPT-4-1106, GPT-4-Turbo-0409, GPT-4o-0513, Codestral, DS-Coder-Instruct-33B, Llama3-Instruct-70B, StarCoder2-Base-15B, CodeLlama-Base-7B, CodeLlama-Base-13B, CodeLlama-Base-34B, DS-Coder-Base-1B, DS-Coder-Base-6.7B, DS-Coder-Base-33B, DeepSeek-V2-Lite-Chat, DeepSeek-V2-Chat, GPT-4"
+322,W4409228901,D,"GPT-3.5-Turbo-0125, GPT-4-0125-preview, Claude-3-opus-20240229, Qwen-max-0403, mixtral:8x22b, llama3:8b, llama3:70b, GPT-4o"
+324,W4414525096,D,"GPT-4 Turbo Preview, Gemini 1.5 Pro, Claude 3 Opus, Llama 3 70B, ERNIE-4.0-8K"
+329,W4409860737,D,"GPT-4, Claude-3-Haiku"
+331,W4407358819,D,"GPT-4o, Meta-Llama-3-70B, BioMistral-7B, Gemma-2-27B, Llama-2-70B, Medalpaca-13B, Meditron-7B, Meta-Llama-3-8B, Mistral-Nemo, Mistral-Small, Mixtral-8x7B, OpenBioLLM-Llama-3-8B, OpenBioLLM-Llama3-70B, Phi-3-medium-128K, Qwen2.5-32B, Vicuna-13B, Meditron-70B"
+332,W4412886850,D,"gpt-3.5-turbo-0125, gpt-4-0125-preview, gpt-4o-2024-05-13, gemma-7b, Llama-2-7b-chat-hf, Meta-Llama-3-8B-Instruct, Mistral-7B-Instruct-v0.2, Phi-3-mini-4k-instruct, Qwen1.5-7B-Chat"
+334,W4409480044,D,"Qwen3 235B, Qwen 2.5 Max, DeepSeek v3, DeepSeek-Coder-v2 16B, ChatGPT 4o, ChatGPT 4o mini, Gemini 2.5 Pro, Gemini 1.5 Flash, Gemma 27B, Llama 3.1 8B, Llama 2 7B, Mistral 7B"
+337,W4391335020,D,"gpt-4-1106-preview, Llama-2-70B, gpt-3.5-turbo-0613, Llama-2-13B"
+338,W4416034780,D,"GPT-3.5-Turbo, GPT-4-Turbo, Gemini-1.5-Flash, Claude-3.5-Haiku, Llama-3.1-8B, Llama-3.3-70B, Llama-3.1-405B, GPT4, Deepseek-R1 671B, Deepseek-R1 8B"
+341,W7133365501,D,"GPT-5, o3, o1, GPT-4o, o4-mini, o1-mini, Claude Opus 4.1"
+349,W7169666497,D,"LLaMA3-8B-Chat, LLaMA3-70B-Chat, LLaMA3.1-405B-Instruct, Qwen2.5-7B-Instruct, GPT-3.5-Turbo, GPT-4-Turbo, GPT-4o-2024-05-13, DeepSeek-R1, o3, GPT-4o-latest, GPT-4.1, GPT-5, Claude-3-7-sonnet, Claude-sonnet-4, Claude 4.5 Sonnet, Gemini 3.1 Pro, GPT-4"
+350,W7167820841,D,"GPT-5.2-chat-latest, GPT-4o, Claude Haiku 4.5, Claude Sonnet 4, qwen3.6-max-preview, claude-sonnet-4-20250514, deepseek-v3.2, qwen3.6-plus:free, grok-4.20, deepseek-v4-flash, qwen3.6-flash, gpt-5-chat-latest, grok-4.3, gpt-5.4-2026-03-05, claude-opus-4-20250514, ChatGPT, claude-opus-4-6, llama-4-maverick, gemini-3.1-pro-preview, deepseek-chat-v3-0324, qwen3.5-plus-02-15, claude-opus-4-7, gpt-5.5-2026-04-23, gpt-5.4-nano-2026-03-17, gpt-5.1-2025-11-13, gpt-4o-2024-11-20, gemini-2.5-pro, gpt-5.3-chat-latest, deepseek-v4-pro, claude-haiku-4-5-20251001, gpt-4.1-mini, grok-3, claude-sonnet-4-6, llama-3-70b-instruct, deepseek-r1, gpt-4.1-nano, gpt-5.1-chat-latest, gpt-5.4-mini-2026-03-17, gpt-5.5-pro-2026-04-23, llama-3.1-70b-instruct, o3-mini, o1, mistral-large-2, gpt-5-mini-2025-08-07, gemini-2.5-flash, gpt-5-2025-08-07, o3, mistral-7b-instruct-v0.1, mistral-small-2603, claude-3-haiku-20240307, o4-mini, gemma-4-31b-it, mixtral-8x7b-instruct, gpt-4.1, gpt-4o-2024-08-06, gpt-4-turbo-2024-04-09, gpt-4o-mini, gpt-3.5-turbo, gpt-4-0613"
+352,W4391901300,D,"LLaMA-2 7B, LLaMA-2 13B, LongLoRA 7B 100K, YaRN Mistral 7B 128K, GPT-4-Turbo, LongChat v1.5 7B 32K, Together LLaMA-2 7B 32K, GPT-3.5-Turbo, LongLoRA 13B 64K"
+357,W4392972256,D,"gpt-3.5-turbo, gpt-4, LLama 2-70b"
+361,W4392826403,D,"GPT 4, GPT 3.5-turbo, GPT 4-turbo"
+362,W4402671321,D,"Mistral-7B-Instruct-v0.1, Mistral-7B-Instruct-v0.2, gpt-4-1106-preview"
+365,W4401997506,D,"Meta-Llama-3.1-8B-Instruct, GPT-4 Turbo"
+366,W4402669975,D,"TinyLlama-1.1B-Chat-v1.0, phi-2, Llama-2-7b-chat-hf, selfrag_llama2_7b, gpt-3.5-turbo, gpt-4-turbo-preview, GPT-2"
+369,W4403723811,D,gpt-4-1106-preview
+376,W4414808064,D,"Claude-4-sonnet, o4-mini, WebShaper-32B, Claude-3.7-sonnet, GPT-4.1, WebShaper-72B"
+381,W4411523107,D,"Qwen2-7B-Instruct, Meta-Llama3.1-8b-Instruct, Qwen2.5-Coder-7B-Instruct, gpt-4o-2024-05-13"
+386,W4416037176,D,"GPT-4o, GPT-4, Llama-3.3 70B, Mistral Large 2, DeepSeek-R1, Claude Sonnet 3.7"
+388,W4417512500,D,"o3-mini, Claude 3.5 Sonnet, DeepSeek-R1, Llama3.1-405b, Qwen-Max"
+389,W7125377257,D,"GPT-4-turbo, GPT-4o-mini"
+390,W4410768139,D,GPT-4-turbo
+394,W4414654962,D,"o3-mini, GPT-4o, Llama-3.1-405, Llama-3.3-70, DeepSeek-V3"
+395,W4416034859,D,"GPT-4o, o3-mini, DeepSeek-V3, DeepSeek-R1"
+398,W4411119950,D,"GPT-4o, Qwen2-7B-Instruct, Meta-Llama-3-8B-Instruct, HuatuoGPT2-13B"
+399,W4411033148,D,"GPT-4o Preview, Claude-3.5-Sonnet, Qwen2.5-Coder-32B-Instruct, Amazon Nova Pro, Llama 3.3 70B"
+400,W4411120226,D,"Llama 3 Instruct, GPT-4o, Nous-Hermes-13b"
+401,W7106783468,D,"Qwen2.5-VL-7B-Instruct, Qwen2.5-32B-Instruct, InternVL3-9B-Instruct, Kimi-VL-A3B-Instruct, Qwen3-Thinking, Kimi-VL-A3B-Thinking, Qwen3-VL-8B-Instruct"
+403,W7160727535,D,"Qwen3-8B, Qwen3-32B, Qwen2.5-7B, Qwen2.5-32B"
+404,W7166801607,D,"GPT-4.1, Qwen-3-32b, Llama-3.1-8b, Llama-3.3-70b, Mistral-7B-v0.3, Qwen2.5-7B, Gemma-2-9b, GPT-4.1-nano"
+406,W7140043623,D,GPT-4-turbo
+409,W7166850138,D,"Qwen3-4B, DeepSeek-R1-Distill-Qwen-32B, Qwen3-32B, DeepSeek-R1-Distill-Qwen-1.5B"
+414,W7135429410,D,"Gemini-2.5-Pro, Gemini-3-Flash, GPT-5-mini, o4-mini, Qwen3-VL-235B-Instruct, Qwen3-VL-32B-Instruct"
+415,W7164233451,D,"GPT-5, Llama-3.2-Vision, GPT-4o"
+418,W7166800957,D,"Qwen3-1.7B, Qwen3-4B, Qwen3-8B, Qwen3-14B, DeepSeek-V3.2, GPT-5-2025-08-07"
+421,W7202032726,D,gpt-5-2025-08-07
+422,W7139043635,D,o3-mini
+423,W4415316359,D,"Gemma-2-9B-it, Llama-3-8B-Instruct, GPT-4-Turbo-1106, Qwen2-72B-Instruct, GPT-4, GPT-4o-05-13, Claude-3.5-Sonnet, GPT4-Turbo-04-09, Llama-3-8B-Instruct-SimPO, Self-Rewarding-70B-Iter3, Llama-3-8B-Magpie-SFT-v0.1, Gemma-2-9B-SPPO-Iter3, Gemma-2-9B-it-SimPO, Yi-34B-Chat, ArmoRM-Llama3-8B-v0.1, GPT-4o, GPT-4o-mini, LLaMA-3.3-70B, LLaMA-3.1-70B, Qwen-2.5-72B, Llama-3.2-3B-Instruct, Gemma-2-2B-it"
+427,W7165817774,D,"Qwen2.5VL-7B, Gemini 2.5 Pro, Qwen-Max"
+430,W7158422334,D,"Gemini-2.5-Pro-Thinking, O3, GPT-5, Claude-Sonnet-4.5, Qwen3-VL-32B-Instruct, Qwen3-VL-8B-Instruct, GLM-4.5V, Step-3, UI-Tars-1.5, UGround-V1-7B, OS-Atlas-Base-7B, Qwen2-VL-7B-Instruct, Holo2-8B, OpenCUA-72B, OpenCUA-32B, OpenCUA-7B, UI-Venus-Ground-72B, UI-Venus-Ground-7B, GUI-R1-7B, InfiGUI-G1-7B"
+431,W7166798430,D,"Qwen3-0.6B, Qwen3-4B, Llama3.1-8B, GPT-4o, DeepSeek-V3, GPT-4.1, Claude-4-Sonnet, Gemini-2.5-Pro, Kimi-K2, Qwen3-8B, Groq-8B-Tool-Use, ToolACE-8B, GPT-4o-Mini, GPT-4.1-nano"
+434,W7166836617,D,"GLM-4-32B, Qwen2.5-32B, Ministral-3-14B, GPT-5.2, DeepSeek-V3.2, GPT-4.1-mini, GPT-4.1-nano, GPT-4.1, Qwen2.5-14B, GLM-4-9B, Qwen2.5-7B, Ministral-3-8B, Qwen2.5-1.5B, Qwen2.5-0.5B"
+437,W4392780998,D,gpt-4-turbo
+438,W4404306985,D,"gpt-3.5-turbo-0125, gpt-4o-2024-05-13"
+439,W4416831911,D,"Qwen-2.5-Coder-7B, Qwen-2.5-Coder-14B, Qwen-2.5-Coder-32B, Qwen-2.5-72B, Mistral-Large-2, GPT-4.1, Claude-4-Sonnet, o3-mini, Gemini-2.5-pro, Claude-3.5-Sonnet"
+442,W4416036235,D,"GPT-4o, Deepseek-V3, GPT-4o-mini, Claude-3-Sonnet, o3-mini, Qwen-Plus, Llama-2"
+444,W4415947839,D,"GPT-o3, GPT-o4-mini, Claude Sonnet 4, Llama 3.3-70B, Qwen3-235B, Qwen3-32B"
+445,W7140076111,D,"GPT3.5-turbo, Qwen2.5-14B, GPT4.1-nano, LLaMA3.1-8B, Qwen2.5-7B, Dsk-R1-Qwen-14B, DeepSeek-R1"
+446,W7125353054,D,"GPT-5-mini, GPT-5-nano, GPT-4.1-mini, GPT-4.1-nano, GPT-4o-mini, Gemini-2.5-flash, Gemini-2.5-flash-lite, Gemini-2.0-flash, Gemini-2.0-flash-lite, Nova-pro-v1, Nova-lite-v1, Nova-micro-v1, Llama-4-maverick-17b, Llama-4-scout-17b, Llama-3.3-70b, Llama-3.2-3b, Llama-3.1-8b, Mistral-7b-instruct-v0.2, Mixtral-8x7b-instruct-v0.1, Qwen3-32b, Qwen3-coder-30b-a3b, GPT-4.1"
+450,W4412928947,D,"o4-mini, GPT-4 Turbo, GPT-4.1, o3-mini"
+453,W4409335551,D,o3-mini
+459,W4410868719,D,GPT-4 Turbo
+461,W4416296392,D,"Deepseek R1, o1, o3 mini, Gemini 2.5 Pro, Gemini 2.0 Flash, QwQ"
+463,W7105613620,D,"gpt-4.1-nano, gpt-4.1-mini, gpt-4o-mini, Llama3.2, DeepSeek-Chat"
+465,W4411993048,D,"GPT-3.5-turbo, Llama-2-7b-chat-hf"
+468,W7161151677,D,"ChatGPT-4o, LLaMA 3 70B, MedItron:7b, Gemma, Mistral, MedLLaMA2"
+470,W7155063361,D,"GPT-5 Chat v2026-01, Llama 4 Maverick v2026-05, Grok 4.20 v2026-05, o3-pro v2026-05, GPT-5.2 v2026-01, Claude Haiku 4.5 v2026-01, Claude Sonnet 4.6 v2026-05, GPT-5 Mini v2026-01, GPT-OSS 120B v2026-01, Claude Opus 4.7 v2026-05, DeepSeek R1 v2026-05, Gemini 3 Pro Preview v2026-01"
+471,W7165914965,D,"gpt-5-2025-08-07, Gemini 3"
+474,W4403578738,D,"GPT-4o, GPT-4-Turbo"
+476,W4401042768,D,GPT-4-Turbo
+484,W4416309081,D,"GPT-3.5-turbo, GPT-4-turbo, GPT-4o-mini, GPT-5, GPT-5-mini, o4-mini"
+487,W7143942176,D,gpt-4-turbo
+489,W7154948972,D,"LLaMA2-70B-Chat, GPT-4, gpt-4-turbo-2024-04-09, LLaMA3.1-70B-Chat"
+494,W4417066576,D,o4-mini
+500,W7172210115,D,"GPT-OSS, LLaMA 3.1, GPT-4 Turbo"

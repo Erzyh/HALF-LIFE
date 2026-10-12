@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4405096592",
+ "title": "System Test Case Design from Requirements Specifications: Insights and Challenges of Using ChatGPT",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT-4o Turbo model",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "\"For generating test case designs, we used ChatGPT-4o Turbo model. We employed prompt-chaining, starting with an initial context-setting prompt, followed by prompts to generate test cases for each use case.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Abstract/Sec 3 (prompt-chaining approach described: initial context-setting prompt, then per-use-case generation prompts)",
+  "note": "Approach is described; literal prompt text not located in the retrieved excerpt."
+ },
+ "claim": {
+  "metric": "percentage of generated test cases judged valid by developer teams",
+  "value": 87,
+  "n_items": null,
+  "location": "Abstract: \"about 87 percent of the generated test cases were valid, with the remaining 13 percent either not applicable or redundant\" (5 SRS documents; exact total test-case count not stated as one number in the retrieved text)",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "SRS documents from five software engineering course/industry projects; not released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "alias_unpinned",
+  "webui"
+ ],
+ "notes": "\"ChatGPT-4o Turbo\" is not a real, distinguishable model identifier (conflates GPT-4o and GPT-4 Turbo naming); no API access is described (consistent with the consumer ChatGPT interface), and the validity judgment is made by the original developer teams (human_outcome-adjacent), not an automated score."
+}

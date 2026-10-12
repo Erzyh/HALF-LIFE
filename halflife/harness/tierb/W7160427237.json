@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7160427237",
+ "title": "EQUITRIAGE: A Fairness Audit of Gender Bias in LLM-Based Emergency Department Triage",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-Nano",
+  "resolved": "gpt-4.1-nano",
+  "role": "S",
+  "evidence": "Abstract: \"evaluating five models (Gemini-3-Flash, Nemotron-3-Super, DeepSeek-V3.1, Mistral-Small-3.2, GPT-4.1-Nano) across 374,275 evaluations\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "ANOMALY: extracted text is only the arXiv abstract/listing page; Methods/Appendix/prompt text is not present."
+ },
+ "claim": {
+  "metric": "flip rate (gender-swapped counterfactual ESI triage assignment), GPT-4.1-Nano",
+  "value": null,
+  "n_items": 374275,
+  "location": "Abstract (\"All five models produced flip rates above a pre-registered 5% threshold (9.9% to 43.8%)\"); per-model GPT-4.1-Nano value not broken out in the abstract text available",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "MIMIC-IV-ED v2.2 and MIMIC-IV v3.1 -- PhysioNet credentialed access (BIDMC IRB #2001P001699), per the paper's own \"Comments\" field"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "ANOMALY: external/papers_tierb/W7160427237.txt contains only the arXiv abstract/landing page, not the full paper (no Methods, Appendix, or prompt text available), matching the pattern seen for W7127959504. Independent of that, the clinical vignette data (MIMIC-IV-ED / MIMIC-IV) requires PhysioNet credentialed access (CITI training + data use agreement), which blocks this record under data_closed even though role/claim otherwise look solid (role S, a large public-adjacent benchmark, clear numeric claims)."
+}

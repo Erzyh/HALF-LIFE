@@ -1,0 +1,56 @@
+{
+  "wid": "W4411120580",
+  "title": "QSpell 250K: A Large-Scale, Practical Dataset for Chinese Search Query Spell Correction",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 0.4416,
+  "original_location": "Table 3, row 'Prompt GPT4', QSpell 250K columns (P 0.7409, R 0.3146, F1 0.4416)",
+  "reexecution": {
+    "mean_over_seeds": 0.6048707753479126,
+    "per_seed": {
+      "0": {
+        "value": 0.6048707753479126,
+        "n": 4459,
+        "ci95": [
+          0.5866969817020513,
+          0.6225562427408606
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411120580",
+    "n_items": 4459,
+    "n_requests": 4459,
+    "seeds": 1,
+    "est_usd": 2.9,
+    "subset_note": "cost cap $2.9: seeded random subset of 4459 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 0.4416,
+    "cap_usd": 2.9
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 50
+  },
+  "approximation": "The paper averages five runs per model ('For each model, we obtained the average from five experiments', Sec. 4.4); one seed is run here, and the harness's item-level resampling gives the interval instead. The released test file holds one line more than the stated 50,000 and its last two lines are offset against the released prediction file, which the authors' evaluation script pairs positionally; this run pairs each query with the correction on its own line, so that offset does not apply.",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4411120580"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.6048707753479126,
+    "delta": 0.16327077534791257,
+    "original_inside_ci95": false
+  }
+}

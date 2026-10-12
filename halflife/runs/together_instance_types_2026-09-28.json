@@ -1,0 +1,780 @@
+{
+ "data": [
+  {
+   "id": "ins_CbJEQJq2M4EdXKo8zWt4V",
+   "name": "1xnvidia-h100-80gb",
+   "description": "NVIDIA H100 80GB HBM3",
+   "gpuType": "h100-80gb",
+   "gpuCount": 1,
+   "gpuMemoryGib": 80,
+   "priceCentsPerHour": 399,
+   "regions": [
+    {
+     "name": "ca-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-central-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-north-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-4",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-5",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-central-6",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-4",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CbJEsbgXmrR5nuKM2jJvG",
+   "name": "2xnvidia-h100-80gb",
+   "description": "NVIDIA H100 80GB HBM3",
+   "gpuType": "h100-80gb",
+   "gpuCount": 2,
+   "gpuMemoryGib": 80,
+   "priceCentsPerHour": 798,
+   "regions": [
+    {
+     "name": "ca-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-central-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-north-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-4",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-5",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-central-6",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-4",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CbJEugN8RRtfHCsCbu7ms",
+   "name": "4xnvidia-h100-80gb",
+   "description": "NVIDIA H100 80GB HBM3",
+   "gpuType": "h100-80gb",
+   "gpuCount": 4,
+   "gpuMemoryGib": 80,
+   "priceCentsPerHour": 1596,
+   "regions": [
+    {
+     "name": "ca-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-central-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-north-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-4",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-5",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-central-6",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-4",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CbJExJDhnm4A9PAiMCSZV",
+   "name": "8xnvidia-h100-80gb",
+   "description": "NVIDIA H100 80GB HBM3",
+   "gpuType": "h100-80gb",
+   "gpuCount": 8,
+   "gpuMemoryGib": 80,
+   "priceCentsPerHour": 3192,
+   "regions": [
+    {
+     "name": "ca-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-central-1",
+     "headroom": {
+      "value": 3,
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-north-1",
+     "headroom": {
+      "value": 4,
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "eu-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-4",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-5",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-central-6",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-4",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CbZewxokWY9PDCRMyxTAn",
+   "name": "1xnvidia-b200-180gb",
+   "description": "NVIDIA B200 180GB",
+   "gpuType": "b200-180gb",
+   "gpuCount": 1,
+   "gpuMemoryGib": 180,
+   "priceCentsPerHour": 899,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-3",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-west-3",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CbZfLpXozCx1WRBktZcRs",
+   "name": "2xnvidia-b200-180gb",
+   "description": "NVIDIA B200 180GB",
+   "gpuType": "b200-180gb",
+   "gpuCount": 2,
+   "gpuMemoryGib": 180,
+   "priceCentsPerHour": 1798,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-3",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-west-3",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CbZfP4dSZiX2WYGa9YRdg",
+   "name": "4xnvidia-b200-180gb",
+   "description": "NVIDIA B200 180GB",
+   "gpuType": "b200-180gb",
+   "gpuCount": 4,
+   "gpuMemoryGib": 180,
+   "priceCentsPerHour": 3596,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-3",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-west-3",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CbZfR2L5cXNAhWC2WgcZ8",
+   "name": "8xnvidia-b200-180gb",
+   "description": "NVIDIA B200 180GB",
+   "gpuType": "b200-180gb",
+   "gpuCount": 8,
+   "gpuMemoryGib": 180,
+   "priceCentsPerHour": 7192,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-east-3",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": [
+      {
+       "policy": {
+        "hipaa": true
+       },
+       "headroom": {
+        "value": 5,
+        "relation": "RELATION_GTE"
+       }
+      }
+     ]
+    },
+    {
+     "name": "us-west-3",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CdFyvYkCrSNB7cFztpPjt",
+   "name": "1xnvidia-gb300-280gb",
+   "description": "NVIDIA GB300 280GB",
+   "gpuType": "gb300-280gb",
+   "gpuCount": 1,
+   "gpuMemoryGib": 280,
+   "priceCentsPerHour": 1200,
+   "regions": [
+    {
+     "name": "us-south-3",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CdFyvZWLZ852McmAJpCA8",
+   "name": "2xnvidia-gb300-280gb",
+   "description": "NVIDIA GB300 280GB",
+   "gpuType": "gb300-280gb",
+   "gpuCount": 2,
+   "gpuMemoryGib": 280,
+   "priceCentsPerHour": 2400,
+   "regions": [
+    {
+     "name": "us-south-3",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CdFyvZhVTCH2MwEQnyN9q",
+   "name": "4xnvidia-gb300-280gb",
+   "description": "NVIDIA GB300 280GB",
+   "gpuType": "gb300-280gb",
+   "gpuCount": 4,
+   "gpuMemoryGib": 280,
+   "priceCentsPerHour": 4800,
+   "regions": [
+    {
+     "name": "us-south-3",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CdbbhPbBtUxM1gDhiLFPF",
+   "name": "1xnvidia-h200-140gb",
+   "gpuType": "h200-140gb",
+   "gpuCount": 1,
+   "gpuMemoryGib": 140,
+   "priceCentsPerHour": 665,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-8",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CdbbhQG7bydaARmaq9sYJ",
+   "name": "2xnvidia-h200-140gb",
+   "gpuType": "h200-140gb",
+   "gpuCount": 2,
+   "gpuMemoryGib": 140,
+   "priceCentsPerHour": 1330,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 2,
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-8",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CdbbhQtKbyHpAadnwDUjf",
+   "name": "4xnvidia-h200-140gb",
+   "gpuType": "h200-140gb",
+   "gpuCount": 4,
+   "gpuMemoryGib": 140,
+   "priceCentsPerHour": 2660,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 1,
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-8",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CdbbhRmQcScqCmW7w6hxE",
+   "name": "8xnvidia-h200-140gb",
+   "gpuType": "h200-140gb",
+   "gpuCount": 8,
+   "gpuMemoryGib": 140,
+   "priceCentsPerHour": 5320,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    },
+    {
+     "name": "us-central-8",
+     "headroom": {
+      "value": 2,
+      "relation": "RELATION_EQ"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CetcVgrqA3XrGuymy5T7x",
+   "name": "1xnvidia-b300-280gb",
+   "description": "NVIDIA B300 280GB",
+   "gpuType": "b300-280gb",
+   "gpuCount": 1,
+   "gpuMemoryGib": 280,
+   "priceCentsPerHour": 1199,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CetcVh3yvQHieQMg86qZZ",
+   "name": "2xnvidia-b300-280gb",
+   "description": "NVIDIA B300 280GB",
+   "gpuType": "b300-280gb",
+   "gpuCount": 2,
+   "gpuMemoryGib": 280,
+   "priceCentsPerHour": 2398,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CetcVhYzaWaqZE7Kz8ibQ",
+   "name": "4xnvidia-b300-280gb",
+   "description": "NVIDIA B300 280GB",
+   "gpuType": "b300-280gb",
+   "gpuCount": 4,
+   "gpuMemoryGib": 280,
+   "priceCentsPerHour": 4796,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  },
+  {
+   "id": "ins_CetcVhjQpuN8brgT8fsKX",
+   "name": "8xnvidia-b300-280gb",
+   "description": "NVIDIA B300 280GB",
+   "gpuType": "b300-280gb",
+   "gpuCount": 8,
+   "gpuMemoryGib": 280,
+   "priceCentsPerHour": 9592,
+   "regions": [
+    {
+     "name": "ca-west-1",
+     "headroom": {
+      "value": 5,
+      "relation": "RELATION_GTE"
+     },
+     "compliance": []
+    }
+   ]
+  }
+ ],
+ "object": "list"
+}

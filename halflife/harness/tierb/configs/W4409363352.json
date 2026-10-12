@@ -1,0 +1,69 @@
+{
+ "wid": "W4409363352",
+ "title": "Nuance Matters: Probing Epistemic Consistency in Causal Reasoning",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 1024,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (the AAAI text at hand states no decoding parameters)",
+  "seeds": 1
+ },
+ "task": {
+  "type": "other",
+  "n_items": 1970,
+  "subset_rule": "all 1,970 defeasible cause-effect pairs of the epsilon-CAUSAL dataset (Cui et al. 2024b), Sec. 4.1",
+  "approximation": "two dependent calls per pair (generate ten intermediates, then re-rank them with the same model), which the mini-language cannot express; the ranking prompt has to be built from the first call's output, so a hook using judge_requests / score_with_judge would be required"
+ },
+ "items": {
+  "source_type": "url",
+  "source": "epsilon-CAUSAL (Cui et al. 2024b), 1,970 defeasible cause-effect pairs, each with one supporting and one defeating preliminary intermediate. The paper points at https://github.com/cui-shaobo/causal-consistency for code; that repository holds only evaluation scripts (README.md, evaluation_main*.py, metrics/, random_ranking_baseline.py, ranking_with_conjunctions.py) - the closedSourceScripts/ and data directories its README documents were never pushed, and no Hugging Face dataset with this name exists.",
+  "config_or_split": "unresolved",
+  "filter": null,
+  "fields": {
+   "input": "cause-effect pair plus one supporter and one defeater",
+   "label": "none - the gold order is the model's own generation order"
+  },
+  "license": "unknown",
+  "access_checked": true,
+  "size_mb": null,
+  "file_url": null
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": {},
+  "few_shot": "none",
+  "source_location": "Figure 6 (intermediate-generation prompt) and Figure 7 (intermediate-ranking prompt)",
+  "verbatim": "none in the version at hand - the AAAI camera-ready text ends at the references (913 lines) and contains no appendix, so Figures 6 and 7 are missing. The paper's own header points at the extended version https://arxiv.org/abs/2409.00103, which carries them."
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "stage 1 must yield ten intermediates in a fixed slot order (g-SD2, g-SD1, g-OD, g-WD1, g-WD2, g-WS2, g-WS1, g-OS, g-SS1, g-SS2 in the repository's CSV convention); stage 2 must yield a permutation of those ten",
+  "parse_paper": "the repository's evaluation reads a CSV of ten integer ranks per pair"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "intensity ranking concordance omega-all = Kendall tau between the generation order I of the ten intermediates and the order I' the same model produces when asked to rank them: ((#concordant pairs) - (#discordant pairs)) / (k(k-1)/2) with k = 10, averaged over the 1,970 pairs (Eq. 2). omega-A and omega-D are the same quantity restricted to the five supporters and the five defeaters.",
+  "judge": "none (the ground truth is the model's own generation order; the same model does the ranking, so no separate judge model is involved)",
+  "original_value": 0.526,
+  "original_location": "Table 1, row GPT-4 Turbo, column omega-all (0.526 +/- 0.510); the same row gives omega-A 0.397, omega-D 0.226, CGP 0.849, IGC 0.942",
+  "bootstrap_unit": "pair",
+  "scale": 1
+ },
+ "cost": {
+  "est_calls": 3940,
+  "est_usd": 65.0,
+  "tier": "high"
+ },
+ "open_points": [
+  "prompt not available: the version of the paper in external/papers_tierb has no appendix, so the generation prompt (Figure 6) and the ranking prompt (Figure 7) are not in hand; the released repository does not contain the generation/ranking scripts its README describes. Both would have to come from the extended arXiv version 2409.00103.",
+  "data not located: epsilon-CAUSAL (Cui et al. 2024b) has no resolved public file - it is not in the causal-consistency repository and not on Hugging Face.",
+  "pipeline: the metric needs two dependent calls per pair and a Kendall-tau scorer; that is a hook (load_items + render + judge_requests + score_with_judge), worth writing only once prompt and data are settled.",
+  "cost: about 3,940 gpt-4-turbo calls with long generations, roughly USD 65 at one seed."
+ ],
+ "notes": "Standard deviations in Table 1 are per-pair, so the reported 0.526 +/- 0.510 already describes the item-level spread; a reproduction would compare the mean and could reuse the paper's own bootstrap unit."
+}

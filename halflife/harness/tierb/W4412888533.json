@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412888533",
+  "title": "HTML: Hierarchical Topology Multi-task Learning for Semantic Parsing in Knowledge Base Question Answering",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Table 1: 'Interactive-KBQA (Xiong et al., 2024) x GPT-4-Turbo - 71.2 - - 49.1 -' (baseline numbers cited from the original paper)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Hits@1",
+    "value": 71.2,
+    "n_items": null,
+    "location": "Table 1 / Table 2, Interactive-KBQA rows (reported, not re-run)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "WebQSP, CWQ"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The live model only appears as the backbone of a cited baseline; the paper fine-tunes LLaMA2-7B/13B."
+}

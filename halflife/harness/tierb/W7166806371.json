@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166806371",
+  "title": "Frankentext: Stitching random text fragments into long-form narratives",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (2025-08-07 checkpoint); o4-mini only in Figure 16; o1-pro mention only",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 3.2: 'GPT-5 (2025-08-07 checkpoint, with high reasoning effort)'; Table 2, Frankentext + 1.5k snippets: 'GPT-5 675 82 92 42 2.76 4.34 0.21 5.88 79'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix Figures 21-23 (generation, revision, editing prompts); Figures 18-20 judge prompts",
+    "note": "each generation is multi-stage (draft, revise, edit) with 1,500 human snippets in context"
+  },
+  "claim": {
+    "metric": "percent of Frankentexts classified as human-written by Pangram",
+    "value": 79,
+    "n_items": 100,
+    "location": "Table 2, row GPT-5 (Frankentext + 1.5k snippets), column Pangram % human",
+    "task_type": "generation",
+    "judge": "other: Pangram detector; llm:gpt-4.1 (coherence, relevance); claude-4-sonnet (Likert)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "writing prompts from Mythos (r/WritingPrompts, 100 used); human-written snippets sampled from Books3, which cannot be redistributed"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Human snippet pool (Books3) is unavailable; Pangram is a commercial detector; two LLM judges (gpt-4.1, claude-4-sonnet) not in the live list. Each Frankentext costs about $0.8-1.2. o4-mini appears only in an earlier-configuration figure (WQRM), o1-pro is cited only."
+}

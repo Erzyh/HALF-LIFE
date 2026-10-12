@@ -1,0 +1,76 @@
+{
+  "wid": "W4397048985",
+  "title": "Many-Shot In-Context Learning in Multimodal Foundation Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "seed": 0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.1 (temperature zero and a fixed random seed for GPT-4o); seed value, max_tokens and top_p assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 210,
+    "subset_rule": "paper-defined split: the paper's own class-balanced random sample of HAM10000 (805 demo / 210 test, Table 1)",
+    "approximation": "the demo/test sampling seed and the demo-set size at 'Best' are not in the text (Figure 7 only); queries batched 50 per request as in the paper's many-shot runs"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "HAM10000 (Tschandl et al. 2018), Harvard Dataverse doi:10.7910/DVN/DBW86T (HAM10000_images_part_1.zip 1.37 GB, HAM10000_images_part_2.zip 1.40 GB, HAM10000_metadata.tab); demo/test sets re-sampled class-balanced from the HAM10000 training data as in Sec. 3.2",
+    "config_or_split": "none (paper-specific random split: 805 demo / 210 test, class-balanced over the 7 classes)",
+    "filter": "none",
+    "fields": {
+      "input": "image (image_id.jpg)",
+      "options": "class_desp = the 7 HAM10000 diagnosis names",
+      "label": "dx (akiec, bcc, bkl, df, mel, nv, vasc)",
+      "id": "image_id"
+    },
+    "license": "CC BY-NC 4.0 (Harvard Dataverse dataset page)",
+    "access_checked": true,
+    "size_mb": 2800
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{demo_blocks}{query_blocks}{format_blocks}",
+    "placeholders": {
+      "demo_blocks": "for each of the N demo images (class-balanced, drawn from the 805-image demo set): <<IMG>>Given the image above, answer the following question using the specified format.\\nQuestion: What is in the image above?\\nChoices: {class_desp}\\nAnswer Choice: {demo_answer}\\n",
+      "query_blocks": "for each of the up-to-50 test images in the batch (qn_idx = 1..batch size): <<IMG>>Given the image above, answer the following question using the specified format.\\nQuestion {qn_idx}: What is in the image above?\\nChoices {qn_idx}: {class_desp}\\n",
+      "format_blocks": "for each query index qn_idx in the batch: \\nPlease respond with the following format for each question:\\n---BEGIN FORMAT TEMPLATE FOR QUESTION {qn_idx}---\\nAnswer Choice {qn_idx}: [Your Answer Choice Here for Question {qn_idx}]\\nConfidence Score {qn_idx}: [Your Numerical Prediction Confidence Score Here From 0 To 1 for Question {qn_idx}]\\n---END FORMAT TEMPLATE FOR QUESTION {qn_idx}---\\nDo not deviate from the above format. Repeat the format template for the answer.",
+      "class_desp": "Python str() of the list of the 7 class names (e.g. \"['actinic keratoses', 'basal cell carcinoma', ...]\") as passed by the paper's code; exact class strings must be taken from the paper's code release",
+      "demo_answer": "class name of the demo image",
+      "<<IMG>>": "the image attached at that position of the message (one image part per <<IMG>>)"
+    },
+    "few_shot": "many-shot: N demonstration images from the 805-image demo set at the best demo-set size for HAM10000 (N is read from Figure 7, not printed in the text; the paper scales N log-linearly up to the full demo set)",
+    "source_location": "Appendix A.2 (batched image-classification prompt; A.1 is the single-query form)",
+    "verbatim": "partial: the f-string code of Appendix A.2 is rendered as text; the extraction's line-continuation marks ('question-\\nusing', 'Here-\\nFrom') were re-joined; class_desp strings are not printed"
+  },
+  "output": {
+    "parse": "regex 'Answer Choice (\\d+): (.+)' per question in the batched reply; the answer string is matched to a class name in class_desp",
+    "postprocess": "strip, lowercase, exact match on the class name; unparsable or missing answers count as incorrect (Sec. 3.3)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 210 test images whose predicted class equals dx, at the best demo-set size",
+    "judge": "none",
+    "original_value": 53.59,
+    "original_location": "Table 2, row HAM10000, column GPT-4o Best (zero-shot 34.93)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 5,
+    "est_usd": 8.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "The demo-set size behind 'Best' (53.59) for HAM10000/GPT-4o is only in Figure 7 (image); read it from the PDF or the authors' code release before the run.",
+    "The 805/210 demo/test split of HAM10000 is a paper-specific random class-balanced sample whose seed is not printed; check whether the code release ships the split, otherwise draw a seeded split (seed 20260907) and treat the comparison as set-level.",
+    "Image detail level (low/high) for the ~855 images per request is not stated; with high detail the request exceeds the 128k context, so 'low' is the only feasible reading.",
+    "Exact class_desp strings (the 7 class names as passed to the prompt) must be taken from the code release."
+  ],
+  "notes": "Cost is dominated by image tokens: 5 batched requests per seed, each with up to 805 demo images plus 50 queries (~73k tokens at low detail). Cheap fallback: zero-shot column (34.93) needs 5 batched calls without demos. Table 2 'Best' is the maximum over demo sizes and is optimistically biased."
+}

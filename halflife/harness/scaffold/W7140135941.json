@@ -1,0 +1,64 @@
+{
+  "openalex_id": "https://openalex.org/W7140135941",
+  "title": "Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty",
+  "doi": "https://doi.org/10.18653/v1/2026.eacl-long.291",
+  "field": "Health Professions",
+  "year": "2026",
+  "live_models": "gpt-4.1-nano|gpt-4.1-nano-2025-04-14",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/sravanthi6m/MedAbstain",
+    "huggingface.co/blog/leaderboard-medicalllm4https",
+    "huggingface.co/collections/Qwen",
+    "huggingface.co/collections/meta-llama",
+    "huggingface.co/google/gemma-3-4b-it",
+    "huggingface.co/google/gemma-3-4b-it12https",
+    "huggingface.co/google/medgemma-4b-it",
+    "huggingface.co/google/medgemma-4b-it13https",
+    "huggingface.co/meta-llama/Llama-3",
+    "huggingface.co/meta-llama/Llama-3.1-8B7https",
+    "huggingface.co/microsoft/Phi-4-mini-instruct8https",
+    "huggingface.co/microsoft/phi-4",
+    "huggingface.co/microsoft/phi-46166"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/sravanthi6m/MedAbstain",
+      "cloned": true,
+      "audit": {
+        "n_files": 65,
+        "ext_top": {
+          ".py": 33,
+          ".sh": 15,
+          ".json": 10,
+          "": 3,
+          ".md": 1,
+          ".txt": 1,
+          ".jpg": 1,
+          ".csv": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 33,
+        "n_data_files": 11,
+        "files_mentioning_prompt": 23,
+        "files_with_eval_terms": 20,
+        "model_ids_in_code": {
+          "o3": 82,
+          "o1": 2,
+          "gpt-4o": 1,
+          "gpt-4": 1,
+          "o4": 1,
+          "gpt-4o-mini": 1
+        },
+        "readme_head": "# MedAbstain\n\n### Official Codebase for \"Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty\" (EACL 2026)\n\n[![Conference](https://img.shields.io/badge/EACL-2026-red)](https://2026.eacl.org/)\n[![License: CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]\n\nOfficial codebase for [**\"Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty\"**](https://arxiv.org/abs/2601.12471) **(EACL 2026)**\n\n**MedAbstain** is a unified benchmark and evaluation framework that assesses whether medical LLMs can recognize their own uncertainty and abstain accordingly, using **Conformal Prediction** (via Set Sizes). \n\n![Evaluation Pipeline](./figures/overview.jpg)\nOverview of MedAbstain pipeline (above), showing the four question variants we use in our experiments: NA (Original), A (Abstention option), NAP (Adversarial Perturbations), and AP (Abstention + Perturbation).\n\n\n---\n\n## Installation\n\n### 1. Clone Repository\n```bash\ngit clone https://github.com/sravanthi6m/MedAbstain.git\ncd MedAbstain\n```\n\n### 2. Create Virtual Environment\nWe used **Python 3.12.3**. Use `pyenv` to create environment\n```bash\npython3.12 -m venv medabstain_env\nsource medabstain_env/bin/activate\n```\n\n### 3. Install Dependencies\n```bash\npip install -r requirements.txt\n```\n\n### 4. Environment Configuration\nCreate/edit local environment file `./env/.env` to store api keys and local paths.\n```bash\nmkdir -p env\ntouch env/.env\n```\nMake sure the below values are included in `.env`:\n```ini\nOPENAI_API_KEY=sk-...\nPROJECT_ROOT"
+      },
+      "commit": "091e5c22111fffeb51c0c2e69b65d0a21a1e4164"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W7140135941.txt",
+  "paper_text_status": "pdf"
+}

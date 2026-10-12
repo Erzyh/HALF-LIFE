@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7126122929",
+  "title": "Beyond Divergent Creativity: A Human-Based Evaluation of Creativity in Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1 nano (gpt-4.1-nano-2025-04-14)",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "A",
+    "evidence": "Sec. 4 Baselines: 'The Common baseline prompts GPT-4.1 nano with: \"enter 10 words that are most semantically associated with the following cue word: {cue}\"'; fn 9: 'gpt-4.1-nano-2025-04-14'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 4 Baselines (Common-baseline prompt); Appendix B.1 / C.1 for the DAT and CDAT prompts used on the evaluated models",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (diagnostic baseline only)",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 3 (2D landscape plots)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://osf.io/4ng9f/ and https://github.com/knakajima1225/beyond_..."
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-4.1-nano serves only as the 'Common' diagnostic baseline and as a verb/proper-noun filter; it is not among the evaluated models (Appendix A), and the headline evaluation is human-based creativity rating."
+}

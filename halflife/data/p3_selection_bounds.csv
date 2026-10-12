@@ -1,0 +1,8 @@
+﻿assumption_for_unmeasured_eligible,assumed_deviation_share_pct,deviated_among_eligible_pct,carry_over_among_eligible_pct,carry_over_among_candidates_pct,carry_over_among_candidates_pct_if_undecided_all_carry
+no unmeasured eligible paper would deviate (Manski lower bound),0.0,17.6,82.4,15.0,32.0
+half the measured share,26.4,35.2,64.8,11.8,28.8
+three quarters,39.6,44.0,56.0,10.2,27.2
+the measured share,52.8,52.8,47.2,8.6,25.6
+1.25 times,66.0,61.6,38.4,7.0,24.0
+1.5 times,79.2,70.4,29.6,5.4,22.4
+every unmeasured eligible paper would deviate (Manski upper bound),100.0,84.3,15.7,2.9,19.8

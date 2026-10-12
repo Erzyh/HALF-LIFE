@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403810020",
+  "title": "Controlled LLM-based Reasoning for Clinical Trial Retrieval",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo / GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Abstract: \"evaluated on TREC 2022 Clinical Trials, achieving results superior to SOTA: NDCG@10 of 0.693 and Precision@10 of 0.73\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3-4 (multi-stage pipeline description)",
+    "note": "Procedure is described stage by stage (entity extraction, deontic eligibility classification, re-ranking prompts) but no literal prompt template or Appendix listing was found."
+  },
+  "claim": {
+    "metric": "NDCG@10, ovC method vs. TREC 2022 SOTA/Median",
+    "value": 0.693,
+    "n_items": 50,
+    "location": "Abstract; Sec. 5 (Table 2, TREC 2022 Clinical Trials Track results)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TREC 2022 Clinical Trials Track (375,581 CTRs from ClinicalTrials.gov), official public benchmark"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Multi-stage pipeline (initial retrieval, deontic re-ranking over up to 25 candidate trials per topic, diagnosis extraction) means several LLM calls per one of 50 TREC topics; est_calls/tier are approximate given the missing exact prompt text and per-topic call count."
+}

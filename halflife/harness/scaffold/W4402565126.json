@@ -1,0 +1,16 @@
+{
+  "openalex_id": "https://openalex.org/W4402565126",
+  "title": "Cultural bias and cultural alignment of large language models",
+  "doi": "https://doi.org/10.1093/pnasnexus/pgae346",
+  "field": "Psychology",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-3.5-turbo-0613|gpt-4-0613|text-davinci-002",
+  "flags": "",
+  "all_links": [
+    ""
+  ],
+  "candidate_repos": [],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4402565126.txt",
+  "paper_text_status": "error:HTTPError"
+}

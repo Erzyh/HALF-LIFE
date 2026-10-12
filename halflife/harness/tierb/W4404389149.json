@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4404389149",
+  "title": "A Guide to Misinformation Detection Data and Evaluation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-0409 / GPT-4-0125",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "Sec. 4: 'use GPT-4-0125 in two ways: directly prompting the LLM ... and providing the LLM a web search tool'; Appendix C.1: 'main agent LLM (OpenAI gpt-4-turbo-0409)'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B.3.1-B.3.2 (feasibility prompts for gpt-4o-mini); Appendix C (score-based evaluator prompt); veracity prompt only described",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1 (Search) (%)",
+    "value": 78.8,
+    "n_items": null,
+    "location": "Table 2, row Check-COVID, column F1 (Search)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "75 surveyed misinformation datasets (Table 4), many public"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "aux_model_dead"
+  ],
+  "notes": "Text conflicts on the model (GPT-4-0125 preview vs gpt-4-turbo-0409); the search setting depends on live web retrieval via a Cohere command-r search agent; GPT-4-Turbo-0409 is also used as an evaluator (role A) with 5 runs at temperature 0."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414812774",
+  "title": "Adaptive Batch-Wise Sample Scheduling for Direct Preference Optimization",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "dead-preview",
+    "role": "A",
+    "evidence": "Table 4 'Evaluation details': 'AlpacaEval 2 805 GPT-4 Turbo GPT-4 Turbo Pairwise comparison'; 'MT-Bench 80 - GPT-4 Turbo Single-answer grading'."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not printed (AlpacaEval 2 / MT-Bench default judge prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "AlpacaEval 2 LC win rate of DPO-trained models (judged by GPT-4 Turbo)",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 1 and 3",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-1106-preview"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AlpacaEval 2, MT-Bench; https://github.com/hzx122/SamS"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "AlpacaEval 2's standard annotator is gpt-4-1106-preview (retired); the live model is judge only."
+}

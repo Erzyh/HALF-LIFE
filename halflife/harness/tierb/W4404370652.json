@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W4404370652",
+  "title": "Data Fusion of Synthetic Query Variants With Generative Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 3.1: 'we rely on OpenAI's gpt-4o. At the time of our experiments, this identifier points to the model version gpt-4o-2024-05-13'; 'fixed seed and a temperature parameter of 0.0'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 3.1, 'Prompt template for strategies P-1, P-2, and P-3' (role line, 100-query request, optional description/narrative and example queries)",
+    "note": "P-3 examples come from TREC Web track 2013/2014 topics 201, 251, 263, 266, 296 (UQV100 variants)."
+  },
+  "claim": {
+    "metric": "nDCG@10 of RRF-fused BM25 rankings over P-2 query variants, Core17",
+    "value": 0.522,
+    "n_items": 50,
+    "location": "Table 1, block Core17, row d P-2, column NDCG@10",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "TREC Core17 (NYT, LDC2008T19), Core18 (WaPo), Robust04 (Disks 4&5), Robust05 (AQUAINT) need NIST/LDC licences; topics/qrels public; code and generated queries at https://github.com/breuert/sigirap24"
+  },
+  "cost": {
+    "est_calls": 50,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Retrieval side needs a BM25 index of the licensed corpus and RRF (k=60); the released query-variant sets allow a direct comparison of the LLM stage. Whole study cost the authors ~$22.50.",
+  "resolution": {
+    "gap": "other",
+    "plan": "nDCG@10 requires BM25 retrieval over the New York Times Annotated Corpus (LDC2008T19, footnote 7), which is licence-gated, and the other three collections (Washington Post, Disks 4&5, AQUAINT) are agreement-gated as well, so the reported number cannot be recomputed from public inputs. Only the LLM stage (P-2 variants for the 50 Core17 topics, prompt in Sec. 3.1, gpt-4o-2024-05-13 at temperature 0 with a fixed seed) can be re-run and compared with the released variant sets at github.com/breuert/sigirap24, which is not the paper's number.",
+    "approximation": "n/a (corpus is licensed, not public)",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

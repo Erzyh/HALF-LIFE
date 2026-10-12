@@ -1,0 +1,92 @@
+{
+  "wid": "W4401545735",
+  "title": "Designing Heterogeneous LLM Agents for Financial Sentiment Analysis",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 64,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; resolution plan: temperature 0) | 2026-09-09: max_tokens 16 -> 64 (16 truncated 1,404 of 6,792 replies in batch 1)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 2264,
+    "subset_rule": "all (Financial PhraseBank 100%-agreement subset)",
+    "approximation": "Naive prompt is the BloombergGPT FSA template quoted in Sec. 2.2 (resolution plan); Figure 3 (image) may show slightly different wording; answers mapped to the three classes by string match.",
+    "n_items_prepare": 2264
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "takala/financial_phrasebank",
+    "config_or_split": "sentences_allagree / train (2,264 rows: 570 positive, 303 negative, 1,391 neutral, matching Table 2)",
+    "filter": null,
+    "fields": {
+      "input": "text",
+      "label": "label",
+      "id": null
+    },
+    "license": "cc-by-nc-sa-3.0",
+    "access_checked": true,
+    "size_mb": 0.7,
+    "hf": {
+      "dataset": "mteb/FinancialPhrasebankClassification",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_paper": {
+      "input": "sentence",
+      "label": "label (0 negative, 1 neutral, 2 positive)",
+      "id": "row index"
+    },
+    "label_map": {
+      "0": "negative",
+      "1": "neutral",
+      "2": "positive"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{sentence} Question: what is the sentiment? Answer with negative/neutral/positive.",
+    "placeholders": {
+      "sentence": "items.text"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 2.2 (BloombergGPT FSA template '[TEST MESSAGE] Question: what is the sentiment? Answer with negative/neutral/positive.'), used as the single-LLM naive prompt per the resolution plan",
+    "verbatim": "full",
+    "placeholders_paper": {
+      "sentence": "items.input ([TEST MESSAGE])"
+    }
+  },
+  "output": {
+    "parse": "label from set [negative, neutral, positive]",
+    "postprocess": "lowercase, first occurrence; no match = incorrect",
+    "parse_paper": "label from set [negative, neutral, positive]"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of sentences whose predicted label equals the FPB label (macro-F1 77.99 is the secondary cell)",
+    "judge": "none",
+    "original_value": 74.57,
+    "original_location": "Table 4, row GPT-4 (gpt-4o-2024-05-13), column FPB Acc.",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 6792,
+    "est_usd": 34.0,
+    "tier": "mid",
+    "est_usd_prepare": 3.55,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [
+    "[triage 2026-09-09 g1] max_tokens=16 (assumed) truncates 1,404 of 6,792 replies (finish_reason length); 53 per seed end before any label ('The sentiment of the statement ...', 52 of them gold neutral) and count as wrong: at most +2.3 pp; fixing needs a re-run with max_tokens >= 64 (about USD 3.6) - not done."
+  ],
+  "notes": "Table 4 also gives FiQA Acc. 87.68 (771 items, positive/negative after |score|>0.3 filtering) as an alternative cell. || [normalize 2026-09-07] takala/financial_phrasebank ships only FinancialPhraseBank-v1.0.zip plus a loading script (no parquet conversion), so the runner reads the mirror mteb/FinancialPhrasebankClassification default/train: 2,264 rows, columns text, label with 1,391 x 1 / 570 x 2 / 303 x 0 = exactly the sentences_allagree class counts (0 negative, 1 neutral, 2 positive). Other mirrors hold the same 2,264 sentences only as train/test pairs (FinanceMTEB 1,264 + 1,000; gtfintechlab 1,584 + 680), which the single-split runner cannot combine. || [triage 2026-09-09 g1] DEVIATION. Subset (sentences_allagree 2,264 = Table 2) and cell (Table 4 row 'GPT-4' = naive prompting with gpt-4o-2024-05-13, FPB Acc. 74.57) confirmed. Replies are clean single labels; per-seed confusion neutral->positive 108, positive->neutral 48, neutral->negative 27. Hook added (first-occurrence label; the runner's generic 'label from set' returns the first label in list order and read 'Neutral. ... does not convey any positive or negative sentiment' as negative in 21 replies): 89.53 -> 89.83 (per seed 89.7/90.0/89.8). Snapshot pinned (6 fingerprints), so the +15 pp gap points to the paper's unreported naive-prompt wording (Fig. 3 image) / answer parsing rather than model drift. Before/after: result_before_triage.json / result.json.",
+  "hook": "harness/tierb/hooks/W4401545735.py: parse (first occurrence of negative|neutral|positive); items/prompt/metric = runner"
+}

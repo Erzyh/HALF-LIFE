@@ -1,0 +1,67 @@
+{
+  "wid": "W4416036577",
+  "title": "Cross-domain Rumor Detection via Test-Time Adaptation and Large Language Models",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "accuracy",
+  "original_value": 0.643,
+  "original_location": "Table 1, row GPT-4o, block Source TWITTER / Target Twitter-COVID19, column Acc.",
+  "reexecution": {
+    "mean_over_seeds": 0.5225,
+    "per_seed": {
+      "0": {
+        "value": 0.525,
+        "n": 400,
+        "ci95": [
+          0.4775,
+          0.575
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.515,
+        "n": 400,
+        "ci95": [
+          0.465,
+          0.565
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.5275,
+        "n": 400,
+        "ci95": [
+          0.4775,
+          0.5775
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416036577",
+    "n_items": 400,
+    "n_requests": 1200,
+    "seeds": 3,
+    "est_usd": 1.74,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4o-2024-05-13",
+    "metric": "accuracy",
+    "original_value": 0.643,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 6
+  },
+  "approximation": "The paper does not say which Table 7 variant produced the Table 1 GPT-4o baseline ('base' assumed, per the resolution plan); <Event content> is taken as the source post text (thread not included); decoding parameters unstated; tweet availability may have decayed.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.5225,
+    "delta": -0.12050000000000005,
+    "original_inside_ci95": false
+  }
+}

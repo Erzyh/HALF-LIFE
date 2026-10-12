@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7204462071",
+ "title": "AI-Generated Text and Academic Integrity: A Systematic Review of Detection Tools in Educational Settings",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 / GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Table 2: \"GPT-4 / GPT-4 Turbo 9 52.9%\" - a count of how many of the 17 reviewed studies used GPT-4 or GPT-4 Turbo to generate test content for AI-detection tools."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - this is a systematic review of other studies, not an original experiment",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (this paper is a meta-analysis; the live id is only tallied as a methodological characteristic of the 17 surveyed studies, e.g. detection-tool accuracy figures like CopyLeaks 81% belong to those cited studies, not a live call by these authors)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 2 / Sec 3.2 (aggregated characteristics of included studies)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "17 included studies (systematic review corpus), individually public but not aggregated into a released dataset by these authors"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A systematic literature review of AI-text-detection studies; the authors never call any LLM themselves. GPT-4/GPT-4 Turbo is only counted as a content-generation tool used by 9 of the 17 reviewed primary studies."
+}

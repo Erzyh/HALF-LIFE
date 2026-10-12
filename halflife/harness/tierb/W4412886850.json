@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412886850",
+ "title": "Delving into Multilingual Ethical Bias: The MSQAD with Statistical Hypothesis Tests for Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "A",
+  "evidence": "Appendix (GEMBA translation-quality check): \"We randomly sampled 300 questions across three topics and utilized gpt-4o-2024-05-13...an independent model not involved in the generation of the questions.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix (GEMBA-DA/SQM/Stars/Classes prompts)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for gpt-4o's own bias performance (used only as an auxiliary translation-quality judge on a 300-question sample)",
+  "value": null,
+  "n_items": 300,
+  "location": "Table 5",
+  "task_type": "classification",
+  "judge": "llm:gpt-4o-2024-05-13"
+ },
+ "data": {
+  "public": "yes",
+  "source": "MSQAD dataset (paper's own release)"
+ },
+ "cost": {
+  "est_calls": 300,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-4o-2024-05-13 is used only as an auxiliary GEMBA-style translation-quality checker on a 300-question sample, not as one of the main models whose multilingual ethical bias is measured, so there is no S/B-role capability claim for it."
+}

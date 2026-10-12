@@ -1,0 +1,94 @@
+{
+  "wid": "W4403322813",
+  "title": "KGARevion: An AI Agent for Knowledge-Intensive Biomedical QA",
+  "status": "needs_download_check",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 16,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent for API models; open models used Transformers defaults, Appendix C.3.1)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 2000,
+    "subset_rule": "paper-defined split: all expert-tier multiple-choice questions of AfriMed-QA (Sec. 4.4/4.5); 2,000 is an estimate until the CSV is filtered",
+    "approximation": "Item count comes from the public release; plain (non-CoT) E.1 variant assumed for Figure 6 (run the CoT variant as a sensitivity check per the resolution plan); option formatting inside {question} is not printed; some AfriMed-QA items have five options while the template names A-D."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "intronhealth/afrimedqa_v2 (gated: accept terms; CSV afri_med_qa_15k_v2.4_phase_2_15275.csv, 15,275 rows)",
+    "config_or_split": "single CSV, no splits",
+    "filter": "question_type == 'mcq' and tier == 'expert'",
+    "fields": {
+      "input": "question",
+      "options": "answer_options",
+      "label": "correct_answer",
+      "id": "sample_id",
+      "question_type": "question_type",
+      "tier": "tier"
+    },
+    "license": "cc-by-sa-4.0",
+    "access_checked": true,
+    "size_mb": 8.6,
+    "hf": {
+      "dataset": "intronhealth/afrimedqa_v2",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_prose": {
+      "input": "question",
+      "options": "answer_options (best reading)",
+      "label": "correct_answer (best reading)",
+      "id": "sample_id (best reading)"
+    },
+    "label_map": null,
+    "filter_prose": "question_type == 'mcq' and tier == 'expert' (column names are the best reading of the AfriMed-QA paper; unverified because the card is gated)",
+    "access_note": "Hub parquet listing exists (default/train, one file) but the file answers 401 without an accepted-terms token: column names and the label format (letter vs option text) are unverified"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "The following is a multiple-choice medical question. Please select and provide the correct answer from options ‘A’, ‘B’, ‘C’ or ‘D’.\nQuestion: {question}\n{options}\nAnswer:",
+    "placeholders": {
+      "question": "items.question",
+      "options": "options_lettered(answer_options)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix E.1 'Prompts for Evaluating LLMs' (plain variant); the CoT variant inserts 'Let’s think step by step.' after the first sentence",
+    "verbatim": "full; machine form: the options (format not printed) are rendered as 'A. ...' lines on their own line after the question text via a second slot {options}",
+    "user_template_prose": "The following is a multiple-choice medical question. Please select and provide the correct answer from options ‘A’, ‘B’, ‘C’ or ‘D’.\nQuestion: {question}\nAnswer:",
+    "placeholders_prose": {
+      "question": "items.input followed by the options as 'A. ...' lines (format not printed; extend letters to E for five-option items)"
+    }
+  },
+  "output": {
+    "parse": "letter",
+    "postprocess": "strip, first standalone capital letter; none = incorrect",
+    "parse_prose": "letter (A-E)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of expert-tier MCQ items whose parsed letter equals the gold option",
+    "judge": "none",
+    "original_value": 65.0,
+    "original_location": "Sec. 4.4 text and Figure 6, 'Pure LLMs' bar for GPT-4-Turbo",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 6000,
+    "est_usd": 60.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "gated dataset: accept the AfriMed-QA terms with a HF token, then verify the column names (question, answer_options, correct_answer, sample_id, question_type, tier are a best reading), the label format (add items.label_map if correct_answer is an option text or an index rather than a letter) and the expert-MCQ count (n_items is an estimate of ~2,000).",
+    "the runner's hf loader has no token support (anonymous Hub requests) - a mirror at a direct URL or a token-aware fetch is needed."
+  ],
+  "notes": "Dataset page exists (gated, cc-by-sa-4.0) but the column names and the expert-MCQ count could not be read without accepting the terms and downloading; est_calls assumes ~2,000 items.",
+  "runner_gaps": [
+    "items: gated HF datasets (token)"
+  ]
+}

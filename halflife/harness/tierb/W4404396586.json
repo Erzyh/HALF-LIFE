@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404396586",
+ "title": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"the default multimodal LLM we use for all agents (except the ComputerTerminal) is gpt-4o-2024-05-13\"; \"only the GPT-4o variant was evaluated [on WebArena]\", test-set result 30.5% (119 of 390)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 5.1 (WebArena Postmill-clarification prompt text quoted verbatim); Appendix A/B/C (statistical methodology, capability mapping, code definitions)",
+  "note": "One example prompt insert is quoted in full; complete per-agent system prompts are in the publicly released code (aka.ms/magentic-one), not fully reprinted in the paper body."
+ },
+ "claim": {
+  "metric": "WebArena task completion rate (self-imposed held-out test split, GPT-4o-only configuration)",
+  "value": 30.5,
+  "n_items": 390,
+  "location": "Sec 5.2 (\"falling to 30.5% (119 of 390) for the test set\"); Table 1 (WebArena, all 812 tasks reported for the full validation+test pool)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "WebArena, GAIA, AssistantBench (public agent benchmarks); Magentic-One code public at https://aka.ms/magentic-one"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "GAIA and AssistantBench results use a GPT-4o + o1-preview combination (o1-preview is a dead preview, not on the still-callable list), so the WebArena-only, GPT-4o-only result is the cleanest isolated claim for gpt-4o-2024-05-13. Multi-agent web-browsing tasks with screenshots imply many LLM calls per task (est_calls not confidently estimated); high cost tier from agent-loop length and multimodal input alone."
+}

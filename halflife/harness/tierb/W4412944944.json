@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412944944",
+  "title": "BIG5-CHAT: Shaping LLM Personalities Through Training on Human-Grounded Data",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4 turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"OpenAI. 2024. Hello, gpt-4 turbo. Accessed: 2024-10-01.\" (reference list only); no GPT-4 Turbo experiment in the paper"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D.5 (instruction prompt), Table 13 (prompt-keywords)",
+    "note": "Prompts exist for the GPT-4o / GPT-4o-mini personality-test runs, not for GPT-4 Turbo."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4 Turbo is only cited)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "BIG5-CHAT dataset and BFI/IPIP-NEO questionnaires (paper states release)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The models actually run are undated GPT-4o and GPT-4o-mini (Table 1, Table 12: BFI/IPIP-NEO scores under Prompt-Inst/Prompt-Demo) plus LLaMA-3; none of them is a pinned live snapshot in the project list."
+}

@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4411120238",
+  "title": "Multilingual Machine Translation with Open Large Language Models at Practical Scale: An Empirical Study",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT4-turbo (GPT-3.5/4 Turbo)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-3.5/4 Turbo: The translation performance by leveraging the OpenAI API4 with greedy decoding for inference\" (Sec. 3.2); Table 1 row GPT-4-turbo, FLORES-200 en→xx column 37.01/87.14 (spBLEU/COMET)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. 3.2 (in-context template format \"<X>=<Y>\"), Sec. 4.2, Appendix Table 4 (per-language results)", "note": "5 randomly selected FLORES-200 dev sentence pairs used as in-context exemplars per direction; exact exemplar sentences and any system/instruction text are not printed, only the template format."},
+  "claim": {
+    "metric": "spBLEU, FLORES-200 en->xx (5-shot in-context, greedy decoding)", "value": 37.01, "n_items": 27324,
+    "location": "Table 1, row GPT-4-turbo, FLORES-200 en→xx column (spBLEU/COMET); 1012 sentences x 27 non-English target languages (Table 3 lists all 28 languages, Appendix Table 4 gives the per-language breakdown)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "FLORES-200 devtest (Meta/NLLB) and WMT-24 test sets"},
+  "cost": {"est_calls": 81972, "tier": "high"},
+  "blockers": [],
+  "notes": "NAACL 2025. Baselines (GPT-3.5/4 Turbo, Google Translate) are run by the authors via the OpenAI API with the same 5-shot in-context strategy as the open models; per-language cells in Appendix Table 4/5/6 let a scorer pick a cheaper single-language slice if full 28-language reproduction is too costly."
+}

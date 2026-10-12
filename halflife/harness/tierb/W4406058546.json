@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406058546",
+ "title": "Building Understandable Messaging for Policy and Evidence Review (BUMPER) with AI",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "Case study: \"...clear bi-modality from gpt-4-0125-preview and consistent answers from gpt-3.5-turbo-0125...gpt-4o-2024-05-13 passes answers more consistently.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Table 2/Table 3 (BUMPER components for two worked examples)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (qualitative bimodality observation on 1-2 illustrative example queries, not an aggregate benchmark)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 2 / Table 3 (worked examples)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Public-health policy questions (measles vaccination, six-nation championship examples)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "BUMPER is presented through 1-2 illustrative case studies (a vaccination-schedule question, a measles policy example) with qualitative token-probability-distribution observations, not a numeric claim with n_items across many items. gpt-4-0125-preview (a dead preview) also appears in the same worked example."
+}

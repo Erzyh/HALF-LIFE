@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403564508",
+ "title": "Benchmark Inflation: Revealing LLM Performance Gaps Using Retro-Holdouts",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4o (24.05.13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "A",
+  "evidence": "'We also implement a variation of this test using GPT-4o as the evaluator to compare human and model performance' (Human Indistinguishability survey sub-study); results table lists GPT-4o '(24.05.13)' as an evaluator condition"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix C.2 (main TruthfulQA/Retro-Misconceptions prompt); Appendix F (human/GPT-4o indistinguishability survey methodology)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for GPT-4o itself (it is used only as an automated stand-in evaluator for the human-indistinguishability survey, not scored on the benchmark)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "TruthfulQA; the paper's new RETRO holdout sets (e.g. Retro-Misconceptions)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The paper's actual retro-holdout benchmark results (Table 1) are reported for legacy OpenAI completion models (Babbage-002, Davinci-002) and NeoX-20b, none of which are on the live list; GPT-4o's only role is as an evaluator in a separate human-indistinguishability sub-study."
+}

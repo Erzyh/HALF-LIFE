@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4404782486",
+ "title": "The Empirical Variability of Narrative Perceptions of Social Media Texts",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo (GPT-4t)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Footnote 9: \"GPT-4-Turbo (gpt-4-turbo-2024-04-09)\"; Table 2 row \"researcher / GPT-4t 0.379 28% behavior_strategy -0.11 1% - -\" (Cohen's kappa vs. researcher labels)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix E (\"LLM Prompts\"), full JSON-output template printed with 5 question paraphrases",
+  "note": "Majority vote over 5 paraphrased-prompt predictions per text forms the model's final label."
+ },
+ "claim": {
+  "metric": "Cohen's kappa, GPT-4-Turbo descriptive story-labels vs. researcher (prescriptive) labels",
+  "value": 0.379,
+  "n_items": null,
+  "location": "Table 2, row 'researcher / GPT-4t'",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Authors' social-media survey corpus; paper states \"dataset of labels and texts (without any identifiers) will be released\"; code at github.com/joel-mire/..."
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "EMNLP 2024 paper studying whether descriptive (crowd/LLM) vs. prescriptive (researcher) annotations agree on whether a social-media post \"contains a story\"; GPT-4-Turbo's label agreement is a direct object of study (like GPT-4, GPT-4o and Llama3 in the same table). Soft gap: the exact number of texts underlying the Table 2 kappa values is not stated in the excerpts read (N=886 appears only for a separate \"rationales\" analysis)."
+}

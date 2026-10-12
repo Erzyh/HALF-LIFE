@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4399912745",
+  "title": "ALiiCE: Evaluating Positional Fine-grained Citation Generation",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 4 Models: 'For closed-source LLMs, we evaluate gpt-4-turbo-2024-04-09 and gpt-3.5-turbo-0125'; Appendix: 'sampling temperature to 0.5 for all models'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E, Table 7 (response-generation prompt with retrieved documents); Table 8 (claim refinement)",
+    "note": "Table 7 shows one filled instance whose instruction wording is the template."
+  },
+  "claim": {
+    "metric": "correctness (exact-match recall, %), ASQA, 5 passages",
+    "value": 47.0,
+    "n_items": 948,
+    "location": "Table 1, ASQA block, row GPT-4 (5-psg), column Correct.",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ASQA and ELI5 with GTR-retrieved Wikipedia passages from ALCE (public)"
+  },
+  "cost": {
+    "est_calls": 948,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Headline ALiiCE citation metrics need spaCy dependency parsing and the TRUE T5-11B NLI model; the correctness column uses ALCE's exact-match recall script. n_items assumes the ALCE ASQA evaluation set.",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "Use the instruction and the three citation-format examples of Table 7 as the fixed template. Fill 'Question:' with each of the 948 ASQA dev queries and 'Documents [k] (Title: ...)' for k=1..5 with the top-5 GTR-retrieved Wikipedia passages from ALCE's public ASQA evaluation file. Call gpt-4-turbo-2024-04-09 at temperature 0.5 (Appendix). Score exact-match recall (ALCE str_em: share of gold short answers appearing in the response) against ALCE's ASQA annotations and compare with 47.0 (Table 1, GPT-4 5-psg, Correct.).",
+    "approximation": "Table 7 elides the documents after [3] with '...', so the same document line format is assumed for all five passages; ALCE's str_em is re-implemented from its public definition; sampling at temperature 0.5 adds seed variance.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

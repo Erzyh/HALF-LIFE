@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406960022",
+ "title": "Accuracy of latest large language models in answering multiple choice questions in dentistry: A comparative study",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo (via alias_note; not found as a direct model mention)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Compares ChatGPT, Copilot, Claude, Mistral, Gemini, Llama accuracy on dental MCQs; 'turbo' occurs only inside other papers' titles in the reference list, not as a model the authors invoked."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none tied to a resolvable still-callable id",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "No API details, temperature, or model version/date are given for any tool; consistent with a consumer-chat-interface comparison (ChatGPT/Copilot/Gemini/Claude web or app front-ends) rather than a pinned API snapshot, though this could not be explicitly confirmed as 'webui' from the excerpt reviewed."
+}

@@ -1,0 +1,91 @@
+{
+  "wid": "W4407571428",
+  "title": "The Stochastic Parrot on LLM's Shoulder: A Summative Assessment of Physical Concept Understanding",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4 ('default inference configurations of the LLMs', i.e. the API default temperature 1.0; three runs averaged); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 200,
+    "subset_rule": "paper-defined split: PhysiCo-CORE-Dev (200 four-choice items; the CORE-Test labels are only reachable through the authors' remote scoring endpoint)",
+    "approximation": "CORE-Dev cell instead of CORE-Test (test labels not public); grids serialised as rows of space-separated digits and options lettered 'A. text' (the exact matrix/option serialisation is not printed and is the only unverified step; parse rule verified on all 600 replies); three runs as in the paper"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "ShunchiZhang/PhysiCo",
+    "config_or_split": "core / dev (data/core-dev.parquet, 200 rows with label)",
+    "filter": null,
+    "fields": {
+      "input": "input_1, output_1, input_2, output_2, input_3, output_3 (grids rendered by the hook)",
+      "options": "choices",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "unknown (no license on the HF card)",
+    "access_checked": true,
+    "size_mb": 1,
+    "hf": {
+      "dataset": "ShunchiZhang/PhysiCo",
+      "config": "core",
+      "split": "dev"
+    },
+    "fields_paper": {
+      "input": "three input/output grid pairs (2-D integer arrays)",
+      "options": "choices (4 concept descriptions, released order)",
+      "label": "gold {letter, choices} (hook; letter = position of 'label' in choices)",
+      "id": "row index"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": "You will be playing a game:\nYou are given several examples. Each example consists of an ``input grid'' and an ``output grid'' of numbers from 0-9, where each number corresponds to a color.\nYour task if try to find the common patterns from the examples and abstract the meanings of the patterns in the physical or mathematics world.\nBased on the recognized meaning, please select the most close description of the common pattern from the provided options.",
+    "user_template": "Lets play a game where you are transforming an input grid of numbers into an output grid of numbers.\nThe numbers represent different colors:\n0 = black\n1 = blue\n2 = red\n3 = green\n4 = yellow\n5 = gray\n6 = magenta\n7 = orange\n8 = cyan\n9 = brown\nHere are examples of input grids and its corresponding output grids:\nExample input grid:\n{input_grid_1}\nExample output grid:\n{output_grid_1}\nExample input grid:\n{input_grid_2}\nExample output grid:\n{output_grid_2}\nExample input grid:\n{input_grid_3}\nExample output grid:\n{output_grid_3}\nPlease first try to find the common patterns from the input-output pairs, then answer the following question:\nWhat meanings in the physical or mathematics world can be abstracted from the patterns? Please choose your answer from the following options:\n{candidate_answers}\nYour response should end with your choice of answer.",
+    "placeholders": {
+      "input_grid_1": "items.input_1 (hook: rows of space-separated digits)",
+      "output_grid_1": "items.output_1",
+      "input_grid_2": "items.input_2",
+      "output_grid_2": "items.output_2",
+      "input_grid_3": "items.input_3",
+      "output_grid_3": "items.output_3",
+      "candidate_answers": "hook: 'A. text' per line"
+    },
+    "few_shot": "none (the three grid pairs are the item itself)",
+    "source_location": "Appendix, Figure 7 (prompt template used in RQ3, [SYSTEM] and [USER] parts)",
+    "verbatim": "full (typographic apostrophe in 'Let's'/'Lets' kept as printed; arrow line-wrap glyphs removed)",
+    "placeholders_paper": {
+      "input_grid_k / output_grid_k": "the k-th example grid pair of the item rendered as rows of digits (matrix format of Sec. 6 / Figure 7)",
+      "candidate_answers": "the four options of the item, lettered (A)-(D) one per line (letter format not printed)"
+    }
+  },
+  "output": {
+    "parse": "hook: tail of the reply; score picks the last option letter (answer is X / (X) / X.) else the last option text mentioned",
+    "postprocess": "strip; unparsable counts as incorrect",
+    "parse_paper": "last option letter (A-D) or option text appearing in the final sentence of the response"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 200 CORE-Dev items answered with the correct option, in percent, averaged over three runs (hook score)",
+    "judge": "none",
+    "original_value": 41.3,
+    "original_location": "Table 3, text-only block, row GPT-4, column CORE-Dev (41.3 +/- 1.3); CORE-Test 28.2 +/- 2.3 is not scorable offline",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 600,
+    "est_usd": 12.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Grid matrices make the prompts long (~2K input tokens, ~$0.02 per call). The same CORE-Test also has gpt-4o-2024-05-13 (31.3) and o3-mini-2025-01-31 (46.5, single run) rows. || [normalize 2026-09-07] hf parquet core/test (200 rows) and core/dev (200 rows, with label) verified on 2026-09-07; GitHub physico-benchmark/physico is a tools package only (dataset.py, visualize.py). || [hooks_2 2026-09-07] switched to the CORE-Dev cell (labels public); matrix rendering + option letters assumed; prepare verified (200 items x 3 seeds). || [triage 2026-09-09] DEVIATION (serialisation approximation): parse audit on the 600 replies - 593 picked by the tail 'X.' letter pattern, 1 by 'answer is X', 1 by '(X)', 5 by option text (replies naming the option in prose; every pick equals the model's stated choice), 0 unparsed, 0 truncated; a last-line-only rule gives the identical 35.67%. Picks A 105 / B 153 / C 168 / D 174 vs gold 45/54/61/40 (x3). Same snapshot as the paper (gpt-4-turbo-2024-04-09, default temperature, three runs): 33.5 / 37.0 / 36.5 vs 41.3 +/- 1.3. The one unverifiable approximation is the grid serialisation (rows of space-separated digits; the parquet holds arrays only and the paper prints only {{ INPUT GRID }}) plus the 'A. text' option lines; a different serialisation would need new calls.",
+  "hook": "harness/tierb/hooks/W4407571428.py: load_items (core/dev, grid text, gold letter), render (Figure 7 template), parse (reply tail), score (letter or option text)"
+}

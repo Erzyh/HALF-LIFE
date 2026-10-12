@@ -1,0 +1,68 @@
+{
+  "wid": "W4404518515",
+  "title": "Automating Transparency Mechanisms in the Judicial System Using LLMs: Opportunities and Challenges",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; it ran five iterations per case 'to account for stochasticity', which implies a non-zero temperature)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 50,
+    "subset_rule": "paper-defined subset: the 50 APM Mississippi cases with both a strike sheet and a final jury roll call in the transcript, each queried 5 times (250 outputs)",
+    "approximation": "Own case selection, own OCR (paper: Adobe Acrobat) and hand-built ground truth from the public strike sheets; temperature not stated; comparison is approximate."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "APM Reports 'In the Dark' season two source notes, https://features.apmreports.org/in-the-dark/season-two/source-notes.html (raw case files: scanned trial transcripts and strike sheets, https://features.apmreports.org/files/peremptory/...)",
+    "config_or_split": "cases with strike sheet + final jury roll call (50)",
+    "filter": "transcript contains a final jury roll call and a strike sheet exists",
+    "fields": {
+      "input": "OCR text of the full voir dire transcript (15-400 pages)",
+      "label": "names of the selected jurors incl. alternates (from the strike sheet / roll call)",
+      "id": "case identifier"
+    },
+    "license": "unknown (APM Reports published court records)",
+    "access_checked": true,
+    "size_mb": 500
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{transcript_text}\n\nCan you give me the names of the final list of jurors that were selected to serve on this case as a comma-separated list? Include alternate jurors, if present. Do not output any other text, explanations, or annotations, and make sure to give the juror names.",
+    "placeholders": {
+      "transcript_text": "OCR text of the full transcript (Table 3 'Full Transcript' input); its position relative to the question is not stated and is placed before it"
+    },
+    "few_shot": "none",
+    "source_location": "Table 1 (Zero-shot prompts for each task), row Selected Juror Names",
+    "verbatim": "full (question text); document placement reconstructed"
+  },
+  "output": {
+    "parse": "free text: split the completion on commas into a name list",
+    "postprocess": "strip, lowercase, normalize whitespace and honorifics"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 250 (case x iteration) outputs whose name set equals the ground-truth set of selected jurors (incl. alternates); the paper's exact match rule is not printed.",
+    "judge": "none",
+    "original_value": 81.6,
+    "original_location": "Table 3, domain Jury Selection, task Selected Juror Names (81.6 +/- 4.8)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 250,
+    "est_usd": 150.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Select the 50 cases from the APM source notes and OCR the scanned transcripts (the paper used Adobe Acrobat); no released case list.",
+    "Build the ground-truth juror lists from the strike sheets / roll calls by hand and fix the name-matching rule (exact set match vs partial credit).",
+    "Decide the temperature: paper silent, five iterations suggest sampling; 0.0 makes the five iterations redundant."
+  ],
+  "notes": "Transcripts of up to 400 pages approach the 128k context; cost per call is ~USD 0.5-1. bootstrap item = case (5 iterations averaged)."
+}

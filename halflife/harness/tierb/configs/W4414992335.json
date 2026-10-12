@@ -1,0 +1,91 @@
+{
+  "wid": "W4414992335",
+  "title": "VMMU: A Vietnamese Multitask Multimodal Understanding and Reasoning Benchmark",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 16384,
+      "top_p": 1.0
+    },
+    "params_source": "paper Appendix B Table 10 (o3-2025-04-16, reasoning_effort medium = default; temperature N/A for o3, values here are placeholders); max tokens not stated",
+    "seeds": 1
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 2548,
+    "subset_rule": "all (full_vqa split, 2,548 questions over 7 domains)",
+    "approximation": "Vietnamese prompt (vn_prompt) taken as the main setting - the paper's English-instruction variant is an ablation that lowers accuracy by ~1 point; items with multiple_question use the Figure 11 (multiple answers) prompt."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "anvo25/vmmu (linked from vmmu-bench.github.io and github.com/vytuongdang/VMMU, MIT)",
+    "config_or_split": "default / full_vqa (2,548 rows verified; fields image, ID, image_path, en_prompt, vn_prompt, ground_truth, subject, multiple_question)",
+    "filter": null,
+    "fields": {
+      "input": "vn_prompt",
+      "image": "image",
+      "label": "ground_truth",
+      "id": "ID",
+      "subject": "subject"
+    },
+    "license": "mit",
+    "access_checked": true,
+    "size_mb": 1264,
+    "hf": {
+      "dataset": "anvo25/vmmu",
+      "config": "default",
+      "split": "full_vqa"
+    },
+    "fields_paper": {
+      "input": "vn_prompt (with the image)",
+      "image": "image",
+      "label": "ground_truth",
+      "subject": "subject (7 domains for the macro mean)",
+      "id": "ID"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Trả lời câu hỏi trắc nghiệm trong hình. Ghi đáp án bạn chọn trong dấu ngoặc nhọn với chữ cái tương ứng, ví dụ: {Z}.",
+    "placeholders": {
+      "image": "items.image attached as an image content part (not expressible)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix C, Figure 10 (Integrated-MM prompt; English variant 'Answer the multiple-choice question in the image. Put your choice in curly brackets with the option letter, e.g. {Z}.'); Figure 11 for multi-question images",
+    "verbatim": "full",
+    "placeholders_paper": {
+      "image": "items.image attached as an image part; the text has no slot ('{Z}' is literal example text)"
+    }
+  },
+  "output": {
+    "parse": "regex \\{([A-Z])\\}(?!.*\\{[A-Z]\\})",
+    "postprocess": "uppercase; no match = incorrect",
+    "parse_paper": "regex: last '{([A-Z])}' (multi-question images: list of letters)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "macro mean over the 7 domains of per-domain accuracy (Table 3 'Mean')",
+    "judge": "none",
+    "original_value": 73.98,
+    "original_location": "Table 3, row o3, column Mean (Integrated-MM setting)",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 2548,
+    "est_usd": 127.0,
+    "tier": "high",
+    "prepare_note": "not prepared (image input required for every item; runner is text-only) - datacheck 2026-09-18"
+  },
+  "open_points": [
+    "BLOCKING: every item needs an image input - vn_prompt/en_prompt are one constant instruction ('Answer the multiple-choice question in the image ...') and no text field holds the question or the options (datasets-server first-rows and info read 2026-09-18: fields image, ID, image_path, en_prompt, vn_prompt, ground_truth, subject, multiple_question; 2,548 rows); the runner sends text only, so the Integrated-MM cell cannot be re-executed with it. Nothing was downloaded (full_vqa shards 395 MB + 870 MB).",
+    "A repo file data/text_only_vqa-00000-of-00001.parquet (64 MB, not a configured split) exists; it would correspond to a different, text-only setting and table cell, which a human must choose.",
+    "the paper's Mean is the macro mean over the 7 subjects (Table 3), not item accuracy; the runner has no grouped metric",
+    "multi-answer images (multiple_question) use the Figure 11 prompt and a list of letters - needs a second template / parse"
+  ],
+  "notes": "full_vqa parquet shards total ~1.26 GB (not downloaded; schema read via the datasets-server API). Per-domain o3 values 84.87 / 68.98 / 82.78 / 67.16 / 88.98 / 74.66 / 50.42 allow a domain-level check. || [datacheck 2026-09-18] Image-only questions confirmed on the datasets-server (no text question field); marked needs_human, no download."
+}

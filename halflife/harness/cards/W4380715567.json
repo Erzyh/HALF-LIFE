@@ -1,0 +1,89 @@
+{
+  "card_id": "W4380715567",
+  "openalex_id": "https://openalex.org/W4380715567",
+  "title": "Questioning the Survey Responses of Large Language Models",
+  "doi": "10.48550/arXiv.2306.07951",
+  "paper": {
+    "doi": "10.48550/arXiv.2306.07951 (NeurIPS 2024)",
+    "authors": "Ricardo Dominguez-Olmedo, Moritz Hardt, Celestine Mendler-Duenner",
+    "year": 2024,
+    "venue": "Advances in Neural Information Processing Systems 37 (NeurIPS 2024)",
+    "repo": "https://github.com/socialfoundations/surveying-language-models",
+    "repo_commit": "2cd2d4cc95f60c9eee85154051c8c45228763404",
+    "repo_license": "MIT"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The paper characterises the answer distributions of 43 language models (next-token probabilities over choice letters); the OpenAI arms are text-davinci-001/002/003, gpt-3.5-turbo-0613, gpt-4-0613 and 'GPT-4 Turbo 0125' (= gpt-4-turbo-preview / gpt-4-0125-preview). All original responses are downloadable (results.zip, 4.48 GB, keeper.mpdl.mpg.de share)."
+  },
+  "claim": {
+    "statement": "Instruction-tuned OpenAI models, including GPT-4 Turbo 0125, exhibit substantial A-bias (systematic preference for the first answer label) on the 25 ACS questions (Figure 3), and after adjusting for choice ordering their answer distributions remain much closer to a uniform baseline than to the U.S. census or any state subgroup (Figures 4-5); even for 'the GPT-4 model' with the highest similarity to human reference populations only 6 of 25 questions (24%) are closer to the U.S. census than to uniform (Section 4.2).",
+    "claim_type": "bias_or_behavior",
+    "metric": "A-bias_q = P(adjusted response = 'A') - 1/k_q (Eq. 1); normalized entropy of adjusted responses; mean KL(model || census) vs mean KL(model || uniform) over 25 ACS questions",
+    "original_values": {
+      "gpt4_questions_closer_to_census_than_uniform": "6/25 (24%) - text says 'the GPT-4 model', ambiguous between gpt-4-0613 and gpt-4-0125-preview",
+      "per_model_A_bias_entropy_KL": "figure-level only (Figures 3, 4, 5); numeric values must be extracted from results.zip (4,476,107,528 bytes) via figures.ipynb",
+      "note": "No table reports the GPT-4 Turbo 0125 numbers in the paper text."
+    },
+    "original_source": "Figures 3-5 and Section 4.2 of arXiv 2306.07951 (NeurIPS 2024 version); results.zip at https://keeper.mpdl.mpg.de/d/b8090e1c552d45cebb68/"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-preview (= gpt-4-0125-preview, labelled 'GPT-4 Turbo 0125' in the figures; plot_utils/models.py)",
+    "model_status": "DEAD - gpt-4-0125-preview shut down 2026-03-26 (target_models.json). The census match 'gpt-4-turbo' comes from an unused label in plot_utils/models.py ('gpt-4-turbo': 'GPT 4 Turbo'); gpt-4-turbo-2024-04-09 was NOT an experimental arm.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions with logprobs=True, top_logprobs=5 (surveying_llms/fill_openai.py)",
+    "prompt_source": "forms/acs2019.py (25 ACS questions + answer choices) and surveying_llms/fill_openai.py; Appendix A.1 and D.1 of the paper",
+    "messages": [
+      {"role": "system", "content": "Please respond with a single letter."},
+      {"role": "user", "content": "Question: <question> \\n A. <choice 1> \\n B. <choice 2> \\n ... \\n Answer:"}
+    ],
+    "params": {"temperature": 1, "max_tokens": 1, "seed": 0, "logprobs": true, "top_logprobs": 5, "unseen_choice_mass": "min(remaining mass, smallest observed prob), as in Santurkar et al."},
+    "n_items": "25 ACS-2019 questions; naive ordering (1 query/question) + adjusted ordering (all permutations if k! <= 50, else 50 sampled permutations, seed 0)",
+    "samples_per_item": "1 logprob query per (question, ordering); <= 51 queries per question",
+    "evaluation": "Automatic: renormalised choice probabilities -> A-bias, normalized entropy, mean KL to 2019 ACS PUMS population/state distributions (surveying_llms/process_acs.py, figures.ipynb).",
+    "environment_check": "Re-plot Figures 3-5 from results.zip with figures.ipynb before any new query; verify that the ACS PUMS 2019 processing reproduces the census marginals."
+  },
+  "artifacts": {
+    "prompts_path": "external/repos/W4380715567/socialfoundations__surveying-language-models/forms/acs2019.py; surveying_llms/fill_openai.py",
+    "data_path": "results.zip (4.48 GB) at https://keeper.mpdl.mpg.de/d/b8090e1c552d45cebb68/ (not downloaded); ACS 2019 PUMS from the U.S. Census Bureau (public)",
+    "eval_path": "external/repos/W4380715567/socialfoundations__surveying-language-models/figures.ipynb, appendix.ipynb, experiments/script_fill_openai.py",
+    "data_public": true,
+    "data_license": "code MIT; results.zip shared without a stated license; ACS PUMS public domain",
+    "redistributable": "unknown (results.zip license unstated)",
+    "notes": "experiments/script_fill_openai.py references undefined variables (model_name/output_name) - cosmetic; the logic lives in fill_openai.py."
+  },
+  "blockers": [
+    "live model not an experimental arm: the paper's GPT-4 Turbo is gpt-4-0125-preview (dead 2026-03-26); gpt-4-turbo-2024-04-09 would only be a sibling-snapshot arm",
+    "original per-model numbers exist only inside a 4.48 GB results archive (no table in the paper)",
+    "protocol depends on top-5 logprobs + max_tokens=1 letter answers; still supported by the chat API, but tokenisation of ' A' vs 'A' must be checked"
+  ],
+  "arms": {
+    "baseline_alive": {"model": null, "note": "none - original arm dead; optional sibling arm gpt-4-turbo-2024-04-09 (P3 successor-family run, must be labelled as such)"},
+    "successors": [
+      "gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm) - only if logprobs are exposed",
+      "claude (current Anthropic flagship) - no logprobs: needs a sampling-based estimator (protocol deviation)",
+      "gemini (current Google flagship) - same caveat",
+      "llama (open weights, e.g. Llama-3.3-70B-Instruct; full next-token distribution available)",
+      "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct)"
+    ]
+  },
+  "budget": {
+    "est_calls": 3825,
+    "est_tokens_in": 380000,
+    "est_tokens_out": 4000,
+    "est_cost_usd": 4,
+    "pricing_usd_per_1m": {"gpt-4-turbo-2024-04-09": {"input": 10.0, "output": 30.0}},
+    "assumptions": "sibling arm only: <= 1,275 queries per seed (25 naive + up to 50 permutations x 25 questions) x 3 seeds; ~100 input tokens, 1 output token. Cheap; the cost is dominated by downloading/processing results.zip and the ACS PUMS."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (applies to a sibling arm only, flagged): survival if A-bias > 0 for the large majority of the 25 questions and mean KL(model||uniform) < mean KL(model||census), with the count of census-closer questions within the original's bootstrap CI (original: 6/25 for the best GPT-4 model); partial if A-bias holds but the census-closer count exceeds 13/25; death if the model becomes closer to the census than to uniform on average.",
+    "notes": "The paper's direction is 'closer to uniform than to any human population'; a successor that becomes census-like would be a genuine reversal, not noise."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Approve a sibling-snapshot arm (gpt-4-turbo-2024-04-09, dying) as a P3 successor-family run in place of the dead gpt-4-0125-preview arm?",
+    "Approve downloading results.zip (4.48 GB) to extract the original GPT-4 Turbo 0125 values (A-bias, entropy, KL per question)?",
+    "Section 4.2's '6 of 25 questions' refers to 'the GPT-4 model' - confirm from results.zip whether this is gpt-4-0613 or gpt-4-0125-preview."
+  ],
+  "domain_notes": "Methodology is the OpinionQA standard (choice-letter next-token probabilities), and the paper's conclusion is about the practice of survey-based alignment claims rather than about a single model. Choice-order randomisation ('adjustment') is essential and multiplies the cost per question. The ACS 2019 PUMS (~3.2M records) must be processed with the repo's script to obtain population and per-state distributions; the paper also replicates on ATP and GAS/WVS surveys (Appendix E), which would require the tatsu-lab/opinions_qa and Anthropic/llm_global_opinions data."
+}

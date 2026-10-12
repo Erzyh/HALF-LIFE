@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7157506392",
+ "title": "MTT-Bench: Predicting Social Dominance in Mice via Multimodal Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec IV-A: \"(2) Blind LLMs, including GPT-4-turbo [33]\"; Table I row \"GPT-4-turbo - 18.18 17.05 20.45 23.86 26.14 21.14\" (Overall Avg. 21.14%)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec III-B (three-question zero-shot template quoted: personality-score questions for Mouse A/B, then a final win-prediction question)",
+  "note": "Blind LLMs receive the same three questions with code-derived behavioral parameters as text instead of video frames."
+ },
+ "claim": {
+  "metric": "narrow-tube win-prediction accuracy (zero-shot, Blind LLM)",
+  "value": 21.14,
+  "n_items": 88,
+  "location": "Table I, row GPT-4-turbo, Overall Avg. column (5 repeated predictions per group)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "88 groups of mouse narrow-tube-test videos; no release statement, repository link, or citation to an existing public dataset found in the text"
+ },
+ "cost": {
+  "est_calls": 440,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Role, prompt, and numeric claim otherwise clear the bar (role S, full prompt, clean n=88 accuracy over 5 seeds), but the underlying mouse-behavior video dataset appears unreleased, which is the sole blocker."
+}

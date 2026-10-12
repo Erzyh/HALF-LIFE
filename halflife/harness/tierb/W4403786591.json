@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403786591",
+  "title": "SYNERGAI: Perception Alignment for Human-Robot Collaboration",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "system built 'on GPT-4 turbo as the underlying LLM backend' (Section IV); success rate of alignment tasks judged with human participants (Table III)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section III (agent prompt excerpt 'You are an assistant agent in a room...'); toolset in Table I; step-wise prompts described",
+    "note": ""
+  },
+  "claim": {
+    "metric": "success rate (human-robot perception alignment tasks)",
+    "value": 61.9,
+    "n_items": null,
+    "location": "Section I and Table III (SR 61.9% for alignment tasks; novel-task success 3.7% -> 45.68%)",
+    "task_type": "agentic",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "3D scene environment and Python tool APIs (project page https://synerg-ai.github.io/); user study"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "human_outcome"
+  ],
+  "notes": "Agentic tool-calling loop over a 3D-scene toolset needs the authors' code; success is judged by human participants."
+}

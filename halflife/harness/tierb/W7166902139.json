@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7166902139",
+ "title": "TrafficAlign: Aligning Large Language Models for Traffic Scenario Generation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-5 (gpt-5-2025-08-07)",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "\"We experiment with five state-of-the-art LLMs, GPT-5 (gpt-5-2025-08-07)...\"; Table 2 ablation row \"GPT-5 0.889 0.291 0.163 0.034 0.784...\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Supplementary Material (not in extracted text); Sec. 3 narrative description only",
+  "note": "Prompt structure for both the scenario-description model (gpt-4.1-nano) and the DSL-translation model (gpt-5) is described in prose; exact text is off-paper."
+ },
+ "claim": {
+  "metric": "Overall Score (OS) in SafeBench-based driving-model ablation, no-alignment GPT-5 baseline, Los Angeles scenarios",
+  "value": 0.889,
+  "n_items": null,
+  "location": "Table 2, row \"GPT-5\" (OS column); n_items unclear (driving episodes across 3 RL models, not stated as a count)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "SafeBench simulation platform; 261 driving videos collected by the authors from YouTube (Sec. 3.1); code at github.com/TrafficComposer/TrafficAlign; exact prompts only in Supplementary Material"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "Two live models are used as pipeline components: gpt-4.1-nano-2025-04-14 synthesizes NL scenario descriptions from driving-video frames, and gpt-5-2025-08-07 translates them into a DSL. The paper's headline claims (10.8% more collisions, 36.1% reduction after fine-tuning) are downstream RL-driving-agent metrics from a SafeBench-style simulator, not direct LLM outputs, so re-execution needs a full simulator/RL harness in addition to the API calls. The cleanest single-model-attributable number is the Table 2 ablation using bare GPT-5 (no TrafficAlign alignment step) as one of five baseline scenario generators; a comparable GPT-4o row uses gpt-4o-2024-11-20, which is not on the live list."
+}

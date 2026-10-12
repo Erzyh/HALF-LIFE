@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7147716548",
+  "title": "A review for navigating the trade-offs: evaluating open-source and proprietary large language models for clinical and biomedical information extraction",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Review tables list 'GPT-4 Turbo' among proprietary models evaluated by the surveyed studies (model lists in Sec. 3 and the comparison axes in Sec. 5)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Narrative review; no experiments"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Review article."
+}

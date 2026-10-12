@@ -1,0 +1,89 @@
+{
+  "wid": "W4417257719",
+  "title": "EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Financial Statements",
+  "status": "ready",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "temperature": null,
+      "max_tokens": 4096,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Sec. 4.1 'Sampling parameters' (temperature 0.0, max 4096 generated tokens; three runs); GPT-5 ignores temperature, reasoning_effort not stated (API default medium assumed)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 451,
+    "subset_rule": "paper-defined split: earnings_forecast test (451), input setup Summary+BS+CF+PL+Text, three runs",
+    "approximation": "Concatenation order and section labels of the five report items are not printed (items appended in the order Summary, BS, CF, PL, Text with their field names as headers); reasoning effort unstated."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "SakanaAI/EDINET-Bench",
+    "config_or_split": "config earnings_forecast, split test",
+    "filter": null,
+    "fields": {
+      "input": "summary",
+      "label": "label",
+      "id": "doc_id"
+    },
+    "license": "Public Data License v1.0 (Japan Digital Agency; LICENSE and LICENSE.pdf in the repo)",
+    "access_checked": true,
+    "size_mb": 44,
+    "hf": {
+      "dataset": "SakanaAI/EDINET-Bench",
+      "config": "earnings_forecast",
+      "split": "test"
+    },
+    "fields_prose": {
+      "input": "summary, bs, cf, pl, text",
+      "label": "label (1 = increase, 0 = decrease)",
+      "id": "doc_id",
+      "options": "naive_prediction (baseline), meta, edinet_code"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": "You are a financial analyst",
+    "user_template": "Please predict whether the \"親会社株主に帰属する当期純利益\" (Net income attributable to owners of the parent) in the next fiscal year's securities report will increase compared to the current fiscal year, based on the information available in the current year's securities report.\n- The input is extracted from a Japanese company's securities report.\n- Some information may be missing and represented as \"-\" due to parsing errors.\n- Some attributes are missing and the total does not equal the sum of the parts.\nRespond in the following format:\nJSON:\n```json\n{\n  \"reasoning\": \"string\",\n  \"prob\": float (between 0 and 1, probability that the profit will increase),\n  \"prediction\": int (0: Decrease, 1: Increase)\n}\n```\nThe current year's extracted securities report is as follows:\nsummary: {summary}\nbs: {bs}\ncf: {cf}\npl: {pl}\ntext: {text}",
+    "placeholders": {
+      "summary": "items.summary",
+      "bs": "items.bs",
+      "cf": "items.cf",
+      "pl": "items.pl",
+      "text": "items.text"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A, Figure 5 (Prompt for earnings forecasting); Sec. 4.1 (system prompt, input formats)",
+    "verbatim": "full: line structure restored from the released prompt file prompt/earnings_forecast.yaml (github.com/SakanaAI/EDINET-Bench); the report items are appended as '<sheet>: <json>' lines exactly as src/edinet_bench/predict.py does (order summary, bs, cf, pl, text assumed; the code uses the --sheets order); the flattened extraction is kept in user_template_paper",
+    "user_template_paper": "Please predict whether the \"親会社株主に帰属する当期純利益\" (Net income attributable to owners of the parent) in the next fiscal year's securities report will increase compared to the current fiscal year, based on the information available in the current year's securities report. - The input is extracted from a Japanese company's securities report. - Some information may be missing and represented as \"-\" due to parsing errors. - Some attributes are missing and the total does not equal the sum of the parts. Respond in the following format: JSON: ```json { \"reasoning\": \"string\", \"prob\": float (between 0 and 1, probability that the profit will increase), \"prediction\": int (0: Decrease, 1: Increase)}``` The current year's extracted securities report is as follows:\n{report_items}",
+    "placeholders_prose": {
+      "report_items": "items.summary + items.bs + items.cf + items.pl + items.text concatenated in that order, each preceded by its item name"
+    }
+  },
+  "output": {
+    "parse": "json field prob",
+    "postprocess": "strip code fences; unparsable output -> prob 0.5",
+    "parse_prose": "json field prob (float in [0,1]); fallback: prediction (0/1) as probability"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "ROC-AUC of the predicted probability of an earnings increase against the binary label over the 451 test companies, averaged over the three runs.",
+    "judge": "none",
+    "original_value": 0.65,
+    "original_location": "Table 6, block GPT-5, row Summary+BS+CF+PL+Text, column Earnings Forecasting ROC-AUC (0.65 +/- 0.01, mean of 3 runs)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 1353,
+    "est_usd": 85.0,
+    "tier": "high"
+  },
+  "open_points": [],
+  "notes": "Each report is ~30k input tokens (Sec. 4.1 cost analysis). The three runs are the paper's protocol and are counted in est_calls. Field names verified from the dataset card (meta, summary, bs, pl, cf, text, label, naive_prediction, edinet_code, doc_id). || [hooks_4 2026-09-07] hook computes ROC-AUC; cost note: gpt-5 output is billed up to max_completion_tokens 4096 per call and the dry-run estimate uses that ceiling (test parquet 18 MB).",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "harness/tierb/hooks/W4417257719.py: parse (JSON 'prob', fallback 'prediction'; unparsable -> 0.5 in score), score (ROC-AUC, rank-based with tie averaging; no per-item list)"
+}

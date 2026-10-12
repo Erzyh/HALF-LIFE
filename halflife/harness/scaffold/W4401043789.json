@@ -1,0 +1,59 @@
+{
+  "openalex_id": "https://openalex.org/W4401043789",
+  "title": "TopicGPT: A Prompt-based Topic Modeling Framework",
+  "doi": "https://doi.org/10.18653/v1/2024.naacl-long.164",
+  "field": "Social Sciences",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/chtmp223/topicGPT",
+    "github.com/chtmp223/topicGPTet",
+    "github.com/openai/tiktoke",
+    "github.com/openai/tiktoken232978I",
+    "huggingface.co/togethercomputer/LLaMA-2-7B-",
+    "huggingface.co/togethercomputer/LLaMA-2-7B-32KMultilinguality"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/chtmp223/topicGPT",
+      "cloned": true,
+      "audit": {
+        "n_files": 43,
+        "ext_top": {
+          ".txt": 11,
+          ".py": 10,
+          ".jsonl": 7,
+          ".md": 6,
+          "": 2,
+          ".yml": 1,
+          ".ipynb": 1,
+          ".html": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 1,
+        "n_py": 10,
+        "n_data_files": 8,
+        "files_mentioning_prompt": 12,
+        "files_with_eval_terms": 10,
+        "model_ids_in_code": {
+          "gpt-3.5-turbo": 8,
+          "gpt-4": 8,
+          "gpt-4o": 6,
+          "gpt-4o-mini": 4
+        },
+        "readme_head": "# TopicGPT\n[![arXiV](https://img.shields.io/badge/arxiv-link-red)](https://arxiv.org/abs/2311.01449) [![Website](https://img.shields.io/badge/website-link-purple)](https://chtmp223.github.io/topicGPT) \n\nThis repository contains scripts and prompts for our paper [\"TopicGPT: Topic Modeling by Prompting Large Language Models\"](https://arxiv.org/abs/2311.01449) (NAACL'24). Our `topicgpt_python` package consists of five main functions: \n- `generate_topic_lvl1` generates high-level and generalizable topics. \n- `generate_topic_lvl2` generates low-level and specific topics to each high-level topic.\n- `refine_topics` refines the generated topics by merging similar topics and removing irrelevant topics.\n- `assign_topics` assigns the generated topics to the input text, along with a quote that supports the assignment.\n- `correct_topics` corrects the generated topics by reprompting the model so that the final topic assignment is grounded in the topic list. \n\n![TopicGPT Pipeline Overview](assets/img/pipeline.png)\n\n## 📣 Updates\n- [11/09/24] Python package `topicgpt_python` is released! You can install it via `pip install topicgpt_python`. We support OpenAI API, VertexAI, Azure API, Gemini API, and vLLM (requires GPUs for inference). See [PyPI](https://pypi.org/project/topicgpt-python/).\n- [11/18/23] Second-level topic generation code and refinement code are uploaded.\n- [11/11/23] Basic pipeline is uploaded. Refinement and second-level topic generation code are coming soon.\n\n## 📦 Using Topic"
+      },
+      "commit": "e6499ef7f3db8bba2bcff30e4d636b11d2acc97d"
+    },
+    {
+      "url": "https://github.com/chtmp223/topicGPTet",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4401043789.txt",
+  "paper_text_status": "pdf"
+}

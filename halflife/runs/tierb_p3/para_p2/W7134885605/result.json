@@ -1,0 +1,72 @@
+{
+  "wid": "W7134885605",
+  "title": "More Signal vs. More Noise - Comparing Full Text and Abstract as Inputs for Large Language Model-based Classification of Oncology Trial Eligibility Criteria",
+  "model": "gpt-5-2025-08-07",
+  "metric": "accuracy",
+  "original_value": 0.86,
+  "original_location": "Table 1, 'Based on Abstract', row Localized disease, Accuracy (95% CI 0.81-0.91)",
+  "reexecution": {
+    "mean_over_seeds": 0.88,
+    "per_seed": {
+      "0": {
+        "value": 0.88,
+        "n": 200,
+        "ci95": [
+          0.835,
+          0.92
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7134885605",
+    "n_items": 200,
+    "n_requests": 200,
+    "seeds": 1,
+    "est_usd": 6.69,
+    "subset_note": "paraphrase p2: 3 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [200, 200, 200]",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-2025-08-07",
+    "metric": "accuracy",
+    "original_value": 0.86,
+    "cap_usd": 2.67,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7134885605",
+    "paraphrase": "p2",
+    "pairs": [
+      [
+        "You will be provided with text excerpts from a cancer clinical trial. Your task is to classify patient eligibility based on disease stage. Specifically, determine whether the trial included:",
+        "The following are excerpts from the text of a cancer clinical trial. Based on them, categorize patient eligibility according to disease stage by determining whether the trial enrolled:"
+      ],
+      [
+        "Your output must be a valid Python-list, this list may contain 0, 1 or 2 elements. The allowed elements are:",
+        "Your answer must take the form of a valid Python list containing zero, one or two of the allowed elements listed here:"
+      ],
+      [
+        "If you are unsure, please provide your best guess.\nDo NOT return any additional text, explanations or punctuation marks outside the list.",
+        "If in doubt, make your best guess.\nDo not add any text, explanation or punctuation outside the list."
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-5-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Paper used a single batch run; the structured-output schema is not printed (a list of the allowed strings is enforced here); the abstract arm only (full texts are paywalled although the CSV carries a text column). The model reply is parsed by a regex instead of a structured-output schema.",
+  "arm": {
+    "model": "gpt-5-2025-08-07",
+    "config_model": "gpt-5-2025-08-07",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p2\\W7134885605"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.88,
+    "delta": 0.020000000000000018,
+    "original_inside_ci95": true
+  }
+}

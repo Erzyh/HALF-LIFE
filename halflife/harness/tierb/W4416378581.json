@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416378581",
+  "title": "Cost-Effective Communication: An Auction-based Method for Language Agent Interaction",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "openai/o3-2025-04-16",
+    "resolved": "o3-2025-04-16",
+    "role": "A",
+    "evidence": "\"the specific classification is performed by an external adjudicator model, i.e., openai/o3-2025-04-16\" (Sec. on emergent communication strategies)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "No adjudicator prompt (critical vs. non-critical information classification) is quoted."
+  },
+  "claim": {
+    "metric": "none attributable to o3 itself (Table 3 / Figures 2-3 report the DALA agents' resulting communication-strategy percentages, not o3's own classification accuracy)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "llm:o3-2025-04-16"
+  },
+  "data": {
+    "public": "no",
+    "source": "MMLU task inputs; DALA framework and budget settings, no release statement found"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "no_prompt"
+  ],
+  "notes": "The paper's main agent models (whose behavior Table 3/Figures 2-3 characterize) are not identified as a still-callable snapshot; the only pinned live id (o3-2025-04-16) serves purely as a message-type adjudicator with no reported accuracy or prompt text. The Vanilla baseline uses the dead gpt-4-1106-preview."
+}

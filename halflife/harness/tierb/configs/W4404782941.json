@@ -1,0 +1,73 @@
+{
+  "wid": "W4404782941",
+  "title": "Can LLMs replace Neil deGrasse Tyson? Evaluating the Reliability of LLMs as Science Communicators",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 4.1 (main responses at temperature 0.0) and Appendix D.2.1 (max_tokens 1000 for proprietary models); top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 742,
+    "subset_rule": "all 742 SCiPS-QA questions (510 closed + 232 open; MACC is defined over all questions, Sec. 4.2)",
+    "approximation": "Three exemplar 'Reason' passages are abbreviated in Table 3; the way the test question is appended after the exemplars is not printed."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/Prasoon1207/llm-science-miscommunication, file data/data.csv (742 rows verified; also mirrored as HF zorpsoon/scips_qa)",
+    "config_or_split": "single CSV",
+    "filter": "none for MACC; time_open empty (509 rows) selects the closed questions (paper: 510)",
+    "fields": {
+      "input": "question",
+      "label": "answer (A yes / B no / C I do not know)",
+      "subject": "subject",
+      "id": "row index"
+    },
+    "license": "unknown (LICENSE file present in the repo)",
+    "access_checked": true,
+    "size_mb": 1,
+    "file_url": "https://raw.githubusercontent.com/Prasoon1207/llm-science-miscommunication/main/data/data.csv",
+    "columns_verified": "data.csv 742 rows: question, answer (A 315 / B 195 / C 232), subject, time_open (empty for 509 closed questions), gold_reason, gold_reason_reference"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are an AI assistant being used for research purposes.\nAnswer the following Yes/No multi-choice questions with following options.\nA - Yes\nB - No\nC - I do not know\nQuestion: Is the nature of spacetime at the Planck scale continuous or discrete?\nReason: The nature of spacetime at the Planck scale is currently not definitively established, and it remains an open question in theoretical physics. However, many theories, including some formulations of quantum gravity, suggest that spacetime may exhibit discrete or quantized characteristics at the Planck scale. This is based on the idea that classical notions of smooth, continuous spacetime may break down at extremely small scales. The uncertainty principle from quantum mechanics also contributes to this speculation. Research in areas such as loop quantum gravity and string theory explores these possibilities, but a conclusive answer is yet to be determined through experimental verification.\nAnswer: C\nQuestion: Is the exact value of mean lifetime of a neutron known?\nReason: {reason_2}\nAnswer: B\nQuestion: Does the set of natural numbers have the same cardinality as set of integers?\nReason: {reason_3}\nAnswer: A\nQuestion: Is the Universe infinite in spatial extent?\nReason: {reason_4}\nAnswer: C\nQuestion: {question}\nReason:",
+    "placeholders": {
+      "question": "items.input",
+      "reason_2": "NOT PRINTED (Table 3 shows 'Reason: ...')",
+      "reason_3": "NOT PRINTED",
+      "reason_4": "NOT PRINTED"
+    },
+    "few_shot": "k=4 fixed exemplars printed in Table 3 (one with full Reason, three abbreviated)",
+    "source_location": "Table 3 (Appendix D.2.2), 'Collecting responses (proprietary models)'",
+    "verbatim": "partial (three exemplar reasons abbreviated as '...' in the paper; final query format not shown)"
+  },
+  "output": {
+    "parse": "regex 'Answer:\\s*([ABC])'",
+    "postprocess": "invalid (no letter) = incorrect"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "MACC = share of the 742 questions whose parsed letter equals the gold answer (open questions have gold C); CMACC restricts to the 510 closed questions (0.750)",
+    "judge": "none",
+    "original_value": 0.646,
+    "original_location": "Table 2, row GPT-4 Turbo, column MACC",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 2226,
+    "est_usd": 22.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "prompt not fully printed: the three exemplar Reason passages abbreviated in Table 3 are not recoverable from the public record - the repository's codes/closed.py builds a different few-shot prompt (four random question/answer exemplars without Reason, prefixed by a context_qa.txt that is not in the repository) and the data.csv gold_reason of the Planck-scale exemplar differs from the Reason printed in Table 3; a human must decide between the shortened prompt (exemplar 1 with its printed Reason, exemplars 2-4 without) and dropping the claim",
+    "MACC cell: Sec. 4.2 defines MACC over all 742 questions (0.646, Table 2 row GPT-4 Turbo); CMACC (0.750) is the closed-only cell; the config compares all 742 with 0.646"
+  ],
+  "notes": "Stochastic metrics (MSACC, VSR) need 10 samples at temperature 1.0 and are out of scope. || [hooks_3 pass 2026-09-07] no hook: the blocker is the unprinted exemplar text, not a runner facility."
+}

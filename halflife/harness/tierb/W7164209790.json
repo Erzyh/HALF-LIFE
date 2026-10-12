@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7164209790",
+ "title": "Evaluating and Enhancing an AI Mental Health Guide in High-Risk Mental Health Contexts",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Table 2 (Safety accuracy across high-risk mental-health domains): 'GPT-4-turbo 17.0% 75.0% 0.0% 50.0% 75.0% 43.4%' (Delusions/Hallucinations/Mania/OC/Suicidal-Ideation/Average)"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Described as a 'fixed adversarial prompt set' across five clinical domains; literal prompt wording not printed in the excerpt read (safety papers commonly withhold exact self-harm-adjacent probes)",
+  "note": "The probes are safety-evaluation questions testing the model's response quality, not requests for harmful content themselves, so this is not treated as a tos violation."
+ },
+ "claim": {
+  "metric": "average safety accuracy (%) across five high-risk mental-health domains",
+  "value": 43.4,
+  "n_items": null,
+  "location": "Table 2, row GPT-4-turbo, Average column",
+  "task_type": "classification",
+  "judge": "llm:GPT-4.1 (undated)"
+ },
+ "data": {
+  "public": "no",
+  "source": "Adversarial mental-health prompt set; not indicated as released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "aux_model_dead"
+ ],
+ "notes": "Scoring uses 'the calibrated LLM-as-Judge', explicitly GPT-4.1 (undated, not one of the pinned live snapshots), so the reported accuracy cannot be reproduced with an approved still-callable judge even if GPT-4-turbo's raw responses were re-collected; the adversarial prompt wording itself is also not confirmed printed."
+}

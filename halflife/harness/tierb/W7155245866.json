@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7155245866",
+ "title": "Evaluating Multimodal LLMs for Inpatient Diagnosis: Real-World Performance, Safety, and Cost Across Ten Frontier Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-5 Mini (gpt-5-mini-2025-08-07)",
+  "resolved": "gpt-5-mini-2025-08-07",
+  "role": "B",
+  "evidence": "Model table: \"OpenAI GPT-5 Mini 2025-08-07\"; Table 5: \"GPT-5 Mini 3.17 2.92 3.37 3.34 3.26 3.19 3.99 3.95 287\" (Dx/DDx/ClinReasoning/Safety/S4/S3 RAW+ISO, Cases=287/300)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec Methods; \"LLM reasonings must reference supplementary appendix A\"",
+  "note": ""
+ },
+ "claim": {
+  "metric": "S3 (ISO, panel-calibrated) score",
+  "value": 3.95,
+  "n_items": 287,
+  "location": "Table 5",
+  "task_type": "generation",
+  "judge": "llm:unspecified (multi-model LLM Jury)"
+ },
+ "data": {
+  "public": "no",
+  "source": "539 real inpatient cases from Chris Hani Baragwanath Academic Hospital, South Africa (a specific tertiary public hospital's clinical records)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "o3-2025-04-16 and o4-mini-2025-04-16 are also tested in the same table and are equally well-specified, but all rely on the same closed, real-world LMIC hospital case data (multimodal inpatient records), which is not a publicly redistributable dataset."
+}

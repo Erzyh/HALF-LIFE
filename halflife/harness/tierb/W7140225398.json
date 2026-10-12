@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W7140225398",
+  "title": "Large language model scoring of medical student reflection essays: Accuracy and reproducibility of prompt-model variations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 1: '2 outdated models (GPT-4-Turbo, GPT-3.5-Turbo) that are relevant for historical comparisons' ... 'Model: GPT-4-Turbo | 4-Turbo | None [As per Baseline]'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 1 footnote c (exact wording of the Baseline prompt) + Appendix Box 1 (rubric inserted verbatim)",
+    "note": "GPT-4-Turbo condition = Baseline prompt with the model swapped; temperature 0.7; o4-mini condition identical."
+  },
+  "claim": {
+    "metric": "mean absolute difference vs human reference score (MAD)",
+    "value": 0.44,
+    "n_items": 51,
+    "location": "Table 3, block 'GPT models, not fine-tuned', row B = GPT-4-Turbo (306 data points = 51 essays x 6 replications)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "15 real test essays from the 18 rater-training essays published with the O'Sullivan rubric + 36 essays generated with Gemini-2.0-flash (release not stated)"
+  },
+  "cost": {
+    "est_calls": 51,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Also reports o4-mini (MAD 0.55) and ICC-based accuracy/reproducibility. Reference scores are fixed human scores, so no judge is needed at re-run time. Soft gap: the 36 synthetic essays are not confirmed released.",
+  "resolution": {
+    "gap": "unreleased",
+    "plan": "15 of the 51 essays are the public O'Sullivan rater-training essays, but the 36 Gemini-generated essays and their reconciled reference scores appear only as a generation dialog (Appendix Table A1) and a score distribution (Table A2), not as text, so the 51-essay MAD cannot be recomputed; a 15-essay partial run would not be the paper's number.",
+    "approximation": "n/a",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

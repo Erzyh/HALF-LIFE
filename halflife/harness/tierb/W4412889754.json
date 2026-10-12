@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412889754",
+  "title": "DeepReview: Improving LLM-based Paper Review with Human-like Deep Thinking Process",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-o1-2024-12-17",
+    "resolved": "o1-2024-12-17",
+    "role": "B",
+    "evidence": "Sec. 5.1: 'Prompt-based baselines including AI Scientist ... implemented with various backbone models (GPT-o1-2024-12-17, ...)'; Table 2 row AI Scientist GPT-o1: D. Acc. 0.4500"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "AI Scientist reviewer prompt is not printed (external codebase of Lu et al. 2024); Figures 4-7 print DeepReviewer and judge prompts only",
+    "note": ""
+  },
+  "claim": {
+    "metric": "decision accuracy (accept/reject), ICLR 2024 test set",
+    "value": 0.45,
+    "n_items": null,
+    "location": "Table 2, row AI Scientist / GPT-o1, column D. Acc. (ICLR 2024)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "DeepReview-13K (OpenReview ICLR 2024/2025 papers and reviews; released on HF/GitHub)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [
+    "prompt_none"
+  ],
+  "notes": "The o1 number comes from the AI Scientist review pipeline (reflection rounds, ensembling) defined outside this paper; test-split size not stated in the text; inputs are full papers (up to 100K tokens). Main contribution (DeepReviewer-14B) is a fine-tuned model."
+}

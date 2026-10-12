@@ -1,0 +1,66 @@
+{
+  "wid": "W4404792825",
+  "title": "Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 31.36,
+  "original_location": "Table 2, column GPT-4o, row Base, GSE (ES 5.63)",
+  "reexecution": {
+    "mean_over_seeds": 32.45,
+    "per_seed": {
+      "0": {
+        "value": 33.0,
+        "n": 10,
+        "ci95": [
+          31.5,
+          34.3
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 31.9,
+        "n": 10,
+        "ci95": [
+          30.8,
+          32.9
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404792825",
+    "n_items": 10,
+    "n_requests": 20,
+    "seeds": 2,
+    "est_usd": 0.36,
+    "subset_note": "repeat of the vendor condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 31.36,
+    "cap_usd": 1.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\vendor\\W4404792825"
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the baseline Likert instruction is not printed (Table 12 holds only the pressure prompts); a minimal Instruction-Induction style format line is written; item wording and order follow the published scale",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor_rep\\W4404792825"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 32.45,
+    "delta": 1.0900000000000034,
+    "original_inside_ci95": false
+  }
+}

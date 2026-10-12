@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7155154988",
+  "title": "A Survey on Multi-Agent Systems for AI-Driven Data Automation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Related-work table: \"Methods: Three-phase framework-Outline, Information Collection, Plan-using Strategy and Knowledge Blocks with GPT-4-Turbo.\" (a cited paper's method, not this survey's own work)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This is a survey/conceptual-framework paper; no experiments are run by the authors."
+  },
+  "claim": {
+    "metric": "none (survey paper, no original experiments)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey/position paper proposing a conceptual four-agent framework; GPT-4-Turbo and GPT-4/GPT-4o are mentioned only when summarizing other papers' methods or as generic tooling references, never run by these authors."
+}

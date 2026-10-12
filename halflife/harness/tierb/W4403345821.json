@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403345821",
+  "title": "VHELM: A Holistic Evaluation of Vision Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "\"GPT-4 Turbo (2024-04-09) GPT-4 Turbo OpenAI Unknown API [31]\" (Appendix D model table); per-scenario scores in Table A4"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C: one example prompt per scenario (e.g. 'Prompt: Is there a refrigerator in the image?'); exact HELM formatting lives in crfm-helm code",
+    "note": "Instruction templates shown, full formatting in code"
+  },
+  "claim": {
+    "metric": "VQAv2 exact-match score",
+    "value": 0.738,
+    "n_items": 1000,
+    "location": "Table A4 (Visual Perception), column GPT-4 Turbo, row VQAv2",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "VQAv2 (VHELM samples at most 1,000 instances per scenario, Sec. 3.4)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Subsampling seed of the 1,000 instances is in HELM code; wide 22-column table, alignment should be re-checked. Multimodal calls ~$0.01-0.015 each.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Appendix C prints only one example prompt per scenario; the VQAv2 instruction template, answer formatting and the 1,000-instance subsample (random seed) are defined in the crfm-helm run specs. Reuse the vhelm v2.0.1 run spec for gpt-4-turbo-2024-04-09 (per-instance prompts and outputs are also published at crfm.stanford.edu/helm/vhelm/v2.0.1) and recompute exact match; compare with 0.738 (Table A4).",
+    "approximation": "None if the HELM run spec and the same 1,000 instances are reused; otherwise a seeded 1,000-item subsample of VQAv2 val gives only a set-level comparison.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/stanford-crfm/helm",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

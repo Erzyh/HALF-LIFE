@@ -1,0 +1,99 @@
+{
+  "card_id": "W4402692922",
+  "openalex_id": "https://openalex.org/W4402692922",
+  "title": "Human versus Artificial Intelligence: ChatGPT-4 Outperforming Bing, Bard, ChatGPT-3.5 and Humans in Clinical Chemistry Multiple-Choice Questions",
+  "doi": "10.2147/amep.s479801",
+  "paper": {
+    "authors": "Sallam, Al-Salahat, Eid, Egger, Puladi",
+    "year": 2024,
+    "repo": null,
+    "repo_note": "No artifact repository. The scaffold link osf.io/sytu3 is the DOI suffix of a CITED preprint (Newton & Xiromeriti, EdArXiv, ref 47), not this paper's deposit. Data Sharing Statement: 'available on request from the corresponding author (M.S.) ... not publicly available due to the confidentiality of the questions created for an exam purpose.'",
+    "repo_commit": null,
+    "repo_license": null
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The headline result (AI chatbot scores vs. 20 MSc students) is entirely the chatbots' MCQ answers; the secondary result (mCLEAR content quality) is rated by two human clinical pathologists."
+  },
+  "claim": {
+    "statement": "On 60 instructor-written MSc-level Clinical Chemistry MCQs, ChatGPT-4 scored 54/60 (0.90 +/- 0.30) vs. the students' mean 0.68 +/- 0.23 (40.05/60), Bing Chat (GPT-4 Turbo backend) 46/60 (0.77 +/- 0.43), ChatGPT-3.5 44/60 (0.73 +/- 0.45) and Bard 40/60 (0.67 +/- 0.48); ChatGPT-4 was significantly better on lower- than higher-cognitive Bloom items (98% vs 72%, P=0.003) (Results text, Table 3, Figure 1).",
+    "claim_type": "capability_level",
+    "metric": "proportion of 60 MCQs answered correctly against the instructor answer key (single pass, one chat session per model)",
+    "original_values": {
+      "n_items": 60,
+      "chatgpt4_correct": 54,
+      "chatgpt4_score": 0.90,
+      "bing_gpt4turbo_correct": 46,
+      "bing_score": 0.77,
+      "chatgpt35_correct": 44,
+      "chatgpt35_score": 0.73,
+      "bard_correct": 40,
+      "bard_score": 0.67,
+      "students_mean_score": 0.68,
+      "students_mean_raw": "40.05 +/- 7.23 of 60",
+      "chatgpt4_lower_cognitive_pct": 98,
+      "chatgpt4_higher_cognitive_pct": 72,
+      "chatgpt4_bloom_P": 0.003,
+      "mCLEAR_chatgpt4": "4.70 +/- 0.90 (Excellent)",
+      "mCLEAR_bing": "4.16 +/- 1.43 (Above average)"
+    },
+    "original_source": "Results 'Overall Performance of the Tested AI Models Compared to the Human Students'; Table 3 (Bloom stratification); Figure 1; Table 4 (mCLEAR); Discussion (54/60 = 90.00%)"
+  },
+  "protocol": {
+    "model": null,
+    "model_note": "Live model is NOT an experimental API arm. All four models were queried through consumer chat interfaces on 2023-11-27/28: ChatGPT-3.5 and ChatGPT-4 (web, 'most recent update from April 2023'), Bing Chat ('uses the GPT-4 Turbo model', balanced style, 'New Topic' resets), Bard. No model ID, no API. 'gpt-4-turbo' appears only as the stated backend of Bing Chat.",
+    "model_status": "not applicable (web-UI arms). Closest live proxy would be gpt-4-turbo-2024-04-09 (dying, 2026-10-23), which is not the model the paper used.",
+    "endpoint": "none (chat web interfaces)",
+    "prompt_source": "Methods 'Prompt and Language Specificity' - exact prompt quoted verbatim in the paper (one framing prompt, then the 60 MCQs one by one; no regenerate, no feedback)",
+    "params": {
+      "temperature": "not applicable / not reported (web UI defaults)",
+      "max_tokens": "not applicable",
+      "seed": "not applicable",
+      "other": "single session per model (Bing: new topic per its 50-response limit); English MCQs"
+    },
+    "n_items": 60,
+    "samples_per_item": 1,
+    "evaluation": "Correctness vs. the instructor answer key (manual in the paper; automatable once responses are extracted). mCLEAR quality (completeness, accuracy/evidence, relevance; 5-point Likert) by two certified clinical pathologists with Cohen's kappa 0.69-1.0 - human-rated, not automatable."
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "prompts_note": "prompt text is in the paper (Methods)",
+    "data_path": null,
+    "data_note": "60 MCQs + answer key are confidential exam items, available only on request from malik.sallam@ju.edu.jo",
+    "eval_path": null,
+    "data_public": false,
+    "data_license": "none (confidential university exam items)",
+    "redistributable": false,
+    "notes": "Preprints on Research Square (10.21203/rs.3.rs-3880412/v1) and medRxiv (10.1101/2024.01.08.24300995). Student-level scores and MCQ metrics (facility index, discrimination efficiency) are only summarised in Tables 1-2."
+  },
+  "blockers": [
+    "live model not an experimental arm: all four systems were used through chat web UIs (ChatGPT-4 web, Bing Chat 'GPT-4 Turbo', Bard); no callable snapshot exists for any arm",
+    "questions are a confidential instructor-written exam (60 MCQs), available only on request",
+    "no artifact repository; the OSF link in the scaffold is a cited preprint DOI",
+    "mCLEAR quality scores require two certified clinical pathologists as raters"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "note": "would require gpt-4-turbo-2024-04-09 as an unverifiable proxy for ChatGPT-4 web (Nov 2023) / Bing Chat" },
+    "successors": ["gpt-5-2025-08-07", "gpt-5-mini-2025-08-07", "claude (current dated snapshot)", "gemini (current dated snapshot)", "llama-3.x (open weights, hash-pinned)", "qwen3 (open weights, hash-pinned)"]
+  },
+  "budget": {
+    "est_calls": 180,
+    "est_tokens_in": 54000,
+    "est_tokens_out": 63000,
+    "est_cost_usd": 2.4,
+    "pricing_usd_per_1m": { "gpt-4-turbo": { "input": 10.0, "output": 30.0 } },
+    "assumptions": "CONDITIONAL on unblocking with the proxy model: 60 items x 3 seeds; ~300 input tokens (framing prompt + MCQ) and ~350 output tokens (answer + rationale) per call"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Only meaningful as a proxy re-execution: survival if the proxy's accuracy over the 60 items has a Wilson 95% CI overlapping 54/60 = 0.90 (approx. 0.80-0.95) AND remains above the student mean 0.68 (direction of the human-vs-AI claim); Bloom-level direction (lower > higher cognitive) checked by sign only.",
+    "notes": "Single-pass web sessions in the original; no CIs reported for model scores. With n=60, one item = 1.7 percentage points."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Accept gpt-4-turbo-2024-04-09 (API) as a proxy for the Nov-2023 ChatGPT-4 web / Bing Chat sessions? This changes the claim's subject from 'ChatGPT-4 (web)' to 'GPT-4 Turbo (API)'.",
+    "Request the 60 MCQs + answer key + Bloom labels from the corresponding author under confidentiality (needed for any re-run)?",
+    "If both are yes: treat the overall 54/60 score (not the human-rated mCLEAR quality) as the core claim?"
+  ],
+  "domain_notes": "MSc Medical Laboratory Sciences clinical chemistry exam (Tietz/Henry's-level content), Bloom-classified by two clinical pathologists. In late Nov 2023 ChatGPT Plus already served GPT-4 Turbo (gpt-4-1106-preview backend, now dead), so the 'ChatGPT-4 (April 2023 update)' arm cannot be pinned to any snapshot. Differences among the four AI arms (54/46/44/40 of 60) were not significance-tested; only the Bloom-level contrasts and mCLEAR ratings carry P values."
+}

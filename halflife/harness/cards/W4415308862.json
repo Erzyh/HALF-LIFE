@@ -1,0 +1,122 @@
+{
+  "card_id": "W4415308862",
+  "openalex_id": "https://openalex.org/W4415308862",
+  "title": "Judging with Many Minds: Do More Perspectives Mean Less Prejudice? On Bias Amplifications and Resistance in Multi-Agent Based LLM-as-Judge",
+  "doi": "https://doi.org/10.48550/arXiv.2505.19477",
+  "paper": {
+    "authors": "Chiyu Ma, Enpei Zhang, Yilun Zhao, Wenjun Liu, Yaning Jia, Peijun Qing, Lin Shi, Arman Cohan, Yujun Yan, Soroush Vosoughi (Dartmouth / Yale)",
+    "year": 2025,
+    "venue": "arXiv:2505.19477 (preprint, 2025-05-26)",
+    "repo": "https://github.com/Henrymachiyu/Multi_Agent_Judge_Bias",
+    "repo_commit": "be4149bead1d9f818c6c8ce48108bb1ed2182fbd (2025-09-18, branch main, 'updated data, results and logs'); shallow clone under external/repos/W4415308862/Henrymachiyu__Multi_Agent_Judge_Bias",
+    "repo_license": "Apache-2.0 (LICENSE in the tree; GitHub API spdx_id Apache-2.0)",
+    "clone_note": "GitHub reports 265 MB; on disk the checkout is ~2.5 GB because logs/ (2.1 GB) and results/ (457 MB) contain every raw judge and critic transcript. Above the ~1 GB guideline but already retrieved; nothing needs to be re-downloaded.",
+    "other_artifacts": "Data ships in-repo: data/mtbench_pairwise_data_all.json (4,800 pairs), data/mtbench_pairwise_data_normal_random_sampled.json (480, the experimental set), data/calm_pairwise_data_all.json (439), plus verbose-perturbed variants. analysis/ holds per-model per-bias aggregated JSONs for every cell of Tables 1-4."
+  },
+  "dependence": {
+    "type": "judge",
+    "strength": "core",
+    "note": "LLM judges and critics are the object of study; the consistency rate is computed entirely from model outputs. But every arm is either open-weight (R1-Distilled-Qwen-32B, Llama-3.3-70B-Instruct-Turbo via Together.ai, Qwen1.5-32B-Chat+PINE), a non-OpenAI API (DeepSeek-V3), or gpt-4o-mini - none of which is on the retirement list."
+  },
+  "claim": {
+    "statement": "Introducing multi-agent debate amplifies judge bias immediately: for the GPT-4o-mini self-play judge-critic pair the consistency rate falls from round 0 to round 1 on every bias - MT-Bench positivity 0.793 -> 0.667, verbosity 0.716 -> 0.637, bandwagon 0.746 -> 0.667, CoT 0.835 -> 0.731; CALM-Alignment 0.793 -> 0.663, 0.789 -> 0.704, 0.740 -> 0.663, 0.869 -> 0.763 - and does not recover over rounds 2-3 (Table 1).",
+    "claim_type": "bias_or_behavior",
+    "metric": "Consistency rate CR = (1/N) * sum_i I(y_i == y_i_modified): the fraction of pairwise judgements unchanged after a bias-eliciting prompt modification (position swap, verbosity inflation, bandwagon cue, or a CoT-style cue). Higher is better resistance. N = 480 (MT-Bench) or 439 (CALM-Alignment).",
+    "claim_type_note": "The reported values are consistency, not accuracy; no human gold label is involved in this metric.",
+    "original_values": {
+      "gpt4o_mini_judge_gpt4o_mini_critic": {
+        "mtbench": {
+          "positivity": [0.793, 0.667, 0.648, 0.648],
+          "verbosity": [0.716, 0.637, 0.617, 0.598],
+          "bandwagon": [0.746, 0.667, 0.692, 0.704],
+          "cot": [0.835, 0.731, 0.74, 0.719]
+        },
+        "calm_alignment": {
+          "positivity": [0.793, 0.663, 0.681, 0.692],
+          "verbosity": [0.789, 0.704, 0.704, 0.708],
+          "bandwagon": [0.74, 0.663, 0.683, 0.704],
+          "cot": [0.869, 0.763, 0.781, 0.784]
+        },
+        "index_meaning": "[round 0 (single judge, no debate), round 1, round 2, round 3]"
+      },
+      "context_rows": {
+        "r1_qwen32b_selfplay_mtbench_round0": [0.772, 0.736, 0.728, 0.795],
+        "llama33_70b_selfplay_mtbench_round0": [0.814, 0.72, 0.783, 0.821],
+        "deepseek_v3_selfplay_mtbench_round0": [0.821, 0.746, 0.748, 0.883],
+        "pine_critic_vs_4o_mini_mtbench_positivity": [0.817, 0.825, 0.831]
+      }
+    },
+    "original_source": "Paper Table 1 (Consistency scores across three rounds of multi-agent debate, MT-Bench and CALM-Alignment); Table 3 for the PINE bias-free critic; Table 14 for the RewardBench replication. All values to three decimals."
+  },
+  "protocol": {
+    "model": "NONE on the retirement list - gpt-4o-mini (undated alias) is the only OpenAI arm",
+    "model_status": "gpt-4o-mini resolves to gpt-4o-mini-2024-07-18, which is alive and is NOT among the retiring snapshots, so this paper contributes no live arm to the study",
+    "model_usage_verified": "yes, negatively - the census live_id 'gpt-4-turbo' is a false positive: GPT-4 Turbo is named only as one of the 30 LLMs whose responses MT-Bench already contains (Appendix D.1, response provenance), never as a model the authors called. Section 4.2 lists the four evaluated LLMs as R1-Distilled-Qwen-32B, LLaMA-3.3-70B-Instruct-Turbo, 4o-mini and DeepSeek-V3. llm/openai_model.py defaults to model_name='gpt-4o-mini' and run_exp_debate.py / run_exp_meta.py default to 'openai:gpt-4o-mini'. An unused llm/azure_model.py helper defaults to 'gpt-4.1' but no experiment uses it.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions for the 4o-mini arm (llm/openai_model.py); Together.ai for Llama-3.3-70B-Instruct-Turbo; the DeepSeek API for DeepSeek-V3; local HF for R1-Distilled-Qwen-32B and PINE",
+    "prompt_source": "prompts/judge_critic_mem.py (neutral), prompts/prompt_position.py, prompts/prompt_bandwagon.py, prompts/prompt_cot.py (the three bias-eliciting variants), prompts/critic_pine_none.py and prompts/critic_pine_position.py, prompts/meta_judge_prompt.py; verbosity perturbations are pre-generated into data/*_verbose.json by generate_verbose.py",
+    "params": {
+      "judge_temperature": 0.01,
+      "critic_temperature": 0.01,
+      "judge_max_tokens": 512,
+      "critic_max_tokens": 512,
+      "torch_seed": 1234,
+      "rounds": 3,
+      "source": "run_exp_debate.py (judge_critic(...) call) and Appendix: 'language models are evaluated with a temperature of temperature = 0.01 to minimize randomness'. Note llm/openai_model.py's own default is temperature 0.7 / max_tokens 1024 and is overridden by the runner."
+    },
+    "n_items": 919,
+    "n_items_detail": "MT-Bench 480 sampled comparison tasks (60 per category x 8 categories, drawn from 4,800 unique pairs) + CALM-Alignment 439",
+    "samples_per_item": 1,
+    "evaluation": "run_analysis.py aggregates each judge/critic/bias/round transcript into the consistency rate; analysis/analysis_debate_{mtbench,calm}/ holds the resulting per-cell JSONs. Significance in the paper is by pairwise t-tests across judge-critic pairings (Appendix A.1).",
+    "environment": "environment.yaml provided; GPUs needed for R1-Distilled-Qwen-32B and the PINE agent"
+  },
+  "artifacts": {
+    "prompts_path": "prompts/ (7 files: judge_critic_mem, prompt_position, prompt_bandwagon, prompt_cot, critic_pine_none, critic_pine_position, meta_judge_prompt)",
+    "data_path": "data/mtbench_pairwise_data_normal_random_sampled.json (480), data/calm_pairwise_data_all.json (439), plus _verbose variants and the full 4,800-pair MT-Bench pool",
+    "eval_path": "run_exp_debate.py, run_exp_meta.py, judge_critic.py, meta_judge.py, run_analysis.py; aggregated cells in analysis/",
+    "data_public": true,
+    "data_license": "MT-Bench Apache-2.0; CALM-Alignment CC BY 4.0 (paper Appendix D.1/D.2); code Apache-2.0",
+    "redistributable": true,
+    "notes": "One of the best-documented artifacts in this batch: prompts, data, runner scripts, aggregated analysis and every raw transcript (logs/ 2.1 GB, results/ 457 MB) are public under Apache-2.0. The obstacle is entirely on the model side."
+  },
+  "blockers": [
+    "No retiring snapshot anywhere in the paper: the four judge models are R1-Distilled-Qwen-32B, Llama-3.3-70B-Instruct-Turbo, gpt-4o-mini and DeepSeek-V3. gpt-4o-mini-2024-07-18 is alive and not on the retirement list, so nothing here is at risk of disappearing on 2026-10-23.",
+    "The census live_id 'gpt-4-turbo' is a dataset-provenance false positive (MT-Bench response authors), not an experimental arm.",
+    "The OpenAI arm is named only as '4o-mini' / 'gpt-4o-mini' with no snapshot date.",
+    "44 of the 439 CALM-Alignment items are flagged NSFW by the paper (Appendix D.2); the authors kept the full set. Any re-run would inherit that content.",
+    "Two arms depend on third-party hosting (Together.ai for Llama-3.3-70B-Instruct-Turbo, the DeepSeek API for DeepSeek-V3) whose own snapshots are not pinned."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": null,
+      "proxy_option": "none needed - gpt-4o-mini-2024-07-18 is alive and can be re-run at any time; it simply is not a retirement-study arm"
+    },
+    "successors": [
+      "not applicable - no retiring snapshot to succeed. If the user nonetheless wants a successor sweep on the gpt-4o-mini arm, gpt-5.6-luna is the nano/mini-class vendor replacement and gpt-4.1-2025-04-14 the GPT-4-class comparator."
+    ],
+    "dead_comparators_not_runnable": []
+  },
+  "budget": {
+    "est_calls": 22000,
+    "est_tokens_in": 17600000,
+    "est_tokens_out": 3300000,
+    "est_cost_usd": 12,
+    "pricing_usd_per_1m": {
+      "gpt-4o-mini-2024-07-18": {
+        "input": 0.15,
+        "output": 0.6
+      }
+    },
+    "assumptions": "HYPOTHETICAL and off-study, since gpt-4o-mini is not retiring. Table 1 GPT-4o-mini self-play row only: 919 items x 4 bias types x 2 conditions (original and modified) x (1 round-0 judgement + 3 debate rounds x 2 agent turns) ~= 22,000 calls; ~800 input tokens (question plus two candidate solutions plus debate memory, growing with rounds) and ~150 output tokens against the 512 cap. Round 0 alone would be about 7,400 calls and USD 1.5. Single run at temperature 0.01, matching the paper (no 3-seed multiplier applied)."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (only if the user decides to run an off-study arm). Primary numbers: the eight round-0 -> round-1 consistency drops for the GPT-4o-mini self-play pair. Survival = each re-run round-0 value inside the bootstrap 95% CI over items of the original (n = 480 or 439, about +/- 3.7 pp) AND the behavioural direction holds: every bias type still drops significantly from round 0 to round 1 and does not recover by round 3. Partial = levels shift but the round-0 > round-1 direction holds for at least three of the four bias types. Death = debate no longer reduces consistency, i.e. the paper's central phenomenon disappears.",
+    "notes": "Consistency is a self-comparison (original vs perturbed judgement), so it is robust to absolute-quality drift but sensitive to format compliance: a model that starts refusing or hedging on the NSFW CALM items would corrupt the denominator. The paper's own claim is about the round-0 -> round-1 step, not about the absolute level."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm dropping this paper from the retirement study: the only OpenAI arm is gpt-4o-mini, which is not a retiring snapshot, and 'gpt-4-turbo' was MT-Bench response provenance.",
+    "If it is kept as an off-study methods reference, run only the round-0 GPT-4o-mini single-judge cells (about USD 1.5) rather than the full three-round debate?",
+    "Exclude the 44 NSFW CALM-Alignment items if any run happens, at the cost of no longer matching the paper's N = 439?"
+  ],
+  "domain_notes": "The paper studies whether multi-agent judging (debate and meta-judge) reduces or amplifies four known LLM-judge biases: position (positivity), verbosity, bandwagon and a CoT-style cue. Headline findings: debate sharply amplifies bias after one round and does not recover; meta-judging is more resistant; a bias-free PINE agent (Qwen1.5-32B-Chat with position-bias elimination) helps as a debate critic but much less as a pool member. Everything needed to reproduce it is public under Apache-2.0 - this card is blocked purely because no arm is a retiring snapshot, which makes it a clean negative data point for the census (an alias match on 'gpt-4-turbo' coming from dataset provenance rather than from any API call)."
+}

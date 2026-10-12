@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4410511878",
+ "title": "Az önszabályozó tanulás és a mesterséges intelligenciával támogatott interaktív online oktatás kapcsolata",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Azota megjelentek a GPT-3.5, GPT-3.5-turbo, GPT-4, GPT-4-turbo, GPT-4o, GPT-4o mini valtozatok...\" (historical narrative listing OpenAI's model lineup)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Background/context paragraph; no experiment."
+ },
+ "claim": {
+  "metric": "none (historical model-lineup narrative, self-regulated-learning theory paper)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Hungarian paper on self-regulated learning and AI-supported online education; GPT-4-turbo appears only in a background list of OpenAI's successive model releases, not as a model the authors tested."
+}

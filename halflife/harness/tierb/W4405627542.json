@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405627542",
+  "title": "Agent-SafetyBench: Evaluating the Safety of LLM Agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'GPT-4-Turbo 41.9 33.9 72.7 36.8 ...' (Table 5); 'we set the sampling temperature to 0 by default' (Appendix H)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix H (default agent system prompt printed); Appendix E (test-case generation prompts); per-case tool definitions in the released data",
+    "note": ""
+  },
+  "claim": {
+    "metric": "safety score, Total (%)",
+    "value": 41.9,
+    "n_items": 2000,
+    "location": "Table 5, row GPT-4-Turbo, column Total",
+    "task_type": "agentic",
+    "judge": "llm:fine-tuned Qwen-2.5-7B-Instruct scorer (authors')"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/thu-coai/Agent-SafetyBench/ (2,000 test cases, 349 environments)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Multi-turn tool interactions with simulated environments require the released framework; safety labels come from the authors' fine-tuned scorer, whose availability is not stated in the text."
+}

@@ -1,0 +1,66 @@
+{
+  "wid": "W4400611869",
+  "title": "Lynx: An Open Source Hallucination Evaluation Model",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 82.2,
+  "original_location": "Table 3, row GPT-4-Turbo, column FinanceBench (the Overall column across all six HaluBench subsets is 85.0%)",
+  "reexecution": {
+    "mean_over_seeds": 0.8797979797979798,
+    "per_seed": {
+      "0": {
+        "value": 0.8828282828282829,
+        "n": 990,
+        "ci95": [
+          0.8626262626262626,
+          0.9030303030303031
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.8767676767676768,
+        "n": 990,
+        "ci95": [
+          0.8575757575757575,
+          0.896969696969697
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 1
+  },
+  "prepare": {
+    "wid": "W4400611869",
+    "n_items": 990,
+    "n_requests": 1980,
+    "seeds": 2,
+    "est_usd": 4.2,
+    "subset_note": "cost cap $2.1: seeded random subset of 990 items (seed 20260907); repeat of the gemini_flash condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 82.2,
+    "cap_usd": 9.22,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gemini_flash\\W4400611869"
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none; the same zero-shot prompt is used for every model and task (Sec. 4.1), and the FinanceBench column of Table 3 is scored over the whole released subset.",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash_rep\\W4400611869"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 87.97979797979798,
+    "delta": 5.779797979797976,
+    "original_inside_ci95": false
+  }
+}

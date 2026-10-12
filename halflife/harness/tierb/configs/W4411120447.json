@@ -1,0 +1,74 @@
+{
+  "wid": "W4411120447",
+  "title": "Analyzing and Evaluating Correlation Measures in NLG Meta-Evaluation",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.2 (setting GPT4_T=0_1_5: temperature 0, one sample, scale 1-5); version by the date rule",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 34416,
+    "subset_rule": "all 30 meta-evaluation subsets D1-D30 (Table 4): SummEval 16x100x4, WMT23 zh-en news 16x376, HANNA 6x60x6, MANS 2x5x200, USR 2x5x60x6, WebNLG2020 16x178x5 (system, input, aspect) scorings",
+    "approximation": "Aspect definitions are taken from the original datasets or were composed by the authors (Appendix B.2, not printed); {task}, {source_des}, {target_des} wordings not printed; r is an estimated parameter averaged over datasets, not a plain pooled correlation."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "SummEval (github.com/Yale-LILY/SummEval), WMT23 ZH-EN news (mt-metrics-eval), HANNA, MANS (OpenMEVA), USR (Persona-Chat / Topical-Chat), WebNLG2020 human evaluation; the authors' data.csv (Google Drive link in github.com/kite99520/NLGCorrEval) holds scores only",
+    "config_or_split": "30 subsets D1-D30 (Table 4)",
+    "filter": "none",
+    "fields": {
+      "input": "source text + system output per (system, input)",
+      "label": "human score per aspect",
+      "id": "(dataset, system, input, aspect)"
+    },
+    "license": "mixed / unknown",
+    "access_checked": false,
+    "size_mb": 0
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of {task} strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from {scale} (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n###Evaluation Criterion###\n{aspect}\n###Example###\n{source_des}:\n{source}\n{target_des}:\n{target}\n###Your Evaluation###",
+    "placeholders": {
+      "task": "task name, e.g. 'summarization' (wording not printed)",
+      "scale": "'1 to 5'",
+      "aspect": "aspect definition (original dataset or authors' wording, not printed)",
+      "source_des": "source description, e.g. 'Source document' (not printed)",
+      "source": "source text",
+      "target_des": "target description, e.g. 'Summary' (not printed)",
+      "target": "system output"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B.2, Table 3 (prompt template)",
+    "verbatim": "full (template); slot wordings partial"
+  },
+  "output": {
+    "parse": "regex 'Rating:\\s*([1-5])'",
+    "postprocess": "int; missing rating = excluded"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Table 5 column r: Pearson correlation between metric and human scores under global grouping, estimated per meta-evaluation dataset after 0-1 normalization (Appendix C.2) and averaged over D1-D30; confirm against Sec. 2 (r_NxM = 0.51 is the alternative column)",
+    "judge": "none",
+    "original_value": 0.55,
+    "original_location": "Table 5, row GPT4_T=0_1_5, column r",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 34416,
+    "est_usd": 344.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "The 30 meta-evaluation subsets (texts + human scores) must be assembled from six source datasets (SummEval, WMT23 zh-en, HANNA, MANS, USR, WebNLG2020); the released data.csv holds scores only.",
+    "Aspect definitions and the {task}/{source_des}/{target_des} wordings are not printed.",
+    "Confirm the definition of the r column (estimated global Pearson parameter) before comparing; a per-dataset comparison is not possible (Figure 4 only)."
+  ],
+  "notes": "Code repo github.com/kite99520/NLGCorrEval exists; 34,416 short calls at ~$0.01 each. || [hook pass 2026-09-07] no hook: inputs must be assembled from six external datasets with unprinted slot wordings."
+}

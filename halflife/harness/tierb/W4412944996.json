@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4412944996",
+  "title": "Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 2, row GPT-4-turbo: CO 45.6, NA 14.2, IN 40.2, CGA 53.1, F-score 49.1 (closed-source models); \"The judge model we use is GPT-4o.\" (Sec. 4.1)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 4.1 / Appendix H (official chat template, question given directly); Figure 14 (RAG prompt)",
+    "note": "Grading follows the SimpleQA LLM-as-judge template (public, not printed here)."
+  },
+  "claim": {
+    "metric": "F-score (harmonic mean of CO and CGA)",
+    "value": 49.1,
+    "n_items": 3000,
+    "location": "Table 2, row GPT-4-turbo, column F-score",
+    "task_type": "other",
+    "judge": "llm:gpt-4o (undated)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Chinese SimpleQA: GitHub/HF release cited in footnote 1 (3,000 questions, 6 topics, 99 subtopics)"
+  },
+  "cost": {
+    "est_calls": 6000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gaps: judge is an undated GPT-4o, and the grading prompt is inherited from SimpleQA rather than printed. Alias rule (ACL 2025, no preview string) resolves GPT-4-turbo to gpt-4-turbo-2024-04-09. Default decoding parameters per model.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Take the 3,000 questions from the Chinese SimpleQA release (footnote 1); query gpt-4-turbo-2024-04-09 with the question given directly under the official chat template at default decoding (Sec. 4.1, Appendix H). Grade each answer as correct / incorrect / not attempted with the public SimpleQA grader template (Wei et al. 2024) on gpt-4o; F-score = harmonic mean of CO and CGA; compare with 49.1 (Table 2).",
+    "approximation": "The judge snapshot is undated (use gpt-4o-2024-08-06, the alias target in Nov 2024, or the current alias); the grading prompt is SimpleQA's, possibly adapted to Chinese in the release.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

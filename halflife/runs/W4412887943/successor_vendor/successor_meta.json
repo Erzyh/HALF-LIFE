@@ -1,0 +1,17 @@
+{
+  "wid": "W4412887943",
+  "baseline_model": "gpt-4o-2024-05-13",
+  "successor_model": "gpt-5.6-sol",
+  "arm": "vendor",
+  "cap_usd": 25.0,
+  "adapter_args": [
+    "--analyze"
+  ],
+  "paths_redirected": [
+    [
+      "RUN",
+      "runs\\W4412887943\\successor_vendor\\run"
+    ]
+  ],
+  "body_rule": "successor_body in scripts/tiera_successor.py"
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7140075237",
+  "title": "DIALECTIC: A Multi-Agent System for Startup Evaluation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "For the LLM, we use OpenAI's gpt-5-mini-2025-08-07 (OpenAI, 2025). We set the temperature parameter to 0.0 for the answer agent and to 0.5 for all other agents (Section 3.4)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C, Listings 1-10 (decomposer, answer agent, generator, critic, evaluator, refiner, IO baseline)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "AUC-PR on the held-out test set",
+    "value": 0.2422,
+    "n_items": 130,
+    "location": "Section 5 text and Figure 3 ('AUC-PR of 0.2422 on the test set'); split of 129/130 startups",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "259 startups from real VCs' 2021 watchlists with Crunchbase and homepage data; not released"
+  },
+  "cost": {
+    "est_calls": 6000,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Code at github.com/pantageepapa/DIALECTIC; outcome labels derive from proprietary VC data."
+}

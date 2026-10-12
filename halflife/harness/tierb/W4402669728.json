@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4402669728",
+  "title": "Aggregating Impressions on Celebrities and their Reasons from Microblog Posts and Web Search Pages",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "we utilize ChatGPT model, specifically gpt-4-turbo-2024-04-09. The specific prompts given to ChatGPT are shown in Figure 5 of Appendix A. (Section 4)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A Figure 5 (collect/aggregate impressions); Appendix B Figures 6-7 (reason collection/aggregation)",
+    "note": "Reason aggregation (Section 5.4) used gpt-4-1106-preview, a retired preview."
+  },
+  "claim": {
+    "metric": "recall of collected impressions (micro average over 5 celebrities)",
+    "value": 0.58,
+    "n_items": 500,
+    "location": "Table 3, row Total/Micro Average, column recall (collecting)",
+    "task_type": "extraction",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "X (Twitter) posts collected via the Twitter search API (100 posts per celebrity) and web search pages; not released"
+  },
+  "cost": {
+    "est_calls": 15,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "tos",
+    "human_outcome"
+  ],
+  "notes": "Reference labels were created manually by the authors; evaluation is manual. Inputs are copyrighted/ToS-restricted social posts that are not distributed."
+}

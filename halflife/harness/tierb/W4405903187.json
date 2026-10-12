@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4405903187",
+  "title": "DeepSeek-V3 Technical Report",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-1106 (judge for Arena-Hard / AlpacaEval 2.0); GPT-4o-0513 (baseline rows)",
+    "resolved": "dead-preview",
+    "role": "A",
+    "evidence": "Sec. 5.3.3: 'which leverage GPT-4-Turbo-1106 as judges for pairwise comparisons'; Table 7: 'GPT-4o-0513 80.4 51.1'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (standard benchmark harnesses; no prompts printed for baseline rows)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Table 7 gives GPT-4o-0513 baseline rows (Arena-Hard 80.4, AlpacaEval 2.0 LC 51.1), likely leaderboard values; no GPT-4-Turbo subject number",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-1106-preview"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Arena-Hard (500), AlpacaEval 2.0 (805), RewardBench"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "no_prompt",
+    "no_number"
+  ],
+  "notes": "Model technical report; the only gpt-4-turbo string is the dead 1106 judge. GPT-4o-0513/0806/1120 appear as comparison baselines (Tables 7-8) without evidence that the authors ran them."
+}

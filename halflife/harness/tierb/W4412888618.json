@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4412888618",
+  "title": "StableToolBench-MirrorAPI: Modeling Tool Environments as Mirrors of 7,000+ Real-World APIs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 4.3: 'let gpt-4o, gpt-4o-mini and gpt-4-turbo to annotate whether the answer completes the user request ... We use the gpt-4-turbo tag during inference'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 13 (annotation prompt); Tables 8-12 (other prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "annotation accuracy vs two human annotators",
+    "value": null,
+    "n_items": 77,
+    "location": "Appendix F (per-model annotation accuracy on 77 samples)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ToolBench / StableToolBench"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Live model used as an annotator/evaluator only (role A); its agreement with humans is reported in Appendix F but it is not the subject of the paper."
+}

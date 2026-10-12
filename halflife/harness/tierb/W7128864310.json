@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7128864310",
+  "title": "GPT-4o Lacks Core Features of Theory of Mind",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"Evaluations reported in this work are from November 2024 using gpt-4o-2024-05-13\"; \"we set response_format=json\"; Figure 2 callout \"% Agreement 87.24\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods (ContainerWorld/MovieWorld paradigms); \"all system and user prompts are available on OSF\"",
+    "note": "System prompt gives the task and a JSON response schema; user prompt is a parametrically generated belief/desire/state vignette ending in a fixed question."
+  },
+  "claim": {
+    "metric": "% Agreement with expected (human-like ToM) action prediction, ContainerWorld",
+    "value": 87.24,
+    "n_items": 243,
+    "location": "Figure 2 panel (\"Accuracy on ContainerWorld\"), value printed as \"% Agreement 87.24\"",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "synthetic ContainerWorld/MovieWorld vignettes generated combinatorially by the authors; materials and prompts on OSF"
+  },
+  "cost": {
+    "est_calls": 729,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "243 = 9(beliefs) x 3(desires) x 9(states) tuples for the ContainerWorld forward-prediction task (Study 1). The paper also reports several cross-paradigm correlations (e.g. r=.78 for belief inferences) and a MovieWorld replication with its own tuple counts."
+}

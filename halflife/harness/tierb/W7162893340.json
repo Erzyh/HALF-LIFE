@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7162893340",
+  "title": "FinVerBench: Benchmark Validity and Calibration in Large Language Model Financial Statement Verification",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "FinanceBench [Islam et al., 2023] ... revealed that GPT-4-Turbo with retrieval incorrectly answered or refused 81% of questions (Section 2, related work)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (prompt templates for the original condition and ablations)",
+    "note": "Printed prompts belong to the authors' own runs (GPT-4.1, GPT-5.x, Claude 4.6, DeepSeek, ...), not to GPT-4-Turbo."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a (GPT-4-Turbo only cited)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SEC 10-K XBRL filings for 43 S&P 500 companies; code and data stated public"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Candidate for re-screen if gpt-4.1 counts as live: GPT-4.1 was run via OpenRouter alias openai/gpt-4.1 (snapshot unverified, Table 12) at temperature 0 on the 105/108-instance observable subset with prompts in Appendix A (Table 6: 61.0% accuracy, 100% FPR)."
+}

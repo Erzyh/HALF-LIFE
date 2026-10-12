@@ -1,0 +1,53 @@
+{
+  "wid": "W4404985489",
+  "title": "Variable Extraction for Model Recovery in Scientific Literature",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 0.491,
+  "original_location": "Table 1, row pureGPT4T, Overall F1",
+  "reexecution": {
+    "mean_over_seeds": 0.4894866293369617,
+    "per_seed": {
+      "0": {
+        "value": 0.4894866293369617,
+        "n": 589,
+        "ci95": null,
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404985489",
+    "n_items": 589,
+    "n_requests": 589,
+    "seeds": 1,
+    "est_usd": 2.14,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 0.491,
+    "cap_usd": 7.5
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "pure setup: the Figure 4 template without the few-shot and tool-extraction segments; pairwise similarity judged by the same live snapshot; the pair text handed to the judge is 'name | description' / 'name | value' (format not printed); F1 pooled over chunks (Table 1 says 'average performance'; per-chunk averages are printed as the alternative)",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4404985489"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.4894866293369617,
+    "delta": -0.0015133706630383048,
+    "original_inside_ci95": false
+  }
+}

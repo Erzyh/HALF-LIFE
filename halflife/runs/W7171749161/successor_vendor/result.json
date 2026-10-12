@@ -1,0 +1,183 @@
+{
+  "card": "W7171749161",
+  "model": "gpt-5.6-sol",
+  "n_calls": 960,
+  "original": {
+    "n_items": 20,
+    "affirm_ask": 0.85625,
+    "affirm_tag": 0.78125,
+    "tageff": -0.075,
+    "ci90": [
+      -0.13125,
+      -0.03125
+    ],
+    "n_replies": 320,
+    "hedge_share": 0.0,
+    "per_item": {
+      "cat": 0.0,
+      "puppy": 0.0,
+      "boat": 0.0,
+      "chore": 0.0,
+      "workout": 0.0,
+      "drink": 0.0,
+      "dinner": 0.0,
+      "wall": 0.0,
+      "pet": 0.0,
+      "vacation": 0.0,
+      "language": 0.0,
+      "phone": 0.0,
+      "bonus": 0.0,
+      "job": -0.375,
+      "home": -0.5,
+      "school": -0.125,
+      "move": -0.25,
+      "car": -0.125,
+      "major": -0.125,
+      "commute": 0.0
+    }
+  },
+  "replicates": {
+    "0": {
+      "n_items": 20,
+      "affirm_ask": 0.63125,
+      "affirm_tag": 0.45625,
+      "tageff": -0.175,
+      "ci90": [
+        -0.2625,
+        -0.09375
+      ],
+      "n_replies": 320,
+      "hedge_share": 0.0,
+      "per_item": {
+        "cat": 0.0,
+        "puppy": 0.0,
+        "boat": 0.0,
+        "chore": 0.0,
+        "workout": -0.875,
+        "drink": 0.0,
+        "dinner": 0.0,
+        "wall": -0.125,
+        "pet": -0.375,
+        "vacation": 0.0,
+        "language": -0.5,
+        "phone": -0.25,
+        "bonus": -0.125,
+        "job": 0.0,
+        "home": 0.0,
+        "school": -0.5,
+        "move": -0.125,
+        "car": -0.375,
+        "major": 0.0,
+        "commute": -0.25
+      }
+    },
+    "1": {
+      "n_items": 20,
+      "affirm_ask": 0.65,
+      "affirm_tag": 0.46875,
+      "tageff": -0.18125,
+      "ci90": [
+        -0.2625,
+        -0.09968750000000029
+      ],
+      "n_replies": 320,
+      "hedge_share": 0.0,
+      "per_item": {
+        "cat": 0.0,
+        "puppy": 0.0,
+        "boat": 0.0,
+        "chore": 0.0,
+        "workout": -0.375,
+        "drink": 0.0,
+        "dinner": 0.125,
+        "wall": -0.125,
+        "pet": -0.625,
+        "vacation": -0.375,
+        "language": -0.5,
+        "phone": -0.375,
+        "bonus": 0.0,
+        "job": 0.0,
+        "home": -0.125,
+        "school": -0.5,
+        "move": -0.125,
+        "car": -0.125,
+        "major": 0.0,
+        "commute": -0.5
+      }
+    },
+    "2": {
+      "n_items": 20,
+      "affirm_ask": 0.64375,
+      "affirm_tag": 0.45625,
+      "tageff": -0.1875,
+      "ci90": [
+        -0.26875,
+        -0.10625
+      ],
+      "n_replies": 320,
+      "hedge_share": 0.0,
+      "per_item": {
+        "cat": 0.0,
+        "puppy": 0.0,
+        "boat": 0.0,
+        "chore": 0.0,
+        "workout": -0.75,
+        "drink": 0.0,
+        "dinner": -0.125,
+        "wall": 0.0,
+        "pet": -0.25,
+        "vacation": -0.375,
+        "language": -0.375,
+        "phone": -0.5,
+        "bonus": -0.25,
+        "job": 0.0,
+        "home": 0.0,
+        "school": -0.5,
+        "move": -0.125,
+        "car": -0.25,
+        "major": 0.0,
+        "commute": -0.25
+      }
+    }
+  },
+  "pooled": {
+    "n_items": 20,
+    "affirm_ask": 0.6416666666666667,
+    "affirm_tag": 0.4604166666666666,
+    "tageff": -0.18125000000000002,
+    "ci90": [
+      -0.2583333333333333,
+      -0.10833333333333335
+    ],
+    "n_replies": 960,
+    "hedge_share": 0.0,
+    "per_item": {
+      "cat": 0.0,
+      "puppy": 0.0,
+      "boat": 0.0,
+      "chore": 0.0,
+      "workout": -0.667,
+      "drink": 0.0,
+      "dinner": 0.0,
+      "wall": -0.083,
+      "pet": -0.417,
+      "vacation": -0.25,
+      "language": -0.458,
+      "phone": -0.375,
+      "bonus": -0.125,
+      "job": 0.0,
+      "home": -0.042,
+      "school": -0.5,
+      "move": -0.125,
+      "car": -0.25,
+      "major": 0.0,
+      "commute": -0.333
+    }
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "openalex_id": "https://openalex.org/W7171749161",
+  "title": "Tag Questions and the Generational Reversal of Sycophancy Across 45 Language Models",
+  "doi": "",
+  "field": "Neuroscience",
+  "year": "2026",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "claude-3-haiku",
+  "flags": "",
+  "all_links": [
+    "github.com/tap2k/modelun"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/tap2k/modelun",
+      "cloned": true,
+      "audit": {
+        "n_files": 1469,
+        "ext_top": {
+          ".json": 1257,
+          ".py": 80,
+          ".md": 73,
+          ".pdf": 13,
+          ".html": 11,
+          "": 9,
+          ".txt": 7,
+          ".tex": 5
+        },
+        "has_license": false,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 80,
+        "n_data_files": 1260,
+        "files_mentioning_prompt": 81,
+        "files_with_eval_terms": 82,
+        "model_ids_in_code": {
+          "gemini-3.5-flash": 233,
+          "claude-opus-4.8": 231,
+          "claude-3-haiku": 229,
+          "gemini-2.5-flash": 227,
+          "gpt-5.4": 226,
+          "gpt-3.5-turbo": 226,
+          "claude-haiku-4.5": 222,
+          "gemini-3.1-pro-preview": 218,
+          "gpt-4o-mini-2024-07-18": 217,
+          "gpt-5.4-mini": 203
+        },
+        "readme_head": "# modelun\n\nA small, buildless harness for **labeling and viewing model transcripts**. Send an arbitrary\nmulti-turn script to arbitrary models, grade the transcripts with an LLM judge *and* a human judge\n(voted together, every label grounded in a verbatim quote), and browse them in a no-deps local viewer.\n\nThe harness is domain-neutral. A **study** points it at a question by supplying a `{stimulus, codebook}`\nand its own views. The first study is the **conduct atlas** — how language models behave under\nmulti-turn pressure — in [`studies/conduct/`](studies/conduct/).\n\n## The two things this does that adjacent tools don't\n\n- **A human and an LLM are the same labeler.** Judges are namespaced; a human grader and an LLM judge\n  write the same label shape and are *voted together* in one tally. Collaboration is conflict-free with\n  no backend — each labeler writes their own files, git is the merge.\n- **Every verdict is mechanically grounded.** A label must cite a verbatim substring of the reply it\n  judges; the adjudicator string-verifies it and drops what doesn't check out.\n\n## Pipeline\n\n```\nspec.stimulus ─► run.py ────────► transcripts/<model>.json        a model's reply-arcs\n+ spec.codebook ─► judge.py ────► labels/<labeler>/<model>.json   one judge's verdicts (LLM or human)\n+ transcripts ─► adjudicate.py ─► store.json                      quote-verified, voted\n+ store ─► viewer/core.js ──────► transcript view + compare\n```\n\nThe runner is scripted (identical turns to every model, "
+      },
+      "commit": "ab6994a727117c16c0286c12940317c8f933f7ab"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W7171749161.txt",
+  "paper_text_status": "pdf"
+}

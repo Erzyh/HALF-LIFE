@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7128804525",
+ "title": "New approaches to meta-analyze differences in skewness, kurtosis, and correlation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"Declaration of AI use: The authors declare that they occasionally used GPT-4-turbo (OpenAI) to improve the clarity and readability of this work.\" (Acknowledgments)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Writing-assistance disclosure only; a statistical-methods paper, not an LLM study."
+ },
+ "claim": {
+  "metric": "none (writing aid only; no experiment)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "PLOS Biology methods paper on meta-analyzing higher-order moments; GPT-4-turbo is disclosed only as a clarity/readability aid, with no research use or reportable metric."
+}

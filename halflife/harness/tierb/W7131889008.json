@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7131889008",
+  "title": "The evolving landscape of neuroscience",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o1-2024-12-17",
+    "resolved": "o1-2024-12-17",
+    "role": "C",
+    "evidence": "Declaration: 'I utilized OpenAI's o1 (o1-2024-12-17) large language model to enhance the articles' language and readability.'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": "gpt-4o-2024-08-06 was used to label/describe bibliometric clusters (qualitative output)."
+  },
+  "claim": {
+    "metric": "",
+    "value": null,
+    "n_items": null,
+    "location": "none",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "OpenAlex/Scopus bibliometric data"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Bibliometric review; o1 used only for manuscript editing; no numeric result is tied to any LLM."
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4406936034",
+  "title": "From deliberation to acclamation: how did Twitter's algorithms foster polarized communities and undermine democracy in the 2020 US presidential election",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we tested the prompts using GPT-4-turbo, GPT-4, GPT-3.5-turbo, and GPT-3.5-turbo augmented with the COLA strategy\"; \"Simple accuracy is selected as the primary evaluation metric\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "\"five distinct prompts are designed\" for stance classification, but none is quoted; only the label scheme (support/against/neutral) and per-user aggregation formulas are given."
+  },
+  "claim": {
+    "metric": "none (accuracy values for GPT-4-turbo / prompt combinations are never reported)",
+    "value": null,
+    "n_items": 87,
+    "location": "n/a; test set = 87 manually annotated tweets",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "150,569 original tweets / 727,085 retweets collected via the Twitter API (2020 election); the 87-tweet annotated test set is not stated as released"
+  },
+  "cost": {
+    "est_calls": 87,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "no_prompt"
+  ],
+  "notes": "The paper states which models/prompts were compared and the metric used but never reports which combination won or its score; downstream analysis (Tables 1-3) covers only network centrality, not model performance."
+}

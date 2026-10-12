@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4405025319",
+  "title": "ChemSafetyBench: Benchmarking LLM Safety on Chemistry Domain",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Section 4.1: 'The models tested are GPT-3.5-Turbo, GPT-4-Turbo, GPT-4o, LLaMA-3-70B-Instruct ...'; result figures list gpt-3.5-turbo and gpt-4o but no GPT-4-Turbo bars."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Tables 1-2 (property/usage/synthesis prompt examples), Tables 3-4 (GPT-4o judging prompts), Section 3 (system prompt)",
+    "note": "Test-time jailbreak redrafts (name hacking, AutoDAN, CoT) applied to chemistry-safety prompts."
+  },
+  "claim": {
+    "metric": "safety/quality score",
+    "value": null,
+    "n_items": null,
+    "location": "Figures in Section 4 (GPT-4-Turbo values not shown)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (version unspecified)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/HaochenZhao/SafeAgent4Chem"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "tos",
+    "no_number"
+  ],
+  "notes": "Hazardous-chemistry synthesis queries with jailbreak wrappers; no numeric result for GPT-4-Turbo appears in the extracted text."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7159891030",
+ "title": "Unified Data Discovery across Query Modalities and User Intents",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"each query is decomposed into sub-questions using GPT-4-turbo [21] with the prompting strategy in [55]\" -- used only to re-implement the MTR-TableLlama baseline's query-decomposition step."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "cites the prompting strategy of a prior paper [55] (MTR-TableLlama), not reproduced here",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for the live id (F1/precision/recall in Table 2 are for the full MTR-TableLlama pipeline, not GPT-4-turbo's decomposition step alone)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Atis, GeoQuery, MMQA, TabFact (public); UniDisc's own training data/release status unclear"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo is only a query-decomposition sub-component the authors added while re-implementing someone else's baseline (MTR-TableLlama); no metric is attributed to it alone."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402427193",
+  "title": "How Aligned are Human Chart Takeaways and LLM Predictions? A Case Study on Bar Charts with Varying Layouts",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (documentation URL only)",
+    "resolved": "dead-preview",
+    "role": "C",
+    "evidence": "Sec. 3.1: 'GPT-4-1106-vision-preview (hereafter GPT-4V), GPT-4-0613 (hereafter GPT-4), GPT-3.5-turbo-1106' with footnote URLs .../docs/models/gpt-4-and-gpt-4-turbo"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3.3 (system prompt excerpt; some prompts 'omitted here for conciseness'); supplemental materials",
+    "note": ""
+  },
+  "claim": {
+    "metric": "factual accuracy",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 1-3 (models are GPT-4-0613, GPT-4V preview, GPT-3.5-turbo-1106, Gemini 1.0 Pro)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Chart specifications in supplemental materials"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "The gpt-4-turbo string appears only in documentation URLs; all evaluated OpenAI snapshots are retired. Takeaways were coded by human raters."
+}

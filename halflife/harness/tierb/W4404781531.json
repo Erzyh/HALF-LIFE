@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4404781531",
+  "title": "MalAlgoQA: Pedagogical Evaluation of Counterfactual Reasoning in Large Language Models and Implications for AI in Education",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4: 'The specific models we use are GPT-4o: gpt-4o-2024-05-13, GPT-3.5: gpt-3.5-turbo-0125, LLaMA3-70B: Meta-LLaMA3-70B-Instruct ...'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 5 (Simple and CoT prompts for Malgorithm Identification with JSON output)",
+    "note": "Sampling temperature not stated."
+  },
+  "claim": {
+    "metric": "Algorithm Identification Accuracy (AIA, %), Math, zero-shot CoT",
+    "value": 95.65,
+    "n_items": 807,
+    "location": "Table 6, block 'GPT 4o Math', row '0 CoT', column AIA",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MalAlgoQA dataset (link in the paper; 807 math and 290 reading questions per Table 2)"
+  },
+  "cost": {
+    "est_calls": 807,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "MIA (66.10) is the paper's headline contrast and needs the incorrect-choice rationales (about three calls per question). n_items sums the math grade-level counts in Table 2."
+}

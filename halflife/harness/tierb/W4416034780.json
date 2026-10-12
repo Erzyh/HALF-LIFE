@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416034780",
+  "title": "CAPE: Context-Aware Personality Evaluation Framework for Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (OpenAI, 2024)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec (Systems): \"GPT-4-Turbo (OpenAI, 2024)\"; Table 1 row GPT-4-Turbo, Stability, context-dependent TAR=92.50"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 3 (session/context-dependent setup described); Appendix D (\"detailed prompts and examples\")",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Total Agreement Rate (TAR), Stability factor, context-dependent",
+    "value": 92.5,
+    "n_items": 120,
+    "location": "Table 1, row GPT-4-Turbo, Stability, context-dependent TAR column; MPI dataset has 120 items",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Machine Personality Inventory (MPI), MIT licensed, 120 items"
+  },
+  "cost": {
+    "est_calls": 360,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Evaluated across 5 sensitivity factors x 3 variations x 3 scoring trajectories; GPT-4-Turbo is non-deterministic even at temperature 0 (footnote quotes OpenAI's own documentation on this). Also evaluated on the 44-item BFI instrument."
+}

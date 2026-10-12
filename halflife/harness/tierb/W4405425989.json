@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4405425989",
+ "title": "GeoReasoner: Reasoning On Geospatially Grounded Context For Natural Language Understanding",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "Sec.2.2: \"a LLM (specifically GPT-4 Turbo in this study) is employed as a summarizer, utilizing its comprehensive capability to extract key information\" to build pretraining data."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No summarization prompt template printed."
+ },
+ "claim": {
+  "metric": "none (GPT-4 Turbo only generates location-description training text for GeoReasoner; no capability number reported for it)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "OSM/Wikipedia/Wikidata (public sources), but the GPT-4-generated location descriptions are internal training data"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_prompt",
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is a data-generation component (role A) feeding GeoReasoner's own contrastive-pretraining pipeline (CIKM'24); reported downstream benchmark numbers are GeoReasoner's, not GPT-4 Turbo's, and the summarisation prompt is not printed."
+}

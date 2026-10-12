@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4412887844",
+  "title": "Chumor 2.0: Towards Better Benchmarking Chinese Humor Understanding from (Ruo Zhi Ba)",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Section 4 (models): 'GPT-4turbo, GPT-4o (OpenAI, 2023, 2024)'; Table 4 (Appendix H): 'GPT-4turbo 0.20 52.32 79.28 6.61 0.17 51.27 80.87 6.96' (DP / CoT)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix F 'Prompts for DP and CoT in Chumor' (Chinese with English translation; DP template also in Section 4.1)",
+    "note": "Binary label per instance: 'fully explain' vs 'partially/does not explain'; CoT adds a think-step-by-step phrase."
+  },
+  "claim": {
+    "metric": "accuracy (explanation evaluation, direct prompting)",
+    "value": 52.32,
+    "n_items": 3339,
+    "location": "Table 4 (Appendix H), row GPT-4turbo, DP ACC (MCC 0.20)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Chumor 2.0, 3,339 joke-explanation instances (https://github.com/MichiganNLP/Chumor-2.0; HuggingFace space)"
+  },
+  "cost": {
+    "est_calls": 10017,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "No snapshot string; resolved by the post-2024-07 rule (Findings ACL 2025). Decoding temperature not stated in the sections read; cost is borderline high because prompts carry Chinese jokes plus explanations."
+}

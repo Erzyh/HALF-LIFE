@@ -1,0 +1,89 @@
+{
+  "card_id": "W4401043789",
+  "openalex_id": "https://openalex.org/W4401043789",
+  "title": "TopicGPT: A Prompt-based Topic Modeling Framework",
+  "doi": "10.18653/v1/2024.naacl-long.164",
+  "paper": {
+    "doi": "10.18653/v1/2024.naacl-long.164",
+    "authors": "Pham, Hoyle, Sun, Resnik, Iyyer",
+    "year": 2024,
+    "version_read": "NAACL 2024 long paper (ACL Anthology PDF), external/papers/W4401043789.txt",
+    "repo": "https://github.com/chtmp223/topicGPT",
+    "repo_license": "MIT",
+    "repo_commit": "e6499ef7f3db8bba2bcff30e4d636b11d2acc97d (HEAD 2026-05-15; repo refactored into the topicgpt_python package after publication; clone external/repos/W4401043789/chtmp223__topicGPT)"
+  },
+  "dependence": {
+    "type": "component",
+    "strength": "core",
+    "note": "The LLM is the topic generator (GPT-4), refiner (GPT-4) and assigner (GPT-3.5-turbo) inside the pipeline; the reported alignment metrics are computed on its assignments."
+  },
+  "claim": {
+    "statement": "TopicGPT (GPT-4 topic generation + GPT-3.5-turbo assignment) is substantially more aligned with human ground-truth labels than LDA, BERTopic and SeededLDA on Wiki and Bills: refined-topic harmonic purity P1 = 0.74 (Wiki, k=22) and 0.57 (Bills, k=24) vs LDA 0.64 / 0.52, BERTopic 0.58 / 0.39, SeededLDA 0.62 / 0.52 (Table 1).",
+    "claim_type": "method_effect",
+    "metric": "Harmonic purity P1, Adjusted Rand Index, NMI between predicted topic assignments and gold labels (topicgpt_python/metrics.py calculate_metrics; only the first assigned topic retained)",
+    "original_values": {
+      "wiki_default_k31": { "TopicGPT": { "P1": 0.73, "ARI": 0.58, "NMI": 0.71 }, "LDA": { "P1": 0.59, "ARI": 0.44, "NMI": 0.65 } },
+      "wiki_refined_k22": { "TopicGPT": { "P1": 0.74, "ARI": 0.60, "NMI": 0.70 }, "LDA": { "P1": 0.64, "ARI": 0.52, "NMI": 0.67 }, "BERTopic": { "P1": 0.58, "ARI": 0.28, "NMI": 0.50 }, "SeededLDA": { "P1": 0.62, "ARI": 0.51, "NMI": 0.65 } },
+      "bills_default_k79": { "TopicGPT": { "P1": 0.57, "ARI": 0.42, "NMI": 0.52 }, "LDA": { "P1": 0.39, "ARI": 0.21, "NMI": 0.47 } },
+      "bills_refined_k24": { "TopicGPT": { "P1": 0.57, "ARI": 0.40, "NMI": 0.49 }, "LDA": { "P1": 0.52, "ARI": 0.32, "NMI": 0.46 }, "BERTopic": { "P1": 0.39, "ARI": 0.12, "NMI": 0.34 }, "SeededLDA": { "P1": 0.52, "ARI": 0.31, "NMI": 0.45 } },
+      "bills_assign_with_mistral_k79": { "TopicGPT": { "P1": 0.51, "ARI": 0.37, "NMI": 0.46 } }
+    },
+    "original_source": "Paper Table 1 (Sec. 5.1); cost Table 11 (Bills 88 USD, Wiki 155 USD at 2023 prices); dataset stats Table 12"
+  },
+  "protocol": {
+    "model": "gpt-4 (undated alias, 8,192-token context per footnote 6 -> gpt-4-0314 or gpt-4-0613; default results finalized Aug 2023, ablations Oct 2023) for generation/refinement; gpt-3.5-turbo (4,096-token context -> 0301/0613) for assignment; Mistral-7B-Instruct ablation. gpt-4-turbo is ONLY mentioned as future work (Limitations, footnote 8) - never an experimental arm.",
+    "model_status": "dead (gpt-4-0314 2024-06-13; gpt-4-0613 and gpt-3.5-turbo-0613 2024-09-13). Live arm gpt-4-turbo not an experimental arm.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (repo APIClient; also Azure/Vertex/vLLM in current package)",
+    "prompt_source": "prompt/generation_1.txt, prompt/generation_2.txt, prompt/refinement.txt, prompt/assignment.txt, prompt/correction.txt, seed topics prompt/seed_1.md; also paper Appendix Tables 14-17",
+    "params": { "temperature": 0, "top_p": 0, "max_tokens": 300, "seed": "not reported", "truncation": "documents truncated to fit context (footnote 6)" },
+    "n_items": "Topic generation: 1,000 (Bills) / 1,100 (Wiki) sampled docs; assignment + self-correction on test sets of 15,242 (Bills) / 8,024 (Wiki) docs (Table 12)",
+    "samples_per_item": 1,
+    "evaluation": "Automatic: P1/ARI/NMI between first assigned topic and gold label (metrics.py); refinement = prompted merging + removal of topics <1% frequency (automatic); human annotation only in the auxiliary misalignment study (Table 3).",
+    "environment_check": "Run metrics.py on the released sample outputs (data/output/sample) to validate the metric code path; verify the Google Drive datasets are still downloadable and contain gold labels."
+  },
+  "artifacts": {
+    "prompts_path": "prompt/ (6 files)",
+    "data_path": "data/input/bills_subset.jsonl and data/input/sample.jsonl in repo (subsets); full Bills + Wiki via Google Drive link in README (https://drive.google.com/drive/folders/1rCTR5ZQQ7bZQoewFA8eqV6glP6zhY31e) - not in repo",
+    "eval_path": "topicgpt_python/metrics.py; pipeline in topicgpt_python/{generation_1,generation_2,refinement,assignment,correction}.py; demo.ipynb",
+    "data_public": "partial",
+    "data_license": "not stated for processed sets; sources: Bills = congressionalbills.org (US public domain), Wiki = Wikipedia articles (CC BY-SA 4.0)",
+    "redistributable": "unknown",
+    "notes": "Paper-era run scripts were replaced by the package; prompts preserved. Paper-era raw outputs (topic lists/assignments) are not in the repo; the 2023 GPT-4 snapshot is not stated."
+  },
+  "blockers": [
+    "live model not an experimental arm: gpt-4-turbo appears only as a future-work suggestion; experimental models were 2023 gpt-4 (8k) and gpt-3.5-turbo (4k) snapshots, all dead",
+    "exact model snapshots never reported (inferred gpt-4-0613 / gpt-3.5-turbo-0613 from dates and context sizes)",
+    "full datasets hosted on Google Drive (link-rot risk), not versioned",
+    "repo heavily refactored (2024-2026); paper-era code/outputs not archived",
+    "topic generation is sequential/order-dependent (running list of topics), so seeds/paraphrases change the topic set, not just assignments"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "note": "none; all experimental models dead" },
+    "successors": [
+      "gpt-4-turbo-2024-04-09 (dying) as a successor of the 2023 gpt-4 generator; gpt-4o-mini or gpt-4.1-nano as successor assigner",
+      "gpt-5-2025-08-07 / gpt-5-mini-2025-08-07",
+      "claude (current Sonnet/Opus id per target_models)",
+      "gemini (current Pro/Flash id)",
+      "llama (open weights, pinned hash; paper's Mistral-7B ablation shows open models assign but generate poorly)",
+      "qwen (open weights, pinned hash)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 }, "gpt-4o-2024-05-13": { "input": 5.0, "output": 15.0 } },
+    "sampling_scheme": "temperature 0; 3 repeated passes per ANALYSIS_PLAN would triple; generation stage is order-dependent so each seed also reshuffles documents",
+    "full_hypothetical": { "est_calls": 25366, "est_tokens_in": 30000000, "est_tokens_out": 3000000, "est_cost_usd": 390, "note": "single seed, both datasets, generator gpt-4-turbo + assigner gpt-4o: 2,100 generation calls (~3.5k in / 200 out each, Wiki docs avg 3,412 tokens) + ~23k assignment/correction calls (~1.2k in / 100 out); paper paid 243 USD at 2023 gpt-4-8k prices; HYPOTHETICAL, card is blocked" },
+    "representative_subset": { "est_calls": 3000, "est_tokens_in": 2500000, "est_tokens_out": 300000, "est_cost_usd": 35, "note": "Bills only: generation on the 1,000 sampled docs + assignment on a 2,000-doc stratified test subset, single seed; preserves the TopicGPT-vs-LDA P1 comparison on one dataset" }
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1 on P1 (Bills refined / Wiki refined): survival = TopicGPT P1 > LDA P1 (LDA re-run locally, same k) with bootstrap CI over documents excluding 0, and the gap of the same order (original +0.10 Wiki, +0.05 Bills). Partial = direction holds but gap collapses below CI. Dead = LDA >= TopicGPT.",
+    "notes": "Only judgeable on successor models; no live baseline exists."
+  },
+  "status": "blocked",
+  "status_reason": "live model not an experimental arm (gpt-4-turbo only cited as future work; the paper's gpt-4 / gpt-3.5-turbo snapshots are dead)",
+  "user_checks": [
+    "Should this paper be moved to the successor-only track (gpt-4-turbo-2024-04-09 as generator) despite having no live baseline?",
+    "If so, is the Bills-only representative subset (~35 USD) acceptable, given Wiki documents average 3.4k tokens?",
+    "Confirm the Google Drive datasets are still available and include gold labels before scheduling"
+  ],
+  "domain_notes": "Method paper where the LLM is an internal pipeline component; the headline comparison is against classical topic models that can be re-run deterministically. The scaffold's live-arm hit is an alias false positive: 'GPT-4-turbo' appears once, in the Limitations section, as a suggestion for handling long documents. Because topic generation is a sequential, order-dependent process, re-runs produce different topic inventories (k varies: 79 vs 73 vs 118 in the stability ablations), so the metric must be compared at the paper's granularity (post-refinement P1), not per topic."
+}

@@ -1,0 +1,25 @@
+{
+  "wid": "W4403556032",
+  "n_items": 1213,
+  "n_requests": 1213,
+  "seeds": 1,
+  "est_usd": 61.79,
+  "subset_note": "paraphrase f2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [1213]; model field rewritten from gpt-4-turbo-2024-04-09 to gpt-5.6-sol in 1213 bodies; parameters added {'reasoning_effort': 'none'}; items restricted to the 1213 items of the vendor arm",
+  "dropped_unrenderable": 0,
+  "model": "gpt-5.6-sol",
+  "source_model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 0.751,
+  "cap_usd": 19.49,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4403556032",
+  "paraphrase": "f2",
+  "pairs": [
+    [
+      "Then, provide your response in the following format:",
+      "Then, provide your response in the following format, as plain text without any markdown formatting (no asterisks or bold):"
+    ]
+  ],
+  "params_added": {
+    "reasoning_effort": "none"
+  }
+}

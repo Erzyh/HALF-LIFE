@@ -1,0 +1,85 @@
+{
+  "wid": "W7166852552",
+  "title": "LexGenius: An Expert-Level Benchmark for Large Language Models in Legal General Intelligence",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4.1-nano",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 5,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent); the paper gives only the undated alias 'GPT-4.1 nano' (equals gpt-4.1-nano-2025-04-14)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 8345,
+    "subset_rule": "all (8,385 MCQs in the 20 Ability_*.json files); each item asked twice with the answer options shuffled (Sec. 5.1) and the two scores averaged",
+    "approximation": "our own two seeded shuffles (seed 20260907 + item index); the way the Naive instruction and the question/options are joined is not printed; single pass in the released option order (the runner has no seeded option shuffle; the paper averages two shuffled passes)"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "QwenQKing/LexGenius (Hub parquet conversion of the 20 Ability_*.json files; the files hold 8,345 MCQs in total, not 8,385)",
+    "config_or_split": "LexGenius/Ability_1.json ... Ability_20.json",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "options",
+      "label": "answer",
+      "id": null
+    },
+    "license": "cc-by-4.0",
+    "access_checked": true,
+    "size_mb": 18,
+    "hf": {
+      "dataset": "QwenQKing/LexGenius",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_prose": {
+      "input": "question",
+      "options": "options (list of four strings prefixed 'A.'-'D.')",
+      "label": "answer (letter)",
+      "id": "file + index"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "假如你是一个专业的法律人员，请根据你的法律知识，在A，B，C，D四个选项中选择1个正确的选项，只回答A或B或C或D四个字母中的一个，只回答正确选项的序号（即A或B或C或D）不要回答其他的内容\n{question}\n{options}",
+    "placeholders": {
+      "question": "items.question",
+      "options": "join(options, '\\n')"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix D.2, Figure 29 (Naive Prompt, original Chinese text); English translation printed alongside",
+    "verbatim": "partial (instruction verbatim; placement of the question and options after the instruction assumed)",
+    "placeholders_prose": {
+      "question": "items.question",
+      "options": "the four option texts re-lettered A.-D. after the seeded shuffle, one per line"
+    }
+  },
+  "output": {
+    "parse": "letter",
+    "postprocess": "strip; compare with the shuffled position of the gold answer; unparsable counts as incorrect",
+    "parse_prose": "letter (A-D): first standalone letter A-D in the reply"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of correct answers over the 8,385 MCQs, in percent, averaged over the two option shuffles",
+    "judge": "none",
+    "original_value": 46.51,
+    "original_location": "Table 2, row GPT-4.1 nano, column Overall Nai. (CoT: 54.62)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 50310,
+    "est_usd": 25.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "8,385 x 2 shuffles x 3 seeds calls at ~$0.0005 each. Per-dimension columns of Table 2 allow finer checks; the Ability_*.json files also give the 20-ability breakdown of Table 7 (LLM 12). Options are stored already prefixed 'A.'-'D.', so they are joined with newlines rather than re-lettered.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

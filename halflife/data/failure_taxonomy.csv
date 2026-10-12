@@ -1,0 +1,41 @@
+﻿stage,item,count,note
+"Tier B triage, first pass (600 records, 598 papers)",eligible,70,
+"Tier B triage, first pass (600 records, 598 papers)",conditional,139,
+"Tier B triage, first pass (600 records, 598 papers)",ineligible,389,
+"Tier B triage, conditional papers resolved (139)",promoted to eligible (approximate re-execution),57,
+"Tier B triage, conditional papers resolved (139)",need the paper's repository,66,
+"Tier B triage, conditional papers resolved (139)",need a figure read from the PDF,9,
+"Tier B triage, conditional papers resolved (139)",ineligible,7,
+"Tier B triage, final verdict (1,185 records, 1,182 unique papers)",eligible,215,
+"Tier B triage, final verdict (1,185 records, 1,182 unique papers)",maybe,201,
+"Tier B triage, final verdict (1,185 records, 1,182 unique papers)",ineligible,766,
+Tier B ineligible: reasons (a paper can carry several),"reported number is not from a still-callable model, or is only in a figure",465,no_number
+Tier B ineligible: reasons (a paper can carry several),data not public,136,data_closed
+Tier B ineligible: reasons (a paper can carry several),prompt not printed,125,no_prompt
+Tier B ineligible: reasons (a paper can carry several),"web interface only, no API snapshot",56,webui
+Tier B ineligible: reasons (a paper can carry several),alias resolves to a retired snapshot,47,dead_alias
+Tier B ineligible: reasons (a paper can carry several),outcome measured on people,29,human_outcome
+Tier B ineligible: reasons (a paper can carry several),"auxiliary model (judge, parser) retired",25,aux_model_dead
+Tier B ineligible: reasons (a paper can carry several),terms-of-service risk (jailbreak or harmful prompts),20,tos
+Tier B ineligible: reasons (a paper can carry several),alias_unpinned,9,alias_unpinned
+"Tier B run configurations (215, one per paper)",needs_human,128,"includes W7166799942, which was executed (see the ready row)"
+"Tier B run configurations (215, one per paper)",ready,85,86 executed: the 85 ready and W7166799942 (run with the paper's prompt; the status records its unreported scoring rule)
+"Tier B run configurations (215, one per paper)",needs_download_check,2,"data sets gated behind an access approval (W4403322813, W4412887844); set aside at the outset"
+"Tier B run configurations (215, one per paper)",second configuration of our own design for an executed paper (not counted above),2,"W4399912745v2, W4416036577v2"
+Tier B configurations that need a human or a data check: reason (keyword classification),multi-stage protocol or execution sandbox,33,
+Tier B configurations that need a human or a data check: reason (keyword classification),image or video input,32,
+Tier B configurations that need a human or a data check: reason (keyword classification),judge or auxiliary model,26,
+Tier B configurations that need a human or a data check: reason (keyword classification),prompt not printed,16,
+Tier B configurations that need a human or a data check: reason (keyword classification),gated or unreleased data,14,
+Tier B configurations that need a human or a data check: reason (keyword classification),items only in a PDF or figure,6,
+Tier B configurations that need a human or a data check: reason (keyword classification),decision needed,3,
+Tier A claim cards (70),done,25,
+Tier A claim cards (70),blocked,33,
+Tier A claim cards (70),needs-user-check,10,
+Tier A claim cards (70),draft,2,
+Tier A blocked cards: first blocker (keyword classification),still-callable identifier is not what the paper ran (retired snapshot behind the alias),18,
+Tier A blocked cards: first blocker (keyword classification),other,5,
+Tier A blocked cards: first blocker (keyword classification),"web interface only, no API snapshot",4,
+Tier A blocked cards: first blocker (keyword classification),outcome measured on people,3,
+Tier A blocked cards: first blocker (keyword classification),data unavailable or licensed,2,
+Tier A blocked cards: first blocker (keyword classification),repository gone,1,

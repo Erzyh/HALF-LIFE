@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7138918687",
+ "title": "Large Language Model-Driven Traffic Signal Optimization for Reducing Energy Consumption and Urban Pollution",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec. Models: \"Model: GPT-4, GPT-4-turbo, GPT-4.1-mini, GPT-4o, and GPT-3.5-turbo\"; Table 4: \"GPT-4-turbo 53,287.13 [MJ]...12.0% [energy reduction]\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods (\"Each model is prompted with traffic-specific context and is integrated with the CityFlow simulation environment\"); no formal Appendix",
+  "note": "Prompt is described narratively; exact wording is not quoted."
+ },
+ "claim": {
+  "metric": "total network energy-consumption reduction vs. fixed-time baseline",
+  "value": 12.0,
+  "n_items": null,
+  "location": "Table 4, row GPT-4-turbo",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "CityFlow open-source traffic simulator; the specific network/scenario configuration used is not confirmed public"
+ },
+ "cost": {
+  "est_calls": 500,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Each experiment runs over real-time simulation steps (\"conducted over 5 [runs]\", text truncated) with continuous LLM decision-making, so per-configuration call counts are likely in the hundreds to low thousands; exact n is not restated. GPT-4.1-mini (also tested, and reported as the fastest-travel-time model) is not one of the tracked retiring identifiers."
+}

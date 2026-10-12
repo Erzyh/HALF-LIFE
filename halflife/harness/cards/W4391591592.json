@@ -1,0 +1,117 @@
+{
+  "card_id": "W4391591592",
+  "openalex_id": "https://openalex.org/W4391591592",
+  "title": "TravelPlanner: A Benchmark for Real-World Planning with Language Agents",
+  "doi": "10.48550/arXiv.2402.01622",
+  "paper": {
+    "doi": "10.48550/arXiv.2402.01622",
+    "authors": "Xie, Zhang, Chen, Zhu, Lou, Tian, Xiao, Su",
+    "year": 2024,
+    "venue": "ICML 2024 (arXiv v4 2024-10-23 used for this card)",
+    "repo": "https://github.com/OSU-NLP-Group/TravelPlanner",
+    "repo_commit": "e52c87f4ac348a3410c46dc3553c519db5ec5e23",
+    "repo_license": "MIT",
+    "repo_note": "Scaffold only found a glued AutoGPT citation link; the paper's own repo is OSU-NLP-Group/TravelPlanner (cloned here). HEAD (2024-10+) contains post-paper additions (ollama backend, gradio, fine-tuning data); pin to this commit and diff agents/ + evaluation/ against the Feb-2024 history before running."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The evaluated object is the LLM-powered agent (ReAct tool use + planning) and every number in Table 3 is a property of the backbone model. Secondary 'component' dependence: natural-language plans are converted to JSON by a GPT-4-Turbo extraction call (Sec. 3.4 fn.1, App. B.3.5, postprocess/parsing.py hard-codes gpt-4-1106-preview) before the rule-based evaluator runs."
+  },
+  "claim": {
+    "statement": "In the two-stage mode (ReAct information collection with 6 tools + planning), the GPT-4-Turbo agent delivers a plan for ~90% of queries but reaches a Final Pass Rate of only 0.6% (validation #180: delivery 89.4, commonsense micro/macro 61.1/2.8, hard-constraint micro/macro 15.2/10.6, final 0.6; test #1,000: 93.1/63.3/2.0/10.5/5.5/0.6), i.e. current language agents cannot handle multi-constraint planning (Table 3; Sec. 4.2).",
+    "claim_type": "capability_limit",
+    "metric": "Final Pass Rate = share of delivered plans satisfying all commonsense (8) and hard constraints; plus Delivery Rate, Commonsense/Hard Constraint micro & macro pass rates (Eq. 1-2), computed by evaluation/eval.py on JSON-parsed plans",
+    "original_values": {
+      "validation_180": { "delivery_rate": 89.4, "commonsense_micro": 61.1, "commonsense_macro": 2.8, "hard_micro": 15.2, "hard_macro": 10.6, "final_pass_rate": 0.6 },
+      "test_1000": { "delivery_rate": 93.1, "commonsense_micro": 63.3, "commonsense_macro": 2.0, "hard_micro": 10.5, "hard_macro": 5.5, "final_pass_rate": 0.6 },
+      "secondary_sole_planning_direct_gpt4turbo": { "validation_final_pass_rate": 4.4, "test_final_pass_rate": 4.4 },
+      "tool_use_error_distribution_gpt4turbo_test": { "max_step_limit": 56.7, "invalid_action_dead_loop": 37.3, "same_action_dead_loop": 6.0 }
+    },
+    "original_source": "Table 3 (main results), Table 4 (per-constraint pass rates, test set), Figure 2 (error distribution); no per-query result files are released in the repo"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09 (PROXY). The paper only says 'GPT-4-Turbo (OpenAI, 2023)'; the repo's supported-model list and postprocess default are gpt-4-1106-preview, which is dead (shutdown 2026-03-26). gpt-4-turbo-2024-04-09 is the nearest still-callable snapshot of the same product line, not the snapshot used.",
+    "model_status": "gpt-4-1106-preview: dead (2026-03-26). gpt-4-turbo / gpt-4-turbo-2024-04-09: dying, shutdown 2026-10-23 (target_models.json)",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions via langchain_community ChatOpenAI (openai==0.27.2, langchain==0.1.4 pinned in requirements.txt)",
+    "prompt_source": "agents/prompts.py (ZEROSHOT_REACT_INSTRUCTION for tool use; PLANNER_INSTRUCTION for the planner); postprocess/openai_request.py build_plan_format_conversion_prompt (extraction) = App. B.3.1, B.3.2, B.3.5 verbatim",
+    "pipeline": [
+      "1. ReAct agent (agents/tool_agents.py ReactAgent): per step two LLM calls (Thought, Action); tools = FlightSearch, GoogleDistanceMatrix, AccommodationSearch, RestaurantSearch, AttractionSearch, CitySearch, NotebookWrite, Planner; max_steps=30, max_retries=3 (early stop after 3 consecutive failed/identical actions); previous observation masked in scratchpad once a new search succeeds",
+      "2. Planner call (tools/planner/apis.py Planner.run): PLANNER_INSTRUCTION + notebook contents + query; returns 'Max Token Length Exceeded.' if prompt > 12,000 tokens (tiktoken gpt-3.5-turbo encoding)",
+      "3. Post-processing (postprocess/parsing.py -> element_extraction.py -> combination.py): LLM extraction of plan into JSON (temperature 0), then evaluation/eval.py"
+    ],
+    "params": {
+      "react_llm": { "temperature": 0, "max_tokens": 256, "model_kwargs": "none (gpt-4 branch in tool_agents.py)" },
+      "planner_llm": { "temperature": 0, "max_tokens": 4096, "input_cap_tokens": 12000 },
+      "extraction_llm": { "model": "gpt-4-1106-preview in code (use the same live proxy model in the re-run)", "temperature": 0 },
+      "seed": "not reported / not set; single run per configuration in the paper",
+      "top_p": "not reported (API default)"
+    },
+    "n_items": "validation 180 (20 per level x days group) + test 1,000; train 45 not used for evaluation",
+    "samples_per_item": "1 in the paper (temperature 0). Re-run: 3 repeated runs (ANALYSIS_PLAN Sec. 3) x 2 prompt paraphrases limited to the instruction preamble (tool syntax must stay verbatim, otherwise parse_action breaks)",
+    "evaluation": "Automatic, rule-based (evaluation/commonsense_constraint.py, hard_constraint.py, eval.py) against the static sandbox database and per-query hard constraints from the HF dataset; OFFLINE evaluation is only possible for train/validation (eval.py supports set_type train|validation). Test-set labels are not released ('level, days, query' only) -> test scores require submission to the HF leaderboard space osunlp/TravelPlannerLeaderboard.",
+    "execution_environment": "Python 3.9 conda env from requirements.txt (langchain==0.1.4, openai==0.27.2, tiktoken==0.4.0, datasets, pandas, func_timeout). Sandbox database (CSV files for ~4M records: flights 3.8M rows, restaurants, attractions, accommodations, distance matrix, cities) must be downloaded from the Google Drive link in README and unzipped into the repo root; tools are local pandas lookups (no external API, no docker, no network beyond OpenAI). HF dataset osunlp/TravelPlanner (validation/test queries). Each query runs 20-60 sequential LLM calls; a 180-query validation run is ~2-4 h wall-clock single-threaded.",
+    "representative_subset": "Validation split (180 queries, all 9 level x days groups, 20 each) x 2 repeated runs, two-stage mode, GPT-4-Turbo proxy. This is exactly the offline-evaluable half of the original claim (validation final pass rate 0.6% = 1/180). Optional add-on: sole-planning Direct on the same 180 (1 planner call per query, ~$0.10/query) for the 4.4% secondary number.",
+    "environment_check": "Before any LLM call: run evaluation/eval.py on the 180 human-annotated validation reference plans (database/validation_ref_info.jsonl + HF 'annotated_plan') and confirm 100% final pass rate, to separate evaluator/database drift from model drift."
+  },
+  "artifacts": {
+    "prompts_path": "agents/prompts.py; postprocess/openai_request.py",
+    "data_path": "HF osunlp/TravelPlanner (train/validation/test queries; validation has reference_information + annotated_plan); database/ (validation_ref_info.jsonl etc.); sandbox DB via Google Drive link in README (not in git)",
+    "eval_path": "evaluation/eval.py, evaluation/commonsense_constraint.py, evaluation/hard_constraint.py; postprocess/parsing.py, element_extraction.py, combination.py, format_check.py",
+    "data_public": "partial",
+    "data_license": "HF dataset: cc-by-4.0; code: MIT; sandbox DB: no explicit license (derived/modified from Kaggle Airbnb & Zomato dumps and Google Maps API outputs per App. A.3)",
+    "redistributable": "partial",
+    "notes": "Test-set ground truth withheld (leaderboard only). No original per-query agent trajectories or model outputs are released, so no paired per-item comparison is possible; only aggregate Table 3 numbers. README forbids benchmark-specific prompt engineering (Warnings) - paraphrase variants must stay generic."
+  },
+  "blockers": [
+    "Exact original snapshot (gpt-4-1106-preview) is dead; live arm is a same-line proxy (gpt-4-turbo-2024-04-09)",
+    "Test-set (1,000) evaluation requires leaderboard submission; only validation (180) is evaluable offline",
+    "LLM-dependent post-processing step (plan-to-JSON extraction) is itself part of the protocol and must use a live model",
+    "Cost: ~$1.45 per two-stage query at gpt-4-turbo pricing (20-60 calls per query)",
+    "Sandbox database is hosted on Google Drive (not versioned); must be hashed and archived at run time"
+  ],
+  "arms": {
+    "baseline_alive": { "model": "gpt-4-turbo-2024-04-09", "purpose": "proxy live baseline for the paper's 'GPT-4-Turbo' (original snapshot gpt-4-1106-preview is dead)" },
+    "successors": [
+      "gpt-5-2025-08-07",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated Sonnet/Opus snapshot at run time)",
+      "gemini (current dated snapshot at run time)",
+      "llama (open weights, e.g. Llama-3.x/4 instruct, weight hash pinned)",
+      "qwen (open weights, e.g. Qwen2.5/3 instruct, weight hash pinned)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 } },
+    "unit_basis": "Per two-stage query: ~32 ReAct calls (thought+action) x ~3.8K input / ~60 output tokens (instruction ~1.6K + scratchpad with one unmasked tool observation), + 1 planner call (~8K in / ~1.5K out), + 1 extraction call (~2.5K in / ~0.8K out) = ~34 calls, ~132K in, ~4.2K out, ~$1.45. No cost statement in the paper; estimate from code structure and Table 5 tool-use counts.",
+    "full": {
+      "definition": "validation 180 + test 1,000 queries, two-stage mode, 3 repeated runs (test scoring via leaderboard)",
+      "est_calls": 120000,
+      "est_tokens_in": 467000000,
+      "est_tokens_out": 15000000,
+      "est_cost_usd": 5100
+    },
+    "subset": {
+      "definition": "validation 180 x 2 repeated runs (offline-evaluable; preserves the 0.6% validation claim)",
+      "est_calls": 12200,
+      "est_tokens_in": 47500000,
+      "est_tokens_out": 1500000,
+      "est_cost_usd": 520
+    },
+    "minimal_pilot": { "definition": "validation 180 x 1 run", "est_cost_usd": 260 },
+    "cap_usd": "to be set by user (recommend 600 for the subset incl. retries)"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1, capability_limit. Reference number: validation Final Pass Rate 0.6% (1/180; Clopper-Pearson 95% CI 0.01-3.1%). SURVIVED if the median (over runs x paraphrases) re-run final pass rate lies within 0-3.1% AND hard-constraint macro pass rate stays < 20% (same order of magnitude as 10.6) AND direction 'agents cannot handle the task' holds. PARTIAL if final pass rate is 3.1-10% (outside CI but still an order of magnitude below a usable level) or delivery/commonsense numbers move by > 15 points while final pass rate stays < 10%. DEAD if final pass rate >= 10% (i.e. >= 18/180) or the claim 'no LLM other than GPT-4 solves any task' is not the relevant framing anymore because the proxy model solves a substantial share.",
+    "notes": "Temperature 0 -> run-to-run variance comes from API nondeterminism and early-stop rules; report per-run values and bootstrap CI over 180 queries. Because the live arm is a snapshot proxy, any judgment must be labelled 'proxy-arm' in the analysis (sensitivity scenario ANALYSIS_PLAN Sec. 2 item 2). Paraphrase variants must not alter tool syntax or constraint descriptions (README Warnings)."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "The paper never states the GPT-4-Turbo snapshot; repo code = gpt-4-1106-preview (dead). Accept gpt-4-turbo-2024-04-09 as a same-line proxy live arm, or classify this paper as 'exact snapshot dead' (census stratum) and run it only as P3 successor work?",
+    "Limit the live-arm re-run to the validation split (offline evaluable) and treat the test-set 0.6% as not re-executable (leaderboard submission would expose our proxy run publicly) - OK?",
+    "Approve ~$520 for the 180 x 2 subset (or ~$260 for a single run) given ~$1.45/query; the full 1,180 x 3 protocol (~$5,100) is not recommended.",
+    "Pin code to a Feb-2024 commit (paper time) or to current HEAD e52c87f (post-paper edits: ollama backend, gradio/datasets version bumps)? Recommend HEAD for the evaluator but verify agents/tool_agents.py and prompts.py are byte-identical to the paper-time versions.",
+    "Use the same live proxy model for the plan-to-JSON extraction step (paper: GPT-4-Turbo; code: gpt-4-1106-preview) - yes/no?"
+  ],
+  "domain_notes": "The environment is a closed, static sandbox (all six tools are local CSV lookups), so environment drift is nil once the Google-Drive database is archived with a hash; the human-annotated validation plans give a free evaluator sanity check (must score 100%). The protocol has two LLM-dependent stages (agent + JSON extraction) and an aggressive early-stop policy (3 identical/failed actions), so delivery rate is as informative as the final pass rate. Expect the successor arms to change the picture qualitatively (later leaderboard entries report >>0.6%), which is precisely the capability_limit survival question."
+}

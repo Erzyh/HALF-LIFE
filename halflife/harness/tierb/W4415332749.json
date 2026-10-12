@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4415332749",
+ "title": "J4R: Learning to Judge with Equivalent Initial State Group Relative Policy Optimization",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "o1",
+  "resolved": "o1-2024-12-17",
+  "role": "B",
+  "evidence": "App. C.1: OpenAI Batch API endpoints incl. \"o3-mini-2025-01-31, o1-2024-12-17, and o4-mini-2025-04-16\"; Table 6 (App. C.2): \"o1 77.59 90.38 58.15 65.33 73.10 87.53\" on ReasoningJudgeBench."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix E.1 (full pairwise-judge system prompt quoted, incl. output-label format)",
+  "note": "Same prompt used for all 'prompted judges' (o1, o3-mini, o4-mini, GPT-4o, etc.) per Sec. 5 ('using our prompt, App. E')."
+ },
+ "claim": {
+  "metric": "pairwise judging accuracy, ReasoningJudgeBench (Avg. across Multi-hop/Math/Everyday/Domain splits)",
+  "value": 73.1,
+  "n_items": 1483,
+  "location": "Table 6 (Appendix C.2), row 'o1', Avg. column; split sizes in Appendix C (Multi-hop 598, Math 260, Domain 300, Everyday 325)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ReasoningJudgeBench (introduced by this paper) + JudgeBench + PPE Best-of-K; code and benchmark linked from the paper header"
+ },
+ "cost": {
+  "est_calls": 2966,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "o3-mini-2025-01-31 (Avg. 65.14, Table 6; Overall 70.69, Table 1 main body) and o4-mini-2025-04-16 (Avg. 69.39, Table 6) also qualify with clean numbers from the same protocol. Each pairwise sample is graded twice with response order swapped (a judge must get both orders right to count correct), hence est_calls = 1483 x 2."
+}

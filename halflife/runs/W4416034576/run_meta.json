@@ -1,0 +1,130 @@
+{
+  "card_id": "W4416034576",
+  "run_date_utc": "2026-09-19",
+  "target_paper": {
+    "title": "AIRepr: An Analyst-Inspector Framework for Evaluating Reproducibility of LLMs in Data Science",
+    "doi": "10.18653/v1/2025.findings-emnlp.539",
+    "repo": "https://github.com/Anonymous-2025-Repr/LLM-DS-Reproducibility",
+    "repo_commit": "3b4a5a8f8b2fd9e78e8769036b84bd8d90da8b5e",
+    "repo_license": "MIT",
+    "original_values": {
+      "COT": {
+        "acc": 31.8,
+        "repr": 55.23,
+        "inexec": 13.81
+      },
+      "ROT": {
+        "acc": 33.05,
+        "repr": 60.25,
+        "inexec": 15.9
+      }
+    },
+    "original_source": "Table 6, DiscoveryBench rows for the o3-mini analyst (239 tasks)"
+  },
+  "generation": {
+    "model_requested": "o3-mini-2025-01-31",
+    "model_served": [
+      "o3-mini-2025-01-31"
+    ],
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (harness/openai_client.py); the original used the Azure deployment o3-mini-2025-01-31, api-version 2024-12-01-preview, via LangChain AzureChatOpenAI",
+    "parameters": "{'reasoning_effort': 'low', 'max_completion_tokens': 4000}; no temperature (the original's temperature=1 was a LangChain requirement and is o3-mini's only legal value); no API seed - seed_idx is a repeat index",
+    "inspector": "o3-mini-2025-01-31 itself instead of gpt-4o-2024-11-20 (paper Section 5.6 / Figure 7, r = 0.98 on QRData); the repo's ('system', ...) message is sent as role 'developer'",
+    "battery": "analyst 2 calls per task-seed; inspector up to 4 (accuracy always, workflow-to-code / conclusion / similarity only when the analyst code executes); 239 tasks x 2 prompts x 3 seeds",
+    "code_execution": {
+      "mode": "fresh isolated interpreter per snippet (subprocess.run python -I -X utf8, outbound sockets blocked)",
+      "timeout_s": 180,
+      "repo_tool": "utils.code_execution.CustomPythonAstREPLTool, imported in the child; the repo itself exec()s in-process with os.chdir, no timeout and no isolation"
+    }
+  },
+  "results": {
+    "rows": {
+      "COT": {
+        "n_tasks_scored": 239,
+        "repr_pct": 39.75,
+        "repr_ci95": [
+          33.89,
+          46.03
+        ],
+        "acc_pct": 36.4,
+        "inexec_pct": 15.9,
+        "per_seed_repr_pct": [
+          39.33,
+          35.98,
+          39.33
+        ],
+        "repo_mean_over_1_0_minus1": 0.2385,
+        "original": {
+          "acc": 31.8,
+          "repr": 55.23,
+          "inexec": 13.81
+        },
+        "level_within_10pp": false
+      },
+      "ROT": {
+        "n_tasks_scored": 239,
+        "repr_pct": 48.12,
+        "repr_ci95": [
+          41.42,
+          54.81
+        ],
+        "acc_pct": 38.49,
+        "inexec_pct": 14.44,
+        "per_seed_repr_pct": [
+          46.44,
+          53.78,
+          45.61
+        ],
+        "repo_mean_over_1_0_minus1": 0.3389,
+        "original": {
+          "acc": 33.05,
+          "repr": 60.25,
+          "inexec": 15.9
+        },
+        "level_within_10pp": false
+      }
+    },
+    "within_model_difference_RoT_minus_CoT": {
+      "point_pp": 8.37,
+      "n_paired_tasks": 239,
+      "ci95_pp": [
+        1.67,
+        15.06
+      ],
+      "original_pp": 5.02
+    },
+    "judge_noise_probe": {
+      "design": "inspector repeated on the seed-0 analyst outputs of the first 100 tasks (seed_idx 90)",
+      "per_method": {
+        "COT": {
+          "n": 81,
+          "agreement": 0.6667
+        },
+        "ROT": {
+          "n": 82,
+          "agreement": 0.6341
+        }
+      }
+    },
+    "secondary_check_repr_ge_55pct": {
+      "COT": false,
+      "ROT": false
+    },
+    "cost_usd": 24.487,
+    "calls": 8611,
+    "errors": 0,
+    "judgment": "부분 생존 (partial)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as the card instantiates it, restricted to DiscoveryBench: survived = RoT - CoT positive with a task-level bootstrap 95% CI excluding 0 AND both reproducibility levels within 10 pp of Table 6; partial = positive but the CI includes 0 or a level moved; dead = RoT lowers reproducibility. The card's 'positive on at least 2 of 3 benchmarks' clause is NOT evaluable under the DiscoveryBench-only scope and is recorded as unmet-by-design; human double-coding pending",
+    "note": "RoT - CoT = +8.37 pp, CI [1.67, 15.06]; a reproducibility level moved more than 10 pp from Table 6"
+  },
+  "reproducibility_frictions_observed": [
+    "results/ in the repository contains only __init__.py: no per-task analyst output and no judge verdict was released, so analyst drift cannot be separated from inspector drift by re-scoring archived outputs",
+    "the published 'Overall Reproducibility' is the share of tasks scored 1, but eval/run_reproducibility.py reports mean over {1, 0, -1}; for the CoT row the two differ by 13.81 pp (55.23 vs 41.42)",
+    "utils/output_parser.ScoreParser returns -1 when a similarity reply cannot be parsed, which collides with the -1 that eval/reproducibility.py uses for inexecutable analyst code; an unparseable accuracy reply silently scores 0",
+    "utils/load_data.py derives metadata ids with file_path.split('/')[-1].split('_')[1], which silently mis-parses under Windows separators for the 7 DiscoveryBench subject directories containing '_'",
+    "every repository open() call omits encoding=, so the DiscoveryBench metadata JSON fails to load under a non-UTF-8 locale (cp949 here)",
+    "agents/prompt_template.py and utils/output_parser.py need langchain's pre-1.0 namespace (StringPromptTemplate, AgentOutputParser), served here from langchain_classic; the tool description that enters the prompt comes from langchain_experimental's PythonAstREPLTool, an unpinned dependency",
+    "the repository's sandbox exec()s model-written code in-process with os.chdir, no timeout and no network isolation; this re-run substitutes a fresh isolated interpreter per snippet",
+    "the original analyst ran at temperature 1 with no seed (a LangChain constraint), so run-to-run variance of the reasoning outputs is unquantified in the paper; three seeds are used here",
+    "the o3-mini inspector's r = 0.98 agreement with gpt-4o (Section 5.6) was measured on QRData, not DiscoveryBench, and the paper reports 'only minor score increases' for it"
+  ]
+}

@@ -1,0 +1,1192 @@
+{
+  "wid": "W7140084705",
+  "title": "Quantifying Data Contamination in Psychometric Evaluations of LLMs",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.7,
+      "max_tokens": 32,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3 and Appendix B.1 (temperature 0.7, three repetitions; OpenRouter API); max_tokens/top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 138,
+    "subset_rule": "all items of the four inventories in the repo: BFI-44 (44), MFQ (30 after excluding the 2 'bogus' attention checks), PVQ-40 (40), SD-3 (24 in the release)",
+    "approximation": "The released sd3.json has 24 items (psychopathy 6) versus 27 in the paper; the {dimensions} list format is not printed (comma-separated labels from the JSON meta_data); runner macro-F1 is pooled over all 23 dimension labels (the paper averages per-inventory macro-F1 over the four inventories); the runner's label match is a word-bounded substring match rather than the repository's exact string equality"
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "inline rows copied 2026-09-07 from github.com/holi-lab/psychometric-contamination, files data/bfi44.json, data/mfq.json, data/pvq40.json, data/sd3.json (item text + meta_data.dimension; counts verified); inventory display names and the alphabetically sorted ', '-joined dimension list follow method_tasks/evaluation_memorization/main.py (INVENTORY_NAME_MAPPING, dimensions_str)",
+    "config_or_split": "four JSON files",
+    "filter": null,
+    "fields": {
+      "input": "item",
+      "label": "dimension",
+      "id": "id"
+    },
+    "license": "code MIT; questionnaire items remain under the original instruments' terms (DATA_LICENSE.md)",
+    "access_checked": true,
+    "size_mb": 0.05,
+    "source_files": [
+      "https://raw.githubusercontent.com/holi-lab/psychometric-contamination/main/data/bfi44.json",
+      "https://raw.githubusercontent.com/holi-lab/psychometric-contamination/main/data/mfq.json",
+      "https://raw.githubusercontent.com/holi-lab/psychometric-contamination/main/data/pvq40.json",
+      "https://raw.githubusercontent.com/holi-lab/psychometric-contamination/main/data/sd3.json"
+    ],
+    "inline": [
+      {
+        "id": "bfi44-1",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is talkative.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-2",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who tends to find fault with others.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-3",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who does a thorough job.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-4",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is depressed, blue.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-5",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is original, comes up with new ideas.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-6",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is reserved.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-7",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is helpful and unselfish with others.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-8",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who can be somewhat careless.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-9",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is relaxed, handles stress well.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-10",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is curious about many different things.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-11",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is full of energy.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-12",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who starts quarrels with others.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-13",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is a reliable worker.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-14",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who can be tense.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-15",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is ingenious, a deep thinker.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-16",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who generates a lot of enthusiasm.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-17",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who has a forgiving nature.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-18",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who tends to be disorganized.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-19",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who worries a lot.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-20",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who has an active imagination.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-21",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who tends to be quiet.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-22",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is generally trusting.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-23",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who tends to be lazy.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-24",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is emotionally stable, not easily upset.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-25",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is inventive.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-26",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who has an assertive personality.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-27",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who can be cold and aloof.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-28",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who perseveres until the task is finished.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-29",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who can be moody.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-30",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who values artistic, aesthetic experiences.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-31",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is sometimes shy, inhibited.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-32",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is considerate and kind to almost everyone.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-33",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who does things efficiently.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-34",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who remains calm in tense situations.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-35",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who prefers work that is routine.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-36",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is outgoing, sociable.",
+        "dimension": "Extraversion"
+      },
+      {
+        "id": "bfi44-37",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is sometimes rude to others.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-38",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who makes plans and follows through with them.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-39",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who gets nervous easily.",
+        "dimension": "Neuroticism"
+      },
+      {
+        "id": "bfi44-40",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who likes to reflect, play with ideas.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-41",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who has few artistic interests.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "bfi44-42",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who likes to cooperate with others.",
+        "dimension": "Agreeableness"
+      },
+      {
+        "id": "bfi44-43",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is easily distracted.",
+        "dimension": "Conscientiousness"
+      },
+      {
+        "id": "bfi44-44",
+        "inventory": "bfi44",
+        "inventory_name": "Big Five Inventory 44 (BFI-44)",
+        "dimensions": "Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness",
+        "item": "I see myself as someone who is sophisticated in art, music, or literature.",
+        "dimension": "Openness"
+      },
+      {
+        "id": "mfq-1",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone suffered emotionally",
+        "dimension": "harm_care"
+      },
+      {
+        "id": "mfq-2",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not some people were treated differently than others",
+        "dimension": "fairness_reciprocity"
+      },
+      {
+        "id": "mfq-3",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone's action showed love for his or her country",
+        "dimension": "ingroup_loyalty"
+      },
+      {
+        "id": "mfq-4",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone showed a lack of respect for authority",
+        "dimension": "authority_respect"
+      },
+      {
+        "id": "mfq-5",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone violated standards of purity and decency",
+        "dimension": "purity_sanctity"
+      },
+      {
+        "id": "mfq-7",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone cared for someone weak or vulnerable",
+        "dimension": "harm_care"
+      },
+      {
+        "id": "mfq-8",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone acted unfairly",
+        "dimension": "fairness_reciprocity"
+      },
+      {
+        "id": "mfq-9",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone did something to betray his or her group",
+        "dimension": "ingroup_loyalty"
+      },
+      {
+        "id": "mfq-10",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone conformed to the traditions of society",
+        "dimension": "authority_respect"
+      },
+      {
+        "id": "mfq-11",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone did something disgusting",
+        "dimension": "purity_sanctity"
+      },
+      {
+        "id": "mfq-12",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone was cruel",
+        "dimension": "harm_care"
+      },
+      {
+        "id": "mfq-13",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone was denied his or her rights",
+        "dimension": "fairness_reciprocity"
+      },
+      {
+        "id": "mfq-14",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone showed a lack of loyalty",
+        "dimension": "ingroup_loyalty"
+      },
+      {
+        "id": "mfq-15",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not an action caused chaos or disorder",
+        "dimension": "authority_respect"
+      },
+      {
+        "id": "mfq-16",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Whether or not someone acted in a way that God would approve of",
+        "dimension": "purity_sanctity"
+      },
+      {
+        "id": "mfq-17",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Compassion for those who are suffering is the most crucial virtue.",
+        "dimension": "harm_care"
+      },
+      {
+        "id": "mfq-18",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",
+        "dimension": "fairness_reciprocity"
+      },
+      {
+        "id": "mfq-19",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "I am proud of my country's history.",
+        "dimension": "ingroup_loyalty"
+      },
+      {
+        "id": "mfq-20",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Respect for authority is something all children need to learn.",
+        "dimension": "authority_respect"
+      },
+      {
+        "id": "mfq-21",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "People should not do things that are disgusting, even if no one is harmed.",
+        "dimension": "purity_sanctity"
+      },
+      {
+        "id": "mfq-23",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "One of the worst things a person could do is hurt a defenseless animal.",
+        "dimension": "harm_care"
+      },
+      {
+        "id": "mfq-24",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Justice is the most important requirement for a society.",
+        "dimension": "fairness_reciprocity"
+      },
+      {
+        "id": "mfq-25",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "People should be loyal to their family members, even when they have done something wrong.",
+        "dimension": "ingroup_loyalty"
+      },
+      {
+        "id": "mfq-26",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Men and women each have different roles to play in society.",
+        "dimension": "authority_respect"
+      },
+      {
+        "id": "mfq-27",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "I would call some acts wrong on the grounds that they are unnatural.",
+        "dimension": "purity_sanctity"
+      },
+      {
+        "id": "mfq-28",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "It can never be right to kill a human being.",
+        "dimension": "harm_care"
+      },
+      {
+        "id": "mfq-29",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "I think it's morally wrong that rich children inherit a lot of money while poor children inherit nothing.",
+        "dimension": "fairness_reciprocity"
+      },
+      {
+        "id": "mfq-30",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "It is more important to be a team player than to express oneself.",
+        "dimension": "ingroup_loyalty"
+      },
+      {
+        "id": "mfq-31",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "If I were a soldier and disagreed with my commanding officer's orders, I would obey anyway because that is my duty.",
+        "dimension": "authority_respect"
+      },
+      {
+        "id": "mfq-32",
+        "inventory": "mfq",
+        "inventory_name": "Moral Foundations Questionnaire (MFQ-30)",
+        "dimensions": "authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity",
+        "item": "Chastity is an important and valuable virtue.",
+        "dimension": "purity_sanctity"
+      },
+      {
+        "id": "pvq40-1",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "Thinking up new ideas and being creative is important to them. They like to do things in their own original way.",
+        "dimension": "Self-Direction"
+      },
+      {
+        "id": "pvq40-2",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to be rich. They want to have a lot of money and expensive things.",
+        "dimension": "Power"
+      },
+      {
+        "id": "pvq40-3",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They think it is important that every person in the world be treated equally. They believe everyone should have equal opportunities in life.",
+        "dimension": "Universalism"
+      },
+      {
+        "id": "pvq40-4",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It's very important to them to show their abilities. They want people to admire what they do.",
+        "dimension": "Achievement"
+      },
+      {
+        "id": "pvq40-5",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to live in secure surroundings. They avoid anything that might endanger their safety.",
+        "dimension": "Security"
+      },
+      {
+        "id": "pvq40-6",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They think it is important to do lots of different things in life. They always look for new things to try.",
+        "dimension": "Stimulation"
+      },
+      {
+        "id": "pvq40-7",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They believe that people should do what they're told. They think people should follow rules at all times, even when no-one is watching.",
+        "dimension": "Conformity"
+      },
+      {
+        "id": "pvq40-8",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to listen to people who are different from them. Even when they disagree with them, they still want to understand them.",
+        "dimension": "Universalism"
+      },
+      {
+        "id": "pvq40-9",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They think it's important not to ask for more than what you have. They believe that people should be satisfied with what they have.",
+        "dimension": "Tradition"
+      },
+      {
+        "id": "pvq40-10",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They seek every chance they can to have fun. It is important to them to do things that give them pleasure.",
+        "dimension": "Hedonism"
+      },
+      {
+        "id": "pvq40-11",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to make their own decisions about what they do. They like to be free to plan and to choose their activities for themselves.",
+        "dimension": "Self-Direction"
+      },
+      {
+        "id": "pvq40-12",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It's very important to them to help the people around them. They want to care for their well-being.",
+        "dimension": "Benevolence"
+      },
+      {
+        "id": "pvq40-13",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "Being very successful is important to them. They like to impress other people.",
+        "dimension": "Achievement"
+      },
+      {
+        "id": "pvq40-14",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is very important to them that their country be safe. They think the state must be on watch against threats from within and without.",
+        "dimension": "Security"
+      },
+      {
+        "id": "pvq40-15",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They like to take risks. They are always looking for adventures.",
+        "dimension": "Stimulation"
+      },
+      {
+        "id": "pvq40-16",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them always to behave properly. They want to avoid doing anything people would say is wrong.",
+        "dimension": "Conformity"
+      },
+      {
+        "id": "pvq40-17",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to be in charge and tell others what to do. They want people to do what they say.",
+        "dimension": "Power"
+      },
+      {
+        "id": "pvq40-18",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to be loyal to their friends. They want to devote themselves to people close to them.",
+        "dimension": "Benevolence"
+      },
+      {
+        "id": "pvq40-19",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They strongly believe that people should care for nature. Looking after the environment is important to them.",
+        "dimension": "Universalism"
+      },
+      {
+        "id": "pvq40-20",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "Religious belief is important to them. They try hard to do what their religion requires.",
+        "dimension": "Tradition"
+      },
+      {
+        "id": "pvq40-21",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them that things be organized and clean. They really do not like things to be a mess.",
+        "dimension": "Security"
+      },
+      {
+        "id": "pvq40-22",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They think it's important to be interested in things. They like to be curious and to try to understand all sorts of things.",
+        "dimension": "Self-Direction"
+      },
+      {
+        "id": "pvq40-23",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They believe all the worlds' people should live in harmony. Promoting peace among all groups in the world is important to them.",
+        "dimension": "Universalism"
+      },
+      {
+        "id": "pvq40-24",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They think it is important to be ambitious. They want to show how capable they are.",
+        "dimension": "Achievement"
+      },
+      {
+        "id": "pvq40-25",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They think it is best to do things in traditional ways. It is important to them to keep up the customs they have learned.",
+        "dimension": "Tradition"
+      },
+      {
+        "id": "pvq40-26",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "Enjoying life's pleasures is important to them. They like to 'spoil' themselves.",
+        "dimension": "Hedonism"
+      },
+      {
+        "id": "pvq40-27",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to respond to the needs of others. They try to support those they know.",
+        "dimension": "Benevolence"
+      },
+      {
+        "id": "pvq40-28",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They believe they should always show respect to their parents and to older people. It is important to them to be obedient.",
+        "dimension": "Conformity"
+      },
+      {
+        "id": "pvq40-29",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They want everyone to be treated justly, even people they don't know. It is important to them to protect the weak in society.",
+        "dimension": "Universalism"
+      },
+      {
+        "id": "pvq40-30",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They like surprises. It is important to them to have an exciting life.",
+        "dimension": "Stimulation"
+      },
+      {
+        "id": "pvq40-31",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They try hard to avoid getting sick. Staying healthy is very important to them.",
+        "dimension": "Security"
+      },
+      {
+        "id": "pvq40-32",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "Getting ahead in life is important to them. They strive to do better than others.",
+        "dimension": "Achievement"
+      },
+      {
+        "id": "pvq40-33",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "Forgiving people who have hurt them is important to them. They try to see what is good in them and not to hold a grudge.",
+        "dimension": "Benevolence"
+      },
+      {
+        "id": "pvq40-34",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to be independent. They like to rely on themselves.",
+        "dimension": "Self-Direction"
+      },
+      {
+        "id": "pvq40-35",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "Having a stable government is important to them. They are concerned that the social order be protected.",
+        "dimension": "Security"
+      },
+      {
+        "id": "pvq40-36",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to be polite to other people all the time. They try never to disturb or irritate others.",
+        "dimension": "Conformity"
+      },
+      {
+        "id": "pvq40-37",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They really want to enjoy life. Having a good time is very important to them.",
+        "dimension": "Hedonism"
+      },
+      {
+        "id": "pvq40-38",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to be humble and modest. They try not to draw attention to themselves.",
+        "dimension": "Tradition"
+      },
+      {
+        "id": "pvq40-39",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "They always want to be the one who makes the decisions. They like to be the leader.",
+        "dimension": "Power"
+      },
+      {
+        "id": "pvq40-40",
+        "inventory": "pvq40",
+        "inventory_name": "Portrait Values Questionnaire 40 (PVQ-40)",
+        "dimensions": "Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism",
+        "item": "It is important to them to adapt to nature and to fit into it. They believe that people should not change nature.",
+        "dimension": "Universalism"
+      },
+      {
+        "id": "sd3-1",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "It's not wise to tell secrets.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-2",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I like to use clever manipulation to get my way.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-3",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "Whatever it takes, you must get the important people on your side.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-4",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "Avoid direct conflict with others because they may be useful in the future.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-5",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "It's wise to keep track of information that you can use against people later.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-6",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "You should wait for the right time to get back at people.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-7",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "There are things you should hide from other people to preserve your reputation.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-8",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "Make sure your plans benefit yourself, not others.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-9",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "Most people can be manipulated.",
+        "dimension": "machiavellianism"
+      },
+      {
+        "id": "sd3-10",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "People see me as a natural leader.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-11",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I hate being the center of attention.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-12",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "Many group activities tend to be dull without me.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-13",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I know that I am special because everyone keeps telling me so.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-14",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I like to get acquainted with important people.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-15",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I feel embarrassed if someone compliments me.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-16",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I have been compared to famous people.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-17",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I am an average person.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-18",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I insist on getting the respect I deserve.",
+        "dimension": "narcissism"
+      },
+      {
+        "id": "sd3-19",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I like to get revenge on authorities.",
+        "dimension": "psychopathy"
+      },
+      {
+        "id": "sd3-20",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "I avoid dangerous situations.",
+        "dimension": "psychopathy"
+      },
+      {
+        "id": "sd3-21",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "Payback needs to be quick and nasty.",
+        "dimension": "psychopathy"
+      },
+      {
+        "id": "sd3-22",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "People often say I'm out of control.",
+        "dimension": "psychopathy"
+      },
+      {
+        "id": "sd3-23",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "It's true that I can be mean to others.",
+        "dimension": "psychopathy"
+      },
+      {
+        "id": "sd3-24",
+        "inventory": "sd3",
+        "inventory_name": "Short Dark Triad (SD3)",
+        "dimensions": "machiavellianism, narcissism, psychopathy",
+        "item": "People who mess with me always regret it.",
+        "dimension": "psychopathy"
+      }
+    ],
+    "fields_prose": {
+      "input": "text",
+      "label": "meta_data.dimension",
+      "id": "inventory + JSON item key"
+    },
+    "filter_prose": "MFQ items with dimension 'bogus' excluded"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are given a psychometric inventory, and the dimensions it measures.\nYour task is to map a given item to the correct dimension.\n\nInventory name: {inventory_name}\nDimensions: {dimensions}\n\nItem:\n{item}\n\nInstructions:\n- For the item, return ONLY the corresponding dimension name.\n- Use exactly the dimension labels provided in the metadata.\n- Do NOT include quotes, punctuation, or any extra text.",
+    "placeholders": {
+      "inventory_name": "items.inventory_name",
+      "dimensions": "items.dimensions",
+      "item": "items.item"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B.2, Prompt 4 (item-dimension mapping)",
+    "verbatim": "full (blank lines between the sections restored from the repository prompt file method_tasks/evaluation_memorization/prompts/recognition.txt, whose wording equals Appendix B.2 Prompt 4)",
+    "placeholders_prose": {
+      "inventory_name": "BFI-44 | MFQ | PVQ-40 | SD-3",
+      "dimensions": "the inventory's dimension labels as in the JSON meta_data (format not printed)",
+      "item": "items.text"
+    }
+  },
+  "output": {
+    "parse": "label from set [Agreeableness, Conscientiousness, Extraversion, Neuroticism, Openness, authority_respect, fairness_reciprocity, harm_care, ingroup_loyalty, purity_sanctity, Achievement, Benevolence, Conformity, Hedonism, Power, Security, Self-Direction, Stimulation, Tradition, Universalism, machiavellianism, narcissism, psychopathy]",
+    "postprocess": "strip quotes/punctuation; no match = wrong for every dimension",
+    "parse_prose": "label from the inventory's dimension set (case-insensitive exact match)"
+  },
+  "metric": {
+    "name": "macro_f1",
+    "definition": "per inventory, mean over dimensions of the per-dimension F1 (Sec. 3 formula); then mean over the four inventories; seeds averaged as in the paper",
+    "judge": "none",
+    "original_value": 0.92,
+    "original_location": "Table 1, row gpt-4.1-nano, column Item-Dimension Mapping (F1) (0.92 +/- 0.07); per inventory Tables 3-6",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 414,
+    "est_usd": 1.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "Per-inventory cells for gpt-4.1-nano: BFI-44 0.92 (Table 3); MFQ Table 4; PVQ-40 Table 5; SD-3 Table 6. 138 inline rows: bfi44 44, mfq 30 (2 bogus dropped), pvq40 40, sd3 24.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

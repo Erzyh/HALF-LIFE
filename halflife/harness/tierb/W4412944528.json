@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4412944528",
+  "title": "Do Language Models Mirror Human Confidence? Exploring Psychological Insights to Address Overconfidence in LLMs",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Section 3 Models: 'two API-based models, Claude-3-sonnet-20240229 (Claude-3) and GPT-4o-2024-05-13 (GPT-4o) ... we set temperature to 0 and top-p sampling to 1'; Table 4 lists GPT-4o May 13, 2024."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.5 'LLM Prompt Templates', Tables 7-9 (self-estimation, overplacement, demographic prompts)",
+    "note": "Ten questions per prompt following Moore and Healy (2008); confidence elicited after answering (Vanilla) or answer-free (AFCE)."
+  },
+  "claim": {
+    "metric": "average expected calibration error (Vanilla confidence elicitation, AvE)",
+    "value": 33.2,
+    "n_items": 1650,
+    "location": "Table 1, block GPT-4o, row Vanilla, column AvE (9 subject x difficulty subtasks, sizes in Table 3)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MMLU (high school / college physics, chemistry, biology) and GPQA (expert) subsets; https://github.com/chenjux/AFCE"
+  },
+  "cost": {
+    "est_calls": 495,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "n_items sums the nine Table 3 subtasks used in Table 1 (170+230+340+110+110+160+220+210+100). Ten questions per call, so ~165 calls per seed."
+}

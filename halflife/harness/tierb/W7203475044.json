@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7203475044",
+ "title": "Follow the Norm: Accounting for Fine-Tuning and Prompt Effects on Model Rationales",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-5-mini-2025-08-07",
+  "resolved": "gpt-5-mini-2025-08-07",
+  "role": "A",
+  "evidence": "\"This augmentation was performed using gpt-5-mini-2025-08-07 in batch processing mode\"; Stage 1: \"gpt-5-mini-2025-08-07 and Claude Opus 4.6 independently evaluate responses\" (LLM-as-judge)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Data-augmentation and LLM-as-Judge method sections",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none for gpt-5-mini's own capability (used only as data generator and judge)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "llm:gpt-5-mini-2025-08-07"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Norm-rationale (Rule-of-Thumb) dataset, augmented by the authors"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "gpt-5-mini is used only to (a) synthesize training scenarios/contrasting rationales and (b) judge model outputs; the paper's actual fine-tuned/evaluated subject models are separate and not one of the tracked live snapshots, so there is no S/B-role capability claim for gpt-5-mini itself."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411120613",
+  "title": "MiLoRA: Harnessing Minor Singular Components for Parameter-Efficient LLM Finetuning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 4: AlpacaEval 2.0 'Win Rate (WR) against GPT-4 Turbo (OpenAI, 2023b)' as reference model and judge."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AlpacaEval 2.0, FollowBench, IFEval, commonsense and math benchmarks"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo is the AlpacaEval reference/judge; subjects are LoRA-tuned LLaMA models."
+}

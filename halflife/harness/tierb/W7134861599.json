@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7134861599",
+  "title": "Benchmarking Large Language Models for Quebec Insurance: From Closed-Book to Retrieval-Augmented Generation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-2025-04-16 (and o1-2024-12-17)",
+    "resolved": "o3-2025-04-16",
+    "role": "S",
+    "evidence": "o3-2025-04-16 and o1-2024-12-17 secure the top two positions, reaching accuracies of 78.68% and 75.18% (Section 4); Table 2 rank 1 'o3-2025-04-16 76.13+-2.57 78.68+-2.70'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 1 (system/user instruction in the blue box and question format in the yellow box)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, closed-book (mean over 10 stratified folds, seeds 42-51)",
+    "value": 76.13,
+    "n_items": 807,
+    "location": "Table 2, rank 1, row o3-2025-04-16, column 'Accuracy Closed-Book (%)'",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "AEPC-QA: 807 MCQs digitized from copyrighted exam-preparation handbooks; 'remains private and cannot be publicly released'"
+  },
+  "cost": {
+    "est_calls": 2421,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "o1-2024-12-17 closed-book 72.10. Corpus is private by design (copyright)."
+}

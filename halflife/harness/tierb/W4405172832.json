@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405172832",
+  "title": "Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (VLMEvalKit scorer) / GPT-4o-20240513 (cited)",
+    "resolved": "unresolved",
+    "role": "A",
+    "evidence": "\"Note that VLMEvalKit uses GPT-4-Turbo as the scoring model\" (Sec. 5); GPT-4o-20240513 rows are leaderboard numbers cited from [192]"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 9 (CoT prompts used for InternVL testing)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none produced by the authors for the live ids",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 6-12 (GPT-4o rows cited)",
+    "task_type": "other",
+    "judge": "llm:gpt-4-turbo (undated, scorer)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "public multimodal benchmarks (MMMU, MathVista, OCRBench, etc.)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Model report for InternVL 2.5; OpenAI models appear as cited comparison rows or as judge/scoring models in evaluation toolkits."
+}

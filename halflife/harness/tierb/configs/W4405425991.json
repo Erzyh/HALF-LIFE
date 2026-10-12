@@ -1,0 +1,83 @@
+{
+  "wid": "W4405425991",
+  "title": "ProteinGPT: Multimodal LLM for Protein Property Prediction and Structure Understanding",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "temperature": null,
+      "max_tokens": 2048,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "assumed (paper silent; o3-mini snapshot by the alias rule; reasoning effort default)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1025,
+    "subset_rule": "seeded random 35 proteins (seed 20260907) from the released 160-protein test split, all their 28-30 questions (about 1,025)",
+    "approximation": "different 35-protein sample than the paper's; prompt assembly (system line + FASTA record + question) taken from the Appendix D.2 example; o3-mini reasoning effort unstated"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/OviaLabs/ProteinGPT (redirect of ProteinGPT/ProteinGPT), folder src/data (ProteinQA, RCSB-PDB derived); test split of 160 proteins x 28-30 QA pairs",
+    "config_or_split": "test split (160 proteins, 3,508 QA pairs)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "label": "answer",
+      "id": "pdb_id"
+    },
+    "license": "unknown (repository LICENSE file present, contents not checked)",
+    "access_checked": true,
+    "size_mb": 0,
+    "fields_prose": {
+      "input": "question + FASTA sequence of the protein (from RCSB PDB if not shipped)",
+      "label": "reference answer",
+      "id": "PDB id + question index"
+    },
+    "filter_prose": "seeded sample of 35 proteins"
+  },
+  "prompt": {
+    "system": "You are an expert in protein domain, please answer the questions given the protein primary sequence and only give a concise answer to the question.",
+    "user_template": "{fasta_record}\n{question}",
+    "placeholders": {
+      "fasta_record": "FASTA header + sequence fetched from RCSB PDB (not expressible)",
+      "question": "items.question"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 4.2.3 (FASTA sequence prepended to the prompt); wording from Appendix D.2 (o3-mini example: system prompt, protein sequence information, question)",
+    "verbatim": "partial (the system line is printed in Appendix D.2; the order 'FASTA record then question' follows Sec. 4.2.3 and D.2, exact separators assumed)",
+    "placeholders_prose": {
+      "fasta_record": "FASTA header line ('>{pdb_id}_1|Chain A|{name}|{organism}') followed by the primary sequence",
+      "question": "items.question"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "strip; ROUGE-L F1 against the reference answer (rouge_score, default tokenisation)"
+  },
+  "metric": {
+    "name": "rouge_l",
+    "definition": "mean ROUGE-L F1 between the model answer and the reference answer over the sampled questions",
+    "judge": "none",
+    "original_value": 0.072,
+    "original_location": "Table 4, row OpenAI o3-mini, column R-L",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 3075,
+    "est_usd": 31.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "the repository README describes ProteinQA (132,092 proteins) and a src/data folder but no explicit test-split file; confirm the QA file and split after cloning, otherwise the item source is missing",
+    "ROUGE implementation (the paper cites 'Rouge 2.0', Ganesan 2018) may differ from rouge_score",
+    "item source missing: the repository (OviaLabs/ProteinGPT, main) contains code only; src/data/DATASET.md is a one-line acknowledgement and no ProteinQA test-split file is released there, so items.file_url cannot be set",
+    "runner gap: the FASTA record must be fetched per protein from RCSB PDB"
+  ],
+  "notes": "Baseline row of a fine-tuned-model paper; set-level comparison against a differently sampled 35-protein subset. Sequences add ~300 input tokens per call.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

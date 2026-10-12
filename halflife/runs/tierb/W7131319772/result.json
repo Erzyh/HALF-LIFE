@@ -1,0 +1,67 @@
+{
+  "wid": "W7131319772",
+  "title": "Can Large Language Models Replace Human Coders? Introducing ContentBench",
+  "model": "gpt-5-mini-2025-08-07",
+  "metric": "accuracy",
+  "original_value": 99.0,
+  "original_location": "Table 1, row GPT-5 Mini, column Agreement (%) (core macro-F1 0.990, hard-sarcasm recall 99.0)",
+  "reexecution": {
+    "mean_over_seeds": 0.9833333333333334,
+    "per_seed": {
+      "0": {
+        "value": 0.983,
+        "n": 1000,
+        "ci95": [
+          0.975,
+          0.99
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.985,
+        "n": 1000,
+        "ci95": [
+          0.977,
+          0.992
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.982,
+        "n": 1000,
+        "ci95": [
+          0.973,
+          0.99
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7131319772",
+    "n_items": 1000,
+    "n_requests": 3000,
+    "seeds": 3,
+    "est_usd": 3.98,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-mini-2025-08-07",
+    "metric": "accuracy",
+    "original_value": 99.0,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-5-mini-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 98.33333333333334,
+    "delta": -0.6666666666666572,
+    "original_inside_ci95": true
+  }
+}

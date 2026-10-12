@@ -1,0 +1,57 @@
+{
+  "wid": "W4401545735",
+  "title": "Designing Heterogeneous LLM Agents for Financial Sentiment Analysis",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "accuracy",
+  "original_value": 74.57,
+  "original_location": "Table 4, row GPT-4 (gpt-4o-2024-05-13), column FPB Acc.",
+  "reexecution": {
+    "mean_over_seeds": 0.9156360424028268,
+    "per_seed": {
+      "0": {
+        "value": 0.9156360424028268,
+        "n": 2264,
+        "ci95": [
+          0.9045936395759717,
+          0.9275618374558304
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 7
+  },
+  "prepare": {
+    "wid": "W4401545735",
+    "n_items": 2264,
+    "n_requests": 2264,
+    "seeds": 1,
+    "est_usd": 3.55,
+    "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4o-2024-05-13",
+    "metric": "accuracy",
+    "original_value": 74.57,
+    "cap_usd": 1.6,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4401545735"
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 7
+  },
+  "approximation": "Naive prompt is the BloombergGPT FSA template quoted in Sec. 2.2 (resolution plan); Figure 3 (image) may show slightly different wording; answers mapped to the three classes by string match.",
+  "arm": {
+    "model": "gpt-4o-2024-05-13",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\drift_ctrl\\W4401545735"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 91.56360424028269,
+    "delta": 16.993604240282693,
+    "original_inside_ci95": false
+  }
+}

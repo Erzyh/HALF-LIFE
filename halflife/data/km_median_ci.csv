@@ -1,0 +1,14 @@
+﻿group,n_curve,identifiers_retiring_first,median_months,ci95_lo_months,ci95_hi_months,q25_months,q75_months,km_median_months,km_ci95_lo_months,km_ci95_hi_months,bootstrap_resamples,resamples_without_median,km_resamples_without_median
+all papers,49212,100,9.4,7.4,13.4,5.4,15.6,20.7,9.9,31.7,1000,0,1
+vendor: OpenAI identifiers,43819,50,10.4,7.8,15.7,5.8,16.5,31.6,20.5,32.3,1000,0,4
+vendor: Anthropic identifiers,6256,29,7.0,4.8,9.6,3.5,11.7,7.7,4.8,11.0,1000,0,0
+vendor: Google identifiers,5964,23,7.6,5.7,9.3,3.0,11.0,7.2,5.6,9.4,1000,0,0
+type: article,13965,82,8.9,7.4,12.0,5.1,13.1,28.6,9.7,32.6,1000,0,7
+type: preprint,22982,93,9.8,7.8,13.1,5.6,16.4,17.3,10.8,31.5,1000,0,0
+type: conference paper,9841,86,9.7,6.1,15.7,5.0,15.7,18.2,6.2,31.9,1000,0,1
+field: Computer Science,27204,96,9.6,7.4,13.7,5.4,15.7,18.0,9.7,31.7,1000,0,0
+field: Medicine,5557,73,8.7,7.5,11.8,5.1,13.0,19.8,9.7,32.1,1000,0,2
+field: Social Sciences,4328,79,9.3,7.6,13.6,5.1,15.1,21.6,10.4,31.7,1000,0,0
+field: Engineering,2044,67,10.2,8.1,15.0,5.4,15.5,25.8,11.0,31.8,1000,0,1
+field: Decision Sciences,1519,67,9.5,7.5,12.5,5.4,15.7,18.4,9.9,31.6,1000,0,0
+field: Psychology,1680,69,9.1,7.6,12.6,5.3,14.9,24.2,10.7,31.9,1000,0,2

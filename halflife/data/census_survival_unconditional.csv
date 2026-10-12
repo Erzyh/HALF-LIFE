@@ -1,0 +1,21 @@
+﻿variant,group,n_named,born_dead,n_curve,dead_by_today,pct_dead_today,pct_lost_by_2026_end,median_months,q25_months,q75_months,all_gone_by,n_date_yearonly,n_truncated,estimand,censored_still_served,surv_12m,surv_24m,surv_36m
+A0 main census under the vocabulary of 2026-09-02 (archived file of 2026-09-28),all,27044,6419,20625,11631,56.4,100.0,13.6,6.1,25.9,2026-12-11,,,Kaplan-Meier censored at 2026-10-12,0,0.543,0.288,0.126
+A0 main census under the vocabulary of 2026-09-02 (archived file of 2026-09-28),openai,19687,3006,16681,6166,37.0,100.0,23.9,9.1,34.6,2026-12-11,,,Kaplan-Meier censored at 2026-10-12,0,0.701,0.496,0.237
+A0 main census under the vocabulary of 2026-09-02 (archived file of 2026-09-28),anthropic,5460,1614,3846,3846,100.0,100.0,9.4,4.2,14.2,2026-08-05,,,Kaplan-Meier censored at 2026-10-12,0,0.377,0.018,0.002
+A0 main census under the vocabulary of 2026-09-02 (archived file of 2026-09-28),google,5471,2209,3262,3262,100.0,100.0,7.2,3.0,11.2,2025-09-29,,,Kaplan-Meier censored at 2026-10-12,0,0.186,0.004,0.0
+A main census (vocabulary completed 2026-10-12),all,58620,9408,49212,17022,34.6,94.2,20.8,9.4,32.4,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,2471,0.655,0.454,0.061
+A main census (vocabulary completed 2026-10-12),openai,47201,3382,43819,8236,18.8,93.6,31.7,18.0,33.2,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,2813,0.834,0.67,0.096
+A main census (vocabulary completed 2026-10-12),anthropic,9371,3115,6256,5574,89.1,100.0,7.7,3.8,12.6,2026-11-30,,,Kaplan-Meier censored at 2026-10-12,0,0.287,0.014,0.001
+A main census (vocabulary completed 2026-10-12),google,9478,3514,5964,5513,92.4,92.4,7.3,3.0,11.0,2027-05-07,,,Kaplan-Meier censored at 2026-10-12,0,0.164,0.003,0.0
+"C all identifiers, still-served censored (unconditional)",all,118154,9623,108531,18152,16.7,46.1,31.6,14.9,32.9,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,58106,0.803,0.641,0.075
+"C all identifiers, still-served censored (unconditional)",openai,104027,3382,100645,8998,8.9,43.9,32.1,26.9,33.3,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,56429,0.911,0.791,0.101
+"C all identifiers, still-served censored (unconditional)",anthropic,14611,3115,11496,5574,48.5,55.7,9.0,4.7,13.3,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,5093,0.342,0.017,0.002
+"C all identifiers, still-served censored (unconditional)",google,22013,3729,18284,5881,32.2,32.2,11.7,7.8,16.0,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,11905,0.468,0.048,0.009
+"D unconditional, papers published by 2025-09-15",all,42099,2324,39775,14779,37.2,67.9,31.5,12.6,32.8,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,12774,0.763,0.609,0.072
+"D unconditional, papers published by 2025-09-15",openai,38971,1985,36986,8806,23.8,61.6,32.0,24.2,33.2,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,14189,0.866,0.752,0.096
+"D unconditional, papers published by 2025-09-15",anthropic,3839,223,3616,3598,99.5,99.7,10.3,6.1,14.7,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,12,0.413,0.02,0.002
+"D unconditional, papers published by 2025-09-15",google,5477,164,5313,4366,82.2,82.2,10.7,4.9,14.9,2099-01-01,,,Kaplan-Meier censored at 2026-10-12,944,0.356,0.036,0.007
+"E unconditional, projected to announced retirement dates",all,118154,9623,108531,50010,46.1,46.1,16.3,9.0,27.6,2099-01-01,,,Kaplan-Meier censored at 2026-12-31,58106,0.643,0.372,0.003
+"E unconditional, projected to announced retirement dates",openai,104027,3382,100645,44216,43.9,43.9,20.6,10.3,27.7,2099-01-01,,,Kaplan-Meier censored at 2026-12-31,56429,0.699,0.424,0.003
+"E unconditional, projected to announced retirement dates",anthropic,14611,3115,11496,6403,55.7,55.7,9.2,5.4,13.2,2099-01-01,,,Kaplan-Meier censored at 2026-12-31,5093,0.336,0.017,0.002
+"E unconditional, projected to announced retirement dates",google,22013,3729,18284,5881,32.2,32.2,13.6,9.6,21.2,2099-01-01,,,Kaplan-Meier censored at 2026-12-31,11905,0.571,0.15,0.051

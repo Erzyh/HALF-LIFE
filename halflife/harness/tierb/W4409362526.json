@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4409362526",
+  "title": "TableBench: A Comprehensive and Complex Benchmark for Table Question Answering",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 3 (close-source ICL methods): 'GPT-4-Turbo 75.92 77.62 70.08 ... 51.32 44.26 45.69'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a ('uniform style prompt templates' described in Implementation Details; templates in the GitHub repo only)",
+    "note": "Snapshot not stated (arXiv Aug 2024)."
+  },
+  "claim": {
+    "metric": "overall score, TCoT",
+    "value": 51.32,
+    "n_items": 886,
+    "location": "Table 3, row GPT-4-Turbo, column Overall TCoT",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TableBench (github.com/TableBench/TableBench), 886 samples"
+  },
+  "cost": {
+    "est_calls": 2658,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Prompts are not printed in the AAAI version."
+}

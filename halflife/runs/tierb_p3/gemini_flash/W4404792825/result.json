@@ -1,0 +1,56 @@
+{
+  "wid": "W4404792825",
+  "title": "Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 31.36,
+  "original_location": "Table 2, column GPT-4o, row Base, GSE (ES 5.63)",
+  "reexecution": {
+    "mean_over_seeds": 30.6,
+    "per_seed": {
+      "0": {
+        "value": 30.6,
+        "n": 10,
+        "ci95": [
+          30.3,
+          30.9
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404792825",
+    "n_items": 10,
+    "n_requests": 10,
+    "seeds": 1,
+    "est_usd": 0.01,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 31.36,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the baseline Likert instruction is not printed (Table 12 holds only the pressure prompts); a minimal Instruction-Induction style format line is written; item wording and order follow the published scale",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4404792825"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 30.6,
+    "delta": -0.759999999999998,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "card_id": "W4408685817",
+  "openalex_id": "https://openalex.org/W4408685817",
+  "title": "GPT for RCTs? Using AI to determine adherence to clinical trial reporting guidelines",
+  "doi": "10.1136/bmjopen-2024-088735",
+  "paper": {
+    "authors": "Wrightson, Blazey, Moher, Khan, Ardern",
+    "year": 2025,
+    "repo": "https://osf.io/4shmt (DOI 10.17605/OSF.IO/4SHMT) - OSF project 'GPT_4_RCT' ('Using AI to examine RCT data'), public, created 2023-08-16, modified 2025-02-27; child components 'Data' (osf.io/htvmk) and 'manscript' (osf.io/tyx5s)",
+    "repo_note": "OSF 'Data' component (osf.io/htvmk, osfstorage) verified 2026-09-04: pmid_list.csv (1,022 B), image_details.csv (2,208 B), scripts_for_extraction/ (1_pmcdata.Rmd, 2_epubdata.Rmd, 3_pdfdata.Rmd, 4_joindata.Rmd, Readme.txt), analysis/ (15 files: per-item CSVs outcome.csv, hypothesis.csv, person_conceal.csv, eligibility.csv, sample_size.csv, rand_technique.csv, rand_method.csv, effect.csv, blind.csv, Llama2.csv, image_details.csv - each ~5-7 KB, i.e. per-paper labels/results, not article text; 1. GPT_4_training.Rmd, 2. GPT_4_testing.Rmd, 3.Llama_testing.Rmd, gpt_4functions.R), pilot/scripts_for_analysis/. The 'manscript' component (osf.io/tyx5s) listing timed out. The paper also promises the MI-CLAIM checklist and raw label-transformation spreadsheets.",
+    "repo_commit": null,
+    "repo_license": "not stated (OSF license field empty)"
+  },
+  "dependence": {
+    "type": "annotator",
+    "strength": "core",
+    "note": "The LLM is the classifier whose YES/NO adherence judgments are scored against human labels (Schulz et al. 2022); the paper's primary outcome (F1) is entirely a property of GPT-4 Turbo's outputs."
+  },
+  "claim": {
+    "statement": "GPT-4 Turbo (temperature 0.2, top-p 0.2, persona system prompt + per-item task/question user prompts) determined CONSORT-item adherence in the TEST split (20% of ~982 text-question pairs from 113 sports-medicine RCT reports) with pooled F1 = 0.89 and accuracy 90% (95% CI 85-94%); per-item accuracy ranged 83-100% (Table 2, Figure 1).",
+    "claim_type": "tool_validity",
+    "metric": "F1 (primary) and classification accuracy with 95% CI of YES/NO adherence answers vs. Schulz et al. labels, pooled over 9 text items in the TEST split",
+    "original_values": {
+      "pooled_F1": 0.89,
+      "pooled_accuracy_pct": 90,
+      "pooled_accuracy_95ci_pct": [
+        85,
+        94
+      ],
+      "per_item_F1_accuracy": {
+        "1 study hypotheses": [
+          0.86,
+          83
+        ],
+        "2 primary outcome": [
+          0.91,
+          89
+        ],
+        "3 sample size": [
+          0.92,
+          90
+        ],
+        "4 eligibility criteria": [
+          0.89,
+          86
+        ],
+        "5 randomisation implementation": [
+          0.95,
+          94
+        ],
+        "6 randomisation methods": [
+          0.91,
+          94
+        ],
+        "7 allocation roles": [
+          0.84,
+          86
+        ],
+        "8 blinding": [
+          1.0,
+          100
+        ],
+        "9 effect size and CI": [
+          0.57,
+          87
+        ]
+      },
+      "llama2_70b_base_F1_accuracy": [
+        0.63,
+        64
+      ],
+      "llama2_70b_finetuned_F1_accuracy": [
+        0.84,
+        83
+      ],
+      "gpt4_vision_flow_diagram_accuracy_pct": {
+        "q10_is_consort_diagram": 100,
+        "q11_losses_detailed": 57
+      },
+      "n_papers": 113,
+      "text_question_pairs_total": "113 + 7x108 + 113 = 982 (Table 1)",
+      "test_fraction": 0.2
+    },
+    "original_source": "Abstract; Results 'GPT-4 performance'; Table 2 (F1 and accuracy per item); Figure 1 (confusion matrix); Table 1 (pair counts and adherence rates)"
+  },
+  "protocol": {
+    "model": "GPT-4 Turbo - snapshot NOT reported",
+    "model_note": "Analysis ran alongside 'GPT-4 Vision' (gpt-4-vision-preview era), submitted 2024-05-14, so the snapshot was most likely gpt-4-1106-preview or gpt-4-0125-preview (both dead 2026-03-26). gpt-4-turbo-2024-04-09 (GA 2024-04-09, vision built in) is the only live candidate and cannot be confirmed.",
+    "model_status": "unverifiable; live proxy gpt-4-turbo-2024-04-09 (dying 2026-10-23)",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions ('chat' format; images as base64 for the vision items)",
+    "prompt_source": "System prompt verbatim in Methods 'Model choice and optimisation' ('You are a health researcher reviewing a scientific article for a peer-reviewed sports medicine journal ... Step 1: Summarize ... Step 2: Answer the question with either YES or NO only.'); user prompts (Task + Question per item) in online supplemental table S2 (example for item 1 verbatim in the paper); prompts were iteratively rewritten with ChatGPT on TRAIN errors",
+    "params": {
+      "temperature": 0.2,
+      "top_p": 0.2,
+      "max_tokens": "'The model response was limited to 512 tokens' (Data extraction section)",
+      "seed": "not reported",
+      "other": "input = one paper section (introduction / method / results; methods+results for item 9) + task + question; Llama 2 comparator on TogetherAI with temperature/top-p 0.7"
+    },
+    "n_items": 196,
+    "n_items_note": "TEST split = 20% of 982 pairs, stratified by section; exact count in online supplemental table S1 / OSF",
+    "samples_per_item": 1,
+    "evaluation": "Parse the Step-2 'YES'/'NO' and compare with the Schulz et al. label; F1 and accuracy (with 95% CI) pooled over items - automatic given labels and split membership"
+  },
+  "artifacts": {
+    "prompts_path": "OSF htvmk: analysis/gpt_4functions.R and analysis/1. GPT_4_training.Rmd / 2. GPT_4_testing.Rmd (expected to embed the system/user prompts); supplemental table S2 for the nine user prompts",
+    "data_path": "OSF htvmk: analysis/<item>.csv (per-paper labels/results for the 9 text items + Llama2.csv), pmid_list.csv, image_details.csv; article sections are NOT deposited - they are rebuilt by scripts_for_extraction/1_pmcdata.Rmd (24 OA papers via PMC), 2_epubdata.Rmd, 3_pdfdata.Rmd (89 publisher files held by the lead author), 4_joindata.Rmd",
+    "eval_path": "OSF htvmk: analysis/2. GPT_4_testing.Rmd, analysis/gpt_4functions.R (R 4.3.2 / Python 3.8.17)",
+    "data_public": "partial",
+    "data_license": "labels: Schulz et al. 2022 dataset (published); article full texts: publishers' copyright (24 OA)",
+    "redistributable": false,
+    "notes": "OSF file inventory verified via api.osf.io (see paper.repo_note). Whether the per-item CSVs contain the TRAIN/TEST assignment and the GPT-4 raw answers must be checked by downloading them (~5 KB each). Image-analysis subset (n=20 + 10 non-trial flow diagrams) identified by PMIDs in pmid_list.csv / image_details.csv."
+  },
+  "blockers": [
+    "exact snapshot dead: the released R code calls the alias 'gpt-4-turbo-preview' (= gpt-4-0125-preview, retired 2026-03-26) with seed 101, so any live run is a same-line proxy, not a re-execution",
+    "61 of the 113 articles are closed access (JSCR 16, Bone Joint J 13, MSSE 10, AJSM 5 ...); the OSF deposit holds labels and prompts but no article text sections and no raw GPT-4 answers; an open-access run would cover 85 of the 175 recoverable Q1-8 TEST pairs (49%) and needs the manual section-tagging step re-done",
+    "item 9 TEST pairs are not recoverable (the split ran on undeposited parquet files)",
+    "GPT-4 Turbo snapshot not reported; plausible snapshots (gpt-4-1106/0125-preview) are dead - only an unverifiable live proxy exists",
+    "full texts of 89/113 papers are copyrighted and must be re-obtained via institutional access; text extraction (EPUB/PDF) must be redone unless OSF holds the extracted sections",
+    "OSF deposit has the R extraction/analysis notebooks and ~5 KB per-item CSVs but no article texts; TRAIN/TEST membership and raw model outputs must be confirmed inside those CSVs/Rmd files",
+    "prompts were tuned on TRAIN via ChatGPT rewriting - only the final prompts are reproducible"
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4-turbo-2024-04-09 (proxy for unreported 'GPT-4 Turbo')"
+    },
+    "successors": [
+      "gpt-5-2025-08-07",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated snapshot)",
+      "gemini (current dated snapshot)",
+      "llama-3.x (open weights, hash-pinned; paper used Llama 2 70B)",
+      "qwen3 (open weights, hash-pinned)"
+    ]
+  },
+  "budget": {
+    "est_calls": 588,
+    "est_tokens_in": 1470000,
+    "est_tokens_out": 147000,
+    "est_cost_usd": 19,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo": {
+        "input": 10.0,
+        "output": 30.0
+      }
+    },
+    "assumptions": "TEST split only: ~196 pairs x 3 seeds; ~2,500 input tokens (paper section + prompts) and ~250 output tokens (summary + YES/NO). Running all 982 pairs would be ~USD 96."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1: survival if pooled TEST accuracy has a Wilson 95% CI (n~196) overlapping 0.90 [0.85-0.94] and pooled F1 >= 0.85; direction: >= 80% accuracy on every text item (the paper's 'acceptable performance' claim). The Llama-2 fine-tuning comparison is not re-run.",
+    "notes": "Class imbalance matters (item 9: 20% adherence -> F1 0.57 at 87% accuracy); report per-item F1 alongside accuracy."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Accept gpt-4-turbo-2024-04-09 as proxy for the unreported 'GPT-4 Turbo' snapshot (likely a dead preview snapshot)?",
+    "Download the OSF analysis/*.csv and Rmd files to confirm they hold the TRAIN/TEST split, labels and GPT-4 raw answers (listing verified; contents not inspected).",
+    "Do we have institutional access to the 89 non-OA sports-medicine papers?",
+    "Core claim = pooled F1/accuracy (as drafted) rather than any single item?"
+  ],
+  "domain_notes": "Ground truth is Schulz et al.'s (2022) audit of CONSORT reporting in 160 sports-medicine trials published in 2020 - a human judgment with its own subjectivity, so 'accuracy' is agreement with one audit. Papers were split into introduction/method/results sections to fit Llama 2's context window; item 9 (effect size + CI) used methods+results and was excluded from Llama 2. Figure 1's confusion-matrix axes are labelled unusually (actual = model output, predicted = Schulz labels).",
+  "decisions_2026_09_18": [
+    "gpt-4-turbo-2024-04-09 is run as a proxy for the unreported 'GPT-4 Turbo' snapshot and the result is labelled 'proxy'",
+    "download the OSF analysis CSV and Rmd files to confirm the TRAIN/TEST split, labels and raw GPT-4 answers (no cost)",
+    "PENDING: institutional access to the 89 non-open-access sports-medicine papers (user to confirm)",
+    "core claim = pooled F1 and accuracy"
+  ],
+  "resolution_2026_09_18": "Dropped from the live re-execution set after the open-access check (runs/W4408685817_oa_check.md): counted in the census stratum 'exact snapshot retired'; a proxy run on gpt-4-turbo-2024-04-09 over the open-access subset (~$8) is possible as successor-style evidence only."
+}

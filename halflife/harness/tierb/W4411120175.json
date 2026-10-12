@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4411120175",
+  "title": "Large Language Models Reflect Human Citation Patterns with a Heightened Citation Bias",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Appendix A: 'Besides using GPT-4-0613, we also ran steps 6 and 7 for GPT-4o-2024-05-13 and Claude-3-5-sonnet-20240620 on 27 July 2024.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A, Step 6 'Vanilla' prompting (system message 'You are a helpful assistant' + user prompt printed verbatim; main content appended after '===')",
+    "note": "Three runs for GPT-4o; post-processing prompt for reference parsing also printed."
+  },
+  "claim": {
+    "metric": "existing generated references in Semantic Scholar (% of all references), run 1",
+    "value": 74.34,
+    "n_items": 3066,
+    "location": "Table C2, column GPT-4o Run 1, row 'Existing generations in Semantic Scholar database (%)'",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "166 cs.LG papers with split main content and ground-truth references, https://zenodo.org/records/11299894 and https://github.com/AndresAlgaba/LLM_citation_patterns"
+  },
+  "cost": {
+    "est_calls": 498,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Existence check uses the Semantic Scholar API, whose coverage drifts over time; sampling parameters for the GPT-4o runs are not stated (runs differ by 1-2 points). Main-paper model GPT-4-0613 is dead; GPT-4o is the secondary replication."
+}

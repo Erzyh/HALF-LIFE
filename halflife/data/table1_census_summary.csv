@@ -1,0 +1,27 @@
+﻿grouping,group,papers,share_pct,cited_10plus_pct,born_dead,born_dead_pct,in_curve,lost_by_today_pct,lost_by_2026_end_pct,median_months,q25,q75,km_median_months
+all,all papers,58620,100.0,8.0,9408,16.0,49212,34.6,94.2,9.4,5.4,15.6,20.7
+vendor of the named identifiers,OpenAI only,41178,70.2,8.5,2868,7.0,38310,18.7,93.5,10.4,5.8,16.3,31.6
+vendor of the named identifiers,more than one vendor,6603,11.3,8.3,2333,35.3,4270,91.8,98.9,6.8,3.0,11.0,7.3
+vendor of the named identifiers,Google only,5801,9.9,4.3,2332,40.2,3469,90.7,90.7,6.9,3.0,10.6,6.3
+vendor of the named identifiers,Anthropic only,5038,8.6,7.2,1875,37.2,3163,88.3,100.0,6.2,2.8,10.5,7.1
+identifier status,announced identifiers only,33846,57.7,5.3,1,0.0,33845,4.9,91.6,10.6,6.1,16.0,32.7
+identifier status,retired identifiers only,16292,27.8,11.5,6498,39.9,9794,100.0,100.0,6.2,3.0,10.9,6.2
+identifier status,both,8482,14.5,11.8,2909,34.3,5573,100.0,100.0,8.2,3.5,14.4,8.2
+publication year,2021,1,0.0,100.0,0,0.0,1,100.0,100.0,15.6,15.6,15.6,15.6
+publication year,2022,212,0.4,50.0,0,0.0,212,98.6,100.0,14.1,10.1,18.1,14.1
+publication year,2023,3817,6.5,34.3,229,6.0,3588,98.6,100.0,10.6,6.1,14.5,10.6
+publication year,2024,12571,21.4,16.0,1183,9.4,11388,48.1,100.0,24.1,12.6,27.7,30.1
+publication year,2025,15953,27.2,7.3,1927,12.1,14026,41.3,97.7,12.2,6.6,15.7,
+publication year,2026,26065,44.5,0.3,6068,23.3,19997,10.1,87.4,5.8,3.7,8.5,
+publication year,2027,1,0.0,0.0,1,100.0,0,,,,,,
+document type,preprint,26740,45.6,3.7,3758,14.1,22982,39.6,93.3,9.8,5.6,16.4,17.3
+document type,article,16816,28.7,11.6,2851,17.0,13965,21.3,93.7,8.9,5.1,13.1,28.6
+document type,conference-paper,12049,20.6,13.0,2208,18.3,9841,44.2,97.5,9.7,5.0,15.7,18.2
+document type,other,3015,5.1,5.0,591,19.6,2424,24.3,92.7,9.2,5.3,13.6,25.3
+field (OpenAlex primary),Computer Science,32716,55.8,8.4,5512,16.8,27204,40.0,95.4,9.6,5.4,15.7,18.0
+field (OpenAlex primary),Medicine,6619,11.3,11.5,1062,16.0,5557,26.5,93.1,8.7,5.1,13.0,19.8
+field (OpenAlex primary),Social Sciences,5143,8.8,5.9,815,15.8,4328,32.3,94.4,9.3,5.1,15.1,21.6
+field (OpenAlex primary),Engineering,2296,3.9,6.8,252,11.0,2044,28.1,93.5,10.2,5.4,15.5,25.8
+field (OpenAlex primary),Psychology,1979,3.4,8.1,299,15.1,1680,29.1,92.9,9.1,5.3,14.9,24.2
+field (OpenAlex primary),Decision Sciences,1805,3.1,6.8,286,15.8,1519,37.7,93.9,9.5,5.4,15.7,18.4
+field (OpenAlex primary),other fields,8062,13.8,5.2,1182,14.7,6880,23.7,91.0,9.4,5.4,14.1,25.1

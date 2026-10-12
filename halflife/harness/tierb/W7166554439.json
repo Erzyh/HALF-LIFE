@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166554439",
+ "title": "InFACT: Benchmarking LLM Explanations Against Institutional Reasoning for Deliberation-Aware Fact-Checking",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "'reporting full-corpus experiments for open-weight models and a matched pilot comparison with GPT-4 Turbo'; Table 4 'Matched 174-instance LLM comparison': 'GPT-4 Turbo 0.218 0.181 0.168±0.061 0.311'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method: 'the evaluation pipeline constructs a separate zero-shot prompt for each benchmark instance from the claim and its context'; Appendix A gives a shortened example record",
+  "note": "Prompt is templated/described, not quoted verbatim in the excerpt read."
+ },
+ "claim": {
+  "metric": "explanation-alignment score, matched 174-instance comparison",
+  "value": 0.218,
+  "n_items": 174,
+  "location": "Table 4, row GPT-4 Turbo, first column",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Romanian institutional fact-checking corpus; models must return a six-way verdict plus a short explanation in Romanian"
+ },
+ "cost": {
+  "est_calls": 174,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Exact meaning of the four Table 4 columns (likely verdict accuracy plus several explanation-alignment sub-scores) was not fully disambiguated from the flattened text. Long claim+context inputs and Romanian-language outputs may raise per-call cost above short-prompt norms."
+}

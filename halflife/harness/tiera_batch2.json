@@ -1,0 +1,9 @@
+﻿[
+ {"name": "medec run", "group": "medec", "args": ["medec_W4412887943.py", "--run", "--cap", "12"]},
+ {"name": "medec analyze", "group": "medec", "args": ["medec_W4412887943.py", "--analyze"]},
+ {"name": "glianorex run", "group": "glianorex", "args": ["glianorex_W4412945732.py", "--run", "--cap", "17"]},
+ {"name": "glianorex analyze", "group": "glianorex", "args": ["glianorex_W4412945732.py", "--analyze"]},
+ {"name": "dxgpt generate", "group": "dxgpt", "args": ["dxgpt_W4396768794.py", "--run"]},
+ {"name": "dxgpt judge both tracks", "group": "dxgpt", "args": ["dxgpt_W4396768794.py", "--judge", "--track", "both"]},
+ {"name": "dxgpt analyze", "group": "dxgpt", "args": ["dxgpt_W4396768794.py", "--analyze"]}
+]

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7155452288",
+  "title": "Reinforcement Learning Improves LLM Accuracy and Reasoning in Disease Classification from Radiology Reports",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Methods: 'Labels ... were automatically extracted using GPT-4o (gpt-4o-2024-05-13) through prompting (Prompt 2)'; Suppl. Table S2: GPT4-o 0.758 [0.707, 0.813] (MIMIC micro-F1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods: Prompt 2 (disease-list extraction from a report) and Prompt 1 (reasoning template)",
+    "note": "13-label multi-label extraction"
+  },
+  "claim": {
+    "metric": "micro-F1, disease classification, MIMIC-CXR gold evaluation set",
+    "value": 0.758,
+    "n_items": 100,
+    "location": "Supplementary Table S2, row GPT4-o, MIMIC block (Figure 2)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "MIMIC-CXR (PhysioNet credentialed access; 100 author-annotated evaluation reports), NIH-CXR 50 reports, MIDRC 50 reports (labels from prior work [12], release not stated)"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "MIMIC-CXR requires credentialed PhysioNet access and its data-use terms restrict sending reports to commercial APIs; the radiologist gold labels for the 100/50/50 evaluation reports are not released. GPT-4o also acts as reasoning evaluator (role A) elsewhere."
+}

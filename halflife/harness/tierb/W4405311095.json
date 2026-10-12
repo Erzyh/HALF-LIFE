@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405311095",
+ "title": "RoomTour3D: Geometry-Aware Video-Instruction Tuning for Embodied Navigation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"we then employ GPT-4-Turbo [44] for controllable instruction generation, leveraging the multi-source information...\" (Sec 3.1); a data-generation step, not an evaluated capability."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.1 / Fig 2 (\"Task instruction - In-context examples - Prediction\" scheme)",
+  "note": "Template scheme described; full verbatim instruction text not printed."
+ },
+ "claim": {
+  "metric": "none for the live id (used to synthesize training instructions, not evaluated itself)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "RoomTour3D videos/annotations built from public room-tour videos; release status of the generated-instruction data not confirmed"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-Turbo is a data-generation tool inside the pipeline (produces training instructions for a separate navigation agent); reported metrics are the trained agent's navigation success, not GPT-4-Turbo's own accuracy."
+}

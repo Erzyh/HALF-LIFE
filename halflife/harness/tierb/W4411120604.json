@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411120604",
+  "title": "Do LLMs Have Distinct and Consistent Personality? TRAIT: Personality Testset designed for LLMs with Psychometrics",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Appendix B 'List of LLMs Used in Paper': 'GPT-4 (Achiam et al., 2023): gpt-4-turbo-2024-04-09'; Table 11 row GPT-4 'Type 1 56.5 93.9 33.7 85.1 23.0 0.3 11.9 7.7'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 29 'Three prompt templates for TRAIT tests' (Appendix K)",
+    "note": "Scores are averaged over three templates (Type 1-3); footnote 4 says gpt-4o-2024-08-06 was used for some evaluations."
+  },
+  "claim": {
+    "metric": "TRAIT personality score, Conscientiousness, Type 1 template",
+    "value": 93.9,
+    "n_items": 1000,
+    "location": "Table 11 (Appendix), block GPT-4, row Type 1, column Con.",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "TRAIT, 8,000 multiple-choice items (Table 2); 'We will publicly release our TRAIT' (release not confirmed in the text)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "n_items assumes 1,000 items per trait (8,000 over 8 traits). Whole-row reproduction (8 traits x 3 templates) would be ~72k calls (high).",
+  "resolution": {
+    "gap": "other",
+    "plan": "The missing piece is the TRAIT item set: Sec. 1 says 'We will publicly release our TRAIT' but the text gives no URL; the Table 29 Type 1 template is printed in full and Table 11 is per template. Locate the released TRAIT items, take the Conscientiousness items (about 1,000 of the 8,000), render each with the Type 1 template, query gpt-4-turbo-2024-04-09, and score the share of high-trait choices (93.9).",
+    "approximation": "Release location must be found in the public record; option-to-score mapping follows Sec. 2; footnote 4's gpt-4o-2024-08-06 applies to the validity evaluations, not Table 11.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

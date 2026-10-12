@@ -1,0 +1,74 @@
+{
+  "wid": "W4416034996",
+  "title": "Turning the Tide: Repository-based Code Reflection",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 8192,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 5.1 ('temperature 0, max_output_tokens 8192'); top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1888,
+    "subset_rule": "all 1,888 LiveRepoReflection tasks (Table 3: C++ 143, Go 403, Java 250, JavaScript 60, Python 820, Rust 212)",
+    "approximation": "Blocked before an approximation can be chosen - see open_points."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/LiveRepoReflection/LiveRepoReflection (benchmark data, Apache-2.0); leaderboard and links at https://LiveRepoReflection.github.io; framework and pipeline at https://github.com/LiveRepoReflection/LiveRepoReflection-Project",
+    "config_or_split": "<lang>/exercises/practice/<uuid_id>/<test_case_id>/ for each of the six languages; each task directory holds .docs/ (problem definition, visible), .meta/ (reference answer and unit-test config, invisible), the source file with the code signature (visible) and the test files (invisible)",
+    "filter": null,
+    "fields": {
+      "input": ".docs/ problem definition + the visible code signature file",
+      "options": null,
+      "label": "the task's unit tests (pass/fail is decided by running them, not by string comparison)",
+      "id": "<uuid_id>/<test_case_id>"
+    },
+    "license": "Apache-2.0 (LICENSE badge in the benchmark repository README)",
+    "access_checked": true,
+    "size_mb": null,
+    "file_url": null,
+    "label_map": null,
+    "access_note": "GET on 2026-09-19: the leaderboard site returns 200 and links both repositories; the benchmark repository lists cpp/, go/, java/, javascript/, python/ and rust/ exercises/practice trees. Not downloaded - the tasks are directory trees, not a table the runner can read, and the total size was not measured."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": null,
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Appendix A (standardized repository task input design) and Appendix B / Table 3 were the triage's expected locations; the prompts actually printed in Appendix C (Figures 8-15) are the DATA-GENERATION prompts of the authors' pipeline ('System Prompt for Our Pipeline', 'Format Reminder Prompt for Our Pipeline', 'Unit Test Prompt', 'Reference Answer Prompt', ...), not the prompt a model is solved with at evaluation time",
+    "verbatim": "unavailable - the solve-time prompt is not in the paper. Sec. 5.2-5.3 say only that the setting is 'inspired by the aider polyglot benchmark' and that Well Format measures whether the model 'strictly follows the edit format specified in the system prompt', without printing that system prompt."
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the reply is a full file in the 'full-file code generation' edit format (Sec. 5.3, Figure 4); it has to be written into the task repository before the tests are run"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Pass@1: the proportion of coding tasks the model completes correctly on its first attempt, as verified by the task's unit tests (Sec. 5.2).",
+    "judge": "none (execution-based: the task's own unit tests decide)",
+    "original_value": 2.1,
+    "original_location": "Table 1, row GPT-4.1-nano-2025-04-14, 'All' column, full-file code generation (the same row gives Pass@2 9.9, WF 71.4, FW 79.0)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 5664,
+    "est_usd": 25.0,
+    "tier": "low",
+    "est_usd_prepare": null,
+    "prepare_note": "not prepared - no prompt and no execution facility; 5,664 = 1,888 tasks x 3 seeds at gpt-4.1-nano rates with long repository context and up to 8,192 output tokens"
+  },
+  "open_points": [
+    "The evaluation prompt is not printed. Appendix C contains only the prompts used to GENERATE the benchmark (problem setter, format reminder, unit test, reference answer); the system prompt that carries the edit-format instruction at solve time - the very prompt the Well Format metric scores compliance with - appears nowhere in the paper. Copying it verbatim from the paper is therefore impossible.",
+    "Pass@1 is execution-based and needs a sandbox for six languages (C++, Go, Java, JavaScript, Python, Rust) with per-task build and test configuration. tierb_runner.py has no execution stage and hooks may not run the tests either; this needs the benchmark's own harness, which is a separate infrastructure decision.",
+    "The items are directory trees (.docs / .meta / source / tests per task), not a table the runner's items loader can read, so even the input side needs a bespoke loader and a decision on how much of the repository is placed in the prompt ('standardized repository task input design', Appendix A).",
+    "2.1% Pass@1 means about 40 of 1,888 tasks succeed. A re-execution at that floor has very little signal per dollar; if this paper is run at all, the o3-mini-2025-01-31 (11.9) or o4-mini-2025-04-16 (14.0) rows of the same table would be the more informative cells, at a higher price."
+  ],
+  "notes": "Data availability is the one thing that is not a problem here: the benchmark is public under Apache-2.0 with 1,888 tasks matching Table 3's language counts exactly. Everything that blocks the config is protocol - the unprinted solve prompt and the test-execution stage. The paper's LLM-as-judge is used only for scoring training-data quality, not for Pass@1, so no judge question arises."
+}

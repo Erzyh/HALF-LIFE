@@ -1,0 +1,182 @@
+﻿panel,tier,id,label,original,rerun,ci_lo,ci_hi,unit,difference,diff_lo,diff_hi,class
+a,B,W4416683695,AI Self-preferencing in Algorithmic Hi: score,93.0,14.7826,6.086956521739131,23.47826086956522,points,-78.22,-86.91,-69.52,편차
+a,B,W4411080278,Temperature-Driven Variability in Emer: score,100,25.0,22.400000000000002,27.6,points,-75.0,-77.6,-72.4,편차
+a,B,W4411119985,How Inclusively do LMs Perceive Social: mean_abs_error,0.92,0.5867,0.455,0.7,points (x100),-33.33,-46.5,-22.0,편차
+a,B,W7166799942,CMTD: Cognitive Modeling with Traits a: accuracy,42.45,13.2184,12.145593869731801,14.827586206896552,points,-29.23,-30.3,-27.62,확인 필요
+a,B,W7162149911,Refining and Reusing Annotation Guidel: score,0.46,0.268,0.17348267622461172,0.35941071354361465,points (x100),-19.2,-28.65,-10.06,편차
+a,A,W4416034576,"AIRepr: o3-mini overall reproducibility on DiscoveryBench, CoT prompt",55.23,39.75,33.89,46.03,points,-15.48,-21.34,-9.2,근접
+a,B,W7160514285,Large Language Models Show Metacogniti: accuracy,0.935,0.8117,0.7222222222222222,0.8796296296296297,points (x100),-12.33,-21.28,-5.54,편차
+a,A,W4416034576,"AIRepr: o3-mini overall reproducibility on DiscoveryBench, RoT prompt",60.25,48.12,41.42,54.81,points,-12.13,-18.83,-5.44,근접
+a,B,W4416036577,Cross-domain Rumor Detection via Test-: accuracy,0.643,0.5225,0.4775,0.575,points (x100),-12.05,-16.55,-6.8,편차
+a,A,W4412887943,MEDEC: error sentence accuracy (vs Table 2 GPT-4o),0.5665,0.4606,0.4204,0.5003,points (x100),-10.59,-14.61,-6.62,근접
+a,B,W7164614711,I Understand How You Feel: Enhancing D: macro_f1,51.68,41.5609,40.78404166392891,42.42593223083343,points,-10.12,-10.9,-9.25,편차
+a,A,W4412887943,MEDEC: error flag accuracy (vs Table 2 GPT-4o),0.6584,0.5611,0.5215,0.5997,points (x100),-9.73,-13.69,-5.87,근접
+a,B,W4399912745,ALiiCE: Evaluating Positional Fine-gra: score,47.0,37.5983,35.51796214626975,39.55379456082323,points,-9.4,-11.48,-7.45,편차
+a,B,W7197053912,ANCHOR-RE: An Agentic Neuro-Symbolic F: score,0.654,0.575,0.5466986443106802,0.5930391082741866,points (x100),-7.9,-10.73,-6.1,편차
+a,B,W4415332749,J4R: Learning to Judge with Equivalent: score,73.1,66.0,52.0,78.0,points,-7.1,-21.1,4.9,재현
+a,A,W4399442646,ACCORD: gpt-4o factual accuracy at 4 reasoning hops (Figure 3 series),0.543010752688172,0.4731,0.39108199613064754,0.5495519455625839,points (x100),-6.99,-15.19,0.65,재현
+a,B,W4403574994,Measuring Spiritual Values and Bias of: score,52.97,46.2683,33.704837816212226,64.8816072709878,points,-6.7,-19.27,11.91,재현
+a,A,W4404782878,"Judgement bias: attack success rate, gender",0.16,0.0947,0.04,0.16,points (x100),-6.53,-12.0,0.0,재현
+a,A,W7166808082,"TURTLEAI: symbolic success rate, DSReal (o3)",40.2,34.31,27.45,43.14,points,-5.89,-12.75,2.94,재현
+a,B,W4404573318,Chat Bankman-Fried: an Exploration of: accuracy,0.41,0.3518,0.3050847457627119,0.4135593220338983,points (x100),-5.82,-10.49,0.36,재현
+a,A,W4362598103,News credibility: refusal share,0.412202578758474,0.3543,,,points (x100),-5.79,,,근접
+a,B,W4407571428,The Stochastic Parrot on LLM's Shoulde: accuracy,41.3,35.6667,27.0,40.0,points,-5.63,-14.3,-1.3,편차
+a,B,W4399911213,WikiContradict: A Benchmark for Evalua: accuracy,86.7,81.1111,76.25,86.25,points,-5.59,-10.45,-0.45,편차
+a,B,W4416034777,The Illusion of Randomness: How LLMs F: score,0.107,0.0523,0.017182130584192434,0.15901256443298958,points (x100),-5.47,-8.98,5.2,재현
+a,A,W7144391134,"BlindingLLMs: Pearson r x100, 60-shot",42.9,37.6,21.7,52.2,points,-5.3,-21.2,9.3,재현
+a,B,W4403882451,Planning in Strawberry Fields: Evaluat: accuracy,40.1,34.8889,30.5,38.0,points,-5.21,-9.6,-2.1,편차
+a,B,W4411112894,The Promises and Pitfalls of LLM Annot: score,0.683,0.6323,0.5977006720399974,0.6850177663622371,points (x100),-5.07,-8.53,0.2,재현
+a,B,W4403758464,LLMs Still Can't Plan; Can LRMs? A Pre: accuracy,40.1,35.8889,32.0,39.50416666666665,points,-4.21,-8.1,-0.6,근접
+a,A,W4416074906,"AgentMisalignment: misalignment score, persona Pragmatist",0.25,0.2083,0.0833,0.3333,points (x100),-4.17,-16.67,8.33,재현
+a,B,W4414979614,Overcoming Language Barriers: Multilin: score,0.93,0.8888,0.8,1.0,points (x100),-4.12,-13.0,7.0,재현
+a,A,W4411120389,Greedy vs sampling (HumanEval): greedy minus sampled gap,5.5,1.4863,-1.5434451219512089,4.212080792682933,points,-4.01,-7.04,-1.29,근접
+a,B,W4404985489,Variable Extraction for Model Recovery: score,0.491,0.4516,,,points (x100),-3.94,,,근접
+a,A,W4407012395,"MedXpertQA Text: accuracy, Understanding (o3-mini-2025-01-31)",36.21,32.7586,20.6897,44.8276,points,-3.45,-15.52,8.62,재현
+a,B,W4403443823,Science is Exploration: Computational: score,74.8,71.4825,69.85913539293345,73.19239186963682,points,-3.32,-4.94,-1.61,근접
+a,B,W4416034223,When Instructions Multiply: Measuring: score,0.57,0.5417,0.4722222222222222,0.6018518518518519,points (x100),-2.83,-9.78,3.19,재현
+a,A,W4402565126,Cultural bias: share of countries improved,0.8130841121495327,0.785,,,points (x100),-2.8,,,근접
+a,A,W7171749161,Tag Questions: tag effect on agreement,-0.075,-0.1021,-0.16458333333333333,-0.05208333333333333,points (x100),-2.71,-8.96,2.29,재현
+a,A,W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=2.00",89.2,86.8474,84.73895582329317,88.85542168674698,points,-2.35,-4.46,-0.34,근접
+a,B,W4403570177,RMB: Comprehensively Benchmarking Rewa: accuracy,0.815,0.7919,0.7775175644028103,0.8066242890598863,points (x100),-2.31,-3.75,-0.84,근접
+a,A,W4412945732,"Glianorex gpt-4-turbo: accuracy, fr gpt",0.68,0.6591,0.596,0.7121,points (x100),-2.09,-8.4,3.21,재현
+a,B,W4414494504,PGxRAG: A Retrieval Augmented Generati: accuracy,80.889,78.8148,72.88888888888889,83.55555555555556,points,-2.07,-8.0,2.67,재현
+a,B,W4414758400,Mitigation of Gender and Ethnicity Bia: score,51.5,49.6043,47.666666666666664,50.696969696969695,points,-1.9,-3.83,-0.8,재현
+a,A,W4399442646,ACCORD: gpt-4o factual accuracy at 3 reasoning hops (Figure 3 series),0.6845878136200717,0.6667,0.5994472900796778,0.7286849490150314,points (x100),-1.79,-8.51,4.41,재현
+a,A,W4403885225,Judge bias: unperturbed consistency rate (noise floor),0.99,0.9737,0.9578,0.9859,points (x100),-1.63,-3.22,-0.41,재현
+a,A,W4400435289,SAD-mini facts_llms: accuracy,0.891566265060241,0.8755,0.8353,0.9157,points (x100),-1.61,-5.63,2.41,재현
+a,A,W4396768794,"DxGPT: strict top-1 (new vs archived diagnoses, same judge)",58.5,57.0,51.0,64.0,points,-1.5,-7.5,5.5,재현
+a,B,W4400375186,CEB: Compositional Evaluation Benchmar: micro_f1,69.5,68.0,61.0,74.5,points,-1.5,-8.5,5.0,재현
+a,B,W4403786592,A Comprehensive Evaluation of Large La: score,39.6,38.1667,35.4,41.6,points,-1.43,-4.2,2.0,재현
+a,A,W4399442646,ACCORD: gpt-4o anti-factual accuracy at 2 reasoning hops (Figure 3 series),0.5967741935483871,0.5833,0.5206180740569134,0.6482456140350877,points (x100),-1.34,-7.62,5.15,재현
+a,B,W4416037849,CRAB: A Benchmark for Evaluating Curat: score,71.22,69.9051,68.0451063920198,72.03519255841165,points,-1.31,-3.17,0.82,재현
+a,A,W4411120389,"Greedy vs sampling (HumanEval): greedy pass@1, median of 3 repeats",89.6,88.4146,82.92682926829268,92.6829268292683,points,-1.19,-6.67,3.08,재현
+a,B,W7139147531,LLMs learn scientific taste from insti: accuracy,25.0,23.8889,15.833333333333332,30.833333333333336,points,-1.11,-9.17,5.83,재현
+a,A,W4399442646,ACCORD: gpt-4o factual accuracy at 2 reasoning hops (Figure 3 series),0.8817204301075269,0.871,0.8333333333333334,0.9145886001872658,points (x100),-1.08,-4.84,3.29,재현
+a,B,W4411119343,Are LLM-Judges Robust to Expressions o: accuracy,83.8,82.7411,78.93401015228426,86.29441624365482,points,-1.06,-4.87,2.49,재현
+a,B,W7106207151,Syn-STARTS: Synthesized START Triage S: accuracy,0.72,0.7099,0.5740740740740741,0.8148148148148148,points (x100),-1.01,-14.59,9.48,재현
+a,B,W7166837475,Large Language Models Require Curated: macro_f1,0.27,0.2603,0.24624254286733524,0.27347526695815566,points (x100),-0.97,-2.38,0.35,재현
+a,A,W4399442646,ACCORD: gpt-4o anti-factual accuracy at 1 reasoning hops (Figure 3 series),0.8946236559139785,0.886,0.8425666301569915,0.926015037593985,points (x100),-0.86,-5.21,3.14,재현
+a,A,W7140135941,"MedAbstain: accuracy, distractor + abstain",0.3688,0.3603,0.325,0.396,points (x100),-0.85,-4.38,2.72,재현
+a,A,W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=1.50",98.7,97.8916,96.98544176706827,98.69477911646585,points,-0.81,-1.71,-0.01,재현
+a,B,W7140084705,Quantifying Data Contamination in Psyc: macro_f1,0.92,0.9128,0.8495641485539185,0.9617303171040384,points (x100),-0.72,-7.04,4.17,재현
+a,B,W4403580619,Evaluating Gender Bias of LLMs in Maki: score,0.1773,0.1703,0.14977973568281938,0.197136563876652,points (x100),-0.7,-2.75,1.98,재현
+a,B,W4415270561,Diff-XYZ: A Benchmark for Evaluating D: exact_match,0.38,0.3733,0.343,0.402,points (x100),-0.67,-3.7,2.2,재현
+a,B,W7131319772,Can Large Language Models Replace Huma: accuracy,99.0,98.3333,97.5,99.0,points,-0.67,-1.5,0.0,재현
+a,B,W7140138327,ReMedQA: Are We Done With Medical Mult: accuracy,94.4,93.7517,92.69261318506751,95.39316918189039,points,-0.65,-1.71,0.99,재현
+a,A,W4412887747,"TAMA: GPT-4-turbo exact-match accuracy, AIT-QA (repository scorer)",88.57,87.9365,84.2328,91.4286,points,-0.63,-4.34,2.86,재현
+a,B,W4410110677,Large Language Models for Supporting C: accuracy,0.97,0.9639,0.9397590361445783,0.9839357429718876,points (x100),-0.61,-3.02,1.39,재현
+a,A,W4412945732,"Glianorex gpt-4-turbo: accuracy, fr claude",0.68,0.6741,0.6131,0.7336,points (x100),-0.59,-6.69,5.36,재현
+a,A,W4411119263,"ReIFE: accuracy, instrusum",80.3,79.805,,,points,-0.49,,,재현
+a,B,W4407374917,Large language models possess some eco: score,78.0,77.6301,71.83673469387755,79.38775510204081,points,-0.37,-6.16,1.39,재현
+a,A,W4399442646,ACCORD: gpt-4o anti-factual accuracy at 3 reasoning hops (Figure 3 series),0.2831541218637993,0.2796,0.2272713085915333,0.3344459064327485,points (x100),-0.36,-5.59,5.13,재현
+a,A,W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=0.00",98.7,98.3936,97.28915662650603,98.99598393574297,points,-0.31,-1.41,0.3,재현
+a,A,W4405408496,"Temperature study gpt-4o: MAPE of formatted answers, T=0.00",1.7,1.4012,0.8436038324242859,2.100719648433817,points,-0.3,-0.86,0.4,재현
+a,A,W4411119263,"ReIFE: accuracy, llmbar_adversarial",80.7,80.564,,,points,-0.14,,,재현
+a,A,W7144391134,"BlindingLLMs: Pearson r, 0-shot",0.407,0.406,,,points (x100),-0.1,,,재현
+a,B,W7140953907,How Utilitarian Are OpenAI's Models Re: accuracy,100,99.9,99.7,100.0,points,-0.1,-0.3,0.0,재현
+a,A,W4405408496,"Temperature study gpt-4o-mini: formatted numeric answers, T=2.00",90.2,90.1606,88.25301204819277,91.86997991967871,points,-0.04,-1.95,1.67,재현
+a,A,W4400435289,SAD-mini stages_oversight: accuracy,0.4575,0.4575,0.4067,0.4983,points (x100),0.0,-5.08,4.08,재현
+a,A,W4416074906,"AgentMisalignment: misalignment score, persona Executor",0.25,0.25,0.0833,0.4167,points (x100),0.0,-16.67,16.67,재현
+a,A,W4404781910,"OffsetBias: EvalBiasBench accuracy, length",91.2,91.2,76.47058823529412,100.0,points,0.0,-14.73,8.8,재현
+a,A,W4404781910,"OffsetBias: EvalBiasBench accuracy, concreteness",92.9,92.9,82.14285714285714,100.0,points,0.0,-10.76,7.1,재현
+a,A,W4404781910,"OffsetBias: EvalBiasBench accuracy, content continuation",100.0,100.0,100.0,100.0,points,0.0,0.0,0.0,재현
+a,A,W4404781910,"OffsetBias: EvalBiasBench accuracy, nested instruction",91.7,91.7,79.16666666666666,100.0,points,0.0,-12.53,8.3,재현
+a,A,W4404781910,"OffsetBias: EvalBiasBench accuracy, familiar knowledge",95.8,95.8,87.5,100.0,points,0.0,-8.3,4.2,재현
+a,A,W4411119263,"ReIFE: accuracy, llmbar_natural",95.5,95.5,,,points,0.0,,,재현
+a,A,W4406880877,"AI-text detection (o1 zero-shot CoT): false positive rate, 150 human articles",4.0,4.0,1.8459,8.4513,points,0.0,-2.15,4.45,재현
+a,A,W4399442646,ACCORD: gpt-4o factual accuracy at 5 reasoning hops (Figure 3 series),0.5053763440860215,0.5054,0.4015112863327149,0.5992870240324593,points (x100),0.0,-10.39,9.39,재현
+a,A,W4416074906,"AgentMisalignment: misalignment score, persona None",0.208,0.2083,0.0417,0.4167,points (x100),0.03,-16.63,20.87,재현
+a,A,W4416074906,"AgentMisalignment: misalignment score, persona Analyst",0.208,0.2083,0.0417,0.375,points (x100),0.03,-16.63,16.7,재현
+a,B,W4412888118,Nunchi-Bench: Benchmarking Language Mo: accuracy,96.7,96.7742,90.32258064516128,100.0,points,0.07,-6.38,3.3,재현
+a,A,W4400435289,SAD-mini stages_full: accuracy,0.3375,0.3387,0.305,0.37,points (x100),0.12,-3.25,3.25,재현
+a,B,W4411119711,FaithBench: A Diverse Hallucination Be: score,55.96,56.0899,53.40896443726005,58.36046657912769,points,0.13,-2.55,2.4,재현
+a,B,W4404782525,Characterizing LLM Abstention Behavior: accuracy,61.2,61.3333,56.599999999999994,65.2,points,0.13,-4.6,4.0,재현
+a,A,W7140135941,"MedAbstain: accuracy, no abstain option",0.5404,0.5418,0.502,0.58,points (x100),0.14,-3.84,3.96,재현
+a,A,W7140135941,"MedAbstain: accuracy, abstain option",0.4099,0.4113,0.376,0.445,points (x100),0.14,-3.39,3.51,재현
+a,A,W4411119263,"ReIFE: evaluator accuracy vs human preference, macro mean of 4 datasets",84.0,84.155,82.157,86.083,points,0.16,-1.84,2.08,재현
+a,B,W4404314294,DisasterQA: A Benchmark for Assessing: accuracy,0.817,0.8189,0.7957446808510639,0.8524822695035461,points (x100),0.19,-2.13,3.55,재현
+a,A,W4412945732,"Glianorex gpt-4-turbo: accuracy, en claude",0.69,0.692,0.6279,0.7485,points (x100),0.2,-6.21,5.85,재현
+a,B,W4406058562,Applicability of Large Language Models: rouge_l,0.198,0.2009,0.19512407144248176,0.2065293449050169,points (x100),0.29,-0.29,0.85,재현
+a,B,W4416034345,Unlocking Legal Knowledge: A Multiling: rouge_l,18.21,18.5067,18.057281289057467,18.697963716334243,points,0.3,-0.15,0.49,재현
+a,A,W4412945732,"Glianorex gpt-4o: accuracy, en claude",0.72,0.7232,0.6637,0.7812,points (x100),0.32,-5.63,6.12,재현
+a,A,W4407012395,"MedXpertQA Text: accuracy, Understanding (o1-2024-12-17)",39.66,40.0,27.2727,52.7273,points,0.34,-12.39,13.07,재현
+a,B,W4411119263,ReIFE: Re-evaluating Instruction-Follo: score,84.0,84.3927,81.208386354579,87.23190993514939,points,0.39,-2.79,3.23,재현
+a,B,W4399911276,Whiteboard-of-Thought: Thinking Step-b: accuracy,19.6,20.0,14.799999999999999,24.4,points,0.4,-4.8,4.8,재현
+a,A,W4399442646,ACCORD: gpt-4o factual accuracy at 1 reasoning hops (Figure 3 series),0.9849462365591398,0.9892,0.976984126984127,0.9985819335572975,points (x100),0.43,-0.8,1.36,재현
+a,A,W4396768794,"DxGPT: top-5 (new vs archived diagnoses, same judge)",69.0,69.5,63.4875,76.0,points,0.5,-5.51,7.0,재현
+a,A,W4362598103,News credibility: Spearman rho x100 vs expert ratings,0.62418425191157,0.6294,0.6097127453036062,0.6482506154734634,points (x100),0.52,-1.45,2.41,재현
+a,B,W4403370432,An Evaluation of Requirements Modeling: score,48,48.5884,46.42007428084476,50.40165871404314,points,0.59,-1.58,2.4,재현
+a,B,W4399911093,Leveraging Large Language Models to Me: score,90.24,90.8731,89.1305501993632,92.92827341322682,points,0.63,-1.11,2.69,재현
+a,B,W4406880877,People who frequently use ChatGPT for: accuracy,54.0,54.6667,46.666666666666664,62.66666666666667,points,0.67,-7.33,8.67,재현
+a,A,W4405408496,"Temperature study gpt-4o: formatted numeric answers, T=1.75",95.6,96.2851,95.08032128514057,97.38955823293173,points,0.69,-0.52,1.79,재현
+a,A,T1,Bio-image code generation: pass@1,0.4736842105263157,0.4807,0.374,0.581,points (x100),0.7,-9.97,10.73,재현
+a,B,W4400434899,Are Large Language Models Strategic De: accuracy,25.5,26.2083,23.5,29.375,points,0.71,-2.0,3.88,재현
+a,A,W4416074906,"AgentMisalignment: misalignment score, persona row_mean",0.222,0.2292,0.1665,0.2986,points (x100),0.72,-5.55,7.66,재현
+a,A,W4405408496,"Temperature study gpt-4o: MAPE of formatted answers, T=2.00",1.0,1.8047,0.8975495328730105,4.221439568029343,points,0.8,-0.1,3.22,재현
+a,A,W4412945732,"Glianorex gpt-4o: accuracy, fr claude",0.71,0.7188,0.6592,0.7769,points (x100),0.88,-5.08,6.69,재현
+a,A,W4400435289,SAD-mini SAD-mini/paper_unweighted: accuracy,0.623,0.632,0.614,0.6509,points (x100),0.9,-0.9,2.79,재현
+a,A,W4412945732,"Glianorex gpt-4-turbo: accuracy, en gpt",0.65,0.6591,0.6048,0.7172,points (x100),0.91,-4.52,6.72,재현
+a,B,W7144391352,CALRK-Bench: Evaluating Context-Aware: accuracy,0.754,0.7634,0.7168458781362007,0.8172043010752689,points (x100),0.94,-3.72,6.32,재현
+a,A,W4404782878,"Judgement bias: attack success rate, reference",0.32,0.3298,0.234,0.4286,points (x100),0.98,-8.6,10.86,재현
+a,A,W7144391134,"BlindingLLMs: Pearson r x100, 1000-shot",75.6,76.6,69.2,82.8,points,1.0,-6.4,7.2,재현
+a,B,W4402345509,LAB-Bench: Measuring Capabilities of L: accuracy,0.12,0.1307,0.09045226130653267,0.18592964824120603,points (x100),1.07,-2.95,6.59,재현
+a,B,W7135428702,SommBench: Assessing Sommelier Experti: accuracy,0.73,0.7409,0.7138427734375,0.7666015625,points (x100),1.09,-1.62,3.66,재현
+a,A,W4400435289,SAD-mini SAD-mini/repo_weighted: accuracy,0.594406626506024,0.6053,0.58,0.6332,points (x100),1.09,-1.44,3.88,재현
+a,B,W4403885225,Justice or Prejudice? Quantifying Bias: score,0.915,0.926,0.902,0.948,points (x100),1.1,-1.3,3.3,재현
+a,A,W4407012395,"MedXpertQA Text: accuracy, Avg (o3-mini-2025-01-31)",37.3,38.5246,32.377,44.6721,points,1.22,-4.92,7.37,재현
+a,B,W4400611869,Lynx: An Open Source Hallucination Eva: accuracy,82.2,83.435,79.26829268292683,87.1951219512195,points,1.23,-2.93,5.0,재현
+a,A,W4411119263,"ReIFE: accuracy, mtbench",79.5,80.75,,,points,1.25,,,재현
+a,B,W4416339332,"""As Eastern Powers, I will veto."" : An: score",65,66.3261,54.854222122193875,78.95850917975781,points,1.33,-10.15,13.96,재현
+a,A,W4406880877,"AI-text detection (o1 zero-shot CoT): true positive rate, 150 AI articles",54.0,55.3333,47.3431,63.0572,points,1.33,-6.66,9.06,재현
+a,B,W7169474262,The One-Word Census: Answer-Choice Con: score,40,41.3978,38.230555555555554,49.63575268817204,points,1.4,-1.77,9.64,재현
+a,A,W4407012395,"MedXpertQA Text: accuracy, Avg (o1-2024-12-17)",44.67,46.1207,40.0862,52.5862,points,1.45,-4.58,7.92,재현
+a,B,W7166852552,LexGenius: An Expert-Level Benchmark f: accuracy,46.51,48.0527,46.99820251647694,49.191431995206706,points,1.54,0.49,2.68,재현
+a,B,W4399317891,OR-Bench: An Over-Refusal Benchmark fo: score,12.7,14.2503,10.780669144981413,19.33085501858736,points,1.55,-1.92,6.63,재현
+a,B,W4404781158,MultiPragEval: Multilingual Pragmatic: accuracy,75.28,76.9444,70.83333333333334,82.08333333333333,points,1.66,-4.45,6.8,재현
+a,A,W4412945732,"Glianorex gpt-4o: accuracy, en gpt",0.74,0.7576,0.7058,0.8068,points (x100),1.76,-3.42,6.68,재현
+a,A,W4407012395,"MedXpertQA Text: accuracy, Reasoning (o1-2024-12-17)",46.24,48.0226,40.113,55.3672,points,1.78,-6.13,9.13,재현
+a,A,W4412945732,"Glianorex gpt-4o: accuracy, fr gpt",0.69,0.7083,0.649,0.7551,points (x100),1.83,-4.1,6.51,재현
+a,A,W4404781910,"OffsetBias: EvalBiasBench accuracy, total",86.9,88.8,82.29166666666666,93.95833333333334,points,1.9,-4.61,7.06,재현
+a,A,W4404782878,"Judgement bias: attack success rate, factual error",0.06,0.0816,0.0306,0.1386,points (x100),2.16,-2.94,7.86,재현
+a,B,W4416036063,sudoLLM: On Multi-role Alignment of La: accuracy,89.2,91.6667,89.16666666666667,94.16666666666667,points,2.47,-0.03,4.97,재현
+a,A,W7140135941,MedAbstain: abstention rate (abstain option),0.0,0.025,,,points (x100),2.5,,,근접
+a,A,W4400435289,SAD-mini influence: accuracy,0.678125,0.7031,0.6497,0.7565,points (x100),2.5,-2.84,7.84,재현
+a,B,W4411120580,"QSpell 250K: A Large-Scale, Practical: score",0.4416,0.4682,0.45281881491153075,0.48344328452900287,points (x100),2.66,1.12,4.18,근접
+a,A,W4407012395,"MedXpertQA Text: accuracy, Reasoning (o3-mini-2025-01-31)",37.63,40.3226,33.3199,47.3118,points,2.69,-4.31,9.68,재현
+a,A,W4411120389,"Greedy vs sampling (HumanEval): sampled pass@1, mean of 32 runs",84.1,86.9284,83.07783917682927,90.45350609756098,points,2.83,-1.02,6.35,재현
+a,B,W4411119490,Are We Done with MMLU?: score,22.7,25.6272,22.418088644169437,28.635441947612637,points,2.93,-0.28,5.94,재현
+a,B,W7134885605,More Signal vs. More Noise - Comparing: accuracy,0.86,0.89,0.85,0.93,points (x100),3.0,-1.0,7.0,재현
+a,B,W4416035248,CANDY: Benchmarking LLMs' Limitations: accuracy,72.2,75.2756,74.45368400696191,76.09746664088183,points,3.08,2.25,3.9,근접
+a,B,W4417257719,EDINET-Bench: Evaluating LLMs on Compl: score,0.65,0.6812,0.6317965921733821,0.7276060297375112,points (x100),3.12,-1.82,7.76,재현
+a,A,W4399442646,ACCORD: gpt-4o anti-factual accuracy at 4 reasoning hops (Figure 3 series),0.14516129032258066,0.1774,0.12626140041188585,0.23810277275467143,points (x100),3.23,-1.89,9.29,재현
+a,A,W4416034576,AIRepr: RoT minus CoT reproducibility difference (pp),5.02,8.37,1.67,15.06,points,3.35,-3.35,10.04,재현
+a,A,W4403885225,Judge bias: verbosity robustness rate (500 fact items),0.915,0.9495,0.9293,0.9677,points (x100),3.45,1.43,5.27,근접
+a,B,W4400065264,Following Length Constraints in Instru: score,49.3,53.3666,49.87531172069826,56.85785536159601,points,4.07,0.58,7.56,근접
+a,A,W4416074906,"AgentMisalignment: misalignment score, persona Inventor",0.208,0.25,0.0833,0.4167,points (x100),4.2,-12.47,20.87,재현
+a,A,W4416074906,"AgentMisalignment: misalignment score, persona Custodian",0.208,0.25,0.0833,0.4167,points (x100),4.2,-12.47,20.87,재현
+a,B,W4399404161,MMLU-Pro: A More Robust and Challengin: accuracy,63.7,67.9782,65.73849878934624,70.2179176755448,points,4.28,2.04,6.52,근접
+a,A,W4399442646,ACCORD: gpt-4o anti-factual accuracy at 5 reasoning hops (Figure 3 series),0.15053763440860216,0.1935,0.1137211807800043,0.25818627450980386,points (x100),4.3,-3.68,10.76,재현
+a,A,W4400435289,SAD-mini facts_human_defaults: accuracy,0.75,0.7975,0.774,0.8199,points (x100),4.75,2.4,6.99,근접
+a,B,W4406975432,Actions Speak Louder than Words: Agent: score,0.513,0.5611,,,points (x100),4.81,,,근접
+a,B,W4406058598,Halu-J: Critique-Based Hallucination J: accuracy,0.83,0.8848,0.8683360258481422,0.9038772213247173,points (x100),5.48,3.83,7.39,편차
+a,B,W4403556032,Enhancing Healthcare LLM Trust with At: accuracy,0.751,0.8111,0.7948113207547169,0.8364779874213837,points (x100),6.01,4.38,8.55,편차
+a,B,W7166821175,From Regulatory Approvals to Patents:: accuracy,60.1,70.6553,67.52136752136752,74.87179487179488,points,10.56,7.42,14.77,편차
+a,B,W4416034248,Can LLMs Truly Plan? A Comprehensive E: score,17.65,28.7582,22.54901960784314,34.80392156862745,points,11.11,4.9,17.15,편차
+a,A,W4404781910,"OffsetBias: EvalBiasBench accuracy, empty reference",50.0,61.5,37.17948717948719,82.05128205128206,points,11.5,-12.82,32.05,재현
+a,B,W7126280993,Semantic Content Determines Algorithmi: score,0.4,0.5373,0.3154361263736264,0.8461538461538461,points (x100),13.73,-8.46,44.62,재현
+a,A,W4412887747,"TAMA: GPT-4-turbo exact-match accuracy, InfoTabs (repository scorer)",58.6,73.0,69.1333,76.6667,points,14.4,10.53,18.07,근접
+a,B,W4401545735,Designing Heterogeneous LLM Agents for: accuracy,74.57,91.5931,90.50353356890459,92.75728798586572,points,17.02,15.93,18.19,편차
+a,A,W4404782878,"Judgement bias: attack success rate, rich content",0.07,0.2421,0.1613,0.3301,points (x100),17.21,9.13,26.01,근접
+a,A,W4416035547,"Interlocutor awareness: self-identification accuracy, MATH-500 (o4-mini)",0.64,0.94,0.9033,0.9567,points (x100),30.0,26.33,31.67,근접
+a,B,W4416035547,Agent-to-Agent Theory of Mind: Testing: accuracy,0.64,0.9467,0.9,0.99,points (x100),30.67,26.0,35.0,편차
+a,B,W7166872685,Machine Behavior in Relational Moral D: accuracy,0.53,0.9985,1.0,1.0,points (x100),46.85,47.0,47.0,편차
+b,B,W4415035710,Do LLMs have a Gender (Entropy) Bias?: score,2.0,-0.2288,-2.168490494918541,1.8775474516828305,Welch t,-111.44,-208.42,-6.12,편차
+b,B,W7134094238,BioLLMAgent: A Hybrid Framework with E: score,0.002,0.0004,0.0003932736497002792,0.0003932736497002792,KL divergence,-80.34,-80.34,-80.34,재현
+b,B,W7117377764,Benchmarking large language models for: score,23.4,20.2967,14.541942308126382,26.655198701097213,"mean error, km",-13.26,-37.85,13.91,재현
+b,B,W4404792825,Will LLMs Sink or Swim? Exploring Deci: score,31.36,29.0,29.0,29.0,"GSE total, 10-40",-7.53,-7.53,-7.53,근접
+b,A,W4400103831,BADGE: GPT-4 judge score of GPT-3.5 reports (1-10),8.625,8.2667,,,1-10 judge score,-4.15,,,확인 필요
+b,A,W4400103831,BADGE: GPT-4 judge score of GPT-4 reports (1-10),8.825,8.75,,,1-10 judge score,-0.85,,,확인 필요
+b,A,W4400103831,BADGE: GPT-4 judge score of human reports (1-10),7.925,7.9083,,,1-10 judge score,-0.21,,,확인 필요
+b,A,W4402565126,Cultural bias: distance reduction (107 countries),0.9341047340598979,0.9331,0.7109273668504316,1.1404791342495615,distance,-0.11,-23.89,22.09,재현
+b,B,W7159577685,Breaking the Chains of Probability: Ne: score,1.36,1.416,1.3119999999999998,1.5959999999999999,Likert sum T+I+F,4.12,-3.53,17.35,재현
+b,B,W7161421448,Identifying implicit bias in LLM-based: score,136.59,247.0325,,,odds ratio,80.86,,,확인 필요

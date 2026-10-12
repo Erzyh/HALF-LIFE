@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4407230212",
+ "title": "Leveraging on large language model to classify sentences: a case study applying STAGES scoring methodology for sentence completion test on ego development",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT 4 (no gpt-4-turbo string found)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"the most common LLM accessible via API such as ChatGPT 3.5, ChatGPT 4, and Claude 3\"; no gpt-4-turbo mention found; case study not meant as a comparison."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (informal exploratory case study, no controlled comparison)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Self-described as an exploratory case study reporting only 'the most convincing LLM', not a controlled benchmark; no gpt-4-turbo identifier or accuracy figure was found."
+}

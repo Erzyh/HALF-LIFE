@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7165218289",
+  "title": "TW-LegalBench: Measuring Taiwanese Legal Understanding",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5 (gpt-5-2025-08-07)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "closed-source models (claude-sonnet-4.5 (claude-sonnet-4-5-20250929), gpt-5 (gpt-5-2025-08-07), gpt-5.2 (gpt-5.2-2025-12-11), and gpt-4o (gpt-4o-2024-08-06)) (Section 4); temperature 1 for gpt-5"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Section 4.1 only describes distinct system/user prompts with JSON output; no appendix",
+    "note": "Zero-shot CoT prompts per task are not printed."
+  },
+  "claim": {
+    "metric": "accuracy (MCQ Total)",
+    "value": 76.7,
+    "n_items": 16493,
+    "location": "Table 4, row gpt-5, column Total",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "MCQs from Ministry of Examination (wwwc.moex.gov.tw) and judgments from opendata.judicial.gov.tw; benchmark described as open to the public but no URL in the text"
+  },
+  "cost": {
+    "est_calls": 49479,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "OEQ scores use gpt-5 and claude-sonnet-4.5 as judges (LLM-judge dependency); MCQ accuracy is key-based. Cost estimate assumes all 16,493 MCQs with CoT output."
+}

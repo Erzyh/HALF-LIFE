@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4405432557",
+  "title": "Vision-Language Models Generate More Homogeneous Stories for Phenotypically Black Individuals",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"two proprietary VLMs—GPT-4o mini and GPT-4 Turbo—and an open-source VLM—Llama-3.2 ... We accessed the proprietary models using the OpenAI API\" (Sec. 2.2)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 2.2: user prompt ('Write a 50-word story about the individual inside the image.') and system prompt quoted; max tokens 150",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mixed-effects coefficient b of phenotypicality on standardized cosine similarity, GPT-4 Turbo",
+    "value": 0.15,
+    "n_items": 2000,
+    "location": "Section 3.1 (bs = 0.044, 0.15, 0.080 for GPT-4o mini, GPT-4 Turbo, Llama-3.2); Table S2",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "GAN Face Database (GANFD, Marsden et al. 2024); 10 image sets per gender selected by perceived-Blackness rules in Sec. 2.1"
+  },
+  "cost": {
+    "est_calls": 6000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Temperature not stated; homogeneity metric needs the sentence-embedding model of Lee et al. (2024) and re-fitting mixed models. 40 images x 50 stories per model.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The metric pipeline is fully specified. Fetch the 20 GANFD image pairs listed in Table S1 (public GAN Face Database), crop to the face on a grey background per Sec. 2.1; generate 50 stories per image with gpt-4-turbo-2024-04-09 using the printed system and user prompts with max_tokens 150; embed with all-mpnet-base-v2, compute all pairwise cosine similarities within each image, standardize, and fit the lme4 model cosine ~ phenotypicality + (1 | pair) with lower phenotypicality as reference; compare b with 0.15 (Table S2).",
+    "approximation": "Temperature is not stated (API default); GANFD access follows the database's download terms; the coefficient depends on sampled stories.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

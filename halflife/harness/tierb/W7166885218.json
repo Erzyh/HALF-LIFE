@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166885218",
+  "title": "PGGA: A Plan-Grounded GUI Agent for Automated Device Support",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano",
+    "resolved": "gpt-4.1-nano",
+    "role": "A",
+    "evidence": "'gpt-4.1-nano to rewrite these low-level traces' into plans (Section 2.2); planner 'calls gpt-5.4 through the OpenAI' API with temperature=0"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D (Mind2Web Trace-to-Plan Prompt; Retrieved-Plan Synthesis Prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Task Success Rate (PGGA-2B with expert plans)",
+    "value": 54.39,
+    "n_items": 57,
+    "location": "Table 1 (DSIB, 57 tasks; Element Accuracy 91.28%)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "DSIB benchmark (57 device-support tasks; project page)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-4.1-nano only rewrites traces into training plans; reported numbers are for the fine-tuned PGGA-2B agent."
+}

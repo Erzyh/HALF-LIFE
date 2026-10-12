@@ -1,0 +1,492 @@
+{
+  "card_id": "W4411119263",
+  "checked_utc": "2026-09-19T11:25:05.172048+00:00",
+  "model": "gpt-4o-2024-05-13",
+  "python": "3.13.7",
+  "api_calls_made": 0,
+  "repo": {
+    "path": "external/repos/W4411119263/yale-nlp__ReIFE",
+    "commit": "cfcb8fc2cd078b91e1fe26d81ddbd03672b60175",
+    "commit_expected": "cfcb8fc2cd078b91e1fe26d81ddbd03672b60175",
+    "commit_matches": true,
+    "vllm": "stubbed (imported unconditionally by ReIFE/base_llm.py, unused here)",
+    "license": "none (all rights reserved): the code is read and run, not redistributed",
+    "imported": [
+      "ReIFE.evaluator.PairwiseEvaluator",
+      "ReIFE.methods.base_pairwise (method + parser via the registry)",
+      "ReIFE.methods.utils.prompt_to_chatml (through base_pairwise_eval)",
+      "ReIFE.utils.read_json / get_dataset_path",
+      "meta_eval.pairwise_meta_eval"
+    ],
+    "meta_eval_importable": true,
+    "meta_eval_error": null
+  },
+  "config": {
+    "files": {
+      "normal": "configs/gpt/pairwise_base.yaml",
+      "swap": "configs/gpt/pairwise_base_swap.yaml"
+    },
+    "eval_kwargs": {
+      "max_tokens": 64,
+      "n": 1,
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "logprobs": 5
+    },
+    "swap_eval_kwargs_identical": true,
+    "eval_method": "base_pairwise",
+    "parse_method": "base_pairwise",
+    "pattern": "Output \\((\\S+)\\)",
+    "markers": [
+      "a",
+      "b"
+    ],
+    "prompt_methods": {
+      "normal": "pairwise_vanilla",
+      "swap": "pairwise_vanilla_swap"
+    },
+    "api_body": "ReIFE/models/gpt.py: logprobs=5 -> logprobs=true + top_logprobs=5; n, top_p, temperature, max_tokens verbatim"
+  },
+  "datasets": {
+    "llmbar_natural": {
+      "n": 100,
+      "file": "data/llmbar_natural.json",
+      "fields": [
+        "instruction",
+        "output_1",
+        "output_2",
+        "winner"
+      ],
+      "sha256": "26fa41539ed6021a96e99cc04c3778ab5006a6948dc73545c40670f644d51117",
+      "winner_counts": {
+        "1": 42,
+        "2": 58
+      },
+      "mean_tokens_in": {
+        "normal": 467.2,
+        "swap": 467.2
+      }
+    },
+    "llmbar_adversarial": {
+      "n": 319,
+      "file": "data/llmbar_adversarial.json",
+      "fields": [
+        "instruction",
+        "output_1",
+        "output_2",
+        "winner"
+      ],
+      "sha256": "e82ea6cf9f021a825b917c33e463c5795332d59bf51f4ea382b94ea5441a4452",
+      "winner_counts": {
+        "2": 155,
+        "1": 164
+      },
+      "mean_tokens_in": {
+        "normal": 555.0,
+        "swap": 555.0
+      }
+    },
+    "mtbench": {
+      "n": 200,
+      "file": "data/mtbench.json",
+      "fields": [
+        "instruction",
+        "output_1",
+        "output_2",
+        "winner"
+      ],
+      "sha256": "c98fea398e930eddd6b9892cd3a4421e27a2b61592fff01de8ef5ba7727ad367",
+      "winner_counts": {
+        "1": 101,
+        "2": 99
+      },
+      "mean_tokens_in": {
+        "normal": 767.7,
+        "swap": 767.7
+      }
+    },
+    "instrusum": {
+      "n": 411,
+      "file": "data/instrusum.json",
+      "fields": [
+        "instruction",
+        "output_1",
+        "output_2",
+        "winner"
+      ],
+      "sha256": "acc22cad05045238c4c692f3f76fff4712ed9657bfc9b2f0f6bb835373ca0832",
+      "winner_counts": {
+        "1": 227,
+        "2": 184
+      },
+      "mean_tokens_in": {
+        "normal": 1744.5,
+        "swap": 1744.5
+      }
+    }
+  },
+  "total_pairs": 1030,
+  "data_source": {
+    "used": "repository data/*.json",
+    "bytes_downloaded": 0,
+    "equality_check_vs_hf": {
+      "source": "runs/tierb/W4411119263/requests.jsonl",
+      "rows_compared": 2060,
+      "identical": 2060,
+      "mismatch_examples": [],
+      "conclusion": "the Hugging Face mirror yale-nlp/ReIFE subset 'src' and the repository's data/*.json carry identical instruction/output_1/output_2 for all 1,030 pairs"
+    },
+    "hf_mirror": "yale-nlp/ReIFE subset 'src' (apache-2.0) - fallback, not needed"
+  },
+  "prompt_check": {
+    "llmbar_natural": {
+      "normal": {
+        "prompt_file": "prompts/pairwise_vanilla.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "d29e7120d897ad13cbd43c4e52e4a4c0593f19c15bff9288b4de49f3afce6cb9",
+        "tokens_in": 650,
+        "chars": 2888,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": true
+      },
+      "swap": {
+        "prompt_file": "prompts/pairwise_vanilla_swap.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "af2d0e4eb557e0d33df198e66859a7a6c5594bd236bae1437bd5a970dcf41312",
+        "tokens_in": 650,
+        "chars": 2888,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": false
+      }
+    },
+    "llmbar_adversarial": {
+      "normal": {
+        "prompt_file": "prompts/pairwise_vanilla.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "9336dc03d6040588eca8ff9b1089e7ac127237b78df7e3e01b001f5e2372a9e7",
+        "tokens_in": 354,
+        "chars": 1548,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": true
+      },
+      "swap": {
+        "prompt_file": "prompts/pairwise_vanilla_swap.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "26a375927ae8c3152718a4908f7af3e5be33de2643c1341794f96721f9554484",
+        "tokens_in": 354,
+        "chars": 1548,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": false
+      }
+    },
+    "mtbench": {
+      "normal": {
+        "prompt_file": "prompts/pairwise_vanilla.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "c4ef597f73049d72167b6a069b51be51daf4d0c6654fc4d35cd4d2c8f3daf721",
+        "tokens_in": 842,
+        "chars": 4256,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": true
+      },
+      "swap": {
+        "prompt_file": "prompts/pairwise_vanilla_swap.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "12c56f9312457fb7264ba154b882ff7c80b5bd5809941dd34ec2ac24ca9e318f",
+        "tokens_in": 842,
+        "chars": 4256,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": false
+      }
+    },
+    "instrusum": {
+      "normal": {
+        "prompt_file": "prompts/pairwise_vanilla.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "87f51d7ce28c8a82d38f1c8cd7dafe6ada088702387591ac769b8887d0581ce4",
+        "tokens_in": 1921,
+        "chars": 9082,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": true
+      },
+      "swap": {
+        "prompt_file": "prompts/pairwise_vanilla_swap.txt",
+        "roles": [
+          "system",
+          "user"
+        ],
+        "sha256": "2d0d3578d32e41dd5ae72593cbf5fefaff06ecb9517ac5091cd08e289be20dee",
+        "tokens_in": 1921,
+        "chars": 9082,
+        "system_identical_to_tierb": true,
+        "user_identical_to_tierb": false,
+        "user_identical_to_tierb_ignoring_blank_lines_and_bold": false
+      }
+    }
+  },
+  "prompt_example_llmbar_natural_pair0": {
+    "normal": [
+      {
+        "role": "system",
+        "content": "You are a helpful assistant in evaluating the quality of the outputs for a given instruction. Your goal is to select the best output for the given instruction."
+      },
+      {
+        "role": "user",
+        "content": "Select the Output (a) or Output (b) that is better for the given instruction. The two outputs are generated by two different AI chatbots respectively.\n\nHere are some rules of the evaluation:\n(1) You should prioritize evaluating whether the output honestly/precisely/closely executes the instruction, then consider its helpfulness, accuracy, level of detail, harmlessness, etc.\n(2) Outputs should NOT contain more/less than what the instruction asks for, as such outputs do NOT precisely execute the instruction.\n(3) You should avoid any potential bias and your judgment should be as objective as possible. For example, the order in which the outputs were presented should NOT affect your judgment, as Output (a) and Output (b) are **equally likely** to be the better.\n\nDo NOT provide any explanation for your choice.\nDo NOT say both / neither are good.\nYou should answer using ONLY \"Output (a)\" or \"Output (b)\". Do NOT output any other words.\n\n# Instruction:\nSummarize the following content.\n\nMy girlfriend is Malaysian and has been studying in the UK for the past 3 years. We have been in a relationship for 2 ½ years now.\nHer visa to stay here is coming to an end later this year, then she will be forced to return to Malaysia despite opting to stay here if she had the choice. We have gone down the job route, to the point that she was offered the job here, but the employer failed to get a license to issue Visas on very petty grounds.\nI (and others) have suggested getting married. It is something we've discussed before, and we are both happy to do it except that she refuses to get married before she goes back as she feels like she will just be doing it so she can get a visa, rather than because she will actually be married. She's happy for me to propose in 6 months, but not before she returns. The problem for me is that the delay will mean we are not going to be close to one another for at least a year, perhaps longer, other than for short visits (we both will be working full time).\nRight now, I am positive and optimistic about our situation as I think that we can make it work, but two people living in entirely different cultures on opposite sides of the world might mean that we change a lot.\nCan anyone offer any advice on how to make this work, or just a new perspective on the situation?\n\n# Output (a):\nMy girlfriend's visa to stay in the UK expires in a few months, and she wants to stay here, but she won't get married until she goes back to Malaysia.\n\n# Output (b):\nMy girlfriend is Malaysian and has been studying in the UK for the past 3 years. We have been in a relationship for 2 ½ years now.\n\n# Which is better, Output (a) or Output (b)? Your response should be either \"Output (a)\" or \"Output (b)\":"
+      }
+    ],
+    "swap": [
+      {
+        "role": "system",
+        "content": "You are a helpful assistant in evaluating the quality of the outputs for a given instruction. Your goal is to select the best output for the given instruction."
+      },
+      {
+        "role": "user",
+        "content": "Select the Output (a) or Output (b) that is better for the given instruction. The two outputs are generated by two different AI chatbots respectively.\n\nHere are some rules of the evaluation:\n(1) You should prioritize evaluating whether the output honestly/precisely/closely executes the instruction, then consider its helpfulness, accuracy, level of detail, harmlessness, etc.\n(2) Outputs should NOT contain more/less than what the instruction asks for, as such outputs do NOT precisely execute the instruction.\n(3) You should avoid any potential bias and your judgment should be as objective as possible. For example, the order in which the outputs were presented should NOT affect your judgment, as Output (a) and Output (b) are **equally likely** to be the better.\n\nDo NOT provide any explanation for your choice.\nDo NOT say both / neither are good.\nYou should answer using ONLY \"Output (a)\" or \"Output (b)\". Do NOT output any other words.\n\n# Instruction:\nSummarize the following content.\n\nMy girlfriend is Malaysian and has been studying in the UK for the past 3 years. We have been in a relationship for 2 ½ years now.\nHer visa to stay here is coming to an end later this year, then she will be forced to return to Malaysia despite opting to stay here if she had the choice. We have gone down the job route, to the point that she was offered the job here, but the employer failed to get a license to issue Visas on very petty grounds.\nI (and others) have suggested getting married. It is something we've discussed before, and we are both happy to do it except that she refuses to get married before she goes back as she feels like she will just be doing it so she can get a visa, rather than because she will actually be married. She's happy for me to propose in 6 months, but not before she returns. The problem for me is that the delay will mean we are not going to be close to one another for at least a year, perhaps longer, other than for short visits (we both will be working full time).\nRight now, I am positive and optimistic about our situation as I think that we can make it work, but two people living in entirely different cultures on opposite sides of the world might mean that we change a lot.\nCan anyone offer any advice on how to make this work, or just a new perspective on the situation?\n\n# Output (b):\nMy girlfriend is Malaysian and has been studying in the UK for the past 3 years. We have been in a relationship for 2 ½ years now.\n\n# Output (a):\nMy girlfriend's visa to stay in the UK expires in a few months, and she wants to stay here, but she won't get married until she goes back to Malaysia.\n\n# Which is better, Output (a) or Output (b)? Your response should be either \"Output (a)\" or \"Output (b)\":"
+      }
+    ]
+  },
+  "prompt_vs_tierb": {
+    "verdict": "NOT verbatim: the Tier B config's user_template differs from prompts/pairwise_vanilla.txt",
+    "differences": [
+      "all 6 blank lines of the prompt file are collapsed to single newlines in the Tier B config (20 newlines vs 14)",
+      "the markdown emphasis '**equally likely**' is written 'equally likely' in the Tier B config",
+      "swapped order: the repository swaps the two DISPLAY POSITIONS and keeps Output (a) bound to output_1 (prompts/pairwise_vanilla_swap.txt), while the Tier B hook keeps the a-then-b display order and swaps the output CONTENTS, remapping the gold letter - the same pair, a different manipulation"
+    ],
+    "card_statement_corrected": "card tierb_relationship.protocol_differences says 'Prompt text is identical (the Tier B config transcribes prompts/pairwise_vanilla.txt verbatim)'; it is not"
+  },
+  "parser_check": {
+    "pattern": "Output \\((\\S+)\\)",
+    "case_sensitive": true,
+    "takes": "the first 'Output (x)' in the reply",
+    "failure_behaviour": "random.randint(1,2) after random.seed(42), once per (dataset, prompt file) pass",
+    "deterministic_under_seed_42": true,
+    "synthetic": [
+      {
+        "reply": "Output (a)",
+        "winner": 1,
+        "tie": 0,
+        "fail": false,
+        "tierb_parse": "a",
+        "agree_with_tierb": true
+      },
+      {
+        "reply": "Output (b)",
+        "winner": 2,
+        "tie": 0,
+        "fail": false,
+        "tierb_parse": "b",
+        "agree_with_tierb": true
+      },
+      {
+        "reply": "Output (a) is better.",
+        "winner": 1,
+        "tie": 0,
+        "fail": false,
+        "tierb_parse": "a",
+        "agree_with_tierb": true
+      },
+      {
+        "reply": "The better output is Output (b).",
+        "winner": 2,
+        "tie": 0,
+        "fail": false,
+        "tierb_parse": "b",
+        "agree_with_tierb": true
+      },
+      {
+        "reply": "output (a)",
+        "winner": 1,
+        "tie": 0,
+        "fail": true,
+        "tierb_parse": "a",
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "Output (A)",
+        "winner": 1,
+        "tie": 0,
+        "fail": true,
+        "tierb_parse": "a",
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "Output (c)",
+        "winner": 2,
+        "tie": 0,
+        "fail": true,
+        "tierb_parse": null,
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "Both Output (a) and Output (b) are good.",
+        "winner": 1,
+        "tie": 0,
+        "fail": false,
+        "tierb_parse": null,
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "Neither output is acceptable.",
+        "winner": 1,
+        "tie": 0,
+        "fail": true,
+        "tierb_parse": null,
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "I'm sorry, I can't help with that.",
+        "winner": 1,
+        "tie": 0,
+        "fail": true,
+        "tierb_parse": null,
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "",
+        "winner": 1,
+        "tie": 0,
+        "fail": true,
+        "tierb_parse": null,
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "(a)",
+        "winner": 1,
+        "tie": 0,
+        "fail": true,
+        "tierb_parse": null,
+        "agree_with_tierb": false
+      },
+      {
+        "reply": "Output (a)\n\nBecause it follows the instruction.",
+        "winner": 1,
+        "tie": 0,
+        "fail": false,
+        "tierb_parse": "a",
+        "agree_with_tierb": true
+      }
+    ],
+    "disagreements_with_tierb_parser": [
+      "output (a)",
+      "Output (A)",
+      "Output (c)",
+      "Both Output (a) and Output (b) are good.",
+      "Neither output is acceptable.",
+      "I'm sorry, I can't help with that.",
+      "",
+      "(a)"
+    ]
+  },
+  "cost_estimate": {
+    "tokenizer": "tiktoken/o200k_base +4/msg +3",
+    "seeds": 1,
+    "calls": 2060,
+    "tokens_in": 2188602,
+    "tokens_out_expected": 8240,
+    "usd_expected": 11.07,
+    "usd_if_every_reply_hit_max_tokens": 12.92,
+    "pricing_usd_per_1m": {
+      "input": 5.0,
+      "output": 15.0
+    },
+    "per_dataset": {
+      "llmbar_natural": {
+        "calls_per_seed": 200,
+        "tokens_in_per_seed": 93448,
+        "mean_tokens_in": 467.2,
+        "usd_per_seed": 0.4792
+      },
+      "llmbar_adversarial": {
+        "calls_per_seed": 638,
+        "tokens_in_per_seed": 354066,
+        "mean_tokens_in": 555.0,
+        "usd_per_seed": 1.8086
+      },
+      "mtbench": {
+        "calls_per_seed": 400,
+        "tokens_in_per_seed": 307084,
+        "mean_tokens_in": 767.7,
+        "usd_per_seed": 1.5594
+      },
+      "instrusum": {
+        "calls_per_seed": 822,
+        "tokens_in_per_seed": 1434004,
+        "mean_tokens_in": 1744.5,
+        "usd_per_seed": 7.2193
+      }
+    }
+  },
+  "tierb_reference": {
+    "run": "runs/tierb/W4411119263",
+    "reexecution": {
+      "mean_over_seeds": 0.8439265134353858,
+      "per_seed": {
+        "0": {
+          "value": 0.8431609004721262,
+          "n": 2060,
+          "ci95": [
+            0.8120838635457901,
+            0.8723190993514939
+          ],
+          "ci_kind": "item-mean"
+        },
+        "1": {
+          "value": 0.8451403412427827,
+          "n": 2060,
+          "ci95": [
+            0.8143195723596397,
+            0.8734055835697778
+          ],
+          "ci_kind": "item-mean"
+        },
+        "2": {
+          "value": 0.8434782985912485,
+          "n": 2060,
+          "ci95": [
+            0.8129355930704605,
+            0.8731310497134064
+          ],
+          "ci_kind": "item-mean"
+        }
+      },
+      "unparsed": 0
+    },
+    "macro_mean_pct": 84.393,
+    "tokenizer_calibration": {
+      "note": "tokenizer calibration against the archived Tier B calls (same model, same API)",
+      "sampled_calls": 13,
+      "estimate_minus_api_prompt_tokens": {
+        "0": 13
+      }
+    }
+  }
+}

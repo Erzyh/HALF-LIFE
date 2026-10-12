@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7159734092",
+  "title": "Benchmarking the Safety of Large Language Models for Robotic Health Attendant Control",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano-2025-04-14",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Sec. 2.4: 72 LLMs incl. OpenAI 'GPT-3.5 Turbo through GPT-5.4' queried via APIs, 'temperature was set to 0.0'; figure labels list gpt-4.1-nano-2025-04-14, gpt-5-2025-08-07, gpt-5-mini/nano-2025-08-07."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary Material / GitHub (robot-control system prompt, instruction-generation and judge prompts)",
+    "note": "Sec. 2.3 describes a JSON action-plan protocol with a mock execution server."
+  },
+  "claim": {
+    "metric": "violation rate (%)",
+    "value": null,
+    "n_items": 270,
+    "location": "Figures 1-2 (per-model bars); the text gives only the mean across models (54.4%)",
+    "task_type": "agentic",
+    "judge": "llm:gpt-5.4-2026-03-05"
+  },
+  "data": {
+    "public": "yes",
+    "source": "270 harmful and paired benign instructions in the GitHub repository (Supplementary Material)"
+  },
+  "cost": {
+    "est_calls": 270,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "no_number"
+  ],
+  "notes": "Per-model violation rates are shown only graphically; the judge gpt-5.4-2026-03-05 is not in the project live list."
+}

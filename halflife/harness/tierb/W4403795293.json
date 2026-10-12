@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403795293",
+  "title": "Language agents achieve superhuman synthesis of scientific knowledge",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Appendix: 'agent_llm ... in this work, it was always fixed to gpt-4-turbo-2024-04-09'; Table 2 row 'GPT-4-Turbo 64.4% +-1.8% 63.7% +-7.4% 91.3% ...'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix 8.x (RCS system prompt and tool descriptions); full prompt collection in the PaperQA package",
+    "note": ""
+  },
+  "claim": {
+    "metric": "LitQA2 accuracy (old 147 questions)",
+    "value": 64.4,
+    "n_items": 147,
+    "location": "Table 2, row GPT-4-Turbo, column Accuracy (Old 147)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "LitQA2 questions are public, but retrieval runs over the authors' local full-text paper corpus"
+  },
+  "cost": {
+    "est_calls": 2000,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Agentic RAG system (PaperQA2); each query issues many calls; corpus not public."
+}

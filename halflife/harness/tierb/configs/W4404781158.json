@@ -1,0 +1,82 @@
+{
+  "wid": "W4404781158",
+  "title": "MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Models",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.5,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3 (temperature 0.5; each model queried three times); max_tokens and top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 240,
+    "subset_rule": "paper-defined split: the 240 English implicature test units (type in quantity, quality, relation, manner; 60 each); the 60 'literal' units are excluded because Table 5 Avg. = mean of the four maxim scores (65.00, 83.89, 82.22, 70.00 -> 75.28) and the literal set is scored separately",
+    "approximation": "automatic option extraction replaces the three human ratings of the free-form answers (resolution plan)",
+    "n_items_prepare": 240
+  },
+  "items": {
+    "source_type": "github",
+    "source": "DojunPark/MultiPragEval, test_suite.csv (300 rows; columns id, type, english, german, korean, chinese, answer; 60 units per maxim, 60 per answer letter)",
+    "config_or_split": "column 'english'",
+    "filter": "type != 'literal'",
+    "fields": {
+      "input": "english",
+      "label": "answer",
+      "id": "id",
+      "maxim": "type"
+    },
+    "license": "unknown (repository has no license file listed in its root)",
+    "access_checked": true,
+    "size_mb": 0.6,
+    "file_url": "https://raw.githubusercontent.com/DojunPark/MultiPragEval/main/test_suite.csv",
+    "fields_paper": {
+      "input": "english (the complete prompt text: context, quoted statement, instruction line, options (A)-(E))",
+      "label": "answer (A-E)",
+      "id": "id",
+      "maxim": "type (quantity, quality, relation, manner, literal)"
+    },
+    "filter_paper": "type != 'literal': the 60 literal-meaning units are an additional set reported in the separate 'Literal' column (GPT-4 English 100.00); Table 5's maxim columns and Avg. cover only the 240 implicature units"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{prompt_text}",
+    "placeholders": {
+      "prompt_text": "items.english"
+    },
+    "few_shot": "none",
+    "source_location": "Table 12 (Appendix B) and the released test_suite.csv",
+    "verbatim": "full",
+    "placeholders_paper": {
+      "prompt_text": "items.english verbatim; it already has the Table 12 structure: context paragraph, blank line, the statement in double quotes, blank line, 'Choose the most appropriate meaning of the above utterance from the following options.', then '(A) ... (E) None of the above.'"
+    }
+  },
+  "output": {
+    "parse": "regex \\(([A-E])\\)",
+    "postprocess": "strip, uppercase; no extractable option counts as incorrect",
+    "parse_paper": "letter (A-E): first '(X)' or standalone capital letter A-E in the reply; fallback: the option whose text is quoted in the reply"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "correct answers / 240 implicature units per trial, averaged over the three trials (seeds); with 60 units per maxim this equals the mean of the four per-maxim accuracies = Table 5 Avg.",
+    "judge": "none",
+    "original_value": 75.28,
+    "original_location": "Table 5, row GPT-4, English Avg. (quantity 65.00, quality 83.89, relation 82.22, manner 70.00)",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 900,
+    "est_usd": 9.0,
+    "tier": "low",
+    "est_usd_prepare": 15.0,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [],
+  "notes": "Human raters showed Fleiss' kappa 0.87 on GPT-4 English (Table 13); rule-based extraction may miss hedged answers. Per-maxim scores allow a finer comparison. || [normalize 2026-09-07] test_suite.csv verified (300 rows; id, type, english, german, korean, chinese, answer; answer letters A-E, 60 each). Parse = first '(X)' in the reply, matching the '(A)'-'(E)' option format; the runner's generic 'letter' parser would also catch a standalone 'A' or 'I' used as a word, so the regex form is used (a bare letter reply without parentheses is not captured). || [triage 2026-09-09] DEFECT (reference cell): the batch-1 run scored all 300 units (incl. the 60 literal units, 99.4% correct in our replies, 100.00 in the paper's Literal column) against the 4-maxim average 75.28 -> 81.44. items.filter = type != 'literal' restricts the analysis to the 240 implicature units; re-analysed on the archived replies (no new calls): 76.94 (seeds 76.67 / 78.33 / 75.83). Per maxim ours vs paper: quantity 65.0 vs 65.00, quality 84.4 vs 83.89, relation 88.3 vs 82.22, manner 70.0 vs 70.00. Parse check: first '(X)' vs last '(X)' differ in 43/900 replies; first-(X) is the better rule on 4 of 5 types."
+}

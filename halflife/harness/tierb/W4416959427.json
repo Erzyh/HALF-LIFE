@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4416959427",
+  "title": "Generalist Large Language Models Outperform Clinical Tools on Medical Benchmarks",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (snapshot gpt-5-2025-08-07)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "\"used to assess GPT-5 (snapshot gpt-5-2025-08-07)... via their respective APIs\"; \"The resultant MedQA accuracies were: GPT-5, 96.2% (95% CI, 94.1%-97.6%)\""
+  },
+  "prompt": {"verbatim": "partial", "location": "Methods (1,000-item mini-benchmark: 500 MedQA + 500 HealthBench items described); exact grading prompt not confirmed in the excerpted sections", "note": "GPT-5 run with high reasoning effort (thinking mode), temperature 0.3."},
+  "claim": {
+    "metric": "MedQA accuracy (%)", "value": 96.2, "n_items": 500,
+    "location": "Results (\"The resultant MedQA accuracies were: GPT-5, 96.2%\"); 500 MedQA items of the combined 1,000-item benchmark",
+    "task_type": "mcq",
+    "judge": "llm:gpt-4.1-2025-04-14"
+  },
+  "data": {"public": "yes", "source": "MedQA and HealthBench (both public benchmarks); 500-item subsets used"},
+  "cost": {"est_calls": 1500, "tier": "high"},
+  "blockers": ["aux_model_dead"],
+  "notes": "\"Scoring for HealthBench and MedQA were completed by GPT-4.1 (gpt-4.1-2025-04-14)\" -- this is the mainline GPT-4.1 snapshot, not gpt-4.1-nano-2025-04-14, and is not on the still-callable list, so grading cannot be reproduced with a live judge as specified even though GPT-5 itself resolves cleanly."
+}

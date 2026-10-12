@@ -1,0 +1,87 @@
+{
+  "wid": "W7164447524",
+  "title": "KCSAT-ML: Probing Reasoning Models with Nationwide-Cohort Human Difficulty",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "temperature": null,
+      "max_tokens": 32768,
+      "top_p": null,
+      "reasoning_effort": "high"
+    },
+    "params_source": "paper Appendix Table 8 row 'GPT-5 (High)' (reasoning effort high, w. TTS prompt); GPT-5 ignores temperature; max_completion_tokens assumed (average output 6,442 tokens)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 339,
+    "subset_rule": "paper-defined split: the 339-item core set with official cohort error rates (short-answer reformulation)",
+    "approximation": "Problem images are re-generated locally from the official KICE PDFs with the released generator; judge parameters (effort) are not stated."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/naver-ai/KCSAT-ML (generator downloads kcsat-ml-meta.zip and the exam-PDF URL list from Google Drive ids in src/utils/config.py, then builds data/dataset.csv and data/images/*.png)",
+    "config_or_split": "core set (339 items with error rates)",
+    "filter": null,
+    "fields": {
+      "input": "image path (data/images/<id>.png, generated locally)",
+      "label": "answer",
+      "id": "id"
+    },
+    "license": "AGPL-3.0 (repository); exam items are public KICE releases",
+    "access_checked": true,
+    "size_mb": 40,
+    "file_url": null,
+    "fields_prose": {
+      "input": "problem image (data/images/<id>.png)",
+      "label": "short answer (reference)",
+      "id": "exam year + question number",
+      "options": "cohort error rate, points, domain"
+    },
+    "label_map": null,
+    "filter_prose": "item has an official cohort error rate",
+    "access_note": "data/dataset.csv does not exist in the repository (404 on main); it is produced by the generator from kcsat-ml-meta.zip and the KICE exam PDFs (Google Drive ids in src/utils/config.py, present) - no direct file URL for the runner"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{image}Please solve the problem given in the image.",
+    "placeholders": {
+      "image": "attach data/images/<id>.png as an image content part (NOT expressible)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix Figure 13 'Prompt templates used in experiments', block 'VLM (w. TTS)'",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "image": "the problem image (VLM setting)"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "none",
+    "parse_prose": "free text: the model's full response is passed to the equivalence judge together with the reference answer"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "Score = share of the 339 core items whose predicted final answer the judge marks 'Correct' (narrow equivalence check against the reference, Sec. 3.2).",
+    "judge": "llm:gpt-5-2025-08-07, prompt location Figure 13 block 'Evaluation': \"Evaluate whether the predicted answer ('{PRED_TEXT}') matches the correct answer ('{ANSWER_TEXT}'). Respond only with 'Correct' or 'Incorrect'.\"",
+    "original_value": 94.1,
+    "original_location": "Appendix Table 8, row GPT-5 (High), column Score",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 678,
+    "est_usd": 30.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "Image inputs: the problem images must be attached (VLM setting); text-only messages cannot reproduce it. The dataset also has to be generated locally (Google Drive downloads + PDF cropping with the released generator). The gpt-5 equivalence judge (Figure 13 'Evaluation' prompt) would be a normal judge stage once the images exist."
+  ],
+  "notes": "est_calls = 339 subject calls + 339 judge calls. Whether Table 8's closed-source rows used the VLM (image) or LLM (OCR) setting is not restated; the VLM setting is used (GPT-5 accepts images; README says VLMs are first-class subjects). Column names of data/dataset.csv must be checked after running the generator. || [hooks_2 2026-09-07] reviewed for a per-paper hook: image inputs; no hook written.",
+  "runner_gaps": [
+    "prompt: image attachment placeholder",
+    "metric: LLM judge stage"
+  ],
+  "hook": "none (needs_human: image inputs)"
+}

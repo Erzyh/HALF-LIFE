@@ -1,0 +1,92 @@
+{
+  "card_id": "W4407828806",
+  "openalex_id": "https://openalex.org/W4407828806",
+  "title": "Validating the use of large language models for psychological text classification",
+  "doi": "10.3389/frsps.2025.1460277",
+  "paper": {
+    "doi": "10.3389/frsps.2025.1460277",
+    "authors": "Hannah L. Bunt, A. Goddard, Tom W. Reader, Alex Gillespie (LSE)",
+    "year": 2025,
+    "venue": "Frontiers in Social Psychology 3:1460277 (published 2025-02-21, CC BY); funded by SNSF 51NF40-205605",
+    "repo": null,
+    "repo_commit": null,
+    "repo_license": null,
+    "note": "No code repository; prompts and codebooks are in the Frontiers Supplementary Material (https://www.frontiersin.org/articles/10.3389/frsps.2025.1460277/full#supplementary-material). The OSF links in the scaffold (osf.io/h2b8t, osf.io/sekf5) are cited preprints, not artifacts."
+  },
+  "dependence": {
+    "type": "annotator",
+    "strength": "core",
+    "note": "GPT-4o is validated as a zero-shot coder of three psychological constructs against human gold-standard coding (N = 1,500 per dataset; 1/3 development, 2/3 held-out test). The paper's contribution is the validity of the LLM classifier itself (tool validity)."
+  },
+  "claim": {
+    "statement": "Zero-shot gpt-4o-2024-05-13 with iteratively developed prompts reproduces human coding on the held-out test sets (n = 1,000 per dataset): reported speech in online diaries - MaxFew prompt weighted F1 = 0.91 (precision 0.85, recall 0.77); other-initiations of repair in Reddit dialogues - MinZero F1 = 0.91 (precision 0.72, recall 0.84; MaxFew also 0.91); ordinal harm in NHS healthcare complaints - MinZero weighted kappa = 0.57 with exact agreement 0.34 (Table 4, 'Confirmatory predictive validity').",
+    "claim_type": "tool_validity",
+    "metric": "precision and recall of positive cases and weighted F1 (binary tasks); exact agreement and weighted kappa (ordinal harm) between LLM labels and human gold labels on the test split",
+    "original_values": {
+      "reported_speech": {"MinZero": {"P": 0.88, "R": 0.65, "F1": 0.89}, "MaxZero": {"P": 0.82, "R": 0.74, "F1": 0.9}, "MaxFew": {"P": 0.85, "R": 0.77, "F1": 0.91}, "positive_rate": 0.24},
+      "other_initiations_of_repair": {"MinZero": {"P": 0.72, "R": 0.84, "F1": 0.91}, "MaxZero": {"P": 0.68, "R": 0.78, "F1": 0.89}, "MaxFew": {"P": 0.91, "R": 0.64, "F1": 0.91}},
+      "harm": {"MinZero": {"agreement": 0.34, "weighted_kappa": 0.57}, "MaxZero": {"agreement": 0.34, "weighted_kappa": 0.51}, "MaxFew": {"agreement": 0.33, "weighted_kappa": 0.49}},
+      "development_set_table2": {"reported_speech_MaxFew": {"P": 0.93, "R": 0.67, "F1": 0.92}, "OIR_MinZero": {"P": 0.67, "R": 0.86, "F1": 0.89}, "harm_MinZero": {"agreement": 0.34, "weighted_kappa": 0.52}},
+      "human_interrater": {"reported_speech_alpha": 0.66, "OIR_alpha": 0.81, "harm_ICC": 0.86}
+    },
+    "original_source": "Table 4 (test split) and Table 2 (development split), Table 1 (datasets) of the Frontiers article"
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13 (Section 4.2: 'We used GPT-4o (specifically, gpt-4o-2024-05-13)')",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json). gpt-4-turbo (also in the scaffold's live list) was used only in pilot testing 'to a limited extent' (Limitations) and is NOT an experimental arm - the live arm is gpt-4o-2024-05-13.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (Python pipeline iterating over single units of analysis; no conversation memory)",
+    "prompt_source": "Supplementary Material of the article (final prompts for the three tasks, three variants each: MinZero = minimal definition zero-shot, MaxZero = maximal definition zero-shot, MaxFew = maximal definition few-shot; plus codebooks incl. the HCAT harm manual) - not downloaded; not in a repo",
+    "messages": [
+      {"role": "system", "content": "<research-assistant persona for the classification task> (exact text in the Supplementary Material)"},
+      {"role": "user", "content": "<task definition (+ examples for MaxFew) + unit of analysis: diary paragraph / Reddit post-comment pair / healthcare complaint> -> structured label (span + binary; binary; ordinal harm with reasoning)"}
+    ],
+    "params": {"temperature": 0, "max_tokens": "not reported", "seed": "not reported", "other": "zero-shot, no fine-tuning; each unit coded independently"},
+    "n_items": "3 datasets x 1,500 units (500 development + 1,000 test each): diaries (10 diaries, 1,500 paragraphs), Reddit (387 dialogues from 27 subreddits, 1,500 posts/comments), NHS complaints (1,500 OCR-processed documents, coded per Gillespie & Reader 2016)",
+    "samples_per_item": 1,
+    "evaluation": "Automatic given the human gold labels: precision/recall/weighted F1 (binary), exact agreement + weighted kappa (ordinal); the paper notes run-to-run variation even at temperature 0 (Section 5.2.4), so report per-seed values.",
+    "environment_check": "None possible without the data; if data are obtained, re-score the authors' archived LLM labels (if provided) against gold before new calls."
+  },
+  "artifacts": {
+    "prompts_path": "Frontiers Supplementary Material (prompts + codebooks; file names not enumerated by our fetch)",
+    "data_path": null,
+    "eval_path": null,
+    "data_public": false,
+    "data_license": "restricted: datasets contain private/sensitive information; access requests to h.l.bunt@lse.ac.uk",
+    "redistributable": false,
+    "notes": "Reddit data are also subject to platform terms; NHS complaints are confidential documents."
+  },
+  "blockers": [
+    "gold-standard datasets (diaries, Reddit dialogues, NHS complaints) are private - re-execution needs author-granted access and probably a data-use agreement",
+    "prompts only in the supplementary material (must be downloaded and checked for verbatim completeness)",
+    "no code released; the pipeline must be rebuilt from the description"
+  ],
+  "arms": {
+    "baseline_alive": {"model": "gpt-4o-2024-05-13", "purpose": "live-arm baseline (P0) - conditional on data access"},
+    "successors": [
+      "gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm)",
+      "claude (current Anthropic flagship, dated snapshot fixed at run time)",
+      "gemini (current Google flagship, dated snapshot fixed at run time)",
+      "llama (open weights, e.g. Llama-3.3-70B-Instruct, weights hash fixed)",
+      "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct, weights hash fixed)"
+    ]
+  },
+  "budget": {
+    "est_calls": 27000,
+    "est_tokens_in": 24300000,
+    "est_tokens_out": 1620000,
+    "est_cost_usd": 146,
+    "pricing_usd_per_1m": {"gpt-4o-2024-05-13": {"input": 5.0, "output": 15.0}},
+    "assumptions": "test split only: 3 datasets x 1,000 units x 3 prompt variants = 9,000 calls per seed x 3 seeds; ~900 input tokens on average (MaxFew prompts with examples and long complaints push this up), ~60 output tokens. Core claim only (best prompt per dataset): 3,000 calls per seed, ~$49 for 3 seeds."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 on Table 4: survival if reported-speech and OIR weighted F1 stay >= 0.85 (within the original's bootstrap 95% CI over test items around 0.91) and harm weighted kappa stays in the 'moderate' band (0.4-0.6); partial if F1 falls to 0.75-0.85 or kappa to 0.2-0.4; death if F1 < 0.75 or kappa < 0.2 (tool no longer valid).",
+    "notes": "Successor arms must use the same prompts unchanged; prompt re-development would test a different tool."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Request data access from the corresponding author (h.l.bunt@lse.ac.uk) - are we willing to sign a data-use agreement for the diary/Reddit/NHS datasets?",
+    "Confirm the live arm is gpt-4o-2024-05-13 (not gpt-4-turbo, which was only piloted).",
+    "Download the Frontiers Supplementary Material and verify that the three prompt variants per task are given verbatim."
+  ],
+  "domain_notes": "A validity-methodology paper for psychologists: the two-stage development/test split guards against prompt overfitting, and human inter-rater reliability was itself moderate for reported speech (alpha = 0.66). Weighted F1 on imbalanced binary data (24% positives) is inflated by correct negatives - precision/recall of positives are the informative numbers. The harm task (HCAT ordinal severity) is where GPT-4o systematically over-coded harm; kappa = 0.57 is the fragile quantity."
+}

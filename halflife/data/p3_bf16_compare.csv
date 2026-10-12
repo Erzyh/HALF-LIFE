@@ -1,0 +1,13 @@
+﻿wid,title,metric,original,n_items,fp8_value,bf16_value,bf16_minus_fp8_pts,fp8_unparsed,bf16_unparsed,fp8_class,bf16_class,class_changed,bf16_served
+W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,133,57.301,57.301,0.0,0,0,재현,재현,False,erzyh34-1842/halflife-bf16
+W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,240,77.083,77.5,0.42,0,0,재현,재현,False,erzyh34-1842/halflife-bf16
+W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,100,0.236,0.232,-0.33,0,0,근접,근접,False,erzyh34-1842/halflife-bf16
+W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,1000,31.3,0.0,-31.3,0,0,편차,편차,False,erzyh34-1842/halflife-bf16
+W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,2283,0.667,0.638,-2.89,0,0,재현,근접,True,erzyh34-1842/halflife-bf16
+W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,100,0.538,0.471,-6.73,48,48,편차,편차,False,erzyh34-1842/halflife-bf16
+W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,31,83.871,,,0,0,재현,,,
+W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,225,72.889,72.889,0.0,23,18,편차,편차,False,erzyh34-1842/halflife-bf16
+W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,100,52.0,44.0,-8.0,0,0,편차,편차,False,erzyh34-1842/halflife-bf16
+W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,400,0.557,0.545,-1.25,1,5,편차,편차,False,erzyh34-1842/halflife-bf16
+W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,43,250.331,579.033,328.7,11,4,편차,편차,False,erzyh34-1842/halflife-bf16
+W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,138,0.931,0.927,-0.4,1,2,재현,재현,False,erzyh34-1842/halflife-bf16

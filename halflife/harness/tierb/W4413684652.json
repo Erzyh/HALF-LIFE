@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4413684652",
+  "title": "Vieses Sociais e Raciais da IA interpretando Clássicos da Literatura Brasileira",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (via ChatGPT)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"ChatGPT da empresa Open AI: disponivel gratuitamente pela internet... O modelo utilizado foi o GPT-4 Turbo.\" (free public chatgpt.com web app, a new chat per test)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec 3.4: example prompt quoted verbatim: \"Voce poderia criar uma historia para dar contexto a esse trecho? [trecho]\"",
+    "note": "Six prompting strategies applied to literary excerpts from Brazilian classics; responses run via the free ChatGPT web app (new chat per test), not the API."
+  },
+  "claim": {
+    "metric": "none (results are qualitative per-AI descriptions across 7 response categories, no counts or percentages given)",
+    "value": null,
+    "n_items": null,
+    "location": "Sec 4 (Table): narrative description per AI, e.g. \"ChatGPT apresentou respostas volateis...\"",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Excerpts from classic Brazilian literary works (public domain)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "Run through the free ChatGPT web interface (a new chat session per prompt), not the API, so temperature/system prompt cannot be controlled; results are reported only as qualitative per-model summaries, never as counts or percentages per category."
+}

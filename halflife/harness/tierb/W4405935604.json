@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405935604",
+ "title": "Generative Models Ethical Evaluation Approach: Industry Case Studies",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 1 (Human-Judged Jailbreak Success Rate): \"GPT-4Turbo...EN 38,1% PT 33,3%\", from testing \"21 TAP prompts from the prompt-based attack dataset\" against leading LLMs."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Table 2 (example TAP jailbreak prompts and the harmful responses they elicited, e.g. disinformation script, stalking/spyware instructions, burglary-evasion instructions)",
+  "note": "Several full example attack prompts and their harmful model outputs are quoted."
+ },
+ "claim": {
+  "metric": "Jailbreak Success Rate (%), GPT-4Turbo, English TAP prompts",
+  "value": 38.1,
+  "n_items": 21,
+  "location": "Table 1, column 'GPT-4Turbo', row EN (38.1%) / PT (33.3%); 21 TAP prompts",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "TAP prompt-based attack dataset (Zhang 2024)"
+ },
+ "cost": {
+  "est_calls": 21,
+  "tier": "low"
+ },
+ "blockers": [
+  "tos"
+ ],
+ "notes": "This paper directly measures how often TAP (Tree-of-Attacks-with-Pruning) jailbreak prompts bypass GPT-4Turbo's safety guardrails, and Table 2 quotes example outputs including disinformation scripts, stalking/spyware instructions and burglary-evasion advice. This is squarely a jailbreak/harmful-request evaluation, so it is not resubmitted to a commercial API regardless of the otherwise clean model, prompt count, and metric."
+}

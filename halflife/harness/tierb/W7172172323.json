@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7172172323",
+  "title": "Exact Action Values Are Not Enough: Rollout-Verified Reinforcement Fine-Tuning of a Reasoning Model for Multi-Zone VAV Control",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "\"GPT-5 (gpt-5-2025-08-07), accessed through the OpenAI API, is the capability reference\" (Sec. 3.6); results table: GPT-5 total electricity 273.84 kWh (-6.20%)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 2.1 and Appendix (task description and observation schema; example reasoning in Appendix C)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "total HVAC electricity over the 3-day evaluation scenario (change vs G36 baseline)",
+    "value": 273.84,
+    "n_items": 1,
+    "location": "Sec. 4 results table, row GPT-5 (-6.20% vs baseline)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Physics-based four-zone VAV emulator built on phyvac with JMA weather data; release not stated"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Closed-loop control: one JSON action every five minutes over the scenario, requiring the emulator. Not a light re-execution."
+}

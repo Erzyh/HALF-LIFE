@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7171295101",
+ "title": "Evaluating the impact of prompting styles on LLM accuracy for AIME math questions",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT Plus (GPT-4-turbo)",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "'ChatGPT Free (GPT-3.5), ChatGPT Plus (GPT-4-turbo)...accessed through their respective websites...via chat.openai.com'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Materials and Methods (prompting-style templates described per condition; each problem presented separately per style in its own chat session)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "accuracy (number of AIME problems solved correctly)",
+  "value": null,
+  "n_items": 60,
+  "location": "60 problems total (4 AIME exams: 2024 I/II, 2025 I/II), repeated across 3 independent chat sessions per model/style",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Official AIME 2024/2025 competition problems"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui"
+ ],
+ "notes": "Otherwise a clean setup (public AIME problems, n=60, clear methodology, stable across repeated sessions), but the model was accessed through the ChatGPT Plus website rather than the API, and 'GPT-4-turbo' is the authors' own label for whatever ChatGPT Plus served on the test date rather than a confirmed pinned snapshot."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403369842",
+ "title": "Evaluating the Performance of Large Language Models for SDG Mapping (Technical Report)",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"[GPT-4o] matches GPT-4 Turbo performance on text in English and code\" - descriptive aside about GPT-4o's release notes; actual experiment runs GPT-4o, not GPT-4-Turbo."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 2 (\"The designed prompt for analysis was: PROMPT = ...\")",
+  "note": "Full prompt is for the actually-run models (GPT-4o, GPT-4o-mini, Mixtral, LLaMA 2/3, Gemma 2, Qwen2), not GPT-4-turbo."
+ },
+ "claim": {
+  "metric": "none for gpt-4-turbo (not run; used only as a comparison point in GPT-4o's own release description)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "1,000 Swinburne University publications (titles/abstracts); outputs released at https://doi.org/10.5281/zenodo.12789375"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4o-2024-05-13 (resolvable via the pre-2024-10-02 date rule; paper dated 2024-08-05) is actually run on 1,000 publications for SDG multi-label mapping at a stated cost of $14.58, but serves as the paper's own baseline/pseudo-ground-truth (no external labels), so no accuracy number exists for GPT-4o against ground truth either — only relative F1/precision/recall of OTHER models against GPT-4o's output."
+}

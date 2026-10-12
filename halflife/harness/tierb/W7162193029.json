@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7162193029",
+ "title": "AI-Powered Visual Workflow Automation Platform",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"OpenAI (GPT-4o, GPT-4 Turbo), and Anthropic (Claude 3.5 Sonnet, Claude 3 Haiku)\" listed among supported provider integrations of the no-code workflow tool"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Platform-capability description; no experiment prompt shown for any specific model."
+ },
+ "claim": {
+  "metric": "none (lists supported providers; cites other papers' benchmarks such as WorkflowLLM and API-Bank in related work, not its own)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a; systems/tool paper, no evaluation dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Describes a visual workflow-automation platform that can call several LLM providers; GPT-4 Turbo is only one item in a supported-provider list, with no accuracy/quality claim measured by the authors."
+}

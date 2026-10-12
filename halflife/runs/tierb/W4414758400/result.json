@@ -1,0 +1,65 @@
+{
+  "wid": "W4414758400",
+  "title": "Mitigation of Gender and Ethnicity Bias in AI-Generated Stories through Model Explanations",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 51.5,
+  "original_location": "Table 1, block GPT 4.0 Turbo, row Vanilla, column female (male 48.5)",
+  "reexecution": {
+    "mean_over_seeds": 0.4960430685724835,
+    "per_seed": {
+      "0": {
+        "value": 0.4931740614334471,
+        "n": 25,
+        "ci95": [
+          0.4766666666666666,
+          0.506969696969697
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.49663299663299665,
+        "n": 25,
+        "ci95": [
+          0.4798532608695652,
+          0.5130489130434781
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.4983221476510067,
+        "n": 25,
+        "ci95": [
+          0.4833333333333333,
+          0.51261709486166
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4414758400",
+    "n_items": 25,
+    "n_requests": 75,
+    "seeds": 3,
+    "est_usd": 0.94,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 51.5
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "automatic gender coding of the stated character gender replaces the manual coding (resolution plan); the GPT-4 Turbo snapshot is not stated; generation is stochastic; bootstrap unit in the runner = reply (25 per seed), not character",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 49.604306857248346,
+    "delta": -1.8956931427516537,
+    "original_inside_ci95": false
+  }
+}

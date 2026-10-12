@@ -1,0 +1,11 @@
+{
+  "wid": "W4411080278",
+  "n_items": 1000,
+  "n_requests": 3000,
+  "seeds": 3,
+  "est_usd": 18.57,
+  "subset_note": null,
+  "model": "gpt-4o-2024-05-13",
+  "metric": "custom",
+  "original_value": 100
+}

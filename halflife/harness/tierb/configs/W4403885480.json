@@ -1,0 +1,72 @@
+{
+  "wid": "W4403885480",
+  "title": "AutoML-Agent: A Multi-Agent LLM Framework for Full-Pipeline AutoML",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent; Appendix B.3 only names the model); the paper's five-run standard deviations imply sampling, see open_points",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 70,
+    "subset_rule": "all (14 Table-3 datasets x 5 completions each, as in Table 6)",
+    "approximation": "execution-based success rate needs a Python runtime with the 14 public datasets downloaded from the Table 5 sources (Kaggle, UCI, TSLib, Planetoid) and hand-graded on the 0 / 0.5 / 1.0 scale; runtime, package versions and dataset downloads differ from the authors' environment; only the text-classification skeleton script is printed, the other six task skeletons must be written in the same style"
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Table 3 (14 user instructions, constraint-free setting) with dataset links in Appendix B.2 / Table 5 and the skeleton script of Appendix B.1",
+    "config_or_split": "constraint-free setting",
+    "filter": "none",
+    "fields": {
+      "input": "Table 3 instruction prompt for the dataset",
+      "dataset": "Table 5 / B.2 source (Kaggle dataset or competition, UCI id 856, thuml/Time-Series-Library, Planetoid Cora/Citeseer)",
+      "skeleton": "full-pipeline skeleton script for the task type (B.1 prints only text classification)",
+      "label": "execution grade 0 / 0.5 / 1.0 (Appendix B.4)"
+    },
+    "license": "per dataset (Table 5: CC0, Custom, CC BY 4.0, Apache 2.0, MIT, N/A)",
+    "access_checked": false,
+    "size_mb": 0
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are a helpful intelligent assistant. Now please help solve the following machine learning task.\n[Task]\n{user_instruction}\n[{file_name}.py] ```python\n{full_pipeline_skeleton_script}\n```\nStart the python code with \"```python\". Please ensure the completeness of the code so that it can be run without additional modifications.",
+    "placeholders": {
+      "user_instruction": "items.input (Table 3 instruction)",
+      "file_name": "task-type script name, e.g. text_classification",
+      "full_pipeline_skeleton_script": "the B.1 skeleton for the task type (only text classification is printed verbatim; others to be written)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B.3 'Zero-Shot Prompt for GPT-3.5 and GPT-4 Baselines'; instructions in Table 3; skeleton in Appendix B.1",
+    "verbatim": "partial (prompt text verbatim with the extraction's ''' fences restored to ```; six of the seven skeleton scripts are not printed)"
+  },
+  "output": {
+    "parse": "regex ```python(.*?)``` (first code block)",
+    "postprocess": "run the script in a fresh environment with the dataset in place; grade 0.00 (does not execute), 0.50 (runnable ML/DL model), 1.00 (runnable model plus an accessible deployment endpoint, e.g. Gradio)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "success rate: mean of the 0/0.5/1.0 execution grades over the 70 runs (14 datasets x 5 completions), Appendix B.4",
+    "judge": "rule",
+    "original_value": 0.314,
+    "original_location": "Table 6, constraint-free block, row GPT-4, column Avg.",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 70,
+    "est_usd": 2.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "no hook: the metric is execution-based (run each generated script in a Python/PyTorch+GPU runtime with the 14 datasets downloaded, 5 of them via Kaggle credentials, check a Gradio endpoint) with a manual 0 / 0.5 / 1.0 judgement - an execution sandbox plus human grading.",
+    "six of the seven task skeleton scripts are not printed (only text classification, Appendix B.1).",
+    "decoding: the five-run standard deviations imply sampling (default temperature 1.0) rather than the staged temperature 0; a human must pick one.",
+    "Table 3 rows for Weather/Electricity and Cora/Citeseer instructions are swapped in the extraction; use the instruction whose text names the dataset."
+  ],
+  "notes": "API cost is negligible (~1.5K input + 1.5K output tokens per call); the effort is the execution environment. The claim is the zero-shot GPT-4 baseline, not the AutoML-Agent headline (needs the unreleased LoRA-tuned prompt agent)."
+}

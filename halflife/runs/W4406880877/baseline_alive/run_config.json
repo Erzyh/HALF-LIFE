@@ -1,0 +1,16 @@
+{
+  "card_id": "W4406880877",
+  "model": "o1-2024-12-17",
+  "n_items": 300,
+  "n_seeds": 1,
+  "calls": 300,
+  "api_seed": 42,
+  "temperature": null,
+  "max_tokens": null,
+  "reasoning_effort": null,
+  "params_source": "models.ChatGPT.obtain_response o1 branch; reasoning_effort unset -> API default 'medium' (footnote 22)",
+  "prompt_source": "external/repos/W4406880877/jenna-russell__human_detectors/prompts/detector_prompts/classify_zero_shot_cot.txt @ afcf03d1",
+  "cap_usd": 50.0,
+  "built_utc": "2026-09-19T14:10:30.944812+00:00",
+  "decisions": "decisions_2026_09_19 in harness/cards/W4406880877.json"
+}

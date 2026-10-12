@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper and the archived record below."
+type: software
+title: "HALF-LIFE: the half-life of science that depends on commercial language models"
+version: "v1.0.5"
+date-released: "2026-10-12"
+repository-code: "https://github.com/Erzyh/HALF-LIFE"
+url: "https://github.com/Erzyh/HALF-LIFE"
+license: MIT
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22995877
+    description: "Zenodo record of the request-response archives, data tables and code"
+authors:
+  - family-names: Gil
+    given-names: Hyeonwoo
+    affiliation: "Department of Games, Hongik University, Sejong, South Korea"
+    orcid: "https://orcid.org/0009-0003-5860-6742"
+  - family-names: Ahn
+    given-names: Sangsu
+    affiliation: "Department of Computer Engineering, Tongmyong University, Busan, South Korea"
+    orcid: "https://orcid.org/0009-0004-6718-8228"
+  - family-names: Hwang
+    given-names: Janghyuck
+    affiliation: "Department of Games, Hongik University, Sejong, South Korea"
+    orcid: "https://orcid.org/0009-0004-6488-1350"
+  - family-names: Kim
+    given-names: Junggi
+    affiliation: "Department of Games, Hongik University, Sejong, South Korea"
+    orcid: "https://orcid.org/0009-0006-9770-8495"
+  - family-names: Kim
+    given-names: Junmyeong
+    affiliation: "Department of Games, Hongik University, Sejong, South Korea"
+    orcid: "https://orcid.org/0009-0006-9753-1124"
+  - family-names: Kang
+    given-names: Shinjin
+    affiliation: "Department of Games, Hongik University, Sejong, South Korea"
+    email: directx@hongik.ac.kr
+    orcid: "https://orcid.org/0000-0002-3839-5947"
+preferred-citation:
+  type: article
+  title: "The half-life of science that depends on commercial language models"
+  authors:
+    - family-names: Gil
+      given-names: Hyeonwoo
+    - family-names: Ahn
+      given-names: Sangsu
+    - family-names: Hwang
+      given-names: Janghyuck
+    - family-names: Kim
+      given-names: Junggi
+    - family-names: Kim
+      given-names: Junmyeong
+    - family-names: Kang
+      given-names: Shinjin
+  year: 2026
+  status: preprint
+  notes: "Manuscript under consideration; the journal reference will replace this entry on publication."

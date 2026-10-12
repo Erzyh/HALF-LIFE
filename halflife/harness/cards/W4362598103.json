@@ -1,0 +1,121 @@
+{
+  "card_id": "W4362598103",
+  "openalex_id": "https://openalex.org/W4362598103",
+  "title": "Accuracy and Political Bias of News Source Credibility Ratings by Large Language Models",
+  "doi": "10.1145/3717867.3717903",
+  "paper": {
+    "doi": "10.1145/3717867.3717903 (WebSci '25); preprint 10.48550/arXiv.2304.00228",
+    "authors": "Kai-Cheng Yang, Filippo Menczer",
+    "year": 2025,
+    "venue": "Proceedings of the 17th ACM Web Science Conference (WebSci '25), pp. 127-137; final-version text of arXiv 2304.00228 used here",
+    "repo": "https://github.com/osome-iu/llm_domain_rating",
+    "repo_commit": "81bc6c1faca2551d7a6314872989210bac6ce91e",
+    "repo_license": "MIT",
+    "third_party_repos_in_scaffold": "github.com/jujumilk3/leaked-system-prompts is only a citation (footnote 13), not the paper's artifact"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "All results are the nine LLMs' own credibility ratings. The full set of 140,148 LLM responses (rating + explanation) is released in data/llm_ratings.parquet together with the query code, so the original outputs can be re-scored without any API call (L1-level artifact)."
+  },
+  "claim": {
+    "statement": "In the default (no partisan role) configuration, gpt-4-turbo-2024-04-09's 0-1 credibility ratings of news domains correlate only moderately with human expert ratings - Spearman rho = 0.54 on the 3,077 domains rated by all nine LLMs (rho = 0.62 on the 4,422 domains it rated; Figure 3, 'GPT-4' row/column) - while inter-LLM agreement is high (mean rho = 0.79); and, unlike every other non-o1 model, GPT-4 shows no statistically significant liberal bias in the default configuration (Figure 6, t-test of LLM-rating-bias scores on left- vs right-leaning sources, p >= 0.05). It declines to rate (returns -1) 41.2% of the 7,523 domains.",
+    "claim_type": "capability_level",
+    "secondary_claim_type": "bias_or_behavior (default-configuration political bias; Figure 6)",
+    "metric": "Spearman rank correlation between LLM rating (0-1, -1 excluded) and Lin et al. aggregate expert rating (pc1), computed (a) on domains rated by all LLMs and (b) on the pairwise intersection; political bias = t-statistic of a t-test comparing (LLM rating - expert rating) on left- vs right-leaning sources (Robertson et al. audience scores, threshold 0)",
+    "original_values": {
+      "spearman_rho_common_3077_domains": 0.54,
+      "spearman_rho_pairwise_intersection": 0.62,
+      "n_pairwise_intersection": 4422,
+      "share_unrated_default": 0.412,
+      "n_unrated_default": 3101,
+      "n_domains_default": 7523,
+      "mean_inter_llm_rho": 0.79,
+      "mean_llm_vs_expert_rho_all_models": 0.5,
+      "default_config_political_bias": "not significant (Figure 6; exact t-statistic not printed in text)",
+      "recomputed_from_released_data_by_card_author": {
+        "rho_common_3077": 0.537,
+        "rho_pairwise_4422": 0.624,
+        "note": "recomputed from data/llm_ratings.parquet x hauselin/domain-quality-ratings/data/domain_pc1.csv; matches Figure 3 after rounding"
+      }
+    },
+    "original_source": "Figure 3 heatmap values and Sections 4.2/4.3 of the paper; data/llm_ratings.parquet + data/README.md in repo (model code gpt4turbo20240409 = gpt-4-turbo-2024-04-09)"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json); verified as an experimental arm in Section 3.1 and data/README.md",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions",
+    "prompt_source": "code/prompt_factory.py (SYS_BASE, SYS_IDENTITY, USER_INSTRUCTION, USER_FORMAT) and Section 3.2 + Appendix of the paper",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an assistant to determine the credibility of websites.  [+ ' You identify as {a Democrat|an Independent|a Republican} on the US political spectrum.' for the partisan-role arms]"
+      },
+      {
+        "role": "user",
+        "content": "USER_INSTRUCTION.format(domain=<domain>) + ' ' + USER_FORMAT  (rate credibility 0-1, -1 if unknown, short explanation; JSON schema {url, rating, explanation}; 'Only return the JSON object, nothing else.')"
+      }
+    ],
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": "not set for the OpenAI client (2046 only for the together.ai client)",
+      "seed": "not set",
+      "other": "safety filters disabled only for Gemini"
+    },
+    "n_items": "7,523 domains (Lin et al. list intersected with the Tranco Sept-2022 top-5.5M); partisan-role arms use the 2,683-domain subset with Robertson et al. bias scores",
+    "samples_per_item": 1,
+    "evaluation": "Automatic. Parse JSON (json_repair) -> rating in [0,1] or -1 (code/parse_results.py); drop -1; Spearman rho vs expert pc1 on (a) the domain set rated by all models and (b) the pairwise intersection; bias score = LLM rating - expert rating; t-test left vs right sources. Figures 3-8 analysis code is NOT in the repo (only query + parse) and must be re-implemented (simple).",
+    "environment_check": "Re-score the released parquet with our re-implemented analysis first: must reproduce rho = 0.54/0.62 and the 41.2% unrated share before any new API call (separates analysis drift from model drift)."
+  },
+  "artifacts": {
+    "prompts_path": "external/repos/W4362598103/osome-iu__llm_domain_rating/code/prompt_factory.py",
+    "data_path": "external/repos/W4362598103/osome-iu__llm_domain_rating/data/llm_ratings.parquet (140,148 rows; the 7,523-domain list is recoverable from it); expert ratings: external/repos/W4362598103/hauselin__domain-quality-ratings/data/domain_pc1.csv (11,520 domains, cloned); political-bias scores: Harvard Dataverse doi:10.7910/DVN/QAN5VX (not downloaded)",
+    "eval_path": "external/repos/W4362598103/osome-iu__llm_domain_rating/code/parse_results.py (parsing only; correlation/bias analysis not in repo)",
+    "data_public": "partial",
+    "data_license": "repo MIT; LLM outputs released under the repo license; Lin et al. ratings (GitHub, license to check in that repo); Robertson et al. scores under Dataverse terms; Tranco list free",
+    "redistributable": "partial",
+    "notes": "Released LLM ratings allow a zero-cost analysis-only baseline; the Figure 3 numbers were reproduced by the card author from the released data."
+  },
+  "blockers": [
+    "Figure-level analysis code (Spearman/t-test/aggregation) not in the repo - must be re-implemented (low risk, done once for the environment check)",
+    "Robertson et al. political-bias scores must be fetched from Harvard Dataverse under its terms (needed only for the bias half of the claim)",
+    "Domain-knowledge drift: the 2022 Tranco-based domain list contains now-defunct sites, so the -1 refusal share is expected to move for reasons unrelated to model change"
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4-turbo-2024-04-09",
+      "purpose": "live-arm baseline (P0), default configuration on all 7,523 domains"
+    },
+    "successors": [
+      "gpt-5-2025-08-07 (+ gpt-5-mini-2025-08-07 as budget arm)",
+      "claude (current Anthropic flagship, dated snapshot fixed at run time)",
+      "gemini (current Google flagship, dated snapshot fixed at run time)",
+      "llama (open weights, e.g. Llama-3.3-70B-Instruct, weights hash fixed)",
+      "qwen (open weights, e.g. Qwen3-235B-A22B-Instruct, weights hash fixed)"
+    ]
+  },
+  "budget": {
+    "est_calls": 22569,
+    "est_tokens_in": 4510000,
+    "est_tokens_out": 1810000,
+    "est_cost_usd": 99,
+    "pricing_usd_per_1m": {
+      "gpt-4-turbo-2024-04-09": {
+        "input": 10.0,
+        "output": 30.0
+      }
+    },
+    "assumptions": "default configuration only (covers both halves of the claim): 7,523 calls x 3 seeds; ~200 input tokens/call (system + instruction + JSON-format block), ~80 output tokens/call (JSON with ~200-char explanation; measured mean 202 chars in the released data). Temperature 0 -> a single seed (~$33) is arguably sufficient; the three partisan-role arms would add 8,049 calls (~$35) per seed."
+  },
+  "judgment": {
+    "baseline_alive": "부분 생존 (partial)",
+    "run_meta": "runs/W4362598103/run_meta.json"
+  },
+  "status": "done",
+  "user_checks": [
+    "Confirm the core-claim choice: default-configuration accuracy (rho 0.54/0.62) + absence of default liberal bias, rather than the partisan-role steering effect (Figure 6, all models).",
+    "Temperature 0 in the original: accept 1 seed (~$33) instead of 3 seeds (~$99)?",
+    "OK to download the Robertson et al. political-bias scores from Harvard Dataverse (doi:10.7910/DVN/QAN5VX) under its terms of use? (Lin et al. ratings already cloned from GitHub.)"
+  ],
+  "domain_notes": "The 'human expert' reference is an ensemble (Lin et al. 2023) of six rating sources such as NewsGuard and MBFC - a contested, time-varying ground truth, so absolute rho values should be read relative to inter-LLM agreement. The domain list is a Sept-2022 Tranco intersection; defunct sites inflate refusals. Political leaning comes from audience-sharing scores (Robertson et al.), not content analysis. The o1-mini and Gemini 1.5 arms are dead; the Llama 3.1 arms were served by together.ai."
+}

@@ -1,0 +1,77 @@
+{
+ "items": 4762,
+ "identical_replies": 591,
+ "share_pct": 12.4,
+ "per_paper": [
+  {
+   "wid": "W4403574994",
+   "items": 133,
+   "identical": 89,
+   "pct": 66.9
+  },
+  {
+   "wid": "W4404781158",
+   "items": 240,
+   "identical": 1,
+   "pct": 0.4
+  },
+  {
+   "wid": "W4406058562",
+   "items": 100,
+   "identical": 0,
+   "pct": 0.0
+  },
+  {
+   "wid": "W4411080278",
+   "items": 1000,
+   "identical": 5,
+   "pct": 0.5
+  },
+  {
+   "wid": "W4411112894",
+   "items": 2283,
+   "identical": 0,
+   "pct": 0.0
+  },
+  {
+   "wid": "W4411119985",
+   "items": 100,
+   "identical": 2,
+   "pct": 2.0
+  },
+  {
+   "wid": "W4412888118",
+   "note": "no calls file"
+  },
+  {
+   "wid": "W4414494504",
+   "items": 225,
+   "identical": 1,
+   "pct": 0.4
+  },
+  {
+   "wid": "W4415332749",
+   "items": 100,
+   "identical": 0,
+   "pct": 0.0
+  },
+  {
+   "wid": "W4416036577",
+   "items": 400,
+   "identical": 358,
+   "pct": 89.5
+  },
+  {
+   "wid": "W7117377764",
+   "items": 43,
+   "identical": 0,
+   "pct": 0.0
+  },
+  {
+   "wid": "W7140084705",
+   "items": 138,
+   "identical": 135,
+   "pct": 97.8
+  }
+ ]
+}

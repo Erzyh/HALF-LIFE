@@ -1,0 +1,92 @@
+{
+  "wid": "W7166821175",
+  "title": "From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiovascular Device Traceability",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.1,
+      "max_tokens": 256,
+      "top_p": 1.0
+    },
+    "params_source": "repository code/add_fewshot_examp.py (GPTProvider: model gpt-4-turbo, temperature 0.1, max_tokens 256); the paper states no decoding parameters, top_p assumed 1.0",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 585,
+    "subset_rule": "all 585 expert-verified device-patent pairs (gold_standard.parquet rows with is_valid == True)",
+    "approximation": "Only the gold positives are run: R@Gold is recall over the 585 verified pairs, so the negatives of the paper's 'balanced evaluation set' (hard negatives with S >= 70 and sim > 0.8, plus random negatives, counts unreported) are not needed for this claim and the companion FPR (28.6%) is therefore not reproduced. The prompt's two entity slots are filled with the released ontology entity lists (ent_names_d / ent_names_p); the repository's few-shot script instead fills them with an entity-overlap score hint, and the paper does not say which filling the Table 14 0-shot run used. Device and patent text are truncated to 400 characters, as that script does. The released gold standard covers 74 devices, the paper's Table 14 caption says 85."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/myqqhub/Bridge-MedDevKG (data/gold_standard.parquet joined with data/baseline_fda_docs.parquet and data/baseline_patents.parquet)",
+    "config_or_split": "gold standard, is_valid == True (585 of 672 rows)",
+    "filter": null,
+    "fields": {
+      "input": "device_name",
+      "label": "label",
+      "id": "pair_id"
+    },
+    "license": "MIT (repository badge and LICENSE)",
+    "access_checked": true,
+    "size_mb": 11,
+    "file_url": "https://raw.githubusercontent.com/myqqhub/Bridge-MedDevKG/main/data/gold_standard.parquet",
+    "fields_prose": {
+      "input": "device name (baseline_fda_docs.text) + patent title/abstract (baseline_patents.text) + the two ontology entity lists (gold_standard.ent_names_d / ent_names_p, '|||'-delimited)",
+      "label": "constant 'Yes': every item is a verified link, so accuracy == R@Gold",
+      "id": "fda_id + '_' + pat_id"
+    },
+    "local_files": {
+      "dir": "external/data/tierb_items/W7166821175/",
+      "files": [
+        "gold_standard.parquet (4,156,524 B, sha256 c6caa6d26dab68d1...)",
+        "baseline_fda_docs.parquet (86,360 B, sha256 708979e06eb2e133...)",
+        "baseline_patents.parquet (6,722,129 B, sha256 c02beedbaeb02bda...)",
+        "prompt_linking.txt (929 B, sha256 6a86e383704d6322...)",
+        "add_fewshot_examp.py (9,842 B, sha256 3d3a01fff0631c44...)"
+      ],
+      "download_date": "2026-09-19"
+    },
+    "hook": "harness/tierb/hooks/W7166821175.py (load_items joins the three tables; the runner cannot join files)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are an expert biomedical engineer and patent analyst.\n\nTask: Determine if the Medical Device likely uses the technology described in the Patent.\nInput:\n1. DEVICE: \"{device_name}\"\n   Entities: {device_entities_str}\n2. PATENT: \"{patent_title}\"\n   Entities: {patent_entities_str}\n\n**ANALYSIS RULES:**\n1. **Core Match**: Do they share the same SPECIFIC device type or unique mechanism? (e.g., \"Drug-eluting Stent\" matches \"Bioabsorbable Scaffold\").\n2. **Ignore Generics**: Do NOT link based solely on generic terms like \"catheter\", \"sensor\", or \"needle\" unless the context is identical.\n3. **Semantic Check**: Look for synonyms (e.g., \"Atrial Fibrillation\" == \"Arrhythmia\").\n\n**OUTPUT FORMAT:**\nProvide a JSON object with a \"reasoning\" field (for your internal thought process) and a \"linked\" field.\nExample: {\"reasoning\": \"Device is a stent, Patent is a stent delivery system. Closely related.\", \"linked\": \"Yes\"}\n\n**Your JSON:**",
+    "placeholders": {
+      "device_name": "items.device_name",
+      "device_entities_str": "items.device_entities_str",
+      "patent_title": "items.patent_title",
+      "patent_entities_str": "items.patent_entities_str"
+    },
+    "few_shot": "none (0-shot; the 1-shot and 3-shot variants of Table 13 are a separate, 60-item experiment)",
+    "source_location": "Appendix E.1 describes the prompt but does not print it; the text is the repository file code/prompts/prompt_linking.txt, described in the repository README as the 'LLM direct classification prompt (for LLM baseline evaluation)'",
+    "verbatim": "full relative to the repository file (byte-for-byte); partial relative to the paper, which prints no prompt text at all"
+  },
+  "output": {
+    "parse": "json field linked",
+    "postprocess": "strip; a reply whose JSON object has no 'linked' field counts as not linked (incorrect)",
+    "parse_paper": "the repository parses case-insensitively on the substrings '\"linked\": \"yes\"' / '\"linked\": \"no\"' (add_fewshot_examp.py, parse_response)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "R@Gold: the share of the 585 expert-verified device-patent pairs the model classifies as linked. Every gold label is 'Yes', so the runner's accuracy is exactly the paper's recall.",
+    "judge": "none",
+    "original_value": 60.1,
+    "original_location": "Table 2, Group B, row GPT-4-turbo, column R@Gold (repeated as Table 14, row GPT-4-turbo, Recall 60.1)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1755,
+    "est_usd": 21.0,
+    "tier": "mid",
+    "est_usd_prepare": 13.91,
+    "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 585 items, 1,755 requests, prepare estimate $13.91 (chars/4 input, 256 max_tokens counted as output); the battery dry-run prints $21.08 because it also counts the full 256-token output allowance per call"
+  },
+  "open_points": [
+    "Entity-slot filling is unreported: the released prompt has {device_entities_str} / {patent_entities_str} slots, this config fills them with the released ontology entity lists, while the repository's own few-shot script substitutes an 'Ontology entity overlap score: <n> (high/low functional overlap)' hint and the string 'See entity overlap score above.'. A run with the score-hint filling would be a second arm (585 x 3 calls, about USD 20).",
+    "The gold standard released as gold_standard.parquet covers 74 devices among its 585 valid pairs, while Table 14 is captioned '0-shot, 85 devices' and the paper's gold standard is described as covering 85-88 devices; the pair count matches exactly, the device count does not."
+  ],
+  "notes": "Group B of Table 2 evaluates the LLMs as binary classifiers on a balanced pair set; only the R@Gold half of that protocol (recall over the 585 positives) is reproduced here, which is the cell the claim record names. The paper's Appendix E says only that 'all models use the final structured prompt requiring explicit reasoning about component overlap, functional alignment, and temporal plausibility' - the text used here comes from the authors' public repository, which the paper links in its first footnote."
+}

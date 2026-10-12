@@ -1,0 +1,58 @@
+{
+  "wid": "W4416036577",
+  "title": "Cross-domain Rumor Detection via Test-Time Adaptation and Large Language Models",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "accuracy",
+  "original_value": 0.643,
+  "original_location": "Table 1, row GPT-4o, block Source TWITTER / Target Twitter-COVID19, column Acc.",
+  "reexecution": {
+    "mean_over_seeds": 0.545,
+    "per_seed": {
+      "0": {
+        "value": 0.545,
+        "n": 400,
+        "ci95": [
+          0.495,
+          0.5925
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 5
+  },
+  "prepare": {
+    "wid": "W4416036577",
+    "n_items": 400,
+    "n_requests": 400,
+    "seeds": 1,
+    "est_usd": 0.06,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.643,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4416036577",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "The paper does not say which Table 7 variant produced the Table 1 GPT-4o baseline ('base' assumed, per the resolution plan); <Event content> is taken as the source post text (thread not included); decoding parameters unstated; tweet availability may have decayed.",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W4416036577"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.545,
+    "delta": -0.09799999999999998,
+    "original_inside_ci95": false
+  }
+}

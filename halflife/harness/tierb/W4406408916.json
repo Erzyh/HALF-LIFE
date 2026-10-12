@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406408916",
+ "title": "The role of large language models in the peer-review process: opportunities and challenges for medical journal reviewers and editors",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"A recent study using GPT-4 Turbo demonstrated high accuracy in the evaluation of titles and abstracts when employing specific prompt strategies [22]\" (cited study)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Narrative/opinion piece on LLMs in peer review; no original experiment."
+ },
+ "claim": {
+  "metric": "none (accuracy figure belongs to the cited reference [22])",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Editorial/narrative piece for medical journal editors; GPT-4 Turbo appears only inside a one-sentence summary of a different cited study."
+}

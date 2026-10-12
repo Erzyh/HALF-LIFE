@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4413808555",
+  "title": "LARGE LANGUAGE MODELS AS TOOLS FOR PUBLIC BUILDING ENERGY MANAGEMENT: AN ASSESSMENT OF POSSIBILITIES AND BARRIERS",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (GPT-4)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"the study employed GPT-3.5 ... and GPT-4 Turbo (trained on data up until December 2023, Context window 128000 tokens)\" (Sec. 2, analysis conducted \"second half of April 2024\")"
+  },
+  "prompt": {"verbatim": "full", "location": "Sec. 2 (Q1-Q4 questions quoted verbatim)", "note": "4 fixed questions asked once per country (Serbia, Poland) via the chat interface; no system prompt or API parameters given."},
+  "claim": {
+    "metric": "mean overestimation of fenestration U-value vs. ground truth, Serbia construction period I", "value": 40, "n_items": 4,
+    "location": "Sec. 3.3 discussion (Republic of Serbia results), Table 6/Figure 3",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "National building-typology reports for Serbia (Popovic et al. 2018) and Poland (Polish National Energy Conservation Agency 2012); the 4 questions are printed in the paper"},
+  "cost": {"est_calls": 24, "tier": "low"},
+  "blockers": ["webui"],
+  "notes": "Only 4 questions x 2 countries were asked (n items are single point-estimates, not a scoreable dataset); no API, temperature, or token-parameter details are given anywhere, and the 'chat bot' framing throughout indicates manual use of the ChatGPT web interface rather than the API. GPT-4-turbo timing (analysis in second half of April 2024) is right at the 2024-04-09 GA date with no preview string, so gpt-4-turbo-2024-04-09 is the best-supported resolution though not fully inside the SCHEMA's after-2024-07-01 window."
+}

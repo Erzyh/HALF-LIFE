@@ -1,0 +1,57 @@
+{
+  "openalex_id": "https://openalex.org/W4412188064",
+  "title": "Swedish Medical LLM Benchmark: development and evaluation of a framework for assessing large language models in the Swedish medical domain",
+  "doi": "https://doi.org/10.3389/frai.2025.1557920",
+  "field": "Medicine",
+  "year": "2025",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/BirgerMoell/swedish-medical-benchmark",
+    "huggingface.co/birgermoell/eir"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/BirgerMoell/swedish-medical-benchmark",
+      "cloned": true,
+      "audit": {
+        "n_files": 84,
+        "ext_top": {
+          ".json": 30,
+          ".py": 17,
+          ".jpg": 12,
+          ".png": 6,
+          ".md": 4,
+          "": 3,
+          ".jsonl": 3,
+          ".csv": 2
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 17,
+        "n_data_files": 35,
+        "files_mentioning_prompt": 21,
+        "files_with_eval_terms": 21,
+        "model_ids_in_code": {
+          "gpt-4-": 7,
+          "gemini-2.5-flash-preview-04-17": 3,
+          "o1": 3,
+          "o3": 2,
+          "gpt-4o": 2,
+          "gpt-3.5-t": 1,
+          "gpt-4": 1,
+          "claude-3.5": 1,
+          "gpt-3.5": 1,
+          "gpt-3.5-turbo-0125": 1
+        },
+        "readme_head": "# Swedish Medical Benchmark (SMLB)\n\n![Swedish Medical Benchmark overview](SMLB.png)\n\n**A framework for evaluating large language models in the Swedish medical domain.**\n\nCreated by **Birger Moëll**, **Fabian Farestam**, and **Jonas Beskow**.\n\nSMLB brings together Swedish medical exams, clinical case questions, emergency\nmedicine scenarios, general medicine cases, and translated biomedical literature\nquestions into one open benchmark suite. The goal is simple: make it easier to\nmeasure how well language models handle Swedish medical reasoning, terminology,\nand clinically relevant multiple-choice tasks.\n\n[Paper](https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1557920/full) ·\n[PDF](https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1557920/pdf) ·\n[Benchmark descriptions](benchmarks/BENCHMARK_DESCRIPTIONS.md) ·\n[GRPO dataset](grpo/README.md)\n\n## What The Paper Figures Show\n\nThe figures tell a more interesting story than a leaderboard alone. Strong\ngeneral-purpose models usually do well, but performance differs sharply across\nsub-benchmarks. PubMedQA-Swedish is especially revealing: several models show\nanswer-label bias rather than balanced evidence comprehension, while the\nSwedish doctors test aligns strongly with broader general-knowledge benchmarks.\n\n| Model performance | PubMedQA-Swedish confusion matrices |\n|---|---|\n| ![Figure 1: Model performance with 95% confidence intervals](paper-figures/figure-"
+      },
+      "commit": "f6297d50d468d47c39468e3f3c88b656c5fac915"
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4412188064.txt",
+  "paper_text_status": "pdf"
+}

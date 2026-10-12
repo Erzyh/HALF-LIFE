@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7159547386",
+ "title": "Assessing Y-Axis Influence: Bias in Multimodal Language Models on Chart-to-Table Translation",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "B",
+  "evidence": "'we chose GPT-4o (gpt-4o-2024-05-13)...greedy decoding (temperature = 0). For each reasoning problem, a single API call was made'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method section describes chart-to-table prompting with/without y-axis tick-value hints ('W/Hint'); exact template location not confirmed in the excerpt read",
+  "note": ""
+ },
+ "claim": {
+  "metric": "RMSTBE-F1 (%) bias-evaluation error, digit length 0",
+  "value": 3.41,
+  "n_items": null,
+  "location": "Results table, GPT-4o column, digit-length-0 row (values rise to 10.47 at digit length 9)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Synthetic/derived charts varying y-axis digit length; base chart-to-table benchmarks (e.g. ChartQA-family) likely public but not confirmed for this specific stimulus set"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Number of chart stimuli per digit-length bin (n_items) not located in the excerpt read; experiments dated late September 2025, single API call per item keeps per-item cost low."
+}

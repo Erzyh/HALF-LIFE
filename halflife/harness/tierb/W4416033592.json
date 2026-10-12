@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416033592",
+  "title": "It Depends: Resolving Referential Ambiguity in Minimal Contexts with Commonsense Knowledge",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano-2025-04-14",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "A",
+    "evidence": "Sec. 3: 'we use GPT-4.1-nano to generate a concise sentence for every entity' and 'to verify that the negative entity does not ...'; Table 8 lists gpt-4.1-nano-2025-04-14"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 3 (English prompts for subjects), Appendix F (judge prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "classification",
+    "judge": "llm:gpt-4.1-mini-2025-04-14"
+  },
+  "data": {
+    "public": "yes",
+    "source": "github.com/lukasellinger/itdepends"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Subjects are gpt-4o-2024-08-06 and gpt-4o-mini-2024-07-18 (not in catalog live list); nano only builds data."
+}

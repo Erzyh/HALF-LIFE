@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4402855388",
+  "title": "Werewolf Arena: A Case Study in LLM Evaluation via Social Deduction",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Our assessment of the GPT family included GPT-4 (gpt-4-turbo-2024-04-09), GPT-4o (gpt-4o-2024-05-13) ... accessed through the OpenAI API\" (Sec. 3.4); Table 1 (Seer performance), GPT-4 column, Unmasked Wolf (%) = 75.0"
+  },
+  "prompt": {"verbatim": "none", "location": "Appendix B states \"Below we provide the Jinja2 prompt template we used to find the Seer reveals:\" but no template text follows in this document; main gameplay prompts are stated to be \"available at https://github.com/...\" rather than printed", "note": "Footnote: \"All prompts are available at [GitHub]\" -- i.e. only in the external code repository, not in the paper itself."},
+  "claim": {
+    "metric": "Unmasked Wolf (%), Seer reveals, GPT-4", "value": 75.0, "n_items": null,
+    "location": "Table 1, GPT-4 column, Unmasked Wolf (%) row",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Werewolf Arena game framework and logs released at github.com (per Sec. 1 footnote)"},
+  "cost": {"est_calls": null, "tier": "mid"},
+  "blockers": ["prompt_none"],
+  "notes": "arXiv 2024 (Google). Otherwise a strong candidate (cleanly dated model, real per-model table, public game framework), but the actual gameplay/role prompts are only in the linked GitHub repository, not printed in the paper, so it cannot be re-executed at prompt level from the paper text alone. Exact game count behind the Seer-reveal percentages is also not stated."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4410348348",
+  "title": "Accuracy is Not Agreement: Expert-Aligned Evaluation of Crash Narrative Classification Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (March 2023)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"We used the most capable version of each model available at the time of the study: GPT-4-Turbo (March 2023)...\"; \"GPT-4 (κ = 0.78)\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. (prompt structure, quoted in full before the results)",
+    "note": "\"Given the following crash narrative...determine if the crash occurred at an intersection...Respond with ONLY 'Intersection' or 'Non-intersection'.\""
+  },
+  "claim": {
+    "metric": "Cohen's kappa vs. human expert classification",
+    "value": 0.78,
+    "n_items": null,
+    "location": "Sec. (LLM Performance and Agreement Analysis; Table IV)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "police-report crash narratives, dataset access not stated in the reviewed text"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "The paper's own model-vintage label is self-contradictory: \"GPT-4-Turbo (March 2023)\" predates any real Turbo release (Nov 2023 preview / Apr 2024 GA), and the other three models in the same sentence carry equally wrong dates (Llama 3 70B \"May 2023\", Qwen 72B \"April 2023\"), so the actual snapshot behind the reported numbers cannot be identified despite a fully quoted prompt and a clean metric."
+}

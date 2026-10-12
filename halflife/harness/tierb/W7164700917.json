@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7164700917",
+ "title": "Recursive Agent Harnesses",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-5 (gpt-5-2025-08-07)",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "Sec. 4.1: \"RAH uses GPT-5 (gpt-5-2025-08-07) for the parent agent, every subagent, and the answer-extraction call, matching the Codex baseline exactly.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix C (fixed answer-format extraction prompt); Sec. 3 (harness/spawning design)",
+  "note": "Scoring is deterministic exact-match, not a model judge."
+ },
+ "claim": {
+  "metric": "Oolong Score, RAH with GPT-5 backbone",
+  "value": 81.36,
+  "n_items": 199,
+  "location": "Table 1 / Figure 2",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Oolong-Synthetic validation split (Cao et al.), a public long-context benchmark"
+ },
+ "cost": {
+  "est_calls": 199,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Context lengths run up to 4M tokens per call across 13 buckets (1K-4M), so per-call cost is far above a 'short call'; total spend to reproduce the full table across buckets and seeds would be substantial even though est_calls per bucket alone is small."
+}

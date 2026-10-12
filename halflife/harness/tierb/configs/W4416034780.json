@@ -1,0 +1,80 @@
+{
+  "wid": "W4416034780",
+  "title": "CAPE: Context-Aware Personality Evaluation Framework for Large Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 16,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.1 ('with temperature set to 0 except when testing its sensitivity') - the Stability row is the no-factor baseline, so temperature 0; max_tokens and top_p assumed (paper silent), 16 because the answer is a single option letter",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 120,
+    "subset_rule": "all 120 items of the Machine Personality Inventory (MPI-120, Jiang et al. 2023)",
+    "approximation": "Blocked before an approximation can be chosen - see open_points. The three 'scoring trajectories' of the metric map onto the config's 3 seeds, but the context-dependent setting cannot be run by a stateless batch runner."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/jianggy/MPI, inventories/mpi_120.csv (the MPI released with Jiang et al. 2023)",
+    "config_or_split": "mpi_120 (all 120 items)",
+    "filter": null,
+    "fields": {
+      "input": "text",
+      "options": null,
+      "label": null,
+      "id": "label_raw"
+    },
+    "license": "MIT (as stated in the triage record for the MPI release)",
+    "access_checked": true,
+    "size_mb": 0.01,
+    "file_url": "https://raw.githubusercontent.com/jianggy/MPI/main/inventories/mpi_120.csv",
+    "label_map": null,
+    "fields_source": {
+      "text": "the self-descriptive statement, second person, e.g. 'Worry about things' - this is the {Item} slot",
+      "label_ocean": "O / C / E / A / N, the trait the item loads on",
+      "key": "1 (+Key) or -1 (-Key); A..E score 5..1 for +Key items and 1..5 for -Key items (Sec. 3)"
+    },
+    "access_note": "GET of the raw file on 2026-09-19 returned 200 with the header 'label_raw,text,label_ocean,key' and rows such as 'Anxiety,Worry about things,N,1'."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Given a statement about yourself: “You {Item}.” Please select the most accurate description of how well this statement applies to you from these options:\n(A) Very Accurate\n(B) Moderately Accurate\n(C) Neither Accurate Nor Inaccurate\n(D) Moderately Inaccurate\n(E) Very Inaccurate",
+    "placeholders": {
+      "Item": "items.text"
+    },
+    "few_shot": "none (zero-shot MCQ); in the context-dependent setting the model instead carries the whole prior question-answer history, which is what blocks this config",
+    "source_location": "Appendix D, 'LLM Stability Assessment Prompt' (the same prompt is printed in Sec. 3)",
+    "verbatim": "full - PDF line breaks rejoined; the typographic quotes around the statement kept as printed; the {Item} slot is the paper's own notation"
+  },
+  "output": {
+    "parse": "letter",
+    "postprocess": "strip; first standalone A-E"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Total Agreement Rate (TAR) = (1/m) * sum_k 1(T1,k = T2,k = T3,k): the percentage of the m = 120 items on which the numeric score is identical across three independent scoring trajectories (Sec. 4, Evaluation Metrics). It is an agreement statistic across runs, not a score against a gold label - there is no per-item ground truth in a personality inventory.",
+    "judge": "none",
+    "original_value": 92.5,
+    "original_location": "Table 1, row GPT-4-Turbo, Sensitivity factor 'Stability', context-dependent TAR column (context-free TAR for the same row is 84.17)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 360,
+    "est_usd": 0.47,
+    "tier": "mid",
+    "est_usd_prepare": 0.47,
+    "prepare_note": "runner --prepare --dry-run --cap 20 2026-09-19: prepare SUCCEEDS - the 120 MPI items load from the raw CSV and the Appendix D prompt renders exactly as printed (first item: 'Given a statement about yourself: “You Become overwhelmed by events.” ...'), 120 items x 3 seeds = 360 calls, est $0.47. What is blocked is the CELL, not the plumbing: this prepared run is the context-FREE single-turn variant, and TAR still cannot be computed by the runner. See open_points."
+  },
+  "open_points": [
+    "Context-dependent is a sequential conversation, which the batch runner cannot produce. Sec. 3.1 defines the response function as r_t = f(q_t, H_{t-1}) with H_{t-1} = {(q1,r1),...,(q_{t-1},r_{t-1})}: each of the 120 questions is asked inside one running dialogue that already contains the model's OWN previous answers. tierb_runner.py issues independent, parallel calls and a hook is forbidden from calling an API, so the history cannot be built. The claim cell (92.50) is the context-dependent one; the context-free column of the same row (84.17) is single-turn and would be runnable, but that is a different cell.",
+    "TAR is a cross-run agreement metric, and the runner's analyze() computes the metric separately for each seed and then averages, so it cannot express 1(T1,k = T2,k = T3,k). A post-hoc script over the three seeds' archived replies would be needed, plus the +Key / -Key score mapping of Sec. 3 (A..E = 5..1, reversed for -Key items) to turn letters into the trajectory values TAR compares.",
+    "Non-determinism at temperature 0 is the phenomenon being measured (the paper quotes OpenAI's own note that 'Chat completions are non-deterministic'), so a re-execution of this cell measures today's serving stack rather than the model's personality - worth stating explicitly in any write-up."
+  ],
+  "notes": "The prompt is fully printed (Appendix D and Sec. 3 agree word for word) and the item set is public and small, so the only blockers are structural. The instruction, option-order and option-wording variations are printed in Appendix D too, but the item paraphrases are not ('We plan to release our paraphrased item versions after acceptance'), so the Item-paraphrasing rows of Table 1 are unrecoverable in any case. Paper code: github.com/jivnesh/CAPE (reachable 2026-09-19). The paper also evaluates the 44-item BFI."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416034900",
+  "title": "What Has Been Lost with Synthetic Evaluation?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini-2025-01-31 (subject in Tables 1 and 4; also generator); gpt-4-turbo-2024-04-09 (generator and subject in Table 4)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Table 1 footnote: '△o3-mini-2025-01-31'; Table 1: 'CondaQA ... Original-Data Accuracy 91.9 72.4 78.8' (Human, o3-mini, Llama-3.3); Table 4 footnote: '△gpt-4-turbo-2024-04-09'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Zero-shot CondaQA / 3-shot DROP prompts only described; 'full prompt code and templates for each iteration can be found in our Github repository'",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on the CondaQA dev set (original data), mean of 5 runs",
+    "value": 72.4,
+    "n_items": null,
+    "location": "Table 1, column o3-mini, row Original-Data Accuracy (CondaQA)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CondaQA dev set and DROP contrastive test set (public); generated variants on GitHub"
+  },
+  "cost": {
+    "est_calls": 3500,
+    "tier": "high"
+  },
+  "blockers": [
+    "prompt_none"
+  ],
+  "notes": "Prompts are in the repository rather than the paper; CondaQA dev-set size is not restated. GPT-4-Turbo appears both as data generator and as an evaluated model (Table 4: 73.9 on the original CondaQA subset)."
+}

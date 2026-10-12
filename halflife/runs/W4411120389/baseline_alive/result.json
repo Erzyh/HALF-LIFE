@@ -1,0 +1,169 @@
+{
+  "reexecution": {
+    "greedy_pass1_per_repeat": [
+      88.41463414634147,
+      88.41463414634147,
+      88.41463414634147
+    ],
+    "greedy_median": 88.41463414634147,
+    "n_greedy_repeats": 3,
+    "sample": {
+      "n_runs": 32,
+      "mean": 86.92835365853658,
+      "std_pop": 1.371421815201725,
+      "std_sample": 1.393365957611607,
+      "max": 90.85365853658537,
+      "min": 82.92682926829268,
+      "delta_best_worst": 7.926829268292693,
+      "scores": [
+        86.585,
+        87.805,
+        87.195,
+        87.805,
+        86.585,
+        87.195,
+        85.976,
+        87.805,
+        87.805,
+        86.585,
+        84.756,
+        86.585,
+        87.195,
+        87.805,
+        87.195,
+        87.195,
+        82.927,
+        85.366,
+        88.415,
+        85.366,
+        85.976,
+        88.415,
+        90.854,
+        88.415,
+        87.195,
+        86.585,
+        85.976,
+        87.195,
+        88.415,
+        86.585,
+        86.585,
+        85.366
+      ]
+    },
+    "n_sample_runs": 32,
+    "gap": 1.4862804878048905,
+    "t_test_runs_vs_greedy_median": {
+      "t": -6.033742982049665,
+      "p": 1.1147943802031857e-06,
+      "df": 31
+    },
+    "t_test_all_samples_vs_greedy_median": {
+      "t": -3.193820002267426,
+      "p": 0.001412339553157989,
+      "df": 5247
+    },
+    "bootstrap95": {
+      "greedy_median_ci95": [
+        82.92682926829268,
+        92.6829268292683
+      ],
+      "sample_mean_ci95": [
+        83.07783917682927,
+        90.45350609756098
+      ],
+      "gap_ci95": [
+        -1.5434451219512089,
+        4.212080792682933
+      ],
+      "n_boot": 1000,
+      "seed": 0
+    },
+    "per_problem": {
+      "always_solved": 77,
+      "never_solved": 5,
+      "unstable": 82,
+      "oracle_any_pass_pct": 96.95121951219512,
+      "mean_per_problem_variance": 0.055032869664634144,
+      "per_problem_rate_quartiles": [
+        0.875,
+        0.96875,
+        1.0
+      ],
+      "greedy_pass_sample_rate_below_half": 3,
+      "greedy_fail_sample_rate_at_least_half": 7,
+      "greedy_fail_some_sample_pass": 13
+    },
+    "lenient_postprocessing": {
+      "greedy_per_repeat": [
+        88.41463414634147,
+        88.41463414634147,
+        88.41463414634147
+      ],
+      "sample": {
+        "n_runs": 32,
+        "mean": 88.7766768292683,
+        "std_pop": 1.484691732152709,
+        "std_sample": 1.508448308316215,
+        "max": 92.6829268292683,
+        "min": 85.97560975609755,
+        "delta_best_worst": 6.707317073170742,
+        "scores": [
+          87.805,
+          88.415,
+          88.415,
+          87.805,
+          89.634,
+          88.415,
+          87.805,
+          90.244,
+          88.415,
+          88.415,
+          86.585,
+          87.195,
+          89.024,
+          89.024,
+          88.415,
+          90.854,
+          87.195,
+          87.805,
+          92.073,
+          85.976,
+          87.805,
+          89.634,
+          92.683,
+          89.634,
+          89.634,
+          88.415,
+          87.805,
+          89.634,
+          90.854,
+          90.244,
+          87.805,
+          87.195
+        ]
+      },
+      "gap": -0.36204268292682684
+    },
+    "replies_without_python_fence": {
+      "greedy": 0,
+      "sample": 103
+    },
+    "incomplete_runs_dropped": {
+      "greedy": 0,
+      "sample": 0
+    },
+    "top_p": 1.0
+  },
+  "paired_with_released": {
+    "released_runs": 32,
+    "our_runs": 32,
+    "per_problem_sample_rate_pearson_r": 0.9208668132285666,
+    "per_problem_sample_rate_mean_abs_diff": 0.0665015243902439,
+    "problems_majority_flipped": 5,
+    "greedy_flag_agreement_with_released_greedy": 0.9471544715447154,
+    "released_rescored_greedy": 89.63414634146342,
+    "released_rescored_sample_mean": 84.0891768292683,
+    "released_rescored_gap": 5.544969512195124
+  },
+  "judgment": "\ubd80\ubd84 \uc0dd\uc874 (partial)"
+}

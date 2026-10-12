@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7165635332",
+  "title": "Towards Automating Lung-RADS Classification: Insights from Portuguese Radiology Reports",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "GPT-4o (gpt-4o-2024-05-13), Gemini 1.5 Flash (gemini-1.5-flash), and Llama 3 70B ... the temperature was set to 0 for all models (Section 2.6)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 2.7 and Figure 2 (three-part template: CT report, IE instructions with unfilled question table, requirements); Table 1 question table",
+    "note": "Few-shot variant adds five similarity-selected training reports."
+  },
+  "claim": {
+    "metric": "F1-score of question-answering extraction (few-shot)",
+    "value": 0.84,
+    "n_items": 289,
+    "location": "Table 2, row 'GPT-4o FS QA' (ZS: 0.78); 289-report test set",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "963 chest CT reports (2022-2023) from the University Hospital of Alagoas; ethics-approved, not public"
+  },
+  "cost": {
+    "est_calls": 867,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Lung-RADS macro-F1 for GPT-4o is 0.39 (Table 3)."
+}

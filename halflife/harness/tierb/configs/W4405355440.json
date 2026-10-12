@@ -1,0 +1,72 @@
+{
+ "wid": "W4405355440",
+ "title": "Neptune: The Long Orbit to Benchmarking Long Video Understanding",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4o-2024-05-13",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 256,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (paper silent; footnote 4 gives the snapshot only)",
+  "seeds": 1
+ },
+ "task": {
+  "type": "mcq",
+  "n_items": 3268,
+  "subset_rule": "all (NEPTUNE-FULL: 3,268 MCQs on 2,405 YouTube videos; restricted to videos still available)",
+  "approximation": "Uniform 8-frame sampling and default image detail assumed; ASR from the release if present, otherwise Whisper; removed videos shrink the set (report coverage); choice formatting not printed."
+ },
+ "items": {
+  "source_type": "github",
+  "source": "github.com/google-deepmind/neptune -> https://storage.mtls.cloud.google.com/neptunedata/neptune_full.json (link redirects to a Google sign-in page without an authenticated Google account)",
+  "config_or_split": "Neptune-Full",
+  "filter": "videos still available on YouTube",
+  "fields": {
+   "input": "question + answer_choice_0..4",
+   "label": "answer_id",
+   "video": "video_id (YouTube URL; 8 frames and transcript must be extracted)",
+   "id": "key"
+  },
+  "license": "unknown",
+  "access_checked": false,
+  "size_mb": 1
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "You are an expert in video understanding and question answering. You can analyze a video given its image sequence and and transcript and answer questions based on them.\n{video_frames}\nVideo Transcript: {transcript}\nAnswer the question using the image sequence. Do not describe the frames just answer the question by identifying the choice. Question: {question} Choices: {choices} Please identify the correct CHOICE and explain your reasoning concisely. Output Format: [CHOICE]: [REASON]",
+  "placeholders": {
+   "video_frames": "8 uniformly spaced frames attached as image parts",
+   "transcript": "ASR transcript of the (truncated to 15 min) video",
+   "question": "items.question",
+   "choices": "answer + 4 decoys in release order (format not printed)"
+  },
+  "few_shot": "none",
+  "source_location": "Appendix C.5.6 'GPT-4o prompts', 'Multiple-choice evaluation with transcript'",
+  "verbatim": "full (as printed, including the doubled 'and and')"
+ },
+ "output": {
+  "parse": "text before the first ':' mapped to a choice (letter/number/text match with the choices)",
+  "postprocess": "strip brackets; no match = incorrect"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of MCQs whose parsed choice equals answer_id",
+  "judge": "none",
+  "original_value": 80.23,
+  "original_location": "Table 4, row GPT-4o (RGB 8 frames + ASR), column NEPTUNE-FULL Acc.",
+  "bootstrap_unit": "item"
+ },
+ "cost": {
+  "est_calls": 3268,
+  "est_usd": 98.0,
+  "tier": "high"
+ },
+ "open_points": [
+  "Video input: 8 frames per video must be attached (text-only runner) after downloading the 2,405 YouTube videos (availability drift, ToS) and running ASR; the annotation JSON sits behind a Google sign-in wall (storage.mtls link).",
+  "Frame sampling rule, image resolution/detail and ASR engine are not stated; choice formatting (letters vs raw answer text) is not printed.",
+  "[card audit 2026-09-19] The anonymous release https://storage.googleapis.com/neptunedata/neptune_full.json holds 2,974 questions / 2,189 videos (paper 3,268 / 2,405); MMH 1,074 / 912 (paper 1,171 / 1,000). n_items 3268 is unattainable; video input remains the blocker."
+ ],
+ "notes": "Cost driven by 8 images + transcript per call (~$0.03 each). NEPTUNE-MMH row (72.86) is the alternative cell. || [hook pass 2026-09-07] no hook: video/image input + gated annotations."
+}

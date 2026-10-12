@@ -1,0 +1,188 @@
+{
+ "card_id": "W4412887747",
+ "openalex_id": "https://openalex.org/W4412887747",
+ "title": "Rethinking Table Instruction Tuning",
+ "doi": "10.18653/v1/2025.findings-acl.1120",
+ "paper": {
+  "authors": "Naihao Deng, Rada Mihalcea (University of Michigan)",
+  "year": 2025,
+  "venue": "Findings of ACL 2025, pp. 21757-21780 (earlier arXiv 2501.14693)",
+  "repo": "https://github.com/MichiganNLP/TAMA",
+  "repo_commit": "8d3a2c274a6038f0afbf25ba894a5a04313ca4ca (HEAD 2025-07-07; shallow clone external/repos/W4412887747/MichiganNLP__TAMA)",
+  "repo_license": "MIT (LICENSE, Copyright (c) 2024 Naihao Deng)",
+  "other_artifacts": "Model checkpoints on Hugging Face (MichiganNLP/tama-5e-7, tama-1e-6, TAMA-QWen3 collection). Upstream evaluation data is NOT in the repo: AIT-QA from github.com/IBM/AITQA (raw_data/aitqa_questions.jsonl 515 questions, aitqa_tables.jsonl 113 tables, CDLA-Sharing-1.0), InfoTabs from github.com/infotabs/infotabs (maindata TSVs + 2,720 HTML tables, Apache-2.0), Table-Syn S1 from Table-GPT (github.com/microsoft/Table-GPT, MIT - generator scripts only, no released test_All.jsonl)."
+ },
+ "dependence": {
+  "type": "subject",
+  "strength": "core",
+  "note": "The paper's headline comparison ('TAMA achieves performance on par with, or surpassing GPT-3.5 and GPT-4 on table tasks') rests entirely on a closed-model yardstick. TAMA itself is open weights and re-derivable, so only the GPT side is snapshot-dependent. Important scoping fact: 11 of the 13 GPT cells in Table 6 carry a dagger, i.e. they are transcribed from Gou et al. 2023 / Srivastava et al. 2024 / Zhang et al. 2024a rather than run by these authors. The only author-run GPT-4-Turbo cells are AIT-QA (88.57) and InfoTabs (58.60) in Table 6 plus Table-Syn S1 (80.20) in Table 8; everything else in those rows is a citation and must not be treated as a re-executable measurement."
+ },
+ "claim": {
+  "statement": "On the three table-understanding cells the authors ran themselves, GPT-4-Turbo scores 88.57 on AIT-QA and 58.60 on InfoTabs (Table 6) and 80.20 on the synthesized out-of-domain set Table-Syn S1 (Table 8) - and the 8B TAMA, instruction-tuned on 2,600 examples, matches or beats it on the first two (89.21 / 64.54) while trailing on S1 (64.93); the base LLaMA 3.1 8B Instruct scores 82.54 / 48.39 / 53.60.",
+  "claim_type": "capability_level",
+  "metric": "Exact-match accuracy per dataset, computed by the repo's evaluation scripts over generated_predictions.jsonl: AIT-QA (src/src/evaluation/aitqa.py) counts a hit when the gold answer string occurs in the prediction AND, in a second unconditional pass, when prediction == gold; InfoTabs (infotabs.py) counts a hit when the gold label (entail / neutral / contradict) appears lowercased in the prediction and no other label does; S1 (s1.py) extracts the first {\"...\": \"...\"} JSON object from the prediction and compares its single value with the gold value.",
+  "original_values": {
+   "gpt-4-turbo (author-run cells)": {
+    "AIT-QA": 88.57,
+    "InfoTabs": 58.6,
+    "Table-Syn_S1": 80.2
+   },
+   "gpt-3.5-turbo (author-run cells, model dead)": {
+    "AIT-QA": 84.13,
+    "InfoTabs": 56.0,
+    "Table-Syn_S1": 54.8
+   },
+   "TAMA (LLaMA 3.1 8B Instruct, lr 1e-6, 2 epochs)": {
+    "AIT-QA": 89.21,
+    "InfoTabs": 64.54,
+    "Table-Syn_S1": 64.93
+   },
+   "base LLaMA 3.1 8B Instruct": {
+    "AIT-QA": 82.54,
+    "InfoTabs": 48.39,
+    "Table-Syn_S1": 53.6
+   },
+   "n_items": {
+    "AIT-QA": 315,
+    "InfoTabs": 500,
+    "Table-Syn_S1": 500
+   },
+   "cited_not_run_by_authors": "Table 6 columns FeT/HiT/TaF/FEV/W-T/W-S/Hyb/TAT/TAB/KVR/ToT and Table 8 columns S2/MMLU/IFEval/MPro/GPQA for both GPT rows (dagger)"
+  },
+  "original_source": "Paper Table 6 (rows GPT-3.5 / GPT-4, undaggered cells AIT and Inf), Table 8 (column S1), Appendix A.4 ('We prompt the GPT-3.5-turbo and GPT-4-turbo models and set the temperature to 0'), footnote 2 (500-point uniform subsample for InfoTabs and S1 'due to budget limit for prompting GPT models'), Table 5 (dataset sizes)."
+ },
+ "protocol": {
+  "model": "gpt-4-turbo-2024-04-09",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+  "model_usage_verified": "partial - Appendix A.4 names 'GPT-4-turbo' with no snapshot and the repository contains no OpenAI-calling code at all (only commented-out output paths '/code/tablellm/saves/gpt-4-turbo' in src/src/evaluation/utils/utils.py and a find_files branch that reads pre-existing generated_predictions.jsonl from such a directory). The snapshot is inferred by the date rule: an undated 'gpt-4-turbo' with no preview string in a paper submitted/published in 2025 resolves to gpt-4-turbo-2024-04-09.",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (not exercised by any released script; the released pipeline consumes prediction files produced elsewhere)",
+  "prompt_source": "Item text is fully specified by src/src/process_data/tama_instruct/process_aitqa.py and process_infotabs.py, which emit {instruction, input, output} triples; the chat wrapper actually sent to the GPT API is NOT released. Repo convention is LLaMA-Factory alpaca formatting, and the README recommends 'Below is an instruction that describes a task, paired with an input ... ### Instruction: ... ### Input: ... ### Question: ... ### Response:'.",
+  "messages": [
+   {
+    "role": "user",
+    "content": "AIT-QA: 'Please answer the question given the table content' + '\\n\\n' + 'Table: {flattened_table}\\n\\nQuestion: {question}'"
+   },
+   {
+    "role": "user",
+    "content": "InfoTabs: 'Please select the relationship between the table and the hypothesis, you may choose one from entail, contradict, neutral.' + '\\n\\n' + 'Table: {json_dumped_html_table}\\n\\nHypothesis: {hypothesis}'"
+   }
+  ],
+  "params": {
+   "temperature": 0,
+   "top_p": "not reported for GPT (Table 10 gives temperature/top_p only for the open table LLMs: TAMA 0.01 / 0.95)",
+   "max_tokens": "not reported",
+   "seed": "not reported",
+   "system_prompt": "not reported"
+  },
+  "n_items": 815,
+  "samples_per_item": 1,
+  "evaluation": "Repo scripts, unchanged, over our own generated_predictions.jsonl: src/src/evaluation/aitqa.py, infotabs.py (and s1.py if S1 is added). Note that find_files() routes any root_dir containing 'gpt-4' through the 'original_*' branch, which is exactly the branch in which aitqa.py double-counts exact matches (see blockers).",
+  "item_construction": "AIT-QA: IBM/AITQA raw_data flattened per the original AITQA convention (row headers as a first body column, header hierarchies concatenated, cells joined by ' | ' with ' | [SEP] | ' between rows), then sklearn train_test_split(random_state=42, train_size=200) over the 515 questions -> 315 test items (deterministic, reproduced and verified by the card author). InfoTabs: test_alpha1+2+3 (1,800 rows) with the HTML table json.dumps'd, then random.sample(k=500) under random.seed(42) (deterministic given the upstream file order).",
+  "environment": "Python with datasets / scikit-learn / loguru; no GPU needed for the GPT arm."
+ },
+ "artifacts": {
+  "prompts_path": "src/src/process_data/tama_instruct/process_aitqa.py, process_infotabs.py, process_s1.py (instruction strings and input assembly); no GPT chat wrapper in the repo",
+  "data_path": "absent from the repo - datasets/ ships 14 dataset folders but no datasets/tama_instruct/, so the ait-qa, infotabs, s1 and s2 test files referenced by src/src/utils/dataset_info.json do not exist here; raw inputs must be pulled from IBM/AITQA, infotabs/infotabs and Table-GPT",
+  "eval_path": "src/src/evaluation/aitqa.py, src/src/evaluation/infotabs.py, src/src/evaluation/s1.py, src/src/evaluation/utils/utils.py",
+  "data_public": true,
+  "data_license": "Code MIT; AIT-QA CDLA-Sharing-1.0 (share-alike); InfoTabs Apache-2.0 (tables derived from Wikipedia infoboxes, CC BY-SA upstream); Table-GPT MIT",
+  "redistributable": "partial - AIT-QA is share-alike and InfoTabs tables carry Wikipedia's CC BY-SA lineage; redistribute via download+process scripts rather than copies",
+  "notes": "No released model outputs: generated_predictions.jsonl files are absent for every model, so drift can only be measured at the accuracy level (2 decimals). src/src/evaluation/utils/utils.py hard-codes absolute paths under /code/ and a single active root_dir, so it needs a one-line edit to point at our run directory. The GPT-3.5 comparator row cannot be re-run at all (all gpt-3.5-turbo snapshots retired)."
+ },
+ "blockers": [
+  "The GPT chat wrapper is not released. Only the {instruction, input} fields exist; whether the authors sent the alpaca template, a system+user split, or a single concatenated user turn is unrecorded, so the re-run is a paraphrase of the prompt envelope (the item text itself is exact).",
+  "Scoring asymmetry in the authors' own code: aitqa.py credits 'original_*' folders (the branch that GPT predictions fall into) once for `gold in pred` and then again, unconditionally, for `pred == gold`, so an exact match counts twice and the reported GPT accuracy can be inflated relative to the strict-equality scoring applied to TAMA's own checkpoints. The direction of the bias favours GPT-4, i.e. against the paper's own claim.",
+  "Table-Syn S1 cannot be reconstructed exactly: s1.py reads test_all_gpt_500.json, but process_s1.py writes test_all_gpt_5000.json from a raw test_All.jsonl that Table-GPT does not release as a file (only generator scripts). The 500-item GPT subset is therefore unrecoverable; only AIT-QA and InfoTabs are exactly reproducible.",
+  "No item-level original outputs; comparison is at the accuracy level only.",
+  "The gpt-3.5-turbo half of the comparison is dead (all snapshots retired), so the paper's two-model yardstick reduces to one live row."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "gpt-4-turbo-2024-04-09",
+   "purpose": "live baseline (P0): the yardstick cells AIT-QA and InfoTabs (S1 optional)"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for gpt-4-turbo)",
+   "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+  ],
+  "dead_comparators_not_runnable": [
+   "gpt-3.5-turbo (Table 6/8 second closed row; all snapshots retired)"
+  ]
+ },
+ "budget": {
+  "est_calls": 2445,
+  "est_tokens_in": 1550000,
+  "est_tokens_out": 49000,
+  "est_cost_usd": 17,
+  "pricing_usd_per_1m": {
+   "gpt-4-turbo-2024-04-09": {
+    "input": 10.0,
+    "output": 30.0
+   }
+  },
+  "assumptions": "(315 AIT-QA + 500 InfoTabs) x 3 seeds = 2,445 calls. AIT-QA prompt length measured from the reconstructed test split: mean 1,387 characters ~ 400 tokens, plus wrapper ~ 450; answers are short (mean 5 characters). InfoTabs prompts carry a json-dumped HTML infobox (upstream mean 1,524 bytes, tag-dense) ~ 750 tokens in, ~5 tokens out. Gives about $4 for AIT-QA and $12 for InfoTabs. Adding the S1 row (500 items x 3 seeds, longer outputs) would add roughly $17, but see blockers. Temperature is 0, so the seeds mainly capture API nondeterminism."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary numbers: gpt-4-turbo-2024-04-09 accuracy on AIT-QA (315 items) and InfoTabs (500 items), scored with the repo's own scripts. Survival = both re-run accuracies (median of 3 seeds) fall inside the bootstrap 95% CI over items of the originals (88.57 +/- ~3.5 pp at n=315; 58.60 +/- ~4.3 pp at n=500) AND the paper's ordering claim still holds, i.e. TAMA's published 89.21 / 64.54 remain at or above the re-run GPT-4 values. Partial = one of the two datasets moves outside its CI, or the ordering flips on exactly one dataset. Death = GPT-4-Turbo now clears TAMA's published numbers on both datasets, which would invalidate the headline 'on par with, or surpassing GPT-4' comparison.",
+  "notes": "TAMA's side of the comparison is open weights and can be re-derived locally, so a second, cleaner judgment is available: re-run BOTH sides under one scoring rule (strict equality for both) and report whether the ordering is an artifact of the asymmetric aitqa.py branch. Secondary check: the InfoTabs gap (TAMA +5.94 over GPT-4) is the larger of the two and should be the more robust signal."
+ },
+ "decisions_2026_09_19": {
+  "date": "2026-09-19",
+  "decided_by": "project default, user delegated",
+  "scope": "the two exactly reconstructible author-run cells only: AIT-QA (315 items, 88.57) and InfoTabs (500 items, 58.60), drawn with the repository's own seeded scripts. Table-Syn S1 (80.20) is NOT attempted - process_s1.py consumes a Table-GPT test_All.jsonl that was never released, so no 500-item subset of it can be reconstructed (answers user_check 1).",
+  "prompt_envelope": "the repository README / examples/inference.py alpaca wrapper sent as ONE user message, logged as a documented paraphrase: the GPT chat wrapper was never released. The plain chat split (instruction as system, input as user) is NOT used. The README's third slot '### Question:' is dropped because the released processed items carry only instruction+input and the question / hypothesis already sits inside input. Template sha256 ef4fa13cfb2456c2b7c21fef925faf216cc127a60c73a8c56f13abff3234a9aa (answers user_check 2).",
+  "snapshot": "gpt-4-turbo-2024-04-09 by the date rule; recorded as an inference, not a reported fact. Appendix A.4 names only 'GPT-4-turbo' and the repository contains no OpenAI-calling code at all (answers user_check 3).",
+  "scoring": "both numbers side by side, per dataset: (a) the repository's own evaluation script through the branch that produced the paper's cells - a root_dir containing 'gpt-4' routes find_files to the original_* branch, where aitqa.py counts (gold in pred) AND, unconditionally, (pred == gold); (b) a strict exact-match score, which for AIT-QA is the SAME unmodified script through its other branch (pred == gold, the rule TAMA's own checkpoints were scored under) and for InfoTabs is pred == gold computed in the adapter, infotabs.py having only one live branch. AIT-QA additionally reports containment = (a) - (b). The strict number becomes the judgment basis only if the two differ by more than 2 points; otherwise the repository's (answers user_check 4).",
+  "seeds": "3 seeds at temperature 0, identical request bodies, no seed parameter and no top_p (none reported; Appendix A.4 gives only temperature 0). max_tokens 64 (AIT-QA) / 32 (InfoTabs) - unreported by the paper, set to bound cost without truncating a short table answer.",
+  "cost_cap_usd": 25.0,
+  "training": "inference only - nothing is trained or distilled; TAMA 89.21 / 64.54 and LLaMA 3.1 8B Instruct 82.54 / 48.39 stay published comparators, not re-run arms.",
+  "adapter": "harness/adapters/tama_W4412887747.py (--check / --dry-run / --run / --analyze). The repository's code under external/repos/W4412887747/MichiganNLP__TAMA is imported the way its README runs it (sys.path += <repo>/src), never copied; upstream data is staged under external/data/W4412887747 so the checkout is never written to.",
+  "measured_2026_09_19_dry_run": {
+   "calls": 2445,
+   "prompt_tokens_tiktoken_cl100k_base": 1488642,
+   "mean_prompt_tokens_per_call": {
+    "aitqa": 548.8,
+    "infotabs": 646.7
+   },
+   "expected_output_tokens": 13560,
+   "expected_usd": 15.293,
+   "max_tokens_bound_usd": 18.141,
+   "battery_chars_over_4_estimate_usd": 15.01,
+   "per_dataset_usd_expected": {
+    "aitqa": 5.413,
+    "infotabs": 9.88
+   },
+   "note": "the card's budget block assumed 1.55M prompt tokens and about $17; measured 1.49M and $15.29 expected ($18.14 if every reply used all of max_tokens). Cap set at $25. NOT LAUNCHED."
+  },
+  "environment_check_2026_09_19": {
+   "repo_head": "8d3a2c274a6038f0afbf25ba894a5a04313ca4ca (matches the card)",
+   "data": "2.48 MB pulled from IBM/AITQA@master (2 raw_data jsonl, CDLA-Sharing-1.0) and infotabs/infotabs@master (3 maindata TSVs + 2,720 html tables, Apache-2.0); 6.6 MB on disk after processing, budget 50 MB.",
+   "item_sets": "the repository's own scripts rebuild 315 AIT-QA and 500 InfoTabs items, matching Table 5 and footnote 2; sha256 390c2e6bfbeb9e68 / 42fe10926ec52772, identical after a full wipe and re-download (determinism verified).",
+   "preimages": "88.57 has the unique integer pre-image 279/315 and 58.60 the unique pre-image 293/500; a synthetic run reproducing those counts reproduces both printed cells exactly.",
+   "scorer": "both branches of the repository's unmodified scripts were exercised on synthetic completions: an all-exact AIT-QA run scores 200.0 under the 'original' branch (containment 100 + equality 100) and 100.0 under the other branch, which is the double-count the card flags; InfoTabs scores 100.0 for both an exact and a verbose reply and 0.0 when two labels appear. Per-item credit vectors used for the bootstrap are cross-checked against the repository's printed aggregate on every call.",
+   "released_outputs": "no generated_predictions.jsonl for any model anywhere in the repository (the only *_gpt4_* file shipped is the upstream IFEval demo input_response_data_gpt4_20231107_145030.jsonl, 541 lines, dated 2023-11-07), so drift stays measurable at the accuracy level only."
+  },
+  "deviations_and_findings": [
+   "Prompt envelope is a paraphrase by necessity: only instruction+input items were released. The README's 3-slot wrapper is used with its '### Question:' slot omitted, its line break after 'Write a response that' kept verbatim.",
+   "max_tokens is our choice (64 / 32); the paper reports no output-length limit for the GPT arm.",
+   "Scoring hazard, live: aitqa.py's 'original' branch can exceed 100. If our replies are bare gold strings the branch roughly doubles, and if they are verbose the strict score collapses toward 0 - in both cases the 2-point rule flips the judgment basis. The adapter reports repo_original, strict and containment together and writes an explicit caveat into run_meta.json whenever this happens; the verdict needs a human look in that case.",
+   "Only 2 of the 3 author-run GPT cells are re-executable (S1 unreconstructible), and the gpt-3.5-turbo row of the same table is entirely dead, so the paper's two-model yardstick reduces to one live row on two datasets.",
+   "The repository ships no evaluation data (datasets/tama_instruct/ is absent) and hard-codes /code/ paths plus a single active root_dir in src/src/evaluation/utils/utils.py; the adapter rebinds root_dir in the imported module instead of editing the file.",
+   "loguru is not installed here and aitqa.py imports the unused evaluate package at module level; both are stubbed. The repository opens every text file with the platform default encoding, cp949 on this machine, so utf-8 is forced around its own reads and writes."
+  ]
+ },
+ "status": "done",
+ "user_checks": [
+  "Scope: run only the two exactly reconstructible cells (AIT-QA 315 + InfoTabs 500, ~$17), or also attempt Table-Syn S1 by regenerating Table-GPT's test set and drawing our own 500 (a set-level, not item-level, match; +~$17)?",
+  "Prompt envelope: send the repo README's alpaca wrapper ('Below is an instruction ... ### Instruction/### Input/### Response'), or a plain chat split (instruction as system, input as user)? Both are paraphrases; pick one and log it as such.",
+  "Snapshot: accept gpt-4-turbo-2024-04-09 by the date rule (Appendix A.4 says only 'GPT-4-turbo' and no code names a snapshot)?",
+  "Scoring: reproduce aitqa.py's double-counting 'original' branch verbatim for comparability with 88.57, or score strictly and report both numbers?"
+ ],
+ "domain_notes": "The paper's contribution is a hyperparameter finding (small learning rates, ~200 examples per dataset) rather than a closed-model measurement, and the GPT rows are a reference frame borrowed largely from prior work. That makes this card narrow but cheap and clean: two datasets whose item sets are fully determined by seeded scripts in the repo, a stated temperature of 0, and an evaluation script that runs offline over prediction files. The main scientific caveat is contamination in the opposite direction from the usual: AIT-QA (2022) and InfoTabs (2020) are long-public, so successor models may score higher for reasons unrelated to capability drift.",
+ "judgment_provisional": {
+  "value": "부분 생존 (partial)",
+  "cost_usd": 16.49936999999999,
+  "run_date": "2026-09-19",
+  "source": "runs/W4412887747/run_meta.json"
+ }
+}

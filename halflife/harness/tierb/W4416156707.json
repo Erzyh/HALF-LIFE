@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416156707",
+  "title": "In-context adaptation of VLMs for few-shot cell detection in optical microscopy",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07 (GPT-o4-mini version unspecified)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "For OpenAI models, we used GPT-4o (gpt-4o-2024-08-06), GPT-5 (gpt-5-2025-08-07), and GPT-o4-mini (version unspecified) (Section 4.1.1); temperature 0, top-p 1.0"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Class-wise text prompts are in Section 1 of the Supplementary Material, not in the paper text",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mF1 (Few-Shot-MMC, K=1 demonstration, SAM crops)",
+    "value": 0.26,
+    "n_items": 212,
+    "location": "Table 2, block Few-Shot-MMC, row GPT-5, column mF1 K=1 (0.26 +- 0.0011); 53 test images per dataset x 4 datasets",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Micro-OD (https://huggingface.co/datasets/stumbledparams/Micro-OD): BCCD, BBBC, NIH-3T3, LIVECell subsets"
+  },
+  "cost": {
+    "est_calls": 6360,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Pipeline needs SAM crops and few-shot example selection with seeds 42/123/456; per-crop calls estimated at ~10 per image."
+}

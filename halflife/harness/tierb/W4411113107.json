@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4411113107",
+  "title": "GraPPI: A Retrieve-Divide-Solve GraphRAG Framework for Large-scale Protein-protein Interaction Exploration",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We assess the performance of our framework using three state-of-the-art LLMs as base models: GPT-4o, GPT-4-Turbo (Achiam et al., 2023), and GPT-4o-mini\" (Sec. 5.2); Table row \"GPT-4-Turbo-Baseline 88.00±2.00 32.46±11.17 24.40±9.14\" (BERTScore/ROUGE-1/ROUGE-L F1)"
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix, Figure 5 (\"Prompt Template of Path Explanations\" / \"Prompt Template of Edge Explanations\", full JSON-format instruction text printed)", "note": "Path/edge explanation generation over STRING protein-protein-interaction graphs; code at github.com/AaronLi43/GraPPI."},
+  "claim": {
+    "metric": "BERTScore F1, Baseline prompting (no CoT/RAG)", "value": 88.00, "n_items": null,
+    "location": "Results table, row GPT-4-Turbo-Baseline, BERTScore F1 column",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "STRING protein-protein interaction database (public); GraPPI code released on GitHub"},
+  "cost": {"est_calls": null, "tier": "mid"},
+  "blockers": [],
+  "notes": "NAACL 2025 Findings. The exact number of path/edge explanations evaluated per Interaction Graph config (6 graphs, depths 2-3, k=10/15/20) is not clearly stated as a single N, which is the soft gap keeping this at 'maybe'; otherwise a clean role-S claim with a full printed prompt and public data."
+}

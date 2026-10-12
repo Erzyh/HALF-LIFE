@@ -1,0 +1,83 @@
+{
+  "wid": "W4403885225",
+  "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.7,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3 'Hyperparameters' (temperature 0.7 for all judge models); max_tokens/top_p assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1000,
+    "subset_rule": "all: 500 items x 2 judgments (orig: answer_b = answer2; pert: answer_b = answer2_longer) = 1,000 rows built by the hook",
+    "approximation": "answer1 is shown as Assistant A and answer2 / answer2_longer as Assistant B in both judgments (order not stated); two judgments per item (original and perturbed); the paper's unperturbed repeat (CR) is not needed for RR."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/Y0oMu/LLM-Judge-Bias-Dataset, file bias_datasets/verbosity_bias_standardized.json (CALM release, linked from llm-judge-bias.github.io)",
+    "config_or_split": "single JSON list (500 items verified)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "label": "pair_key",
+      "id": "id"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 1.4,
+    "file_url": "https://raw.githubusercontent.com/Y0oMu/LLM-Judge-Bias-Dataset/main/bias_datasets/verbosity_bias_standardized.json",
+    "fields_prose": {
+      "input": "question",
+      "options": "answer1 (better), answer2 (worse), answer2_longer (GPT-4-Turbo-lengthened answer2)",
+      "label": "pair_key '<orig|pert>|<item index>' (hook) - RR pairs the two verdicts of an item",
+      "id": "row index"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "[System] Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user question displayed below. You should choose the assistant that follows the user’s instructions and answers the user’s question better. Your evaluation should consider factors such as the helpfulness, relevance, accuracy, depth, creativity, and level of detail of their responses. Begin your evaluation by comparing the two responses and provide a short explanation. Avoid any position biases and ensure that the order in which the responses were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Do not favor certain names of the assistants. Be as objective as possible. After providing your explanation, output your final verdict by strictly following this format: \"[[A]]\" if assistant A is better, \"[[B]]\" if assistant B is better.\n[User Question]\n{question}\n[The Start of Assistant A’s Answer]\n{answer_a}\n[The End of Assistant A’s Answer]\n[The Start of Assistant B’s Answer]\n{answer_b}\n[The End of Assistant B’s Answer]",
+    "placeholders": {
+      "question": "items.question (hook)",
+      "answer_a": "items.answer_a (= answer1)",
+      "answer_b": "items.answer_b (= answer2 in the orig row, answer2_longer in the pert row)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix F, Figure 13 (pairwise judgment template); verbosity perturbation described in Appendix C ('Verbosity bias') with the lengthening prompt in Figure 18 (not needed: perturbed answers are released)",
+    "verbatim": "full (paragraph line breaks joined; the '[System]' tag is part of the template and the whole text is sent as one user message)",
+    "placeholders_prose": {
+      "question": "items.question",
+      "answer_a": "answer1",
+      "answer_b": "answer2 in the original judgment; answer2_longer in the perturbed judgment"
+    }
+  },
+  "output": {
+    "parse": "regex (?s).*\\[\\[([AB])\\]\\]",
+    "postprocess": "missing verdict counts as a changed verdict (not robust)",
+    "parse_prose": "regex \\[\\[([AB])\\]\\] (last match)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "RR = (1/|D|) sum_i 1[y_i == y_hat_i], y_i = verdict on (answer1, answer2), y_hat_i = verdict on (answer1, answer2_longer)",
+    "judge": "none",
+    "original_value": 0.915,
+    "original_location": "Table 4, row GPT-4-Turbo, column Ver. (also Table 7, row Ver. Default, column GPT-4)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 1000,
+    "est_usd": 10.0,
+    "tier": "high"
+  },
+  "open_points": [],
+  "notes": "Tier kept as triaged (high) although RR needs only 1,000 judge calls; with temperature 0.7 more seeds would tighten the estimate. || [hooks_2 2026-09-07] two-judgment expansion + RR in the hook; prepare verified (1,000 rows, seeds 1).",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "harness/tierb/hooks/W4403885225.py: load_items (2 rows per item), render (Figure 13 template), parse (last [[A]]/[[B]]), score (RR over item pairs, per-item = per pair)"
+}

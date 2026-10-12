@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402588152",
+  "title": "FLRT: Fluent Student-Teacher Redteaming",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 4 (AdvBench transfer): 'gpt-3.5-turbo - 69% -; gpt-4-0613 - 15% -; gpt-4-turbo - 14% -; gpt-4o - 12% -'; ASR judged by GPT-4o (Appendix A prompt)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A (GPT-4o grading system prompt); attack strings are optimisation outputs, example attacks printed",
+    "note": "transfer attacks were optimised on open models (Llama-2/Vicuna/Phi-3)"
+  },
+  "claim": {
+    "metric": "transfer attack success rate on AdvBench test tasks (%)",
+    "value": 14,
+    "n_items": null,
+    "location": "Table 4, row gpt-4-turbo, column Test ASR",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (snapshot not stated)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AdvBench (Zou et al. 2023); attack strings from the authors' repository"
+  },
+  "cost": {
+    "est_calls": 500,
+    "tier": "low"
+  },
+  "blockers": [
+    "tos"
+  ],
+  "notes": "Jailbreak paper: re-running means eliciting harmful completions from the API. Dated July 2024 with no preview string, so 'gpt-4-turbo' resolves to 2024-04-09. Number of AdvBench test tasks not stated in the text."
+}

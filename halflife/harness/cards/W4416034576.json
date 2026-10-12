@@ -1,0 +1,186 @@
+{
+ "card_id": "W4416034576",
+ "openalex_id": "https://openalex.org/W4416034576",
+ "title": "AIRepr: An Analyst-Inspector Framework for Evaluating Reproducibility of LLMs in Data Science",
+ "doi": "10.18653/v1/2025.findings-emnlp.539",
+ "paper": {
+  "authors": "Zeng, Jin, Wang, Zheng, Li (Penn State / CMU / IMF)",
+  "year": 2025,
+  "venue": "Findings of EMNLP 2025 pp. 10170-10201",
+  "repo": "https://github.com/Anonymous-2025-Repr/LLM-DS-Reproducibility",
+  "repo_commit": "3b4a5a8f8b2fd9e78e8769036b84bd8d90da8b5e (HEAD 2025-05-19; shallow clone external/repos/W4416034576/Anonymous-2025-Repr__LLM-DS-Reproducibility; PDF link extraction truncated the name to 'LLM-DS-')",
+  "repo_license": "MIT (LICENSE, Anonymous-2025-Repr 2025)",
+  "other_artifacts": "Benchmarks fetched by download_data.sh from GitHub raw: allenai/discoverybench (real/test, ODC-BY), xxxiaol/QRData (CC BY-NC 4.0), HKUSTDial/StatQA mini-StatQA (GPL-3.0). results/ directory in the repo is EMPTY - the authors' per-task outputs were not released."
+ },
+ "dependence": {
+  "type": "subject",
+  "strength": "core",
+  "note": "o3-mini is one of five 'analyst' LLMs whose generated workflows/code are the object of study. The metrics themselves are LLM-judged: accuracy and reproducibility are scored by gpt-4o-2024-11-20 as evaluator/inspector (workflow-to-code conversion, conclusion extraction, equivalence judgment), and o3-mini is also used as an alternative inspector (Section 5.6). So the card has a core 'subject' dependence on o3-mini and an auxiliary 'judge' dependence on gpt-4o-2024-11-20 (alive, no shutdown announced as of 2026-09-04)."
+ },
+ "claim": {
+  "statement": "For the o3-mini-2025-01-31 analyst, adding the single reproducibility instruction (RoT) to the CoT prompt raises workflow reproducibility on all three benchmarks - DiscoveryBench 55.23% -> 60.25%, QRData 75.06% -> 81.68%, StatQA 81.00% -> 84.25% - and accuracy rises alongside (31.80 -> 33.05, 58.52 -> 62.09, 77.50 -> 78.50); o3-mini also has the highest reproducibility of the five analysts under every prompt (Tables 6 and 7; Section 5.2-5.3).",
+  "claim_type": "method_effect",
+  "metric": "Overall Reproducibility (%) = share of tasks where the inspector's code regenerated from the analyst's workflow yields the same statistics/conclusion as the analyst's code (inexecutable analyst code counts as irreproducible); Overall Accuracy (%) = share of tasks whose final answer matches ground truth (LLM-judged; numeric tolerance 1% DiscoveryBench/StatQA, 3% QRData).",
+  "original_values": {
+   "o3mini_CoT": {
+    "DiscoveryBench": {
+     "acc": 31.8,
+     "repr": 55.23,
+     "inexecutable": 13.81
+    },
+    "QRData": {
+     "acc": 58.52,
+     "repr": 75.06,
+     "inexecutable": 2.54
+    },
+    "StatQA": {
+     "acc": 77.5,
+     "repr": 81.0,
+     "inexecutable": 3.5
+    }
+   },
+   "o3mini_RoT": {
+    "DiscoveryBench": {
+     "acc": 33.05,
+     "repr": 60.25,
+     "inexecutable": 15.9
+    },
+    "QRData": {
+     "acc": 62.09,
+     "repr": 81.68,
+     "inexecutable": 1.53
+    },
+    "StatQA": {
+     "acc": 78.5,
+     "repr": 84.25,
+     "inexecutable": 3.0
+    }
+   },
+   "o3mini_RReflexion_repr": {
+    "DiscoveryBench": 71.55,
+    "QRData": 90.33,
+    "StatQA": 94.25
+   },
+   "regression_o3mini_effect_on_repr_vs_llama": 31.64,
+   "n_tasks": {
+    "DiscoveryBench": 239,
+    "QRData": 393,
+    "StatQA": 400,
+    "total": 1032
+   }
+  },
+  "original_source": "Paper Table 6 (DiscoveryBench) and Table 7 (QRData, StatQA), Table 8 (regression), Table 2 (task counts). No per-task result files released (results/ empty)."
+ },
+ "protocol": {
+  "model": "o3-mini-2025-01-31",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+  "model_usage_verified": "yes - config/model_config.json maps 'o3-mini' to o3-mini-2025-01-31; agents/cot_agent.py get_model() uses AzureChatOpenAI(azure_deployment='o3-mini-2025-01-31', api_version='2024-12-01-preview', temperature=1, reasoning_effort='low', max_completion_tokens=4000); experiments/o3-mini.sh runs COT/ROT/REACT/REFLEXION on all three datasets; paper Appendix H confirms snapshot 2025-01-31",
+  "endpoint": "Original: Azure OpenAI chat completions (deployment o3-mini-2025-01-31, api-version 2024-12-01-preview) via LangChain; re-run: POST https://api.openai.com/v1/chat/completions with the same parameters",
+  "prompt_source": "agents/prompt_template.py cot_template (identical text in paper Appendix Table 15) with agent_instruction from experiments/get_agent.py: CoT = '\\nLet's think step by step.'; RoT = '\\nLet's think step by step. Make sure a person can replicate the action input by only looking at the workflow and the action input reflects every step of the workflow.'",
+  "messages": [
+   {
+    "role": "user",
+    "content": "<cot_template filled with tool description (python_repl_ast), file_paths, dataset descriptions/metadata, question, agent_instruction>"
+   },
+   {
+    "role": "user",
+    "content": "<same template with the previous Workflow/Action/Action input/Observation appended> -> model returns 'Final Answer:'"
+   }
+  ],
+  "params": {
+   "temperature": 1,
+   "reasoning_effort": "low",
+   "max_completion_tokens": 4000,
+   "seed": "not set",
+   "max_llm_calls_per_task": 2,
+   "max_code_executions_per_task": 1,
+   "code_tool": "utils/code_execution.py CustomPythonAstREPLTool run in the dataset directory"
+  },
+  "n_items": 1032,
+  "samples_per_item": 1,
+  "evaluation": "Automatic but LLM-judged (eval/reproducibility.py, evaluator AzureChatOpenAI gpt-4o-2024-11-20, temperature 0): (1) accuracy prompt (Table 19) compares final answer with ground truth; (2) reproducibility: execute analyst code; convert analyst workflow to new code with gpt-4o (Table 20), execute it, extract its conclusion (Table 21), then ask gpt-4o whether both codes reach the same conclusion (Table 22) -> 1/0; analyst code that errors -> -1 (irreproducible). Human agreement with the LLM judge reported as 98.5% (accuracy) / 98.7% (reproducibility) on 200/150 samples. No logprobs needed. StatQA subset = 80 tasks per category drawn with np.random.seed(42) (utils/sample_StatQA.py); QRData minus 18 flawed causal items (Appendix A).",
+  "environment": "Python 3 with pandas/numpy/scipy/statsmodels/scikit-learn for sandboxed code execution; LangChain (langchain_openai) - needs a small adapter from AzureChatOpenAI to ChatOpenAI; datasets (~hundreds of CSV/JSON files) fetched by download_data.sh"
+ },
+ "artifacts": {
+  "prompts_path": "agents/prompt_template.py; experiments/get_agent.py (agent_instruction strings); eval/eval_prompt.py (judge prompts)",
+  "data_path": "external, scripted: download_data.sh -> data/StatQA (mini-StatQA.json + 36 datasets), data/QRData, data/DiscoveryBench (real/test); loaders utils/load_data.py; StatQA sampling utils/sample_StatQA.py",
+  "eval_path": "eval/reproducibility.py, eval/run_reproducibility.py, utils/output_parser.py",
+  "data_public": true,
+  "data_license": "Code MIT; DiscoveryBench ODC-BY; QRData CC BY-NC 4.0 (non-commercial only); StatQA GPL-3.0 (copyleft for derivatives)",
+  "redistributable": "partial (QRData non-commercial; StatQA GPL-3.0; redistribute via the download script rather than copies)",
+  "notes": "Original analyst outputs and judge verdicts are not in the repo (results/ contains only __init__.py), so drift cannot be separated into analyst vs judge components by re-scoring archived outputs. The evaluator gpt-4o-2024-11-20 is NOT in target_models.json - it is currently listed neither as deprecated nor scheduled (OpenAI deprecations page, 2026-09-04)."
+ },
+ "blockers": [
+  "Cost: full protocol (CoT + RoT, 1,032 tasks, 3 seeds) is about $280, of which ~$180 is the gpt-4o judge pipeline (4 judge calls per task-run); a DiscoveryBench-only run is ~$65.",
+  "Environment: requires a Python code-execution sandbox with the analysis stack and ~200 dataset files pulled from three third-party GitHub repos (availability of the raw files at the pinned commits should be verified/mirrored).",
+  "Judge dependence: accuracy and reproducibility are gpt-4o-2024-11-20 verdicts; that model is alive but unlisted in target_models.json and must be added and version-logged; the original per-task judge outputs are not available for re-scoring.",
+  "The original o3-mini run used temperature 1 (forced by the Azure/LangChain client) with no seed - run-to-run variance of reasoning outputs plus code-execution nondeterminism is unquantified in the paper."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "o3-mini-2025-01-31",
+   "purpose": "live baseline (P0), CoT vs RoT on DiscoveryBench / QRData / StatQA"
+  },
+  "successors": [
+   "gpt-5 family (gpt-5-2025-08-07 / gpt-5-mini / gpt-5-nano, reasoning_effort low)",
+   "claude (current Anthropic release)",
+   "gemini (current Google release)",
+   "llama (open weights, hash-pinned)",
+   "qwen (open weights, hash-pinned)"
+  ],
+  "dead_comparators_not_runnable": [
+   "claude-3-5-sonnet-20241022 (v2)",
+   "gpt-4o-2024-11-20 as ANALYST is still runnable (alive) - could be added as a second live arm"
+  ]
+ },
+ "budget": {
+  "est_calls": 37152,
+  "est_tokens_in": 45900000,
+  "est_tokens_out": 22300000,
+  "est_cost_usd": 283,
+  "pricing_usd_per_1m": {
+   "o3-mini-2025-01-31": {
+    "input": 1.1,
+    "output": 4.4
+   },
+   "judge gpt-4o-2024-11-20 (pilot gpt-4o rate)": {
+    "input": 5.0,
+    "output": 15.0
+   }
+  },
+  "assumptions": "2 prompts (CoT, RoT) x 1,032 tasks x 3 seeds = 6,192 analyst runs; per run 2 o3-mini calls (~4,000 input incl. dataset descriptions, ~2,800 output incl. ~2,000 reasoning tokens) = $104; judge per run 4 gpt-4o calls (~3,400 input, ~800 output) = $180. Reduced scopes: DiscoveryBench + QRData (632 tasks) ~ $173; DiscoveryBench only (239 tasks) ~ $65. Batch API would halve both figures."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: RoT minus CoT difference in reproducibility for o3-mini on each benchmark (paper: +5.02 / +6.62 / +3.25 pp). Survival = the sign is positive on at least 2 of 3 benchmarks and the pooled paired difference over tasks (3 seeds, median) is positive with a bootstrap 95% CI excluding 0 on the pooled set, and absolute reproducibility levels stay within +/-10 pp of Tables 6/7. Partial = positive direction but CI includes 0 (the paper's own regression coefficient for RoT was non-significant, 3.79, so partial is the honest expected outcome). Death = RoT reduces reproducibility on the pooled set.",
+  "notes": "Judge drift is confounded with analyst drift because original judge outputs are unavailable; run the judge on a fixed 100-task subset twice to estimate judge noise. Secondary check: o3-mini reproducibility stays above the paper's other analysts' levels (>= 55% on DiscoveryBench)."
+ },
+ "status": "done",
+ "user_checks": [
+  "Budget: approve the full ~$283 protocol, or restrict to DiscoveryBench (~$65) / DiscoveryBench + QRData (~$173)?",
+  "Core claim choice: RoT-vs-CoT method effect (within-model, fully testable) rather than 'o3-mini is the best analyst' (comparators partly dead). Agree?",
+  "Add gpt-4o-2024-11-20 to target_models.json as an alive judge and accept its verdicts as the metric; alternatively use o3-mini itself as inspector (paper Section 5.6 shows r=0.98 agreement) to keep everything on the dying model?",
+  "Data licenses: QRData is CC BY-NC 4.0 and StatQA GPL-3.0 - confirm this is acceptable for an academic re-execution whose logs (including dataset excerpts in prompts) will be published."
+ ],
+ "decisions_2026_09_19": {
+  "decided_by": "project default, user delegated",
+  "adapter": "harness/adapters/airepr_W4416034576.py (--fetch-data / --check / --dry-run / --run / --analyze)",
+  "scope": "DiscoveryBench only, 239 tasks (the card's ~$65 option). QRData and StatQA are neither run nor downloaded. Answers user_check 1.",
+  "core_claim": "the within-model RoT-vs-CoT method effect on Overall Reproducibility (Table 6: 55.23 -> 60.25, +5.02 pp), not the cross-model ranking - three of the five analysts are dead or open-weight. Answers user_check 2.",
+  "inspector": "o3-mini-2025-01-31 itself, not gpt-4o-2024-11-20, per paper Section 5.6 / Figure 7 (r = 0.98 between the two inspectors), so the whole pipeline stays on the retiring snapshot and target_models.json needs no new judge entry. Answers user_check 3. Caveat recorded in the adapter and run_meta: that r was measured on QRData, not DiscoveryBench, and the paper reports 'only minor score increases' for the o3-mini inspector - a level shift that cancels in the within-model difference but not in the +/-10 pp level check. The repo's ('system', ...) judge message is sent as role 'developer' (o3-mini).",
+  "licences": "DiscoveryBench is ODC-By (attribution only), verified from the allenai/discoverybench LICENSE at fetch time, so prompts embedding dataset descriptions and column metadata are archived in full. QRData (CC BY-NC 4.0) and StatQA (GPL-3.0) are out of scope and unfetched, so their terms do not arise. Answers user_check 4.",
+  "seeds_and_params": "3 seeds (ANALYSIS_PLAN section 3); reasoning_effort low, max_completion_tokens 4000 (paper Appendix H); no temperature sent - the original's temperature=1 was a LangChain AzureChatOpenAI requirement and is o3-mini's only legal value; no API seed, seed_idx is a repeat index.",
+  "judge_noise_probe": "the inspector is repeated once on the seed-0 analyst outputs of the first 100 tasks of each prompt (seed_idx 90), answering judgment.notes; ~$2.95 of the estimate.",
+  "budget": "per-paper cap USD 80 (analyst 45 / inspector 35); --dry-run 2026-09-19 estimate 8,676 calls, 13.97M input / 9.73M output tokens, ~USD 58.17 at o3-mini list prices.",
+  "code_execution": "model-written code runs in a fresh isolated interpreter per snippet (python -I -X utf8, outbound sockets blocked, 180 s wall clock); the repository exec()s in-process with os.chdir, no timeout and no isolation.",
+  "check_result_2026_09_19": "all 239 DiscoveryBench tasks load with every referenced data file present (166 files, 9.96 MB, largest 3.02 MB); the CoT and RoT prompts are byte-identical apart from the 140-character RoT sentence; the sandbox, the repo's CoTOutputParser/ScoreParser and the -1 inexecutable path behave as eval/reproducibility.py expects. Scoring finding: the published 'Overall Reproducibility' is the share of tasks scored 1 (55.23% = 132/239), NOT the repository's own mean over {1, 0, -1} (41.42 for the CoT row), and ScoreParser's unparseable-similarity sentinel is also -1, colliding with the inexecutable code marker - so --analyze takes inexecutability from the archived execution log rather than from the score.",
+  "environment": "the repo needs langchain's pre-1.0 namespace (StringPromptTemplate, AgentOutputParser), served from langchain_classic 1.0.3; langchain_experimental 0.4.2 supplies the python_repl_ast tool description that enters the prompt; pingouin, econml and biopython installed for utils/code_execution.py. utils/load_data.py only derives metadata ids correctly under POSIX separators and opens metadata JSON with the locale codec, so the DiscoveryBench loader block is executed with posixpath.join and a utf-8 open (both shims recorded in environment_check.json)."
+ },
+ "domain_notes": "The 'reproducibility' metric is a functional-equivalence check between the analyst's own code and code regenerated by the inspector from the analyst's prose workflow; it rewards workflows that spell out variable names, tests and thresholds. Tasks admit multiple valid analyses (garden of forking paths), so accuracy against a single ground truth is a noisy proxy - the paper's headline is the correlation between reproducibility and accuracy, not accuracy itself. Statistical reviewers should note that the paper's regression (Table 8) found RReflexion significant but RoT not significant for reproducibility, so the RoT effect is small and a partial-survival verdict is plausible even without model drift.",
+ "judgment_provisional": {
+  "value": "부분 생존 (partial)",
+  "cost_usd": 24.487,
+  "run_date": "2026-09-20",
+  "source": "runs/W4416034576/run_meta.json",
+  "note": "DiscoveryBench only, 239 tasks x 2 prompts x 3 seeds, o3-mini as inspector. RoT - CoT = +8.37 pp, task-level bootstrap 95% CI [1.67, 15.06] (paper +5.02): direction and significance hold. Reproducibility levels are below Table 6 (CoT 39.75 vs 55.23, RoT 48.12 vs 60.25), so the level clause fails; the within-model effect survives, the absolute level does not. The card's 'positive on 2 of 3 benchmarks' clause is not evaluable under the DiscoveryBench-only scope. Judge-noise probe: inspector self-agreement 0.63-0.67 on 100 re-scored tasks."
+ }
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411549654",
+  "title": "Comparative Analysis of Multimodal Large Language Models GPT-4o and o1 vs Clinicians in Clinical Case Challenge Questions",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Methods: 'Each GPT model (GPT-3.5 Turbo, GPT-4 Turbo, GPT-4 Omni, and o1) was accessed through the OpenAI API between August and December 2024'; Results: GPT-4 Turbo 82.1% of 1,426 questions."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 3 'Prompt template for GPT models' (system instruction + [Question] [Options] [All textual information])",
+    "note": "Temperature 0.1, top-p 1.0; chat reset per question; images only given to GPT-4o and o1."
+  },
+  "claim": {
+    "metric": "accuracy",
+    "value": 82.1,
+    "n_items": 1426,
+    "location": "Results (Figure 1A / Table 1 header): GPT-4 Turbo 82.1% on 1,426 Medscape case challenge questions",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Medscape case challenges (https://reference.medscape.com/features/casechallenges, public web pages); code and sample data at https://github.com/makogirls/GPT-medscape-case-challenge"
+  },
+  "cost": {
+    "est_calls": 4278,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Snapshot not named; alias resolved by the post-2024-07 rule. Full question set must be re-scraped from Medscape (content changes over time). Clinician comparison is not needed for the model number.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "Check whether the repository's 'sample datasets' contain the 1,426 scraped case-challenge questions (2011 to June 2024) with answer keys; otherwise re-scrape the publicly accessible Medscape case challenges with the repository's scraper. Run gpt-4-turbo-2024-04-09 text-only with the Table 3 template at temperature 0.1, top_p 1.0, one fresh chat per question, and compare accuracy with 82.1%.",
+    "approximation": "A re-scraped set differs from the 2024 snapshot (cases added or removed), so the comparison is at the set level; scraping must respect Medscape's terms.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/makogirls/GPT-medscape-case-challenge",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

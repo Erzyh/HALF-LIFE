@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411120052",
+  "title": "Causal Inference with Large Language Model: A Survey",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Table 3: 'GPT-4-Turbo 0.82' (accuracy reported from cited work); Section 3 lists 'GPT-4 turbo (Cai et al.)' among models used in surveyed papers."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not applicable (survey)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey; numbers are copied from cited papers."
+}

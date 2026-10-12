@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7128827394",
+  "title": "Evaluating LLMs for Historical Document OCR: A Methodological Framework for Digital Humanities",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o4-mini",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Appendix A (model-version table): \"OpenAI o4-mini-2025-04-16\"; Table 2 row \"OpenAI-o4-mini 6.87 9.07\" (Full page CER/WER, %)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 4 (baseline prompt quoted); Appendix C (full prompt-variation experiments)",
+    "note": "Baseline prompt requests OCR extraction while preserving Old Russian orthography; two further context-enhanced variants (English, Russian) detailed in Appendix C."
+  },
+  "claim": {
+    "metric": "Character Error Rate (CER), full-page mode",
+    "value": 6.87,
+    "n_items": 1029,
+    "location": "Table 2, row OpenAI-o4-mini, Full page / CER (%) column",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "1,029 scanned pages from a National Library of Russia \"limited-access collection\"; ground-truth transcription \"will be released upon publication\" (not confirmed released in the text reviewed)"
+  },
+  "cost": {
+    "est_calls": 3100,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "12 multimodal LLMs evaluated across 3 processing modes; o4-mini is the only one of the three OpenAI models tested (GPT-4o-2024-08-06, GPT-4.1-2025-04-14, o4-mini-2025-04-16) whose snapshot is on the still-callable list. Source page scans come from a restricted archive, so full reproduction needs that access even though methodology and prompts are fully specified."
+}

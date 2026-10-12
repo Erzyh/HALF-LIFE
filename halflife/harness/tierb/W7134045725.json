@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7134045725",
+  "title": "Cascading automata to improve efficiency of large language models agents with GraphRAG for error analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Figure captions: 'Cost estimation based on GPT-4 Turbo pricing'; the pipeline itself uses 'GraphRAG with GPT-4o through OpenAPI'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 2 (two supervisor prompts quoted in the text)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "RPA workflow error logs from the authors' use cases; no dataset release"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Outcomes are token-usage reductions, not accuracy; GPT-4 Turbo is used only for pricing."
+}

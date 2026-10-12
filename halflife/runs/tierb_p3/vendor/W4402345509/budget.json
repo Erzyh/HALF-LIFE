@@ -1,0 +1,13 @@
+{
+  "label": "W4402345509",
+  "calls": 143,
+  "errors": 1,
+  "cost_usd": 1.239956,
+  "tokens_in": 25429,
+  "tokens_out": 56912,
+  "cap_usd": 3.0,
+  "stopped_at_cap": false,
+  "started": "2026-09-18T11:50:21.994267+00:00",
+  "updated": "2026-09-18T11:55:37.052596+00:00",
+  "last_error": "HTTP 520: error code: 520\n"
+}

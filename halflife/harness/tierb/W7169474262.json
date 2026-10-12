@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7169474262",
+ "title": "The One-Word Census: Answer-Choice Conformity Across 44 Language Models",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 1 (Appendix A) row 10: \"gpt-4-turbo 2.05 [1.67,2.45] 51% 1% 40%\" (surprisal, CI, avoid, novel, self-dist.)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec.3.1",
+  "note": "\"Name a[n] X. Reply with one word only.\" for 30 fixed categories, plus \"Pick a word. Reply with one word only.\"; no system prompt, temperature 1.0, max_tokens 1024."
+ },
+ "claim": {
+  "metric": "self-distinctness (share of distinct answers across 4 repeated samples, averaged over 31 categories)",
+  "value": 40,
+  "n_items": 124,
+  "location": "Table 1 (Appendix A), row gpt-4-turbo, self-dist. column",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "\"All prompts, transcripts, and code are public\"; GitHub repo (URL truncated in extracted text)"
+ },
+ "cost": {
+  "est_calls": 124,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Resolved by date rule (paper dated July 2026, no preview string). The paper's headline \"answer-choice surprisal\" metric is pooled leave-one-out across all 44 models (some open-weight/local, not simple single-vendor calls); self-distinctness is the cleanest per-model number reproducible from gpt-4-turbo alone. Paper states the whole battery costs ~$1/model."
+}

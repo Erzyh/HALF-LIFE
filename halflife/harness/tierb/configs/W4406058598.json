@@ -1,0 +1,85 @@
+{
+  "wid": "W4406058598",
+  "title": "Halu-J: Critique-Based Hallucination Judge",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on baseline decoding)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1238,
+    "subset_rule": "paper-defined split: ME-FEVER test set (halu-j/data/test_data.jsonl, 1,238 instances)",
+    "approximation": "the order in which the golden, partially irrelevant, completely irrelevant and misleading evidences are numbered is not stated; a seeded shuffle per instance (seed 20260907) is used; zero-shot Table 11 prompt without the in-context critique demonstrations used for the evidence-matching experiment"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/GAIR-NLP/factool, file halu-j/data/test_data.jsonl",
+    "config_or_split": "test_data.jsonl",
+    "filter": null,
+    "fields": {
+      "input": "claim",
+      "label": "label",
+      "id": null
+    },
+    "license": "apache-2.0 (repository)",
+    "access_checked": true,
+    "size_mb": 10,
+    "file_url": "https://raw.githubusercontent.com/GAIR-NLP/factool/main/halu-j/data/test_data.jsonl",
+    "fields_prose": {
+      "input": "claim; evidences = golden_evidence + completely_irrelevant_evidence_x + partial_irrelevant_evidence_x + misled_evidence_x (all keys with these prefixes)",
+      "label": "label (FEVER label: SUPPORTS / REFUTES / NOT ENOUGH INFO)",
+      "id": "line index"
+    },
+    "label_map": {
+      "0": "True",
+      "1": "Neutral",
+      "2": "False"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are given claim. Your task is to identify whether there are any factual errors within the claim.\nWhen you are judging the factuality of the given claim, you could reference the provided evidences if needed. The provided evidences may be helpful. Some evidences may contradict to each other. You must be careful when using the evidences to judge the factuality of the given claim.\nThe response should be a dictionary with two keys - \"reasoning\", \"factuality\", which correspond to the reasoning and whether the given claim is factual or not (string - True, False or Neutral)\nThe following is the given claim\n[claim]: {claim}\nThe following is the provided evidences\n[evidences]:\n{evidences}\nYou should only respond in format as described below. DO NOT RETURN ANYTHING ELSE. START YOUR RESPONSE WITH '{'.\n[response format]:\n{\n\"reasoning\": \"Why is the given claim factual non-factual or neutral? You must provide specific evidences to support your decision.\",\n\"factuality\": \"True\" if the given claim is totally supported by the evidences, \"False\" if the given claim contradicts the evidences in some way, \"Neutral\" if part of the given claim is supported by evidence, but there is also some information that cannot be determined as correct or incorrect.\n}",
+    "placeholders": {
+      "claim": "items.claim",
+      "evidences": "numbered list of the non-empty golden_evidence, completely_irrelevant_evidence_1-2, partial_irrelevant_evidence_1-4, misled_evidence_1-3 fields in seeded shuffled order (not expressible)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B, Table 11 (prompt example of the multiple-evidence scenario)",
+    "verbatim": "full (single braces of the response format kept as printed)",
+    "placeholders_prose": {
+      "claim": "items.claim",
+      "evidences": "numbered lines '1. {evidence}' ... for all evidences of the instance in seeded shuffled order (the /* type */ comments of Table 11 are not part of the prompt)"
+    }
+  },
+  "output": {
+    "parse": "hook parse: 'factuality' value from the dict-style reply (json.loads of the {...} block, else regex), True/False/Neutral",
+    "postprocess": "map True -> SUPPORTS, False -> REFUTES, Neutral -> NOT ENOUGH INFO; responses that cannot be parsed count as incorrect (Sec. 6.2)",
+    "parse_prose": "json field factuality in {True, False, Neutral} (Python-dict style response parsed leniently)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of test instances whose predicted label equals the reference label (Sec. 6.2)",
+    "judge": "none",
+    "original_value": 0.83,
+    "original_location": "Table 1, row GPT-4o, column ME-FEVER",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 3714,
+    "est_usd": 30.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Each instance carries 2 completely irrelevant, 4 partially irrelevant and 1-3 highly related evidences (Sec. 4), ~1.2K input tokens per call (~$0.008). gpt-4-turbo generated the synthetic evidence (auxiliary role). || [hooks_3 pass 2026-09-07] render numbers the non-empty golden_evidence / completely_irrelevant_evidence_1-2 / partial_irrelevant_evidence_1-4 / misled_evidence_1-3 fields in a per-instance seeded order (seed 20260907 + claim hash); label encoding confirmed on the released rows (0 = supported claims -> True 846, 2 = negated claims contradicted by golden_evidence -> False 283, 1 = claims not verifiable from golden_evidence -> Neutral 109). --prepare: 1,238 items x 3 seeds, prepare.json est_usd 34.79 (battery dry-run 85.15 with max_tokens 1024 billed per call). || [triage 2026-09-09] DEVIATION, pipeline verified: all 3,714 replies start with '{' and parse with plain json.loads (strict accuracy = lenient accuracy = 0.8848; 0 truncated); label map 0/1/2 -> True/Neutral/False confirmed by the confusion matrix (recall True 0.964, False 0.929, Neutral 0.156; the alternative 1<->2 mapping would score 0.715); 7-10 numbered evidences per prompt (861 of 1,238 with 10) as in Sec. 4; Table 1 is 3-way label accuracy on the 1,238 test instances (Sec. 6.2), same snapshot gpt-4o-2024-05-13. Residual +0.055 over 0.83: the paper does not print the baseline decoding temperature or the evidence order (we use temperature 0 and a seeded shuffle; the paper shuffles too); the model rarely answers Neutral (51 of 327).",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "hooks/W4406058598.py: render, parse"
+}

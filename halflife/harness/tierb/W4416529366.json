@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416529366",
+ "title": "Automated Archival Descriptions with Federated Intelligence of LLMs",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"LLM 2 (GPT-4-turbo from OpenAI)\", one of four LLMs generating ISAD(G) archival metadata; \"LLM 1 performed the best, followed by LLM 3, LLM 2, and finally LLM 4\" (Figure 3)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "ISAD(G) metadata quality score, GPT-4-turbo (figure only, no printed value)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 3 (bar chart; exact GPT-4-turbo score not printed as text, only its rank: 3rd of 4)",
+  "task_type": "extraction",
+  "judge": "llm:unspecified"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo's individual ISAD(G) score is reported only graphically (Figure 3); text gives only its rank ordering and a couple of anchor values for the best/worst models (LLM 1 and LLM 4), not GPT-4-turbo's own number. Scoring methodology (how metadata quality is scored 0-1) not confirmed, possibly LLM-judged."
+}

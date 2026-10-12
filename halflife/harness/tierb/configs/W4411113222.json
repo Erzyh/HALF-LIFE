@@ -1,0 +1,78 @@
+{
+  "wid": "W4411113222",
+  "title": "LLMs for Mathematical Modeling: Towards Bridging the Gap between Natural and Mathematical Languages",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.8,
+      "max_tokens": 4096
+    },
+    "params_source": "paper Appendix Q ('We tested the following models by calling API: All the closed source models except o1-preview ... with temperature=0.8'); max_length 4096 is stated for the locally served models and is taken over here",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1209,
+    "subset_rule": "all of Mamo: 346 ODE + 652 Easy_LP + 211 Complex_LP problems (Sec. 3.5)",
+    "approximation": "blocked: the few-shot examples are elided in the printed prompts and scoring executes the generated code (see open_points). The claim is the raw score, i.e. before the code-modifier repair pass, so only the first generation of each problem is needed."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/FreedomIntelligence/Mamo (Mamo: a Mathematical Modeling Benchmark with Solvers)",
+    "config_or_split": "data/ode/mamo_ode.jsonl, data/optimization/Easy_LP/mamo_easy_lp.jsonl, data/optimization/Complex_LP/mamo_complex_lp.jsonl",
+    "filter": null,
+    "fields": {
+      "input": "Question",
+      "label": "Answer",
+      "id": "id"
+    },
+    "license": "CC BY-SA 4.0 (Appendix S, 'Licensing Information')",
+    "access_checked": true,
+    "size_mb": 1,
+    "file_url": "https://raw.githubusercontent.com/FreedomIntelligence/Mamo/main/data/ode/mamo_ode.jsonl",
+    "download": {
+      "date": "2026-09-19",
+      "check": "HEAD 200, 245,048 bytes for data/ode/mamo_ode.jsonl; the two optimization files are listed under data/optimization/Easy_LP/ and data/optimization/Complex_LP/ in the repository tree. Row schema from the README: {id, Question, Answer, Category: ode|optimization, Type: first_order_equation|...|easy_lp|complex_lp}. Files were not downloaded (the cell is blocked for other reasons)."
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "[two templates, one per part] Optimization (Figure 17): '[Instruction] Assume you are a virtual assistant with expertise in optimization, specifically in creating .lp files for linear programming problems. ... Here comes the examples: [Example_1: ...] [...] Please craft the .lp file according to these instructions ... Here comes the question:\\n{question}\\nGenerate the contents of an .lp file for this problem ... Your response:'. ODE (Figure 18): '[Instruction] Assume you are a virtual assistant with expertise in ordinary differential equations (ODEs) ... Here comes the examples: [Examples] [...] ... Here comes the question:\\n{question}\\nYour response:'",
+    "placeholders": {
+      "question": "items.Question"
+    },
+    "few_shot": "k=3 fixed examples ('We use 3-shot in testing', caption of Figure 17), but only Example_1 of the optimization prompt is printed; the remaining examples are replaced by '[...]' in both figures",
+    "source_location": "Appendix R (Figures 17 and 18; Figures 19-20 are the code-modifier prompts, which the raw score does not use)",
+    "verbatim": "partial: the instruction blocks are printed in full and are transcribed above in condensed form, but the few-shot demonstrations are elided ('[...]' / '[Examples]'), so the exact prompt cannot be reconstructed from the paper.",
+    "placeholders_paper": {
+      "question": "[question] = a question in the benchmark"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the reply is an .lp file (optimization) or a Python program (ODE); it is written to disk and executed, and the solver's / program's numeric output is compared with the ground truth",
+    "parse_paper": "whole response as code"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Overall accuracy rate (%) over the 1,209 problems: the generated .lp file is solved with an LP solver (the repository uses COPT) and the generated Python is executed; a problem counts as correct when the produced value matches the ground truth, per the paper's own check 'abs(ans - s_ans) < 1 or comp(output, standard_answer)' (Appendix P). 'Raw' means before the code-modifier repair pass whose gain the table shows as a subscript (+1.41).",
+    "judge": "rule (solver / code execution)",
+    "original_value": 66.34,
+    "original_location": "Table 4, row GPT-4-turbo, Overall(%) column: 66.34 with subscript +1.41 for the code-modifier variant",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1209,
+    "est_usd": 50.0,
+    "tier": "high",
+    "prepare_note": "not run: prompt incomplete. 1,209 problems at gpt-4-turbo $10/$30 per 1M with long 3-shot prompts and code answers is roughly $50 per seed."
+  },
+  "open_points": [
+    "prompt: 3-shot is used, but the demonstrations are printed as '[...]' / '[Examples]'. Writing our own three examples would change the prompt, and for a code-generation task the examples are a large part of it. The repository would have to be read for the actual few-shot block - a human decision about how far to go outside the paper.",
+    "scoring: the metric requires executing the model's output - solving generated .lp files with an LP/MILP solver (COPT in the repository; a swap to another solver is a decision) and running generated Python with SciPy/SymPy. That is sandboxed code execution, which this harness does not do.",
+    "seeds: the paper ran at temperature 0.8, so the cell is stochastic. The schema gives the high cost tier one seed, which cannot show that run-to-run spread; a decision is needed on whether the raw score is worth extra passes."
+  ],
+  "notes": "Data and licence are in order (CC BY-SA 4.0, files reachable on GitHub); the blockers are the elided few-shot examples and the execution-based scoring. Table 6 adds an o1-preview / GPT-4-0613 code-modifier variant, and Table 4's subscripts are the same repair pass; the claim here is the raw column."
+}

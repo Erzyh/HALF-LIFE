@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4412889516",
+ "title": "KnowShiftQA: How Robust are RAG Systems when Textbook Knowledge Shifts in K-12 Education?",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 3: \"GPT-4-turbo (OpenAI, 2023b) 95.74 96.18 96.19 81.06 71.71 88.99\" (accuracy % across 5 question types with corresponding documents provided, zero-shot)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3.2 (\"Locate-and-Answer prompting approach\", details in Appendix G)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Average QA accuracy across 5 question types (documents provided), zero-shot",
+  "value": 88.99,
+  "n_items": null,
+  "location": "Table 3, row GPT-4-turbo, Avg. column",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "KNOWSHIFT QA benchmark built from K-12 textbooks (Table 6/7 give per-subject document/question counts, not summed in the excerpt reviewed); textbook source material may carry copyright restrictions"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "\"(OpenAI, 2023b)\" citation year raises a small chance the snapshot queried was an earlier preview rather than the 2024-04-09 GA release, though no 1106/0125 string is present; resolved via the standard post-2024-07-01 rule (paper is ACL 2025). Total question count for the 'with documents provided' setting was not located as a single clean number — the soft gap behind 'maybe'. API annotation cost noted at ~$300 in the paper."
+}

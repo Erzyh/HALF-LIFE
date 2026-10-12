@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4393253309",
+  "title": "Assessing the Feasibility of Processing a Paper-based Multilingual Social Needs Screening Questionnaire Using Artificial Intelligence",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (\"gpt-4-turbo-2024-04-09\")",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Methods: 'OpenAI's GPT-4 Turbo (\"gpt-4-turbo-2024-04-09\") ... was used as a benchmark'; Table 1: 'GPT-4 Turbo (Base Model) Synthetic Examples Dataset ... Overall 0.939 0.940 0.927 0.932'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "DSPy programs; prompt details only in the Supplementary Appendix",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean accuracy over 8 languages, synthetic test set",
+    "value": 0.939,
+    "n_items": null,
+    "location": "Table 1, block GPT-4 Turbo (Base Model) / Synthetic Examples Dataset, row Overall",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "synthetic and hand-filled scanned CHA SDoH questionnaires processed with Azure Document Intelligence; availability not stated"
+  },
+  "cost": {
+    "est_calls": 200,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Temperature 0, fixed seed, JSON mode; inputs are OCR markdown from Azure Document Intelligence (extra dependency). Fine-tuned GPT-3.5 is the main subject."
+}

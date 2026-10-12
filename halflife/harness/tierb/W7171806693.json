@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7171806693",
+ "title": "Tendencias en la evaluación automática de accesibilidad en contenidos educativos digitales: una revisión sistemática de la literatura",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4o; GPT-4-Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Anexo, comparison table of reviewed studies: \"He, Huq y Malek (2025) ... grandes modelos de lenguaje (GPT-4o)\"; \"Kumar, Padath y Wang (2025) ... Grandes modelos de lenguaje (GPT-4-Turbo)\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "This is a systematic literature review; it does not run any model of its own."
+ },
+ "claim": {
+  "metric": "none (mentions only as attributes of two third-party reviewed papers)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "PRISMA-style review of digital-accessibility-evaluation literature; the summary table itself is printed in the Anexo"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Systematic literature review (revision sistematica de la literatura); GPT-4o and GPT-4-Turbo appear only as the tools reportedly used by two OTHER cited studies (He, Huq & Malek 2025; Kumar, Padath & Wang 2025) inside a summary table, not as anything this review's own authors ran themselves."
+}

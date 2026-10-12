@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7127563356",
+ "title": "Percepciones sobre el uso de IA en el periodismo vasco y su integración en los medios",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"se ha utilizado ChatGPT (GPT-4-turbo, marzo de 2025)...para mejorar la claridad del texto...utilizada para generar la Figura 14\" (methodology note)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Writing/figure-generation assistance disclosure; the paper itself is a survey of Basque journalists' AI-tool usage, not an LLM benchmark."
+ },
+ "claim": {
+  "metric": "none for GPT-4-turbo (the paper's numeric results, e.g. ChatGPT used weekly by 40.1% of surveyed journalists, describe human respondents' self-reported tool usage, not any LLM's task performance)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "504 survey interviews with Basque journalists (own survey instrument)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A social-science survey of journalists' AI adoption; GPT-4-turbo is disclosed only as the authors' own manuscript-preparation aid. The paper's percentages are about how often human journalists report using tools like ChatGPT, not a model-performance claim."
+}

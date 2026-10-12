@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4396914156",
+  "title": "AgentClinic: a multimodal agent benchmark to evaluate AI in simulated clinical environments",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Appendix C: 'GPT-4o (gpt-4o-2024-05-13)'; Section 3.1: 'GPT-4o 34.2% +- 3.4' on AgentClinic-MedQA; 'for the patient, measurement, and moderator agent we use GPT-4' (gpt-4-0613)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A.1 (agent descriptions), Appendix I (case file structure); no complete agent system prompts in the text",
+    "note": "Multi-turn simulation: doctor agent gets N=20 interactions with patient and measurement agents."
+  },
+  "claim": {
+    "metric": "diagnostic accuracy",
+    "value": 34.2,
+    "n_items": 215,
+    "location": "Section 3.1 / Figure 2, AgentClinic-MedQA (215 cases)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://agentclinic.github.io/ (cases derived from MedQA)"
+  },
+  "cost": {
+    "est_calls": 13000,
+    "tier": "high"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Patient, measurement and moderator agents are GPT-4 (gpt-4-0613), retired 2024-09-13; the doctor-agent number cannot be reproduced with the original counterpart agents."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7162149911",
+ "title": "Refining and Reusing Annotation Guidelines for LLM Annotation",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-5 (gpt-5-2025-08-07)",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "Sec.4.4: \"GPT: gpt-5-2025-08-07 with reasoning_effort in {low, high}\"; results table NCBI(791): \"GPT-5 3 0.45 0.48 0.46 378\" (iters, P, R, F1, TP) for simple prompting."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Fig.5 (\"SYSTEM INSTRUCTION: You are an expert AI for text annotation...\" prompt template)",
+  "note": "Iterative guideline-moderation loop (the paper's main contribution) is agentic/multi-call; the simple-prompting (S) condition needs only one GPT-5 call per item."
+ },
+ "claim": {
+  "metric": "F1, simple-prompting NER, NCBI Disease",
+  "value": 0.46,
+  "n_items": 791,
+  "location": "Table 1, NCBI(791), row GPT-5, simple-prompting (S) columns (P0.45 R0.48 F1 0.46)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "NCBI Disease Corpus, BC5CDR, BioRED (standard public biomedical NER benchmarks)"
+ },
+ "cost": {
+  "est_calls": 791,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Exact snapshot pinned; prompt template fully printed (Fig.5) with a literal system-instruction excerpt. The simple-prompting baseline (S) is the cheapest fully-specified condition; the guideline-refinement (M) condition needing multiple GPT-5 calls per iteration is more expensive but uses the same base template."
+}

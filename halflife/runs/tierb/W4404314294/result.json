@@ -1,0 +1,65 @@
+{
+  "wid": "W4404314294",
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLMs in Disaster Response",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 0.817,
+  "original_location": "Table II (Results from No Prompting), row GPT-4 Turbo, column 1st Index (81.70%)",
+  "reexecution": {
+    "mean_over_seeds": 0.8189125295508274,
+    "per_seed": {
+      "0": {
+        "value": 0.8241134751773049,
+        "n": 707,
+        "ci95": [
+          0.7957446808510639,
+          0.8524822695035461
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.8170212765957446,
+        "n": 707,
+        "ci95": [
+          0.7886524822695036,
+          0.8454255319148934
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.8156028368794326,
+        "n": 707,
+        "ci95": [
+          0.7872340425531915,
+          0.8439716312056738
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 6
+  },
+  "prepare": {
+    "wid": "W4404314294",
+    "n_items": 707,
+    "n_requests": 2121,
+    "seeds": 3,
+    "est_usd": 27.24,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 0.817
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "Temperature 0.0 instead of the (unstated, presumably default) sampling temperature used to obtain five distinct completions; 'first index' = the single completion per seed.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.8189125295508274,
+    "delta": 0.0019125295508274354,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "wid": "W4415973405",
+  "title": "Dual-Model LLM Ensemble via Web Chat Interfaces Reaches Near-Perfect Sensitivity for Systematic-Review Screening: A Multi-Domain Validation with Equivalence to API Access",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "reasoning_effort": "medium",
+      "max_tokens": 32768
+    },
+    "params_source": "paper Methods ('We configured API settings to align with the default settings (Gemini: temperature = 1.0; OpenAI: reasoning effort = medium)'); max_tokens assumed - a batch of up to 85 citations has to come back as a markdown table, and a reasoning model also bills hidden tokens",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 736,
+    "subset_rule": "all 736 titles and abstracts (348 included / 388 excluded by the Cochrane authors), screened review by review in the batch sizes of Table 1: 18 prompts per run (14 reviews in one batch, SR05 and SR14 split in two)",
+    "approximation": "Not runnable as configured: the 736 citations are not published, the system prompt is not printed, and the reference standard used for the headline numbers is the authors' adjudicated revision of the Cochrane labels. The item unit is also a batch, not a citation: one call carries up to 85 title/abstract pairs and returns one markdown table, so per-citation scoring happens after parsing that table."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "16 Cochrane systematic reviews (Cochrane Library, Issue 6, May-June 2025; references [11-26], listed by title in the supplementary material). For each review the authors took the citations classified 'included' or 'excluded' after full-text assessment from the review's EndNote library and retrieved titles and abstracts for them.",
+    "config_or_split": "736 citations across the 16 reviews, 2 to 144 records per review",
+    "filter": "studies marked 'ongoing' or 'awaiting classification' omitted; citations whose abstract could not be retrieved automatically omitted",
+    "fields": {
+      "input": "title and abstract",
+      "options": "the review's PICOS eligibility criteria, taken from its methods section",
+      "label": "included / excluded by the Cochrane authors, after the paper's own adjudication",
+      "id": "review id + record id"
+    },
+    "license": "the Cochrane reviews are subscription content; the assembled dataset is not released",
+    "access_checked": false,
+    "size_mb": null,
+    "file_url": null,
+    "access_note": "Nothing to fetch. Data availability statement: 'The datasets used and analysed in this study are available upon reasonable request.' - so the citation set, the extracted PICOS criteria and the adjudicated labels exist only with the authors. Rebuilding them would mean re-extracting 736 records from 16 Cochrane reviews and re-deriving the criteria, which is a different study."
+  },
+  "prompt": {
+    "system": "not printed in the paper",
+    "user_template": null,
+    "placeholders": {
+      "criteria": "the review's PICOS eligibility criteria, extracted by the authors from its methods section",
+      "batch": "up to 85 title/abstract pairs"
+    },
+    "few_shot": "none (zero-shot)",
+    "source_location": "Methods, 'Prompting and Screening Workflow': a zero-shot system prompt instructing the model to act as an expert systematic reviewer screening titles and abstracts against the eligibility criteria, to classify each citation as include, exclude or full-text review, to give a single-sentence justification and to format the output as a machine-readable markdown table; batch sizes per review in Table 1",
+    "verbatim": "none: the paper describes the prompt but does not quote it, and points to the authors' earlier preprint ('Scaling the Prompt', medRxiv 2025.09.02.25334159, reference [10]) 'for more details'. The PICOS block that fills most of the prompt is per-review material that is also not printed.",
+    "placeholders_paper": {
+      "criteria": "the eligibility criteria",
+      "batch": "the batch of titles and abstracts"
+    }
+  },
+  "output": {
+    "parse": "free text (a markdown table: one row per citation with the label include / exclude / full-text review and a one-sentence justification)",
+    "postprocess": "rows are matched back to citations; for the sensitivity cell, 'include' and 'full-text review' both count as positive",
+    "parse_paper": "same; the paper reports occasional non-completed outputs, which were re-run in a fresh session"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Sensitivity: TP / (TP + FN) against the human reference standard, where a citation counts as positive if the run labelled it 'Include' or 'Full-text'.",
+    "judge": "none",
+    "original_value": 87.3,
+    "original_location": "Results table, row 'GPT-5 R1 API': 288 / 42 / 264 / 142, sensitivity 87.3% (83.2-90.7), specificity 65.0% (60.2-69.7); the duplicate run R2 gives 87.9%",
+    "bootstrap_unit": "citation",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 54,
+    "est_usd": 18.0,
+    "tier": "mid",
+    "cost_note": "The protocol screens in batches, so one run is 18 calls, not 736: about 40k input tokens per batch plus a long table and hidden reasoning tokens at gpt-5 prices, roughly $6 a run. Three seeds (the harness convention for a mid-tier paper) are 54 calls; the paper's own design is two duplicate runs per modality and the cited cell is its Run 1."
+  },
+  "open_points": [
+    "items: the 736 titles and abstracts are 'available upon reasonable request' only, and this project resolves missing material from the public record alone. Rebuilding the set from the 16 Cochrane reviews (subscription content) and re-extracting each review's PICOS criteria would be our own dataset, not theirs.",
+    "prompt: the system prompt is described but never quoted, so there is nothing to copy verbatim; the earlier preprint it refers to would at best give a related prompt, not the one behind this table.",
+    "reference standard: the headline numbers use the authors' adjudicated labels (18 records reclassified under criterion 1, 23 examined under criterion 2), not the original Cochrane EndNote classifications; the unadjudicated comparison is only in the supplementary material.",
+    "the confusion counts of the cited row (288 + 42 positives = 330, 264 + 142 negatives = 406) do not match the dataset composition stated in the Methods (348 included, 388 excluded), so the positive class behind the 87.3% is not pinned down by the text."
+  ],
+  "notes": "The API condition is genuinely reproducible in principle - the paper deliberately runs a matched API arm next to the web-GUI arm, and gpt-5-2025-08-07 with reasoning effort medium is fully specified - so the blocker is the unpublished dataset and prompt rather than the access modality. Deadline 12/11 in the triage list."
+}

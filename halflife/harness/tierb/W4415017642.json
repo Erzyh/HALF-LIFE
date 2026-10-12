@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4415017642",
+  "title": "RAGXplain: From Explainable Evaluation to Actionable Guidance of RAG Pipelines",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "B",
+    "evidence": "\"For the high-volume instance-level judging (Section 3.3), we utilized GPT-5 mini (gpt-5-mini-2025-08-07)\" (Sec. 4.1); snapshot and reasoning.effort=minimal in Table 4 (Appendix D)."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix A.1-A.7 (per-metric judge prompts), A.8-A.9 (insight/action prompts)", "note": "Judge prompts printed in full as JSON-structured templates."},
+  "claim": {
+    "metric": "Kendall tau between judge scores and trained-annotator labels (Context Recall)", "value": 0.95, "n_items": 100, "location": "Table 1 (Sec. 3.2), column Context Recall; 100 WixQA-ExpertWritten test records, 600 metric labels",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {"public": "partial", "source": "WixQA-ExpertWritten benchmark (Cohen et al., 2025) is public; the 100-record annotator labels and the FlashRAG pipeline outputs that were judged are not printed and no release is stated"},
+  "cost": {"est_calls": 1800, "tier": "low"},
+  "blockers": ["data_closed"],
+  "notes": "The live model is the judge inside RAGXplain; Table 1 validates that judge against two annotators. Reproducing tau needs the annotator labels and the exact RAG outputs (retrieved contexts and answers) that were scored, both produced by the pipeline code. Judge sampling parameters were left at API defaults."
+}

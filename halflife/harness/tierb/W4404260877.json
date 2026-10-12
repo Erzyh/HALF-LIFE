@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404260877",
+  "title": "VipAct: Visual-Perception Enhancement via Specialized VLM Agent Collaboration and Tool-use",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Appendix A: 'For main experiments, we use the gpt-4o-2024-05-13 model from Azure OpenAI API ... temperature to 0'; Table 2 row VIPACT (Ours): average 73.79; Zero-shot 63.74"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix J 'Prompt Design' (orchestrator initial prompt and three specialised-agent prompts)",
+    "note": "zero-shot baseline uses the Blink codebase prompts, not printed here"
+  },
+  "claim": {
+    "metric": "accuracy (%), average over 10 Blink validation sub-tasks",
+    "value": 73.79,
+    "n_items": 1368,
+    "location": "Table 2, row VIPACT (Ours), column Average",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Blink validation set, 10 sub-tasks (Table 6 counts: 135+120+124+150+130+139+143+122+172+133); MMVP (300 questions)"
+  },
+  "cost": {
+    "est_calls": 12000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "VipAct is a multi-agent loop that also calls open vision experts (Depth-Anything-V2, SAM, YOLOv8, CLIP) and image-processing tools; re-implementation from the printed prompts is substantial. Simpler alternative: Table 2 zero-shot GPT-4o 63.74, but that prompt comes from the Blink repository.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The 73.79 average needs the full VipAct loop: orchestrator and three specialised agents (prompts in Appendix J, Algorithm 1) plus Depth-Anything-V2-Small, SAM, YOLOv8 and CLIP ViT-B/32 tool wrappers with Python code execution; the wrappers' input/output formats are not printed, so the pipeline must come from the authors' code, which the paper does not link. Fallback if the code cannot be located: the Table 2 zero-shot row (63.74) uses the Blink codebase prompt, which the BLINK release ships as a per-item prompt field. Either way, gpt-4o-2024-05-13 at temperature 0, three runs averaged, over the 1,368 Blink validation items.",
+    "approximation": "No repository URL in the paper; tool wrapper behaviour reconstructed from the description would make the agentic number only loosely comparable.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

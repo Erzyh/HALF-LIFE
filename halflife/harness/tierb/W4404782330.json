@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404782330",
+  "title": "Multi-hop Evidence Pursuit Meets the Web: Team Papelo at FEVER 2024",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "We implement Algorithm 1 using GPT-4o (gpt-4o-2024-05-13, seed 42) as the LLM, T5 (t5-large) as the sequence-to-sequence model, and Google as the web search engine (Section 4)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (prompts for GetFirstQuestion, GetNextQuestion, LLMAnswer, LLMVerdict and AllAtOnce)",
+    "note": "The LLM+LLM row uses GPT-4o for all question generation, avoiding the authors' fine-tuned T5."
+  },
+  "claim": {
+    "metric": "AVeriTeC score (lambda=0.25)",
+    "value": 0.385,
+    "n_items": 200,
+    "location": "Table 2, row LLM+LLM (first 200 examples of the AVeriTeC dev set)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AVeriTeC dev set (public); evidence retrieved by live Google search and scraped with trafilatura"
+  },
+  "cost": {
+    "est_calls": 9000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gap: live web search results drift, and the official AVeriTeC scorer is needed. The submitted system (0.486 on the full dev set, Table 3) relies on an author-fine-tuned T5 whose release is not stated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Live web retrieval drifts and the official scorer is external, but both are public: run Algorithm 1 in the LLM+LLM configuration (all question generation by gpt-4o-2024-05-13, seed 42) with the Appendix B prompts, Google search and trafilatura scraping on the first 200 AVeriTeC dev claims, and score with the shared-task AVeriTeC scorer (Schlichtkrull et al. 2023 baseline release, lambda=0.25) against Table 2 (0.385).",
+    "approximation": "Search results at run time differ from mid-2024; Google API access needed; scorer thresholds as released.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

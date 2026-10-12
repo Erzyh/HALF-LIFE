@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402856762",
+  "title": "ChatQA 2: Bridging the Gap to Proprietary LLMs in Long Context and RAG Capabilities",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 4: 'We compare our models against SOTA long context models: 1) GPT-4-Turbo-2024-04-09 (128K context window) (OpenAI, 2023)'; Table 2: 'GPT-4-Turbo-2024-04-09 33.16 17.62 19.29 77.73 18.00'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Benchmark prompts not printed (InfiniteBench, LongBench/SCROLLS, ChatRAG Bench conventions)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "InfiniteBench En.MC accuracy",
+    "value": 77.73,
+    "n_items": 229,
+    "location": "Table 2, row GPT-4-Turbo-2024-04-09, column En.MC (Avg 33.16)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "InfiniteBench (HF), LongBench/SCROLLS subsets, ChatRAG Bench"
+  },
+  "cost": {
+    "est_calls": 687,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Inputs exceed 100K tokens, so even 229 items cost about $1 per call. Whether the GPT-4-Turbo rows were run by the authors or copied from prior work is not stated."
+}

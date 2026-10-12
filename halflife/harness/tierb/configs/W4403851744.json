@@ -1,0 +1,74 @@
+{
+  "wid": "W4403851744",
+  "title": "MedQA-CS: Objective Structured Clinical Examination (OSCE)-Style Benchmark for Evaluating LLM Clinical Skills",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.9,
+      "max_tokens": 2048,
+      "top_p": 1.0,
+      "judge_temperature": 0.0
+    },
+    "params_source": "paper Sec. 3 Experimental Settings (RQ2 subject runs: official API defaults with temperature 0.9; RQ1 examiner runs: temperature 0); max_tokens assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 1667,
+    "subset_rule": "all (1,667 instruction-input-output triplets over the four sections InfoGatherQA, Physical Exam, Closure, Diagnosis)",
+    "approximation": "the examiner is the same live snapshot (paper: 'MedExamLLM (GPT-4)', resolved to gpt-4-turbo-2024-04-09); section-score scaling and the InfoGatherQA examiner configuration must be settled (open_points); single run at temperature 0.9"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "bio-nlp-umass/MedQA-CS-Student (med-student.json: subject inputs) and bio-nlp-umass/MedQA-CS-Exam (med-exam.json: examiner ground truth); code github.com/bio-nlp/MedQA-CS",
+    "config_or_split": "med-student.json (all sections) + med-exam.json",
+    "filter": "none",
+    "fields": {
+      "input": "section-specific fields opening, chat_history, pre_closure, challenge_question (names taken from the Table 8 prompt slots; JSON keys unverified)",
+      "label": "examiner references: ground_truth question list, target exams, sample_closure_and_answer, target diagnosis book and additional_diagnosis (Table 9 slots; JSON keys unverified)",
+      "id": "case id + section + turn"
+    },
+    "license": "cc-by-nc-4.0",
+    "access_checked": true,
+    "size_mb": 20
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "### SECTION: InfoGatherQA\nYou are a doctor and your job is to take a detailed focused history is essential to the formulation of a differential diagnosis and workup plan later. You should begin by reading the history information and previous dialogue below carefully. Then decide which question to ask in order to get more detailed information of patient's concern and give the reason why you choose this question.\nYour question should include the following aspects if you think it is necessary: Chief complaint, Onset, Precipitating events, Progression,Severity on a scale, Location, Radiation, Quality, Alleviating/ exacerbating factors, Shortness of breath, Nausea/vomiting, Sweating, Previous episodes of similar pain, Severity, Frequency, Precipitating events, Alleviating factors, Associated symptoms, Past medical history, Current medications, Past surgical history, Family history, Occupation, Alcohol use, Illicit drug use, Duration of cocaine use, Last time of cocaine use, Tobacco, Duration, Amount, Sexual activity, Exercise, Diet, Drug allergies\nhistory:\n{opening}\nPrevious dialogue:\n{chat_history}\nYou should only ask one question at a time!!!\nYour output should in the json format:\n{{\"symptom\": \"The symptom you want to ask\", \"reason\": \"the reason why you choose this question\", \"question\": \"the question you ask, you should ask one question at a time\"}}\n\n### SECTION: Physical Exams\nYou are a doctor and want to figure out what the physical exam you have to do to physical test the patient's symptoms appear in the opening and previous dialogue with patient. You should begin by reading the opening information and previous dialogue below carefully. Then decide which physical exam and corresponding maneuver should take:\nPhysical exams should be choose from the following component: Neck, Chest, Heart, Abdomen, Extremities, VS, CV, Pulmonary, Back, Hips, Neuro, HEENT, Skin,\nYou should only choose the physical exams that mentioned in the opening and previous dialogue and also output the reason why you choose this physical exam\nopening:\n{opening}\nPrevious dialogue:\n{chat_history}\nYour output should in the following format, you may output one or more physical exams:\n{{\"exam1\": {{\"physical exam\": \"the exam you choose\", \"maneuver\": \"the maneuver corresponding to exam\", \"reason\": \"the reason you choose this exam\"}},\"exam2\": {{\"physical exam\": \"the exam you choose\", \"maneuver\": \"the maneuver corresponding to exam\", \"reason\": \"the reason you choose this exam\"}}, ...}}\nOutput:\n\n### SECTION: Closure\nYou are a medical student who is taking the USMLE. You have already taken the first two parts patient encounter and physical exam. The current section is called closure. There are two parts of this section, writing the closure and answer the question from the patient.\nFor both parts, you should response based on previous information and show comfort to the patient or In the first part, your job is to write a brief closure to your patient based on the\nopening, previous dialogue and physical examinations. Your closure should includes the following:\n1. Briefly summarize the history and physical findings.\n2. Briefly discuss the diagnostic possibilities.\n3. Do not give a definitive diagnosis.\n4. Briefly explain the planned diagnostic workup.\n5. Avoid complicated medical terms.\n6. Make the closure as concise as possible\nRemember you will not receive the question from patient when you writing the closure!!!\nopening:\n{opening}\nPrevious dialogue:\n{chat_history}\nphysical examinations:\n{pre_closure}\nHere is an example of the closure:\nAs an example, if a patient's chief complaint is chest pain, the question that the case embodies is, what is causing the chest pain? In this instance, closure should include the formulation of a differential diagnosis consisting of the most likely causes of the patient's chest pain along with their associated workups. By contrast, if the patient has a history of diabetes mellitus and is presenting for follow,up, the case is posing two questions: First, is the patient's diabetes well controlled? And second, is the patient experiencing complications such as diabetic retinopathy or nephropathy? Here, both questions should he addressed, and the workup should aim to determine whether the diabetes is well controlled (HhA1c) as well as to look for complications such as nephropathy (urine microalbuminuria).\nIn the second part, answer the following question. Your answer should based on the previous information including opening, previous dialogue, physical examination, and the closure you write in the part 1:\n{challenge_question}\nOutput:\n\n### SECTION: Differential Diagnosis\nYou are a doctor and want to write a differential diagnosis to your patient based on the history, the answer provided by patient during QA, and the result of physical examination. In writing the differential diagnosis, you should list your three possible diagnoses and the historical and physical exam data that support them. You should list these three diagnoses in order of probability, from the most to the least probable, so the first diagnosis is the most essential diagnosis.\nHere is the patient's information:\n{opening}\nYou output should in the following format:\n{{\"diagnosis1\": {{\"diagnosis\": \"name of the diagnosis\", \"Historical Findings\": \"a list that contains at most 3 historical data that support this diagnosis, output N/A if you think there is no historical findings support the diagnosis\", \"Historical reasons\": \"a list that contains the reason corresponding to the Historical Findings\", \"Physical exam data\":, \"a list that contains at most 3 Physical exam data that support this diagnosis, output N/A if you think there is no physical exam results support the diagnosis\", \"Physical exam data reasons\": \"a list that contains the reasons why you choose this physical exam result as support to each physical exam data\" }}, \"diagnosis2\": {{\"diagnosis\": \"name of the diagnosis\", \"Historical Findings\": \"a list that contains at most 3 historical data that support this diagnosis, output N/A if you think there is no historical findings support the diagnosis\", \"Historical reasons\": \"a list that contains the reason corresponding to the Historical Findings\", \"Physical exam data\":, \"a list that contains at most 3 Physical exam data that support this diagnosis, output N/A if you think there is no physical exam results support the diagnosis\", \"Physical exam data reasons\": \"a list that contains the reasons why you choose this physical exam result as support to each physical exam data\" }}, \"diagnosis3\": {{\"diagnosis\": \"name of the diagnosis\", \"Historical Findings\": \"a list that contains at most 3 historical data that support this diagnosis, output N/A if you think there is no historical findings support the diagnosis\", \"Historical reasons\": \"a list that contains the reason corresponding to the Historical Findings\", \"Physical exam data\":, \"a list that contains at most 3 Physical exam data that support this diagnosis, output N/A if you think there is no physical exam results support the diagnosis\", \"Physical exam data reasons\": \"a list that contains the reasons why you choose this physical exam result as support to each physical exam data\" }} }}\nOutput:",
+    "placeholders": {
+      "SECTION": "the runner selects the block matching items.section",
+      "opening": "case doorway information / history (med-student.json)",
+      "chat_history": "previous dialogue for the turn (med-student.json)",
+      "pre_closure": "physical examination text preceding closure (med-student.json)",
+      "challenge_question": "patient's challenge question (med-student.json)",
+      "{{ }}": "doubled braces are literal braces of the JSON output format (Python .format escaping kept as printed)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix C, Table 8 (MedStuLLM prompts); examiner prompts in Table 9 (and Table 10 configurations for InfoGatherQA)",
+    "verbatim": "full (arrow line-wrap glyphs removed; the four section prompts are concatenated under '### SECTION:' headers that are not part of any prompt)"
+  },
+  "output": {
+    "parse": "json (InfoGatherQA, Physical Exams, Diagnosis) or free text (Closure); each output is then scored by the examiner prompt of Table 9 for its section, which returns a JSON with score fields",
+    "postprocess": "InfoGatherQA: examiner score 0/1 per question, section score = proportion x 100; Physical Exams and Closure: examiner 'overall score' (0-100); Diagnosis: examiner 'total score' divided by the maximum possible points, x 100"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Avg. = mean of the four section scores (InfoGatherQA, Physical Exam, Closure, Diagnosis), each the mean examiner score over that section's items on a 0-100 scale",
+    "judge": "llm:gpt-4-turbo-2024-04-09, prompt location Appendix C Table 9 (per-section examiner prompts; temperature 0)",
+    "original_value": 59.89,
+    "original_location": "Table 3, row GPT-4, column Avg.",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 3334,
+    "est_usd": 100.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "aux_model_dead: the repository's examiner (main.py default) is gpt-4-1106-preview at temperature 0, which is retired; the paper says 'MedExamLLM (GPT-4)'; a human must approve a stand-in examiner snapshot (the record's gpt-4-turbo-2024-04-09)",
+    "Diagnosis section denominator ('maximum possible points') and the InfoGatherQA Table 10 configuration used for Table 3 are not printed, and the repository main.py does not contain the aggregation",
+    "data verified: HF bio-nlp-umass/MedQA-CS-Student med-student.json (13.9 MB) carries per-row prompt.template with input variables (sections qa / physical_exam / closure / diagnosis, 44 cases, unique_id) and MedQA-CS-Exam med-exam.json (19.7 MB) the examiner templates and ground truth; a hook (per-row template render + examiner judge stage) is feasible once the two points above are settled"
+  ],
+  "notes": "1,667 subject calls plus 1,667 examiner calls, ~2K input tokens each (~$0.03 per call). Section counts: the four sections sum to 1,667 items; the Avg. is over section means, not over items. || [hooks_3 pass 2026-09-07] no hook: dead examiner model and unprinted aggregation constants."
+}

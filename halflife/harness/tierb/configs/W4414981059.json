@@ -1,0 +1,76 @@
+{
+  "wid": "W4414981059",
+  "title": "Benchmark It Yourself (BIY): Preparing a Dataset and Benchmarking AI Models for Scatterplot-Related Tasks",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "temperature": 1.0,
+      "reasoning_effort": "medium",
+      "max_tokens": 4096
+    },
+    "params_source": "paper Sec. 3.2 ('o3-2025-04-16 (o3) and o4-mini-2025-04-16 (o4-mini) with the temperature set to 1 and reasoning effort to medium'). o3 is a reasoning model, so the runner drops temperature and sends max_completion_tokens plus reasoning_effort; max_tokens is ours.",
+    "seeds": 1
+  },
+  "task": {
+    "type": "other",
+    "n_items": 1725,
+    "subset_rule": "the benchmark sample of Sec. 3.2: 115 data samples (25 Gaussian blobs, 25 Gaussian blobs with background noise, 50 Gaussian blobs with outliers, 7 random patterns, 8 relationships) x 15 chart designs = 1,725 scatterplots, task = cluster counting, prompting strategy = few-shot",
+    "approximation": "Blocked before an approximation can be chosen - see open_points."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/feedzai/biy-paper (Apache-2.0): dataset/input/images (18,921 PNGs), dataset/input/metadata (18,921 JSONs with cluster counts, bounding boxes and outlier coordinates), dataset/input/datasets (371 data samples), plus the Vega-Lite + Playwright generation pipeline and the benchmark scripts",
+    "config_or_split": "the 1,725-image benchmark sample drawn by dataset/sample_dataset.py from the 18,921-image dataset",
+    "filter": null,
+    "fields": {
+      "input": "the scatterplot PNG (image input, detail level 'high' for all OpenAI models)",
+      "options": null,
+      "label": "cluster_count from the matching metadata JSON",
+      "id": "<generator>+<params>+<aspect_ratio>+<scale_factor>"
+    },
+    "license": "Apache-2.0 (repository LICENSE)",
+    "access_checked": true,
+    "size_mb": null,
+    "file_url": null,
+    "label_map": null,
+    "access_note": "GET on 2026-09-19: the repository is reachable and dataset/input/images and dataset/input/metadata each list 18,921 files. Nothing downloaded - see the open point on the 50 MB limit."
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "How many clusters are there in the scatterplot? Answer with a number in curly brackets, e.g., {4}.",
+    "placeholders": {
+      "image": "the scatterplot PNG, sent as an image content part alongside this text - NOT expressible in the runner's text-only mini-language"
+    },
+    "few_shot": "k = 6 worked examples in turn-based conversation format, 'randomly selected from the complete dataset, before it was sampled, to represent each of the benchmarked data generators (plus an extra one so that the few-shot prompts would include two examples with outliers)' (Sec. 3.2). WHICH six is not stated in the paper.",
+    "source_location": "Sec. 3.2, the first of the five verbatim zero-shot task prompts",
+    "verbatim": "full for the zero-shot instruction (extraction repairs only: the curly-bracket example survived intact, the surrounding bullet formatting dropped). Note a discrepancy worth recording: the repository's benchmark/prompts.py carries the same sentence with '{9}' as the example rather than the paper's '{4}'. The few-shot wrapper - how the six examples are laid out as prior turns - is described but not printed."
+  },
+  "output": {
+    "parse": "regex \\{(\\d+)\\}",
+    "postprocess": "Sec. 3.3: 'The raw responses were processed to extract the counts ... according to the prompts'; between 70.2% and 99.95% of OpenAI responses were counted as valid per model, so a validity rule is part of the protocol and is not spelled out"
+  },
+  "metric": {
+    "name": "mean_abs_error",
+    "definition": "MAE between the predicted and annotated cluster count over the 1,725 benchmark scatterplots.",
+    "judge": "none",
+    "original_value": 0.03,
+    "original_location": "Sec. 3.3.1: 'the best value for cluster counting is 0.03 (o3 when few-shot prompted), while the worst is 1.46 (Flash-Lite (Thinking) when one-shot prompted)'",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 1725,
+    "est_usd": 80.0,
+    "tier": "high",
+    "est_usd_prepare": null,
+    "prepare_note": "not prepared. Rough order: 1,725 calls each carrying 7 high-detail images (6 few-shot examples plus the query) at o3's $2/$8 per 1M, plus hidden reasoning tokens. The paper's own total was ~$666 for 258,750 requests across 10 models and all 5 tasks x 3 strategies, i.e. well under a cent per request via the Batch API."
+  },
+  "open_points": [
+    "Image input. Every item is a scatterplot PNG; the runner's mini-language builds text-only messages, so a hook's render() would have to emit image content parts with base64 data URIs (as the Tier A TURTLEAI adapter does) and the request and call archives would then carry inline images. That is a real but non-trivial build, and it needs a decision because it changes what the archives contain.",
+    "The 50 MB download limit. The 1,725 benchmark images are individual files in dataset/input/images (18,921 in total); fetching only the sample still means ~1,725 separate raw.githubusercontent requests and, at typical optimized-PNG sizes, plausibly more than 50 MB. Regenerating them instead means running the repo's Vega-Lite + Playwright + Oxipng pipeline locally.",
+    "The sample is not identified in the paper. Sec. 3.2 names the composition (115 data samples x 15 chart designs) but not which 115; the draw lives in dataset/sample_dataset.py. Likewise the six few-shot examples are 'randomly selected' with no ids given, and the few-shot turn layout is described rather than printed - so the exact prompt for the claim cell cannot be reconstructed from the paper.",
+    "Prompt text discrepancy between the paper and the released code (paper '{4}', repository prompts.py '{9}'). Minor, but it has to be resolved before the comparison is called like-for-like."
+  ],
+  "notes": "Everything about this paper is pinned except the parts that matter for a text-only batch runner: all 10 snapshots are named exactly, temperature and reasoning effort are stated, the five zero-shot prompts are printed verbatim, the dataset and the whole pipeline are public under Apache-2.0, and the run window (29 July - 5 August 2025) and total cost are reported. The claim cell is also a near-ceiling value (MAE 0.03 means o3 miscounts about 1 scatterplot in 30), so it is one-sided: it can only get worse. If the image-input hook is built once it would unlock several other cells of this paper and probably other multimodal Tier B papers too, which is the argument for treating this as an infrastructure decision rather than a per-paper one."
+}

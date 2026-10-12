@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4404310794",
+  "title": "Good Parenting is all you need -- Multi-agentic LLM Hallucination Mitigation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Other models included gpt-4o-2024-05-13, gpt-4-turbo-2024-04-09 & gpt-4-1106-preview\" (Methods); \"advanced AI models such as Llama3-70b and GPT-4 variants ... successfully revised outputs in 85% to 100% of cases\" (Abstract)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Methods (\"Write a blog about the Danish artist Flipfloppidy\" quoted verbatim); reviewing-agent system prompt not quoted", "note": "4,900 test runs total (100 per primary/reviewing pair) across 7 models; full logs said to be on GitHub."},
+  "claim": {
+    "metric": "none printed specifically for gpt-4-turbo-2024-04-09 or gpt-4o-2024-05-13 (only a pooled 85-100% range for 'GPT-4 variants' as a group; precise per-model rates of 98%/86% and 55%/46% are given only for Llama3-70b and Mixtral-8x7b)", "value": null, "n_items": 700,
+    "location": "Abstract and Analysis section; 700 runs per model (100 runs x 7 pairing roles)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo-2024-04-09 (self and cross-model review)"
+  },
+  "data": {"public": "yes", "source": "GitHub repo (github.com/alanaqrawi/-AgenticAI-_Parents_is_all_you_need) with full interaction logs"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Short arXiv-style report. gpt-4-1106-preview (a dead OpenAI preview) is also used as one of the 7 models. Precise hallucination-detection/correction rates are only broken out in text for Llama3-70b and Mixtral-8x7b; the GPT-4 family's numbers are only given as a pooled range, so no single reproducible number is attributable to a specific live snapshot."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4414758400",
+  "title": "Mitigation of Gender and Ethnicity Bias in AI-Generated Stories through Model Explanations",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo; o4-mini (preliminary only)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 3.1: 'The experiments were performed using 3 LLMs: Claude 3.5 Sonnet, Llama 3.1 70B Instruct, and GPT-4 Turbo'; Table 1: 'GPT 4.0 Turbo Vanilla 51.5 48.5 40.0 44.0 16.0'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 3.2 (vanilla and baseline prompts printed verbatim; BAME steps described); occupation list in Appendix A.1 Table 4",
+    "note": "{occupation} takes the 25 BLS occupational groups."
+  },
+  "claim": {
+    "metric": "share of female characters (%) in vanilla-prompt stories",
+    "value": 51.5,
+    "n_items": 600,
+    "location": "Table 1, block GPT 4.0 Turbo, row Vanilla, column female (24 stories x 25 occupations)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "25 occupational groups printed (Appendix A.1); generated stories at the GitHub link in footnote 1"
+  },
+  "cost": {
+    "est_calls": 25,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Character gender/ethnicity were coded manually, but stories state them explicitly, so an automatic parser is feasible; temperature 0.7, top-k 50, top-p given. o4-mini appears only in a preliminary Table 3 (two occupations, ethnicity shares). Snapshot not stated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Character gender was coded manually, but the stories state gender explicitly (Sec. 3.2), so an automatic parser replaces the coding. Send the printed Vanilla prompt once per occupation (25 BLS groups, Appendix A.1) to gpt-4-turbo-2024-04-09 at temperature 0.7 with the stated top-p, parse the 24 stories per response for stated gender, and compute the female share over 600 characters vs Table 1 (51.5%).",
+    "approximation": "Automatic (or LLM-assisted) gender coding instead of manual coding; top-k is not an OpenAI parameter; snapshot not stated; stochastic generation.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

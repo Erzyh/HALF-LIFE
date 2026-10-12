@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4415145303",
+  "title": "Toward Scientific Reasoning in LLMs: Training from Expert Discussions via Reinforcement Learning",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o1 (12-17-24)",
+    "resolved": "o1-2024-12-17",
+    "role": "B",
+    "evidence": "Appendix Table 1: 'o1 Commercial 12-17-24'; Table 2: 'o1 71.41'; 'Sampling parameters (e.g., temperature, top-p) were kept default for all evaluations'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix 'Genome-Bench Evaluation Protocol' (system prompt described: <explanation> and <answer> tags, five choices a-e); verbatim text not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (%), Genome-Bench test",
+    "value": 71.41,
+    "n_items": 661,
+    "location": "Appendix Table 2, row o1",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Genome-Bench (3,332 questions; 661 test) at github.com/mingyin0312/RL4GenomeBench"
+  },
+  "cost": {
+    "est_calls": 661,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "The live_ids column lists only gpt-4-turbo, which builds the dataset (role A); o1-2024-12-17 and gpt-4o-2024-11-20 are evaluated subjects. o-series pricing puts 3 seeds in the high tier.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "The evaluation system prompt is only described (explanation/answer tags, five choices a-e, task-specific instructions per question; Appendix 'Genome-Bench Evaluation Protocol'), so its wording must come from the RL4GenomeBench repository, which also hosts the 661 test questions. Run o1-2024-12-17 with default sampling, parse <answer>, treat malformed outputs as wrong, and compare accuracy with 71.41 (Appendix Table 2).",
+    "approximation": "Default sampling (3 seeds); o-series cost.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/mingyin0312/RL4GenomeBench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

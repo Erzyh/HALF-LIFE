@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4402952718",
+  "title": "Evaluating Large Language Models on Spatial Tasks: A Multi-Task Benchmarking Study",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Section 3: 'models from OpenAI: gpt-3.5-turbo, gpt-4-turbo-2024-04-09, and gpt-4o'; Table 1 row 'gpt-4-turbo-2024-04-09 260 26 614 69.7' (scores 0/1/2 counts and weighted accuracy); temperature 1."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 3: system prompt 'You are a quiz assistant answering the following questions and outputting the results without any additional explanation.'; questions from the dataset",
+    "note": "Single answer collected per question; prompt-tuning round uses one-shot/CoT variants shown as system prompts."
+  },
+  "claim": {
+    "metric": "weighted accuracy (WA)",
+    "value": 69.7,
+    "n_items": 900,
+    "location": "Table 1, row gpt-4-turbo-2024-04-09 (n(s0)=260, n(s1)=26, n(s2)=614)",
+    "task_type": "other",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "900-task spatial benchmark on figshare (https://figshare.com/s/be55522f22bf761cfcab)"
+  },
+  "cost": {
+    "est_calls": 2700,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Answers are scored 0/1/2 by human reviewers with voting (code tasks by execution); reproducing WA needs re-scoring. Outputs are otherwise cheap.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The gap is the human 0/1/2 scoring with reviewer voting. Download the 900-question set with expert-validated answers from the figshare link (Sec. 10), run gpt-4-turbo-2024-04-09 with the printed system prompt at temperature 1, one answer per question. Score multiple-choice, true/false and objective-answer items automatically (normalized match to the reference = 2, else 0) and the subjective and code items with an LLM judge on the printed 0/1/2 rubric (code items by execution where possible); compute WA = (2 n2 + n1) / (2 N) and compare at the set level with 69.7 (n0=260, n1=26, n2=614).",
+    "approximation": "Automatic and LLM-judge scoring replaces the human reviewer votes, so the partial-credit (score 1) share will differ; the comparison is approximate.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

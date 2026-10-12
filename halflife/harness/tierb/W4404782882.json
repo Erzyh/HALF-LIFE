@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404782882",
+  "title": "A Systematic Survey and Critical Review on Evaluating Large Language Models: Challenges, Limitations, and Recommendations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Table 3: 'GPT-4-Turbo-2024-04-09 5 (3) 3 (3) 3 (3)' (LMSys Chatbot Arena rankings, cited); Section 4.x reports a small SAMSum ROUGE-1 experiment only in Figure 4."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not applicable (survey); Figure 4 experiment reuses prompts from Laskar et al. 2023 and Qin et al. 2023",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 4 (ROUGE-1 bars, no table values)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SAMSum, Chatbot Arena leaderboard"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey paper; the live IDs appear in a leaderboard table and a figure-only side experiment (which even names 'GPT-4o (2024-04-09)')."
+}

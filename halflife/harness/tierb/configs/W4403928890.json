@@ -1,0 +1,77 @@
+{
+  "wid": "W4403928890",
+  "title": "Getting in the Door: Streamlining Intake in Civil Legal Services with Large Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 512,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.3 ('provided in a prompt to GPT-4-turbo with the temperature set to 0'); max_tokens and top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 48,
+    "subset_rule": "all 48 scenario-jurisdiction pairs of dataset D1 (Table 1: 16 scenarios x 3 Missouri jurisdictions; 18 Accept, 25 Deny, 5 Question)",
+    "approximation": "Only the initial response (experiment E1) is scored; the follow-up conversations of dataset D2 are a separate qualitative study. The 16 scenarios, the three jurisdictions' intake rules and the system prompt would all have to be recovered before a run."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "dataset D1 is announced but not released: footnote 5 of the paper reads 'URL will be added to camera-ready paper'. The two repositories named in footnote 4 (github.com/lemmaLegalConsulting/docassemble-MOHUDEvictionProject and github.com/SuffolkLITLab/docassemble-ALToolbox) hold the application, not the evaluation data.",
+    "config_or_split": "D1, all 48 pairs",
+    "filter": null,
+    "fields": {
+      "input": "scenario",
+      "label": "decision",
+      "id": "scenario_jurisdiction"
+    },
+    "license": "MIT (both repositories)",
+    "access_checked": true,
+    "size_mb": 0,
+    "file_url": null,
+    "checks_2026_09_19": [
+      "both repositories exist and are public (HTTP 200)",
+      "the jurisdiction intake rules in the app are a placeholder file: docassemble/MOHUDEvictionProject/data/sources/placeholder_intake_criteria.yml, header comment '# These are placeholder rules', with entries for seven Missouri programs; the paper's rule lengths (3,792 / 1,437 / 1,030 characters for Eastern, Mid- and Western Missouri) do not match it",
+      "no file in either repository holds the 16 scenarios or their Accept/Deny/Question labels"
+    ]
+  },
+  "prompt": {
+    "system": "not printed in the paper; assembled at run time by docassemble.ALToolbox's IntakeQuestionList from an 'llm_role' instruction plus the jurisdiction's intake rules",
+    "user_template": "not printed; Sec. 4.4.1 says the pipeline used the developed instructions as the system message and 'the intake rules from one of the jurisdictions together with one of the scenarios' as the user message",
+    "placeholders": {
+      "rules": "the jurisdiction's intake rules (Sec. 3.2)",
+      "scenario": "the tenant's problem description (D1)"
+    },
+    "few_shot": "none (Sec. 4.3: 'giving examples led to hallucinations, so the prompt omits example replies')",
+    "source_location": "Sec. 4.3 and 4.4.1 describe the prompt; the text itself is only in the GitHub repositories",
+    "verbatim": "none: the paper prints no prompt text, and the current ALToolbox code builds the prompt at run time with 2026 defaults (the interview file asks for model gpt-5.2), so the 2024 wording used for the paper is not the wording a reader gets today"
+  },
+  "output": {
+    "parse": "label from set [accept, deny, question]",
+    "postprocess": "strip, lowercase; the paper captured the prediction plus a narrative explanation"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "weighted-average F1 over the three classes Accept / Deny / Question, weighted by class proportion; the runner implements macro_f1 and micro_f1 but not the proportion-weighted variant, so a hook score() would be needed",
+    "judge": "none",
+    "original_value": 0.82,
+    "original_location": "Table 3, row GPT-4-turbo, column Weighted average F1 (P 0.86, R 0.81, F1 0.82). The triage record points at Table 4, which is the same model broken down by jurisdiction (0.94 / 0.69 / 0.84).",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 144,
+    "est_usd": 1.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "Dataset D1 (48 scenario-jurisdiction pairs with Accept/Deny/Question labels) is not published: the paper's footnote 5 promises a camera-ready URL and neither linked repository contains it.",
+    "The prompt is not printed anywhere in the paper; the repository builds it at run time and its current version targets a 2026 model, so the 2024 wording cannot be recovered from the public record.",
+    "The jurisdiction intake rules that go into the prompt are a placeholder file in the public repository and do not match the character counts given in Sec. 3.2.",
+    "Metric gap: weighted-average F1 is not one of the runner's metric names."
+  ],
+  "notes": "GPT-4-turbo is the best of the eight models tested and was also the model on which the prompt was iteratively refined, which the authors name as a limitation (Sec. 6). A reproduction would have to reconstruct three artefacts at once (scenarios, labels, prompt), so no run configuration can be made binding."
+}

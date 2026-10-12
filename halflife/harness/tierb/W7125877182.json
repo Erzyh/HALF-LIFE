@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7125877182",
+  "title": "Assessing the Quality of Mental Health Support in LLM Responses through Multi-Attribute Human Evaluation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "'found that while GPT-4 Turbo performs most similarly' (related work); evaluated systems are GPT-4o, GPT-4o-mini, Gemini 2.0-Flash, Claude 3.5 Haiku, Llama 3.1 ... (Section 3)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 3, 'Prompt to the LLM Models' (system prompt printed)",
+    "note": "Psychiatrist-style system prompt; temperature 0.7, max 512 tokens."
+  },
+  "claim": {
+    "metric": "human rating overall (1-5)",
+    "value": 4.7,
+    "n_items": 500,
+    "location": "Table (row GPT-4o Closed, overall 4.70 +/- 0.26)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "500 conversations sampled from three public counseling datasets (e.g., Counsel Chat on HuggingFace)"
+  },
+  "cost": {
+    "est_calls": 1500,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "human_outcome"
+  ],
+  "notes": "Live id appears only in related work; subject models are unversioned GPT-4o/GPT-4o-mini and outcomes are multi-attribute human ratings."
+}

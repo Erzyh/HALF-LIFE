@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4415973405",
+ "title": "Dual-Model LLM Ensemble via Web Chat Interfaces Reaches Near-Perfect Sensitivity for Systematic-Review Screening: A Multi-Domain Validation with Equivalence to API Access",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "OpenAI GPT-5 Thinking (gpt-5-2025-08-07)",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "'OpenAI's GPT-5 Thinking (gpt-5-2025-08-07) has an October 2024 knowledge cutoff...we configured API settings...OpenAI: reasoning effort = medium'; results: 'GPT-5 R1 API 288 42 264 142 87.3% (83.2%, 90.7%) 65.0% (60.2%, 69.7%)'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods ('Prompting and Screening Workflow'): zero-shot system prompt instructing PICOS-based screening, include/exclude/full-text-review classification, single-sentence justification, markdown-table output; batch sizes per review in Table 1",
+  "note": "Prompt content and structure are thoroughly described (and PICOS criteria per review given), but the literal system-prompt text is not quoted verbatim."
+ },
+ "claim": {
+  "metric": "sensitivity (%) vs. Cochrane human reference standard, GPT-5 Thinking via API, Run 1",
+  "value": 87.3,
+  "n_items": 736,
+  "location": "Results table, row 'GPT-5 R1 API' (288/42/264/142 confusion counts, summing to 736; specificity 65.0% in the same row)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "16 Cochrane Library systematic reviews (Issue 6, May-June 2025), 736 titles/abstracts with published inclusion/exclusion decisions"
+ },
+ "cost": {
+  "est_calls": 736,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "The study deliberately runs a matched API condition alongside the GUI condition (2 models x 2 runs x 2 modalities), so the API numbers used here are not blocked by webui. A duplicate API run (R2) gives nearly identical results (87.9% sensitivity), and the GUI condition is separately reported for comparison."
+}

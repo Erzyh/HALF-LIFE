@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405914919",
+ "title": "Natural Language Processing and Machine Learning Applications For Assessment and Evaluation in Education: Opportunities and New Approaches",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo and GPT-4",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"OpenAI. (2023). GPT-4 Turbo and GPT-4. OpenAI. https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4\" (reference list only)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (reference-list citation only; no experiment in the extracted text)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (no experiment)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is a conceptual/discursive article on NLP/ML in educational assessment. 'GPT-4 Turbo' appears exactly once, in the reference list, citing OpenAI's own documentation page (dated 2023 by OpenAI, not by this paper's experiments). No in-text experiment uses a dated snapshot; resolved is left unresolved since there is no actual usage to date."
+}

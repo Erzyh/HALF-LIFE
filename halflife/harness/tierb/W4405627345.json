@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405627345",
+  "title": "Fake News Detection: Comparative Evaluation of BERT-like Models and Large Language Models with Generative AI-Annotated Data",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 6: \"we utilized GPT-4 Turbo as an annotator, which precluded its use as a classifier in our experiments\" (explaining why it was not evaluated as a classifier)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 2 (two-shot annotation illustration)",
+    "note": "Figure 2 illustrates the two-shot annotation prompt used to label the dataset, not a classifier-evaluation prompt; GPT-4 Turbo was never run as a classifier."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4 Turbo used only to annotate the 10,000-article dataset; explicitly excluded from the classifier comparison)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "10,000 articles from Google RSS feeds, GPT-4 Turbo-annotated and human-reviewed (Sec. 3.1.2, 4.1); not released as a public downloadable dataset per the paper's data availability statement"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo's only role is two-shot annotation of the 10,000-article fake/real news dataset (Fig. 2), later verified by humans. The paper explicitly states (Sec. 6) it excluded GPT-4 Turbo, Claude, and GPT-3.5/4 from the classifier comparison because GPT-4 Turbo had been used as the annotator, so there is no classifier-role number to reproduce."
+}

@@ -1,0 +1,31 @@
+\begingroup\scriptsize\setlength{\tabcolsep}{1.5pt}\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{>{\raggedright\arraybackslash}p{25mm}rrrr>{\raggedright\arraybackslash}p{24mm}rr}
+\toprule
+\textbf{stage} & \textbf{papers} & \shortstack[r]{\textbf{archived}\\\textbf{calls}} & \shortstack[r]{\textbf{cost}\\\textbf{(USD)}} & \shortstack[r]{\textbf{cost per}\\\textbf{paper}\\\textbf{(USD)}} & \textbf{provider} & \shortstack[r]{\textbf{deposit}\\\textbf{(MB)}} & \shortstack[r]{\textbf{deposit}\\\textbf{MB per}\\\textbf{paper}} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{stage} & \textbf{papers} & \shortstack[r]{\textbf{archived}\\\textbf{calls}} & \shortstack[r]{\textbf{cost}\\\textbf{(USD)}} & \shortstack[r]{\textbf{cost per}\\\textbf{paper}\\\textbf{(USD)}} & \textbf{provider} & \shortstack[r]{\textbf{deposit}\\\textbf{(MB)}} & \shortstack[r]{\textbf{deposit}\\\textbf{MB per}\\\textbf{paper}} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Tier A & 25 & 118,321 & 371.6 & 14.9 & OpenAI & 519 & 20.8 \\
+Tier B & 86 & 229,281 & 1,097.1 & 12.8 & OpenAI & 1,625 & 18.9 \\
+Tier B prompt variants & 2 & 2,148 & 10.5 & 5.2 & OpenAI & 17 & 8.5 \\
+P3 vendor-\allowbreak{}designated (gpt-\allowbreak{}5.6) & 74 & 70,393 & 224.6 & 3.0 & OpenAI & 408 & 5.5 \\
+P3 gpt-\allowbreak{}4.1 & 49 & 42,299 & 74.3 & 1.5 & OpenAI & 335 & 6.8 \\
+P3 open-\allowbreak{}weight (Together) & 67 & 80,593 & 40.5 & 0.6 & Together AI (+ OpenAI second stages) & 429 & 6.4 \\
+P3 Gemini 3.8 Flash (Google) & 67 & 82,295 & 92.8 & 1.4 & Google AI Studio (+ OpenAI second stages) & 483 & 7.2 \\
+Drift control (same snapshot) & 20 & 20,962 & 53.5 & 2.7 & OpenAI & 124 & 6.2 \\
+Seed-\allowbreak{}variance repeat (four conditions) & 80 & 70,460 & 124.7 & 1.6 & OpenAI, Together AI, Google AI Studio & 436 & 5.4 \\
+BF16 check (open-\allowbreak{}weight, dedicated endpoint) & 12 & 4,762 & 9.8 & 0.82 & Together AI dedicated endpoint (4x H100, billed per minute) & 48 & 4 \\
+Wording check (two rewordings, pinned model) & 36 & 41,196 & 99.9 & 2.8 & OpenAI & 245 & 6.8 \\
+Repository-\allowbreak{}based successor (five papers) & 5 & 6,640 & 25.4 & 5.1 & OpenAI & 61 & 12.1 \\
+Format-\allowbreak{}adaptation cases (three papers, two adaptations) & 6 & 3,394 & 22.0 & 3.7 & OpenAI & 24 & 3.9 \\
+Temperature check (four papers) & 4 & 9,290 & 54.5 & 13.6 & OpenAI & 70 & 17.4 \\
+Triage cross-\allowbreak{}judgement (60 verdicts, second reader) & 60 & 60 & 2.6 & 0.04 & OpenAI & 5 & 0.1 \\
+total &  & 782,094 & 2,303.8 &  &  & 4,829 &  \\
+\multicolumn{8}{>{\raggedright\arraybackslash}p{118mm}}{\textbf{incidents:} OpenAI credit exhaustion 4 times (client waits for auto-\allowbreak{}recharge); OpenAI account terminated once during bias-\allowbreak{}audit prompts, restored after appeal (about 30 h lost); Google Tier 1 quota (10K requests/\allowbreak{}day) until the paid tier changed; Together Cloudflare block without a User-\allowbreak{}Agent} \\
+\end{longtable}
+\endgroup

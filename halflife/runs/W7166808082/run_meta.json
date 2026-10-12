@@ -1,0 +1,161 @@
+{
+  "card_id": "W7166808082",
+  "run_date_utc": "2026-09-19",
+  "target_paper": {
+    "title": "TURTLEAI: Benchmarking Multimodal Models for Visual Programming in Turtle Graphics",
+    "doi": "10.18653/v1/2026.findings-acl.334",
+    "repo": "https://github.com/machine-teaching-group/acl2026-turtleai",
+    "repo_commit": "d916dab0bcf6a0d0647e17cab4089d70d0b402d1",
+    "repo_license": "no LICENSE file (code licence unstated); dataset CC BY-NC 4.0 per App. C.1",
+    "original_values": {
+      "dsreal_symbolic_pct": 40.2,
+      "dsreal_embedding_pct": 44.12,
+      "implied_successes_of_102": 41,
+      "dscraft_symbolic_pct": 8.82,
+      "dssyn_symbolic_pct": 10.18,
+      "comparators_dsreal_symbolic_pct": {
+        "o4-mini-2025-04-16": 36.27,
+        "gpt-5-2025-08-07 (medium)": 27.45,
+        "gpt-4o-2024-11-20": 26.47,
+        "gpt-4-turbo-2024-04-09": 15.69
+      },
+      "source": "Table 1 (p. 6724) row o3, columns TURTLEAI-DSReal Sym./Emb.; App. F.2 version table; Sec. 5.2"
+    },
+    "original_source": "Table 1 (p. 6724) row o3, columns TURTLEAI-DSReal Sym./Emb.; App. F.2 version table; Sec. 5.2"
+  },
+  "generation": {
+    "model_requested": "o3-2025-04-16",
+    "model_served": [
+      "o3-2025-04-16"
+    ],
+    "n_fingerprints": 0,
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (raw HTTPS, harness/openai_client.py)",
+    "parameters": "one user message [text, image_url(data:image/png;base64)] per examples/common.py; reasoning_effort medium; max_completion_tokens 8192; no temperature/top_p/seed; image detail unset",
+    "prompt_template_source": "src/turtleai/prompts/template_code_synthesis.md verbatim (sha256 d79d432d51521bbf)",
+    "battery": "102 DSReal items x 3 seeds = 306 archived calls in baseline_alive/calls.jsonl",
+    "run_config": {
+      "card_id": "W7166808082",
+      "model": "o3-2025-04-16",
+      "reasoning_effort": "medium",
+      "max_completion_tokens": 8192,
+      "temperature": null,
+      "top_p": null,
+      "seed_param": null,
+      "n_items": 102,
+      "n_seeds": 3,
+      "calls": 306,
+      "cap_usd": 25.0,
+      "prompt_source": "src/turtleai/prompts/template_code_synthesis.md",
+      "message_layout": "examples/common.py:generate_code (text, image_url)",
+      "estimate": {
+        "calls": 306,
+        "text_tokens_per_call": 654.5,
+        "image_tokens_mean_per_call": 248.5,
+        "image_tokens_mean_per_call_upscaled": 992.6,
+        "tokens_in": 276327,
+        "tokens_in_upscaled_variant": 504027,
+        "tokens_out_budgeted": 1836000,
+        "tokens_out_typical": 1224000,
+        "tokens_out_cap": 2506752
+      },
+      "built_utc": "2026-09-19T12:54:48.378322+00:00"
+    },
+    "python": "3.13.7"
+  },
+  "evaluation": {
+    "scorer": {
+      "api": "turtleai.evaluate(code=..., ref_code=..., method='symbolic')",
+      "per_response_rule": "all fenced blocks (extract_python_code_from_text); success if ANY executes and matches (src/turtleai/eval/eval_responses.py, paper App. F.3) - NOT examples/eval_model_dataset.py's codes[0]",
+      "isolation": "fresh interpreter per response (subprocess -I, cwd=temp dir, OPENAI_API_KEY stripped), timeout 120.0s",
+      "tk_available": true,
+      "eps_rasterised_counts": {
+        "False": 102
+      },
+      "ghostscript_shim": "Ghostscript absent: emulator.convert_img_to_base64 (EPS -> PNG raster) replaced by a placeholder. The symbolic metric compares recorded turtle states, never that raster, so the score is unaffected; every other emulator check still runs.",
+      "seconds_for_306_scorings": 0.0,
+      "workers": 6
+    },
+    "environment_check": {
+      "reference_solutions": 102,
+      "n": 102,
+      "deliberately_wrong_program_successes": 0,
+      "permutation_control_successes": 0
+    }
+  },
+  "results": {
+    "symbolic_success_rate_pct": 34.31,
+    "per_seed_pct": [
+      34.31,
+      37.25,
+      34.31
+    ],
+    "n_complete_seeds": 3,
+    "ci95_bootstrap_over_items": [
+      27.45,
+      43.14
+    ],
+    "n_items": 102,
+    "n_boot": 2000,
+    "original_pct": 40.2,
+    "original_item_bootstrap_band_95": [
+      31.37,
+      49.02
+    ],
+    "delta_points_vs_paper": -5.89,
+    "original_inside_our_ci": true,
+    "rerun_inside_original_band": true,
+    "items_always/never/unstable": [
+      18,
+      47,
+      37
+    ],
+    "by_difficulty_pct": {
+      "easy": 40.42,
+      "medium": 16.67
+    },
+    "by_category_pct": {
+      "basic_geometry": 50.43,
+      "composite": 33.33,
+      "rotation": 29.17,
+      "scaling": 41.67,
+      "spiral": 0.0,
+      "translation": 13.33
+    },
+    "format_artifacts": {
+      "no_code_block_replies": 30,
+      "finish_reason_length": 13,
+      "truncated_and_no_code": 13,
+      "scorer_timeouts": 0,
+      "scorer_worker_errors": 0
+    },
+    "cost_usd": 5.175,
+    "calls": 306,
+    "errors": 0,
+    "call_log_stats": {
+      "http_200": 306,
+      "finish_reasons": {
+        "stop": 293,
+        "length": 13
+      },
+      "mean_reasoning_tokens": 1473.5,
+      "mean_completion_tokens": 1903.5,
+      "mean_prompt_tokens": 841.5,
+      "latency_ms_median": 8249,
+      "tokens_in": 257508,
+      "tokens_out": 582466
+    },
+    "judgment": "생존 (survived)",
+    "judgment_reason": "34.31% inside the item bootstrap band [31.37, 49.02] around the reported 40.20%",
+    "judged_by": "automatic rule per ANALYSIS_PLAN Sec. 1 as instantiated in the card: survived if the median-of-seeds rate falls inside the item bootstrap band around 40.20% and stays below 60%; partial if outside the band but still failing the majority; dead above 60% or on a non-truncation collapse. Human double-coding pending",
+    "subsidiary_claims_not_judged": "DSReal > DSCraft > DSSyn ordering and the o3 > o4-mini > gpt-5 ordering (single arm, DSReal only)",
+    "note": "34.31% [95% CI 27.45, 43.14] vs the reported 40.20% (band [31.37, 49.02]); per seed [34.31, 37.25, 34.31]; 30 no-code replies, 13 truncated."
+  },
+  "reproducibility_frictions_observed": [
+    "Table 1 reports only aggregate percentages; no per-item outputs are released, so the comparison is percentage-to-percentage (n=102, item bootstrap band around 40.20% is [31.37, 49.02])",
+    "examples/eval_model_dataset.py scores only the first extracted code block; the paper's rule (App. F.3, src/turtleai/eval/eval_responses.py) executes every block and counts the task correct if any matches - the latter is used here",
+    "examples/common.py passes no decoding parameters at all; reasoning_effort=medium and max_completion_tokens=8192 come from App. F.3",
+    "the scorer executes model-generated turtle code: run here in a fresh isolated interpreter per response with a 120s wall clock (the repo uses a pebble ProcessPool with a 60s timeout; pebble is not installed here)",
+    "Ghostscript absent: emulator.convert_img_to_base64 (EPS -> PNG raster) replaced by a placeholder. The symbolic metric compares recorded turtle states, never that raster, so the score is unaffected; every other emulator check still runs.",
+    "13 of 306 replies hit finish_reason='length' (13 of them with no code block): reasoning-token truncation, reported separately before being folded into the failure count"
+  ]
+}

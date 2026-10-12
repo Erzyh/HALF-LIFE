@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4414865824",
+  "title": "LLM-based multi-agent system for neuro-ophthalmic diagnosis and personalized treatment planning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 2: 'gpt-4-turbo 0.2222' (top-1 accuracy on the held-out test set); Table 1: 'gpt-4-turbo 0.35 Lower reliability'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 4.4: 'full templates and model identifiers are provided in the Supplementary material'",
+    "note": ""
+  },
+  "claim": {
+    "metric": "top-1 accuracy (held-out test set)",
+    "value": 0.2222,
+    "n_items": 9,
+    "location": "Table 2, row gpt-4-turbo",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "200 cases assembled from educational ophthalmology sources with text augmentation; not released"
+  },
+  "cost": {
+    "est_calls": 9,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Accuracies are multiples of 1/9, i.e. a 9-case test set. Snapshot 'pinned' only in the supplement."
+}

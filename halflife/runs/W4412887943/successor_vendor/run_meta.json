@@ -1,0 +1,217 @@
+{
+  "card_id": "W4412887943",
+  "run_date_utc": "2026-10-01",
+  "target_paper": {
+    "title": "MEDEC: A Benchmark for Medical Error Detection and Correction in Clinical Notes",
+    "repo": "https://github.com/abachaa/MEDEC (data) + https://github.com/abachaa/MEDIQA-CORR-2024 (scorer)",
+    "repo_commit": "MEDEC e9173f861b39706946b6a127394992c00535b1e3; MEDIQA-CORR-2024 4b87cb01c34d22bdef2423206305b2bedb1fe893",
+    "original_source": "Table 2 row 'GPT-4o' (P#1, 925 notes): error-flag accuracy 0.6584, error-sentence accuracy 0.5665; row 'GPT-4o-mini' 0.6086 / 0.4757 kept as the alternative cell (Section 5.1 snapshot ambiguity)"
+  },
+  "generation": {
+    "model_requested": "gpt-5.6-sol",
+    "model_served": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0,
+    "parameters": "temperature 0, max_tokens 300 (both unreported in the paper), no system prompt, user = P#1 verbatim (Section 4) + blank line + the note's 'Sentences' column ('space' line format)",
+    "battery": "597 MS test notes x 3 passes = 1791 calls; scorer = compute_accuracy() of MEDIQA-CORR-2024/evaluation (re-implemented, cross-checked on the released baseline run)"
+  },
+  "results": {
+    "rows": {
+      "err_flag_acc": {
+        "value": 0.7521,
+        "per_pass": [
+          0.7437,
+          0.7521,
+          0.7621
+        ],
+        "pooled_mean": 0.7527,
+        "ci95_pooled": [
+          0.7219,
+          0.7845
+        ],
+        "orig": 0.6584,
+        "delta": 0.0937,
+        "within_0.05": false,
+        "orig_inside_ci": false,
+        "alt_orig_gpt4o_mini": 0.6086,
+        "alt_delta": 0.1435,
+        "alt_within_0.05": false,
+        "alt_orig_inside_ci": false
+      },
+      "err_sentence_acc": {
+        "value": 0.7337,
+        "per_pass": [
+          0.7236,
+          0.7337,
+          0.7437
+        ],
+        "pooled_mean": 0.7337,
+        "ci95_pooled": [
+          0.7013,
+          0.7655
+        ],
+        "orig": 0.5665,
+        "delta": 0.1672,
+        "within_0.05": false,
+        "orig_inside_ci": false,
+        "alt_orig_gpt4o_mini": 0.4757,
+        "alt_delta": 0.258,
+        "alt_within_0.05": false,
+        "alt_orig_inside_ci": false
+      }
+    },
+    "per_pass": {
+      "0": {
+        "n_answered": 597,
+        "n_missing_calls": 0,
+        "n_unparsed": 0,
+        "err_flag_acc": 0.7437185929648241,
+        "err_flag_acc_ci95": [
+          0.7085427135678392,
+          0.7772613065326632
+        ],
+        "err_sentence_acc": 0.7236180904522613,
+        "err_sentence_acc_ci95": [
+          0.6900753768844221,
+          0.7588358458961473
+        ],
+        "lenient_err_flag_acc": 0.7437185929648241,
+        "lenient_err_sentence_acc": 0.7236180904522613,
+        "predicted_error_rate": 0.6867671691792295,
+        "recall_by_error_type": {
+          "diagnosis": {
+            "flag": 0.9482758620689655,
+            "sentence": 0.9224137931034483
+          },
+          "management": {
+            "flag": 0.845360824742268,
+            "sentence": 0.7835051546391752
+          },
+          "treatment": {
+            "flag": 0.9411764705882353,
+            "sentence": 0.9019607843137255
+          },
+          "pharmacotherapy": {
+            "flag": 0.9166666666666666,
+            "sentence": 0.8888888888888888
+          },
+          "causalOrganism": {
+            "flag": 1.0,
+            "sentence": 1.0
+          }
+        }
+      },
+      "1": {
+        "n_answered": 597,
+        "n_missing_calls": 0,
+        "n_unparsed": 0,
+        "err_flag_acc": 0.7520938023450586,
+        "err_flag_acc_ci95": [
+          0.7202680067001676,
+          0.7872696817420436
+        ],
+        "err_sentence_acc": 0.7336683417085427,
+        "err_sentence_acc_ci95": [
+          0.6968174204355109,
+          0.7688442211055276
+        ],
+        "lenient_err_flag_acc": 0.7520938023450586,
+        "lenient_err_sentence_acc": 0.7336683417085427,
+        "predicted_error_rate": 0.6884422110552764,
+        "recall_by_error_type": {
+          "diagnosis": {
+            "flag": 0.9396551724137931,
+            "sentence": 0.9224137931034483
+          },
+          "management": {
+            "flag": 0.8762886597938144,
+            "sentence": 0.8144329896907216
+          },
+          "treatment": {
+            "flag": 0.9607843137254902,
+            "sentence": 0.9215686274509803
+          },
+          "pharmacotherapy": {
+            "flag": 0.9166666666666666,
+            "sentence": 0.8888888888888888
+          },
+          "causalOrganism": {
+            "flag": 1.0,
+            "sentence": 1.0
+          }
+        }
+      },
+      "2": {
+        "n_answered": 597,
+        "n_missing_calls": 0,
+        "n_unparsed": 0,
+        "err_flag_acc": 0.7621440536013401,
+        "err_flag_acc_ci95": [
+          0.7252931323283082,
+          0.7956448911222781
+        ],
+        "err_sentence_acc": 0.7437185929648241,
+        "err_sentence_acc_ci95": [
+          0.7102177554438861,
+          0.7805695142378559
+        ],
+        "lenient_err_flag_acc": 0.7621440536013401,
+        "lenient_err_sentence_acc": 0.7437185929648241,
+        "predicted_error_rate": 0.6984924623115578,
+        "recall_by_error_type": {
+          "diagnosis": {
+            "flag": 0.9741379310344828,
+            "sentence": 0.9482758620689655
+          },
+          "management": {
+            "flag": 0.8969072164948454,
+            "sentence": 0.845360824742268
+          },
+          "treatment": {
+            "flag": 0.9607843137254902,
+            "sentence": 0.9215686274509803
+          },
+          "pharmacotherapy": {
+            "flag": 0.9166666666666666,
+            "sentence": 0.8888888888888888
+          },
+          "causalOrganism": {
+            "flag": 1.0,
+            "sentence": 1.0
+          }
+        }
+      }
+    },
+    "judgment_flags": {
+      "within_0.05_of_table2_gpt4o": false,
+      "below_doctor1_ms": true,
+      "below_doctor2_ms": false
+    },
+    "reply_status_counts": {
+      "error": 1238,
+      "correct": 553
+    },
+    "finish_reasons": {
+      "stop": 1791
+    },
+    "subset": "MS 597/925",
+    "chance_always_correct": 0.4791,
+    "cost_usd": 12.562,
+    "calls": 1791,
+    "errors": 1,
+    "judgment": "부분 생존 (partial) [subset: MS 597/925]",
+    "judged_by": "automatic rule per ANALYSIS_PLAN §1 as instantiated in the card (both accuracies within +/-0.05 of Table 2 'GPT-4o' and still below Doctor #1 on the MS subset); human double-coding pending",
+    "note": "MS subset only (597/925 notes; Table 2 is on all 925 and has no MS-only GPT-4o cell). Median over 3 passes: flag 0.7521 (Table 2 GPT-4o 0.6584, delta +0.0937), sentence 0.7337 (Table 2 0.5665, delta +0.1672); alternative GPT-4o-mini cell 0.6086 / 0.4757. Doctors on the MS subset (Table 3): 0.8125 / 0.7670 and 0.6890 / 0.6459. Unparsed replies 0/1791; identical (flag, sentence) prediction across passes for 85.6% of notes."
+  },
+  "reproducibility_frictions_observed": [
+    "the repositories hold the data and the shared-task scorer only; the prompting/post-processing code is not released, the prompt is verbatim in the paper",
+    "the paper's only dated OpenAI snapshot, gpt-4o-2024-05-13, is attached to 'GPT-4o-mini' in Section 5.1; which Table 2 row it produced is ambiguous (primary cell 'GPT-4o' by decision)",
+    "generation parameters (temperature, max tokens, seed) are not reported; temperature 0 and max_tokens 300 assumed",
+    "328 of the 925 test notes (UW) are under a Data Use Agreement; only the 597 MS notes were run and Table 2 has no MS-only GPT-4o cell",
+    "P#1 describes pipe-delimited lines but the dataset (and the paper's P#2 example) use '<id> <sentence>'; the dataset format was sent",
+    "the public test CSV pads the 328 UW notes with blank rows, which turns the flag/sentence-id columns into floats; the original scorer compares str() values and needs int normalisation",
+    "seven MS test notes contain lab-value lines with a non-numeric prefix and one skips a sentence id (formatting issues acknowledged in the README); sent verbatim",
+    "0 of 1791 replies did not follow the 'CORRECT' / '<id> <sentence>' format and were scored as missing predictions, as the shared-task scorer does"
+  ]
+}

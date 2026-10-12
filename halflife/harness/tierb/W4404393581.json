@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4404393581",
+  "title": "AutoRNet: Automatically Optimizing Heuristics for Robust Network Design via Large Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"The GPT-4 Turbo model was used with a temperature setting of 1\" (Sec. 5.1); Table 1, Heuristic-v3 achieves an average robustness of 0.307550 for 200-node networks, outperforming all baseline algorithms"
+  },
+  "prompt": {"verbatim": "partial", "location": "Appendix A (population-initialization task specification, describing but not fully quoting the prompt; references Figure A1), Appendix C (variation-operation prompt)", "note": "GPT-4 Turbo proposes Python heuristic code inside an evolutionary loop (population 10, 50 generations); the reported R values come from executing the resulting deterministic code, not from further live-model calls at evaluation time."},
+  "claim": {
+    "metric": "Network robustness R, best discovered heuristic (Heuristic-v3), 200-node BA test networks", "value": 0.307550, "n_items": 100,
+    "location": "Table 1 (R obtained on networks of different sizes); 100 independent test runs of the fixed generated heuristic",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "Synthetic BA scale-free networks plus a real-world EU power grid network (cited, ref. [31]); heuristic-design prompts summarized but not fully reprinted"},
+  "cost": {"est_calls": 500, "tier": "low"},
+  "blockers": [],
+  "notes": "Reproducing the exact R value requires re-running a stochastic LLM-driven evolutionary search (temperature 1) to design a comparable heuristic, not a single deterministic prompt/response -- treated as the soft gap for 'maybe'. Design-phase cost (~500 calls: 10 population x 50 generations) is separate from the cost-free test-time execution of the resulting code."
+}

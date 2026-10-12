@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4412888118",
+  "title": "Nunchi-Bench: Benchmarking Language Models on Cultural Reasoning with a Focus on Korean Superstition",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (20240513)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Appendix E: 'GPT-4.5 (20250227), GPT-4o (20240513) ... All models were evaluated using the setup described in Section 3.2' (Appendix B: greedy decoding, temperature = 0)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B, Table 9 (MCQ prompt, Korean and English)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "MCQ accuracy (%), English version",
+    "value": 96.7,
+    "n_items": 31,
+    "location": "Appendix E, Table 15, row GPT-4o, column English MCQ (30 correct of 31)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Nunchi-Bench, github.com/koreankiwi99/Nunchi-Bench (31 MCQs per language version; 256 questions total)"
+  },
+  "cost": {
+    "est_calls": 31,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The live_ids column lists only gpt-4-turbo, which is 'GPT-4 Turbo (0409)' used as the evaluator for Trap/Interpretation questions (role A); the dated GPT-4o is an appendix subject. Korean MCQ accuracy is 93.5%."
+}

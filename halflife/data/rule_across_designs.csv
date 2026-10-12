@@ -1,0 +1,5 @@
+﻿design,rule,classes,units_on_points_scale,units_left_out,units_class_1,units_class_2,units_class_3,papers,papers_class_1,papers_class_2,papers_class_3,papers_in_worst_class_pct,note
+repository-based (claims),"prompt-level rule (2 / 5 points, interval clause)",reproduced / close / deviated,91,4,77,6,8,24,12,6,6,25.0,a paper takes the worst class among its claims
+repository-based (claims),"repository rule (same sign = partial, reversal = died)",survived / partial / died,91,4,77,14,0,24,12,12,0,0.0,a paper takes the worst class among its claims
+prompt-level (results),"prompt-level rule (2 / 5 points, interval clause)",reproduced / close / deviated,80,6,51,9,20,80,51,9,20,25.0,
+prompt-level (results),"repository rule (same sign = partial, reversal = died)",survived / partial / died,80,6,51,29,0,80,51,29,0,0.0,"a single number per result: a reversed direction is not defined, so 'died' cannot occur"

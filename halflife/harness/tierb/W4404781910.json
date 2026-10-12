@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404781910",
+  "title": "OffsetBias: Leveraging Debiased Data for Tuning Evaluators",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Sec. 5: 'we use OpenAI's GPT-4o-2024-05-13 and GPT-3.5-turbo-0125 as proprietary baselines'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B.1 (General Single-turn pairwise prompt, from LLMBar); Appendix C: 'we adopt the original prompt template of each model'",
+    "note": "The exact template used for the GPT-4o baseline is not stated; B.1 is the paper's own pairwise format."
+  },
+  "claim": {
+    "metric": "accuracy (%)",
+    "value": 86.9,
+    "n_items": 160,
+    "location": "Table 4, row GPT-4o-0513, column Total (EvalBiasBench: 80 pairs x 2 position swaps)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "EvalBiasBench, github.com/ncsoft/offsetbias"
+  },
+  "cost": {
+    "est_calls": 160,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Greedy decoding. Soft gap: which prompt template was applied to the proprietary baselines.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Sec. 5.3 and Appendix C say each baseline used 'the original prompt template of each model', which is undefined for GPT-4o; the only pairwise template printed is B.1 (LLMBar-derived single-turn format), so the evaluation script in the repository is needed to confirm what GPT-4o received. Then run the 80 EvalBiasBench pairs in both response orders (160 calls) with gpt-4o-2024-05-13, greedy, and compute total accuracy; compare with 86.9 (Table 4).",
+    "approximation": "If the repository does not settle the template, default to B.1 and flag the comparison as approximate.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/ncsoft/offsetbias",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7155654136",
+  "title": "ChatGPT as a Time Capsule: The Limits of Price Discovery",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano (2025-04-14); o3 2025-04-16; 'GPT-4-Turbo 0125-preview' is a dead preview",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Sec. 4: 'API version strings: GPT-4.1 family 2025-04-14; ... GPT-4-Turbo 0125-preview; GPT-3.5-Turbo 0125; o3 2025-04-16'; Sec. 1: 'GPT-4.1-nano: γ = 0.0065'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A 'LLM Prompt Template' (system and user prompt)",
+    "note": "firm identifiers with fixed cutoff; temperature 0; outlook score parsed from output"
+  },
+  "claim": {
+    "metric": "Fama-MacBeth coefficient of the LLM outlook score on one-month cross-sectional returns (gamma)",
+    "value": 0.0065,
+    "n_items": 7122,
+    "location": "Sec. 1 and results tables: 'GPT-4.1-nano: γ = 0.0065' (7,122 firms in the June-2024 cutoff cross-section)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "firm universe, returns and controls from CRSP / Compustat / IBES (licensed); the LLM scores themselves only need firm identifiers"
+  },
+  "cost": {
+    "est_calls": 21366,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "dead_alias"
+  ],
+  "notes": "The reported quantity is a regression coefficient that needs licensed market data; the LLM query (about 7,100 firms per checkpoint) is cheap. dead_alias applies only to the GPT-4-Turbo row (0125-preview)."
+}

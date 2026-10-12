@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4410187609",
+ "title": "Image Recognition Performance of GPT-4V(ision) and GPT-4o in Ophthalmology: Use of Images in Clinical Questions",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo and GPT-4o",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "\"the latest version...available at the time of study (GPT-4 Turbo and GPT-4o, OpenAI; https://chat.openai.com/)\"; Table 1: GPT-4V Image+Text 71.0%."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Clinical quiz questions from an external website ('Diagnose This') were submitted; no reusable prompt template given."
+ },
+ "claim": {
+  "metric": "correct-answer rate, GPT-4V (GPT-4-Turbo-based), image+text",
+  "value": 71.0,
+  "n_items": null,
+  "location": "Table 1 (\"GPT-4V: Image + Text (71.0%)\")",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Clinical questions/images from the 'Diagnose This' quiz website (third-party, not released by the authors)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui"
+ ],
+ "notes": "Explicitly accessed via https://chat.openai.com/ (ChatGPT web interface), not a pinned API snapshot, so the exact underlying model/date cannot be resolved despite the descriptive label 'GPT-4 Turbo'. Data collected Dec 18-26, 2023 and separately after May 2023 (before/after comparison), n_items not stated as a clean total in the excerpt reviewed."
+}

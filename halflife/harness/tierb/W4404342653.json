@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404342653",
+  "title": "Constructing Multimodal Datasets from Scratch for Rapid Development of a Japanese Visual Language Model",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Appendix D Table 7: 'GPT-4o ... gpt-4o-2024-05-13' as baseline; Table 2 row 'GPT-4o 87.6 37.6 3.85 12.1 3.58'; judge: 'employed gpt-4o-2024-05-13', temperature 0, seed 0"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 8 (LLM-as-a-judge prompt); VQA answer prompt follows the Heron Bench evaluation template (not printed)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Heron-Bench LLM-judge score (% of GPT-4 reference)",
+    "value": 87.6,
+    "n_items": 102,
+    "location": "Table 2, row GPT-4o, column Heron-Bench LLM (%); breakdown in Table 9",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-05-13"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Japanese Heron Bench (turing-motors, Hugging Face); JA-VLM-Bench-In-the-Wild; JA-VG-VQA-500"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Score averaged over 5 runs; judge and subject are the same model; image inputs. n=102 per benchmark specification.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "The paper follows the Heron-Bench LLM-as-a-judge protocol (Inoue et al. 2024, arXiv:2404.07824) with gpt-4o-2024-05-13 as judge (temperature 0, seed 0), scoring answers relative to the benchmark's GPT-4 reference answers; the subject-model VQA prompt, the judge prompt and the reference answers live in the Heron-Bench release, whose URL is not printed in the paper (repo_url is the benchmark's known release). Answer the 102 Heron-Bench questions with gpt-4o-2024-05-13, judge with the same model, average 5 runs, and compare with 87.6 (Table 2; per-category values in Table 9).",
+    "approximation": "Judge outputs are not fully deterministic even with seed 0 (footnote 14); subject and judge are the same model.",
+    "needs_repo": true,
+    "repo_url": "https://huggingface.co/datasets/turing-motors/Japanese-Heron-Bench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

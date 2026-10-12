@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7118052377",
+  "title": "Korean Canonical Legal Benchmark: Toward Knowledge-Independent Evaluation of LLMs' Legal Reasoning Capabilities",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini (o4-mini-2025-04-16, reasoning effort medium)",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Appendix C: 'o4-mini refers to o4-mini-2025-04-16 ... all accessed through the OpenAI API, with reasoning effort set to medium.' Table 2: 'o4-mini 37.7±1.2→74.6±0.8'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not printed (evaluation prompts live in the repo); Appendix D.1 prints only the rubric-extraction prompt",
+    "note": ""
+  },
+  "claim": {
+    "metric": "KCL-MCQA score (%), vanilla (without supporting precedents)",
+    "value": 37.7,
+    "n_items": 283,
+    "location": "Table 2, row o4-mini, vanilla value (37.7±1.2; 74.6±0.8 with precedents)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "KCL benchmark, https://github.com/lbox-kr/kcl (283 MCQA, 169 essay questions with precedents)"
+  },
+  "cost": {
+    "est_calls": 849,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Only defect is the missing prompt text; the essay track uses Gemini 2.5 Flash as judge."
+}

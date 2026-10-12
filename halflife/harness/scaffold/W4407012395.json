@@ -1,0 +1,61 @@
+{
+  "openalex_id": "https://openalex.org/W4407012395",
+  "title": "MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding",
+  "doi": "https://doi.org/10.48550/arxiv.2501.18362",
+  "field": "Biochemistry, Genetics and Molecular Biology",
+  "year": "2025",
+  "live_models": "o1-2024-12-17|o3-mini",
+  "dead_models": "claude-3-5-sonnet|gemini-1.5-pro|o1-preview",
+  "flags": "",
+  "all_links": [
+    "github.com/TsinghuaC3I/MedXpertQA",
+    "github.com/TsinghuaC3I/MedXpertQAAbstractWe"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/TsinghuaC3I/MedXpertQA",
+      "cloned": true,
+      "audit": {
+        "n_files": 32,
+        "ext_top": {
+          ".py": 8,
+          ".jsonl": 7,
+          ".sh": 5,
+          ".png": 4,
+          ".ipynb": 3,
+          ".json": 2,
+          "": 1,
+          ".md": 1
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 3,
+        "n_py": 8,
+        "n_data_files": 9,
+        "files_mentioning_prompt": 8,
+        "files_with_eval_terms": 8,
+        "model_ids_in_code": {
+          "o3": 77,
+          "o1": 7,
+          "gpt-4o-": 6,
+          "gpt-4o-mini": 4,
+          "claude-3-5-sonnet-20241022": 3,
+          "gemini-1.5-pro": 3,
+          "o3-mini-2025-01-31": 2,
+          "o1-2024-12-17": 2,
+          "o1-mini-2024-09-12": 2,
+          "claude-3-7-sonnet-20250219": 2
+        },
+        "readme_head": "<div align=\"center\">\n\n# MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding\n\n[![Static Badge](https://img.shields.io/badge/arxiv-2501.18362-ff0000?style=for-the-badge&labelColor=000)](https://arxiv.org/abs/2501.18362)  [![Static Badge](https://img.shields.io/badge/huggingface-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/TsinghuaC3I/MedXpertQA)  [![Static Badge](https://img.shields.io/badge/leaderboard-steelblue?style=for-the-badge&logo=googlechrome&logoColor=ffffff)](https://medxpertqa.github.io)  [![Static Badge](https://img.shields.io/badge/license-mit-teal?style=for-the-badge&labelColor=000)](https://github.com/TsinghuaC3I/MedXpertQA/blob/main/LICENSE)\n\n</div>\n\n<div align=\"center\">\n  <p>\n    <a href=\"#news\" style=\"text-decoration: none; font-weight: bold;\">🔥 News</a> •\n    <a href=\"#overview\" style=\"text-decoration: none; font-weight: bold;\">📖 Overview</a> •\n    <a href=\"#features\" style=\"text-decoration: none; font-weight: bold;\">✨ Features</a> •\n    <a href=\"#benchmark-adoption\" style=\"text-decoration: none; font-weight: bold;\">🌍 Adoption</a> •\n    <a href=\"#leaderboard\" style=\"text-decoration: none; font-weight: bold;\">📊 Leaderboard</a>\n  </p>\n  <p>\n    <a href=\"#usage\" style=\"text-decoration: none; font-weight: bold;\">🔧 Usage</a> •\n    <a href=\"#contact\" style=\"text-decoration: none; font-weight: bold;\">📨 Contact</a> •\n    <a href=\"#citation\" style=\"text-decoration: none; font-weight: bold;\">🎈 Citatio"
+      },
+      "commit": "f53877b0d35b3c5526dfc0f899a2e902e0910c1d"
+    },
+    {
+      "url": "https://github.com/TsinghuaC3I/MedXpertQAAbstractWe",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4407012395.txt",
+  "paper_text_status": "pdf"
+}

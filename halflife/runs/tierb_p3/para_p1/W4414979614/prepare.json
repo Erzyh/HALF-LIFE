@@ -1,0 +1,29 @@
+{
+  "wid": "W4414979614",
+  "n_items": 30,
+  "n_requests": 30,
+  "seeds": 1,
+  "est_usd": 1.19,
+  "subset_note": "paraphrase p1: 3 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [30, 30, 30]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-5-2025-08-07",
+  "metric": "custom",
+  "original_value": 0.93,
+  "cap_usd": 1.3,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4414979614",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "You will be assigned a privacy policy (\"policy\"). The policy can be in English, German, French, or Italian. All policies are anonymized (\"<redacted>\" snippets). You will need to review and answer the questions presented below (including specific instructions and sample snippets) related to this policy. Read the text carefully to ensure that you do not miss any important context. Provide responses as \"true\" or \"false\" except where specfied otherwise. If a date is mentioned, ensure it is converted to the specified format.",
+      "You are given a privacy policy (\"policy\"), written in English, German, French or Italian and anonymized with \"<redacted>\" snippets. Your job is to go through the policy and answer the questions below, following the specific instructions and sample snippets that accompany them. Read the whole text carefully so that no relevant context is missed. Answer \"true\" or \"false\" unless a question says otherwise, and convert any date you report to the required format."
+    ],
+    [
+      "You must output a json object with the following keys:",
+      "Your output has to be a JSON object with these keys:"
+    ],
+    [
+      "For yes/no answers, use \"true\" or \"false\". For dates, format as \"DD/MM/YYYY\". If no date is available, return \"NA\". For question 10 (\"org\"), format your answer as a string according to the instructions. If you output \"false\" for \"ispol\" (meaning the text is not a privacy policy), respond \"false\" for ALL other questions (except \"NA\" for \"upd\" and \"org\").",
+      "Use \"true\" or \"false\" for yes/no questions and \"DD/MM/YYYY\" for dates, writing \"NA\" when no date exists. The answer to question 10 (\"org\") is a string formatted as instructed. Should \"ispol\" be \"false\" (the text is not a privacy policy), answer \"false\" to every other question, except \"NA\" for \"upd\" and \"org\"."
+    ]
+  ]
+}

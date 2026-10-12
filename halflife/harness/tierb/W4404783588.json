@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4404783588",
+  "title": "Systematic Evaluation of Long-Context LLMs on Financial Concepts",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 5 (Appendix A.6): \"GPT-4-Turbo gpt-4-turbo-2024-04-09 Greedy\"; Table 2 columns GPT-4o / GPT-4-Turbo F1: Company 0.79 / 0.79, Time 0.97 / 0.89."
+  },
+  "prompt": {"verbatim": "full", "location": "Table 3 (task templates for long-context tasks), Appendix A.4 (prompt configurations)", "note": ""},
+  "claim": {
+    "metric": "F1 on the Company concept task (short context)", "value": 0.79, "n_items": null, "location": "Table 2, column GPT-4-Turbo, row Company; full context-length grid in Figure 11 (Appendix A.7)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "footnote 1: \"We do not release the proprietary datasets due to confidentiality\" (news-article haystacks with annotated needles)"},
+  "cost": {"est_calls": 0, "tier": "high"},
+  "blockers": ["data_closed"],
+  "notes": "Benchmark built from proprietary annotated financial news; even the short-context F1 cannot be reproduced without it. Long-context cells (up to 128K) would also be expensive."
+}

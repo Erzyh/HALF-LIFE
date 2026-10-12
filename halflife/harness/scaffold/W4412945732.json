@@ -1,0 +1,16 @@
+{
+  "openalex_id": "https://openalex.org/W4412945732",
+  "title": "Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Medicine",
+  "doi": "https://doi.org/10.18653/v1/2025.acl-long.266",
+  "field": "Biochemistry, Genetics and Molecular Biology",
+  "year": "2025",
+  "live_models": "gpt-4-turbo|gpt-4-turbo-2024-04-09|gpt-4o-2024-05-13",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/EleutherAI/lm-evaluation-harness"
+  ],
+  "candidate_repos": [],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4412945732.txt",
+  "paper_text_status": "pdf"
+}

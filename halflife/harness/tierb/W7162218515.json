@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7162218515",
+  "title": "Reinforced Graph of Thoughts: RL-Driven Adaptive Prompting for LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Appendix G.1: \"Three language models of OpenAI are used ... gpt-4-turbo-2024-04-09\"; \"The model gpt-4-turbo-2024-04-09 maintains a higher success rate before degrading similarly (Figure 14)\""
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix G (Figure 12): full \"<Instruction>...</Instruction>\" + few-shot \"<Examples>\" blocks for the merge/improve operations",
+    "note": "The sum/split/merge operations of the primary sum_list task are described conceptually (Sec 3.2) rather than shown as a literal template."
+  },
+  "claim": {
+    "metric": "success probability P(c), Operation sum, Task sum_list",
+    "value": null,
+    "n_items": 100,
+    "location": "Figure 14 (line chart only, n=100 per complexity level, Appendix G.1); no numeric table",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Synthetic sum_list/sort_list/intersect_set tasks (self-generated); count_keywords/merge_documents reuse the dataset of Besta et al. (2024)"
+  },
+  "cost": {
+    "est_calls": 2500,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "n=100 completions per complexity level is explicit and prompts are fully specified for several operations, but gpt-4-turbo-2024-04-09's own success-probability curve (Figures 13/14/15) is never tabulated, only plotted."
+}

@@ -1,0 +1,94 @@
+{
+  "wid": "W4414494504",
+  "title": "PGxRAG: A Retrieval Augmented Generation supported Pharmacogenomics Assistant",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Table 2 (Temperature 0 for the llm approach); max_tokens assumed; snapshot by the date rule (record)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 225,
+    "subset_rule": "all (225 SME-verified questions)",
+    "approximation": "LLM-only condition, no retrieval; free-text answers mapped to an option letter by a fixed parser instead of SME checking"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "Wellytics/PGxRAG, file 'PGxRAG Supplementary tables_revised.xlsx' (Supplementary Table 1: questions with ground truth)",
+    "config_or_split": "Supplementary Table 1 sheet",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "option_a, option_b, option_c, option_d",
+      "label": "answer_letter",
+      "id": "id"
+    },
+    "license": "unknown (no license on the HF page)",
+    "access_checked": true,
+    "size_mb": 0.2,
+    "file_url": "https://huggingface.co/datasets/Wellytics/PGxRAG/resolve/main/PGxRAG%20Supplementary%20tables_revised.xlsx",
+    "fields_prose": {
+      "input": "Question",
+      "options": "Options A-D (column layout unverified)",
+      "label": "Correct option (letter + text)",
+      "id": "row index"
+    },
+    "label_map": null,
+    "layout_verified": "sheet 'Supplementary table 1': row 1 title, row 2 header (Question_with_Ground_Truth, References), rows 3-227 = 225 questions; each Question_with_Ground_Truth cell is a JSON string {Question, Options {A, B, C, D}, 'Correct option': 'A. <text>', Explanation}",
+    "source_type_prose": "hf (xlsx parsed by the hook with pandas/openpyxl)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{\n\"Question\": \"{question}\",\n\"Options\": {\n\"A\": \"{option_a}\",\n\"B\": \"{option_b}\",\n\"C\": \"{option_c}\",\n\"D\": \"{option_d}\"\n}\n}",
+    "placeholders": {
+      "question": "items.question (hook)",
+      "option_a": "items.option_a (hook)",
+      "option_b": "items.option_b",
+      "option_c": "items.option_c",
+      "option_d": "items.option_d"
+    },
+    "few_shot": "none",
+    "source_location": "Table 1, column 'Query' (question JSON as sent to the model); no system prompt reported",
+    "verbatim": "full (the JSON query object of Table 1 with its two slots)",
+    "placeholders_prose": {
+      "question": "items.Question",
+      "option_a..option_d": "the four option texts",
+      "_note": "hook render: json.dumps({Question, Options{A..D}}, indent=0) = the Table 1 query object with escaped values"
+    }
+  },
+  "output": {
+    "parse": "hook: JSON 'Correct option'/'Answer' letter | LAST explicit answer statement ('the correct/best answer|option is: **\"X\"', 'Option X ... is the recommended') | first quoted or bold letter with a colon ('\"C\": ...', '**A**:') | a single named 'Option X' | a single line-start 'X.'/'X)' (uppercase A-D only)",
+    "postprocess": "strip code fences; compare the letter with the ground-truth letter; unparsable counts as incorrect",
+    "parse_prose": "json field 'Correct option' -> leading letter A-D; fallback regex \\b([A-D])[\\.\\)]"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "number of responses whose selected option matches the SME-verified correct option, divided by 225, in percent",
+    "judge": "none",
+    "original_value": 80.889,
+    "original_location": "Table 2, row gpt-4-turbo / Temperature 0 / Approach llm (182 of 225 correct)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 675,
+    "est_usd": 7.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "[triage 2026-09-09 g1] 22 of 675 replies name no option letter (free-text explanation, or two hedged options) and count as incorrect - the paper's SMEs mapped such answers by hand; 5 replies enumerate several quoted letters without an explicit choice statement and the first quoted letter is taken (ids 49, 119, 209): at most +/-1 pp."
+  ],
+  "notes": "The model's Table 1 response format (Correct option / Explanation / References) is not requested in the prompt; the parser handles both JSON and prose replies. || [hooks_2 2026-09-07] xlsx loader + JSON-cell parsing in the hook; 225 rows verified; prepare verified. || [triage 2026-09-09 g1] DEFECT (parse). The archived gpt-4-turbo replies state the choice as 'The correct answer is \"C\": \"<option text>\"' or open with '\"B\": \"<option text>\"' (566 of 675; the quoted keys of the JSON query) or in prose ('the best option from the provided choices is: **B**', '**Option B**: ...'); the old regexes covered only JSON / 'correct answer is X' / 'X.' and, with re.I on the letter class, matched the article 'a' as option A (581 unparsed, 8.1%). New parser: 8.15 -> 78.81 (per seed 78.2/79.6/78.7), 22 unparsed, original 80.889 inside the 95% CI of every seed. Rule usage over 675 replies: explicit statement 417 (330 correct), quoted/bold letter 189 (166), JSON 12 (12), single 'Option X' or line-start letter 35 (24), none 22. The replies deviate in FORMAT from the paper's Table 1 JSON response (prose, explanation appended) but not in the option chosen. Before/after: result_before_triage.json / result.json.",
+  "runner_gaps": [
+    "items: xlsx table format",
+    "items: JSON-valued cell -> sub-fields",
+    "parse: json field names with spaces"
+  ],
+  "hook": "harness/tierb/hooks/W4414494504.py: load_items (xlsx sheet 'Supplementary table 1', JSON cells -> question/options/answer_letter), render (JSON query object), parse (letter)"
+}

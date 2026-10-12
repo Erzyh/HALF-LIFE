@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4414979614",
+ "title": "Overcoming Language Barriers: Multilingual Analysis of the 2023 Swiss Privacy Law’s Impact",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-5-chat-latest / GPT-5",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "\"The alias gpt-5-chat-latest resolved to gpt-5-2025-08-07, used for the validation and large-scale analysis\" (Sec 3); Figure 1 reports detailed F1 for GPT-5."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "\"We release the prompts and the schema verbatim with our artifacts\" (Sec 3); Appendix A.1/A.4 for supporting tables",
+  "note": "Full prompt is in the released artifact repository rather than printed inline in the PDF."
+ },
+ "claim": {
+  "metric": "F1, controller-information disclosure (contr), English",
+  "value": 0.93,
+  "n_items": 30,
+  "location": "Sec 4 Results (English 0.93, German 0.91, Italian 0.95, French 0.83); Figure 1; validation set of 120 policies, 30/language (Sec 3.3)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Swiss company privacy policies (public web pages); human-annotated codebook, corrections listed in Appendix A.8"
+ },
+ "cost": {
+  "est_calls": 120,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4.1 and o4-mini are also run but their numbers sit only in the artifact repo, not the paper text (fn.4); GPT-5 is the only one with inline printed values. A bare \"GPT-4 Turbo\" elsewhere is an unrelated related-work sentence."
+}

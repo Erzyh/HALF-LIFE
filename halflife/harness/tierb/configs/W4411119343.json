@@ -1,0 +1,94 @@
+{
+ "wid": "W4411119343",
+ "title": "Are LLM-Judges Robust to Expressions of Uncertainty? Investigating the effect of Epistemic Markers on LLM-based Evaluation",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 10
+  },
+  "params_source": "paper Appendix (\"all model generations are produced using greedy sampling with a temperature setting of 0\"); max_tokens 10 from run_qaeval.sh of the code release (max_token=10); top_p not stated and left unset",
+  "seeds": 1
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 394,
+  "subset_rule": "paper-defined split: EMBER-QA, Natural Questions subset (records 0-499 of ember_qa_gpt4.json), Correct samples only (judge_gpt4 == True) and the QA_S (strengthener) variant of the reader output",
+  "approximation": "none"
+ },
+ "items": {
+  "source_type": "url",
+  "source": "huggingface.co/datasets/Dongryeol/EMBER, file ember_qa_gpt4.json (also github.com/DongryeolLee96/EMBER)",
+  "config_or_split": "ember_qa_gpt4.json records 0-499 = Natural Questions subset (500 = 394 Correct + 106 Incorrect, matching Table 14); records 500-999 are the TriviaQA subset (450 + 50, Table 15)",
+  "filter": "judge_gpt4 == True and index < 500",
+  "fields": {
+   "input": "question",
+   "label": "gold",
+   "id": "id",
+   "reference": "reference",
+   "output": "output"
+  },
+  "license": "MIT (dataset card)",
+  "access_checked": true,
+  "size_mb": 1,
+  "file_url": "https://huggingface.co/datasets/Dongryeol/EMBER/resolve/main/ember_qa_gpt4.json",
+  "label_map": {
+   "True": "Yes"
+  },
+  "fields_source": {
+   "question": "question (first letter upper-cased, as run_qaeval.py does: d['question'][0].upper()+d['question'][1:])",
+   "reference": "golden_answer[0] (the code passes only the first reference string)",
+   "output": "answer_gpt4_str (the GPT-4 reader output with a strengthener inserted = the QA_S group)",
+   "label": "judge_gpt4 (human verdict; True for every item of this subset -> gold 'Yes')"
+  },
+  "local_files": {
+   "dir": "external/data/tierb_items/W4411119343/",
+   "file": "ember_qa_gpt4.json"
+  },
+  "download": {
+   "date": "2026-09-19",
+   "url": "https://huggingface.co/datasets/Dongryeol/EMBER/resolve/main/ember_qa_gpt4.json",
+   "bytes": 873492,
+   "sha256": "1ea5664d4e5d7d04986ff039cb5e68ad6dd9289d7dd08a627109a4b27b467aad",
+   "structure": "JSON list of 1000 records: question, golden_answer (list), answer_gpt4, judge_gpt4 (bool), answer_gpt4_str, answer_gpt4_weak, answer_gpt4_plain, str, weak, and (TriviaQA records only) wiki"
+  }
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "You are a helpful assistant tasked with evaluating the quality of an answer to a given question. \nYour goal is to determine if the provided output is the correct answer based on the reference.\n\nDo NOT provide any explanation for your choice.\nYou should respond using ONLY “Yes” or \"No” without including any other words.\n\n# Question:\n{question}\n# Reference:\n{reference}\n# Output:\n{output}\n# Is output correct? Your response should be either Yes” or No\n",
+  "placeholders": {
+   "question": "items.question",
+   "reference": "items.reference",
+   "output": "items.output"
+  },
+  "few_shot": "none",
+  "source_location": "Table 12 (\"Prompt used for question answering evaluation\")",
+  "verbatim": "full (byte-identical to qa_eval_prompt in qa_util.py of the code release, including the authors' unbalanced typographic quotes, except that the released file carries one extra line, \"The epistemic markers in the output may be deceiving.\", which footnote 7 identifies as the Section 5 mitigation variant reported in Tables 16-19, not the Table 14 main run)"
+ },
+ "output": {
+  "parse": "label from set [Yes, No]",
+  "postprocess": "strip; first standalone Yes/No wins; an unparsable reply counts as disagreement with the human verdict",
+  "parse_paper": "yesno_detector in qa_util.py: 'no' as a substring wins over 'yes'; None counts as a mismatch"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the 394 Correct Natural-Questions samples on which the judge's Yes/No verdict agrees with the human verdict; every gold verdict here is 'Yes', so this is the share of 'Yes' replies",
+  "judge": "none (the judged model, gpt-4-turbo, IS the object of study; no second judge)",
+  "original_value": 83.8,
+  "original_location": "Table 14 (Natural Questions subset), row GPT-4-turbo, Acc., column block Reader = GPT-4 (394 Correct samples), column QA_S",
+  "bootstrap_unit": "item",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 394,
+  "est_usd": 0.83,
+  "tier": "high",
+  "est_usd_prepare": 0.83,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 394 items, 394 calls, ~64k in / ~4k out tokens"
+ },
+ "open_points": [
+  "[triage correction 2026-09-19] The triage record names \"450 Correct samples\"; that is the TriviaQA block of Table 15 (where GPT-4-turbo QA_S = 98.0). The value 83.8 sits in Table 14 (Natural Questions), whose GPT-4 reader block has 394 Correct samples. n_items is set to 394."
+ ],
+ "notes": "Records 0-499 of ember_qa_gpt4.json carry no 'wiki' key and split 394/106 on judge_gpt4, exactly the Natural Questions counts of Table 14; records 500-999 carry Wikipedia alias lists and split 450/50, the TriviaQA counts of Table 15. Hence the positional filter index < 500. || The QA_N (neutral) and QA_W (weakener) columns of the same row use answer_gpt4_plain / answer_gpt4_weak with the identical prompt, so the whole row can be re-run by changing items.fields.output. || Cost tier 'high' comes from the triage record (est_calls 1350 at 450 items x 3 seeds); with 394 items and one seed the realised estimate is roughly a dollar - see cost.est_usd_prepare."
+}

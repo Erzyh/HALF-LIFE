@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403052068",
+  "title": "Large language models for abstract screening in systematic- and scoping reviews: A diagnostic test accuracy study",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Methods: 'GPT-4T (gpt-4-turbo-2024-04-09), GPT-4o (gpt-4o-2024-05-13) and Claude3-Opus'; Table 2 row 'GPT-4T 42% [5/12] 99% [477/480] 98% [482/492]'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Supplementary materials (full LLM prompts); Table 1 (PICOs criteria used in the prompt)",
+    "note": "Prompt text not in the main text."
+  },
+  "claim": {
+    "metric": "accuracy of abstract inclusion, review 1",
+    "value": 98,
+    "n_items": 492,
+    "location": "Table 2, row GPT-4T, column Accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "500 abstracts sampled from PubMed searches (search strings in supplement); two-reader reference standard; abstract list/labels release not stated"
+  },
+  "cost": {
+    "est_calls": 1476,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Temperature 0.2 and 0.8 runs; gpt-4o-2024-05-13 also evaluated (97%).",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "The full PICOs inclusion/exclusion prompt (prompt 1), the PubMed search strings and the per-abstract numbers are in the medRxiv supplementary materials, not in the main text. With the supplement, re-run gpt-4-turbo-2024-04-09 at temperature 0.2 (two runs) on the 492 abstracts and compute accuracy against Table 2 (482/492). If the supplement does not list the abstract DOIs and the two-reader decisions, the sample can only be approximated from the search string and the labels cannot be rebuilt (then data_closed).",
+    "approximation": "JSON-output parsing; the 500-abstract random sample and reader labels are reproducible only if listed in the supplement.",
+    "needs_repo": true,
+    "repo_url": "https://doi.org/10.1101/2024.10.01.24314702",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

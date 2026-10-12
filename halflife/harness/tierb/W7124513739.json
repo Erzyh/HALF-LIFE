@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7124513739",
+ "title": "MedRedFlag: Investigating how LLMs Redirect Misconceptions in Real-World Health Communication",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-5 (snapshot: gpt-5-2025-08-07)",
+  "resolved": "gpt-5-2025-08-07",
+  "role": "S",
+  "evidence": "\"We evaluated five state-of-art LLMs: GPT-5 (snapshot: gpt-5-2025-08-07)...\"; Table 2: \"GPT-5 88 85 100* 75\" (% False Assumptions Addressed, Baseline/Identify+Respond/Oracle/RAG)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix B.2, \"Prompt: LLM response generation (system)\": \"You are a helpful medical assistant. Answer this patient's question to the best of your ability.\"",
+  "note": "Judge prompt (\"False Assumption Addressed evaluation\") also printed, Appendix B.3, also run on gpt-5-2025-08-07."
+ },
+ "claim": {
+  "metric": "% False Assumptions Addressed, Baseline condition",
+  "value": 88,
+  "n_items": 1100,
+  "location": "Table 2; \"We release MedRedFlag, a dataset of over 1,100\" (test-set size)",
+  "task_type": "generation",
+  "judge": "llm:gpt-5-2025-08-07"
+ },
+ "data": {
+  "public": "yes",
+  "source": "MedRedFlag (released by the authors; derived from a publicly available source, Sec 6/Ethics)"
+ },
+ "cost": {
+  "est_calls": 1100,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-5 also builds the dataset (auto-annotating 33,090 candidate QA pairs, Sec 3) and serves as judge for the Addressed/Accommodated labels (Appendix B.3, also gpt-5-2025-08-07) -- a same-model self-judge, but both roles use the same dated, printable-prompt snapshot, so the Baseline-condition number is still independently re-executable."
+}

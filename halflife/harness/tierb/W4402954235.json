@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4402954235",
+ "title": "Self-Judge: Selective Instruction Following with Alignment Self-Evaluation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "'V2 uses the baseline of GPT-4-turbo'; 'We show the win rate vs. GPT-4-turbo of the model and...'; results tables report '(%) Win vs. gpt-4-turbo' for the authors' own Self-Judge-trained models"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "GPT-4-turbo's own responses serve only as a fixed pairwise-comparison reference, in the AlpacaEval style."
+ },
+ "claim": {
+  "metric": "none for GPT-4-turbo itself (it is the fixed win-rate reference target; the scored systems are the authors' Self-Judge-trained models)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Instruction-following benchmark (AlpacaEval-style pairwise comparison)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Same pattern as several other papers in this batch: GPT-4-turbo is a fixed comparison baseline whose own performance is not itself the reported claim."
+}

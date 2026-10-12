@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4414200606",
+ "title": "ReDetect: A Hybrid LLM-GNN Framework for High-Precision Reentrancy Vulnerability Detection in Smart Contracts",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "Sec. 3.2: \"The Large Language Model (LLM) component, utilizing GPT-4 Turbo, serves as the intelligent front-end ... vulnerability pattern extraction and rule generation.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Sec. 3.2.1-3.2.2 (only abstract/mathematical description: LLM-Extract, LLM-Transform functions; no prompt text anywhere)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none tied to GPT-4 Turbo directly",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 / Fig. 1 report precision-recall for the full ReDetect pipeline and for a 'GPT-Reentry' ablation baseline described only as \"a general-purpose LLM (similar to GPT models)\", not confirmed to be GPT-4 Turbo",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Custom 'Ground-truth Dataset' (45 expert-labeled contracts) and 'Generalization Dataset' (15 unseen contracts); no release/availability statement found"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number",
+  "data_closed"
+ ],
+ "notes": "GPT-4 Turbo is used once, offline, to extract and formalize vulnerability patterns/rules from documentation (role A, parser); this step has no reported accuracy of its own. The paper's headline precision/recall numbers belong to the full hybrid system or to the ambiguously-attributed 'GPT-Reentry' baseline, not to an isolated, promptable GPT-4 Turbo call."
+}

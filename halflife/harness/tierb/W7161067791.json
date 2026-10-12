@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7161067791",
+  "title": "EIPO: A Framework for Emotionally Intelligent Conversational User Interfaces in Behavior-Change Support",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "\"GPT-4 Turbo will be employed as the automated evaluator to ensure consistent and scalable assessment\"; \"the teacher model (GPT-4 Turbo) will provide an improved emotional response and feedback\" (Sec. 3)."
+  },
+  "prompt": {"verbatim": "none", "location": "EGS evaluation prompt described, not printed", "note": ""},
+  "claim": {
+    "metric": "mean EGS scores of student models (Qwen-2.5-7B, GPT-3.5 Turbo) as judged by GPT-4 Turbo", "value": null, "n_items": null, "location": "Tables 1-2",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-turbo"
+  },
+  "data": {"public": "yes", "source": "ESConv-style behavior-change conversation dataset (24,850 conversations, 810 participants) as described in Sec. 3"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "The live model is judge and teacher only; all reported numbers describe the student models and DPO fine-tuning. No snapshot named (preprint 2026-05)."
+}

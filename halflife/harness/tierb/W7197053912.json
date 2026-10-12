@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7197053912",
+  "title": "ANCHOR-RE: An Agentic Neuro-Symbolic Framework for Grounded Biomedical Relation Extraction",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 3.7: 'We use GPT-5 (gpt-5-mini-2025-08-07) as the backbone LLM for all components of ANCHOR-RE'; 'For GPT-5, inference was conducted through the OpenAI API.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (complete prompts: Baseline direct-prompting prompt, Decider, Verifier, Error Pattern Learner)",
+    "note": "The Baseline row is direct prompting with the printed baseline prompt (relation definitions + sentence + entity pair)."
+  },
+  "claim": {
+    "metric": "micro-F1 (positive relation classes)",
+    "value": 0.654,
+    "n_items": 3211,
+    "location": "Table 2, row Baseline, SemRepGS test set (Table B.1 lists 3,211 instances)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SemRepGS (SemRep gold standard); data and code at github.com/COMBINI-Hub/Multi_Agent_Relation_Extraction"
+  },
+  "cost": {
+    "est_calls": 3211,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Reasoning effort / temperature for the GPT-5-mini API calls are not stated. Full ANCHOR-RE (0.676) needs KB retrieval and demonstration retrieval; the baseline is the Tier-B claim."
+}

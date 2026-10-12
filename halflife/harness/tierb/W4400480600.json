@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4400480600",
+  "title": "Enhancing Computer Programming Education with LLMs: A Study on Effective Prompt Engineering for Python Code Generation",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "ChatGPT (gpt-4-turbo)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 5.2: 'Our comparative analysis includes ... ChatGPT (gpt-4-turbo), ChatGPT (gpt-4o), LLAMA (llama3-8b), and Mistral (mixtral-8x7b)'; Table 2: 'gpt-4 98% 99% 99% 99% 99% 97%'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A, Figures 4-6 (system prompt; base/example/dynamic/guide user prompts, as images); Appendix B (general guidelines text); Sec. 4 table of prompt chains",
+    "note": "Figure text is not in the extraction; verify in the PDF."
+  },
+  "claim": {
+    "metric": "pass rate (%) on LeetCode lc100, base prompt",
+    "value": 98,
+    "n_items": 100,
+    "location": "Table 2, row gpt-4, column base",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "first 100 LeetCode problems (lc100) with test cases; usaco20 = 20 unlisted USACO Bronze problems (2016-2023)"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Temperature 0.7, top_p 1 (Appendix C). USACO evaluation goes through the USACO website submission system. Pylint and time metrics also reported; 'multi' strategy is the headline for gpt-4o (100%).",
+  "resolution": {
+    "gap": "prompt_as_image",
+    "plan": "Transcribe the system prompt (Figure 4) and the base user prompt (Figure 5) from Appendix A of the PDF; the text extraction carries only the figure captions. The base configuration is 'Question | llm -> Code' (Table 1). Apply it to the first 100 LeetCode problems (lc100, Sec. 5.1.1) with gpt-4-turbo at temperature 0.7, top_p 1, max_tokens 4096, n=1, execute the returned code against the problems' test cases and compare the pass rate with 98% (Table 2, row gpt-4, column base).",
+    "approximation": "The paper's test-case set ('all test cases and expected results' from leetcode.com) is reproduced from the currently visible public cases, which may be fewer than the authors used; problem statements are retrieved now; sampling at 0.7 adds variance.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

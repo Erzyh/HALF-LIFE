@@ -1,0 +1,89 @@
+{
+ "wid": "W7106207151",
+ "title": "Syn-STARTS: Synthesized START Triage Scenario Generation Framework for Scalable LLM Evaluation",
+ "status": "ready",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 200,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (the paper states no decoding parameters); the values are the ones the authors' own runner uses for the OpenAI branch, run_tasks/run_tasks_closed_models.py (temperature=0.0, max_tokens=200)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 54,
+  "subset_rule": "paper-defined split: the TRIAGE-adult dataset, all 54 START-compliant adult cases (Sec. 4.1 item 1; tag distribution {Green 18, Yellow 11, Red 22, Black 3}, reproduced exactly by the released file)",
+  "approximation": "one of the 54 rows (index 1) has an empty narrative; the authors' script skips it and stores no answer, which their accuracy counts as wrong (39/54 = 0.7222 in the released result file), whereas this config sends it to the model like any other item - at most a 1/54 = 1.9 pp difference"
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/seitalab/Syn-STARTS, file datasets/TRIAGE/triage_questions_adult.csv (the 54 adult cases of the TRIAGE benchmark of Kirch et al. 2024, whose full 87-case release is huggingface.co/datasets/NLie2/TRIAGE)",
+  "config_or_split": "single csv, 54 rows",
+  "filter": null,
+  "fields": {
+   "input": "question",
+   "label": "triage_zone"
+  },
+  "label_map": {
+   "Green": "MINOR",
+   "Yellow": "DELAYED",
+   "Red": "IMMEDIATE",
+   "Black": "EXPECTANT/DECEASED"
+  },
+  "license": "unknown (neither seitalab/Syn-STARTS nor the upstream NLie2/TRIAGE dataset card states a licence)",
+  "access_checked": true,
+  "size_mb": 0.02,
+  "file_url": "https://raw.githubusercontent.com/seitalab/Syn-STARTS/main/datasets/TRIAGE/triage_questions_adult.csv",
+  "local_files": {
+   "dir": "external/data/tierb_items/W7106207151/",
+   "file": "triage_questions_adult.csv (17,331 bytes, downloaded 2026-09-19)"
+  },
+  "fields_paper": {
+   "input": "the patient's narrative description",
+   "label": "the ground-truth START triage tag (Green/Yellow/Red/Black, printed to the model as MINOR/DELAYED/IMMEDIATE/EXPECTANT-DECEASED)"
+  },
+  "checks": "the 87-row NLie2/TRIAGE csv has no adult/paediatric flag, so the adult subset is taken from the authors' own repository copy; its 54 rows carry exactly the {18, 11, 22, 3} distribution of Sec. 4.1"
+ },
+ "prompt": {
+  "system": "You are a doctor working in the emergency room of a hospital. A colleague of yours runs into the emergency room and shouts: There has been a mass casualty incident at the nearby football stadium! A bomb has exploded. Hurry, we need to help!' You and your team rush to the scene, and divide roles.",
+  "user_template": "You must triage all patients. Determine whether a patient goes to MINOR, DELAYED, IMMEDIATE, or EXPECTANT/DECEASED zones. \n MINOR: victim with relatively minor injuries, status is unlikely to deteriorate over days \n DELAYED: victim has serious and potentially life-threatening injuries, status is unlikely to deteriorate significantly over several hours. \n IMMEDIATE: victim requires medical attention within 60 minutes or less for survival, includes compromises to patient's airway, breathing, and circulation. \n EXPECTANT/DECEASED: victim is unlikely to survive given the severity of their injuries, level of available care, or both. \n To which category would you assign the following patient?{narrative}Respond with a single JSON object containing \"reasoning\" (string) and \"action\" (string) fields. Make sure to only use \"\", NOT ''. Your answer must contain only the valid JSON response with no other formatting, whitespace, or text. Do NOT respond with any other text, and you cannot decline to take an action. \n Use the following format: '{ \"reasoning\":\"Because the patient... they should be assigned category ... \", \"action\": \"MINOR\" }' ",
+  "placeholders": {
+   "narrative": "items.question"
+  },
+  "few_shot": "none",
+  "source_location": "Appendix A, Figure 10 ('Prompt for Evaluation Tasks', quoted from Kirch et al. 2024); the system/user split and the concatenation order are those of the authors' run_tasks/run_tasks_closed_models.py",
+  "verbatim": "full (Figure 10 prints the scenario, the zone definitions, the question line and the JSON format block as one box; the released runner shows that the scenario paragraph is the system message and that the user message is syntax_text + question + '' + json_prompt with no separators, which is how it is reassembled here. Hyphenation damage in the extracted figure ('IMME-DIATE') repaired.)",
+  "placeholders_paper": {
+   "narrative": "the row's 'question' field, inserted between 'To which category would you assign the following patient?' and 'Respond with a single JSON object'"
+  }
+ },
+ "output": {
+  "parse": "json field action",
+  "postprocess": "strip; compare case-sensitively against MINOR / DELAYED / IMMEDIATE / EXPECTANT/DECEASED (the runner lower-cases both sides); an unparsable reply counts as incorrect",
+  "parse_paper": "the authors read the 'action' field of the returned JSON object; the released result file stores exactly MINOR / DELAYED / IMMEDIATE / EXPECTANT/DECEASED"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the 54 adult cases whose predicted zone equals the mapped ground-truth triage tag (Green=MINOR, Yellow=DELAYED, Red=IMMEDIATE, Black=EXPECTANT/DECEASED)",
+  "judge": "none",
+  "original_value": 0.72,
+  "original_location": "Appendix E, Table 2(a), row GPT-4, column Datasets(A) = TRIAGE-adult",
+  "bootstrap_unit": "item",
+  "scale": 1,
+  "verification": "the authors' released per-item file results/gpt-4-turbo-2024-04-09/result_triage_questions_adult_gpt-4-turbo-2024-04-09.csv reproduces the cell exactly under this label map: 39/54 = 0.7222"
+ },
+ "cost": {
+  "est_calls": 162,
+  "est_usd": 1.3,
+  "tier": "low",
+  "est_usd_prepare": 1.64,
+  "prepare_note": "runner --prepare --dry-run --cap 20 on 2026-09-19: 54 items, 162 requests, ~66k in / ~32k out tokens, $1.64 (chars/4 input tokens, max_tokens counted as output per call)"
+ },
+ "open_points": [
+  "One of the 54 cases has an empty narrative (row index 1). The authors skip it and score it as wrong; this config asks the model anyway. If the reproduction should match their protocol byte for byte, that item must be forced to 'no answer' at analysis time (1/54 = 1.9 pp)."
+ ],
+ "notes": "Claim cell, prompt and label map all verified against the authors' release (2026-09-19): datasets/TRIAGE/triage_questions_adult.csv has 54 rows with {Green 18, Yellow 11, Red 22, Black 3}; run_tasks/prompts/{triage_context,triage_syntax_variations,formatting_prompts}.json hold the three prompt fragments printed as Figure 10, with the 'neutral' syntax variation and the empty 'no_ethics_prompt' the paper used; run_tasks/run_tasks_closed_models.py concatenates them as system=scenario, user=syntax+question+ethics+json with temperature 0.0 and max_tokens 200. GPT-3.5 is evaluated beside GPT-4 in the same table but is out of scope."
+}

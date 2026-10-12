@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7203692329",
+ "title": "Operationalising Large Language Models for Financial Sentiment Analysis: The PipeFinePT Modular Pipeline",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "Table rows \"GPT-4.1-nano (1) (1) (1) (1)\"; text: \"...GPT-4.1-Nano...were discarded\" for \"the inability of the remaining models to follow a strict output\" format."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Structured-output financial-sentiment pipeline; prompt not printed for the discarded arm."
+ },
+ "claim": {
+  "metric": "none (GPT-4.1-nano's results were discarded for failing to follow the required structured output format)",
+  "value": null,
+  "n_items": null,
+  "location": "Results tables, \"(1)\" placeholder cells",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "not stated as released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4.1-nano is explicitly excluded from the reported results because it failed to reliably follow the pipeline's strict output schema; its table cells are \"(1)\" placeholders, not scores."
+}

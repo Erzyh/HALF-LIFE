@@ -1,0 +1,56 @@
+{
+  "wid": "W4416339332",
+  "title": "\"As Eastern Powers, I will veto.\" : An Investigation of Nation-level Bias of Large Language Models in International Relations",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 65,
+  "original_location": "Table 2, row o3-mini, column U.S.",
+  "reexecution": {
+    "mean_over_seeds": 0.9372101582627899,
+    "per_seed": {
+      "0": {
+        "value": 0.9372101582627899,
+        "n": 66,
+        "ci95": [
+          0.8704909412735599,
+          1.0
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416339332",
+    "n_items": 66,
+    "n_requests": 66,
+    "seeds": 1,
+    "est_usd": 0.34,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 65,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "weighted F1 computed per repetition and averaged over the three seeds (the paper does not say how its three repetitions were aggregated); resolutions where the United States has no recorded vote are skipped",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "o3-mini-2025-01-31",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4416339332"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 93.72101582627899,
+    "delta": 28.721015826278986,
+    "original_inside_ci95": false
+  }
+}

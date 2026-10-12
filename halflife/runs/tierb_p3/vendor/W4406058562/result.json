@@ -1,0 +1,56 @@
+{
+  "wid": "W4406058562",
+  "title": "Applicability of Large Language Models and Generative Models for Legal Case Judgement Summarization",
+  "model": "gpt-5.6-sol",
+  "metric": "rouge_l",
+  "original_value": 0.198,
+  "original_location": "Table 4 (UK-Abs), row gpt4-summ, column RL-F1",
+  "reexecution": {
+    "mean_over_seeds": 0.16237408021750313,
+    "per_seed": {
+      "0": {
+        "value": 0.16237408021750313,
+        "n": 77,
+        "ci95": [
+          0.14499745103608114,
+          0.17637441225154996
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4406058562",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 9.57,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "rouge_l",
+    "original_value": 0.198,
+    "cap_usd": 12.8
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Whole judgment in one prompt (128K context, Sec. 4.2) with YY = reference summary word count (Sec. 4.4 rule K*|Exp|/|Doc| with a single chunk); ROUGE implementation settings not stated. ROUGE-L is the runner's LCS-based F1 over lowercased whitespace tokens (rouge-score's rougeL tokenizer differs slightly).",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4406058562"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.16237408021750313,
+    "delta": -0.03562591978249688,
+    "original_inside_ci95": false
+  }
+}

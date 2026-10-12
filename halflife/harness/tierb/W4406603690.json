@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406603690",
+  "title": "Understanding the Effectiveness of LLMs in Automated Self-Admitted Technical Debt Repayment",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "C",
+    "evidence": "Sec. 4.3: 'GPT-4o-mini-2024-07-18: This model, along with GPT-4o-2024-05-13 and Claude 3.5 Sonnet, ranked first in the Chatbot Arena leaderboard'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 1 (four zero-shot prompt templates)",
+    "note": "Prompts are for the subject models (GPT-4o-mini-2024-07-18, Llama-3.1-70B, Gemma-2-9B, DeepSeek-Coder, Llama-3.1-8B)."
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Maldonado, Mastropaolo and new Python/Java SATD datasets"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "gpt-4o-2024-05-13 is only cited as a leaderboard reference; the proprietary subject is gpt-4o-mini-2024-07-18 (temperature 0), not in the live_ids column. 'GPT4 (baseline)' in Table 5 is unversioned."
+}

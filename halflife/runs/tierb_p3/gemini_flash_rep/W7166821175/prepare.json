@@ -1,0 +1,14 @@
+{
+  "wid": "W7166821175",
+  "n_items": 585,
+  "n_requests": 1170,
+  "seeds": 2,
+  "est_usd": 3.1,
+  "subset_note": "repeat of the gemini_flash condition: same items and request bodies, 2 fresh calls per item",
+  "dropped_unrenderable": 0,
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 60.1,
+  "cap_usd": 3.22,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gemini_flash\\W7166821175"
+}

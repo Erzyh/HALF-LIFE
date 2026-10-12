@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416034538",
+  "title": "FinEval-KR: A Financial Domain Evaluation Framework for Large Language Models' Knowledge and Reasoning",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini (2025-01-31)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Table 3 row \"o3-mini 0.8207 0.9260 0.9070 0.9047 0.9073 0.8127 0.9023 0.9120\"; Table 6 (Appendix): \"o3-mini 2025-01-31\"; \"three independent runs, conducted with a model temperature of 1\" (Sec. 5.3)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix F, Figure 15 (Stage 1 prompt template for the evaluated model), Figure 16 (Stage 2), Figure 14 (judge prompt)",
+    "note": "Templates printed in Chinese with English translation."
+  },
+  "claim": {
+    "metric": "reasoning accuracy (Acc), mean of 3 runs",
+    "value": 0.8207,
+    "n_items": null,
+    "location": "Table 3, row o3-mini, column Acc (std in Table 7)",
+    "task_type": "generation",
+    "judge": "llm:Qwen2.5-72B-Instruct"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/SUFE-AIFLM-Lab/FinEval-KR"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Number of evaluation samples is only given as a pie chart (Figure 11), so n_items is unclear; that is the one soft gap. Correctness is decided by an open-weight judge (Qwen2.5-72B-Instruct) with a printed CoT judge prompt. Temperature 1 with reasoning output makes o3-mini cost the main expense.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The first pass missed the count: Sec. 3 states 'The final evaluation set contains a total of 9,782' samples (Figure 11 gives the per-subdiscipline split), and the set is released at github.com/SUFE-AIFLM-Lab/FinEval-KR. Run the Stage 1 template (Figure 15) on all 9,782 questions with o3-mini-2025-01-31 at temperature 1 for three runs, judge correctness with self-hosted Qwen2.5-72B-Instruct using the Figure 14 CoT judge prompt, and compare the mean Acc with 0.8207 (Table 3; std in Table 7).",
+    "approximation": "Judge hosted locally; three-run mean at temperature 1; cost driven by o3-mini reasoning tokens.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

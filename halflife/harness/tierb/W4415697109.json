@@ -1,0 +1,38 @@
+{
+ "openalex_id": "W4415697109",
+ "title": "Context of collaborative human-machine systems architecture design for enhanced functionality awareness and balanced command and control authority",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT-4o, ChatGPT-o4-mini, ChatGPT-4.1 (authors' own use, undated); \"GPT-4 Turbo\" (related-work citation, not run by these authors)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Sec 3.2: \"three ChatGPT models shall be used for comparison: ChatGPT-4o [49], ChatGPT-o4-mini [50] and ChatGPT-4.1\"; \"operated through the authors' own ChatGPT user account\"; l.342 \"Johns and colleagues work with few-shot prompts to GPT-4 Turbo\" (cited prior work, ref [22])."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Prompt chain is generated dynamically from a CXL/concept-map export (Figs. 1-2); no literal prompt text is printed for any model."
+ },
+ "claim": {
+  "metric": "none (qualitative case study of a single search-and-rescue mission; no accuracy/score reported)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Single author-authored search-and-rescue mission case study; no released dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number",
+  "alias_unpinned"
+ ],
+ "notes": "The models the authors actually ran (GPT-4o/GPT-4.1/o4-mini) are all undated and used through the ChatGPT chatbox (webui, not API); the paper is dated 2025-10-28 (alias_note), past the undated-GPT-4o cutoff, so resolved stays unresolved. The only pinned string 'GPT-4 Turbo' is a related-work citation (role C), not an experiment in this paper. Purely qualitative case study, no metric to reproduce."
+}

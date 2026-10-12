@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411007908",
+ "title": "InfraMLForge: Developer Tooling for Rapid LLM Development and Scalable Deployment",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"GPT-4 (gpt-4-turbo-2024-04-09)...achieved a remarkable average performance of 85.5\" (Sec. V-A); Table I's matching row (85.5) is labeled \"GPT-4o\" instead"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt text or template is shown; the paper is abstract formalism (a \"representation matrix\", dataset versioning function, deployment DAG) with no described prompting method."
+ },
+ "claim": {
+  "metric": "Overall Avg. performance across EPIE, CLIMATE-FEVER, SkillSpan, NLPeer",
+  "value": 85.5,
+  "n_items": null,
+  "location": "Table I -- row labeled \"GPT-4o\" (not \"GPT-4 Turbo\"), contradicting the body text's claim that this is GPT-4-turbo-2024-04-09's result",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "EPIE, CLIMATE-FEVER, SkillSpan, NLPeer are named public datasets, but no per-dataset item counts or splits are given"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The paper internally contradicts itself: body text attributes the 85.5 result to \"GPT-4 (gpt-4-turbo-2024-04-09)\", but Table I's row for that value is labeled \"GPT-4o\". Combined with baselines that are non-sequiturs for the stated NLP tasks (e.g. \"Non-Prehensile Tool-Object Manipulation\", a robotics-grasping method, listed as a text-processing baseline) and a Research Square preprint with no peer review, this reads as templated/low-credibility content rather than a verifiable experiment; no reliable number can be tied to a specific live model."
+}

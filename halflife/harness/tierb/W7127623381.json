@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7127623381",
+ "title": "Generative AI and digital neocolonialism in global education: Towards an equitable framework",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT-4 (turbo, advanced mode)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"GenAI systems were employed, ChatGPT-4 (turbo, advanced mode) developed by OpenAI...The premium mode of ChatGPT provided access to GPT-4 Turbo, an OpenAI's premium large-language-model variant\"; \"GPT-4 cost over $20.00 per month\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Described only as \"zero-shot prompt testing\" for lesson-planning tasks; example interactions are given as authors' screenshots, not quoted prompt text."
+ },
+ "claim": {
+  "metric": "none (qualitative comparison of ChatGPT vs Gemini lesson-planning outputs; no accuracy/score reported)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Authors' own screenshots of ChatGPT/Gemini sessions for lesson-planning scenarios; no dataset released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "\"Premium mode of ChatGPT\" and its $20/month cost confirm this is the consumer ChatGPT Plus website, not the API. This is a qualitative/critical-pedagogy paper (digital neocolonialism framing); it contains no quantitative benchmark of the model."
+}

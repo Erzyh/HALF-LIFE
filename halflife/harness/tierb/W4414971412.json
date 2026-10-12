@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414971412",
+  "title": "Doctor-R1: Mastering Clinical Inquiry with Experiential Agentic Reinforcement Learning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano-2025-04-14",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "A",
+    "evidence": "Appendix B: 'we use GPT-4.1-Nano (gpt-4.1-nano-2025-04-14) as our teacher model to annotate a subset of the SFT-Base data with a chain-of-thought format'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4.1-2025-04-14 (consultation evaluator)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HealthBench, MAQuE"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live model only annotates training data. Baseline GPT-5 is gpt-5-chat-2025-08-07 (not in catalog); judge is GPT-4.1."
+}

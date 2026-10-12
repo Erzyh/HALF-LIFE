@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7126280993",
+ "title": "Semantic Content Determines Algorithmic Performance",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "o3-2025-04-16",
+  "resolved": "o3-2025-04-16",
+  "role": "S",
+  "evidence": "Sec 3: \"We evaluated four frontier models—...and o3-2025-04-16 from OpenAI.\"; Table 1: \"o3 0.400 -0.012\" (Semantic Gap with explicit separator)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Listing 1 (base counting prompt), Listing 2 (explicit-separator instruction variant)",
+  "note": "Model settings (temperature etc.) tabulated in Appendix Table C.1."
+ },
+ "claim": {
+  "metric": "Semantic Gap (Δsem), explicit-separator condition",
+  "value": 0.4,
+  "n_items": 120,
+  "location": "Table 1, row o3; Sec. 3 (\"20 different counts per task\" x 6 semantic classes = 120)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "WhatCounts benchmark (synthetic lists of addresses/chemicals/cities/names/phones/emojis); prompts and settings in the paper appendices"
+ },
+ "cost": {
+  "est_calls": 360,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Counting/list task with binary-correct scoring (no LLM judge). o3 is the only still-callable model among the four tested (Claude Sonnet 4, DeepSeek-V3, Kimi-K2 are not in scope). Also tested without the explicit separator (Fig. 2) and under token-controlled and class-wrapping ablations (Figs. 3-4)."
+}

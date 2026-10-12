@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4415164185",
+  "title": "PolyGuard: Massive Multi-Domain Safety Policy-Grounded Guardrail Dataset",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini-2025-04-16",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "A",
+    "evidence": "\"we use o4-mini-2025-04-16 as the base LLM for extracting the safety rules, generating the user requests and the corresponding response\" (Appendix A.3.2, Finance domain)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (rule extraction, request generation and rephrase prompts)",
+    "note": "Prompts are the dataset-construction prompts, not an evaluation of the live model."
+  },
+  "claim": {
+    "metric": "none (o4-mini is a data-generation model; the evaluated systems are 19 guardrail models)",
+    "value": null,
+    "n_items": null,
+    "location": "Table 1 (guardrail F1/recall; no o4-mini row)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/AI-Secure/PolyGuard ; https://github.com/AI-secure/PolyGuard"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "tos",
+    "no_number"
+  ],
+  "notes": "The only OpenAI model with a reported score is 'LLM Guard with GPT-4o backend' (undated GPT-4o, Table 1), not a pinned snapshot. The benchmark content is policy-violating requests and responses (harmful content), which is a ToS concern for re-generation."
+}

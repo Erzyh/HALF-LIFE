@@ -1,0 +1,197 @@
+{
+  "card_id": "W7144391134",
+  "openalex_id": "https://openalex.org/W7144391134",
+  "title": "In-Context Molecular Property Prediction with LLMs: A Blinding Study on Memorization and Knowledge Conflicts",
+  "doi": "10.48550/arXiv.2603.25857 (arXiv auto-DOI; scaffold lists no DOI; JCIM revision in progress per README)",
+  "paper": {
+    "authors": "Busch, Tacke, Lamaka, Zheludkevich, Cyron, Feiler, Aydin (TU Hamburg / Helmholtz-Zentrum Hereon / DFKI)",
+    "year": 2026,
+    "venue": "arXiv 2603.25857 v3 (2026-08-04); under revision at J. Chem. Inf. Model.",
+    "repo": "https://github.com/MatthiasHBusch/BlindingLLMs",
+    "repo_commit": "29f607c2fa18c74251136f50c6f4769129bb9fed (HEAD 2026-07-31; shallow clone external/repos/W7144391134/MatthiasHBusch__BlindingLLMs)",
+    "repo_license": "MIT (LICENSE, 2026 Busch et al.)",
+    "other_artifacts": "data/delaney-processed.csv (1,128 molecules incl. transformed_smiles / transformed_solubility), data/Lipophilicity.csv, data/qm7.csv (HF HR-machine/QM7-Dataset variant), data/antiviral_potency.csv (Zenodo 10.5281/zenodo.15582067 control); pre-computed per-molecule predictions for all nine models in results/LLM_Results_*.json and results/LLM_Results_*_zeroshot.json; bootstrap CIs results/bootstrap_correlation_ci.csv; memorization tables"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The study measures nine LLMs' in-context regression under six blinding levels; every correlation is model output. gpt-4.1-nano is one of nine subjects (GPT-4.1 family, smallest size class). Full per-molecule predictions for every configuration are published (L1-complete)."
+  },
+  "claim": {
+    "statement": "For gpt-4.1-nano on Delaney (ESOL) solubility, 1000-shot in-context learning lifts the test-set Pearson correlation from r = 0.41 at 0-shot (n = 1,128, five repetitions; Table 3 r = 0.41) to r = 0.76 [0.685, 0.815] at 1000-shot (150 test molecules, 2 runs) with the 60-shot setting in between (0.43 [0.28, 0.56]), while the model shows no verbatim recall of the benchmark (3-sig-digit exact matches 0.14%, retention R21 = 9.7% at the ~10% coincidence floor) and still reaches |r| = 0.45 [0.31, 0.58] under full blinding (Level 6, transformed values and transformed SMILES) (Figures 1 and 4, Table 3; results/bootstrap_correlation_ci.csv).",
+    "claim_type": "capability_level",
+    "metric": "Pearson correlation (x100 in the repo tables) between measured log solubility and the per-molecule mean of valid predictions (NaN and values >= 100 dropped) over the 150-molecule test split; 95% CI by bootstrapping the 150 molecules (5,000 resamples). 0-shot: Pearson r over all molecules of the per-molecule mean of 5 repetitions. Memorization: fraction of predictions matching the ground truth to 3 significant digits and precision-scaling retention ratios m2/m1, m3/m2.",
+    "original_values": {
+      "delaney_0shot": {
+        "pearson_r": 0.407,
+        "r2": 0.105,
+        "n": 1128,
+        "table3_r": 0.41,
+        "exact_3sig_match_pct": 0.14,
+        "R21_pct": 9.7,
+        "R32_pct": 9.0
+      },
+      "delaney_60shot_L1_names_only": {
+        "r_x100": 42.9,
+        "ci": [
+          28.2,
+          56.1
+        ]
+      },
+      "delaney_1000shot_L1_names_only": {
+        "r_x100": 75.6,
+        "ci": [
+          68.5,
+          81.5
+        ]
+      },
+      "delaney_1000shot_L2_specific_transformed": {
+        "abs_r_x100": 75.0,
+        "ci_abs": [
+          68.0,
+          80.9
+        ]
+      },
+      "delaney_1000shot_L3_generic": {
+        "r_x100": 78.9,
+        "ci": [
+          72.3,
+          84.4
+        ]
+      },
+      "delaney_1000shot_L4_generic_transformed": {
+        "abs_r_x100": 76.0,
+        "ci_abs": [
+          68.6,
+          82.1
+        ]
+      },
+      "delaney_1000shot_L5_agnostic": {
+        "r_x100": 43.8,
+        "ci": [
+          29.6,
+          57.0
+        ]
+      },
+      "delaney_1000shot_L6_agnostic_transformed": {
+        "abs_r_x100": 45.3,
+        "ci_abs": [
+          30.8,
+          57.6
+        ]
+      },
+      "secondary_lipophilicity": {
+        "0shot_r": 0.292,
+        "60shot": 23.8,
+        "1000shot": 22.9,
+        "L6_abs": 1.4
+      },
+      "secondary_qm7": {
+        "0shot_r": -0.014,
+        "60shot": 15.5,
+        "1000shot": 17.8,
+        "L6_abs": 38.1
+      },
+      "note": "Transformed-level correlations are negative in the repo (labels inverted by the transform); the paper reports magnitudes."
+    },
+    "original_source": "results/zeroshot_accuracy.csv (0-shot), results/bootstrap_correlation_ci.csv rows for gpt-4.1-nano_2024-12-01-preview (config paths names_only/<approach>/<model>/<940|0>/60 = 1000-shot|60-shot), paper Table 3 (memorization) and Figures 1/4; raw per-molecule predictions in results/LLM_Results_delaney.json and LLM_Results_delaney_zeroshot.json"
+  },
+  "protocol": {
+    "model": "gpt-4.1-nano (Azure OpenAI deployment 'gpt-4.1-nano', api-version 2024-12-01-preview; OpenAI snapshot gpt-4.1-nano-2025-04-14)",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json; deprecations page 2026-09-04)",
+    "model_usage_verified": "yes - src/lib/LLMs.jl defines gpt4_1_nano = LLMAccessAzureOpenAI(key, 'gpt-4.1-nano', '2024-12-01-preview', endpoint); results keyed 'gpt-4.1-nano_2024-12-01-preview'; paper Section 3.7",
+    "endpoint": "Original: Azure OpenAI chat completions; re-run: POST https://api.openai.com/v1/chat/completions with model gpt-4.1-nano-2025-04-14 (same message sequence)",
+    "prompt_source": "src/Delaney_Prompts.jl - prompts['names_only'][approach]['system' | 'analysis' | 'prediction'] for approaches with_preanalysis (L1), wp_solubility_blind (L2), wp_molproperty_clear (L3), wp_molproperty_blind (L4), wp_sampleproperty_clear (L5), wp_sampleproperty_blind (L6); 0-shot prompts in src/Run_Delaney_ZeroShot.jl; verbatim text also in paper Appendix F",
+    "messages": [
+      {
+        "role": "system",
+        "content": "<system prompt of the blinding level, e.g. L1: professional chemist predicting log solubility from IUPAC names and SMILES>"
+      },
+      {
+        "role": "user",
+        "content": "This is an extended set of samples from the same dataset as the test set:\nName: ...\nSMILES: ...\nmeasured log solubility in mols per litre: ...\n\n (x 940 extended training molecules; omitted for the 60-shot setting)"
+      },
+      {
+        "role": "user",
+        "content": "<analysis prompt with the 60 in-context examples (names, SMILES, values) and the 3-step analysis task> -> call 1"
+      },
+      {
+        "role": "assistant",
+        "content": "<model analysis>"
+      },
+      {
+        "role": "user",
+        "content": "<prediction prompt for the target molecule: 8-step guide ending with 'Result: ... Syntax: \"[Value]\"'> -> call 2; last number in the reply is parsed"
+      }
+    ],
+    "params": {
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "max_tokens": 4000,
+      "seed": "not set; retries 10",
+      "split": "150 test molecules by MersenneTwister(42) shuffle of the 1,128; 940 extended training molecules = next 940 of the shuffle; 5 folds of 30 test molecules with 60 in-context examples drawn from the other 120; num_runs = 2",
+      "zero_shot": "system prompt 'You are an expert chemist and know the delaney solubility dataset very well...' + single question per molecule, 5 iterations each over all 1,128 molecules, no reasoning"
+    },
+    "n_items": "150 test molecules per ICL configuration (x 2 runs = 300 predictions); 1,128 molecules for 0-shot",
+    "samples_per_item": "2 runs (ICL); 5 repetitions (0-shot)",
+    "evaluation": "Automatic: parse last number in the prediction reply (search_for_last_number_in_string); per-molecule mean over valid predictions; Pearson r vs measured log solubility (inverse-transform not needed because |r| is transform-invariant for the affine map); bootstrap CI over molecules (src/bootstrap_correlation_ci.py); memorization diagnostics via src/memorization_sigdigits.py and src/retention_analysis.py. No logprobs needed.",
+    "environment": "Original code is Julia 1.9+ (src/*.jl with HTTP/JSON/CSV/DataFrames); prompts are plain strings, so a Python re-implementation in our harness is straightforward; analysis scripts are Python (pandas/numpy/scipy/rdkit for the kNN baseline)"
+  },
+  "artifacts": {
+    "prompts_path": "src/Delaney_Prompts.jl (lines ~654-990), src/Run_Delaney_ZeroShot.jl, paper Appendix F",
+    "data_path": "data/delaney-processed.csv (with transformed_smiles / transformed_solubility columns); secondary data/Lipophilicity.csv, data/qm7.csv",
+    "eval_path": "src/bootstrap_correlation_ci.py, src/plotResultsICMLPaper.py (aggregation), src/memorization_sigdigits.py, src/retention_analysis.py, src/significance_analysis.py",
+    "data_public": true,
+    "data_license": "MIT (repo); underlying MoleculeNet datasets (ESOL/Delaney 2004, Lipophilicity, QM7) are public benchmark data",
+    "redistributable": true,
+    "notes": "Complete per-molecule original predictions for every model/level are in results/*.json, enabling item-level comparison with the live re-run; the transformed-SMILES mapping used for L5/L6 is stored in the CSV so blinding is reproducible byte-for-byte."
+  },
+  "blockers": [
+    "Original runs went through Azure deployments; the OpenAI endpoint serves the same snapshot (gpt-4.1-nano-2025-04-14) but the served-version header must be logged to document the channel change.",
+    "1000-shot prompts are ~25-30k tokens per call; cheap for gpt-4.1-nano but the 'ephemeral' cache-control hint in the Julia client has no OpenAI equivalent - prompt caching is automatic.",
+    "Only 2 runs at temperature 0.7 in the original; per-config CIs are wide (~13 pp on Delaney), so individual level-to-level differences are within noise - judge on the large effects only.",
+    "Julia code base must be ported (prompts + control flow) - low risk but a fidelity check against results/LLM_Results_delaney.json is required."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4.1-nano-2025-04-14",
+      "purpose": "live baseline (P0), Delaney 0-shot / 60-shot / 1000-shot L1-L6"
+    },
+    "successors": [
+      "gpt-5 family (gpt-5-nano-2025-08-07 as size-matched successor; gpt-5-mini / gpt-5)",
+      "claude (current Anthropic release, small tier)",
+      "gemini (current Google release, flash-lite tier)",
+      "llama (open weights, hash-pinned)",
+      "qwen (open weights, hash-pinned)"
+    ],
+    "other_live_arms_in_paper": [
+      "gpt-4.1 and gpt-4.1-mini (not listed as deprecated as of 2026-09-04)",
+      "gpt-5 / gpt-5-mini / gpt-5-nano (dying 2026-12-11, priority 2)",
+      "gemini-2.5 family"
+    ]
+  },
+  "budget": {
+    "est_calls": 11940,
+    "est_tokens_in": 143500000,
+    "est_tokens_out": 4800000,
+    "est_cost_usd": 16,
+    "pricing_usd_per_1m": {
+      "gpt-4.1-nano": {
+        "input": 0.1,
+        "output": 0.4
+      }
+    },
+    "assumptions": "Delaney only, 3 runs (paper used 2): 1000-shot x 6 levels = 6 x 150 x 3 = 2,700 predictions x 2 calls at ~26k input / ~750 output tokens = $14 + $1.6; 60-shot L1 = 450 predictions x 2 calls at ~2.5k input = $0.3; 0-shot = 1,128 x 5 = 5,640 calls x ~150 tokens = $0.1. Repeating the same sweep on Lipophilicity and QM7 adds ~$16 each. Prompt caching would cut the input cost roughly in half."
+  },
+  "judgment": {
+    "baseline_alive": "생존 (survived)",
+    "run_meta": "runs/W7144391134/run_meta.json"
+  },
+  "status": "done",
+  "user_checks": [
+    "Scope: Delaney sweep only (~$16) or all three datasets (~$48)? Lipophilicity (collapse under blinding) is the paper's strongest knowledge-conflict example but gpt-4.1-nano's correlations there are near zero.",
+    "Use 3 runs (harness default) or the paper's 2 runs per configuration? Both are cheap.",
+    "Confirm that the live baseline should be called on the OpenAI endpoint (snapshot gpt-4.1-nano-2025-04-14) rather than an Azure deployment as in the original."
+  ],
+  "domain_notes": "The task is numeric regression from SMILES (ESOL aqueous solubility, log mol/L) with the model asked to reason about similar training molecules and output a weighted average; correlations, not MAE, are reported because transformed levels rescale labels. Level 6 replaces atom/bond symbols by arbitrary characters while preserving SMILES topology, so any remaining correlation is pure in-context pattern learning; trivial bag-of-characters ridge regression reaches r = 0.89 on Delaney (Appendix D), so the nano model's 0.76 is below a simple structural baseline - the claim is about mechanism (ICL helps, no verbatim recall), not about accuracy competitiveness."
+}

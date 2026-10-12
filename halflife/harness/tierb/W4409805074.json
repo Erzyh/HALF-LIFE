@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4409805074",
+ "title": "Leveraging Semantic Web Technologies in Healthcare: Development of OntoDrug for Medication Ontology, Prescription Recognition Systems, and Cancer Staging Applications",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "'OntoDrug with LLMs achieved exceptional results in identifying medications from free-text prescriptions, with GPT-4 turbo achieving 100% recall and 97% precision'"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt text located in the excerpt read."
+ },
+ "claim": {
+  "metric": "recall (%) / precision (%), medication extraction from free-text prescriptions",
+  "value": 100,
+  "n_items": null,
+  "location": "Abstract/Results ('GPT-4 turbo achieving 100% recall and 97% precision')",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Free-text clinical/medication prescriptions (institutional healthcare data; not indicated as released)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Portuguese-language master's/doctoral thesis; the prescription free-text inputs are real clinical data and not indicated as publicly released, and no prompt template was located in the excerpt read."
+}

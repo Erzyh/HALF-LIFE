@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4415783151",
+  "title": "WiseMind: Recontextualizing AI with a Knowledge-Guided, Theory-Informed Multi-Agent Framework for Instrumental and Humanistic Benefits",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "reduces hallucinated medication recommendations by 65% relative to GPT-4-turbo without guardrails (Introduction)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "No prompts printed; framework LLMs are gpt-4o, claude-3.5-sonnet, mistral-large, qwen2.5-72b (temperature 0.6)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "relative reduction in hallucinated medication recommendations vs GPT-4-turbo baseline",
+    "value": 0.65,
+    "n_items": null,
+    "location": "Abstract/Introduction (ethical audit summary); no table with the baseline value",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "1,200 simulated conversations and 180 live user sessions; 'datasets ... are not publicly available'; code proprietary"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt",
+    "human_outcome"
+  ],
+  "notes": "GPT-4-turbo appears once as an unguarded baseline with no version, prompt or count."
+}

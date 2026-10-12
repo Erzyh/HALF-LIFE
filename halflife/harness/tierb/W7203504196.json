@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7203504196",
+  "title": "LLMs in Process Diagram Engineering: From Optimal PFDs to Validated P&IDs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Related work: 'The approach is compared with zero-shot and few-shot methods for the GPT-4-Turbo LLM model on soundness and completeness metrics' (describing reference [10])"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C (agent interaction sample) and Appendix D (validator-fix prompt for gpt-oss:120b)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Own experiments use Qwen3.5-397B-A17B and DeepSeek-V4-Pro agents plus gpt-oss:120b",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "P&ID standard documents and Neo4j graphs"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Mention only in related work."
+}

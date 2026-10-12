@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405254208",
+ "title": "Can foundation models actively gather information in interactive environments to test hypotheses?",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "o4-mini",
+  "resolved": "o4-mini-2025-04-16",
+  "role": "S",
+  "evidence": "'Gemini...Claude 3.7 Sonnet...ChatGPT-4o and o4-mini'; efficiency = 'success rate in finding a rewarding object within a fixed step budget'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method describes 'in-context prompting alone' with variations in prior information and demonstration structure; exact prompt templates not confirmed located in the excerpt read",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none confirmed with a specific numeric value for o4-mini in the excerpt read (results are given as figures, e.g. Figure 5a/5b/6c, rather than in-text numbers)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Feature World (text-based Alchemy variant) and Alchemy (Wang et al., 2021), both public interactive RL environments"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A genuinely public, code-available pair of interactive environments and a live-listed model (o4-mini), but no specific reproducible number for o4-mini could be pinned down from in-text values (results are reported via multi-panel figures); a follow-up PDF/figure-data check could plausibly upgrade this to maybe or eligible."
+}

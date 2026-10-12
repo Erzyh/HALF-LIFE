@@ -1,0 +1,66 @@
+{
+  "wid": "W4403885225",
+  "title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 0.915,
+  "original_location": "Table 4, row GPT-4-Turbo, column Ver. (also Table 7, row Ver. Default, column GPT-4)",
+  "reexecution": {
+    "mean_over_seeds": 0.989,
+    "per_seed": {
+      "0": {
+        "value": 0.99,
+        "n": 1000,
+        "ci95": [
+          0.98,
+          0.998
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.988,
+        "n": 1000,
+        "ci95": [
+          0.978,
+          0.996
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403885225",
+    "n_items": 1000,
+    "n_requests": 2000,
+    "seeds": 2,
+    "est_usd": 9.24,
+    "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 0.915,
+    "cap_usd": 11.7,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4403885225"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 6
+  },
+  "approximation": "answer1 is shown as Assistant A and answer2 / answer2_longer as Assistant B in both judgments (order not stated); two judgments per item (original and perturbed); the paper's unperturbed repeat (CR) is not needed for RR.",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4403885225"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.989,
+    "delta": 0.07399999999999995,
+    "original_inside_ci95": false
+  }
+}

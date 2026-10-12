@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7140138327",
+  "title": "ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks?",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Table 3: 'GPT-5-mini gpt-5-mini-2025-08-07'; Sec. 4: 'GPT-5-mini and Gemini-2.5-Flash, were evaluated using a low reasoning effort setting'; Table 5 block GPT-5-mini, Standard: 94.4 (MedQA)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B, Table 10 (prompts for reasoner models, Standard mode) with system prompt 'You are a medical expert'",
+    "note": "final answer parsed from \\boxed{}; low reasoning effort"
+  },
+  "claim": {
+    "metric": "accuracy (%), Standard MCQ format, MedQA subset",
+    "value": 94.4,
+    "n_items": 1259,
+    "location": "Appendix F, Table 5, block GPT-5-mini, row Standard, column MedQA",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ReMedQA (https://disi-unibo-nlp.github.io/remedqa), built from MedQA USMLE test (1,259 after filtering), MedMCQA (1,000 sampled), MMLU medical subsets"
+  },
+  "cost": {
+    "est_calls": 3777,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Headline ReAcc/ReCon (Table 2: GPT-5-mini ReMedQA ReAcc 58.0, Acc 84.4) need all 7 perturbations plus the open-ended format, whose answer mapping uses Qwen3-32B and Gemini-2.5-Flash judges; the Standard-format accuracy avoids judges. GPT-5-mini also serves as verifier when Gemini is evaluated (role A there)."
+}

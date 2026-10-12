@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404313190",
+  "title": "ControlAgent: Automating Control System Design via Novel Integration of LLM Agents and Domain Expertise",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (model = gpt-4-turbo)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 5: 'GPT-4-turbo model = gpt-4-turbo, temperature = 0, max_tokens = 1024'; Table 4: GPT-4-turbo ASR fast 94.0 / moderate 98.4 / slow 99.2"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E.1 'Full Prompts for ControlAgent' (central agent, task-specific agents); E.2 baseline prompts",
+    "note": "The central-agent prompt is refilled each iteration with the Python agent's evaluation feedback."
+  },
+  "claim": {
+    "metric": "Average Success Rate (ASR, %) for first-order stable systems, fast mode, ControlAgent with GPT-4-turbo",
+    "value": 94.0,
+    "n_items": 50,
+    "location": "Table 4, column GPT-4-turbo, row fast (ASR 94.0, 3.82 iterations)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "ControlEval (500 tasks; 50 systems per type/mode), https://github.com/ControlAgent/ControlAgent.git"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Iterative design loop: the LLM proposes controller parameters, a Python agent computes settling time and phase margin and feeds back; re-execution needs a re-implemented evaluator (control library), heavier than a plain prompt run. 'gpt-4-turbo' alias used in Oct 2024 (GA).",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 50 first-order stable fast-mode systems (transfer functions with settling-time and phase-margin targets) are hand-curated (Sec. 5) and exist only in the repository's ControlEval. Run the Appendix E.1 central-agent / task-specific-agent loop with gpt-4-turbo at temperature 0 and max_tokens 1024, re-implementing the Python evaluator with python-control (loop-shaping gains, phase margin, settling time) as sketched in Figure 2, and compute ASR = share of systems meeting all requirements within the iteration budget; compare with 94.0 (Table 4).",
+    "approximation": "The iteration cap and the evaluator's settling-time definition are taken from the repository; results vary between runs despite temperature 0.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/ControlAgent/ControlAgent.git",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

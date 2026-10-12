@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W7166799387",
+  "title": "Diagnosing and Mitigating Sycophancy and Skepticism in LLM Causal Judgment",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'We evaluate ... GPT-4-Turbo, GPT-5.2, Claude 3.5 Sonnet ...'; footnote 2: 'All API calls were made between 2025 and January 2026'; Table 3: 'GPT-4-Turbo 100.0 100.0 100.0'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.7 (Neutral Direct, Sycophancy and Self-Doubt protocol templates)",
+    "note": "Scenario text is filled from the CausalT3-Seed vignettes."
+  },
+  "claim": {
+    "metric": "L1 Association overall accuracy (%), Neutral Direct protocol",
+    "value": 100.0,
+    "n_items": 100,
+    "location": "Table 3, row GPT-4-Turbo, column Overall",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "CausalT3-Seed (454 expert-curated vignettes, 10 domains); ethics statement anticipates public release but no URL in the text; example vignettes printed in Appendix A"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Temperature 0. Headline L3 Safety gap (GPT-4-Turbo 75% vs GPT-5.2 20%, n=100) is the alternative claim; RCA-wrapped results need the audit pipeline (Appendix D).",
+  "resolution": {
+    "gap": "unreleased",
+    "plan": "CausalT3-Seed (454 expert-curated vignettes; 100 L1 Association scenarios) is described and the ethics statement discusses its release, but the text contains no URL, archive or supplement, and Appendix A prints only example vignettes, so the 100 L1 items cannot be reconstructed. The Appendix A.7 Neutral Direct template is complete, so the record can be re-opened if the dataset is published.",
+    "approximation": "n/a",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "wid": "W7166799942",
+  "n_items": 280,
+  "n_requests": 280,
+  "seeds": 1,
+  "est_usd": 0.02,
+  "subset_note": "paraphrase f2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [280]; model field rewritten from gpt-4.1-nano-2025-04-14 to gpt-5.6-luna in 280 bodies; parameters added {'reasoning_effort': 'none'}",
+  "dropped_unrenderable": 0,
+  "model": "gpt-5.6-luna",
+  "source_model": "gpt-4.1-nano-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 42.45,
+  "cap_usd": 2.0,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7166799942",
+  "paraphrase": "f2",
+  "pairs": [
+    [
+      "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation.",
+      "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation, choosing exactly one label per utterance from: neutral, joy, surprise, anger, sadness, disgust, fear."
+    ]
+  ],
+  "params_added": {
+    "reasoning_effort": "none"
+  }
+}

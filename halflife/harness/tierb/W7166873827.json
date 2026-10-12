@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7166873827",
+  "title": "Reward Modeling for Scientific Writing Evaluation",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini (2025-01-31)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "B",
+    "evidence": "\"we experiment with GPT-5.2 (2025-12-11) and o3-mini (2025-01-31) ... to gain insight about the performance bounds of large proprietary models\" (Sec. 4); Table 2 row o3-mini RW 0.79"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C, Figures 5-30 (system prompt Figure 5; per-aspect prompts listed in Table 7)",
+    "note": "Multi-part prompts for positioning type/consistency (Figures 8-15)."
+  },
+  "claim": {
+    "metric": "accuracy on Related Work (RW) evaluation, mean of 3 runs",
+    "value": 0.79,
+    "n_items": 1857,
+    "location": "Table 2, row o3-mini, column RW (full results Table 8: 0.63/0.99/0.998/0.79 by aspect)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/UKPLab/acl2026-expert-rm (data and code stated public)"
+  },
+  "cost": {
+    "est_calls": 1857,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Inference at temperature 1 and top-p 0.95, repeated three times for o3-mini; mean and SD reported. Test-set sizes: RW 1,857 items (Table 5), RevUtil 4,788 (Table 6). Cost tier assumes o-series pricing on long rubric prompts."
+}

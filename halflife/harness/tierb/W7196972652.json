@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7196972652",
+  "title": "Artificial intelligence can match domain experts in evidence extraction and critical appraisal of microbial oncogenesis research publications",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-5 Nano (Singh, 2026)",
+    "resolved": "gpt-5-nano-2025-08-07",
+    "role": "S",
+    "evidence": "Sec 2.3: \"GPT-5 model API snapshots gpt-5-2025-08-07 and gpt-5-nano-2025-08-07\"; Sec 3.3.5.1: GPT-5 Nano combined overlap score median=2.00 (IQR 1.25-2.00)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 2.2/2.4: \"The full extraction template can be found in the Supplementary Material\"",
+    "note": "Extraction template (questionnaire) is referenced and stated as available (open-access Frontiers supplementary material) but not reproduced in the main text."
+  },
+  "claim": {
+    "metric": "combined overlap score, microbial-oncogenesis-criteria questions (0-4 scale, median)",
+    "value": 2.0,
+    "n_items": 144,
+    "location": "Sec 3.3.5.1: \"across the six questions analyzed ... GPT-5 Nano having the lowest scores (2.00, IQR 1.25-2.00)\"; n = 6 questions x 24 papers",
+    "task_type": "extraction",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "24 original research papers on microbial oncogenesis; human-validated test dataset stated available in Supplementary Material"
+  },
+  "cost": {
+    "est_calls": 24,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Headline MCQ result (n=336 question instances, Figure 6) is reported only via Wilcoxon test statistics (W, p, r) for GPT-5 Nano, not a plain match-proportion value. GPT-5-2025-08-07 (also live, different CSV row) scores higher on the same combined-overlap metric (3.00)."
+}

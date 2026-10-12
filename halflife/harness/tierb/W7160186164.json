@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7160186164",
+  "title": "So Many Opinions, So Many LLMs: Comparing Large Language Models to Traditional Machine Learning for Open-Ended Survey Analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Abstract: \"We focus on several cutting-edge LLMs, including OpenAI's GPT-4-Turbo... and compare their performance to the previous machine learning models\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Only the abstract and reference list were captured (journal landing page); no methods, results table, or prompt text is available."
+  },
+  "claim": {
+    "metric": "none (no numeric value given beyond qualitative abstract claims)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "NSSE open-ended survey responses (not stated as released)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "no_prompt"
+  ],
+  "notes": "The captured text is an abstract-only landing page; no per-model accuracy figures, sample sizes, or prompts are present to support reproduction."
+}

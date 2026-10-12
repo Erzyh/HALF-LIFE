@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4395474395",
+ "title": "Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4O-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "B",
+  "evidence": "\"We evaluate the phi-3.5-mini and phi-3.5-MoE models on two long-context understanding tasks: RULER and RepoQA. As shown in Tables 1 and 2...\"; Table 1 row \"gpt-4O-2024-05-13 128k 95 80 85 96 97 90.6\" (RepoQA, Python/C++/Rust/Java/TypeScript/Average)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 2: \"The prompts and number of shots are part of a Microsoft internal tool...An example of a 2-shot prompt is [shown]\"",
+  "note": "One example k-shot prompt is given for the general benchmark harness; the exact RepoQA prompt template is not reproduced, and the harness itself is described as an internal Microsoft tool."
+ },
+ "claim": {
+  "metric": "RepoQA benchmark average (code-retrieval QA across 5 languages)",
+  "value": 90.6,
+  "n_items": null,
+  "location": "Table 1 (RepoQA benchmark comparison), row gpt-4O-2024-05-13, Average column",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "RepoQA (Liu et al., public code-understanding benchmark) and RULER; Phi-3 models released on Hugging Face"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Microsoft's own technical report; comparator models including gpt-4O-2024-05-13 appear to be run through the same internal evaluation harness as the Phi models for a fair comparison (role B), not simply copied from RepoQA's own leaderboard, though the text does not say this explicitly. Soft gaps keeping this at 'maybe': RepoQA's item count is not stated in the retrieved text, and the exact prompt template used for RepoQA specifically is not shown (only a generic k-shot example)."
+}

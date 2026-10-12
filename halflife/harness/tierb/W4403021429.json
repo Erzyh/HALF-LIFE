@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403021429",
+ "title": "Real-world cooking robot system from recipes based on food state recognition using foundation models and PDDL",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4o-2024-05-13 / GPT-4o-mini-2024-07-18",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "Fig. 7: \"conversion results...in GPT-4o-2024-0513 and GPT-4o-mini-2024-0718...compared with those of GPT-4-0613\" -- one illustrative broccoli-recipe example, not an aggregate score."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec (recipe-to-function-sequence conversion) describes the pipeline; only one worked example (Fig. 7) is shown",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none aggregate (only one qualitative example transformation is shown for GPT-4o; the paper's quantitative \"accuracy\" statements refer to the separate visual food-state recognizer, not the LLM's recipe-to-function conversion)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 7 (single example)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "custom recipes and a physical cooking-robot setup; not a released dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is primarily a robotics/PDDL-planning paper; GPT-4o's role (converting recipe text to a function sequence) is illustrated with one worked example, not scored across a test set."
+}

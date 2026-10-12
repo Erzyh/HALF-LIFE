@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416054129",
+ "title": "Moving Beyond Next-Token Prediction: Transformers are Context-Sensitive Language Generators",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"(GPT-4: 32,768 tokens, GPT-4 Turbo: 128,000 tokens)\" -- a context-window specification aside inside a background discussion of LLMs."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No experiment; theoretical/position paper."
+ },
+ "claim": {
+  "metric": "none (no experiment run on GPT-4 Turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is mentioned only once, giving its context-window size in a background paragraph about LLM architectures; the paper is a theoretical/position piece on transformer language generation and contains no model experiment. (The reference list also cites a seemingly fabricated \"GPT-4 v6 Technical Report (2024)\", consistent with a low-rigor treatment of model facts.)"
+}

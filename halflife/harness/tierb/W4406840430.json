@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4406840430",
+  "title": "Can OpenAI o1 Reason Well in Ophthalmology? A 6,990-Question Head-to-Head Evaluation Study",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "'OpenAI's o1 (o1-preview-2024-09-12), GPT-4o (gpt-4o-2024-05-13), GPT-4 (gpt-4-0613)' via APIs; 'greedy decoding with a temperature set to 0' (Methods)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 1 'Standardized Prompt Format Used for Each MCQ Item' (image, not in extracted text); Methods describe role, answer selection and explanation",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (MedMCQA ophthalmology subset)",
+    "value": 0.82,
+    "n_items": 6990,
+    "location": "Table 1, column GPT-4o, row Accuracy (0.82 +/- 0.39; o1 0.88, Macro-F1 0.65)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MedMCQA ophthalmology subset (6,990 questions; public)"
+  },
+  "cost": {
+    "est_calls": 20970,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Primary subject o1-preview-2024-09-12 is retired; GPT-4o is a comparator. The exact prompt wording is in a figure image and must be read from the PDF.",
+  "resolution": {
+    "gap": "prompt_as_image",
+    "plan": "The standardized MCQ prompt exists only as Figure 1 (image; the Methods say it casts the model as an 'assistant specializing in ophthalmology', asks for the best option and an explanation). Read the wording from the PDF, apply it to the 6,990 MedMCQA ophthalmology questions (public; subset definition in Supplementary Table 3), run gpt-4o-2024-05-13 at temperature 0, and score accuracy; compare with 0.82 (Table 1).",
+    "approximation": "None once Figure 1 is transcribed; o1-preview (the primary subject) stays out of scope.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

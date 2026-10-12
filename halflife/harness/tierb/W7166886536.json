@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7166886536",
+ "title": "GENOME: A New Geopolitical Event Methodology and Dataset using Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "\"fine-tuning gpt-4.1-nano on 775 event descriptions classified with gpt-5.1... using OpenAI supervised fine-tuning tool\"; cost \"$33 for classification with the fine-tuned gpt-4.1-nano\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "\"The classification prompt includes the definition of Agent and of Agent roles... along with examples\" - described, not quoted."
+ },
+ "claim": {
+  "metric": "none (fine-tuning loss/validation loss reported, not a benchmark accuracy figure)",
+  "value": null,
+  "n_items": null,
+  "location": "Sec.3.3 (training loss 0.114, validation loss 0.122)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "roughly 6,000 newswire articles/month ingested by the authors' own pipeline; not released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed",
+  "no_prompt"
+ ],
+ "notes": "Requires fine-tuning gpt-4.1-nano on training labels produced by \"gpt-5.1\" (not one of the tracked still-callable identifiers) over a proprietary newswire corpus; the classification prompt is described but not quoted."
+}

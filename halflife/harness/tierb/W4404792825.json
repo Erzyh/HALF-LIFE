@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404792825",
+  "title": "Will LLMs Sink or Swim? Exploring Decision-Making Under Pressure",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (GPT-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "'GPT-3.5-Turbo (GPT-3.5-turbo-0125), and GPT-4o (GPT-4o-2024-05-13) for our experiments, with a temperature setting of 0.1' (Section 4.2)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.1 Tables 10-11 (explicit pressure prompts) and C.2 (implicit scenario prompts); standard GSE/ES/PRCA scales",
+    "note": ""
+  },
+  "claim": {
+    "metric": "General Self-Efficacy scale score (baseline, no pressure)",
+    "value": 31.36,
+    "n_items": null,
+    "location": "Table 2, column GPT-4o, row Base (GSE 31.36, ES 5.63); PRCA without persona 40.84",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "prompts printed in the appendix; public psychometric scales"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Repetitions per condition (10 for GPT models) and item counts make n_items unclear; outputs are Likert responses.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n resolves from Sec. 4.2: GPT models were run 10 times per prompt and placement, so the no-pressure baseline is 10 administrations of the 10-item General Self-Efficacy scale (Schwarzer and Jerusalem 1995, public; 4-point Likert, total 10-40). Send the 10 items with a Likert answer-format line to gpt-4o-2024-05-13 at temperature 0.1, repeat 10 times, average the totals and compare with 31.36 (Table 2, GPT-4o Base).",
+    "approximation": "The exact baseline instruction for the Likert format is not printed (Tables 10-12 hold only the pressure prompts), so a minimal format instruction is written; item order follows the published scale.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

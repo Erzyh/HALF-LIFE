@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4412944900",
+  "title": "CodeTool: Enhancing Programmatic Tool Invocation of LLMs via Process Supervision",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "\"GPT-4 (gpt-4-turbo-2024-04-09) is leveraged as the evaluator to categorize the answers into 'Solved', 'Unsure', or 'Unsolved'\" (Sec. 4.3); also rebuilds truncated API responses (Sec. 4.2)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B Table 6 (refined SoPR judge criteria); Appendix E (CodeTool prompts)",
+    "note": "Judge prompt criteria printed; subject-model prompts in Appendix E"
+  },
+  "claim": {
+    "metric": "SoPR (solvable pass rate, judged by gpt-4-turbo-2024-04-09)",
+    "value": 71.05,
+    "n_items": 765,
+    "location": "Table 2, row GPT-4-Turbo-Preview + CodeTool, column Avg",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "StableToolBench test set, filtered per Appendix C (765 solvable queries)"
+  },
+  "cost": {
+    "est_calls": 2295,
+    "tier": "mid"
+  },
+  "blockers": [
+    "dead_alias",
+    "no_number"
+  ],
+  "notes": "Live model is judge/parser only. Closed-source subjects are GPT-3.5-Turbo-0613 and GPT-4-Turbo-Preview (dead). Tool-invocation pipeline over the StableToolBench cache is not light re-execution."
+}

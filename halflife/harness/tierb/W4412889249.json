@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4412889249",
+  "title": "Investigating Methods for Mapping Learning Objectives to Bloom’s Revised Taxonomy in Course Descriptions for Higher Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Related work: '... (2024) evaluated the efficacy of GPT-4 Turbo'; Sec. 5.2: 'We utilized OpenAI's GPT-4 model (OpenAI, 2023) and treated the model as an annotator'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 5.2 (annotator-style prompting described, BWS and multi-class variants)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "weighted F1",
+    "value": null,
+    "n_items": null,
+    "location": "Table 2 (model is an unversioned GPT-4, temperature 0)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Course descriptions collected by the authors (Table 1)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "dead_alias"
+  ],
+  "notes": "The evaluated model is an unspecified 'GPT-4' checkpoint; GPT-4 Turbo is only cited in related work."
+}

@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4413969678",
+  "title": "An integral vision of pain and its persistence: a whole-person, whole-system, salutogenic perspective",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 (GPT-4-turbo variant)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Generative AI statement: \"occasionally used Microsoft Copilot powered by GPT-4 (GPT-4-turbo variant), for refining grammar, syntax, and overall readability\""
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "No experimental prompt; this is a disclosure of AI-assisted copyediting of the manuscript prose, not a study of the model."},
+  "claim": {
+    "metric": "none for the live id (used only as a writing aid)", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a - opinion/perspective article on pain science, no dataset or benchmark involved"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Perspective/opinion article, not an LLM evaluation study. The only mention of GPT-4-turbo is in the mandatory Generative-AI-use statement (author used Microsoft Copilot, powered by GPT-4/GPT-4-turbo variant, to polish grammar and readability of the manuscript). No prompt, task, dataset, or quantitative claim is tied to the model."
+}

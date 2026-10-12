@@ -1,0 +1,94 @@
+{
+  "wid": "W4411120580",
+  "title": "QSpell 250K: A Large-Scale, Practical Dataset for Chinese Search Query Spell Correction",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 64,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (Sec. 4.2: 'we utilize the gpt-4-turbo model in Chat mode', no decoding parameters; Sec. 4.4's parameter settings describe the fine-tuning runs, not the prompted model). max_tokens 64 is ample for a search query.",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 50001,
+    "subset_rule": "the released test file corrector_datasets/qspell_250k_test.txt in full: 50,001 lines, of which 25,782 need a correction (Sec. 4.1 describes a 200K/50K split with a roughly 1:1 mix of correct and erroneous queries)",
+    "approximation": "The paper averages five runs per model ('For each model, we obtained the average from five experiments', Sec. 4.4); one seed is run here, and the harness's item-level resampling gives the interval instead. The released test file holds one line more than the stated 50,000 and its last two lines are offset against the released prediction file, which the authors' evaluation script pairs positionally; this run pairs each query with the correction on its own line, so that offset does not apply."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/dz1109/CQSpell (the paper's footnote 1), file corrector_datasets/qspell_250k_test.txt",
+    "config_or_split": "test split (50K), tab-separated 'query<TAB>corrected query', no header",
+    "filter": null,
+    "fields": {
+      "input": "query",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "no LICENSE file in the repository; the README states the release accompanies the NAACL 2025 industry-track paper",
+    "access_checked": true,
+    "size_mb": 2.4,
+    "file_url": "https://raw.githubusercontent.com/dz1109/CQSpell/main/corrector_datasets/qspell_250k_test.txt",
+    "local_files": {
+      "dir": "external/data/tierb_items/W4411120580/",
+      "files": [
+        "qspell_250k_test.txt (2,484,449 B, 50,001 lines)",
+        "qspell_250k_gpt4.txt (2,485,420 B, the authors' own GPT-4 outputs, used to check the scorer)",
+        "eval_corrector.py (the authors' evaluation script)",
+        "test_all.py (their inference script for the fine-tuned models)"
+      ],
+      "download_date": "2026-09-19"
+    },
+    "hook": "harness/tierb/hooks/W4411120580.py (headerless TSV loading, reply cleanup and the repository's P/R/F1)",
+    "fields_paper": {
+      "input": "the query q",
+      "label": "the standard correction S(q); the item's gold packs 'query<TAB>correction' because the metric needs both",
+      "id": "line number in the test file"
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "As a query spelling error correction model, your task is to automatically detect and correct query spelling errors in the query. If the query does not contain errors, output the original query. The input query is: {q}. The output query is:",
+    "placeholders": {
+      "q": "items.query"
+    },
+    "few_shot": "none (zero-shot: Sec. 4.2, 'we aim to evaluate the effectiveness of ChatGPT as a zero-shot learner for spelling correction')",
+    "source_location": "Sec. 4.4: 'The prompt we used is as follows: As a query spelling error correction model, ...'",
+    "verbatim": "full; the prompt is printed as running text broken across the column, so the line breaks inside sentences are joined into one line. The paper writes two '{}' slots: the first takes the query, the second is the answer the model is to produce, so the template ends after 'The output query is:'.",
+    "placeholders_paper": {
+      "q": "the first {} of 'The input query is: {}'"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "hook parse: first non-empty line of the reply, an echoed 'The output query is:' / '### Out query:' prefix removed, surrounding quotes stripped; the result is compared after the full-width to half-width conversion the authors' scorer applies",
+    "parse_paper": "the corrected query itself; the repository's inference script writes the reply as one line next to the query"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Sentence-level correction F1 as implemented in the repository's eval_corrector.py: with src the query, tgt the gold correction and pred the model's output (tgt and pred converted full-width to half-width), TP = src != tgt and pred == tgt, FN = src != tgt and pred != tgt, FP = src == tgt and pred != tgt, TN = src == tgt and pred == tgt; precision = TP/(TP+FP), recall = TP/(TP+FN), F1 = 2PR/(P+R). Sec. 4.3 describes the same comparison in words.",
+    "judge": "rule (the repository's scorer)",
+    "original_value": 0.4416,
+    "original_location": "Table 3, row 'Prompt GPT4', QSpell 250K columns (P 0.7409, R 0.3146, F1 0.4416)",
+    "bootstrap_unit": "query (set-level statistic: the runner resamples items and recomputes P/R/F1)",
+    "scale": 1,
+    "hook": "parse() and score() in harness/tierb/hooks/W4411120580.py",
+    "scorer_check": "running the repository's own GPT-4 output file through this scorer gives P 0.7556, R 0.3181, F1 0.4477 against Table 3's 0.7409 / 0.3146 / 0.4416 - the residual is the paper's five-run average against their single released run."
+  },
+  "cost": {
+    "est_calls": 50001,
+    "est_usd": 131.0,
+    "tier": "high",
+    "cost_note": "50,001 short calls, one seed: about 3.5M input tokens ($35) plus output. The dry-run charges the full max_tokens of 64 as output (~$96); real replies are one query (~20 tokens), so the true figure is nearer $65.",
+    "est_usd_prepare": 130.6,
+    "prepare_note": "runner --prepare --dry-run 2026-09-19: with --cap 20 the runner kept a seeded random subset of 7,658 of the 50,001 items ($20.00), which scales to about $131 for the full test set."
+  },
+  "open_points": [
+    "Cost: the full test set is about $131 at the dry-run's estimate (nearer $65 at realistic output lengths) for a single seed. A seeded random subset of 5,000-10,000 queries estimates F1 to about +/- 0.01 and is the sensible way to run this; the runner does exactly that under --cap.",
+    "The paper reports the average of five runs per model and this arm runs one, so a small difference from 0.4416 is expected even under perfect reproduction - the authors' own released single run scores 0.4477 under their scorer."
+  ],
+  "notes": "The repository ships the test set, the scorer and the authors' own GPT-4 predictions, which is why the metric could be checked before running anything. The prompt in the repository's test_all.py ('### As a query spelling error correction model ... ### Out query:') is the variant used for the fine-tuned Qwen models; the config uses the prompt printed in Sec. 4.4, which is the one the GPT-4 row is attributed to. The model alias 'gpt-4-turbo' was resolved to the 2024-04-09 snapshot by the date rule (NAACL 2025 industry track)."
+}

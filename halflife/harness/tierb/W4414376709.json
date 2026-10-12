@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414376709",
+  "title": "Case Analysis of Generative AI Adoption and Application Based on the UTAUT Theory: Taking Ctrip's TripGenie Intelligent Travel Chatbot as an Example",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo 0409",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "\"language models (LLMs) such as GPT-4 Turbo 0409, GPT-4o, and GPT-4 Turbo with Vision\" (literature review)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Case analysis of Ctrip TripGenie (no experiment)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "UTAUT-based case study; no model was run."
+}

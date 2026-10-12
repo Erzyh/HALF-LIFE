@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403443451",
+ "title": "Overview of the NLPCC 2024 Shared Task on Chinese Metaphor Generation",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 2 (\"Benchmarking Models Performance\"): \"GPT-4-Turbo 89.8 81.8 90.2 87.8\" (Subtask1 TestA/TestB, Subtask2 TestA/TestB)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix B.1 (Subtask 1 MCQ prompt, Chinese, with {text}/{options} placeholders)",
+  "note": "Appendix A gives the separate metaphor-categorisation labelling prompt used for the dataset (different purpose, role A)."
+ },
+ "claim": {
+  "metric": "accuracy, Subtask 1 (metaphor sentence selection), Test A",
+  "value": 89.8,
+  "n_items": 500,
+  "location": "Table 2, row GPT-4-Turbo, Subtask1/TestA column; Test A defined as 500 questions (Sec.3.3)",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "NLPCC 2024 shared-task competition data; no public release link found in the extracted text"
+ },
+ "cost": {
+  "est_calls": 2000,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Alias resolved by date rule (arXiv 2408.04378, dated 2024-08-08). GPT-4-Turbo is a baseline the organisers ran themselves (Table 2), distinct from the 4 competing teams (Table 3). Soft gap: shared-task data distribution status to non-participants is not stated in-text."
+}

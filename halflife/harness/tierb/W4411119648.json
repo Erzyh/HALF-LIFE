@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119648",
+  "title": "SafetyQuizzer: Timely and Dynamic Evaluation on the Safety of LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'we collected responses from GPT-3.5-turbo (ChatGPT), GPT-4-turbo, and Llama3.1-8B-Chinese-Chat'; Table 1(b), SafetyQuizzer row: GPT-4-turbo ASR 13.40, DCR 7.40, CAC 1.60"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 7 (question-generation prompt) and Table 8 (evaluation prompt); the generated questions themselves are the inputs to the target model",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Attack Success Rate (%) on SafetyQuizzer questions",
+    "value": 13.4,
+    "n_items": null,
+    "location": "Table 1(b), row SafetyQuizzer, GPT-4-turbo ASR column",
+    "task_type": "classification",
+    "judge": "llm:ChatGLM3 + Qwen-turbo + ERNIE-3.5 (majority vote)"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Code on GitHub (SafetyQuizzer); question set generated dynamically from news via RAG, size not stated in the text"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Harmfulness is judged by three Chinese commercial evaluator LLMs (ChatGLM3, Qwen-turbo, ERNIE-3.5 as of May 2024) that have since been superseded; the generated question set and its size are not given. Experiments ran around June 2024 (post-GA alias)."
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4408426017",
+  "title": "Wikimpacts 1.0: a new global climate impact database based on automated information extraction from Wikipedia",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Section 3.2: 'the application of the GPT4o model (version: gpt-4o-2024-05-13)' for information extraction; 'complete text of the prompts ... can be found in Sect. S4' (Supplement)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplement Sect. S4 (not in the extracted text); prompt versions v3.1/v3.2 named in Section 3.2",
+    "note": ""
+  },
+  "claim": {
+    "metric": "L1 weighted score (distance, lower is better)",
+    "value": 0.1431,
+    "n_items": 156,
+    "location": "Table 6, Weighted_Score on the gold standard test set (156 events)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Wikipedia article text at retrieval time; gold standard, code and raw LLM outputs at https://github.com/VUB-HYDR/Wikimpacts and doi:10.17043/li-2025-wikimpacts-1.0.final"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Prompts live only in the supplement and Wikipedia inputs are not version-pinned in the paper. No listed blocker applies."
+}

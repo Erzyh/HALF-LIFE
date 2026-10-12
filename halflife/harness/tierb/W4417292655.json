@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4417292655",
+  "title": "An Exploration of Current Affairs Translation based on Artificial Intelligence ChatGPT",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT ('GPT-4 Turbo' mentioned)",
+    "resolved": "unresolved",
+    "role": "B",
+    "evidence": "'This article aims to discuss ChatGPT's proficiency in translating political texts as a case study' (Abstract); 'first attempt, without prompting, human modification' (Section 3)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "source sentences printed in the case analysis; no instruction prompt",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none (qualitative comparison of translations)",
+    "value": null,
+    "n_items": null,
+    "location": "Section 3 case examples",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "example political sentences printed in the paper"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "Web ChatGPT used interactively; no model version and no metric."
+}

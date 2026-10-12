@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403900083",
+  "title": "Context and System Fusion in Post-ASR Emotion Recognition with Large Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "'Specifically, gpt-4o-2024-05-13 and gpt-3.5-turbo-0125 with temperature=1, max tokens=250, seed=42' (footnote 5, Section 4.1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Fig. 1 (context-size-2 template) and Fig. 2 (context 4 plus 5 ASR outputs); system message 'You are a helpful assistant.'",
+    "note": "Template text is in the extracted file; labels restricted to anger/happiness/sadness/neutral in square brackets."
+  },
+  "claim": {
+    "metric": "unweighted accuracy (training set, CW=0, ASR selection 'longest and most punc')",
+    "value": 0.449,
+    "n_items": 2577,
+    "location": "Table 1, column gpt-4o, row CW 0 (CW 16: 0.575); Table 3 best fusion 0.594",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "GenSEC Task 3 (github.com/YuanGongND/llm_speech_emotion_challenge), IEMOCAP re-split by organizers; 2,577 training utterances need predictions; test references held by organizers"
+  },
+  "cost": {
+    "est_calls": 7731,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "IEMOCAP-derived challenge data require the IEMOCAP license agreement; reported numbers are on the training set with temperature 1 sampling.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The training-set utterances (5,225, of which 2,577 need predictions), the 11 ASR hypotheses per utterance, speaker sex and emotion labels are distributed by the GenSEC Task 3 challenge repository (IEMOCAP-derived, license-gated). Build the Fig. 1/2 template with CW=0 and the 'longest and most punctuated' ASR selection, run gpt-4o-2024-05-13 with temperature 1, max tokens 250, seed 42 and the system message 'You are a helpful assistant.', and compute unweighted accuracy vs Table 1 (0.449). The authors' code is at github.com/rggdmonk/GenSEC-Task-3.",
+    "approximation": "Temperature-1 sampling; IEMOCAP license agreement needed for the challenge data.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/YuanGongND/llm_speech_emotion_challenge",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

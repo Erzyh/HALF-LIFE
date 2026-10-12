@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4407719631",
+ "title": "Artificial intelligence in healthcare education: evaluating the accuracy of ChatGPT, Copilot, and Google Gemini in cardiovascular pharmacology",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"Microsoft Copilot (GPT-4 Turbo, GitHub Copilot)\" — GPT-4 Turbo is named only as Copilot's underlying model, not invoked directly by the authors via a pinned API."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "MCQ/SAQ accuracy of 'Copilot' (backend nominally described as GPT-4 Turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a (accuracy is attributed to the consumer product 'Copilot', not a pinned snapshot)",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Consumer chat-interface comparison of ChatGPT (GPT-4o mini), Microsoft Copilot (GPT-4 Turbo), and Google Gemini (Gemini 1.5) on MCQs/SAQs; no temperature, API, or exact snapshot date given, and Copilot's actual served backend is not user-controllable or independently verifiable."
+}

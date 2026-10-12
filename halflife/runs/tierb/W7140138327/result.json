@@ -1,0 +1,67 @@
+{
+  "wid": "W7140138327",
+  "title": "ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks?",
+  "model": "gpt-5-mini-2025-08-07",
+  "metric": "accuracy",
+  "original_value": 94.4,
+  "original_location": "Appendix F, Table 5, block GPT-5-mini, row Standard, column MedQA",
+  "reexecution": {
+    "mean_over_seeds": 0.9375165475244902,
+    "per_seed": {
+      "0": {
+        "value": 0.9412231930103256,
+        "n": 1259,
+        "ci95": [
+          0.9269261318506752,
+          0.9539316918189039
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.9308975377283558,
+        "n": 1259,
+        "ci95": [
+          0.9158061953931692,
+          0.9444003177124702
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.9404289118347895,
+        "n": 1259,
+        "ci95": [
+          0.9269261318506752,
+          0.9531374106433678
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 1
+  },
+  "prepare": {
+    "wid": "W7140138327",
+    "n_items": 1259,
+    "n_requests": 3777,
+    "seeds": 3,
+    "est_usd": 7.81,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-mini-2025-08-07",
+    "metric": "accuracy",
+    "original_value": 94.4,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "gpt-5-mini-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 93.75165475244901,
+    "delta": -0.6483452475509921,
+    "original_inside_ci95": true
+  }
+}

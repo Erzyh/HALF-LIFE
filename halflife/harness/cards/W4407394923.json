@@ -1,0 +1,110 @@
+{
+  "card_id": "W4407394923",
+  "openalex_id": "https://openalex.org/W4407394923",
+  "title": "Performance of DeepSeek-R1 in Ophthalmology: An Evaluation of Clinical Decision-Making and Cost-Effectiveness",
+  "doi": "10.1101/2025.02.10.25322041",
+  "paper": {
+    "authors": "Mikhail, Farah, Milad, Nassrallah, Mihalache, Milad, Antaki, Balas, Popovic, Feo, Muni, Keane, Duval",
+    "year": 2025,
+    "venue_note": "medRxiv preprint (posted 2025-02-12, CC-BY-ND 4.0), not peer reviewed; 'Supplemental Material: None'",
+    "repo": null,
+    "repo_note": "The scaffold candidate github.com/MoonshotAI/Kimi-k1.5 is reference 41 (third-party), not an artifact of this paper",
+    "repo_commit": null,
+    "repo_license": null
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The claim is the accuracy of two LLMs on 300 case MCQs and their equivalence (McNemar) - entirely model output; cost analysis derives from token counts of the same outputs."
+  },
+  "claim": {
+    "statement": "OpenAI o1 (o1-2024-12-17 via API, temperature 0.3, Plan-and-Solve+ zero-shot prompt) answered 246/300 (82.0%; 95% CI 77.3-85.9) StatPearls ophthalmology case MCQs correctly - identical to DeepSeek-R1 (246/300; McNemar p=1.000), with moderate inter-model agreement (kappa=0.503, p<0.001) and no significant subspecialty differences (Table 1, Table 2, Table 3).",
+    "claim_type": "capability_level",
+    "metric": "proportion of 300 single-best-answer MCQs correct (one response per case); Wilson 95% CI; McNemar test on paired outcomes; Cohen's kappa",
+    "original_values": {
+      "n": 300,
+      "o1_correct": 246,
+      "o1_accuracy_pct": 82.0,
+      "o1_95ci_pct": [77.3, 85.9],
+      "deepseek_r1_correct": 246,
+      "deepseek_r1_accuracy_pct": 82.0,
+      "both_correct": 224,
+      "both_incorrect": 32,
+      "discordant_each_direction": 22,
+      "mcnemar_p": 1.0,
+      "kappa_overall": 0.503,
+      "o1_subspecialty_pct": {
+        "Cataract/Anterior Segment (n=10)": 70.0,
+        "Cornea/External Disease (n=27)": 85.2,
+        "Glaucoma (n=23)": 87.0,
+        "Neuro-ophthalmology (n=31)": 93.5,
+        "Ocular Pathology/Oncology (n=46)": 76.9,
+        "Oculoplastics (n=33)": 84.8,
+        "Pediatric Ophthalmology/Strabismus (n=13)": 82.6,
+        "Refractive Management/Intervention (n=34)": 73.5,
+        "Retina/Vitreous (n=69)": 81.2,
+        "Uveitis (n=14)": 71.4
+      },
+      "o1_output_tokens_total": 105512,
+      "input_tokens_total_approx": 96695,
+      "o1_cost_estimate_usd": 7.78
+    },
+    "original_source": "Table 1 (accuracy by subspecialty with 95% CI and p), Table 2 (2x2 contingency), Table 3 (kappa); Results text; Cost-Effectiveness section"
+  },
+  "protocol": {
+    "model": "o1-2024-12-17",
+    "model_note": "Named explicitly in the cost analysis ('OpenAI's o1-2024-12-17 model'); accessed via API with 'automated mass prompting techniques via Google Sheets'",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models priority 1)",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (o1)",
+    "prompt_source": "not available - paper describes the Zero-Shot Plan-and-Solve+ (PS+) prompt (Wang et al. 2023) applied to the full case description + MCQ + four options, without quoting the wording; ref 24 (authors' previous study) may contain it",
+    "params": {
+      "temperature": "0.3 as reported - NOTE: the o1 API does not accept temperature values other than the default (1), so the reported setting cannot have been applied as described",
+      "max_tokens": "not reported",
+      "seed": "not reported",
+      "other": "text-only prompts (images removed from the 21 cases that had them); DeepSeek-R1 comparator run through the public chat UI with default settings"
+    },
+    "n_items": 300,
+    "samples_per_item": 1,
+    "evaluation": "Automatic letter match against the StatPearls answer key (how the final letter was parsed from o1's free-form output is not described); McNemar (paired), Cohen's kappa, Wilson CIs in R 4.4.2"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": null,
+    "data_note": "300 cases 'from an online database of publicly available questions from StatPearls' - the selected case list/IDs are not provided and StatPearls question content is proprietary",
+    "eval_path": null,
+    "data_public": false,
+    "data_license": "StatPearls (proprietary)",
+    "redistributable": false,
+    "notes": "No supplementary material, no repository, no response logs."
+  },
+  "blockers": [
+    "300 StatPearls case-MCQs: selection not shared ('Supplemental Material: None') and the content is copyrighted",
+    "exact PS+ prompt wording not given",
+    "reported temperature 0.3 is not settable for o1 via the API - the protocol as described is not exactly reproducible",
+    "final-answer extraction procedure not described",
+    "DeepSeek-R1 comparator used the web chat UI (no version/parameter control) - equivalence half of the claim is not API-reproducible as run"
+  ],
+  "arms": {
+    "baseline_alive": { "model": "o1-2024-12-17" },
+    "successors": ["gpt-5-2025-08-07", "gpt-5-mini-2025-08-07", "claude (current dated snapshot)", "gemini (current dated snapshot)", "deepseek-r1 / llama-3.x (open weights, hash-pinned)", "qwen3 (open weights, hash-pinned)"]
+  },
+  "budget": {
+    "est_calls": 900,
+    "est_tokens_in": 405000,
+    "est_tokens_out": 1800000,
+    "est_cost_usd": 114,
+    "pricing_usd_per_1m": { "o1-2024-12-17": { "input": 15.0, "output": 60.0 } },
+    "assumptions": "300 cases x 3 seeds; ~450 input tokens per case (322 avg case+MCQ per paper + PS+ prompt); 2,000 output tokens per item per the reasoning-model rule (paper's visible output was ~352 tokens/case but hidden reasoning tokens are billed). CONDITIONAL on obtaining the case list."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1: survival if o1-2024-12-17 accuracy has a Wilson 95% CI (n=300) overlapping 0.82 [0.773-0.859]; the equivalence claim (o1 = DeepSeek-R1, McNemar p>0.05) can only be judged if DeepSeek-R1 (open weights, API 'deepseek-reasoner') is re-run as the permanent axis - then direction = no significant difference.",
+    "notes": "Subspecialty CIs are very wide (n=10-69); judge only the overall accuracy."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Request the 300-case StatPearls list (IDs/titles) and the exact PS+ prompt from the corresponding author (renaud.duval@gmail.com)? Without it the card cannot run.",
+    "If obtained: is the core claim 'o1 = 82.0%' (capability_level, o1 only) or 'o1 equals DeepSeek-R1' (requires re-running R1 via API, which differs from the paper's chat-UI run)?",
+    "Accept running o1 at the API default temperature (the paper's 0.3 cannot be applied)?"
+  ],
+  "domain_notes": "Cases are StatPearls board-style ophthalmology vignettes classified into 10 AAO BCSC subspecialties (Retina/Vitreous n=69 largest, Cataract n=10 smallest); the authors acknowledge probable training-data leakage from StatPearls. The cost analysis excluded chain-of-thought tokens for both models, so the 15x cost ratio is an underestimate of true billed cost. The preprint is not peer reviewed."
+}

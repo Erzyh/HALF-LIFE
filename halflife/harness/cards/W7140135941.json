@@ -1,0 +1,166 @@
+{
+  "card_id": "W7140135941",
+  "openalex_id": "https://openalex.org/W7140135941",
+  "title": "Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty",
+  "doi": "10.18653/v1/2026.eacl-long.291",
+  "paper": {
+    "authors": "Machcha, Yerra, Gupta, Sahoo, Sultana, Yu, Yao (UMass Amherst / VA Bedford / UMass Lowell)",
+    "year": 2026,
+    "repo": "https://github.com/sravanthi6m/MedAbstain",
+    "repo_commit": "091e5c22111fffeb51c0c2e69b65d0a21a1e4164",
+    "repo_license": "CC BY-NC 4.0"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "The benchmark measures the LLMs' own answer probabilities (top-logprobs) to derive conformal set sizes and abstention rates; every reported number is a property of model outputs."
+  },
+  "claim": {
+    "statement": "On MedQA (1,007 test items; 30% calibration / 70% test; alpha = 0.1; temperature 0; single-token answer with top-logprobs), gpt-4.1-nano-2025-04-14 never selects the explicit abstention option (abstention rate 0.0000 in every A/AP variant, zero- and few-shot, CoT and no-CoT), while its accuracy falls from 0.5404 (NA, zero-shot, no-CoT) to 0.4099 with the abstention option and 0.3688 with abstention + perturbation, and its LAC set size grows 3.80 -> 4.21 -> 4.51 (Table 6); under the CoT prompt its accuracy collapses to ~0.25 with set size equal to all options (5.0 / 6.0) (Table 5).",
+    "claim_type": "capability_limit",
+    "metric": "accuracy (argmax over option logprobs); conformal-prediction set size (LAC and APS) at alpha = 0.1; abstention rate = share of test items whose argmax is the abstention option",
+    "original_values": {
+      "table6_medqa_noCoT": {
+        "NA_zeroshot": {
+          "acc": 0.5404,
+          "lac": 3.8014,
+          "aps": 4.2426
+        },
+        "NA_fewshot": {
+          "acc": 0.4979,
+          "lac": 3.5674,
+          "aps": 3.9929
+        },
+        "A_zeroshot": {
+          "acc": 0.4099,
+          "lac": 4.2057,
+          "aps": 4.9021,
+          "abstention": 0.0
+        },
+        "A_fewshot": {
+          "acc": 0.339,
+          "lac": 4.1248,
+          "aps": 4.9518,
+          "abstention": 0.0
+        },
+        "NAP_zeroshot": {
+          "acc": 0.4511,
+          "lac": 3.7603,
+          "aps": 4.227
+        },
+        "NAP_fewshot": {
+          "acc": 0.3957,
+          "lac": 4.1079,
+          "aps": 4.1906
+        },
+        "AP_zeroshot": {
+          "acc": 0.3688,
+          "lac": 4.5092,
+          "aps": 5.0411,
+          "abstention": 0.0
+        },
+        "AP_fewshot": {
+          "acc": 0.3024,
+          "lac": 4.486,
+          "aps": 5.0577,
+          "abstention": 0.0
+        }
+      },
+      "table5_medqa_CoT": {
+        "NA_zeroshot": {
+          "acc": 0.2496,
+          "lac": 5.0,
+          "aps": 4.8014
+        },
+        "A_zeroshot": {
+          "acc": 0.227,
+          "lac": 6.0,
+          "aps": 5.5887,
+          "abstention": 0.0
+        },
+        "AP_zeroshot": {
+          "acc": 0.227,
+          "lac": 6.0,
+          "aps": 5.5887,
+          "abstention": 0.0
+        }
+      },
+      "reference_models_noCoT_NA_zeroshot_acc": {
+        "gpt-4.1": 0.8213,
+        "gpt-4o": 0.6766,
+        "gpt-4o-mini": 0.4823
+      },
+      "n_test_items": 1007
+    },
+    "original_source": "Appendix Table 6 (MedQA, no chain-of-thought) and Table 5 (MedQA, chain-of-thought); Appendix E model list; Section 4.3 setup; 'The MedQA dataset included 1007 test examples' (Appendix)"
+  },
+  "protocol": {
+    "model": "gpt-4.1-nano-2025-04-14",
+    "model_note": "Explicit in Appendix E (closed-source: gpt-4.1-nano-2025-04-14, gpt-4o-mini-2024-07-18, gpt-4o-2024-08-06, gpt-4.1-2025-04-14); o4 excluded because no logprobs",
+    "model_status": "dying, OpenAI shutdown 2026-10-23",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (quantify_uncertainty/models/openai_model.py)",
+    "prompt_source": "quantify_uncertainty/prompts/prompt_templates.py - shared_zero_prompt ('The following is a multiple-choice question with {num_choices} potential answers. Only one of these options is correct. Please make your best effort and select the correct answer. You only need to output the option.') and shared_cot_prompt ('... Please reason step-by-step and select the correct answer. You only need to output the option.'); formatting in prompt_helpers.py ('Question: ... Choices: A. ... Answer:'); paper Appendix G",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1,
+      "logprobs": "true, top_logprobs = number of choices",
+      "seed": "not set (calibration/test split is an unseeded random 30/70 stratified split)",
+      "other": "single user message; few-shot k = 4 dynamic examples via text-embedding-ada-002 kNN from the train pool; perturbed variants pre-generated with gpt-4.1-mini; abstention option string 'I am unable to answer this question for certain reasons.' inserted at a random position; missing options in top_logprobs imputed at (min logprob - 5)"
+    },
+    "n_items": 1007,
+    "n_items_note": "per dataset variant (NA, A, NAP, AP), each under zero-shot / few-shot and CoT / no-CoT",
+    "samples_per_item": 1,
+    "evaluation": "Automatic: accuracy = argmax option vs gold; LAC/APS conformal sets from the 30% calibration split (quantify_uncertainty/metrics/cp_sets.py, cp_metrics.py; alpha = 0.1); abstention rate; run via scripts_closed_models/python/launch_experiment.py -> evaluate_outputs_with_conformal()"
+  },
+  "artifacts": {
+    "prompts_path": "quantify_uncertainty/prompts/prompt_templates.py; quantify_uncertainty/prompts/prompt_helpers.py",
+    "data_path": "data/medqa_1_test_noabst.json (1,007), data/medqa_1_test_randabst.json (1,007), data/perturbed_medqa_1_test_noabst.json, data/perturbed_medqa_1_test_randabst.json, few-shot pools data/few_shot_pool_medqa_1_train_*.json, data/val_100_medqa_1_*.json",
+    "eval_path": "quantify_uncertainty/metrics_runner.py; quantify_uncertainty/metrics/cp_metrics.py; quantify_uncertainty/metrics/cp_sets.py; scripts_closed_models/python/launch_experiment.py; run_experiment.py",
+    "data_public": "partial",
+    "data_license": "repo CC BY-NC 4.0; MedQA (MIT); AMBOSS private",
+    "redistributable": "MedQA-derived variants: true (CC BY-NC); AMBOSS: absent/not redistributable",
+    "notes": "AMBOSS dataset files referenced by the bash scripts (datasets/amboss_alldiff_train_*.json) are not in the repo; env/.env placeholder is committed."
+  },
+  "blockers": [
+    "AMBOSS results (Tables 2-4) are not reproducible - private dataset absent from the repo (MedQA tables are fully reproducible)",
+    "calibration/test split is an unseeded random 30/70 split, so conformal set sizes vary run to run",
+    "protocol artifact: max_tokens = 1 combined with the 'reason step-by-step' CoT prompt means the first emitted token is not an option letter - the CoT-condition numbers (accuracy ~0.25, set size = all options) measure the artifact, not capability",
+    "missing options in top_logprobs are imputed at (min - 5) logprob, which shapes the set sizes"
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-4.1-nano-2025-04-14"
+    },
+    "successors": [
+      "gpt-5-nano-2025-08-07 / gpt-5-mini-2025-08-07 (logprobs availability to be verified)",
+      "claude (current dated snapshot; no logprobs - accuracy/abstention only)",
+      "gemini (current dated snapshot; logprobs support to be verified)",
+      "llama-3.1-8B (open weights, hash-pinned; paper used it)",
+      "qwen3-8B/14B/32B (open weights, hash-pinned; paper used them)"
+    ]
+  },
+  "budget": {
+    "est_calls": 24168,
+    "est_tokens_in": 10900000,
+    "est_tokens_out": 24000,
+    "est_cost_usd": 1.1,
+    "pricing_usd_per_1m": {
+      "gpt-4.1-nano": {
+        "input": 0.1,
+        "output": 0.4
+      }
+    },
+    "assumptions": "Core grid = 4 variants x zero-shot x {no-CoT, CoT} = 8 x 1,007 items x 3 seeds; ~450 input tokens, 1 output token. Adding the few-shot conditions (k = 4, ~2,000 input tokens) costs ~USD 4.8 more (full MedQA grid ~USD 6)."
+  },
+  "judgment": {
+    "baseline_alive": "부분 생존 (partial)",
+    "run_meta": "runs/W7140135941/run_meta.json"
+  },
+  "status": "done",
+  "user_checks": [
+    "Core claim: the gpt-4.1-nano Table 6 row as drafted, or the paper-level claim 'adding an abstention option raises uncertainty more than perturbation' aggregated across models?",
+    "Include the CoT condition in the re-run (reproduces the max_tokens = 1 artifact) or exclude it as an identified protocol flaw?",
+    "Fix a calibration-split seed and report over multiple splits (repo uses an unseeded random split)?"
+  ],
+  "domain_notes": "MedQA (USMLE) 4-5-option questions plus an inserted abstention option; in the perturbed abstention variants 25% of items have the abstention option as the gold answer, so abstaining can be correct. Conformal set sizes are only meaningful relative to the number of options (5 or 6): gpt-4.1-nano's 3.8-4.5 indicates nearly uninformative option probabilities, and 0% abstention means the model never ranks the abstention option first even when information is missing. The paper's broader claim (abstention option > perturbation as an uncertainty driver; scale and CoT help little) is a cross-model aggregate, of which this card tests one live-model slice."
+}

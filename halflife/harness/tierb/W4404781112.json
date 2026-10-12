@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4404781112",
+  "title": "CERD: A Comprehensive Chinese Rhetoric Dataset for Rhetorical Understanding and Generation in Essays",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"For GPT-3.5 and GPT-4, we use gpt-3.5-turbo-0125 and gpt-4-turbo-2024-04-09 respectively\"; results table row \"GPT-4 54.44 61.46 70.34 65.50 54.21 63.36 57.11\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C (\"Details of the experimental setups\")",
+    "note": "Zero-shot in-context evaluation on all five CERD tasks (RC/FC/CC/CE/RG); Appendix C covers setup, but literal prompt wording was not located in the excerpts reviewed."
+  },
+  "claim": {
+    "metric": "micro-F1, Rhetoric Classification (RC) task",
+    "value": 65.50,
+    "n_items": null,
+    "location": "Results table, row 'GPT-4', RC task, micro-F1 column",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CERD dataset, introduced in this EMNLP Findings 2024 paper"
+  },
+  "cost": {
+    "est_calls": 3500,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Table 2's coarse-grained category counts for RC sum to ~1,159, but a sentence can carry multiple labels, so the unique item count is not exactly stated. GPT-4o (undated) is used separately as an LLM-based generation-quality judge for Task RG (role A), not evaluated here."
+}

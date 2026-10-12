@@ -1,0 +1,466 @@
+[
+ {
+  "wid": "W7140084705",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "cap": 40,
+  "est_usd": 0.01,
+  "title": "Quantifying Data Contamination in Psychometric Eva",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7139147531",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "cap": 40,
+  "est_usd": 0.02,
+  "title": "LLMs learn scientific taste from institutional tra",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7166799942",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "cap": 40,
+  "est_usd": 0.02,
+  "title": "CMTD: Cognitive Modeling with Traits and Distortio",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7135428702",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "cap": 40,
+  "est_usd": 0.05,
+  "title": "SommBench: Assessing Sommelier Expertise of Langua",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4412888118",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 0.13,
+  "title": "Nunchi-Bench: Benchmarking Language Models on Cult",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4404792825",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 0.15,
+  "title": "Will LLMs Sink or Swim? Exploring Decision-Making ",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7134094238",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 0.42,
+  "title": "BioLLMAgent: A Hybrid Framework with Enhanced Stru",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7159577685",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 0.44,
+  "title": "Breaking the Chains of Probability: Neutrosophic L",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7166852552",
+  "model": "gpt-4.1-nano",
+  "cap": 40,
+  "est_usd": 0.48,
+  "title": "LexGenius: An Expert-Level Benchmark for Large Lan",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7164614711",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "cap": 40,
+  "est_usd": 0.73,
+  "title": "I Understand How You Feel: Enhancing Deeper Emotio",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4414758400",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 0.94,
+  "title": "Mitigation of Gender and Ethnicity Bias in AI-Gene",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4416339332",
+  "model": "o3-mini-2025-01-31",
+  "cap": 40,
+  "est_usd": 1.06,
+  "title": "\"As Eastern Powers, I will veto.\" : An Investigati",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4416035547",
+  "model": "o4-mini-2025-04-16",
+  "cap": 40,
+  "est_usd": 1.34,
+  "title": "Agent-to-Agent Theory of Mind: Testing Interlocuto",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4407374917",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 1.37,
+  "title": "Large language models possess some ecological know",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4404782525",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 3.53,
+  "title": "Characterizing LLM Abstention Behavior in Science ",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4401545735",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 3.55,
+  "title": "Designing Heterogeneous LLM Agents for Financial S",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4416034777",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 3.79,
+  "title": "The Illusion of Randomness: How LLMs Fail to Emula",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4416034223",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 4.35,
+  "title": "When Instructions Multiply: Measuring and Estimati",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4399911276",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 5.23,
+  "title": "Whiteboard-of-Thought: Thinking Step-by-Step Acros",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4415035710",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 6.4,
+  "title": "Do LLMs have a Gender (Entropy) Bias?",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4416037849",
+  "model": "o3-mini-2025-01-31",
+  "cap": 40,
+  "est_usd": 6.97,
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retri",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403786592",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 7.47,
+  "title": "A Comprehensive Evaluation of Large Language Model",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4411119490",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 8.01,
+  "title": "Are We Done with MMLU?",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4402345509",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 8.33,
+  "title": "LAB-Bench: Measuring Capabilities of Language Mode",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4414494504",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 8.9,
+  "title": "PGxRAG: A Retrieval Augmented Generation supported",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4404985489",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 9.16,
+  "title": "Variable Extraction for Model Recovery in Scientif",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4400375186",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 9.91,
+  "title": "CEB: Compositional Evaluation Benchmark for Fairne",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4406880877",
+  "model": "o1-2024-12-17",
+  "cap": 40,
+  "est_usd": 12.08,
+  "title": "People who frequently use ChatGPT for writing task",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4416034345",
+  "model": "o3-mini-2025-01-31",
+  "cap": 40,
+  "est_usd": 12.49,
+  "title": "Unlocking Legal Knowledge: A Multilingual Dataset ",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4407571428",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 13.0,
+  "title": "The Stochastic Parrot on LLM's Shoulder: A Summati",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4400434899",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 13.39,
+  "title": "Are Large Language Models Strategic Decision Maker",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4404781158",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 15.0,
+  "title": "MultiPragEval: Multilingual Pragmatic Evaluation o",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4411080278",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 18.57,
+  "title": "Temperature-Driven Variability in Emergency Diagno",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4399911213",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 18.62,
+  "title": "WikiContradict: A Benchmark for Evaluating LLMs on",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403885225",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 19.11,
+  "title": "Justice or Prejudice? Quantifying Biases in LLM-as",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4406058562",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 20.12,
+  "title": "Applicability of Large Language Models and Generat",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4404314294",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 27.24,
+  "title": "DisasterQA: A Benchmark for Assessing the performa",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403758464",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 29.4,
+  "title": "LLMs Still Can't Plan; Can LRMs? A Preliminary Eva",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403882451",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 29.4,
+  "title": "Planning in Strawberry Fields: Evaluating and Impr",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4410110677",
+  "model": "o1-2024-12-17",
+  "cap": 40,
+  "est_usd": 33.25,
+  "title": "Large Language Models for Supporting Clear Writing",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4406058598",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 34.79,
+  "title": "Halu-J: Critique-Based Hallucination Judge",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4399404161",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 39.91,
+  "title": "MMLU-Pro: A More Robust and Challenging Multi-Task",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403570177",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 39.93,
+  "title": "RMB: Comprehensively Benchmarking Reward Models in",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4411119263",
+  "model": "gpt-4o-2024-05-13",
+  "cap": 40,
+  "est_usd": 39.97,
+  "title": "ReIFE: Re-evaluating Instruction-Following Evaluat",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403443823",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 39.98,
+  "title": "Science is Exploration: Computational Frontiers fo",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403370432",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 39.99,
+  "title": "An Evaluation of Requirements Modeling for Cyber-P",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4411112894",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 40.0,
+  "title": "The Promises and Pitfalls of LLM Annotations in Da",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4403556032",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 48.28,
+  "title": "Enhancing Healthcare LLM Trust with Atypical Prese",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4416035248",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 85.31,
+  "title": "CANDY: Benchmarking LLMs' Limitations and Assistiv",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7161421448",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 100.26,
+  "title": "Identifying implicit bias in LLM-based chat AI tow",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W4399317891",
+  "model": "gpt-4-turbo-2024-04-09",
+  "cap": 40,
+  "est_usd": 100.46,
+  "title": "OR-Bench: An Over-Refusal Benchmark for Large Lang",
+  "deadline": "2026-10-23"
+ },
+ {
+  "wid": "W7117377764",
+  "model": "o3-2025-04-16",
+  "cap": 40,
+  "est_usd": 1.06,
+  "title": "Benchmarking large language models for geolocating",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7131319772",
+  "model": "gpt-5-mini-2025-08-07",
+  "cap": 40,
+  "est_usd": 3.98,
+  "title": "Can Large Language Models Replace Human Coders? In",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7140138327",
+  "model": "gpt-5-mini-2025-08-07",
+  "cap": 40,
+  "est_usd": 7.81,
+  "title": "ReMedQA: Are We Done With Medical Multiple-Choice ",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W4417257719",
+  "model": "gpt-5-2025-08-07",
+  "cap": 40,
+  "est_usd": 9.26,
+  "title": "EDINET-Bench: Evaluating LLMs on Complex Financial",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7197053912",
+  "model": "gpt-5-mini-2025-08-07",
+  "cap": 40,
+  "est_usd": 16.43,
+  "title": "ANCHOR-RE: An Agentic Neuro-Symbolic Framework for",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7144391352",
+  "model": "gpt-5-2025-08-07",
+  "cap": 40,
+  "est_usd": 17.52,
+  "title": "CALRK-Bench: Evaluating Context-Aware Legal Reason",
+  "deadline": "2026-12-11"
+ },
+ {
+  "wid": "W7134885605",
+  "model": "gpt-5-2025-08-07",
+  "cap": 40,
+  "est_usd": 25.27,
+  "title": "More Signal vs. More Noise - Comparing Full Text a",
+  "deadline": "2026-12-11"
+ }
+]

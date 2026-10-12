@@ -1,0 +1,17 @@
+{
+  "openalex_id": "https://openalex.org/W4402671999",
+  "title": "Examining the robustness of LLM evaluation to the distributional assumptions of benchmarks",
+  "doi": "https://doi.org/10.18653/v1/2024.acl-long.560",
+  "field": "Engineering",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "claude-2|gpt-4-0314|gpt-4-0613|text-davinci-002|text-davinci-003",
+  "flags": "",
+  "all_links": [
+    "huggingface.co/datasets/anli",
+    "huggingface.co/datasets/anliopen-domain-qa"
+  ],
+  "candidate_repos": [],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4402671999.txt",
+  "paper_text_status": "pdf"
+}

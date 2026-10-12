@@ -1,0 +1,66 @@
+{
+  "wid": "W7139147531",
+  "title": "LLMs learn scientific taste from institutional traces across the social sciences",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 25.0,
+  "original_location": "Table ST13c (GPT-4.1-nano SFT versus architecture-matched base), row Management, column Base accuracy (SFT 57.5)",
+  "reexecution": {
+    "mean_over_seeds": 0.2388888888888889,
+    "per_seed": {
+      "0": {
+        "value": 0.23333333333333334,
+        "n": 120,
+        "ci95": [
+          0.15833333333333333,
+          0.30833333333333335
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.24166666666666667,
+        "n": 120,
+        "ci95": [
+          0.16666666666666666,
+          0.325
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.24166666666666667,
+        "n": 120,
+        "ci95": [
+          0.16666666666666666,
+          0.325
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7139147531",
+    "n_items": 120,
+    "n_requests": 360,
+    "seeds": 3,
+    "est_usd": 0.02,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-nano-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 25.0
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 4
+  },
+  "approximation": "restricted-vocabulary first-token scoring is emulated with the chat API's top-20 logprobs (tier tokens outside the top-20 get zero mass); the placement of the pitch after the prompt is not printed; text-argmax emulation: the reply's tier word (temperature 0, 4 tokens) is scored instead of the restricted first-token log-probability argmax; identical whenever the top token is one of the four tiers (the archived top-20 logprobs allow the exact SM1 rule later)",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 23.88888888888889,
+    "delta": -1.1111111111111107,
+    "original_inside_ci95": true
+  }
+}

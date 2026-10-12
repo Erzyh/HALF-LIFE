@@ -1,0 +1,42 @@
+﻿item,value
+papers coded (all four coders),30
+codebook,v1.2
+papers dependent by majority (ran at least one matched identifier),23
+papers not dependent by majority,7
+dependence share (%),76.7
+"dependence share, Wilson 95% interval (%)",59.1-88.2
+coder A: dependent / decided papers (share %),22 / 27 (81.5)
+coder B: dependent / decided papers (share %),23 / 30 (76.7)
+coder C: dependent / decided papers (share %),19 / 26 (73.1)
+coder D: dependent / decided papers (share %),22 / 29 (75.9)
+identifier units coded by two or more coders,47
+"identifier units, majority code = 실행",35
+"identifier units, majority code = 인용·언급",9
+"identifier units, majority code = 못찾음",2
+"identifier units, majority code = 동률",1
+"Krippendorff alpha, role code (four values)",0.778
+"full agreement, role code (%)",83.0
+"Krippendorff alpha, dependence dichotomy",0.937
+"full agreement, dependence (%)",95.7
+"Cohen kappa, role code, coders A-B (n units)",0.849 (41)
+"Cohen kappa, role code, coders A-C (n units)",0.68 (41)
+"Cohen kappa, role code, coders A-D (n units)",0.786 (41)
+"Cohen kappa, role code, coders B-C (n units)",0.718 (47)
+"Cohen kappa, role code, coders B-D (n units)",0.946 (47)
+"Cohen kappa, role code, coders C-D (n units)",0.771 (47)
+"Krippendorff alpha, Q1 접근경로",0.233
+"Krippendorff alpha, Q2 버전표기",0.487
+"Krippendorff alpha, Q3 실행시점",0.56
+"Krippendorff alpha, Q5 열람",0.044
+"Krippendorff alpha, Q6 확신도",-0.134
+coder A: role codes differing from the majority,2/40
+coder B: role codes differing from the majority,0/46
+coder C: role codes differing from the majority,5/46
+coder D: role codes differing from the majority,0/46
+papers with a dated snapshot by majority,7
+papers with a dated snapshot found by any coder,14
+papers stating the month of the runs by majority,2
+"papers stating the month of the runs, any coder",4
+papers naming at least one model outside the census list,30
+median number of models named per paper,5.0
+papers a coder could not open in full text,4

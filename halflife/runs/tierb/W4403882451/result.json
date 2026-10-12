@@ -1,0 +1,65 @@
+{
+  "wid": "W4403882451",
+  "title": "Planning in Strawberry Fields: Evaluating and Improving the Planning and Scheduling Capabilities of LRM o1",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 40.1,
+  "original_location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+  "reexecution": {
+    "mean_over_seeds": 0.34888888888888886,
+    "per_seed": {
+      "0": {
+        "value": 0.3416666666666667,
+        "n": 600,
+        "ci95": [
+          0.305,
+          0.38
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.3516666666666667,
+        "n": 600,
+        "ci95": [
+          0.31333333333333335,
+          0.39004166666666645
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.35333333333333333,
+        "n": 600,
+        "ci95": [
+          0.31333333333333335,
+          0.39166666666666666
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403882451",
+    "n_items": 600,
+    "n_requests": 1800,
+    "seeds": 3,
+    "est_usd": 29.4,
+    "subset_note": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 40.1
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 10
+  },
+  "approximation": "GPT-4 Turbo snapshot/decoding of the paper's column unknown (only 27/600 of our temperature-0 replies are identical to the released ones); plan extraction = the repository's rule-based text_to_plan_blocksworld (current version, strips markdown '*'); the paper's own 241/600 came from the pre-fix version of that extractor (reproduces the released extracted plans 600/600), which scores the released replies 241 vs 254 for the current version",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 34.888888888888886,
+    "delta": -5.211111111111116,
+    "original_inside_ci95": false
+  }
+}

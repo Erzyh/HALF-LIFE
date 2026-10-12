@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4413452230",
+  "title": "Impact of retrieval augmented generation and large language model complexity on undergraduate exams created and taken by AI agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (Assistant)",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "Sec. 3: \"Each assistant was created with the model set as either GPT-3.5 Turbo or GPT-4 Turbo\"; artifact counts are \"as of March 2024\", i.e. before the 2024-04-09 GA snapshot."
+  },
+  "prompt": {"verbatim": "none", "location": "Supplementary Appendices A-C (exam generation and answering instructions), not in the main text", "note": ""},
+  "claim": {
+    "metric": "model rank on exam metrics (ROUGE, embedding similarity)", "value": null, "n_items": null, "location": "Tables 4-6 (per-exam and overall rankings)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "a single copyrighted undergraduate textbook used as the RAG corpus via the OpenAI Assistants API file search"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["dead_alias", "data_closed"],
+  "notes": "Experiments ran around March 2024 through the Assistants API, so GPT-4 Turbo means a preview snapshot; the textbook corpus is not distributable and the Assistants retrieval pipeline is not reproducible from prompts."
+}

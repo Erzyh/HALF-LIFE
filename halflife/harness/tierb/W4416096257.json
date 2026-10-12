@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416096257",
+  "title": "Can AI assess literature like experts? An entropy-based comparison of ChatGPT-4o, DeepSeek R1, and human ratings",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Intro: 'GPT-4-Turbo combined a PICO-based prompt ... to triage 24,307 citations' (cited work); Sec. 2.2: 'ChatGPT-4o ... via the official ChatGPT application (desktop client)' and DeepSeek R1."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 1 (prompts per appraisal tool)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean entropy-based agreement across tools",
+    "value": 0.42,
+    "n_items": 91,
+    "location": "Abstract; Table 3 (n = 91 articles)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "91 published articles appraised with AMSTAR2, CASP, PEDro, RoB 2; list in the Supplementary Material"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "ChatGPT-4o was used through the desktop application (May 2024 release), not the API."
+}

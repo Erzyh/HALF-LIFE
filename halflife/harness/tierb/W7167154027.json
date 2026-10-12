@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7167154027",
+ "title": "ADAPT: Attention Dynamics Alignment with Preference Tuning for Faithful MLLMs",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"for all GPT evaluations, we employed the consistent gpt-4-turbo version\"; \"Visual Relevance Score (Rated by GPT-4)\" (Table 1/2 captions)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - the GPT-4-turbo judge prompt itself is not reproduced",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none tied to GPT-4-turbo's own capability; Tables 1-3 report the authors' own ADAPT method's SOTA results on hallucination benchmarks (AMBER, MME, MMBench), as scored by GPT-4-turbo",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (Main results), Table 3 (grounding/general capability)",
+  "task_type": "other",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AMBER, MME, MMBench (public hallucination/vision-language benchmarks)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo is used solely as an automatic judge (role A) for scoring the paper's own ADAPT vision-language model outputs; it is never itself the evaluated subject."
+}

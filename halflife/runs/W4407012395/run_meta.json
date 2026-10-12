@@ -1,0 +1,229 @@
+{
+  "card_id": "W4407012395",
+  "run_date_utc": "2026-09-19",
+  "target_paper": {
+    "title": "MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding",
+    "repo": "https://github.com/TsinghuaC3I/MedXpertQA",
+    "repo_commit": "f53877b0d35b3c5526dfc0f899a2e902e0910c1d",
+    "original_source": "Table 5 (LLMs on MedXpertQA Text), the two rows marked as a sampled subset: o1 46.24/39.66/44.67 and o3-mini 37.63/36.21/37.30 on the 244-item seed-42 10% sample; Expert (Pre-Licensed) 41.74/45.44/42.60 on the full Text set"
+  },
+  "generation": {
+    "model_requested": [
+      "o1-2024-12-17",
+      "o3-mini-2025-01-31"
+    ],
+    "substitute_snapshot": null,
+    "model_served": [
+      "o1-2024-12-17",
+      "o3-mini-2025-01-31"
+    ],
+    "n_fingerprints": 13,
+    "parameters": "zero-shot CoT, 2 stages per item; no system message and no temperature for o1/o3-mini (paper C.2, api_agent.py); max_completion_tokens 8192; seed = seed_idx (0 = the original)",
+    "battery": "Text sampled subset, 244 items x 2 stages x 1 seed (o1) / 3 seeds (o3-mini) = 1928 archived calls; median over seeds per item; item-level bootstrap 2000 draws (rng 20260907); parser/scorer imported from the repo",
+    "mean_reasoning_tokens": 676.9
+  },
+  "results": {
+    "rows": {
+      "o1-2024-12-17": {
+        "Reasoning": {
+          "acc_pct": 48.0226,
+          "acc_ci95": [
+            40.113,
+            55.3672
+          ],
+          "orig_pct": 46.24,
+          "orig_band_binom95": [
+            39.0746,
+            53.4054
+          ],
+          "n": 177,
+          "rerun_inside_orig_band": true,
+          "orig_inside_rerun_ci": true,
+          "per_seed": [
+            48.0226
+          ],
+          "n_unparsed": 0,
+          "secondary_reasoning_above_understanding": true
+        },
+        "Understanding": {
+          "acc_pct": 40.0,
+          "acc_ci95": [
+            27.2727,
+            52.7273
+          ],
+          "orig_pct": 39.66,
+          "orig_band_binom95": [
+            27.0701,
+            52.2499
+          ],
+          "n": 55,
+          "rerun_inside_orig_band": true,
+          "orig_inside_rerun_ci": true,
+          "per_seed": [
+            40.0
+          ],
+          "n_unparsed": 0
+        },
+        "Avg": {
+          "acc_pct": 46.1207,
+          "acc_ci95": [
+            40.0862,
+            52.5862
+          ],
+          "orig_pct": 44.67,
+          "orig_band_binom95": [
+            38.4319,
+            50.9081
+          ],
+          "n": 232,
+          "rerun_inside_orig_band": true,
+          "orig_inside_rerun_ci": true,
+          "per_seed": [
+            46.1207
+          ],
+          "n_unparsed": 0,
+          "ordering_o1_above_o3mini": true,
+          "above_expert_baseline_42_60": true,
+          "verdict": "생존 (survived)"
+        },
+        "descriptive": {
+          "medical_task": {
+            "Basic Science": 39.66,
+            "Diagnosis": 50.0,
+            "Treatment": 46.15
+          },
+          "body_system": {
+            "Cardiovascular": 50.0,
+            "Digestive": 54.55,
+            "Endocrine": 41.67,
+            "Integumentary": 33.33,
+            "Lymphatic": 66.67,
+            "Muscular": 38.89,
+            "Nervous": 53.33,
+            "Other / NA": 40.0,
+            "Reproductive": 36.0,
+            "Respiratory": 57.14,
+            "Skeletal": 41.67,
+            "Urinary": 30.0
+          }
+        }
+      },
+      "o3-mini-2025-01-31": {
+        "Reasoning": {
+          "acc_pct": 40.3226,
+          "acc_ci95": [
+            33.3199,
+            47.3118
+          ],
+          "orig_pct": 37.63,
+          "orig_band_binom95": [
+            30.6677,
+            44.5923
+          ],
+          "n": 186,
+          "rerun_inside_orig_band": true,
+          "orig_inside_rerun_ci": true,
+          "per_seed": [
+            39.2473,
+            39.7849,
+            39.2473
+          ],
+          "n_unparsed": 2,
+          "secondary_reasoning_above_understanding": true
+        },
+        "Understanding": {
+          "acc_pct": 32.7586,
+          "acc_ci95": [
+            20.6897,
+            44.8276
+          ],
+          "orig_pct": 36.21,
+          "orig_band_binom95": [
+            23.8411,
+            48.5789
+          ],
+          "n": 58,
+          "rerun_inside_orig_band": true,
+          "orig_inside_rerun_ci": true,
+          "per_seed": [
+            36.2069,
+            31.0345,
+            31.0345
+          ],
+          "n_unparsed": 0
+        },
+        "Avg": {
+          "acc_pct": 38.5246,
+          "acc_ci95": [
+            32.377,
+            44.6721
+          ],
+          "orig_pct": 37.3,
+          "orig_band_binom95": [
+            31.2319,
+            43.3681
+          ],
+          "n": 244,
+          "rerun_inside_orig_band": true,
+          "orig_inside_rerun_ci": true,
+          "per_seed": [
+            38.5246,
+            37.7049,
+            37.2951
+          ],
+          "n_unparsed": 2,
+          "ordering_o1_above_o3mini": true,
+          "verdict": "생존 (survived)"
+        },
+        "descriptive": {
+          "medical_task": {
+            "Basic Science": 33.33,
+            "Diagnosis": 37.0,
+            "Treatment": 44.44
+          },
+          "body_system": {
+            "Cardiovascular": 36.11,
+            "Digestive": 45.45,
+            "Endocrine": 61.54,
+            "Integumentary": 33.33,
+            "Lymphatic": 37.5,
+            "Muscular": 16.67,
+            "Nervous": 38.24,
+            "Other / NA": 26.67,
+            "Reproductive": 48.0,
+            "Respiratory": 47.62,
+            "Skeletal": 34.21,
+            "Urinary": 36.36
+          }
+        }
+      }
+    },
+    "cost_usd": 42.2408,
+    "calls": 1928,
+    "errors": 12,
+    "missing_stage2": 12,
+    "truncated_replies": 2,
+    "judgment": "생존 (survived)",
+    "judgment_o3mini_row": "생존 (survived)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN section 1 as the card instantiates it (median over seeds inside the binomial 95% band of the printed value; o1 > o3-mini; o1 > the 42.60 expert baseline); the paper reports no significance test for these rows, so that clause is vacuous; human double-coding pending",
+    "note": "Text subset only (MM not run). Per-item file items.jsonl carries ids, hashes and parsed letters; calls.jsonl carries the model replies with the question text redacted (prompt_sha256 kept) under the authors' Appendix A request."
+  },
+  "deviations_from_card": [
+    "o1 runs 1 seed instead of the card's 3 (the card's own cheaper alternative; ANALYSIS_PLAN section 3 asks for 3) - the o1 row therefore has no run-to-run spread",
+    "no prompt-paraphrase arm (ANALYSIS_PLAN section 3): the claim is a benchmark level under the paper's exact prompt",
+    "MM subset not run, so Table 4's o1 56.28 is not checked",
+    "per-paper cap USD 60 instead of the card's est_cost_usd 134 (which assumed 3 seeds for both arms)",
+    "the o3-mini row is judged as a second claim row inside this card rather than as a separate card"
+  ],
+  "reproducibility_frictions_observed": [
+    "per-question original outputs are not published (only leaderboard aggregates), so only aggregate accuracy is comparable; no item-level agreement with the original run can be computed",
+    "paper Appendix A asks that no example be shared online, so this card's L1 archive stores item ids, hashes and model replies but not the question text (see LOG POLICY)",
+    "the Expert (Pre-Licensed) row of Table 5 (42.60) is computed on the FULL Text set from aggregated examinee response distributions - it is not an integer item count and not the 244-item sample - yet the card's judgment compares o1's sampled accuracy against it directly",
+    "eval/model/api_agent.py hard-codes an OpenAI-compatible proxy (api_key '[API_KEY]', base_url '[BASE_URL]'), so the published numbers were produced through a proxy of unknown routing; this re-run posts to api.openai.com directly",
+    "the original run is a single pass (seed=0) and o-series ignore temperature, so the paper's own run-to-run spread is unknown; the seed parameter is sent as the original did, but OpenAI documents it as best-effort and reasoning models are not deterministic",
+    "main.py's --temperature default of 0 is silently dropped for o1/o3-mini by api_agent.py; 'greedy decoding' in section 4.1 therefore does not apply to these two rows",
+    "the repo sends the stage-1 user turn as a content-parts list even for text-only items; replicated here verbatim, but it cannot be exercised offline",
+    "the sampled subsets ship in the repo without the seed-42 sampling script, so the 10% draw itself is not reproducible - it is taken as given (186/1861 and 58/589 of the full Text set)",
+    "utils.answer_cleansing extracts the FIRST case-sensitive \\b[A-J]\\b of the stage-2 reply, so the English words 'A' and 'I' are read as options A and I (a first-person refusal scores as I), while a lower-case letter yields no prediction at all (scored incorrect). Kept as released - it is the parser that produced Tables 4 and 5."
+  ]
+}

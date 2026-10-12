@@ -1,0 +1,252 @@
+[
+ {
+  "wid": "W7160514285",
+  "cap": 3.0,
+  "model": "gpt-4.1-nano",
+  "est_usd": 0.05,
+  "n_items": 108,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Large Language Models Show Metacognitive Sensitivi"
+ },
+ {
+  "wid": "W4411119985",
+  "cap": 3.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 0.46,
+  "n_items": 100,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "How Inclusively do LMs Perceive Social and Moral N"
+ },
+ {
+  "wid": "W4411119343",
+  "cap": 3.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 0.83,
+  "n_items": 394,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "Are LLM-Judges Robust to Expressions of Uncertaint"
+ },
+ {
+  "wid": "W4403574994",
+  "cap": 3.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 0.94,
+  "n_items": 133,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Measuring Spiritual Values and Bias of Large Langu"
+ },
+ {
+  "wid": "W7106207151",
+  "cap": 3.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 1.3,
+  "n_items": 54,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Syn-STARTS: Synthesized START Triage Scenario Gene"
+ },
+ {
+  "wid": "W7140953907",
+  "cap": 4.6,
+  "model": "o3-mini-2025-01-31",
+  "est_usd": 2.75,
+  "n_items": 1000,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "How Utilitarian Are OpenAI's Models Really? Replic"
+ },
+ {
+  "wid": "W7169474262",
+  "cap": 7.2,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 4.5,
+  "n_items": 124,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "The One-Word Census: Answer-Choice Conformity Acro"
+ },
+ {
+  "wid": "W7166872685",
+  "cap": 7.2,
+  "model": "o3-mini-2025-01-31",
+  "est_usd": 4.5,
+  "n_items": 432,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Machine Behavior in Relational Moral Dilemmas: Mor"
+ },
+ {
+  "wid": "W4411119711",
+  "cap": 8.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 5.0,
+  "n_items": 750,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "FaithBench: A Diverse Hallucination Benchmark for "
+ },
+ {
+  "wid": "W4415270561",
+  "cap": 8.1,
+  "model": "gpt-4.1-nano-2025-04-14",
+  "est_usd": 5.08,
+  "n_items": 1000,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Diff-XYZ: A Benchmark for Evaluating Diff Understa"
+ },
+ {
+  "wid": "W4399911093",
+  "cap": 9.5,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 6.0,
+  "n_items": 100,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Leveraging Large Language Models to Measure Gender"
+ },
+ {
+  "wid": "W4416034248",
+  "cap": 17.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 11.0,
+  "n_items": 204,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of"
+ },
+ {
+  "wid": "W7166821175",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 21.0,
+  "n_items": 585,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "From Regulatory Approvals to Patents: Cross-Domain"
+ },
+ {
+  "wid": "W4400065264",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 25.15,
+  "n_items": 802,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "Following Length Constraints in Instructions"
+ },
+ {
+  "wid": "W4404573318",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 29.79,
+  "n_items": 500,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Chat Bankman-Fried: an Exploration of LLM Alignmen"
+ },
+ {
+  "wid": "W4403580619",
+  "cap": 35,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 31.0,
+  "n_items": 1816,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Evaluating Gender Bias of LLMs in Making Morality "
+ },
+ {
+  "wid": "W4416036063",
+  "cap": 20.0,
+  "model": "o1-2024-12-17",
+  "est_usd": 62.4,
+  "n_items": 1500,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "sudoLLM: On Multi-role Alignment of Language Model"
+ },
+ {
+  "wid": "W4400611869",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 78.84,
+  "n_items": 1000,
+  "seeds": 3,
+  "deadline": "10/23",
+  "title": "Lynx: An Open Source Hallucination Evaluation Mode"
+ },
+ {
+  "wid": "W4406975432",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 90.0,
+  "n_items": 5600,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "Actions Speak Louder than Words: Agent Decisions R"
+ },
+ {
+  "wid": "W4416683695",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 130.0,
+  "n_items": 2243,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "AI Self-preferencing in Algorithmic Hiring: Empiri"
+ },
+ {
+  "wid": "W4411120580",
+  "cap": 20.0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "est_usd": 131.0,
+  "n_items": 50001,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "QSpell 250K: A Large-Scale, Practical Dataset for "
+ },
+ {
+  "wid": "W4415332749",
+  "cap": 20.0,
+  "model": "o1-2024-12-17",
+  "est_usd": 251.78,
+  "n_items": 1483,
+  "seeds": 1,
+  "deadline": "10/23",
+  "title": "J4R: Learning to Judge with Equivalent Initial Sta"
+ },
+ {
+  "wid": "W4414979614",
+  "cap": 4.1,
+  "model": "gpt-5-2025-08-07",
+  "est_usd": 2.38,
+  "n_items": 30,
+  "seeds": 3,
+  "deadline": "12/11",
+  "title": "Overcoming Language Barriers: Multilingual Analysi"
+ },
+ {
+  "wid": "W7162149911",
+  "cap": 12.5,
+  "model": "gpt-5-2025-08-07",
+  "est_usd": 8.0,
+  "n_items": 100,
+  "seeds": 3,
+  "deadline": "12/11",
+  "title": "Refining and Reusing Annotation Guidelines for LLM"
+ },
+ {
+  "wid": "W7126280993",
+  "cap": 20.0,
+  "model": "o3-2025-04-16",
+  "est_usd": 20.9,
+  "n_items": 480,
+  "seeds": 3,
+  "deadline": "12/11",
+  "title": "Semantic Content Determines Algorithmic Performanc"
+ }
+]

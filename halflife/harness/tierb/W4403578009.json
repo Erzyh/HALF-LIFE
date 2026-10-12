@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403578009",
+  "title": "Understanding the Role of LLMs in Multimodal Evaluation Benchmarks",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "A",
+    "evidence": "Footnote 2: 'We use the GPT-4o-2024-05-13 version.' attached to 'invoke GPT-4 ... to convert the original visual questions'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.1 Table 4 (VQA-to-text conversion prompt); A.2 Table 5 (MCQ evaluation prompt for the DeepSeek judge); A.3 input template",
+    "note": "Test subjects are open-source MLLMs only."
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "GPT-4o only converts visual questions into knowledge questions; no GPT-4o result row",
+    "task_type": "other",
+    "judge": "llm:deepseek (unspecified)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/Twilight92z/Role-of-LLM (ScienceQA, MMMU, Viquae, InfoSeek subsets)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Data-construction role only."
+}

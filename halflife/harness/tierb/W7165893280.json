@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7165893280",
+ "title": "Tracking the narrative: A data-driven analysis of media coverage of Russia and Ukraine 2013–2024",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"Using GPT-4, GPT-4-turbo, and GPT-3.5-turbo...we generated for each cluster a title...and five keyphrases\" (Methods, Summarisation)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "S3 Table of the supporting information (not in extracted text)",
+  "note": "\"Details on model settings, prompt structures, and generation parameters are provided in S3 Table of the supporting information.\""
+ },
+ "claim": {
+  "metric": "none (only qualitative: \"GPT-4 and GPT-4-turbo delivered consistent quality, while GPT-3.5-turbo occasionally deviated\"; no accuracy number given)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "News-article dataset with JRC metadata; cluster outputs published via the JRC Data Catalogue"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo is used as a content-generation utility (cluster titles/keyphrases for a media-narrative study) with human analysts reviewing the outputs; the paper's actual scientific findings are about Russia/Ukraine media narratives, not a benchmarkable LLM metric, and the exact prompts are only in a supplementary table not present in the extracted text."
+}

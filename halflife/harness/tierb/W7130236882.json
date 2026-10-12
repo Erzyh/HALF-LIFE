@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7130236882",
+  "title": "WebWorld: A Large-Scale World Model for Web Agent Training",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "C",
+    "evidence": "\"Simia (Li et al., 2025b) o4-mini - - Prompting - Text\" (Table 1, comparison of prior world models)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": "o4-mini only cited as another system's backbone"
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o-2024-11-20"
+  },
+  "data": {
+    "public": "yes",
+    "source": "WebArena"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Paper's own API models are gpt-4o-2024-11-20 and gpt-5-2025-08-07 (Table 10), used as world-model/value baselines inside an agentic WebArena search pipeline; not light re-execution."
+}

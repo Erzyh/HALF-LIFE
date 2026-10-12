@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7167269259",
+  "title": "Qualitative Analysis of Discrepancy Patterns Between Large Language Models and Human Reviewers in Abstract Screening for Systematic Reviews",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Methods: 'GPT-5.0, snapshot gpt-5-2025-08-07; and GPT-5.0-mini, snapshot gpt-5-mini-2025-08-07 ... via the OpenAI API ... temperature = 1, top-p = 1, seed = 12345'."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary Methods 1 (not in the article text)",
+    "note": "PICO-structured system/user prompts with inclusion/exclusion criteria are described, not printed."
+  },
+  "claim": {
+    "metric": "accuracy (%) vs abstract-level human reference, core-subject database",
+    "value": 98.4,
+    "n_items": 430,
+    "location": "Table 2A, column 5.0-mini, row Accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Two systematic-review abstract databases (430 and 696 abstracts); 'Bibliographic records and abstract texts ... cannot be redistributed due to licensing restrictions'"
+  },
+  "cost": {
+    "est_calls": 430,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Code at github.com/kh12lee/llm-abstract-screening. gpt-5-2025-08-07 is also evaluated (accuracy 97.9 on the same table)."
+}

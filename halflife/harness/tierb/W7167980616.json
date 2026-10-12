@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7167980616",
+  "title": "Evaluating LLM Robustness Under Domain-Specific Prompt Perturbations in Public Health Applications",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-Nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "\"We additionally evaluate GPT-4.1-nano as a lightweight commercial reference model accessed through the OpenAI API\"; \"temperature set to 0\" (Sec. IV.B)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Perturbations defined formulaically (Eq. 3-4); base prompt and the frozen MF claim-mapping file are not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, baseline (unperturbed), averaged over 3 datasets",
+    "value": 66.0,
+    "n_items": 300,
+    "location": "Table I, row GPT-4.1-Nano, column Baseline",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "PubMedQA, MedQA-USMLE, COVID-19 vaccine stance tweets (public); random 100-item samples per dataset not released"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "No code/data link found in the text."
+}

@@ -1,0 +1,56 @@
+{
+  "wid": "W4416037849",
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retrieval-Augmented LLMs in Biomedicine",
+  "model": "gemini-3.8-flash",
+  "metric": "custom",
+  "original_value": 71.22,
+  "original_location": "Table 7, row o3-mini, column Relevance Precision / SRC (IS 73.99, CE 72.60)",
+  "reexecution": {
+    "mean_over_seeds": 0.7089737233515121,
+    "per_seed": {
+      "0": {
+        "value": 0.7089737233515121,
+        "n": 389,
+        "ci95": [
+          0.6883997759980707,
+          0.7309233935489304
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416037849",
+    "n_items": 389,
+    "n_requests": 389,
+    "seeds": 1,
+    "est_usd": 1.73,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "custom",
+    "original_value": 71.22,
+    "cap_usd": 4.59
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the paper's per-query 40/60 draw is not listed (seeded draw, set-level comparison); the 'Query:' / 'References:' layout and the expected output format are reconstructed (only the instruction sentence is printed); no item-level CI (F1)",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "o3-mini-2025-01-31",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4416037849"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 70.8973723351512,
+    "delta": -0.32262766484879535,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4403577181",
+  "title": "ChatHouseDiffusion: Prompt-Guided Generation and Editing of Floor Plans",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 'LLM parsing': 'Llama3, gpt-4-turbo and moonshot-v1-8k (moonshot) are used to get the JSON-format prompt from linguistic prompts'; Table 1: 'gpt-4-turbo 93.88 43.42 53.90'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 3 (Prompt-to-JSON workflow with an output JSON example); 'Prompt for Figure 8' prints one floor-plan description",
+    "note": "The LLM instruction text itself is not printed."
+  },
+  "claim": {
+    "metric": "room-type extraction accuracy (%)",
+    "value": 93.88,
+    "n_items": null,
+    "location": "Table 1, row gpt-4-turbo, column Type",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "text descriptions paired with RPLAN floor plans; repository 'to be open-sourced in the future'"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Downstream FID/IoU numbers depend on the diffusion model; test-set size for Table 1 not stated."
+}

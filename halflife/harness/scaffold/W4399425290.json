@@ -1,0 +1,21 @@
+{
+  "openalex_id": "https://openalex.org/W4399425290",
+  "title": "Unveiling the Potential of AI for Nanomaterial Morphology Prediction",
+  "doi": "https://doi.org/10.48550/arxiv.2406.02591",
+  "field": "Materials Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-4-0125-preview|gpt-4-0613",
+  "flags": "",
+  "all_links": [
+    "github.com/acid-design-lab/Nanomaterial_Morphology_Prediction.AcknowledgementsThe"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/acid-design-lab/Nanomaterial_Morphology_Prediction.AcknowledgementsThe",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4399425290.txt",
+  "paper_text_status": "pdf"
+}

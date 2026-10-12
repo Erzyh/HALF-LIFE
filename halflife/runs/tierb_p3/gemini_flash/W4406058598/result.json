@@ -1,0 +1,56 @@
+{
+  "wid": "W4406058598",
+  "title": "Halu-J: Critique-Based Hallucination Judge",
+  "model": "gemini-3.8-flash",
+  "metric": "accuracy",
+  "original_value": 0.83,
+  "original_location": "Table 1, row GPT-4o, column ME-FEVER",
+  "reexecution": {
+    "mean_over_seeds": 0.8974151857835219,
+    "per_seed": {
+      "0": {
+        "value": 0.8974151857835219,
+        "n": 1238,
+        "ci95": [
+          0.8804523424878837,
+          0.9143780290791599
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4406058598",
+    "n_items": 1238,
+    "n_requests": 1238,
+    "seeds": 1,
+    "est_usd": 5.58,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gemini-3.8-flash",
+    "metric": "accuracy",
+    "original_value": 0.83,
+    "cap_usd": 6.91
+  },
+  "served": {
+    "models": [
+      "gemini-3.8-flash"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the order in which the golden, partially irrelevant, completely irrelevant and misleading evidences are numbered is not stated; a seeded shuffle per instance (seed 20260907) is used; zero-shot Table 11 prompt without the in-context critique demonstrations used for the evidence-matching experiment",
+  "arm": {
+    "model": "gemini-3.8-flash",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gemini_flash\\W4406058598"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.8974151857835219,
+    "delta": 0.0674151857835219,
+    "original_inside_ci95": false
+  }
+}

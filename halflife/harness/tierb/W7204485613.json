@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7204485613",
+  "title": "Analysing Anti-Vaccine Concerns on the Gab and Twitter Social Media Platforms",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Abstract: \"GPT-4 Turbo outperforms others in summarization (ROUGE-S F1 = 0.85, BLEU = 0.82)\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Only the abstract/landing page was captured (Zenodo record page); no methods section, prompt, or appendix text is available in the extracted file."
+  },
+  "claim": {
+    "metric": "ROUGE-S F1, summarization",
+    "value": 0.85,
+    "n_items": null,
+    "location": "Abstract only",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "\"first annotated dataset of COVID-19 anti-vaccine posts from Gab\" (stated in abstract; release status and size not visible in the captured text)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "The captured text is a Zenodo landing page (abstract plus site boilerplate/cookie notice), not the full paper; no method, prompt, or sample-size details are available beyond the two abstract metrics."
+}

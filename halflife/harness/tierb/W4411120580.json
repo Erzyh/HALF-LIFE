@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411120580",
+ "title": "QSpell 250K: A Large-Scale, Practical Dataset for Chinese Search Query Spell Correction",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo (\"GPT4\" in Table 3)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec.4.2: \"we utilize the gpt-4-turbo model in Chat mode\"; Table 3 row \"Prompt GPT4\": QSpell250K P0.7409 R0.3146 F1 0.4416."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec.4.4 (\"The prompt we used is as follows:\")",
+  "note": "\"As a query spelling error correction model, your task is to automatically detect and correct query spelling errors...\" with {} input/output slots."
+ },
+ "claim": {
+  "metric": "F1, spelling correction, QSpell 250K test set",
+  "value": 0.4416,
+  "n_items": 50000,
+  "location": "Table 3, row \"Prompt GPT4\", QSpell 250K columns (P 0.7409, R 0.3146, F1 0.4416)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "https://github.com/dz1109/CQSpell"
+ },
+ "cost": {
+  "est_calls": 50000,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Alias resolved by date rule (NAACL 2025 industry track, well after 2024-07-01, no preview string). Paper reports \"average from five experiments\" per model; a single-seed 50K-item rerun already reaches the high cost tier, and matching their 5-run convention multiplies this further."
+}

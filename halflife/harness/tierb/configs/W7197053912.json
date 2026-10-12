@@ -1,0 +1,96 @@
+{
+  "wid": "W7197053912",
+  "title": "ANCHOR-RE: An Agentic Neuro-Symbolic Framework for Grounded Biomedical Relation Extraction",
+  "status": "ready",
+  "model": {
+    "id": "gpt-5-mini-2025-08-07",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent on reasoning effort and decoding for the API model; gpt-5-mini accepts only the default temperature; open-weight models used temperature 0)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 3211,
+    "subset_rule": "all (SemRepGS test set, 3,211 entity pairs)",
+    "approximation": "Candidate-relation definitions are not printed; the hook takes them from SemRep_LABEL2DEF in utils/text.py of the code release (the dict the release's decider feeds to the model) and lists the candidates in the release's SEMREP_LABEL_SCHEMA_ORDER plus 'none' before the definition lines - the layout of that slot inside the paper's Appendix A prompt is our choice. Reasoning effort for gpt-5-mini is not stated (API default); temperature/top_p are not sent."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/COMBINI-Hub/Multi_Agent_Relation_Extraction, file data/semrep/test.out (3,211 rows verified; TSV: id, gold label, sentence, subject, object, subject semantic type, object semantic type, subject group, object group, candidate relations ';'-separated)",
+    "config_or_split": "test.out",
+    "filter": null,
+    "fields": {
+      "input": "sentence",
+      "label": "label",
+      "id": "idx",
+      "subject": "subject_text",
+      "object": "object_text",
+      "subject_type": "subject_type",
+      "object_type": "object_type",
+      "candidate_relations": "label_choices"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 1.1,
+    "file_url": "https://raw.githubusercontent.com/COMBINI-Hub/Multi_Agent_Relation_Extraction/main/data/semrep/test.out",
+    "fields_prose": {
+      "input": "sentence + subject/object mentions and semantic types",
+      "options": "candidate relations (column 10) with definitions from data/semrep (SRDEF.RRF, best reading)",
+      "label": "gold label (column 2; 'None' = norel)",
+      "id": "column 1"
+    },
+    "label_map": {
+      "None": "none"
+    },
+    "structure_verified": "test.out: 3,211 tab-separated lines WITHOUT a header (id, gold label, sentence, subject, object, subject semantic type, object semantic type, subject group, object group, candidate relations ';'-separated, e.g. 'predisposes; coexists_with; ...')"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are an expert Biomedical Information Extraction Agent. Your primary function is to accurately extract semantic relationships between biomedical entities from scientific text.\nTask Description\nGiven a biomedical sentence and a target pair of entities (SUBJECT and OBJECT), determine which biomedical relation label best describes their relationship. Use the provided sentence together with the relation definitions to determine the most appropriate relation. If the sentence expresses no explicit or verifiable relationship, output none.\nLinguistic and Semantic Guidance\n1. Trigger Identification\n• Verbs indicate causal or action-based relations (e.g., inhibits, causes, prevents, treats).\n• Nominalizations may express events (e.g., treatment, activation, expression).\n• Prepositions often indicate static associations or locations.\n• Implicit triggers may occur in noun phrases (e.g., “aspirin therapy” implies TREATS).\n2. Trigger Positioning\n• Verbs typically occur between SUBJECT and OBJECT.\n• Nominalizations may occur before, between, or after the entity pair.\n• Prepositions frequently precede the OBJECT.\n• Carefully resolve coordinated entities connected by conjunctions.\n3. Entity-Type Heuristics\n• Pharmacologic Substance → Disease: TREATS, PREVENTS, CAUSES\n• Gene / Protein → Chemical / Protein: INTERACTS_WITH, ASSOCIATED_WITH, STIMULATES, INHIBITS\n• Disease → Finding: ASSOCIATED_WITH, CAUSES, COEXISTS_WITH\n• Anatomical Structure → Disease: LOCATION_OF, PART_OF, PROCESS_OF\n4. Decision Rules\n• Identify the trigger phrase connecting SUBJECT and OBJECT.\n• Consider both linguistic context and semantic types.\n• Predict the most specific relation supported by the evidence.\n• Output none if\n– no explicit relation is expressed,\n– the statement is purely descriptive,\n– the connection is semantically unsupported\nRequired JSON Output\n{\n\"subject\": \"<exact entity text>\",\n\"subject_type\": \"<entity type>\",\n\"object\": \"<exact entity text>\",\n\"object_type\": \"<entity type>\",\n\"trigger_span\": \"<supporting phrase>\",\n\"frame\": \"<brief explanation>\",\n\"label\": \"<candidate relation or ’none’>\"\n}\nInput\n• Subject: {subject} (type: {subject_type})\n• Object: {object} (type: {object_type})\n• Sentence: {sentence}\n• Candidate Relations: {candidate_relations}\nDecision Guidelines\n1. Consider none as the default prediction.\n2. Assign a relation label only if the sentence contains a clear and explicit trigger connecting the subject and object.\n3. If the evidence is ambiguous, uncertain, or not directly supported by the sentence, predict none.\nQuestion\nWhat relation, if any, is expressed between the subject and object in the given sentence?",
+    "placeholders": {
+      "subject": "items.subject",
+      "subject_type": "items.subject_type",
+      "object": "items.object",
+      "object_type": "items.object_type",
+      "sentence": "items.sentence",
+      "candidate_relations": "items.candidate_relations"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A, 'Baseline prompt'",
+    "verbatim": "full (bullets, dashes and the JSON block as printed; line breaks restored; words the extraction ran together were re-spaced; the bracketed input slots became placeholders; JSON braces are literal)",
+    "placeholders_prose": {
+      "subject": "subject mention",
+      "subject_type": "subject semantic type",
+      "object": "object mention",
+      "object_type": "object semantic type",
+      "sentence": "sentence",
+      "candidate_relations": "hook-built: candidate labels of column 10 in the release's schema order + 'none', then one '- label: definition' line per candidate (SemRep_LABEL2DEF)"
+    }
+  },
+  "output": {
+    "parse": "json field label",
+    "postprocess": "uppercase; 'none' -> norel"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "micro-F1 over the positive relation types on the 3,211 test pairs with norel excluded (Sec. 3.8)",
+    "judge": "none",
+    "original_value": 0.654,
+    "original_location": "Table 2, row Baseline, SemRepGS block, Micro F1 (bootstrap CI [0.630, 0.677])",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 9633,
+    "est_usd": 48.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Gold label distribution in test.out: None 2,174, PROCESS_OF 190, LOCATION_OF 170, PART_OF 129, TREATS 96, ISA 85, AFFECTS 79, CAUSES 43, ... Micro precision 0.534 / recall 0.844 are the companion cells. || [hooks_4 2026-09-07] hook closes the headerless-TSV, definition-join and positive-only micro-F1 gaps; the release's own prompt (prompts/decider_semrep_system.txt + agents/decider.py PROMPT_TEMPLATE_BASE) differs in wording from the paper's Appendix A baseline prompt, which the config keeps. || [triage 2026-09-18] DEVIATION. Micro-F1 0.570 / 0.579 / 0.577 over three seeds vs 0.654. Recall matches the paper (0.82-0.83 vs 0.844); precision is 0.44 vs 0.534 because the model predicts a positive relation for 60% of the 3,211 pairs while 32% carry one in the gold set (paper implies about 51% predicted positive). Top confusions: part_of -> none, location_of -> none, part_of -> associated_with, treats -> administered_to. Only 6 of 9,633 replies unparsed, so not a scoring defect; the candidate-definition layout inside the Appendix A prompt is our approximation (taken from the code release), and gpt-5-mini reasoning effort is not stated by the paper.",
+  "runner_gaps": [],
+  "hook": "harness/tierb/hooks/W7197053912.py: load_items (headerless test.out with the release's column names; candidate block with definitions; copies cached under external/data/tierb_items/W7197053912/), parse (JSON 'label'), score (micro-F1 over positive relation types, 'none' excluded; no per-item list)"
+}

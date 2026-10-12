@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7154655572",
+ "title": "TRUST Agents: A Collaborative Multi-Agent Framework for Fake News Detection, Explainable Verification, and Logic-Aware Claim Reasoning",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano (zero-shot)",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "Table 1: \"GPT-4.1-nano (zero-shot) 0.580 0.528\" (Accuracy, Macro-F1) on the LIAR test set."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "\"Zero-shot LLM baseline that judges claims directly\"; no prompt text quoted anywhere in the paper."
+ },
+ "claim": {
+  "metric": "accuracy, zero-shot LIAR fact classification",
+  "value": 0.58,
+  "n_items": null,
+  "location": "Table 1, row GPT-4.1-nano (zero-shot)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LIAR benchmark (Wang 2017), 12,836 statements"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "gpt-4.1-nano is a simple zero-shot baseline against the public LIAR dataset (code on GitHub), but no prompt text is given anywhere in the paper itself."
+}

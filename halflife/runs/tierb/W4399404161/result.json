@@ -1,0 +1,47 @@
+{
+  "wid": "W4399404161",
+  "title": "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 63.7,
+  "original_location": "Table 2, row GPT-4-Turbo, column Overall (5-shot CoT)",
+  "reexecution": {
+    "mean_over_seeds": 0.6797820823244553,
+    "per_seed": {
+      "0": {
+        "value": 0.6797820823244553,
+        "n": 1652,
+        "ci95": [
+          0.6573849878934624,
+          0.7021791767554479
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399404161",
+    "n_items": 1652,
+    "n_requests": 1652,
+    "seeds": 1,
+    "est_usd": 39.91,
+    "subset_note": "cost cap $40.0: seeded random subset of 1652 items (seed 20260907)",
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 63.7
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 9
+  },
+  "approximation": "none (same 12,032 test items, same 5 validation exemplars per category; option lines rendered one per line as in the public eval script because Table 7's rendering collapses line breaks)",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 67.97820823244552,
+    "delta": 4.278208232445522,
+    "original_inside_ci95": false
+  }
+}

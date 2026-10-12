@@ -1,0 +1,67 @@
+{
+  "wid": "W4414979614",
+  "title": "Overcoming Language Barriers: Multilingual Analysis of the 2023 Swiss Privacy Law's Impact",
+  "model": "gpt-5-2025-08-07",
+  "metric": "custom",
+  "original_value": 0.93,
+  "original_location": "Sec. 4 Results / Figure 1, practice contr, language English (artifact Results_GPT5/eval_metrics.csv gives 0.9285714285714286, with accuracy 0.9333, precision 0.8667, recall 1.0)",
+  "reexecution": {
+    "mean_over_seeds": 0.8888210554877221,
+    "per_seed": {
+      "0": {
+        "value": 0.9285714285714286,
+        "n": 30,
+        "ci95": [
+          0.8,
+          1.0
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.8148148148148148,
+        "n": 30,
+        "ci95": [
+          0.6118729096989967,
+          0.9411764705882353
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.9230769230769231,
+        "n": 30,
+        "ci95": [
+          0.7692307692307692,
+          1.0
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 7
+  },
+  "prepare": {
+    "wid": "W4414979614",
+    "n_items": 30,
+    "n_requests": 90,
+    "seeds": 3,
+    "est_usd": 1.19,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5-2025-08-07",
+    "metric": "custom",
+    "original_value": 0.93,
+    "cap_usd": 4.1
+  },
+  "served": {
+    "models": [
+      "gpt-5-2025-08-07"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper's call pins seed=123 and forces the answer through a strict json_schema response_format; the runner treats any gpt-5* id as a reasoning model and sends neither, so the JSON comes only from the prompt's own '### OUTPUT ###' instruction. The paper ran one pass; we run three seeds. Otherwise identical: same system prompt, same codebook user prompt, same anonymized policy text as a second user message.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.8888210554877221,
+    "delta": -0.04117894451227799,
+    "original_inside_ci95": true
+  }
+}

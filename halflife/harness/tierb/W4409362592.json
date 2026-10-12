@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4409362592",
+ "title": "Infer Human's Intentions Before Following Natural Language Instructions",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"We design prompting methods for GPT-4 Turbo over HMT tasks. The vanilla implementation (GPT-4) simply provides all inputs to the model and requests it to output actions.\"; Table 1, column 'GPT-4 Turbo / Vanilla', Level 1 = 72.0%."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Results/Prompted GPT-4 section (Vanilla, +PE, +FISER, +PR conditions described procedurally: what each prompting method adds and what questions it asks)",
+  "note": "Each prompting variant's purpose and structure is explained, but the literal prompt text is not printed in the retrieved sections."
+ },
+ "claim": {
+  "metric": "success rate (%), GPT-4 Turbo Vanilla, HandMeThat Level 1, fully observable setting",
+  "value": 72.0,
+  "n_items": null,
+  "location": "Table 1 (Success rate of models over HMT in the fully observable setting), column 'GPT-4 Turbo / Vanilla', row 'Level 1'",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "HandMeThat (version 2) benchmark (Wan, Mao, and Tenenbaum 2022)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4 Turbo is directly prompted (role S) across 4 conditions (Vanilla/+PE/+FISER/+PR) and 4 difficulty levels of the public HandMeThat benchmark; 'Vanilla' is the simplest, cleanest prompt-level condition. Soft gap: the per-level item count for HandMeThat is not stated in the retrieved text (n_items unclear), and the exact prompt wording is described rather than quoted."
+}

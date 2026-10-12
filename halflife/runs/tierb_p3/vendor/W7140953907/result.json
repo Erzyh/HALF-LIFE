@@ -1,0 +1,56 @@
+{
+  "wid": "W7140953907",
+  "title": "How Utilitarian Are OpenAI's Models Really? Replicating and Reinterpreting Pfeffer, Krugel, and Uhl (2025)",
+  "model": "gpt-5.6-sol",
+  "metric": "accuracy",
+  "original_value": 100,
+  "original_location": "Table S1 (Experiment 1, N = 1,000 per cell, original prompt), Trolley block, row o3-mini, Yes% column = 100.0; reproduced in Table S2 and, at N = 100, as Table 1 row o3-mini / Original",
+  "reexecution": {
+    "mean_over_seeds": 1.0,
+    "per_seed": {
+      "0": {
+        "value": 1.0,
+        "n": 1000,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7140953907",
+    "n_items": 1000,
+    "n_requests": 1000,
+    "seeds": 1,
+    "est_usd": 12.48,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "accuracy",
+    "original_value": 100,
+    "cap_usd": 25.0
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper's 1,000 repeated API requests are represented as 1,000 identical items with one pass each (hook load_items), which is the same call pattern. reasoning_effort is left at the API default because the paper states 'API default parameters' and names no value. The temperature the API ignores for o3-mini is likewise left unset.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "o3-mini-2025-01-31",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W7140953907"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 100.0,
+    "delta": 0.0,
+    "original_inside_ci95": true
+  }
+}

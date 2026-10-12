@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406072163",
+  "title": "Economy Watchers Survey Provides Datasets and Tasks for Japanese Financial Domain",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec 3.1: \"We test the representative LLMs, ChatGPT (gpt-3.5-turbo-0125) and GPT-4o (gpt-4o-2024-05-13)\"; Table 4: \"GPT-4o (5) 63.1 38.3 39.9\" (macro F1 across three tasks)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Zero-/5-shot settings are labeled \"(0)\"/\"(5)\" in Table 4, but no prompt text or template is shown anywhere; the paper has no Appendix."
+  },
+  "claim": {
+    "metric": "macro F1, 5-shot, Domain Classification task",
+    "value": 63.1,
+    "n_items": null,
+    "location": "Table 4, row GPT-4o (5); full task test sets run tens of thousands of items (Table 3), but the LLM-evaluation subsample size is not stated",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Economy Watchers Survey datasets, auto-updated monthly on GitHub and Hugging Face Hub"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Dataset release is exemplary (monthly auto-updated via GitHub Actions to Hugging Face), but the exact prompt given to GPT-4o is never printed, and the sample size actually sent to the API (vs. the full BERT-scale train/dev/test splits) is not stated."
+}

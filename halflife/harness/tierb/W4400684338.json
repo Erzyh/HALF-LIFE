@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4400684338",
+ "title": "Self-Logical Consistency Assessment of Large Language Models for Patient Feedback Classification: Algorithm Development and Validation Study",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 turbo (version March 05, 2024)",
+  "resolved": "dead-preview",
+  "role": "S",
+  "evidence": "'Both GPT-4 turbo (version March 05, 2024) and Llama-3.1 405B were evaluated'; 'We evaluated SLCA using GPT-4 and Llama-3.1 405B on 12,600 classifications'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods/Supplementary (SCA/LCA/SLCA self-consistency prompting stages described); exact prompt text not confirmed in the excerpt read",
+  "note": ""
+ },
+ "claim": {
+  "metric": "logical hallucination rate (%) with SLCA",
+  "value": 0.51,
+  "n_items": 12600,
+  "location": "Table (GPT-4 + SLCA row): 'GPT-4 + SLCA 86 78 0.51 (4/786) 0.86'",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "12,600 patient-feedback classifications; human-expert comparison set (Supplementary Table 2)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [
+  "dead_alias"
+ ],
+ "notes": "The paper explicitly pins its 'GPT-4 turbo' to the API version served on March 5, 2024, which predates the 2024-04-09 GA snapshot (gpt-4-turbo-2024-04-09) — at that date 'gpt-4-turbo' pointed to a preview build, so this resolves to a dead preview regardless of the 2024 publication date."
+}

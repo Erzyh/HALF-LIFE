@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4403853622",
+  "title": "Hierarchical Narrative Analysis: Unraveling Perceptions of Generative AI",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Figure 1 presents the results of polarity determination for each opinion, as conducted by 'gpt-4-turbo-2024-04-09.' Specifically, the following prompt was used.\" (Sec. 2 Data)"
+  },
+  "prompt": {"verbatim": "none", "location": "Sec. 2 (the prompt is referenced immediately before Figure 1, but the actual prompt text/image is not captured in the extracted document -- blank lines appear where it would be)", "note": "Classification of 2,998 public comments into positive/negative opinions on AI and copyright."},
+  "claim": {
+    "metric": "Proportion of opinions classified positive (threshold 0.5)", "value": 9.24, "n_items": 2998,
+    "location": "Sec. 2/Table 1 (\"277 positive opinions and 2,721 negative opinions\" out of 2,998 total)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "\"Public Comments on Perspectives Regarding AI and Copyright (Individual) Volumes 1-3\", Agency for Cultural Affairs, Japan (2,998 public responses, publicly released)"},
+  "cost": {"est_calls": 8994, "tier": "mid"},
+  "blockers": ["prompt_none"],
+  "notes": "arXiv 2024, partly in Japanese. Dataset is genuinely public and n is exact, but the classification prompt itself did not survive text extraction from the PDF (a figure/image in its place) and no version of it is otherwise quoted."
+}

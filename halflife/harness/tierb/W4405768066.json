@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405768066",
+  "title": "Large language models for conducting systematic reviews: on the rise, but not yet ready for use – a scoping review",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT 4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Summary table cataloguing external studies, row: \"(13) Hasan 2024+ US, val GPT 4, GPT 4 Turbo RoB Agreement of GPT-4 vs. Cochrane reviewers...\"."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This is a scoping review of other papers' LLM use; the authors run no model themselves."
+  },
+  "claim": {
+    "metric": "none (survey/scoping review, no first-party experiment)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "A scoping review cataloguing roughly twenty external studies that used GPT-4/GPT-4 Turbo/ChatGPT for systematic-review tasks; GPT-4 Turbo appears only as a table entry describing one such external study (Hasan 2024), never as a model the review's own authors ran."
+}

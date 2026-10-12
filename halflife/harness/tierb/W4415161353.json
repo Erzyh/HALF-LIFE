@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4415161353",
+  "title": "Benchmarking Next-Generation Reasoning-Focused Large Language Models in Ophthalmology: A Head-to-Head Evaluation on 5,888 Items",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o3-mini (o3-mini-2025-01-31)",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "\"DeepSeek-R1, OpenAI o1 (o1-preview-2024-09-12), o3-mini (o3-mini-2025-01-31), and Gemini 2.0 Flash-Thinking\" (Methods); \"OpenAI o3-mini (0.857)\" accuracy (Results, Table 2)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Supplemental Figure 3 (example of the zero-shot role-play prompt)",
+    "note": "Prompt shown as an example in the supplement; JSON-style answer + explanation requested."
+  },
+  "claim": {
+    "metric": "accuracy on ophthalmology MCQs",
+    "value": 0.857,
+    "n_items": 5888,
+    "location": "Table 2 / Results paragraph 1, OpenAI o3-mini",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "MedMCQA ophthalmology subset (public); the 5,888-item filtered subset (GPT-4o-mini quality filter, 182 DeepSeek timeouts excluded) is not released"
+  },
+  "cost": {
+    "est_calls": 5888,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the exact 5,888-item subset must be reconstructed (filtering used gpt-4o-mini-2024-07-18 on explanations). Defaults used: temperature 1, reasoning_effort medium. Macro-F1 0.855 also reported.",
+  "resolution": {
+    "gap": "prompt_as_image",
+    "plan": "The zero-shot role-play prompt exists only as an example in Supplemental Figure 3 (image), and the GPT-4o-mini cleaning prompt only in Supplemental Figure 2. Read both from the PDF; rebuild the item set from the 6,990 MedMCQA ophthalmology items by re-running the gpt-4o-mini-2024-07-18 explanation filter (920 removed; the 182 DeepSeek-timeout exclusions cannot be reproduced), run o3-mini-2025-01-31 with reasoning_effort medium and default temperature, and compare accuracy 0.857 at set level.",
+    "approximation": "Item set differs by up to ~3% from the 5,888 (filter nondeterminism, timeouts); prompt given as an example only.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

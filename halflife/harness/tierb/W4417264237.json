@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4417264237",
+  "title": "Language models for the analysis of and interaction with climate change documents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "SURVEY PAPER ... the systems to which the system is compared are: GPT-4 Turbo, Llama-3-70B, Claude 3 Opus, ... (survey text reporting other authors' comparisons)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "Survey; no experiments by the authors."
+  },
+  "claim": {
+    "metric": null,
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "n/a (survey)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey paper; GPT-4 Turbo appears only in descriptions of surveyed systems."
+}

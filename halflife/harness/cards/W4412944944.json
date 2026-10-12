@@ -1,0 +1,140 @@
+{
+  "card_id": "W4412944944",
+  "openalex_id": "https://openalex.org/W4412944944",
+  "title": "BIG5-CHAT: Shaping LLM Personalities Through Training on Human-Grounded Data",
+  "doi": "https://doi.org/10.18653/v1/2025.acl-long.999",
+  "paper": {
+    "authors": "Wenkai Li, Jiarui Liu, Andy Liu, Xuhui Zhou, Mona Diab, Maarten Sap (CMU LTI)",
+    "year": 2025,
+    "venue": "ACL 2025 Long Papers pp. 20434-20471 (earlier arXiv 2410.16491)",
+    "repo": "https://github.com/jiarui-liu/Big5Chat (announced in footnote 1 as 'our dataset and code')",
+    "repo_commit": "NONE - the repository is empty. `git clone --depth 1` returned 'You appear to have cloned an empty repository' and `git ls-remote` returns no refs; the GitHub API reports size 0 KB, created_at and pushed_at both 2024-10-20T22:25:30Z, license null. Nothing was ever pushed.",
+    "repo_license": "none (empty repository, no LICENSE)",
+    "other_artifacts": "The dataset - not linked from the paper - is on Hugging Face as wenkai-li/big5_chat (apache-2.0, last modified 2024-11-18, one file big5_chat_dataset.csv, size category 10K-100K, 155 downloads). No SFT/DPO LoRA adapters, no evaluation code, no personality-test item files, no model outputs are published anywhere; the author's 25 public HF models are unrelated earlier work."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "auxiliary",
+    "note": "The paper's contribution is training (SFT and DPO on LLaMA-3-8B/70B over 100k human-grounded dialogues), which is outside the inference-only scope. Commercial models appear only as baselines: GPT-4o-mini as an alternative data generator (Table 1) and GPT-4o / GPT-4o-mini as prompting baselines on the BFI and IPIP-NEO personality tests (Table 12). The paper's own headline claim (training beats prompting) is therefore not re-executable by inference alone."
+  },
+  "claim": {
+    "statement": "Prompting a proprietary model is not a substitute for training on BIG5-CHAT: under instruction-based prompting (Prompt-Inst), GPT-4o reaches an average BFI score of 4.9 (high) / 1.5 (low) and IPIP-NEO 4.7 (high) / 1.8 (low), i.e. saturated, unrealistically extreme trait expression rather than the human-like distributions the SFT/DPO models produce (Table 12, Appendix; Section 'Necessity of dataset construction').",
+    "claim_type": "bias_or_behavior",
+    "metric": "Mean self-report score (1-5 Likert) on the 44-item BFI and the 120-item IPIP-NEO, reported per trait at induced High and Low levels and as a High/Low average over the five traits; standard deviation over 5 repeated runs.",
+    "original_values": {
+      "gpt-4o_alias": {
+        "bfi_prompt_inst_avg": {
+          "high": 4.9,
+          "low": 1.5,
+          "sd": 0.1
+        },
+        "bfi_prompt_demo_avg": {
+          "high": 4.1,
+          "low": 2.9,
+          "sd_high": 0.1,
+          "sd_low": 0.2
+        },
+        "ipipneo_prompt_inst_avg": {
+          "high": 4.7,
+          "low": 1.8,
+          "sd": 0.1
+        },
+        "ipipneo_prompt_demo_avg": {
+          "high": 3.8,
+          "low": 3.0,
+          "sd": 0.0
+        }
+      },
+      "gpt-4o-mini_alias": {
+        "bfi_prompt_inst_avg": {
+          "high": 5.0,
+          "low": 1.3
+        },
+        "ipipneo_prompt_inst_avg": {
+          "high": 4.9,
+          "low": 1.6
+        },
+        "table1_post_completion_generator_accuracy": 0.592,
+        "table1_topic_post_generation_accuracy": 0.785
+      },
+      "comparison_rows_frozen": {
+        "llama_3_70b_prompt_inst_bfi_avg_high": "5.0 (Table 12)",
+        "trained_generator_table1_accuracy": 0.804,
+        "eval_classifier_test_accuracy": 0.938
+      }
+    },
+    "original_source": "Paper Table 12 (Appendix, full personality test results; 'BFI GPT-4o' and 'IPIP-NEO GPT-4o' blocks) and Table 1 (data-generation baselines). Values are one decimal with a one-decimal standard deviation over 5 runs."
+  },
+  "protocol": {
+    "model": "gpt-4o (undated alias) - NOT RESOLVABLE to a live snapshot with confidence",
+    "model_status": "alias-dependent: if the runs predate 2024-10-02 the alias resolved to gpt-4o-2024-05-13 (dying, shutdown 2026-10-23); from 2024-10-02 it resolved to gpt-4o-2024-08-06, which is dead for our purposes",
+    "model_usage_verified": "no - the paper never gives a snapshot; the only citation is 'OpenAI, 2024'. The census live_id 'gpt-4-turbo' is a bibliography false positive: the single occurrence of 'turbo' in the paper is the reference 'OpenAI. 2024. Hello, gpt-4 turbo. Accessed: 2024-10-01.' No gpt-4-turbo experiment exists. The date rule cannot be applied cleanly: the experiments were run for an arXiv v1 dated 2024-10-21 (repo created 2024-10-20), straddling the 2024-10-02 alias cutover.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (inferred; no code released)",
+    "prompt_source": "Paper Appendix D.5 only. Prompt-Inst system prompt is quoted in full as 'You are a person with {level} {trait}.'; Prompt-Demo prepends 'Here are 10 examples of how people like you have responded in different situations...' plus 10 fixed in-context examples drawn from BIG5-CHAT. The questionnaire-administration wrapper (how each of the 44/120 items is presented and how the 1-5 answer is parsed) is NOT given.",
+    "params": {
+      "temperature": 0.6,
+      "max_tokens": "unreported",
+      "seed": "unreported",
+      "repeats": 5,
+      "source": "Section 'Evaluation procedure': 'We measured the standard deviation by repeating each experiment five times, using a temperature setting of 0.6.'"
+    },
+    "n_items": 164,
+    "n_conditions": 10,
+    "samples_per_item": 5,
+    "evaluation": "Mean Likert score per trait, computed from the BFI (44 items, John et al. 1999, administration following Huang et al. 2024) and IPIP-NEO-120 (Johnson 2014, administration following Jiang et al. 2024a). Reverse-keying and trait aggregation are standard for both instruments but the paper ships no scoring script.",
+    "environment": "not specified; no requirements file exists"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": "external: Hugging Face wenkai-li/big5_chat (training dialogues only, apache-2.0). The BFI-44 and IPIP-NEO-120 item sets are public psychometric instruments but are not shipped with the paper.",
+    "eval_path": null,
+    "data_public": true,
+    "data_license": "apache-2.0 (Hugging Face dataset card); the source corpora are SODA (Kim et al. 2023) and PsychGenerator",
+    "redistributable": true,
+    "notes": "Dataset yes, pipeline no. The announced repository is empty, so prompts, questionnaire administration, scoring, the SFT/DPO training scripts, the trained adapters and every model output are unavailable. Only the four prompt fragments quoted in Appendix D.2/D.5 exist."
+  },
+  "blockers": [
+    "The announced code repository https://github.com/jiarui-liu/Big5Chat is empty (0 KB, no commits, no licence) - no prompts beyond four appendix fragments, no questionnaire administration or scoring code, no released outputs.",
+    "No dated snapshot: 'GPT-4o' is an undated alias and the experiment window (arXiv v1 2024-10-21) straddles the 2024-10-02 cutover, so the arm may well have been gpt-4o-2024-08-06, which is dead.",
+    "Neither the census live_id (gpt-4-turbo, a reference-list artifact) nor the paper's other OpenAI arm (gpt-4o-mini, alias) is on the retirement list, so there is no unambiguous retiring snapshot to anchor a card on.",
+    "The paper's contribution is training; the SFT/DPO LoRA adapters are unreleased, so the comparison arm of the claim cannot be re-produced either - only the frozen published numbers can be cited.",
+    "Questionnaire administration is underspecified (item-per-call vs whole-instrument-per-call, reverse-keying, answer parsing), and max_tokens is unreported."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": null,
+      "proxy_option": "gpt-4o-2024-05-13 for the Table 12 GPT-4o rows, only if the user accepts the pre-cutover reading of the alias; otherwise the original arm is dead"
+    },
+    "successors": [
+      "gpt-5.6-sol (vendor-designated replacement for gpt-4o per the OpenAI deprecations page)",
+      "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+    ],
+    "dead_comparators_not_runnable": [
+      "gpt-4o-2024-08-06 (the alias target from 2024-10-02, the likelier resolution)"
+    ]
+  },
+  "budget": {
+    "est_calls": 8200,
+    "est_tokens_in": 1230000,
+    "est_tokens_out": 41000,
+    "est_cost_usd": 7,
+    "pricing_usd_per_1m": {
+      "gpt-4o-2024-05-13": {
+        "input": 5.0,
+        "output": 15.0
+      }
+    },
+    "assumptions": "HYPOTHETICAL, only if the card were unblocked and a proxy accepted. Prompt-Inst rows only: (44 BFI + 120 IPIP-NEO) items x 5 traits x 2 levels x 5 repeats = 8,200 calls, ~150 input tokens per call (short system prompt plus one item), ~5 output tokens. 5 repeats is the paper's own sampling scheme, so the 3-seed default does not apply. Adding the Prompt-Demo rows (10 in-context examples, ~1,500 input tokens) would raise the total to about USD 69. If the instruments are administered whole rather than item-by-item, the call count drops to 500 and the cost to under USD 1."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (only if unblocked). Primary numbers: the BFI and IPIP-NEO High/Low averages for GPT-4o under Prompt-Inst (4.9/1.5 and 4.7/1.8). Survival = re-run means within the original +/- 1.96 x the reported SD over 5 runs (+/- 0.2) AND the behavioural direction holds: instruction prompting still saturates the scale (High >= 4.5, Low <= 2.0) and still separates further from the human-like distributions than the trained models do. Partial = levels move but the High-Low gap remains above 2.5 points. Death = the model no longer moves with the induced level, or refuses trait role-play.",
+    "notes": "The comparison arm (SFT/DPO LLaMA-3-70B) is frozen at its published values because no adapters were released, so only the GPT-4o side can move. Self-report personality inventories are in every model's training data, which limits what a re-run can establish."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Accept the empty repository as a hard stop, or reconstruct the questionnaire administration ourselves from the two appendix prompt fragments plus the public BFI-44 / IPIP-NEO-120 item sets (which would be our pipeline, not the authors')?",
+    "If reconstructed: accept gpt-4o-2024-05-13 as a proxy for the undated 'GPT-4o' alias although the October 2024 experiment window makes gpt-4o-2024-08-06 (dead) at least as likely?",
+    "Is an appendix-table prompting baseline (Table 12) worth a card at all when the paper's headline claim is a training result we do not re-run?"
+  ],
+  "domain_notes": "BIG5-CHAT is 100,000 dialogues built by conditioning SODA social scenarios on PsychGenerator-derived Big Five expression, with a RoBERTa-style classifier (93.8% test accuracy) used to verify trait realisation. Training is LoRA SFT and DPO on LLaMA-3-8B/70B-Instruct with GPTQ quantisation on 4 A6000s. The dataset itself is human-grounded, not model-distilled, so the training data poses no distillation problem - the obstacles here are purely the missing pipeline and the unresolvable alias. The reasoning-benchmark half of the paper (SocialIQA, GSM8K, MathQA, TruthfulQA, CommonsenseQA, PIQA, MMLU, GPQA via lm-evaluation-harness) involves no commercial model at all."
+}

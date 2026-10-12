@@ -1,0 +1,29 @@
+﻿wid,status,model,task,n_items,est_usd,title,config_path
+W7139147531,ready,gpt-4.1-nano-2025-04-14,classification,120,0.3,LLMs learn scientific taste from institutional traces across,halflife/harness/tierb/configs/W7139147531.json
+W7140084705,ready,gpt-4.1-nano-2025-04-14,classification,138,1.0,Quantifying Data Contamination in Psychometric Evaluations o,halflife/harness/tierb/configs/W7140084705.json
+W4407374917,ready,gpt-4o-2024-05-13,classification,100,2.0,"Large language models possess some ecological knowledge, but",halflife/harness/tierb/configs/W4407374917.json
+W7166808309,ready,gpt-4.1-nano-2025-04-14,classification,381,2.0,From Sparse to Sense-Grounded: Wikipedia Training for Ukrain,halflife/harness/tierb/configs/W7166808309.json
+W4416034223,ready,gpt-4o-2024-05-13,other,216,3.0,When Instructions Multiply: Measuring and Estimating LLM Cap,halflife/harness/tierb/configs/W4416034223.json
+W4399911276,ready,gpt-4o-2024-05-13,classification,250,4.0,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,halflife/harness/tierb/configs/W4399911276.json
+W4416035547,needs_download_check,o4-mini-2025-04-16,classification,100,6.0,Agent-to-Agent Theory of Mind: Testing Interlocutor Awarenes,halflife/harness/tierb/configs/W4416035547.json
+W7117377764,ready,o3-2025-04-16,extraction,43,7.0,Benchmarking large language models for geolocating colonial ,halflife/harness/tierb/configs/W7117377764.json
+W4402345509,ready,gpt-4-turbo-2024-04-09,mcq,199,9.0,LAB-Bench: Measuring Capabilities of Language Models for Bio,halflife/harness/tierb/configs/W4402345509.json
+W4403885225,ready,gpt-4-turbo-2024-04-09,classification,500,10.0,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,halflife/harness/tierb/configs/W4403885225.json
+W4400434899,ready,gpt-4-turbo-2024-04-09,other,800,12.0,Are Large Language Models Strategic Decision Makers? A Study,halflife/harness/tierb/configs/W4400434899.json
+W4399912745,needs_download_check,gpt-4-turbo-2024-04-09,generation,948,15.0,ALiiCE: Evaluating Positional Fine-grained Citation Generati,halflife/harness/tierb/configs/W4399912745.json
+W7140138327,ready,gpt-5-mini-2025-08-07,mcq,1259,19.0,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,halflife/harness/tierb/configs/W7140138327.json
+W4404314294,ready,gpt-4-turbo-2024-04-09,mcq,707,21.0,DisasterQA: A Benchmark for Assessing the performance of LLM,halflife/harness/tierb/configs/W4404314294.json
+W4406058562,needs_download_check,gpt-4-turbo-2024-04-09,generation,100,23.0,Applicability of Large Language Models and Generative Models,halflife/harness/tierb/configs/W4406058562.json
+W7135428876,needs_download_check,gpt-4.1-nano-2025-04-14,classification,16483,25.0,Large Language Models for Biomedical Article Classification,halflife/harness/tierb/configs/W7135428876.json
+W7166852552,ready,gpt-4.1-nano,mcq,8385,25.0,LexGenius: An Expert-Level Benchmark for Large Language Mode,halflife/harness/tierb/configs/W7166852552.json
+W4406058598,ready,gpt-4o-2024-05-13,classification,1238,30.0,Halu-J: Critique-Based Hallucination Judge,halflife/harness/tierb/configs/W4406058598.json
+W4405425991,needs_download_check,o3-mini-2025-01-31,generation,1025,31.0,ProteinGPT: Multimodal LLM for Protein Property Prediction a,halflife/harness/tierb/configs/W4405425991.json
+W4411119263,needs_download_check,gpt-4o-2024-05-13,classification,1030,40.0,ReIFE: Re-evaluating Instruction-Following Evaluation,halflife/harness/tierb/configs/W4411119263.json
+W4406880877,ready,o1-2024-12-17,classification,300,45.0,People who frequently use ChatGPT for writing tasks are accu,halflife/harness/tierb/configs/W4406880877.json
+W4403556032,ready,gpt-4-turbo-2024-04-09,mcq,1272,57.0,Enhancing Healthcare LLM Trust with Atypical Presentations R,halflife/harness/tierb/configs/W4403556032.json
+W7166837475,needs_download_check,o3-mini-2025-01-31,classification,6137,61.0,Large Language Models Require Curated Context for Reliable P,halflife/harness/tierb/configs/W7166837475.json
+W4417257719,ready,gpt-5-2025-08-07,classification,451,85.0,EDINET-Bench: Evaluating LLMs on Complex Financial Tasks usi,halflife/harness/tierb/configs/W4417257719.json
+W4403584145,ready,gpt-4-turbo-2024-04-09,other,20,100.0,AI agents can coordinate beyond human scale,halflife/harness/tierb/configs/W4403584145.json
+W4403570177,needs_download_check,gpt-4o-2024-05-13,classification,10067,120.0,RMB: Comprehensively Benchmarking Reward Models in LLM Align,halflife/harness/tierb/configs/W4403570177.json
+W7161421448,ready,gpt-4-turbo-2024-04-09,generation,5000,150.0,Identifying implicit bias in LLM-based chat AI toward people,halflife/harness/tierb/configs/W7161421448.json
+W4411120358,needs_download_check,gpt-4-turbo-2024-04-09,mcq,79280,800.0,CFinBench: A Comprehensive Chinese Financial Benchmark for L,halflife/harness/tierb/configs/W4411120358.json

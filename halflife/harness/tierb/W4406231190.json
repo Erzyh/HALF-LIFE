@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406231190",
+ "title": "TransientVerse: A Comprehensive Real-Time Alert and Multi-Wavelength Analysis System for Transient Astronomical Events",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"Through extensive testing and comparison, GPT-4 Turbo (OpenAI 2024) and ERNIE-Bot 4.0 (Baidu Research 2024) were identified as the top-performing models for this task.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec on prompt design (role specification, task description, one-shot parsing example) described in prose, not quoted verbatim",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none printed (\"effectiveness...evaluated based on accuracy, precision, and edit distance metrics\" but no values are given for any model; the live deployment note even states extraction accuracy for the production pipeline \"is not guaranteed\")",
+  "value": null,
+  "n_items": null,
+  "location": "Sec on model comparison (prose only, no results table)",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Atel, GCN-Circulars, and VOEvent astronomical alert messages"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is compared against ERNIE-Bot 4.0 and open-source LLMs for a text-parsing pipeline component, with qualitative claims of being \"top-performing,\" but no accuracy/precision/edit-distance values are printed anywhere in the text."
+}

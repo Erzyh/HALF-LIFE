@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411119568",
+ "title": "Navigating the Path of Writing: Outline-guided Text Generation with Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"For evaluation, we used GPT-4-turbo. ... we chose GPT-4-turbo as the evaluation model because of its best performance at the time of this study.\" Sec 5.1: \"In the LLM evaluation, GPT-4 outperforms HyperCLOVA X...\" (Figure 5a)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a for the judge prompt itself",
+  "note": "The generation prompts for the subject models (GPT-3.5-turbo, GPT-4, HyperCLOVA X) are detailed via Appendices B/D, but the LLM-judge rubric given to GPT-4-turbo is not printed or located in the retrieved text."
+ },
+ "claim": {
+  "metric": "none as a table number (LLM-evaluation ranking shown only in Figure 5a)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 5(a), LLM Evaluation panel (graphical only, no table of GPT-4-turbo judge scores)",
+  "task_type": "generation",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "partial",
+  "source": "WritingPath dataset, 1,500 posts/model across 5 domains (travel, beauty, gardening, IT, cooking); Appendix B has details, public release not confirmed in retrieved text"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo is used only as the LLM judge/evaluator (role A) scoring outputs of GPT-3.5-turbo, GPT-4 (undated, Achiam et al. 2023) and HyperCLOVA X; it is never the subject model generating the writing itself. Its judge scores are reported only as a bar chart (Figure 5a), not a table cell, so there is no reproducible number, and eligible/maybe require role S or B."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405767534",
+  "title": "Assessing UML Diagrams by GPT: Implications for Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (related work); GPT-4o (used)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 2: '... investigation into the effectiveness of GPT-4-turbo in generating ...' (prior work); Sec. 3: 'GPT-4o is the version of GPT that was used to evaluate the three types of UML diagrams'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 3 gray box (assessment prompt for GPT-4o; temperature 0.1)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Results concern GPT-4o grading of 40 students' UML diagrams against human graders",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "replication package https://github.com/RorschachXR/GPT4UMLEval"
+  },
+  "cost": {
+    "est_calls": 120,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4o snapshot not stated and not in the live-id list."
+}

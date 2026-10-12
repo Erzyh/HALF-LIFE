@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4410280647",
+  "title": "Humanity's Last Exam",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "O3-MINI (HIGH) o3-mini-2025-01-31; O1 o1-2024-12-17",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Table 4 (Appendix C.5): \"O1 o1-2024-12-17\", \"O3-MINI (HIGH) o3-mini-2025-01-31 ... o3-mini and o1 models only support temperature 1.0\"; Table 1 row \"O3-MINI (HIGH) 13.4 80\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix C.1.1 (system prompt with Explanation / Exact Answer / Confidence format; judge prompt)", "note": "Judge is o3-mini-2025-01-31 with structured decoding."},
+  "claim": {
+    "metric": "accuracy (%) on the text-only subset of HLE", "value": 13.4, "n_items": 2500, "location": "Table 1, row O3-MINI (HIGH) (asterisk: text-only subset of the 2,500-question release); RMS calibration error 80",
+    "task_type": "other",
+    "judge": "llm:o3-mini-2025-01-31"
+  },
+  "data": {"public": "yes", "source": "https://lastexam.ai (HLE, 2,500 questions; also on Hugging Face cais/hle)"},
+  "cost": {"est_calls": 7500, "tier": "high"},
+  "blockers": [],
+  "notes": "The dataset has been revised after this version (later releases differ in size), so the text-only question count of the 2,500-item release must be pinned; n_items here is the full release, with the text-only subset somewhat smaller. o1 (o1-2024-12-17, 8.0% on the full set) is an alternative live subject. High reasoning effort makes o3-mini calls expensive."
+}

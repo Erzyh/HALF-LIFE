@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4399404161",
+  "title": "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Footnote 3: 'In this paper, GPT-4-Turbo refers to GPT-4-turbo-2024-04-09'; Table 2: 'GPT-4-Turbo [2] 63.7 62.8 61.0 35.9 67.7 51.2 78.3'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 7 (5-shot CoT prompt example, physics); exemplars come from the MMLU-Pro validation subset",
+    "note": "Same template per discipline: instruction line + 5 validation-set exemplars + question with options A-J; answer parsed from 'The answer is (X)'."
+  },
+  "claim": {
+    "metric": "accuracy (%)",
+    "value": 63.7,
+    "n_items": 12032,
+    "location": "Table 2, row GPT-4-Turbo, column Overall (5-shot CoT)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TIGER-Lab/MMLU-Pro on Hugging Face (12,032 questions, 14 subsets)"
+  },
+  "cost": {
+    "est_calls": 12032,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "GPT-4-Turbo was also used in dataset construction (answer extraction, option augmentation), i.e. it has an auxiliary role too. Per-subject subsets (e.g. Math 2.4K, Physics 1.3K) can be run as cheaper partial checks."
+}

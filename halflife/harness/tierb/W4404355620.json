@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W4404355620",
+  "title": "Enhancing LLM Evaluations: The Garbling Trick",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini-2025-01-31",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "\"o1-preview-2024-09-12, o3-mini-2025-01-31, and Deepseek-R1\" evaluated on NeoSQuAD; \"o3-mini-2025-01-31 corresponds to o3-mini (medium)\" (Sec. 4)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": "Only the distractor-generation procedure is described; evaluation prompt not printed"
+  },
+  "claim": {
+    "metric": "NeoSQuAD accuracy score curve s(p)",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 2 (curves only, no table)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "NeoSQuAD: authors' 3-way MCQ set built from SQuAD 2.0 with gpt-4o-2024-08-06 distractors; not released"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed",
+    "no_number",
+    "no_prompt"
+  ],
+  "notes": "Results exist only as garbling-rate curves; dataset and prompts unavailable."
+}

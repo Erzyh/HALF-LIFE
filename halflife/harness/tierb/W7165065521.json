@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W7165065521",
+  "title": "Not All Skills Help: Measuring and Repairing Agent Knowledge",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "\"GPT-4o(raw) 60.3\" / \"Ours (GPT-4o) 62.6\" (Table 2, tau-bench retail public-leaderboard positioning); \"We evaluate seven models ... GPT-5.4, GPT-5.1, GPT-4.1, and GPT-4o (OpenAI)\" (Models and data)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. 'Models and data' (skill library injected into system prompt, temperature 0, ReAct/ToolCallingAgent pipelines on AppWorld and tau-bench)", "note": "tau-bench retail domain: 115 test tasks; AppWorld: 168+417 test tasks."},
+  "claim": {
+    "metric": "Task Goal Completion (TGC, %), tau-bench retail, GPT-4o raw baseline", "value": 60.3, "n_items": 115,
+    "location": "Table 2 (tau-bench retail public-leaderboard positioning), row \"GPT-4o(raw)\"",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "AppWorld and tau-bench (both public agent benchmarks)"},
+  "cost": {"est_calls": 345, "tier": "mid"},
+  "blockers": ["alias_unpinned"],
+  "notes": "Very recent (2026) agent-skill-curation paper. Its own runs use GPT-5.4, GPT-5.1, mainline GPT-4.1, and undated GPT-4o -- none of GPT-5.4/GPT-5.1/GPT-4.1(mainline) are on the still-callable list, and undated GPT-4o resolves to unresolved given the paper's 2026 timeframe (far past the 2024-10-02 cutoff). o4-mini and o1 also appear (Table 2) but only as citations to the public tau-bench leaderboard (role C), not run by these authors."
+}

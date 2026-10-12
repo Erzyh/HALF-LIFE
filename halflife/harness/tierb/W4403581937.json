@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403581937",
+ "title": "Cross-Modal Safety Mechanism Transfer in Large Vision-Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "A",
+  "evidence": "Sec. 4: \"For each toxic text...we use gpt-4o-2024-05-13 API to extract the specific toxic words...mark them as the toxic tokens\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Toxic-word extraction instruction is described narratively, not quoted verbatim."
+ },
+ "claim": {
+  "metric": "none for gpt-4o (a toxic-word-extraction utility); headline Defense Success Rate numbers are for LLaVA/InstructBLIP/Qwen-VL-Chat and the authors' TGA method",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "code at github.com/xsc1234/VLM_Safety_Transfer; toxic text/image data described in Sec. 3 (Data Construction)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "ICLR 2025 paper on LVLM jailbreak-safety mechanisms (content warning: harmful images/text). gpt-4o-2024-05-13's own role here is a benign text-processing utility (identify which words in an already-toxic sentence are the toxic ones), not the LVLM subject being probed for safety failures, so no headline number is attributable to it; role A."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403996071",
+  "title": "CELI: Controller-Embedded Language Model Interactions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (1106) and (0125)",
+    "resolved": "dead-preview",
+    "role": "B",
+    "evidence": "\"We used both GPT-4-Turbo (1106) and (0125) as baselines\"; \"CELI's implementation for HumanEval utilizes GPT-4-Turbo (0125)\"."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "CELI's own prompting/controller mechanism is described narratively; baseline GPT-4-Turbo scores are borrowed from OpenAI's simple-evals repository, not run by these authors."
+  },
+  "claim": {
+    "metric": "HumanEval Pass@1 (baseline GPT-4-Turbo (0125))",
+    "value": 86.6,
+    "n_items": null,
+    "location": "Table 1 (\"CELI vs. Baseline GPT-4 Turbo LM HumanEval Pass@1 scores\")",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HumanEval benchmark (public)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "Both the 1106 and 0125 preview snapshots are explicitly named and are now retired dead previews, not the GA gpt-4-turbo-2024-04-09; CELI's own architecture is also built around the 0125 preview specifically (chosen over 1106 for tool-call reliability, Appendix B.4)."
+}

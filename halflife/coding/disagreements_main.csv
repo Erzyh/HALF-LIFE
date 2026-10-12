@@ -1,0 +1,646 @@
+﻿num,openalex_id,item,code_A,code_B,code_C,code_D,tie_breaker,title
+2,W4385573809,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Multitask Instruction-based Prompting for Fallacy Recognition
+3,W4309043734,Q1 접근경로,,,API,불명,A/B,Measuring Reliability of Large Language Models through Semantic Consistency
+3,W4309043734,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,Measuring Reliability of Large Language Models through Semantic Consistency
+4,W4387430850,Q1 접근경로,,해당없음,API,,A/D,DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines
+5,W4389519254,Q1 접근경로,불명,,,API,B/C,G-Eval: NLG Evaluation using Gpt-4 with Better Human Alignment
+7,W4388032243,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,PockEngine: Sparse and Efficient Fine-tuning in a Pocket
+7,W4388032243,Q6 확신도,,높음,낮음,,A/D,PockEngine: Sparse and Efficient Fine-tuning in a Pocket
+8,W4387446498,Q5 열람,,,초록만,전문,A/B,Towards Effective Automatic Evaluation of Generated Reflections for Motivational Interviewing
+8,W4387446498,역할:text-davinci-002,,,판단불가,실행,A/B,Towards Effective Automatic Evaluation of Generated Reflections for Motivational Interviewing
+8,W4387446498,역할:text-davinci-003,,,판단불가,실행,A/B,Towards Effective Automatic Evaluation of Generated Reflections for Motivational Interviewing
+10,W4386185625,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Code Llama: Open Foundation Models for Code
+12,W4376122929,Q1 접근경로,불명,API,,,C/D,Large Language Model Programs
+13,W4390329487,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Leave It to Large Language Models! Correction and Planning with Memory Integration
+14,W4386907142,Q1 접근경로,불명,,,API,B/C,Understanding Catastrophic Forgetting in Language Models via Implicit Inference
+17,W4385965642,Q1 접근경로,,API,해당없음,,A/D,AIKernel Semantic DSL Compiler and Deterministic Agent Execution Architecture
+17,W4385965642,Q2 버전표기,,제품명,해당없음,,A/D,AIKernel Semantic DSL Compiler and Deterministic Agent Execution Architecture
+17,W4385965642,Q3 실행시점,,없음,해당없음,,A/D,AIKernel Semantic DSL Compiler and Deterministic Agent Execution Architecture
+17,W4385965642,역할:text-davinci-003,,실행,못찾음,,A/D,AIKernel Semantic DSL Compiler and Deterministic Agent Execution Architecture
+18,W4389518925,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Automatic Evaluation of Attribution by Large Language Models
+20,W4390098205,Q5 열람,,,초록만,전문,A/B,Extracting Domain Models from Textual Requirements in the Era of Large Language Models
+20,W4390098205,Q6 확신도,,,낮음,높음,A/B,Extracting Domain Models from Textual Requirements in the Era of Large Language Models
+20,W4390098205,역할:gpt-3.5-turbo-0613,,,판단불가,실행,A/B,Extracting Domain Models from Textual Requirements in the Era of Large Language Models
+21,W4389708369,Q2 버전표기,별칭·계열명,제품명,,,C/D,GPTBIAS: A Comprehensive Framework for Evaluating Bias in Large Language Models
+22,W4389519021,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,How Well Do Text Embedding Models Understand Syntax?
+23,W4367365649,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,"Exploiting Simulated User Feedback for Conversational Search: Ranking, Rewriting, and Beyond"
+25,W4385328210,Q2 버전표기,,제품명,날짜 스냅숏,,A/D,Evaluating the Moral Beliefs Encoded in LLMs
+28,W4385734127,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,cTBLS: Augmenting Large Language Models with Conversational Tables
+29,W4383987287,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,How does AI chat change search behaviors?
+30,W4386081016,Q6 확신도,낮음,,,높음,B/C,GameEval: Evaluating LLMs on Conversational Games
+31,W4389523899,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Selective Demonstrations for Cross-domain Text-to-SQL
+31,W4389523899,Q6 확신도,낮음,,,높음,B/C,Selective Demonstrations for Cross-domain Text-to-SQL
+32,W4385571232,Q1 접근경로,,,API,혼합,A/B,Can Large Language Models Be an Alternative to Human Evaluations?
+32,W4385571232,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,Can Large Language Models Be an Alternative to Human Evaluations?
+34,W4388022708,Q1 접근경로,불명,,,클라우드배포,B/C,Clinical Text Summarization: Adapting Large Language Models Can Outperform Human Experts
+35,W4380136291,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,Prefer to Classify: Improving Text Classifiers via Auxiliary Preference Learning
+37,W4387225765,Q3 실행시점,없음,,,연월,B/C,A Benchmark for Learning to Translate a New Language from One Grammar Book
+37,W4387225765,역할:gpt-4-32k,실행,,,인용·언급,B/C,A Benchmark for Learning to Translate a New Language from One Grammar Book
+38,W4405794488,Q1 접근경로,불명,,,서드파티,B/C,Exploring the Impact of Prompt Formulation in AI Chatbots on the Translation of English-to-Arabic and Arabic-to-English Idioms: A Case Study
+39,W4392490361,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Predictions from language models for multiple-choice tasks are not robust under variation of scoring methods
+41,W4393027310,Q1 접근경로,불명,API,,,C/D,DetToolChain: A New Prompting Paradigm to Unleash Detection Ability of MLLM
+42,W4390784213,Q1 접근경로,,,API,혼합,A/B,Chain-of-Table: Evolving Tables in the Reasoning Chain for Table Understanding
+44,W4403413375,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,A Comparative Study on Large Language Models for Log Parsing
+44,W4403413375,역할:claude-2,못찾음,,,인용·언급,B/C,A Comparative Study on Large Language Models for Log Parsing
+46,W4401042743,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,CodecLM: Aligning Language Models with Tailored Synthetic Data
+46,W4401042743,Q6 확신도,,,낮음,높음,A/B,CodecLM: Aligning Language Models with Tailored Synthetic Data
+47,W4417412225,Q1 접근경로,불명,,,API,B/C,AI-driven advanced python pipeline for windows operating systems vulnerability detection and exploitation
+48,W4391591760,Q2 버전표기,,,해당없음,별칭·계열명,A/B,The RL/LLM Taxonomy Tree: Reviewing Synergies Between Reinforcement Learning and Large Language Models
+49,W4391407055,Q1 접근경로,혼합,해당없음,,,C/D,Exploring Sentence Parsing: OpenAI API-Based and Hybrid Parser-Based Approaches
+49,W4391407055,Q2 버전표기,별칭·계열명,제품명,,,C/D,Exploring Sentence Parsing: OpenAI API-Based and Hybrid Parser-Based Approaches
+50,W4404106066,Q1 접근경로,,API,불명,,A/D,Large Language Models for Spatial Trajectory Patterns Mining
+50,W4404106066,Q6 확신도,,높음,낮음,,A/D,Large Language Models for Spatial Trajectory Patterns Mining
+51,W4403884621,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Steering Large Language Models between Code Execution and Textual Reasoning
+52,W4404781864,Q2 버전표기,별칭·계열명,제품명,,,C/D,RAR: Retrieval-augmented retrieval for code generation in low resource languages
+54,W4405182525,Q1 접근경로,,,로컬,불명,A/B,Legilimens: Practical and Unified Content Moderation for Large Language Model Services
+55,W4394977886,Q1 접근경로,불명,,,API,B/C,Skill but not Effort Drive GPT Overperformance over Humans in Cognitive Reframing of Negative Scenarios
+55,W4394977886,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Skill but not Effort Drive GPT Overperformance over Humans in Cognitive Reframing of Negative Scenarios
+56,W4401024798,Q1 접근경로,로컬,해당없음,,,C/D,Efficient Constraint-based Window Causal Graph Discovery in Time Series with Multiple Time Lags
+56,W4401024798,역할:claude-2.1,실행,인용·언급,,,C/D,Efficient Constraint-based Window Causal Graph Discovery in Time Series with Multiple Time Lags
+57,W4399465325,Q1 접근경로,불명,,,웹UI,B/C,Enhancing readability of whipple procedure patient education materials using artificial intelligence
+58,W4393160827,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,InstructDoc: A Dataset for Zero-Shot Generalization of Visual Document Understanding with Instructions
+59,W4404792936,Q1 접근경로,불명,API,,,C/D,TransferTOD: A Generalizable Chinese Multi-Domain Task-Oriented Dialogue System with Transfer Capabilities
+63,W4402683850,Q3 실행시점,,,연월,없음,A/B,Do LLMs Agree with Humans on Emotional Associations to Nonsense Words?
+64,W4404354862,Q1 접근경로,불명,,,혼합,B/C,Do Advanced Language Models Eliminate the Need for Prompt Engineering in Software Engineering?
+64,W4404354862,Q6 확신도,낮음,,,높음,B/C,Do Advanced Language Models Eliminate the Need for Prompt Engineering in Software Engineering?
+64,W4404354862,역할:o1-preview,인용·언급,,,실행,B/C,Do Advanced Language Models Eliminate the Need for Prompt Engineering in Software Engineering?
+66,W4403322015,Q1 접근경로,불명,API,,,C/D,From Code to Correctness: Closing the Last Mile of Code Generation with Hierarchical Debugging
+68,W4405181600,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,"""Do Anything Now"": Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models"
+69,W4393089652,Q5 열람,불가,전문,,,C/D,A Novel Multi-Stage Prompting Approach for Language Agnostic MCQ Generation Using GPT
+69,W4393089652,역할:text-davinci-003,판단불가,실행,,,C/D,A Novel Multi-Stage Prompting Approach for Language Agnostic MCQ Generation Using GPT
+70,W4405626016,Q2 버전표기,,,제품명,별칭·계열명,A/B,SafeDrive: Knowledge- and Data-Driven Risk-Sensitive Decision-Making for Autonomous Vehicles with Large Language Models
+70,W4405626016,Q3 실행시점,,,없음,해당없음,A/B,SafeDrive: Knowledge- and Data-Driven Risk-Sensitive Decision-Making for Autonomous Vehicles with Large Language Models
+74,W4411638747,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Corpus-Steered Query Expansion with Large Language Models
+76,W4401042217,Q1 접근경로,혼합,,,API,B/C,Tiny Titans: Can Smaller Large Language Models Punch Above Their Weight in the Real World for Meeting Summarization?
+77,W4391800217,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,SocraSynth: Multi-LLM Reasoning with Conditional Statistics
+78,W4399151368,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,BioDiscoveryAgent: An AI Agent for Designing Genetic Perturbation Experiments
+81,W4403851705,Q1 접근경로,로컬,해당없음,,,C/D,PersonaMath: Boosting Mathematical Reasoning via Persona-Driven Data Augmentation
+81,W4403851705,역할:gemini-1.5-pro,실행,인용·언급,,,C/D,PersonaMath: Boosting Mathematical Reasoning via Persona-Driven Data Augmentation
+81,W4403851705,역할:o1-preview,실행,인용·언급,,,C/D,PersonaMath: Boosting Mathematical Reasoning via Persona-Driven Data Augmentation
+83,W4402671949,Q1 접근경로,혼합,API,,,C/D,Probing the Multi-turn Planning Capabilities of LLMs via 20 Question Games
+83,W4402671949,Q2 버전표기,별칭·계열명,제품명,,,C/D,Probing the Multi-turn Planning Capabilities of LLMs via 20 Question Games
+84,W4404783824,역할:claude-3-haiku,인용·언급,,,실행,B/C,Detecting LLM-Assisted Cheating on Open-Ended Writing Tasks on Language Proficiency Tests
+85,W4404782177,Q1 접근경로,혼합,API,,,C/D,LM2: A Simple Society of Language Models Solves Complex Reasoning
+85,W4404782177,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,LM2: A Simple Society of Language Models Solves Complex Reasoning
+86,W4405096516,Q2 버전표기,,,제품명,별칭·계열명,A/B,OKG: On-the-Fly Keyword Generation in Sponsored Search Advertising
+87,W4398192165,Q2 버전표기,,제품명,별칭·계열명,,A/D,Searching Realistic-Looking Adversarial Objects For Autonomous Driving Systems
+87,W4398192165,Q6 확신도,,높음,낮음,,A/D,Searching Realistic-Looking Adversarial Objects For Autonomous Driving Systems
+88,W4402372408,Q1 접근경로,,,웹UI,혼합,A/B,Leveraging Generative AI in Short Document Indexing
+88,W4402372408,Q6 확신도,,,낮음,높음,A/B,Leveraging Generative AI in Short Document Indexing
+89,W4401043595,Q1 접근경로,혼합,,,불명,B/C,A Preference-driven Paradigm for Enhanced Translation with Large Language Models
+90,W4403334466,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,VizAbility: Enhancing Chart Accessibility with LLM-based Conversational Interaction
+91,W4400065260,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,LLM Targeted Underperformance Disproportionately Impacts Vulnerable Users
+92,W4402699247,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Open Llama2 Model for the Lithuanian Language
+92,W4402699247,Q6 확신도,,높음,낮음,,A/D,Open Llama2 Model for the Lithuanian Language
+93,W4401042461,Q1 접근경로,불명,API,,,C/D,AnnoLLM: Making Large Language Models to Be Better Crowdsourced Annotators
+93,W4401042461,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,AnnoLLM: Making Large Language Models to Be Better Crowdsourced Annotators
+94,W4403575298,Q1 접근경로,,,API,불명,A/B,NesTools: A Dataset for Evaluating Nested Tool Learning Abilities of Large Language Models
+96,W4416033890,Q1 접근경로,,,API,불명,A/B,Hallucination Detection in Structured Query Generation via LLM Self-Debating
+99,W4417299406,Q1 접근경로,불명,,,API,B/C,ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning
+101,W4415682262,Q1 접근경로,불명,API,,,C/D,Benchmarking large and small MLLMs
+101,W4415682262,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Benchmarking large and small MLLMs
+101,W4415682262,Q3 실행시점,없음,연월,,,C/D,Benchmarking large and small MLLMs
+102,W4416033512,Q1 접근경로,불명,해당없음,,,C/D,IRB-MT at WMT25 Translation Task: A Simple Agentic System Using an Off-the-Shelf LLM
+103,W4415317499,Q1 접근경로,불명,클라우드배포,,,C/D,GAMBIT+: A Challenge Set for Evaluating Gender Bias in Machine Translation Quality Estimation Metrics
+103,W4415317499,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,GAMBIT+: A Challenge Set for Evaluating Gender Bias in Machine Translation Quality Estimation Metrics
+104,W4407764261,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Estimating Commonsense Plausibility through Semantic Shifts
+106,W4411120074,Q1 접근경로,,,API,불명,A/B,Towards Quantifying Commonsense Reasoning with Mechanistic Insights
+106,W4411120074,Q6 확신도,,,낮음,높음,A/B,Towards Quantifying Commonsense Reasoning with Mechanistic Insights
+107,W4412888065,Q1 접근경로,,,API,불명,A/B,Generative Frame Sampler for Long Video Understanding
+108,W4416034096,Q1 접근경로,불명,해당없음,,,C/D,Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving
+108,W4416034096,Q2 버전표기,별칭·계열명,제품명,,,C/D,Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving
+108,W4416034096,Q6 확신도,낮음,높음,,,C/D,Benchmarking Foundation Models with Retrieval-Augmented Generation in Olympic-Level Physics Problem Solving
+109,W4406231679,Q1 접근경로,불명,API,,,C/D,EpiCoder: Encompassing Diversity and Complexity in Code Generation
+111,W4416097304,Q2 버전표기,,,제품명,별칭·계열명,A/B,Red Teaming the Mind of the Machine: A Systematic Evaluation of Prompt Injection and Jailbreak Vulnerabilities in LLMs
+111,W4416097304,Q6 확신도,,,낮음,높음,A/B,Red Teaming the Mind of the Machine: A Systematic Evaluation of Prompt Injection and Jailbreak Vulnerabilities in LLMs
+112,W4415315888,Q1 접근경로,불명,해당없음,,,C/D,The Markovian Thinker: Architecture-Agnostic Linear Scaling of Reasoning
+112,W4415315888,Q3 실행시점,없음,해당없음,,,C/D,The Markovian Thinker: Architecture-Agnostic Linear Scaling of Reasoning
+113,W4409885602,Q1 접근경로,불명,,,혼합,B/C,Beyond Code Generation: LLM-supported Exploration of the Program Design Space
+113,W4409885602,역할:claude-2,실행,,,못찾음,B/C,Beyond Code Generation: LLM-supported Exploration of the Program Design Space
+115,W4417298797,Q1 접근경로,불명,API,,,C/D,VideoEval-Pro: Robust and Realistic Long Video Understanding Evaluation
+116,W4406549107,Q1 접근경로,,해당없음,API,,A/D,Empowering Large Language Models in Wireless Communication: A Novel Dataset and Fine-Tuning Framework
+116,W4406549107,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Empowering Large Language Models in Wireless Communication: A Novel Dataset and Fine-Tuning Framework
+116,W4406549107,Q3 실행시점,,해당없음,없음,,A/D,Empowering Large Language Models in Wireless Communication: A Novel Dataset and Fine-Tuning Framework
+117,W4409788583,Q2 버전표기,,,제품명,별칭·계열명,A/B,Automated literature research and review-generation method based on large language models
+119,W4410870195,Q1 접근경로,불명,API,,,C/D,TSTBench: A Comprehensive Benchmark for Text Style Transfer
+120,W4415358120,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,LLM-augmented multi-agent cooperative framework for medical case retrieval in cardiology
+120,W4415358120,Q6 확신도,,,낮음,높음,A/B,LLM-augmented multi-agent cooperative framework for medical case retrieval in cardiology
+122,W7118051802,Q1 접근경로,불명,,,해당없음,B/C,Understanding and Steering the Cognitive Behaviors of Reasoning Models at Test-Time
+125,W7144334197,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Ubie at the NTCIR-18 RadNLP Main Task: Few-shot Classification of TNM Staging for Japanese Radiology Reports Using LLMs
+125,W7144334197,Q3 실행시점,,없음,연월,,A/D,Ubie at the NTCIR-18 RadNLP Main Task: Few-shot Classification of TNM Staging for Japanese Radiology Reports Using LLMs
+125,W7144334197,Q6 확신도,,높음,낮음,,A/D,Ubie at the NTCIR-18 RadNLP Main Task: Few-shot Classification of TNM Staging for Japanese Radiology Reports Using LLMs
+126,W4416037472,Q6 확신도,,높음,낮음,,A/D,LLM-Based Dialogue Labeling for Multiturn Adaptive RAG
+128,W4414489324,Q1 접근경로,혼합,해당없음,,,C/D,Vision-G1: Towards General Vision Language Reasoning with Multi-Domain Data Curation
+128,W4414489324,Q3 실행시점,없음,해당없음,,,C/D,Vision-G1: Towards General Vision Language Reasoning with Multi-Domain Data Curation
+128,W4414489324,역할:gemini-1.5-flash,실행,인용·언급,,,C/D,Vision-G1: Towards General Vision Language Reasoning with Multi-Domain Data Curation
+129,W4416034104,Q1 접근경로,API,해당없음,,,C/D,LC-Eval: A Bilingual Multi-Task Evaluation Benchmark for Long-Context Understanding
+129,W4416034104,Q3 실행시점,없음,해당없음,,,C/D,LC-Eval: A Bilingual Multi-Task Evaluation Benchmark for Long-Context Understanding
+130,W4416036044,Q1 접근경로,불명,API,,,C/D,Multilingual Datasets for Custom Input Extraction and Explanation Requests Parsing in Conversational XAI Systems
+132,W4416390049,Q1 접근경로,불명,,,해당없음,B/C,"Detection and Mitigation of Factual Hallucinations in Large Language Models: A Comparative Review of the Timing and Effectiveness of External Retrieval, Post-hoc Verification, and Evaluation Methods"
+132,W4416390049,Q2 버전표기,별칭·계열명,,,해당없음,B/C,"Detection and Mitigation of Factual Hallucinations in Large Language Models: A Comparative Review of the Timing and Effectiveness of External Retrieval, Post-hoc Verification, and Evaluation Methods"
+132,W4416390049,Q3 실행시점,없음,,,해당없음,B/C,"Detection and Mitigation of Factual Hallucinations in Large Language Models: A Comparative Review of the Timing and Effectiveness of External Retrieval, Post-hoc Verification, and Evaluation Methods"
+132,W4416390049,역할:text-davinci-003,실행,,,인용·언급,B/C,"Detection and Mitigation of Factual Hallucinations in Large Language Models: A Comparative Review of the Timing and Effectiveness of External Retrieval, Post-hoc Verification, and Evaluation Methods"
+134,W4411226800,Q1 접근경로,불명,해당없음,,,C/D,How to Use LLMs Ethically in Academic Writing?
+134,W4411226800,Q2 버전표기,별칭·계열명,제품명,,,C/D,How to Use LLMs Ethically in Academic Writing?
+134,W4411226800,Q3 실행시점,없음,해당없음,,,C/D,How to Use LLMs Ethically in Academic Writing?
+136,W4412888255,Q1 접근경로,불명,,,API,B/C,MinosEval: Distinguishing Factoid and Non-Factoid for Tailored Open-Ended QA Evaluation with LLMs
+136,W4412888255,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,MinosEval: Distinguishing Factoid and Non-Factoid for Tailored Open-Ended QA Evaluation with LLMs
+138,W4411119906,Q2 버전표기,,,제품명,별칭·계열명,A/B,Analyzing Large Language Models’ pastiche ability: a case study on a 20th century Romanian author
+139,W7105506484,역할:gemini-1.5-pro,인용·언급,실행,,,C/D,MVU-Eval: Towards Multi-Video Understanding Evaluation for Multimodal LLMs
+140,W4412945206,Q1 접근경로,,,API,불명,A/B,From Objectives to Questions: A Planning-based Framework for Educational Mathematical Question Generation
+141,W4417129365,Q2 버전표기,별칭·계열명,,,제품명,B/C,"A Survey of LLM Prompt Datasets: Taxonomy, Linguistic Patterns, and Practical Uses"
+141,W4417129365,역할:text-davinci-003,판단불가,,,못찾음,B/C,"A Survey of LLM Prompt Datasets: Taxonomy, Linguistic Patterns, and Practical Uses"
+142,W4412944912,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Targeted Syntactic Evaluation for Grammatical Error Correction
+144,W4412944997,Q1 접근경로,혼합,,,불명,B/C,DARS: Dynamic Action Re-Sampling to Enhance Coding Agent Performance by Adaptive Tree Traversal
+147,W7153671935,Q3 실행시점,,없음,연월,,A/D,Broken by Default: A Formal Verification Study of Security Vulnerabilities in AI-Generated Code
+148,W7166850840,Q1 접근경로,,,로컬,불명,A/B,Full Stack WEB based IDE Vibe-Code Editor
+148,W7166850840,Q6 확신도,,,낮음,높음,A/B,Full Stack WEB based IDE Vibe-Code Editor
+148,W7166850840,역할:gemini-1.5-flash,,,인용·언급,판단불가,A/B,Full Stack WEB based IDE Vibe-Code Editor
+149,W7161655170,Q1 접근경로,불명,해당없음,,,C/D,TeamTR: Trust-Region Fine-Tuning for Multi-Agent LLM Coordination
+149,W7161655170,Q3 실행시점,없음,해당없음,,,C/D,TeamTR: Trust-Region Fine-Tuning for Multi-Agent LLM Coordination
+150,W7162335212,Q1 접근경로,불명,,,웹UI,B/C,ПРОФІЛАКТИКА МАТЕМАТИЧНОЇ ТРИВОЖНОСТІ В МОЛОДШИХ ШКОЛЯРІВ ЗАСОБОМ КАЗКОТЕРАПІЇ
+150,W7162335212,Q2 버전표기,별칭·계열명,,,제품명,B/C,ПРОФІЛАКТИКА МАТЕМАТИЧНОЇ ТРИВОЖНОСТІ В МОЛОДШИХ ШКОЛЯРІВ ЗАСОБОМ КАЗКОТЕРАПІЇ
+150,W7162335212,Q6 확신도,낮음,,,높음,B/C,ПРОФІЛАКТИКА МАТЕМАТИЧНОЇ ТРИВОЖНОСТІ В МОЛОДШИХ ШКОЛЯРІВ ЗАСОБОМ КАЗКОТЕРАПІЇ
+150,W7162335212,역할:claude-2,판단불가,,,못찾음,B/C,ПРОФІЛАКТИКА МАТЕМАТИЧНОЇ ТРИВОЖНОСТІ В МОЛОДШИХ ШКОЛЯРІВ ЗАСОБОМ КАЗКОТЕРАПІЇ
+151,W7154427703,Q6 확신도,,높음,낮음,,A/D,StreamMeCo: Long-Term Agent Memory Compression for Efficient Streaming Video Understanding
+151,W7154427703,역할:gemini-1.5-pro,,실행,인용·언급,,A/D,StreamMeCo: Long-Term Agent Memory Compression for Efficient Streaming Video Understanding
+153,W4417258219,Q1 접근경로,,해당없음,API,,A/D,Towards Bridging the Reward-Generation Gap in Direct Alignment Algorithms
+153,W4417258219,Q3 실행시점,,해당없음,없음,,A/D,Towards Bridging the Reward-Generation Gap in Direct Alignment Algorithms
+154,W7154834174,Q1 접근경로,,해당없음,API,,A/D,Evaluating large language models for AI-assisted grading: a framework and case study in higher education
+154,W7154834174,Q3 실행시점,,해당없음,없음,,A/D,Evaluating large language models for AI-assisted grading: a framework and case study in higher education
+154,W7154834174,Q6 확신도,,높음,낮음,,A/D,Evaluating large language models for AI-assisted grading: a framework and case study in higher education
+157,W7166821435,Q1 접근경로,API,,,불명,B/C,Domain Generalizable AI Guardrails with Augmented Policy Training
+158,W7161092078,Q1 접근경로,,,API,불명,A/B,"ComplexMCP: Evaluation of LLM Agents in Dynamic, Interdependent, and Large-Scale Tool Sandbox"
+159,W7167884867,Q1 접근경로,,불명,API,,A/D,A Complete Digital Concordance of Orsini’s Familiae Romanae (1577) 758 Coin Engravings Mapped to Modern Reference Systems
+159,W7167884867,Q6 확신도,,높음,낮음,,A/D,A Complete Digital Concordance of Orsini’s Familiae Romanae (1577) 758 Coin Engravings Mapped to Modern Reference Systems
+160,W7163595933,Q3 실행시점,없음,해당없음,,,C/D,"Agent System Operations: Categorization, Challenges, and Future Directions"
+160,W7163595933,역할:claude-2,인용·언급,못찾음,,,C/D,"Agent System Operations: Categorization, Challenges, and Future Directions"
+161,W7172173057,Q1 접근경로,,해당없음,불명,,A/D,ViewMind3D: Modular View-Aware Inference for Training-Free 3D-QA
+161,W7172173057,Q3 실행시점,,해당없음,없음,,A/D,ViewMind3D: Modular View-Aware Inference for Training-Free 3D-QA
+161,W7172173057,Q6 확신도,,높음,낮음,,A/D,ViewMind3D: Modular View-Aware Inference for Training-Free 3D-QA
+162,W7141771904,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Gendered Prompting and LLM Code Review: How Gender Cues in the Prompt Shape Code Quality and Evaluation
+162,W7141771904,Q3 실행시점,없음,,,연월,B/C,Gendered Prompting and LLM Code Review: How Gender Cues in the Prompt Shape Code Quality and Evaluation
+164,W7169730034,Q5 열람,,,초록만,전문,A/B,AI-Powered Conversational Web Assistant Using Gemini API
+164,W7169730034,Q6 확신도,,,낮음,높음,A/B,AI-Powered Conversational Web Assistant Using Gemini API
+164,W7169730034,역할:gemini-1.5-flash,,,판단불가,실행,A/B,AI-Powered Conversational Web Assistant Using Gemini API
+165,W7202196741,역할:claude-2,,,인용·언급,못찾음,A/B,"Automatic Literary Adaptation? A Survey of Related Tasks, Trends and Challenges"
+167,W7203688369,Q2 버전표기,,,제품명,별칭·계열명,A/B,The Working Set of a Coding Agent: Coherence Debt in Repository-Scale Tasks
+168,W7160670335,Q1 접근경로,,불명,API,,A/D,Pen-Strategist: A Reasoning Framework for Penetration Testing Strategy Formation and Analysis
+168,W7160670335,Q6 확신도,,높음,낮음,,A/D,Pen-Strategist: A Reasoning Framework for Penetration Testing Strategy Formation and Analysis
+170,W7160697791,Q3 실행시점,연월,,,없음,B/C,Evaluating Large Language Models for Automated Data Cleaning and Feature Engineering in Clinical Datasets
+171,W7128555727,Q1 접근경로,,,API,불명,A/B,"SoK: DARPA's AI Cyber Challenge (AIxCC): Competition Design, Architectures, and Lessons Learned"
+171,W7128555727,Q6 확신도,,,낮음,높음,A/B,"SoK: DARPA's AI Cyber Challenge (AIxCC): Competition Design, Architectures, and Lessons Learned"
+174,W7155244784,Q1 접근경로,,,로컬,해당없음,A/B,Beyond Distribution Sharpening: The Importance of Task Rewards
+174,W7155244784,Q2 버전표기,,,별칭·계열명,해당없음,A/B,Beyond Distribution Sharpening: The Importance of Task Rewards
+176,W7138189915,Q6 확신도,,높음,낮음,,A/D,MCPTox: A Benchmark for Tool Poisoning on Real-World MCP Servers
+177,W4376167008,Q1 접근경로,,혼합,API,,A/D,Are ChatGPT and GPT-4 General-Purpose Solvers for Financial Text Analytics? A Study on Several Typical Tasks
+178,W4404342131,Q1 접근경로,API,불명,,,C/D,Training LLMs for Generating IEC 61131-3 Structured Text with Online Feedback
+179,W4402747741,Q1 접근경로,,,해당없음,불명,A/B,Definitions and Characteristics of Patient Digital Twins Being Developed for Clinical Use: Scoping Review
+179,W4402747741,Q2 버전표기,,,해당없음,별칭·계열명,A/B,Definitions and Characteristics of Patient Digital Twins Being Developed for Clinical Use: Scoping Review
+179,W4402747741,역할:claude-2.1,,,인용·언급,판단불가,A/B,Definitions and Characteristics of Patient Digital Twins Being Developed for Clinical Use: Scoping Review
+180,W4404781632,Q1 접근경로,불명,,,API,B/C,"Deciphering the Factors Influencing the Efficacy of Chain-of-Thought: Probability, Memorization, and Noisy Reasoning"
+181,W4399511161,Q2 버전표기,날짜 스냅숏,,,별칭·계열명,B/C,VCSearch: Bridging the Gap Between Well-Defined and Ill-Defined Problems in Mathematical Reasoning
+182,W4392488491,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,An Improved Traditional Chinese Evaluation Suite for Foundation Model
+183,W4404708998,Q1 접근경로,,,웹UI,혼합,A/B,Generative AI for Economic Research: LLMs Learn to Collaborate and Reason
+183,W4404708998,Q3 실행시점,,,없음,연월,A/B,Generative AI for Economic Research: LLMs Learn to Collaborate and Reason
+183,W4404708998,Q6 확신도,,,낮음,높음,A/B,Generative AI for Economic Research: LLMs Learn to Collaborate and Reason
+184,W4403780292,Q1 접근경로,,불명,API,,A/D,AmpAgent: An LLM-based Multi-Agent System for Multi-stage Amplifier Schematic Design from Literature for Process and Performance Porting
+185,W4404392049,Q1 접근경로,,,로컬,해당없음,A/B,LAuReL: Learned Augmented Residual Layer
+185,W4404392049,Q2 버전표기,,,별칭·계열명,해당없음,A/B,LAuReL: Learned Augmented Residual Layer
+185,W4404392049,Q3 실행시점,,,없음,해당없음,A/B,LAuReL: Learned Augmented Residual Layer
+185,W4404392049,Q6 확신도,,,낮음,높음,A/B,LAuReL: Learned Augmented Residual Layer
+187,W4416035558,Q3 실행시점,,,없음,해당없음,A/B,How to Make Large Language Models Generate 100% Valid Molecules?
+187,W4416035558,Q6 확신도,,,낮음,높음,A/B,How to Make Large Language Models Generate 100% Valid Molecules?
+188,W4409048882,Q5 열람,,전문,초록만,,A/D,Investment Risk Analysis and Mitigation Strategies Using Large Language Models
+188,W4409048882,Q6 확신도,,높음,낮음,,A/D,Investment Risk Analysis and Mitigation Strategies Using Large Language Models
+188,W4409048882,역할:gemini-1.5-flash,,실행,판단불가,,A/D,Investment Risk Analysis and Mitigation Strategies Using Large Language Models
+189,W7116985459,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Emission Intensities of Weather-Caused Industrial Upsets in Texas Exceed Other Causes and Have Increased
+189,W7116985459,Q3 실행시점,없음,,,해당없음,B/C,Emission Intensities of Weather-Caused Industrial Upsets in Texas Exceed Other Causes and Have Increased
+190,W4412069460,Q3 실행시점,,,없음,해당없음,A/B,Large Language Models as Materials Science Adapted Learners
+191,W4416086013,역할:claude-3-haiku,판단불가,실행,,,C/D,WITHDRAWN: Computational Review of Technology-Assisted Medical Evidence Synthesis through Human-LLM Collaboration: A Case Study of Cochrane
+192,W7161090805,Q1 접근경로,로컬,,,불명,B/C,TRACER: Verifiable Generative Provenance for Multimodal Tool-Using Agents
+192,W7161090805,Q3 실행시점,없음,,,해당없음,B/C,TRACER: Verifiable Generative Provenance for Multimodal Tool-Using Agents
+193,W7166880412,Q1 접근경로,,해당없음,API,,A/D,The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents
+193,W7166880412,Q3 실행시점,,해당없음,없음,,A/D,The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents
+194,W7140347406,역할:o1-mini,인용·언급,실행,,,C/D,Revisiting Quantum Code Generation: Where Should Domain Knowledge Live?
+196,W7167598192,Q5 열람,,전문,초록만,,A/D,Polydiacetylene-based sensors for food safety and intelligent packaging: Chromatic mechanisms and shelf-life applications
+196,W7167598192,Q6 확신도,,높음,낮음,,A/D,Polydiacetylene-based sensors for food safety and intelligent packaging: Chromatic mechanisms and shelf-life applications
+196,W7167598192,역할:gemini-1.5-pro,,인용·언급,판단불가,,A/D,Polydiacetylene-based sensors for food safety and intelligent packaging: Chromatic mechanisms and shelf-life applications
+197,W4391766717,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,RareBench: Can LLMs Serve as Rare Diseases Specialists?
+198,W4403704292,Q6 확신도,,높음,낮음,,A/D,Can GPT-O1 Kill All Bugs? An Evaluation of GPT-Family LLMs on QuixBugs
+199,W4401093689,Q1 접근경로,불명,웹UI,,,C/D,Capabilities of GPT-4o and Gemini 1.5 Pro in Gram stain and bacterial shape identification
+201,W4412888422,Q1 접근경로,,,API,불명,A/B,EC-RAFT: Automated Generation of Clinical Trial Eligibility Criteria through Retrieval-Augmented Fine-Tuning
+201,W4412888422,Q2 버전표기,,,별칭·계열명,날짜 스냅숏,A/B,EC-RAFT: Automated Generation of Clinical Trial Eligibility Criteria through Retrieval-Augmented Fine-Tuning
+201,W4412888422,Q3 실행시점,,,없음,해당없음,A/B,EC-RAFT: Automated Generation of Clinical Trial Eligibility Criteria through Retrieval-Augmented Fine-Tuning
+202,W7131666234,Q1 접근경로,불명,클라우드배포,,,C/D,"Assessment of Correctness, Content Omission, and Risk of Harm in Large Language Model Responses to Ophthalmology Continuing Medical Education Questions"
+202,W7131666234,Q3 실행시점,없음,연월,,,C/D,"Assessment of Correctness, Content Omission, and Risk of Harm in Large Language Model Responses to Ophthalmology Continuing Medical Education Questions"
+203,W7172340370,Q2 버전표기,,,해당없음,별칭·계열명,A/B,Sustainable Intensification of Napier Grass: Intercropping with Legumes and Reduced Nitrogen Fertilization for Yield Maintenance and Carbon Sequestration
+203,W7172340370,역할:gemini-1.5-pro,,,인용·언급,판단불가,A/B,Sustainable Intensification of Napier Grass: Intercropping with Legumes and Reduced Nitrogen Fertilization for Yield Maintenance and Carbon Sequestration
+206,W4387815516,Q1 접근경로,불명,클라우드배포,,,C/D,Evaluating the use of GPT-3.5-turbo to provide clinical recommendations in the Emergency Department
+206,W4387815516,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Evaluating the use of GPT-3.5-turbo to provide clinical recommendations in the Emergency Department
+207,W4401722596,Q1 접근경로,불명,,,클라우드배포,B/C,Epidemic Information Extraction for Event-Based Surveillance Using Large Language Models
+207,W4401722596,Q3 실행시점,없음,,,해당없음,B/C,Epidemic Information Extraction for Event-Based Surveillance Using Large Language Models
+208,W4404801249,Q1 접근경로,불명,API,,,C/D,"What’s Going On With Me and How Can I Better Manage My Health? The Potential of GPT-4 to Transform Discharge Letters Into Patient-Centered Letters to Enhance Patient Safety: Prospective, Exploratory Study"
+208,W4404801249,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,"What’s Going On With Me and How Can I Better Manage My Health? The Potential of GPT-4 to Transform Discharge Letters Into Patient-Centered Letters to Enhance Patient Safety: Prospective, Exploratory Study"
+208,W4404801249,Q3 실행시점,없음,연월,,,C/D,"What’s Going On With Me and How Can I Better Manage My Health? The Potential of GPT-4 to Transform Discharge Letters Into Patient-Centered Letters to Enhance Patient Safety: Prospective, Exploratory Study"
+209,W4398132166,Q5 열람,,,불가,전문,A/B,Accuracies of large language models in answering radiation protection questions
+209,W4398132166,역할:gemini-1.5-pro,,,판단불가,실행,A/B,Accuracies of large language models in answering radiation protection questions
+210,W4392165770,Q6 확신도,낮음,높음,,,C/D,A Comparative Analysis of Generative Artificial Intelligence Tools for Natural Language Processing
+211,W4405079424,Q3 실행시점,없음,,,해당없음,B/C,The doctor will polygraph you now
+214,W4406549032,Q3 실행시점,없음,,,해당없음,B/C,Exploring the Inquiry-Diagnosis Relationship with Advanced Patient Simulators
+215,W4410371425,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Comparative performance of large language models in structuring head CT radiology reports: multi-institutional validation study in Japan
+216,W4416078576,Q1 접근경로,불명,해당없음,,,C/D,ECG-Doctor: An Interpretable Multimodal ECG Diagnosis Framework Based on Large Language Models
+216,W4416078576,Q3 실행시점,없음,해당없음,,,C/D,ECG-Doctor: An Interpretable Multimodal ECG Diagnosis Framework Based on Large Language Models
+216,W4416078576,역할:gemini-1.5-flash,실행,인용·언급,,,C/D,ECG-Doctor: An Interpretable Multimodal ECG Diagnosis Framework Based on Large Language Models
+217,W4416844854,Q1 접근경로,불명,API,,,C/D,Exposure to content written by large language models can reduce stigma around opioid use disorder
+217,W4416844854,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Exposure to content written by large language models can reduce stigma around opioid use disorder
+218,W4407349851,Q5 열람,,,초록만,불가,A/B,Textual Proficiency and Visual Deficiency: A Comparative Study of Large Language Models and Radiologists in MRI Artifact Detection and Correction
+219,W4406782520,Q2 버전표기,,별칭·계열명,제품명,,A/D,Generative Artificial Intelligence and Usage in Academia
+220,W4414035313,Q3 실행시점,없음,,,연월,B/C,Performance of large language models on image-based oral pathology questions from the Japanese National Dental Examination
+221,W4408576222,Q1 접근경로,,해당없음,웹UI,,A/D,Human-Centered Artificial Intelligence in Higher Education: A Framework for Systematic Literature Reviews
+221,W4408576222,Q3 실행시점,,해당없음,없음,,A/D,Human-Centered Artificial Intelligence in Higher Education: A Framework for Systematic Literature Reviews
+221,W4408576222,Q6 확신도,,높음,낮음,,A/D,Human-Centered Artificial Intelligence in Higher Education: A Framework for Systematic Literature Reviews
+223,W7118021345,역할:gemini-1.5-pro,판단불가,,,실행,B/C,"How Helpful is AI, Really? Quantifying the Impact of Various Platforms on Student Exam Outcomes"
+224,W4413304657,Q2 버전표기,별칭·계열명,해당없음,,,C/D,Application and Development of Large Language Models in Smart Inhalers
+224,W4413304657,Q3 실행시점,없음,해당없음,,,C/D,Application and Development of Large Language Models in Smart Inhalers
+225,W7168130110,Q1 접근경로,불명,해당없음,,,C/D,Clinical and Genetic Determinants of Hepatocellular Carcinoma in a Turkish Cohort: Impact of SLCO1B1 and SLCO1B3 Germline Variations and Demographic Risk Factors
+225,W7168130110,Q2 버전표기,별칭·계열명,해당없음,,,C/D,Clinical and Genetic Determinants of Hepatocellular Carcinoma in a Turkish Cohort: Impact of SLCO1B1 and SLCO1B3 Germline Variations and Demographic Risk Factors
+225,W7168130110,Q3 실행시점,없음,해당없음,,,C/D,Clinical and Genetic Determinants of Hepatocellular Carcinoma in a Turkish Cohort: Impact of SLCO1B1 and SLCO1B3 Germline Variations and Demographic Risk Factors
+225,W7168130110,역할:gemini-1.5-pro,실행,인용·언급,,,C/D,Clinical and Genetic Determinants of Hepatocellular Carcinoma in a Turkish Cohort: Impact of SLCO1B1 and SLCO1B3 Germline Variations and Demographic Risk Factors
+226,W7154421172,Q5 열람,,,불가,전문,A/B,Does Schema Markup Predict AI Citation? A Cross-Platform Empirical Study of Structured Data and Generative Engine Optimization
+226,W7154421172,Q6 확신도,,,낮음,높음,A/B,Does Schema Markup Predict AI Citation? A Cross-Platform Empirical Study of Structured Data and Generative Engine Optimization
+226,W7154421172,역할:gemini-1.5-pro,,,판단불가,실행,A/B,Does Schema Markup Predict AI Citation? A Cross-Platform Empirical Study of Structured Data and Generative Engine Optimization
+227,W7161392972,Q2 버전표기,,,제품명,별칭·계열명,A/B,Artificial intelligence-based decision support in simulated free flap Re-exploration for head and neck reconstruction. A case-based comparative study
+229,W7165837661,Q5 열람,,전문,불가,,A/D,"Response to Nouyed et al, “Text-dominant decision-making by large multimodal models in dermatology clinical challenges.”"
+229,W7165837661,Q6 확신도,,높음,낮음,,A/D,"Response to Nouyed et al, “Text-dominant decision-making by large multimodal models in dermatology clinical challenges.”"
+229,W7165837661,역할:gemini-1.5-pro,,인용·언급,판단불가,,A/D,"Response to Nouyed et al, “Text-dominant decision-making by large multimodal models in dermatology clinical challenges.”"
+231,W7124463313,Q1 접근경로,,불명,API,,A/D,Invisible Text Injection and Peer Review by AI Models
+231,W7124463313,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Invisible Text Injection and Peer Review by AI Models
+232,W4385548927,Q5 열람,,,초록만,전문,A/B,Promoting Self-Regulation Progress and Knowledge Construction in Blended Learning via ChatGPT-Based Learning Aid
+232,W4385548927,역할:text-davinci-003,,,판단불가,실행,A/B,Promoting Self-Regulation Progress and Knowledge Construction in Blended Learning via ChatGPT-Based Learning Aid
+233,W4389523980,Q1 접근경로,,혼합,API,,A/D,Towards Interpretable Mental Health Analysis with Large Language Models
+233,W4389523980,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Towards Interpretable Mental Health Analysis with Large Language Models
+233,W4389523980,Q3 실행시점,,해당없음,없음,,A/D,Towards Interpretable Mental Health Analysis with Large Language Models
+233,W4389523980,Q6 확신도,,높음,낮음,,A/D,Towards Interpretable Mental Health Analysis with Large Language Models
+234,W4386302642,Q3 실행시점,없음,,,해당없음,B/C,Enhancing Psychological Counseling with Large Language Model: A Multifaceted Decision-Support System for Non-Professionals
+235,W4404989530,Q3 실행시점,,,없음,해당없음,A/B,Push the Limit of Multi-modal Emotion Recognition by Prompting LLMs with Receptive-Field-Aware Attention Weighting
+235,W4404989530,역할:gpt-4-0125-preview,,,실행,못찾음,A/B,Push the Limit of Multi-modal Emotion Recognition by Prompting LLMs with Receptive-Field-Aware Attention Weighting
+236,W4404866096,Q1 접근경로,불명,,,해당없음,B/C,The Shaping of Digital Collectibles: Digital Imprints of Gender and Cultural Representation in the Age of the Non-Fungible Tokens Boom
+236,W4404866096,Q3 실행시점,없음,,,해당없음,B/C,The Shaping of Digital Collectibles: Digital Imprints of Gender and Cultural Representation in the Age of the Non-Fungible Tokens Boom
+236,W4404866096,Q6 확신도,낮음,,,높음,B/C,The Shaping of Digital Collectibles: Digital Imprints of Gender and Cultural Representation in the Age of the Non-Fungible Tokens Boom
+237,W4391758695,Q6 확신도,,,낮음,높음,A/B,Do AIs know what the most important issue is? Using language models to code open-text social survey responses at scale
+238,W4404388952,Q1 접근경로,,해당없음,로컬,,A/D,Self-Consistency Preference Optimization
+238,W4404388952,Q3 실행시점,,해당없음,없음,,A/D,Self-Consistency Preference Optimization
+239,W4405548121,Q6 확신도,낮음,,,높음,B/C,Homo-Silicus: Not (Yet) a Good Imitator of Homo Sapiens or Homo Economicus
+241,W4403818822,Q1 접근경로,API,혼합,,,C/D,Do Vision-Language Models Really Understand Visual Language?
+241,W4403818822,Q6 확신도,낮음,높음,,,C/D,Do Vision-Language Models Really Understand Visual Language?
+242,W7110143318,Q1 접근경로,,,API,불명,A/B,Interactive Simulation of Sustainability Challenges: Using AI and Gamification
+242,W7110143318,Q6 확신도,,,낮음,높음,A/B,Interactive Simulation of Sustainability Challenges: Using AI and Gamification
+243,W4406586835,Q1 접근경로,불명,API,,,C/D,Utilizing Online Reviews for Human Resource Development in the Retail Industry Using Aspect-based Sentiment Analysis
+244,W4399723231,역할:gpt-3.5-turbo-16k,판단불가,,,실행,B/C,Evaluation of Code Generation for Simulating Participant Behavior in Experience Sampling Method by Iterative In-Context Learning of a Large Language Model
+245,W4404416110,Q1 접근경로,불명,웹UI,,,C/D,AI-POWERED MARKETING AUTOMATION FOR NON-GOVERNMENTAL ORGANIZATION MANAGEMENT
+245,W4404416110,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,AI-POWERED MARKETING AUTOMATION FOR NON-GOVERNMENTAL ORGANIZATION MANAGEMENT
+246,W4393160233,Q1 접근경로,불명,API,,,C/D,Can Large Language Models Serve as Rational Players in Game Theory? A Systematic Analysis
+246,W4393160233,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Can Large Language Models Serve as Rational Players in Game Theory? A Systematic Analysis
+248,W4409964047,Q1 접근경로,,클라우드배포,API,,A/D,ENHANCING E-COMMERCE DATA ENRICHMENT: A MULTIMODAL APPROACH WITH LARGE LANGUAGE MODELS & RULEBOOK
+248,W4409964047,Q6 확신도,,높음,낮음,,A/D,ENHANCING E-COMMERCE DATA ENRICHMENT: A MULTIMODAL APPROACH WITH LARGE LANGUAGE MODELS & RULEBOOK
+249,W4406952329,Q6 확신도,,,낮음,높음,A/B,MME-Industry: A Cross-Industry Multimodal Evaluation Benchmark
+250,W7111356371,Q1 접근경로,불명,,,웹UI,B/C,"Hey AI, Are You Sure? Analyzing Reflective Prompting Attempts in AI-Based Writing Assessment"
+252,W4417036168,Q1 접근경로,불명,,,해당없음,B/C,Eval Factsheets: A Structured Framework for Documenting AI Evaluations
+252,W4417036168,Q2 버전표기,별칭·계열명,,,해당없음,B/C,Eval Factsheets: A Structured Framework for Documenting AI Evaluations
+252,W4417036168,Q3 실행시점,없음,,,해당없음,B/C,Eval Factsheets: A Structured Framework for Documenting AI Evaluations
+252,W4417036168,역할:claude-2,실행,,,인용·언급,B/C,Eval Factsheets: A Structured Framework for Documenting AI Evaluations
+253,W4410512173,Q5 열람,,,초록만,전문,A/B,Thrive Path: Navigating Emotional Journey with AI Chatbot and Machine Learning techniques for Mental Health
+253,W4410512173,역할:gemini-1.5-pro,,,판단불가,실행,A/B,Thrive Path: Navigating Emotional Journey with AI Chatbot and Machine Learning techniques for Mental Health
+255,W4414012539,Q3 실행시점,,,없음,해당없음,A/B,Multimodal AI for Yuan Buddhist sculpture chronology and style
+255,W4414012539,Q6 확신도,,,낮음,높음,A/B,Multimodal AI for Yuan Buddhist sculpture chronology and style
+256,W4408750049,Q1 접근경로,,,API,불명,A/B,The Philosopher's Stone: Trojaning Plugins of Large Language Models
+257,W4416570218,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,AI-simulated entrepreneurship under uncertainty: forecasting university-driven capability evolution
+257,W4416570218,역할:claude-3-5-sonnet,인용·언급,실행,,,C/D,AI-simulated entrepreneurship under uncertainty: forecasting university-driven capability evolution
+257,W4416570218,역할:claude-3-5-sonnet-20240620,판단불가,실행,,,C/D,AI-simulated entrepreneurship under uncertainty: forecasting university-driven capability evolution
+260,W7161848113,Q1 접근경로,불명,해당없음,,,C/D,Postcolonial Female Voices of Ecuadorian EFL Secondary School Teachers: Becoming a Glocalized Practitioner
+260,W7161848113,Q2 버전표기,별칭·계열명,해당없음,,,C/D,Postcolonial Female Voices of Ecuadorian EFL Secondary School Teachers: Becoming a Glocalized Practitioner
+260,W7161848113,Q3 실행시점,없음,해당없음,,,C/D,Postcolonial Female Voices of Ecuadorian EFL Secondary School Teachers: Becoming a Glocalized Practitioner
+260,W7161848113,역할:gemini-1.5-pro,실행,인용·언급,,,C/D,Postcolonial Female Voices of Ecuadorian EFL Secondary School Teachers: Becoming a Glocalized Practitioner
+261,W7125566560,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Replayable Financial Agents: A Determinism-Faithfulness Assurance Harness for Tool-Using LLM Agents
+263,W7126035801,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Generative AI in Corpus Linguistics: comparing ChatGPT-4 and manually developed NLP models for thematic concordance analysis
+264,W7172557514,Q6 확신도,,높음,낮음,,A/D,MRAFnd: Multimodal Retrieval-Augmented Framework for Zero-Shot Fake News Detection
+265,W7172473355,Q1 접근경로,불명,해당없음,,,C/D,Semantics of Subterfuge: Benchmarking Legal Deception Detection Against General-domain State-of-the-Art
+265,W7172473355,Q3 실행시점,없음,해당없음,,,C/D,Semantics of Subterfuge: Benchmarking Legal Deception Detection Against General-domain State-of-the-Art
+266,W7160850203,Q1 접근경로,,,API,불명,A/B,A Benchmark Corpus of Yemeni Proverbs for Figurative and Cultural Language Modeling
+266,W7160850203,Q6 확신도,,,낮음,높음,A/B,A Benchmark Corpus of Yemeni Proverbs for Figurative and Cultural Language Modeling
+267,W7137210562,Q6 확신도,,높음,낮음,,A/D,Using AI to enhance healthcare resource management and allocation: A focus on the autism community in Alabama
+268,W7111160516,역할:gpt-3.5-turbo-0613,판단불가,실행,,,C/D,Data insights from the Camera-COQE dataset [8].
+269,W4410453756,Q5 열람,,불가,초록만,,A/D,
+270,W7110994696,Q1 접근경로,,,불명,API,A/B,Llama-2 training hyperparameters for fine-tuning.
+270,W7110994696,Q6 확신도,,,낮음,높음,A/B,Llama-2 training hyperparameters for fine-tuning.
+271,W7204222858,Q1 접근경로,불명,,,API,B/C,Evaluating the Performance of Large Language Models in 3D Architectural Modeling
+271,W7204222858,Q6 확신도,낮음,,,높음,B/C,Evaluating the Performance of Large Language Models in 3D Architectural Modeling
+271,W7204222858,역할:claude-1,판단불가,,,못찾음,B/C,Evaluating the Performance of Large Language Models in 3D Architectural Modeling
+272,W7170032271,Q2 버전표기,,제품명,별칭·계열명,,A/D,Who Generates More Empathetic Responses—Humans or LLMs? A Comparative Evaluation with Human and LLM Judges
+274,W7162766369,Q1 접근경로,불명,해당없음,,,C/D,What is the accuracy trade-off on the MMMU benchmark for MoE-LLaVA versus dense LLaVA models when expert cachi
+274,W7162766369,Q3 실행시점,없음,해당없음,,,C/D,What is the accuracy trade-off on the MMMU benchmark for MoE-LLaVA versus dense LLaVA models when expert cachi
+274,W7162766369,역할:gemini-1.5-flash,실행,인용·언급,,,C/D,What is the accuracy trade-off on the MMMU benchmark for MoE-LLaVA versus dense LLaVA models when expert cachi
+274,W7162766369,역할:gemini-1.5-pro,실행,인용·언급,,,C/D,What is the accuracy trade-off on the MMMU benchmark for MoE-LLaVA versus dense LLaVA models when expert cachi
+275,W7143306851,Q1 접근경로,,해당없음,API,,A/D,afridi044/Pinned-Contract-Evaluation: Pinned-Contract Evaluation Artifact v1.0.0
+275,W7143306851,Q2 버전표기,,해당없음,날짜 스냅숏,,A/D,afridi044/Pinned-Contract-Evaluation: Pinned-Contract Evaluation Artifact v1.0.0
+275,W7143306851,Q3 실행시점,,해당없음,없음,,A/D,afridi044/Pinned-Contract-Evaluation: Pinned-Contract Evaluation Artifact v1.0.0
+275,W7143306851,Q5 열람,,불가,전문,,A/D,afridi044/Pinned-Contract-Evaluation: Pinned-Contract Evaluation Artifact v1.0.0
+275,W7143306851,역할:claude-sonnet-4-20250514,,판단불가,실행,,A/D,afridi044/Pinned-Contract-Evaluation: Pinned-Contract Evaluation Artifact v1.0.0
+279,W4401042915,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Fine-grained Gender Control in Machine Translation with Large Language Models
+280,W4399454879,Q1 접근경로,불명,,,API,B/C,POEM: Interactive Prompt Optimization for Enhancing Multimodal Reasoning of Large Language Models
+282,W4404792946,Q2 버전표기,날짜 스냅숏,,,별칭·계열명,B/C,ACE: A LLM-based Negotiation Coaching System
+283,W4402671221,Q1 접근경로,혼합,,,API,B/C,"PsySafe: A Comprehensive Framework for Psychological-based Attack, Defense, and Evaluation of Multi-agent System Safety"
+283,W4402671221,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,"PsySafe: A Comprehensive Framework for Psychological-based Attack, Defense, and Evaluation of Multi-agent System Safety"
+284,W4395064786,Q1 접근경로,불명,API,,,C/D,STaRK: Benchmarking LLM Retrieval on Textual and Relational Knowledge Bases
+284,W4395064786,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,STaRK: Benchmarking LLM Retrieval on Textual and Relational Knowledge Bases
+287,W4399115884,Q6 확신도,,,낮음,높음,A/B,Triple Preference Optimization: Achieving Better Alignment using a Single Step Optimization
+288,W4404782882,역할:gpt-4-turbo-2024-04-09,인용·언급,,,실행,B/C,"A Systematic Survey and Critical Review on Evaluating Large Language Models: Challenges, Limitations, and Recommendations"
+289,W4399795373,Q6 확신도,,,낮음,높음,A/B,"""Not Aligned"" is Not ""Malicious"": Being Careful about Hallucinations of Large Language Models' Jailbreak"
+290,W4413304709,Q1 접근경로,,,API,혼합,A/B,Theoretical physics benchmark (TPBench)—a dataset and study of AI reasoning capabilities in theoretical physics
+290,W4413304709,Q6 확신도,,,낮음,높음,A/B,Theoretical physics benchmark (TPBench)—a dataset and study of AI reasoning capabilities in theoretical physics
+290,W4413304709,역할:o1-preview,,,인용·언급,판단불가,A/B,Theoretical physics benchmark (TPBench)—a dataset and study of AI reasoning capabilities in theoretical physics
+291,W4414979011,Q1 접근경로,혼합,웹UI,,,C/D,Blending Language Models and Domain-Specific Languages in Computer Science Education. A Case Study on API RESTFul
+291,W4414979011,Q2 버전표기,별칭·계열명,제품명,,,C/D,Blending Language Models and Domain-Specific Languages in Computer Science Education. A Case Study on API RESTFul
+292,W4416037402,Q1 접근경로,,불명,API,,A/D,LinkAlign: Scalable Schema Linking for Real-World Large-Scale Multi-Database Text-to-SQL
+292,W4416037402,Q6 확신도,,높음,낮음,,A/D,LinkAlign: Scalable Schema Linking for Real-World Large-Scale Multi-Database Text-to-SQL
+293,W4412930207,Q1 접근경로,혼합,API,,,C/D,Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models
+293,W4412930207,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models
+293,W4412930207,역할:gpt-4-1106-preview,인용·언급,실행,,,C/D,Data Contamination Quiz: A Tool to Detect and Estimate Contamination in Large Language Models
+294,W4411119926,Q1 접근경로,혼합,,,API,B/C,Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference
+294,W4411119926,역할:claude-2.1,실행,,,인용·언급,B/C,Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference
+294,W4411119926,역할:claude-3-opus-20240229,실행,,,인용·언급,B/C,Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference
+294,W4411119926,역할:claude-3-sonnet-20240229,실행,,,인용·언급,B/C,Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference
+294,W4411119926,역할:gpt-3.5-turbo-0613,실행,,,인용·언급,B/C,Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference
+294,W4411119926,역할:gpt-4-0314,실행,,,인용·언급,B/C,Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference
+294,W4411119926,역할:gpt-4-0613,실행,,,인용·언급,B/C,Re-evaluating Automatic LLM System Ranking for Alignment with Human Preference
+295,W4409203322,Q6 확신도,,,낮음,높음,A/B,Evaluating large language models on geospatial tasks: a multiple geospatial task benchmarking study
+297,W4412888214,Q3 실행시점,연월,,,없음,B/C,EvoBench: Towards Real-world LLM-Generated Text Detection Benchmarking for Evolving Large Language Models
+298,W4410215516,Q1 접근경로,,웹UI,API,,A/D,Mind Mapping Prompt Injection: Visual Prompt Injection Attacks in Modern Large Language Models
+298,W4410215516,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Mind Mapping Prompt Injection: Visual Prompt Injection Attacks in Modern Large Language Models
+298,W4410215516,Q6 확신도,,높음,낮음,,A/D,Mind Mapping Prompt Injection: Visual Prompt Injection Attacks in Modern Large Language Models
+299,W4415035363,역할:gpt-4-0613,실행,인용·언급,,,C/D,Two Experts Are All You Need for Steering Thinking: Reinforcing Cognitive Effort in MoE Reasoning Models Without Additional Training
+300,W4416037247,Q1 접근경로,,,로컬,불명,A/B,Z1: Efficient Test-time Scaling with Code
+300,W4416037247,Q2 버전표기,,,별칭·계열명,날짜 스냅숏,A/B,Z1: Efficient Test-time Scaling with Code
+300,W4416037247,Q6 확신도,,,낮음,높음,A/B,Z1: Efficient Test-time Scaling with Code
+302,W4415330016,Q1 접근경로,,해당없음,불명,,A/D,Efficient Reasoning Models: A Survey
+303,W7133365285,Q1 접근경로,,,로컬,해당없음,A/B,Efficient RLVR Training via Weighted Mutual Information Data Selection
+303,W7133365285,Q3 실행시점,,,없음,해당없음,A/B,Efficient RLVR Training via Weighted Mutual Information Data Selection
+304,W7163777646,Q2 버전표기,날짜 스냅숏,별칭·계열명,,,C/D,Mutation Without Variation: Convergence Dynamics in LLM-Driven Program Evolution
+305,W7128096114,Q2 버전표기,날짜 스냅숏,,,별칭·계열명,B/C,Interfaze: The Future of AI is built on Task-Specific Small Models
+305,W7128096114,Q3 실행시점,없음,,,해당없음,B/C,Interfaze: The Future of AI is built on Task-Specific Small Models
+305,W7128096114,역할:claude-2,판단불가,,,인용·언급,B/C,Interfaze: The Future of AI is built on Task-Specific Small Models
+305,W7128096114,역할:claude-3-7-sonnet,판단불가,,,인용·언급,B/C,Interfaze: The Future of AI is built on Task-Specific Small Models
+308,W7128864794,Q2 버전표기,,,별칭·계열명,날짜 스냅숏,A/B,Adaptive Milestone Reward for GUI Agents
+308,W7128864794,Q6 확신도,,,낮음,높음,A/B,Adaptive Milestone Reward for GUI Agents
+308,W7128864794,역할:claude-sonnet-4-20250514,,,인용·언급,판단불가,A/B,Adaptive Milestone Reward for GUI Agents
+309,W7128095824,Q1 접근경로,,,서드파티,혼합,A/B,ProxyWar: Dynamic Assessment of LLM Code Generation in Game Arenas
+309,W7128095824,Q6 확신도,,,낮음,높음,A/B,ProxyWar: Dynamic Assessment of LLM Code Generation in Game Arenas
+310,W7130762659,Q1 접근경로,불명,,,API,B/C,RFEval: Benchmarking Reasoning Faithfulness under Counterfactual Reasoning Intervention in Large Reasoning Models
+310,W7130762659,역할:claude-sonnet-4-20250514,실행,,,인용·언급,B/C,RFEval: Benchmarking Reasoning Faithfulness under Counterfactual Reasoning Intervention in Large Reasoning Models
+312,W4399553916,역할:gpt-4-turbo,인용·언급,,,실행,B/C,Safety Alignment Should Be Made More Than Just a Few Tokens Deep
+313,W4402683166,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,On the Robustness of Document-Level Relation Extraction Models to Entity Name Variations
+314,W4413125085,Q1 접근경로,,,API,불명,A/B,Towards AI-augmented sustainability assessments: integrating large language models in the case of product social life cycle assessment
+314,W4413125085,Q6 확신도,,,낮음,높음,A/B,Towards AI-augmented sustainability assessments: integrating large language models in the case of product social life cycle assessment
+314,W4413125085,역할:gpt-4-turbo,,,실행,인용·언급,A/B,Towards AI-augmented sustainability assessments: integrating large language models in the case of product social life cycle assessment
+315,W4411698389,Q6 확신도,,,낮음,높음,A/B,Textile AI-Enhanced Translation System Based on Mapping Probability and In-context Learning
+315,W4411698389,역할:o4-mini,,,실행,판단불가,A/B,Textile AI-Enhanced Translation System Based on Mapping Probability and In-context Learning
+317,W7139144810,Q3 실행시점,,연월,연도만,,A/D,FormulaCode: Evaluating Agentic Optimization on Large Codebases
+317,W7139144810,Q6 확신도,,높음,낮음,,A/D,FormulaCode: Evaluating Agentic Optimization on Large Codebases
+318,W7125352730,Q1 접근경로,불명,,,해당없음,B/C,LLMOrbit: A Circular Taxonomy of Large Language Models -From Scaling Walls to Agentic AI Systems
+318,W7125352730,Q3 실행시점,없음,,,해당없음,B/C,LLMOrbit: A Circular Taxonomy of Large Language Models -From Scaling Walls to Agentic AI Systems
+318,W7125352730,Q6 확신도,낮음,,,높음,B/C,LLMOrbit: A Circular Taxonomy of Large Language Models -From Scaling Walls to Agentic AI Systems
+319,W4405767783,Q1 접근경로,불명,API,,,C/D,CodeV: Issue Resolving with Visual Data
+320,W4399836663,Q1 접근경로,,,API,불명,A/B,DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence
+320,W4399836663,Q6 확신도,,,낮음,높음,A/B,DeepSeek-Coder-V2: Breaking the Barrier of Closed-Source Models in Code Intelligence
+323,W4413094313,Q3 실행시점,,연월,없음,,A/D,Evidence triangulator: using large language models to extract and synthesize causal evidence across study designs
+324,W4414525096,Q1 접근경로,불명,,,API,B/C,Evaluation of cell type annotation reliability using a large language model-based identifier
+324,W4414525096,Q3 실행시점,없음,,,연월,B/C,Evaluation of cell type annotation reliability using a large language model-based identifier
+325,W4416156707,Q1 접근경로,불명,API,,,C/D,In-context adaptation of VLMs for few-shot cell detection in optical microscopy
+325,W4416156707,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,In-context adaptation of VLMs for few-shot cell detection in optical microscopy
+326,W7164916435,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,"IAN, an intelligent system for omics data analysis and discovery"
+327,W4401410647,역할:gemini-1.5-pro,판단불가,,,인용·언급,B/C,Generative Artificial Intelligence and Large Language Models in Primary Care Medical Education
+328,W4391430636,Q2 버전표기,,별칭·계열명,해당없음,,A/D,Generative Artificial Intelligence
+328,W4391430636,Q3 실행시점,,없음,해당없음,,A/D,Generative Artificial Intelligence
+328,W4391430636,역할:gpt-3.5-turbo-16k,,못찾음,인용·언급,,A/D,Generative Artificial Intelligence
+328,W4391430636,역할:gpt-4-turbo,,못찾음,인용·언급,,A/D,Generative Artificial Intelligence
+329,W4409860737,Q1 접근경로,불명,,,API,B/C,Comparison of CT referral justification using clinical decision support and large language models in a large European cohort
+331,W4407358819,Q1 접근경로,불명,,,API,B/C,Benchmarking the diagnostic performance of open source LLMs in 1933 Eurorad case reports
+332,W4412886850,Q1 접근경로,,,API,불명,A/B,Delving into Multilingual Ethical Bias: The MSQAD with Statistical Hypothesis Tests for Large Language Models
+334,W4409480044,Q6 확신도,,,낮음,높음,A/B,"Generative AI in Academic Writing: A Comparison of DeepSeek, Qwen, ChatGPT, Gemini, Llama, Mistral, and Gemma"
+336,W4399251648,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,MathChat: Benchmarking Mathematical Reasoning and Instruction Following in Multi-Turn Interactions
+336,W4399251648,Q6 확신도,,높음,낮음,,A/D,MathChat: Benchmarking Mathematical Reasoning and Instruction Following in Multi-Turn Interactions
+337,W4391335020,Q1 접근경로,서드파티,,,API,B/C,Relative Value Biases in Large Language Models
+337,W4391335020,Q3 실행시점,없음,,,연월,B/C,Relative Value Biases in Large Language Models
+339,W7143904448,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Study on propaganda detection in Polish online news
+339,W7143904448,Q3 실행시점,없음,연월,,,C/D,Study on propaganda detection in Polish online news
+340,W4417184010,Q2 버전표기,별칭·계열명,제품명,,,C/D,Embodying an avatar with a dissimilar appearance enhances insight problem solving
+340,W4417184010,Q6 확신도,낮음,높음,,,C/D,Embodying an avatar with a dissimilar appearance enhances insight problem solving
+340,W4417184010,역할:gpt-4-turbo,판단불가,인용·언급,,,C/D,Embodying an avatar with a dissimilar appearance enhances insight problem solving
+340,W4417184010,역할:o1-mini,판단불가,인용·언급,,,C/D,Embodying an avatar with a dissimilar appearance enhances insight problem solving
+340,W4417184010,역할:o1-preview,판단불가,인용·언급,,,C/D,Embodying an avatar with a dissimilar appearance enhances insight problem solving
+342,W7135029326,Q2 버전표기,,,해당없음,별칭·계열명,A/B,"Oversight-Centered Metrology and Control for Agentic Systems: Costly Interrupt Channels, Claim Margins, and Deployment-Relevant Evaluation"
+344,W7169839044,Q1 접근경로,API,불명,,,C/D,MoRE: Multi-Oracle Reward Evolution for Automated Reward Shaping in Reinforcement Learning
+344,W7169839044,Q2 버전표기,별칭·계열명,제품명,,,C/D,MoRE: Multi-Oracle Reward Evolution for Automated Reward Shaping in Reinforcement Learning
+345,W7103897471,Q5 열람,,,초록만,불가,A/B,Accuracy of Multimodal Large Language Models vs. Human Consensus in Interpreting Clinical Vignettes
+347,W7126189904,Q1 접근경로,불명,,,해당없음,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,Q2 버전표기,별칭·계열명,,,해당없음,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,Q3 실행시점,없음,,,해당없음,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,Q5 열람,전문,,,불가,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,Q6 확신도,높음,,,낮음,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,역할:gpt-4-0613,실행,,,판단불가,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,역할:gpt-4-turbo,실행,,,판단불가,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,역할:gpt-4-turbo-2024-04-09,실행,,,판단불가,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+347,W7126189904,역할:gpt-5-2025-08-07,실행,,,판단불가,B/C,From GPT-4 to GPT-5 The Impact of LLM Generation on Spanish Chat Interactions
+349,W7169666497,Q1 접근경로,,,API,불명,A/B,"Cognition, Situation, Behavior: Multi-dimensional Modeling and Evaluation of Egocentric Social Intelligence in LLMs"
+349,W7169666497,Q2 버전표기,,,날짜 스냅숏,별칭·계열명,A/B,"Cognition, Situation, Behavior: Multi-dimensional Modeling and Evaluation of Egocentric Social Intelligence in LLMs"
+349,W7169666497,Q6 확신도,,,낮음,높음,A/B,"Cognition, Situation, Behavior: Multi-dimensional Modeling and Evaluation of Egocentric Social Intelligence in LLMs"
+350,W7167820841,Q6 확신도,,,낮음,높음,A/B,AI Sycophancy and Decisions
+351,W4402671908,Q6 확신도,,높음,낮음,,A/D,MoPS: Modular Story Premise Synthesis for Open-Ended Automatic Story Generation
+352,W4391901300,Q6 확신도,낮음,,,높음,B/C,Data Engineering for Scaling Language Models to 128K Context
+352,W4391901300,역할:gpt-4-turbo,인용·언급,,,실행,B/C,Data Engineering for Scaling Language Models to 128K Context
+355,W4400341964,역할:gpt-4-turbo,인용·언급,실행,,,C/D,TCSR-SQL: Towards Table Content-aware Text-to-SQL with Self-retrieval
+356,W4405029777,Q1 접근경로,,불명,API,,A/D,A Lean Dataset for International Math Olympiad: Small Steps towards Writing Math Proofs for Hard Problems
+357,W4392972256,Q1 접근경로,,,API,불명,A/B,A Challenge Dataset and Effective Models for Conversational Stance Detection
+358,W4404970691,Q1 접근경로,혼합,API,,,C/D,Zero-Shot Prompting and Few-Shot Fine-Tuning: Revisiting Document Image Classification Using Large Language Models
+360,W4403578078,Q1 접근경로,불명,API,,,C/D,Tracking Universal Features Through Fine-Tuning and Model Merging
+361,W4392826403,Q1 접근경로,불명,,,API,B/C,Generalizing Fairness to Generative Language Models via Reformulation of Non-discrimination Criteria
+362,W4402671321,Q1 접근경로,혼합,,,불명,B/C,How do you know that? Teaching Generative Language Models to Reference Answers to Biomedical Questions
+363,W4406437184,Q2 버전표기,,,해당없음,별칭·계열명,A/B,CAPABILITIES AND LIMITATIONS OF LARGE LANGUAGE MODELS
+364,W4400104738,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,LLCoach: Generating Robot Soccer Plans using Multi-Role Large Language Models
+365,W4401997506,Q6 확신도,,,낮음,높음,A/B,Leveraging Large Language Models for Information Retrieval from NEPA Documents
+366,W4402669975,Q1 접근경로,불명,,,API,B/C,RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for Short-form Open-Domain Question Answering
+369,W4403723811,역할:gpt-4-turbo,판단불가,,,실행,B/C,Human Evaluation of GPT for Scalable Python Programming Exercise Generation
+370,W4412945525,Q6 확신도,,높음,낮음,,A/D,Semantic-Eval : A Semantic Comprehension Evaluation Framework for Large Language Models Generation without Training
+371,W4416037867,Q6 확신도,,높음,낮음,,A/D,"LionGuard 2: Building Lightweight, Data-Efficient & Localised Multilingual Content Moderators"
+373,W4417143419,Q1 접근경로,불명,해당없음,,,C/D,Active Video Perception: Iterative Evidence Seeking for Agentic Long Video Understanding
+373,W4417143419,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Active Video Perception: Iterative Evidence Seeking for Agentic Long Video Understanding
+374,W4412944558,Q1 접근경로,불명,해당없음,,,C/D,ATLAS: Agent Tuning via Learning Critical Steps
+374,W4412944558,역할:gpt-4-turbo,실행,인용·언급,,,C/D,ATLAS: Agent Tuning via Learning Critical Steps
+375,W4414596160,Q2 버전표기,,별칭·계열명,해당없음,,A/D,The mathematician’s assistant: integrating AI into research practice
+375,W4414596160,Q3 실행시점,,없음,해당없음,,A/D,The mathematician’s assistant: integrating AI into research practice
+376,W4414808064,Q6 확신도,낮음,,,높음,B/C,JoyAgent-JDGenie: Technical Report on the GAIA
+378,W4407091797,Q1 접근경로,,해당없음,로컬,,A/D,Token-Level Entropy Reveals Demographic Disparities in Large Language Models
+378,W4407091797,Q6 확신도,,높음,낮음,,A/D,Token-Level Entropy Reveals Demographic Disparities in Large Language Models
+379,W4415036031,Q1 접근경로,불명,API,,,C/D,SV-TrustEval-C: Evaluating Structure and Semantic Reasoning in Large Language Models for Source Code Vulnerability Analysis
+380,W4415161187,Q1 접근경로,불명,해당없음,,,C/D,xVerify: Efficient Answer Verifier for Reasoning Model Evaluations
+381,W4411523107,Q1 접근경로,불명,,,API,B/C,Safe4U: Identifying Unsound Safe Encapsulations of Unsafe Calls in Rust using LLMs
+382,W4416985160,Q1 접근경로,,해당없음,웹UI,,A/D,Contract Interpretation and Artificial Intelligence
+382,W4416985160,Q2 버전표기,,별칭·계열명,제품명,,A/D,Contract Interpretation and Artificial Intelligence
+382,W4416985160,Q6 확신도,,높음,낮음,,A/D,Contract Interpretation and Artificial Intelligence
+383,W4406779113,Q1 접근경로,불명,해당없음,,,C/D,Online Preference Alignment for Language Models via Count-based Exploration
+383,W4406779113,Q2 버전표기,날짜 스냅숏,별칭·계열명,,,C/D,Online Preference Alignment for Language Models via Count-based Exploration
+383,W4406779113,역할:gpt-4-turbo,실행,인용·언급,,,C/D,Online Preference Alignment for Language Models via Count-based Exploration
+384,W4416928939,Q1 접근경로,불명,해당없음,,,C/D,Lightweight malicious URL detection using deep learning and large language models
+385,W4415195964,Q1 접근경로,불명,웹UI,,,C/D,Testing Noetic Potential in Large Language Models: A 100- Trial Precognitive Forced-Choice Study with ChatGPT-4.1-Mini
+385,W4415195964,Q2 버전표기,별칭·계열명,날짜 스냅숏,,,C/D,Testing Noetic Potential in Large Language Models: A 100- Trial Precognitive Forced-Choice Study with ChatGPT-4.1-Mini
+385,W4415195964,Q3 실행시점,없음,연월,,,C/D,Testing Noetic Potential in Large Language Models: A 100- Trial Precognitive Forced-Choice Study with ChatGPT-4.1-Mini
+386,W4416037176,Q1 접근경로,,,API,불명,A/B,Break the Checkbox: Challenging Closed-Style Evaluations of Cultural Alignment in LLMs
+386,W4416037176,Q6 확신도,,,낮음,높음,A/B,Break the Checkbox: Challenging Closed-Style Evaluations of Cultural Alignment in LLMs
+387,W7160871040,Q6 확신도,낮음,,,높음,B/C,Autonomous Indexing for OLAP Workloads: A Reinforcement Learning Approach
+388,W4417512500,Q1 접근경로,,,API,불명,A/B,LLM-Flock: Decentralized Multi-Robot Flocking via Large Language Models and Influence-Based Consensus
+390,W4410768139,Q1 접근경로,,,웹UI,불명,A/B,Students-Centric Evaluation Survey for Exploring the Impact of LLMs on UML Modeling
+390,W4410768139,Q6 확신도,,,낮음,높음,A/B,Students-Centric Evaluation Survey for Exploring the Impact of LLMs on UML Modeling
+391,W4411268213,Q5 열람,,전문,초록만,,A/D,Evaluating Pre-Trained Large Language Models Using Simulated Human Inputs for Python Code Generation
+391,W4411268213,Q6 확신도,,높음,낮음,,A/D,Evaluating Pre-Trained Large Language Models Using Simulated Human Inputs for Python Code Generation
+391,W4411268213,역할:o3-mini,,실행,판단불가,,A/D,Evaluating Pre-Trained Large Language Models Using Simulated Human Inputs for Python Code Generation
+392,W4414809533,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,"Making, not Taking, the Best of N"
+393,W4406880300,Q1 접근경로,혼합,API,,,C/D,Are Human Interactions Replicable by Generative Agents? A Case Study on Pronoun Usage in Hierarchical Interactions
+395,W4416034859,Q3 실행시점,,,연월,없음,A/B,LRPLAN: A Multi-Agent Collaboration of Large Language and Reasoning Models for Planning with Implicit & Explicit Constraints
+395,W4416034859,Q6 확신도,,,낮음,높음,A/B,LRPLAN: A Multi-Agent Collaboration of Large Language and Reasoning Models for Planning with Implicit & Explicit Constraints
+397,W4412591648,Q6 확신도,낮음,높음,,,C/D,Beyond Detection: Rethinking Education in the Age of AI-Writing
+398,W4411119950,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,SFMSS: Service Flow aware Medical Scenario Simulation for Conversational Data Generation
+399,W4411033148,Q6 확신도,,,낮음,높음,A/B,Large Language Models for C Test Case Generation: A Comparative Analysis
+401,W7106783468,Q1 접근경로,,,로컬,해당없음,A/B,Can Vision-Language Models Count? A Synthetic Benchmark and Analysis of Attention-Based Interventions
+401,W7106783468,Q3 실행시점,,,없음,해당없음,A/B,Can Vision-Language Models Count? A Synthetic Benchmark and Analysis of Attention-Based Interventions
+402,W4412464020,Q1 접근경로,,해당없음,API,,A/D,Analisis Peran Gen AI dalam Penetration Testing
+403,W7160727535,Q1 접근경로,로컬,,,해당없음,B/C,ROSE: Rollout On Serving GPUs via Cooperative Elasticity for Agentic RL
+403,W7160727535,Q3 실행시점,없음,,,해당없음,B/C,ROSE: Rollout On Serving GPUs via Cooperative Elasticity for Agentic RL
+404,W7166801607,Q1 접근경로,혼합,,,API,B/C,The GDN-CC Dataset: Automatic Corpus Clarification for AI-enhanced Democratic Citizen Consultations
+405,W7154426895,역할:o3-mini,인용·언급,실행,,,C/D,PilotBench: A Benchmark for General Aviation Agents with Safety Constraints
+406,W7140043623,Q5 열람,불가,,,전문,B/C,From complexity to clarity: GPT-4 for patient-centered prostate cancer pathology reports
+406,W7140043623,역할:gpt-4-turbo,판단불가,,,실행,B/C,From complexity to clarity: GPT-4 for patient-centered prostate cancer pathology reports
+407,W7130762282,Q1 접근경로,불명,API,,,C/D,"The CTI Echo Chamber: Fragmentation, Overlap, and Vendor Specificity in Twenty Years of Cyber Threat Reporting"
+408,W7202168386,Q1 접근경로,불명,API,,,C/D,Detecting AI-Generated Bulgarian Text: A Two-Step Multi-Class Classification Approach
+408,W7202168386,역할:o4-mini,인용·언급,실행,,,C/D,Detecting AI-Generated Bulgarian Text: A Two-Step Multi-Class Classification Approach
+409,W7166850138,Q1 접근경로,,,로컬,해당없음,A/B,GlimpRouter: Efficient Collaborative Inference by Glimpsing One Token of Thoughts
+409,W7166850138,Q3 실행시점,,,없음,해당없음,A/B,GlimpRouter: Efficient Collaborative Inference by Glimpsing One Token of Thoughts
+410,W7153517001,Q1 접근경로,,해당없음,로컬,,A/D,Enhancing Small Language Models for Code Generation via Strategic Decomposition and Filtering
+411,W7140131338,Q3 실행시점,없음,연도만,,,C/D,Token-Wise Kernels (TWiKers) for Vicinity-Aware Attention in Transformers
+411,W7140131338,역할:o3-mini,인용·언급,실행,,,C/D,Token-Wise Kernels (TWiKers) for Vicinity-Aware Attention in Transformers
+412,W7165064544,Q1 접근경로,불명,API,,,C/D,"No Resource, No Benchmarks, No Problem? Evaluating and Improving LLMs for Code Generation in No-Resource Languages"
+412,W7165064544,Q2 버전표기,날짜 스냅숏,별칭·계열명,,,C/D,"No Resource, No Benchmarks, No Problem? Evaluating and Improving LLMs for Code Generation in No-Resource Languages"
+413,W7165065735,Q1 접근경로,,해당없음,API,,A/D,Closed-Loop Triplet Synergistic Generation for Long-Form Video
+414,W7135429410,Q1 접근경로,,,API,불명,A/B,XSkill: Continual Learning from Experience and Skills in Multimodal Agents
+416,W7166886942,Q6 확신도,,높음,낮음,,A/D,CTTA-T: Continual Test-Time Adaptation for Text Understanding via Teacher-Student with a Domain-aware and Generalized Teacher
+418,W7166800957,Q1 접근경로,혼합,,,API,B/C,JointCoder: Exploring Automated ICD Coding on Real-World Chinese EHRs with a Multi-Agent Framework
+418,W7166800957,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,JointCoder: Exploring Automated ICD Coding on Real-World Chinese EHRs with a Multi-Agent Framework
+418,W7166800957,Q6 확신도,낮음,,,높음,B/C,JointCoder: Exploring Automated ICD Coding on Real-World Chinese EHRs with a Multi-Agent Framework
+419,W7154538725,Q1 접근경로,,불명,API,,A/D,You Only Judge Once: Multi-response Reward Modeling in a Single Forward Pass
+419,W7154538725,Q6 확신도,,높음,낮음,,A/D,You Only Judge Once: Multi-response Reward Modeling in a Single Forward Pass
+419,W7154538725,역할:gpt-4-turbo,,실행,인용·언급,,A/D,You Only Judge Once: Multi-response Reward Modeling in a Single Forward Pass
+420,W4417008182,Q1 접근경로,불명,API,,,C/D,Feedback Loops and Code Perturbations in LLM-Based Software Engineering: A Case Study on a C-to-Rust Translation System
+420,W4417008182,Q6 확신도,낮음,높음,,,C/D,Feedback Loops and Code Perturbations in LLM-Based Software Engineering: A Case Study on a C-to-Rust Translation System
+421,W7202032726,Q1 접근경로,,,API,웹UI,A/B,Legal NER: Evaluating the Impact of LLM-Generated Annotations on NER Performance for Administrative Decisions
+422,W7139043635,Q2 버전표기,별칭·계열명,,,제품명,B/C,Assessing the Quality of AI-Generated Exams: A Large-Scale Field Study
+423,W4415316359,Q1 접근경로,혼합,,,불명,B/C,Aligning Large Language Models via Fully Self-Synthetic Data
+423,W4415316359,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Aligning Large Language Models via Fully Self-Synthetic Data
+424,W7165454160,Q1 접근경로,API,해당없음,,,C/D,Statistical Consistency in Artificial Intelligence-Assisted Computations: A Comparison of SPSS 31.0 and GPT-5.5
+424,W7165454160,Q2 버전표기,별칭·계열명,제품명,,,C/D,Statistical Consistency in Artificial Intelligence-Assisted Computations: A Comparison of SPSS 31.0 and GPT-5.5
+425,W7202230716,Q3 실행시점,,연도만,없음,,A/D,Preventive Care Recommendations by Large Language Models
+426,W7139144880,Q1 접근경로,,해당없음,로컬,,A/D,SQL-ASTRA: Alleviating Sparse Feedback in Agentic SQL via Column-Set Matching and Trajectory Aggregation
+428,W7167748912,Q2 버전표기,별칭·계열명,해당없음,,,C/D,CollabEval: Statistically Efficient Collaborative Model Evaluation via Matrix Completion
+428,W7167748912,Q3 실행시점,없음,해당없음,,,C/D,CollabEval: Statistically Efficient Collaborative Model Evaluation via Matrix Completion
+428,W7167748912,Q6 확신도,낮음,높음,,,C/D,CollabEval: Statistically Efficient Collaborative Model Evaluation via Matrix Completion
+428,W7167748912,역할:gpt-4-turbo,실행,인용·언급,,,C/D,CollabEval: Statistically Efficient Collaborative Model Evaluation via Matrix Completion
+430,W7158422334,Q1 접근경로,혼합,,,API,B/C,AutoGUI-v2: A Comprehensive Multi-Modal GUI Functionality Understanding Benchmark
+435,W7203911671,Q1 접근경로,혼합,,,해당없음,B/C,Decomposing Wrong-Consensus Agreement in LLM Self-Consistency: A GPT-4.1 Case Study
+435,W7203911671,Q3 실행시점,없음,,,해당없음,B/C,Decomposing Wrong-Consensus Agreement in LLM Self-Consistency: A GPT-4.1 Case Study
+437,W4392780998,Q1 접근경로,불명,,,API,B/C,DrPlanner: Diagnosis and Repair of Motion Planners for Automated Vehicles Using Large Language Models
+439,W4416831911,Q1 접근경로,,,API,불명,A/B,Self-Improving Language Models for Evolutionary Program Synthesis: A Case Study on ARC-AGI
+440,W4414463052,Q5 열람,,전문,초록만,,A/D,Explaining Database Performance Regressions Using a Large Language Model
+440,W4414463052,Q6 확신도,,높음,낮음,,A/D,Explaining Database Performance Regressions Using a Large Language Model
+440,W4414463052,역할:o4-mini,,실행,판단불가,,A/D,Explaining Database Performance Regressions Using a Large Language Model
+443,W4416036871,Q2 버전표기,,별칭·계열명,날짜 스냅숏,,A/D,Matter-of-Fact: A Benchmark for Verifying the Feasibility of Literature-Supported Claims in Materials Science
+444,W4415947839,Q1 접근경로,불명,,,혼합,B/C,ATLAS: Adaptive Trading with LLM AgentS Through Dynamic Prompt Optimization and Multi-Agent Coordination
+445,W7140076111,Q1 접근경로,불명,,,API,B/C,Mitigating Causal Bias in LLMs via Potential Outcomes Framework and Actual Causality Theory
+447,W7119557458,Q2 버전표기,별칭·계열명,해당없음,,,C/D,Personalization of Large Foundation Models for Health Interventions
+447,W7119557458,Q3 실행시점,없음,해당없음,,,C/D,Personalization of Large Foundation Models for Health Interventions
+448,W7164233476,Q1 접근경로,불명,API,,,C/D,Can LLMs extract scientific consensus? A case study in high-temperature superconductivity
+451,W4408605330,Q1 접근경로,불명,API,,,C/D,ChemLit-QA: a human evaluated dataset for chemistry RAG tasks
+452,W4409600116,Q3 실행시점,없음,,,해당없음,B/C,Glycosphingolipids as emerging attack points in bladder cancer
+452,W4409600116,역할:gpt-4-turbo,판단불가,,,인용·언급,B/C,Glycosphingolipids as emerging attack points in bladder cancer
+453,W4409335551,Q6 확신도,,,낮음,높음,A/B,MENDELSEEK: An algorithm that predicts Mendelian Genes and elucidates what makes them special
+457,W7133568884,Q6 확신도,낮음,,,높음,B/C,Guest Editorial: Fabrication and Falsification in AI-Generated Academic Publication Manuscripts
+458,W4405765814,Q6 확신도,,높음,낮음,,A/D,Counting Defiers: A Design-Based Model of an Experiment Can Reveal Evidence Beyond the Average Effect
+460,W4412884457,Q1 접근경로,불명,,,해당없음,B/C,Unilateral biportal endoscopy ( UBE ) spine surgery for thoracolumbar intervertebral disc diseases in dogs: An ex vivo cadaveric and in vivo preclinical study
+460,W4412884457,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Unilateral biportal endoscopy ( UBE ) spine surgery for thoracolumbar intervertebral disc diseases in dogs: An ex vivo cadaveric and in vivo preclinical study
+460,W4412884457,Q3 실행시점,없음,,,해당없음,B/C,Unilateral biportal endoscopy ( UBE ) spine surgery for thoracolumbar intervertebral disc diseases in dogs: An ex vivo cadaveric and in vivo preclinical study
+460,W4412884457,역할:gpt-4-turbo,실행,,,인용·언급,B/C,Unilateral biportal endoscopy ( UBE ) spine surgery for thoracolumbar intervertebral disc diseases in dogs: An ex vivo cadaveric and in vivo preclinical study
+461,W4416296392,Q6 확신도,,,낮음,높음,A/B,Right Diagnoses with the Wrong Justification: Limitations of Current Large-Language Models for Screening of Rheumatoid Arthritis
+462,W4416983396,Q5 열람,,전문,불가,,A/D,"Reading for Pleasure: Public Library Dementia-Friendly Book Groups, a Proposal for a Qualitative Linguistic and Thematic Analysis"
+462,W4416983396,역할:gpt-4-turbo,,실행,판단불가,,A/D,"Reading for Pleasure: Public Library Dementia-Friendly Book Groups, a Proposal for a Qualitative Linguistic and Thematic Analysis"
+464,W4407382656,Q2 버전표기,,,해당없음,별칭·계열명,A/B,Commentary: The immediate pain relief of low-level laser therapy for burning mouth syndrome: a retrospective study of 94 cases
+466,W4414520585,Q6 확신도,,높음,낮음,,A/D,The Rise of Health Economics: Transforming the Landscape of Economic Research
+468,W7161151677,Q2 버전표기,,,제품명,별칭·계열명,A/B,Use of Commercially Available Large Language Models to Generate Information Leaflets on Post–Intensive Care Syndrome: Clinical Utility Assessment
+468,W7161151677,Q3 실행시점,,,연월,없음,A/B,Use of Commercially Available Large Language Models to Generate Information Leaflets on Post–Intensive Care Syndrome: Clinical Utility Assessment
+468,W7161151677,Q6 확신도,,,낮음,높음,A/B,Use of Commercially Available Large Language Models to Generate Information Leaflets on Post–Intensive Care Syndrome: Clinical Utility Assessment
+469,W7153235326,Q1 접근경로,불명,,,해당없음,B/C,Dependency‑Light ML Forecasts of ASEAN Smoking Prevalence with Uncertainty & Policy Scenarios (1990‑2035)
+469,W7153235326,Q2 버전표기,별칭·계열명,,,해당없음,B/C,Dependency‑Light ML Forecasts of ASEAN Smoking Prevalence with Uncertainty & Policy Scenarios (1990‑2035)
+469,W7153235326,Q3 실행시점,없음,,,해당없음,B/C,Dependency‑Light ML Forecasts of ASEAN Smoking Prevalence with Uncertainty & Policy Scenarios (1990‑2035)
+469,W7153235326,역할:o3-mini,실행,,,인용·언급,B/C,Dependency‑Light ML Forecasts of ASEAN Smoking Prevalence with Uncertainty & Policy Scenarios (1990‑2035)
+470,W7155063361,Q1 접근경로,,,서드파티,불명,A/B,MedSafe-Dx (v0): A Safety-Focused Benchmark for Evaluating LLMs in Clinical Diagnostic Decision Support
+470,W7155063361,Q2 버전표기,,,별칭·계열명,날짜 스냅숏,A/B,MedSafe-Dx (v0): A Safety-Focused Benchmark for Evaluating LLMs in Clinical Diagnostic Decision Support
+470,W7155063361,Q6 확신도,,,낮음,높음,A/B,MedSafe-Dx (v0): A Safety-Focused Benchmark for Evaluating LLMs in Clinical Diagnostic Decision Support
+471,W7165914965,Q1 접근경로,불명,,,API,B/C,Sensing but not alerting: ChatGPT mental health triage gaps in simulated psychodermatology conversations
+471,W7165914965,Q2 버전표기,별칭·계열명,,,날짜 스냅숏,B/C,Sensing but not alerting: ChatGPT mental health triage gaps in simulated psychodermatology conversations
+472,W7167574952,Q1 접근경로,불명,해당없음,,,C/D,Human-in-the-loop validation of a sequential multi-LLM medical education pipeline
+472,W7167574952,Q2 버전표기,별칭·계열명,해당없음,,,C/D,Human-in-the-loop validation of a sequential multi-LLM medical education pipeline
+472,W7167574952,Q3 실행시점,없음,해당없음,,,C/D,Human-in-the-loop validation of a sequential multi-LLM medical education pipeline
+472,W7167574952,Q6 확신도,낮음,높음,,,C/D,Human-in-the-loop validation of a sequential multi-LLM medical education pipeline
+472,W7167574952,역할:gpt-4-turbo,인용·언급,못찾음,,,C/D,Human-in-the-loop validation of a sequential multi-LLM medical education pipeline
+474,W4403578738,Q1 접근경로,,,API,불명,A/B,Answering Questions in Stages: Prompt Chaining for Contract QA
+475,W4403784471,Q1 접근경로,불명,API,,,C/D,A Few Hypocrites: Few-Shot Learning and Subtype Definitions for Detecting Hypocrisy Accusations in Online Climate Change Debates
+475,W4403784471,Q6 확신도,낮음,높음,,,C/D,A Few Hypocrites: Few-Shot Learning and Subtype Definitions for Detecting Hypocrisy Accusations in Online Climate Change Debates
+476,W4401042768,Q1 접근경로,불명,,,API,B/C,EURECOM at SemEval-2024 Task 4: Hierarchical Loss and Model Ensembling in Detecting Persuasion Techniques
+476,W4401042768,Q3 실행시점,없음,,,연월,B/C,EURECOM at SemEval-2024 Task 4: Hierarchical Loss and Model Ensembling in Detecting Persuasion Techniques
+477,W4394973254,Q1 접근경로,,불명,웹UI,,A/D,Thought of Search: Planning with Language Models Through The Lens of Efficiency
+477,W4394973254,Q2 버전표기,,별칭·계열명,제품명,,A/D,Thought of Search: Planning with Language Models Through The Lens of Efficiency
+477,W4394973254,Q6 확신도,,높음,낮음,,A/D,Thought of Search: Planning with Language Models Through The Lens of Efficiency
+478,W4411452552,Q1 접근경로,불명,,,해당없음,B/C,Do Spatial Trajectories of Social Media Users Imply the Credibility of the Users’ Tweets During Earthquake Crisis Management?
+478,W4411452552,Q3 실행시점,없음,,,해당없음,B/C,Do Spatial Trajectories of Social Media Users Imply the Credibility of the Users’ Tweets During Earthquake Crisis Management?
+478,W4411452552,역할:gpt-4-turbo,실행,,,인용·언급,B/C,Do Spatial Trajectories of Social Media Users Imply the Credibility of the Users’ Tweets During Earthquake Crisis Management?
+479,W4412888662,Q2 버전표기,,,해당없음,별칭·계열명,A/B,A Survey of Large Language Models in Psychotherapy: Current Landscape and Future Directions
+480,W4412641669,Q1 접근경로,불명,,,해당없음,B/C,Translation as Pedagogy: Dharmagupta’s Didactic Rendering of the Diamond Sutra (Vajracchedikā-Prajñāpāramitā-Sūtra) and Sanskrit Instruction in the Sui–Tang Period
+480,W4412641669,Q3 실행시점,없음,,,해당없음,B/C,Translation as Pedagogy: Dharmagupta’s Didactic Rendering of the Diamond Sutra (Vajracchedikā-Prajñāpāramitā-Sūtra) and Sanskrit Instruction in the Sui–Tang Period
+480,W4412641669,역할:gpt-4-turbo,실행,,,인용·언급,B/C,Translation as Pedagogy: Dharmagupta’s Didactic Rendering of the Diamond Sutra (Vajracchedikā-Prajñāpāramitā-Sūtra) and Sanskrit Instruction in the Sui–Tang Period
+481,W4411120358,Q1 접근경로,불명,API,,,C/D,CFinBench: A Comprehensive Chinese Financial Benchmark for Large Language Models
+484,W4416309081,Q1 접근경로,불명,,,API,B/C,Typology of Image Crises Using Large Language Models: A Novel Approach to Crisis Classification
+484,W4416309081,Q3 실행시점,없음,,,연월,B/C,Typology of Image Crises Using Large Language Models: A Novel Approach to Crisis Classification
+484,W4416309081,Q5 열람,초록만,,,전문,B/C,Typology of Image Crises Using Large Language Models: A Novel Approach to Crisis Classification
+485,W4407328224,Q1 접근경로,불명,API,,,C/D,“Turning right”? An experimental study on the political value shift in large language models
+486,W4412889683,Q1 접근경로,,해당없음,API,,A/D,Assessing Reliability and Political Bias In LLMs’ Judgements of Formal and Material Inferences With Partisan Conclusions
+486,W4412889683,Q2 버전표기,,해당없음,날짜 스냅숏,,A/D,Assessing Reliability and Political Bias In LLMs’ Judgements of Formal and Material Inferences With Partisan Conclusions
+486,W4412889683,Q3 실행시점,,해당없음,없음,,A/D,Assessing Reliability and Political Bias In LLMs’ Judgements of Formal and Material Inferences With Partisan Conclusions
+490,W7202207579,Q1 접근경로,혼합,해당없음,,,C/D,CIDER: A Dataset of Contextual Disclosure Boundaries for Privacy Preference Alignment
+490,W7202207579,Q2 버전표기,별칭·계열명,해당없음,,,C/D,CIDER: A Dataset of Contextual Disclosure Boundaries for Privacy Preference Alignment
+490,W7202207579,Q3 실행시점,없음,해당없음,,,C/D,CIDER: A Dataset of Contextual Disclosure Boundaries for Privacy Preference Alignment
+491,W7164880899,Q1 접근경로,불명,해당없음,,,C/D,GOVERNANÇA NO TRIBUNAL DE CONTAS NA ERA DIGITAL: O PAPEL DA INTELIGÊNCIA ARTIFICIAL NA PROMOÇÃO DE ACCOUNTABILITY E TRANSPARÊNCIA
+491,W7164880899,Q2 버전표기,별칭·계열명,해당없음,,,C/D,GOVERNANÇA NO TRIBUNAL DE CONTAS NA ERA DIGITAL: O PAPEL DA INTELIGÊNCIA ARTIFICIAL NA PROMOÇÃO DE ACCOUNTABILITY E TRANSPARÊNCIA
+491,W7164880899,Q3 실행시점,없음,해당없음,,,C/D,GOVERNANÇA NO TRIBUNAL DE CONTAS NA ERA DIGITAL: O PAPEL DA INTELIGÊNCIA ARTIFICIAL NA PROMOÇÃO DE ACCOUNTABILITY E TRANSPARÊNCIA
+491,W7164880899,역할:gpt-4-turbo,실행,인용·언급,,,C/D,GOVERNANÇA NO TRIBUNAL DE CONTAS NA ERA DIGITAL: O PAPEL DA INTELIGÊNCIA ARTIFICIAL NA PROMOÇÃO DE ACCOUNTABILITY E TRANSPARÊNCIA
+492,W7139135677,Q2 버전표기,별칭·계열명,해당없음,,,C/D,A Literature Review of Effects of Rubric on Student Self-Assessment and Peer Assessment in Higher Education
+492,W7139135677,Q3 실행시점,없음,해당없음,,,C/D,A Literature Review of Effects of Rubric on Student Self-Assessment and Peer Assessment in Higher Education
+493,W7110795894,Q1 접근경로,불명,웹UI,,,C/D,Data Sheet 1_Enhancing supermarket robot interaction: an equitable multi-level LLM conversational interface for handling diverse customer intents.pdf
+493,W7110795894,역할:gpt-4-turbo,인용·언급,실행,,,C/D,Data Sheet 1_Enhancing supermarket robot interaction: an equitable multi-level LLM conversational interface for handling diverse customer intents.pdf
+497,W7202080254,Q6 확신도,낮음,높음,,,C/D,ЭКСПЕРИМЕНТАЛЬНАЯ ОЦЕНКА ВЛИЯНИЯ РАЗДЕЛЕНИЯ КОДА И ОПТИМИЗАЦИИ ИЗОБРАЖЕНИЙ НА ПРОИЗВОДИТЕЛЬНОСТЬ ОДНОСТРАНИЧНОГО REACT-ПРИЛОЖЕНИЯ
+497,W7202080254,역할:o4-mini,판단불가,못찾음,,,C/D,ЭКСПЕРИМЕНТАЛЬНАЯ ОЦЕНКА ВЛИЯНИЯ РАЗДЕЛЕНИЯ КОДА И ОПТИМИЗАЦИИ ИЗОБРАЖЕНИЙ НА ПРОИЗВОДИТЕЛЬНОСТЬ ОДНОСТРАНИЧНОГО REACT-ПРИЛОЖЕНИЯ
+498,W7170079639,Q6 확신도,,높음,낮음,,A/D,AN INTELLIGENT MOBILE APPLICATION TO ANALYZE ROWING TECHNIQUE AND DELIVER BIOMECHANICAL FEEDBACK USING COMPUTER VISION AND LARGE LANGUAGE MODELS
+499,W7133522590,Q1 접근경로,불명,,,해당없음,B/C,The Accuracy of Silicon Samples in Market Research: Can AI Respondents Replace Humans?
+499,W7133522590,Q2 버전표기,별칭·계열명,,,해당없음,B/C,The Accuracy of Silicon Samples in Market Research: Can AI Respondents Replace Humans?
+499,W7133522590,Q3 실행시점,없음,,,해당없음,B/C,The Accuracy of Silicon Samples in Market Research: Can AI Respondents Replace Humans?
+499,W7133522590,Q5 열람,전문,,,불가,B/C,The Accuracy of Silicon Samples in Market Research: Can AI Respondents Replace Humans?
+499,W7133522590,Q6 확신도,높음,,,낮음,B/C,The Accuracy of Silicon Samples in Market Research: Can AI Respondents Replace Humans?
+499,W7133522590,역할:gpt-4-turbo,실행,,,판단불가,B/C,The Accuracy of Silicon Samples in Market Research: Can AI Respondents Replace Humans?
+500,W7172210115,Q1 접근경로,불명,,,API,B/C,PriMod4AI: Lifecycle-Aware Privacy Threat Modeling for AI Systems using LLM
+500,W7172210115,Q3 실행시점,없음,,,연월,B/C,PriMod4AI: Lifecycle-Aware Privacy Threat Modeling for AI Systems using LLM

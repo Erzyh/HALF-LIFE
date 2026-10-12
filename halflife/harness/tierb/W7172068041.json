@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7172068041",
+ "title": "The Age of AI Agents Demands A New Scientific Paradigm To Sustain Trustworthy Science",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo-2024-04-09",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Sec. 4.3: \"Agent specification...papers should specify: Model name and version (e.g., GPT-4-turbo-2024-04-09)\" -- illustrative example only"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (position/policy paper proposing reporting standards for AI-agent science; no experiment of its own)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The exact string 'GPT-4-turbo-2024-04-09' appears only as a hypothetical example of good model-versioning practice inside a proposed attribution standard; the authors never run this or any model."
+}

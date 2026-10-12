@@ -1,0 +1,66 @@
+{
+  "wid": "W4402345509",
+  "title": "LAB-Bench: Measuring Capabilities of Language Models for Biology Research",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.12,
+  "original_location": "Supplementary Table 1, row LitQA2, column gpt-4-turbo (mean of three runs over public and private splits)",
+  "reexecution": {
+    "mean_over_seeds": 0.32914572864321606,
+    "per_seed": {
+      "0": {
+        "value": 0.3417085427135678,
+        "n": 199,
+        "ci95": [
+          0.27638190954773867,
+          0.40703517587939697
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.3165829145728643,
+        "n": 199,
+        "ci95": [
+          0.25125628140703515,
+          0.38190954773869346
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4402345509",
+    "n_items": 199,
+    "n_requests": 398,
+    "seeds": 2,
+    "est_usd": 0.2,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.12,
+    "cap_usd": 1.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4402345509"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "20% private items unavailable (Appendix B.1: public/private accuracies differ by under 5 points); Claude 2 fallback parser replaced by regex-only parsing; option order permuted with a fixed seed per item",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W4402345509"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.32914572864321606,
+    "delta": 0.20914572864321607,
+    "original_inside_ci95": false
+  }
+}

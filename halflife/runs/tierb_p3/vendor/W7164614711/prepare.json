@@ -1,0 +1,13 @@
+{
+  "wid": "W7164614711",
+  "n_items": 12780,
+  "n_requests": 12780,
+  "seeds": 1,
+  "est_usd": 9.77,
+  "subset_note": null,
+  "dropped_unrenderable": 0,
+  "model": "gpt-5.6-luna",
+  "metric": "macro_f1",
+  "original_value": 51.68,
+  "cap_usd": 9.9
+}

@@ -1,0 +1,56 @@
+[
+ {
+  "name": "sad-mini run (cap 12)",
+  "group": "sad",
+  "args": [
+   "sad_W4400435289.py",
+   "--run",
+   "--cap",
+   "12"
+  ]
+ },
+ {
+  "name": "sad-mini analyze",
+  "group": "sad",
+  "args": [
+   "sad_W4400435289.py",
+   "--analyze"
+  ]
+ },
+ {
+  "name": "judge-bias run (cap 45)",
+  "group": "judgebias",
+  "args": [
+   "judgebias_W4404782878.py",
+   "--run",
+   "--cap",
+   "45"
+  ]
+ },
+ {
+  "name": "judge-bias analyze",
+  "group": "judgebias",
+  "args": [
+   "judgebias_W4404782878.py",
+   "--analyze"
+  ]
+ },
+ {
+  "name": "greedy-vs-sampling run (cap 50)",
+  "group": "greedy",
+  "args": [
+   "greedy_W4411120389.py",
+   "--run",
+   "--cap",
+   "50"
+  ]
+ },
+ {
+  "name": "greedy-vs-sampling analyze",
+  "group": "greedy",
+  "args": [
+   "greedy_W4411120389.py",
+   "--analyze"
+  ]
+ }
+]

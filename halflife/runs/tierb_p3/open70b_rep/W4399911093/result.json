@@ -1,0 +1,66 @@
+{
+  "wid": "W4399911093",
+  "title": "Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 90.24,
+  "original_location": "Table 4, row gpt-4-turbo, column F-score (%) = 90.24 +/- 0.55 (accuracy 89.40, precision 89.53, recall 90.96); also quoted in Sec. 4.2",
+  "reexecution": {
+    "mean_over_seeds": 0.8124519600307456,
+    "per_seed": {
+      "0": {
+        "value": 0.8055342044581091,
+        "n": 100,
+        "ci95": [
+          0.7654058063756323,
+          0.8459188721246599
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.819369715603382,
+        "n": 100,
+        "ci95": [
+          0.7760103602718514,
+          0.8609176227880023
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911093",
+    "n_items": 100,
+    "n_requests": 200,
+    "seeds": 2,
+    "est_usd": 0.16,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 90.24,
+    "cap_usd": 1.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4399911093"
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "3 harness seeds instead of the paper's 5 runs. The released notebook is parameterised for gpt-4o-2024-11-20; the model id is set to the snapshot Table 4 names as the selected model (gpt-4-turbo = gpt-4-turbo-2024-04-09 per Sec. 4.2). Everything else - prompt pattern, five priming examples, skip list, answer parser, count definitions and the pooled F-score - is the authors' own released code.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_rep\\W4399911093"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 81.24519600307455,
+    "delta": -8.994803996925441,
+    "original_inside_ci95": false
+  }
+}

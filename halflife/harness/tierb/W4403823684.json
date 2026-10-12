@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403823684",
+  "title": "Can we trust LLMs as relevance judges?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (unversioned); 'GPT-4 Turbo' only in a comparison sentence",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "'We used OpenAI (for GPT-4o) and Maritaca (for Sabia-2-medium) APIs ... temperatures ... (0 in GPT-4o and 0.02 in Sabia)' (Section 3.4)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 2 (prompt structure); Section 3.3: complete prompts 'available online'",
+    "note": "Few-shot CoT relevance prompt with one example per class; full text only online."
+  },
+  "claim": {
+    "metric": "Cohen's kappa vs gold relevance labels (CHAVE)",
+    "value": 0.729,
+    "n_items": null,
+    "location": "Table 2, row GPT-4o (kappa 0.729 on CHAVE, 0.282 on LLM4Eval-PT)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "CHAVE and LLM4Eval-PT Portuguese test collections (pooled query-document pairs; ~16K pairs mentioned for CHAVE)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "The CSV live id gpt-4-turbo is mention-only (role C). The model actually run is GPT-4o without a snapshot in an Oct-2024 paper (2024-05-13 or 2024-08-06 possible); prompts not in the paper."
+}

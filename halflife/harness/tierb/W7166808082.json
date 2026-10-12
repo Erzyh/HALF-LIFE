@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7166808082",
+  "title": "TURTLEAI: Benchmarking Multimodal Models for Visual Programming in Turtle Graphics",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-2025-04-16 (also o4-mini-2025-04-16, gpt-5-2025-08-07, gpt-4-turbo-2024-04-09 as 'GPT-4V')",
+    "resolved": "o3-2025-04-16",
+    "role": "S",
+    "evidence": "Appendix F.2 table: 'o3 o3-2025-04-16 (reasoning_effort=medium)'; Table 1 row o3: 40.20 44.12 (DSReal Sym./Emb.); Sec. 5.2: 'o3, achieves only a 40.2% symbolic success rate'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix H, Figure 15 'Prompt for Generating Code from Image'",
+    "note": "image plus fixed text prompt; code taken from the ```python block; greedy decoding"
+  },
+  "claim": {
+    "metric": "symbolic success rate (%)",
+    "value": 40.2,
+    "n_items": 102,
+    "location": "Table 1, row o3, column TURTLEAI-DSReal Sym. (%)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TURTLEAI benchmark (823 tasks; DSReal 102, DSCraft 102, DSSyn 619), https://github.com/machine-teaching-group/acl2026-turtleai"
+  },
+  "cost": {
+    "est_calls": 306,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Scorer must be rebuilt from Appendix F.4: execute reference and predicted code in a recording Turtle emulator and compare normalised drawing states (symbolic) or image embeddings. GPT-4V row is gpt-4-turbo-2024-04-09 (15.69% DSReal)."
+}

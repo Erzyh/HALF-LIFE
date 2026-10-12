@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416613039",
+  "title": "Evaluating AI capabilities in detecting conspiracy theories on YouTube",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (cited work only)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 2: 'Jo et al. [16] applied GPT-4-Turbo to detect harmful YouTube content, leveraging a dataset of 19,422 videos.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 3 (prompts for the evaluated open-weight models)",
+    "note": "Evaluated models: Llama-3.1-8B, Mistral-7B, Gemma-1.1-7B, Llama-3.3-70B, Llama-3.2-11B-Vision."
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "YouNiCon labels plus enriched metadata on GitHub; YouTube content subject to removal"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The live model appears only in related work; all experiments use open-weight models."
+}

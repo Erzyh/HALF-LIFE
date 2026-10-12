@@ -1,0 +1,66 @@
+{
+  "wid": "W4404782525",
+  "title": "Characterizing LLM Abstention Behavior in Science QA with Context Perturbations",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 61.2,
+  "original_location": "Table 3(a) 'Given context', row GPT4o, column PubmedQA",
+  "reexecution": {
+    "mean_over_seeds": 0.753,
+    "per_seed": {
+      "0": {
+        "value": 0.752,
+        "n": 500,
+        "ci95": [
+          0.714,
+          0.79
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.754,
+        "n": 500,
+        "ci95": [
+          0.716,
+          0.79
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404782525",
+    "n_items": 500,
+    "n_requests": 1000,
+    "seeds": 2,
+    "est_usd": 0.98,
+    "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 61.2,
+    "cap_usd": 2.02,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4404782525"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 49
+  },
+  "approximation": "the 500-question test set is taken as the official PQA-L test fold; the context is the CONTEXTS list joined with a space",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4404782525"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 75.3,
+    "delta": 14.099999999999994,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "wid": "W4416034223",
+  "title": "When Instructions Multiply: Measuring and Estimating LLM Capabilities of Multiple Instructions Following",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "top_p": 1.0
+    },
+    "params_source": "paper Appendix C (greedy decoding intended; the API has no top-k, the repo's --greedy flag uses temperature 0); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "other",
+    "n_items": 216,
+    "subset_rule": "paper-defined: rows with exactly 5 instructions (len(instruction_id_list) == 5; 216 rows verified)",
+    "approximation": "IFEval checkers re-implemented in the hook (strict mode, all five must pass): sentence counting by a regex splitter instead of nltk punkt, capital-word tokenization by a regex instead of nltk word_tokenize, langdetect English check skipped for the all-capital / all-lowercase instructions; the 15 instruction types present in the 216 rows are covered"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/kenoharada/Multiple-Instructions-Following, file data/manyifeval.jsonl (2,160 rows verified: 216 per instruction count 1-10)",
+    "config_or_split": "single JSONL",
+    "filter": "instruction_id_list.str.len() == 5",
+    "fields": {
+      "input": "prompt",
+      "label": "instruction_id_list",
+      "id": "key"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 3,
+    "file_url": "https://raw.githubusercontent.com/kenoharada/Multiple-Instructions-Following/main/data/manyifeval.jsonl",
+    "fields_prose": {
+      "input": "prompt (task description + numbered instruction list)",
+      "label": "instruction_id_list + kwargs (checked by instruction_following_eval)",
+      "id": "key"
+    },
+    "filter_prose": "len(instruction_id_list) == 5"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{prompt}",
+    "placeholders": {
+      "prompt": "items.prompt"
+    },
+    "few_shot": "none",
+    "source_location": "Figure 1 / Table 10 (format); the complete prompts are the dataset rows",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "prompt": "items.input verbatim (dataset row 'prompt')"
+    }
+  },
+  "output": {
+    "parse": "hook parse: raw reply (IFEval checks the unstripped response)",
+    "postprocess": "none",
+    "parse_prose": "free text checked by the IFEval rule checkers (strict mode)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "prompt-level accuracy(n=5) = share of the 216 prompts for which all five instruction checkers pass (Eq. 1, strict)",
+    "judge": "rule: IFEval checkers (repo instruction_following_eval)",
+    "original_value": 0.57,
+    "original_location": "Table 8, row GPT-4o, column n = 5",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 648,
+    "est_usd": 3.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "The other columns of the same row (n=1 0.94 ... n=10 0.21) can be run from the same file at 216 rows each. || [hooks_3 pass 2026-09-07] load_items keeps the 216 five-instruction rows and stores [instruction id, kwargs] pairs as the gold; score applies the checkers and returns prompt-level accuracy (Eq. 1) with per-item 0/1 for the bootstrap; failures per instruction type are printed.",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "hooks/W4416034223.py: load_items, parse, score"
+}

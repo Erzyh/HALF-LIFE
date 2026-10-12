@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416033907",
+  "title": "Challenging the Evaluator: LLM Sycophancy Under User Rebuttal",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1 nano (gpt-4.1-nano-2025-04-14)",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 9: \"gpt-4.1-nano-2025-04-14 OpenAI\"; Table 4 row \"GPT-4.1-nano 74.6* 66.1* 66.5* 56.1* 80.3 73.6\" (F, Fc, Fi for FR vs Judge)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D (MCQ question prompt template), D.1 (Full/Truncated/Answer-only rebuttal templates), Table 3 (examples)",
+    "note": "Two-turn conversation: original answer, then a rebuttal carrying a disagreeing answer from another LLM."
+  },
+  "claim": {
+    "metric": "persuasion percentage F under Full Rebuttal (FR)",
+    "value": 74.6,
+    "n_items": 594,
+    "location": "Table 4 / Table 5, row GPT-4.1-nano, column F (FR); average 118.8 disagreement pairs per dataset over 5 MCQ datasets (Table 2)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Public MCQ datasets (Table 1); the fixed disagreement pairs (challenger answers sampled from other LLMs) are not linked to a release"
+  },
+  "cost": {
+    "est_calls": 3600,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the disagreement pairs depend on gpt-4.1-nano's own first-turn answers and on randomly selected challenger responses from seven other models, so an exact re-creation is impossible; the protocol is fully described. Decoding temperature is not stated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Re-create the protocol from Sec. 3: sample 300 questions per dataset (CommonsenseQA, LogiQA, MedMCQA, MMLU, MMLU-Pro) with a fixed seed; obtain gpt-4.1-nano-2025-04-14 zero-shot CoT first-turn answers with the Appendix D template; build disagreement pairs with challenger answers from still-callable models of the Table 9 pool (challengers drawn from correct responders whenever the target is wrong, aiming at the ~50:50 split of Table 2); send the Full Rebuttal (D.1 template) as the second turn and measure the persuasion percentage F; compare with 74.6 (Table 4).",
+    "approximation": "The original fixed pairs (randomly selected challenger responses) cannot be recovered, so the pair set and challenger pool differ; temperature is not stated.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

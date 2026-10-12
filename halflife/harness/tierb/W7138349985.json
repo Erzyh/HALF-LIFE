@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7138349985",
+ "title": "Evalvacija napredka generativne umetne inteligence pri snovanju nalog iz visje matematike: Primerjalna studija",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo (via Copilot, April 2025 phase)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 1 (Orodja in verzije): \"Copilot | GPT-4 Turbo (April 2025) | GPT-4o (Januar 2026) | Integracija novejsega OpenAI modela.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 2.2 (Testne naloge): \"Vsem orodjem smo podali identicen poziv (prompt): 'Rad bi nekaj netrivialnih nalog za visjo matematiko...'\"",
+  "note": "Single verbatim prompt (Slovenian) requesting 5 non-trivial higher-math tasks with solutions, sent once per tool (single-shot)."
+ },
+ "claim": {
+  "metric": "none numeric (Table 2 reports only categorical Da/Ne (yes/no) and qualitative Uspesno/Neuspesno (success/failure) outcomes per tool per task)",
+  "value": null,
+  "n_items": 5,
+  "location": "Table 2 (Primerjava izpolnjevanja metodoloskih kriterijev), row 'Copilot' under 'Determinanta': 'Neuspesno (halucinacija)' for the April-2025 GPT-4-Turbo-backed phase",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "5 author-authored higher-mathematics tasks (matrix inverse, determinant, plane intersection, parallelepiped volume, local extrema); not released"
+ },
+ "cost": {
+  "est_calls": 5,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "no_number"
+ ],
+ "notes": "Copilot is a consumer web/chat product (webui, not API); GPT-4 Turbo was its backend only in the April-2025 phase of this two-timepoint comparison (superseded by GPT-4o by January 2026). Results are reported as a 5-task qualitative pass/fail table, not a numeric score."
+}

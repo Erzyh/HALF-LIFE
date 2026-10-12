@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7139077229",
+  "title": "From Protocol to Analysis Plan: Development and Validation of a Large Language Model Pipeline for Statistical Analysis Plan Generation using Artificial Intelligence (SAPAI)",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5 (gpt-5-2025-08-07)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "'OpenAI gpt-5 (gpt-5-2025-08-07); Anthropic Claude Sonnet 4 (claude-sonnet-4-20250514)' ... 'Default verbosity and reasoning settings were used for OpenAI gpt-5' (Methods)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "GitHub https://github.com/rct-sap-ai/sapai-jama-sap-validation ('Full prompt instructions can be found on our GitHub repository'); components described in Methods",
+    "note": ""
+  },
+  "claim": {
+    "metric": "proportion of SAP items scored accurate (statistical vs descriptive items)",
+    "value": 0.72,
+    "n_items": 414,
+    "location": "Results, inferential results: '72% vs 81% for GPT5' (9 protocols x 46 items)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "nine clinical trial protocols (registered/published trials; identifiers in supplement)"
+  },
+  "cost": {
+    "est_calls": 27,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "human_outcome"
+  ],
+  "notes": "Two independent raters per protocol with consensus; section-by-section prompt library lives only on GitHub."
+}

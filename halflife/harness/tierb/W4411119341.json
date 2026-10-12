@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119341",
+  "title": "Reverse Question Answering: Can an LLM Write a Question so Hard (or Bad) that it Can’t Answer?",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09 / gpt-4o-2024-05-13",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4: gpt-4-turbo-2024-04-09; GPT-4o: gpt-4o-2024-05-13\" (Appendix A.3); RQA/QA accuracies are shown only in Figure 2 and Figure 6"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 1 (prompt template), Appendix A.2 (prompt design and format rules)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "RQA / QA accuracy per entity type",
+    "value": null,
+    "n_items": 3443,
+    "location": "Figure 2 (bars with 95% CIs; no numeric table)",
+    "task_type": "other",
+    "judge": "llm:gpt-4o (DSPy-optimized) for entities; rule-based for numbers"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/ (code and data, footnote 1); Table 1 splits: 900/743/900/900"
+  },
+  "cost": {
+    "est_calls": 3443,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "No accuracy value is printed for GPT-4 or GPT-4o. The answer-equivalence judge is a DSPy-compiled GPT-4o program that requires the released code. Temperature 0, max 5 tokens."
+}

@@ -1,0 +1,2329 @@
+{
+ "data": [
+  {
+   "id": "arch_CcrDm3fX42Vj5LbcLm3Mv",
+   "name": "deepseek-ai/DeepSeek-V3.1",
+   "displayName": "DeepSeek V3.1",
+   "description": "DeepSeek V3.1 is a DeepSeek model for reasoning, coding, chat, and agentic workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "163840",
+   "publisher": "DeepSeek",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbXizPmBchS5UQP6612Gr",
+   "baseModel": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_CbXizPmBchS5UQP6612Gr",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-96b8b12cfe5f",
+     "certifiedConfigRevisionId": "cr_CeQCnL9x7Keqb1cD4ZEcM",
+     "certifiedModelRevisionId": "rv_CbXj9QWLTijpWHTD1SBtK",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/configs/cr_CeQCnL9x7Keqb1cD4ZEcM",
+     "model": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_CbXizPmBchS5UQP6612Gr/revisions/rv_CbXj9QWLTijpWHTD1SBtK",
+     "parallelism": "TP4",
+     "modelName": "deepseek-ai/DeepSeek-V3.1-NVFP4"
+    }
+   ],
+   "createdAt": "2026-07-09T09:08:28.654990Z",
+   "updatedAt": "2026-08-27T18:02:26.420244Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Cf6itozb1Sc6mTyLkcdb2",
+   "name": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "displayName": "DeepSeek V4.1 Flash",
+   "description": "DeepSeek-V4.1-Flash \u2014 FP8-quantized reasoning + tool-calling chat model.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_SERVERLESS",
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048576",
+   "publisher": "DeepSeek",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "serverlessEndpoint": "DeepSeek-V4.1-Flash",
+   "serverlessEndpointId": "ep_CevntTt2ajBUYd3YiUTz2",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 0.3,
+    "output": 1.2,
+    "cachedInput": 0.006
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_Cex19JBx2Ae8MByu1izLU",
+   "baseModel": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_Cex19JBx2Ae8MByu1izLU",
+   "deploymentProfiles": [
+    {
+     "profileId": "fp8-b200-tp4",
+     "certifiedConfigRevisionId": "cr_Cf6d5vjF1udzc9JrNt5as",
+     "certifiedModelRevisionId": "rv_Cex3jeprC1w7RRKDMKWNU",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/configs/cr_Cf6d5vjF1udzc9JrNt5as",
+     "model": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_Cex19JBx2Ae8MByu1izLU/revisions/rv_Cex3jeprC1w7RRKDMKWNU",
+     "parallelism": "TP4",
+     "modelName": "deepseek-ai/DeepSeek-V4.1-Flash-FP8"
+    }
+   ],
+   "createdAt": "2026-09-16T07:27:46.176967Z",
+   "updatedAt": "2026-09-17T20:43:19.129636Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Cd8c2oXGowXBu3coVsaQY",
+   "name": "deepseek-ai/DeepSeek-V4-Flash",
+   "displayName": "DeepSeek V4 Flash",
+   "description": "DeepSeek V4 Flash is a DeepSeek model for reasoning, coding, chat, and agentic workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048576",
+   "publisher": "DeepSeek",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "displayType": "chat",
+   "baseModelId": "ml_CdDkK2iBH3ifSDdMAhjjW",
+   "baseModel": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_CdDkK2iBH3ifSDdMAhjjW",
+   "deploymentProfiles": [
+    {
+     "profileId": "deepseek-v4-flash-nvfp4-b200-tp2",
+     "certifiedConfigRevisionId": "cr_Ceh96hq35bBMJpdbRC8nB",
+     "certifiedModelRevisionId": "rv_CdDkuCWF6x7sM6xYCNaqS",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 2,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/configs/cr_Ceh96hq35bBMJpdbRC8nB",
+     "model": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_CdDkK2iBH3ifSDdMAhjjW/revisions/rv_CdDkuCWF6x7sM6xYCNaqS",
+     "parallelism": "TP2",
+     "modelName": "deepseek-ai/DeepSeek-V4-Flash-NVFP4"
+    }
+   ],
+   "createdAt": "2026-07-18T00:50:02.858151Z",
+   "updatedAt": "2026-07-21T18:54:08.820092Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CdiL8STh1ttQDZn7LEFcn",
+   "name": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "displayName": "DeepSeek V4 Flash 0731",
+   "description": "DeepSeek-V4-Flash-0731 \u2014 NVFP4-quantized reasoning + tool-calling chat model.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_SERVERLESS",
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048576",
+   "publisher": "DeepSeek",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "serverlessEndpoint": "DeepSeek-V4-Flash-0731",
+   "serverlessEndpointId": "ep_CeS2RY2qDSERuKVC2J3EL",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 0.13999999999999999,
+    "output": 0.27999999999999997,
+    "cachedInput": 0.030000000000000002
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_CdgUAdeNktBYMBen5WnHT",
+   "baseModel": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_CdgUAdeNktBYMBen5WnHT",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-4bdf729e455c",
+     "certifiedConfigRevisionId": "cr_Cf8Pt4DcSPzufMM5khwUx",
+     "certifiedModelRevisionId": "rv_CdgV5GFj8H9uwcbVDGTs7",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 2,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/configs/cr_Cf8Pt4DcSPzufMM5khwUx",
+     "model": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_CdgUAdeNktBYMBen5WnHT/revisions/rv_CdgV5GFj8H9uwcbVDGTs7",
+     "parallelism": "TP2",
+     "modelName": "deepseek-ai/DeepSeek-V4-Flash-0731"
+    }
+   ],
+   "createdAt": "2026-08-04T20:21:42.248700Z",
+   "updatedAt": "2026-09-10T19:43:16.797705Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcrDkxyjFbuo4sxJRe1k9",
+   "name": "deepseek-ai/DeepSeek-V4-Pro",
+   "displayName": "DeepSeek V4 Pro",
+   "description": "DeepSeek V4 Pro is a DeepSeek model for reasoning, coding, chat, and agentic workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048576",
+   "publisher": "DeepSeek",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cc1RqmtqHu1SPz8kC5r4p",
+   "baseModel": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_Cc1RqmtqHu1SPz8kC5r4p",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-a3c3be4a1619",
+     "certifiedConfigRevisionId": "cr_CeQCnTXi81W3DJ3cxGqoz",
+     "certifiedModelRevisionId": "rv_Cc1RqqmVm1pGAHcq5nuxm",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 8,
+     "quantization": "MXFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/configs/cr_CeQCnTXi81W3DJ3cxGqoz",
+     "model": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_Cc1RqmtqHu1SPz8kC5r4p/revisions/rv_Cc1RqqmVm1pGAHcq5nuxm",
+     "parallelism": "TP8",
+     "modelName": "deepseek-ai/DeepSeek-V4-Pro-MXFP4"
+    }
+   ],
+   "createdAt": "2026-07-09T09:08:27.558380Z",
+   "updatedAt": "2026-08-27T18:02:27.079832Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ce3jkUxWAzJJ7fRsWjAe3",
+   "name": "deepseek-ai/DeepSeek-V4-Pro-0813",
+   "displayName": "DeepSeek V4 Pro 0813",
+   "description": "DeepSeek V4 Pro (0813) is a DeepSeek model for reasoning, coding, chat, and agentic workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_SERVERLESS",
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048576",
+   "publisher": "DeepSeek",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "serverlessEndpoint": "DeepSeek-V4-Pro-0813",
+   "serverlessEndpointId": "ep_CefWUFNsHtLrGr1MznJqb",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 1.32,
+    "output": 3.96,
+    "cachedInput": 0.12999999999999998
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_Ce2sEMaLhcfJAba8juwp7",
+   "baseModel": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_Ce2sEMaLhcfJAba8juwp7",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-35d0190b2712",
+     "certifiedConfigRevisionId": "cr_Ceh97Z8gu115czo3jcVtw",
+     "certifiedModelRevisionId": "rv_Ce2wNRShurdXp2dL6aiSp",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 8,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/configs/cr_Ceh97Z8gu115czo3jcVtw",
+     "model": "projects/proj_CbGpVBsQqsGhsRjV9DMhx/models/ml_Ce2sEMaLhcfJAba8juwp7/revisions/rv_Ce2wNRShurdXp2dL6aiSp",
+     "parallelism": "TP8",
+     "modelName": "deepseek-ai/DeepSeek-V4-Pro-0813-NVFP4"
+    }
+   ],
+   "createdAt": "2026-08-15T02:22:45.430161Z",
+   "updatedAt": "2026-09-10T19:43:17.529809Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqaviADkb6NJGW71mxX5",
+   "name": "google/gemma-4-26B-A4B-it",
+   "displayName": "Gemma 4 26B A4B IT",
+   "description": "Gemma 4 26B A4B IT is a Google open model for instruction following, chat, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Google",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcQ7YdNdqQWL62z6t4f8q",
+   "baseModel": "projects/proj_CaYm9oUUgGz8uPAF6cche/models/ml_CcQ7YdNdqQWL62z6t4f8q",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-1df5e75077bf",
+     "certifiedConfigRevisionId": "cr_CeQCnbp3Ab1FzXYF4JWbT",
+     "certifiedModelRevisionId": "rv_CcQ7cANYSHnKMJAPUrVWd",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CaYm9oUUgGz8uPAF6cche/configs/cr_CeQCnbp3Ab1FzXYF4JWbT",
+     "model": "projects/proj_CaYm9oUUgGz8uPAF6cche/models/ml_CcQ7YdNdqQWL62z6t4f8q/revisions/rv_CcQ7cANYSHnKMJAPUrVWd",
+     "parallelism": "TP2",
+     "modelName": "google/gemma-4-26B-A4B-it-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:27.354502Z",
+   "updatedAt": "2026-08-27T18:02:27.736135Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqavk2q2uhoAmjqJdABf",
+   "name": "google/gemma-4-31B-it",
+   "displayName": "Gemma 4 31B IT",
+   "description": "Gemma 4 31B IT is a Google open model for instruction following, chat, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Google",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbbDKACfP2brJnNJShuDN",
+   "baseModel": "projects/proj_CaYm9oUUgGz8uPAF6cche/models/ml_CbbDKACfP2brJnNJShuDN",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-d2f44de2d4c0",
+     "certifiedConfigRevisionId": "cr_Ceh97Fhgfu9vXcdvGuKQK",
+     "certifiedModelRevisionId": "rv_CbbDLDHEFY3p9VNinyF9g",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CaYm9oUUgGz8uPAF6cche/configs/cr_Ceh97Fhgfu9vXcdvGuKQK",
+     "model": "projects/proj_CaYm9oUUgGz8uPAF6cche/models/ml_CbbDKACfP2brJnNJShuDN/revisions/rv_CbbDLDHEFY3p9VNinyF9g",
+     "parallelism": "TP2",
+     "modelName": "google/gemma-4-31B-it-FP8"
+    },
+    {
+     "profileId": "profile-5fba49173891",
+     "certifiedConfigRevisionId": "cr_Ceh97Fhgfu9vXcdvGuKQK",
+     "certifiedModelRevisionId": "rv_CbbDLDHEFY3p9VNinyF9g",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CaYm9oUUgGz8uPAF6cche/configs/cr_Ceh97Fhgfu9vXcdvGuKQK",
+     "model": "projects/proj_CaYm9oUUgGz8uPAF6cche/models/ml_CbbDKACfP2brJnNJShuDN/revisions/rv_CbbDLDHEFY3p9VNinyF9g",
+     "parallelism": "TP4",
+     "modelName": "google/gemma-4-31B-it-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:27.792185Z",
+   "updatedAt": "2026-08-27T18:02:28.404644Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqavmoVcrn1fJHj8mtsj",
+   "name": "google/gemma-4-E4B-it",
+   "displayName": "Gemma 4 E4B IT",
+   "description": "Gemma 4 E4B IT is a Google open model for instruction following, chat, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Google",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcQKpozh9WfzY2J2nCEam",
+   "baseModel": "projects/proj_CaYm9oUUgGz8uPAF6cche/models/ml_CcQKpozh9WfzY2J2nCEam",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-8e07f51522ee",
+     "certifiedConfigRevisionId": "cr_CeQCnscoM579J3MhiMeKs",
+     "certifiedModelRevisionId": "rv_CcQKrB5jvaFHWVHZoQawx",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CaYm9oUUgGz8uPAF6cche/configs/cr_CeQCnscoM579J3MhiMeKs",
+     "model": "projects/proj_CaYm9oUUgGz8uPAF6cche/models/ml_CcQKpozh9WfzY2J2nCEam/revisions/rv_CcQKrB5jvaFHWVHZoQawx",
+     "parallelism": "TP1",
+     "modelName": "google/gemma-4-E4B-it-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:28.206432Z",
+   "updatedAt": "2026-08-27T18:02:29.048288Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqavoedEn2SPa7mpb6pK",
+   "name": "meta-llama/Llama-3.1-8B-Instruct",
+   "displayName": "Llama 3.1 8B Instruct",
+   "description": "Llama 3.1 8B Instruct is a Meta open model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "131072",
+   "publisher": "Meta",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcoJJ5xjwdLjhbg5aCcCB",
+   "baseModel": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CcoJJ5xjwdLjhbg5aCcCB",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-f8e45b1da29c",
+     "certifiedConfigRevisionId": "cr_CeQCo2GhKSLwoVgWMwiUs",
+     "certifiedModelRevisionId": "rv_CcoS6rkNpo882FG7gyLh1",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/configs/cr_CeQCo2GhKSLwoVgWMwiUs",
+     "model": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CcoJJ5xjwdLjhbg5aCcCB/revisions/rv_CcoS6rkNpo882FG7gyLh1",
+     "parallelism": "TP1",
+     "modelName": "meta-llama/Llama-3.1-8B-Instruct-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:28.638848Z",
+   "updatedAt": "2026-08-27T18:02:29.728419Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqavqNJtov9XTbZfYRyi",
+   "name": "meta-llama/Llama-3.3-70B-Instruct",
+   "displayName": "Llama 3.3 70B Instruct",
+   "description": "Llama 3.3 70B Instruct is a Meta open model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "131072",
+   "publisher": "Meta",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbRhw8mpNRf5F5N7qCqhj",
+   "baseModel": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CbRhw8mpNRf5F5N7qCqhj",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-673475cdc8b2",
+     "certifiedConfigRevisionId": "cr_CeQCoAptnvmqstTfm31QM",
+     "certifiedModelRevisionId": "rv_CbRmp3nCG9tti5xUAKXiv",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 4,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/configs/cr_CeQCoAptnvmqstTfm31QM",
+     "model": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CbRhw8mpNRf5F5N7qCqhj/revisions/rv_CbRmp3nCG9tti5xUAKXiv",
+     "parallelism": "TP4",
+     "modelName": "meta-llama/Llama-3.3-70B-Instruct-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:29.040702Z",
+   "updatedAt": "2026-08-27T18:02:30.403259Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcrDkrM7ufb4zpkwTu5vN",
+   "name": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+   "displayName": "Llama 4 Maverick 17B 128E Instruct",
+   "description": "Llama 4 Maverick 17B 128E Instruct is a Meta open model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Meta",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcoPm8ztL5k6GeYsV9DXF",
+   "baseModel": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CcoPm8ztL5k6GeYsV9DXF",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-4c6a99645ac8",
+     "certifiedConfigRevisionId": "cr_CeQCoJSYKRJi6nxvqeisZ",
+     "certifiedModelRevisionId": "rv_CcoU69kmhykJ1cXMkQ5wk",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/configs/cr_CeQCoJSYKRJi6nxvqeisZ",
+     "model": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_CcoPm8ztL5k6GeYsV9DXF/revisions/rv_CcoU69kmhykJ1cXMkQ5wk",
+     "parallelism": "TP4",
+     "modelName": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-NVFP4"
+    }
+   ],
+   "createdAt": "2026-07-09T09:08:26.007357Z",
+   "updatedAt": "2026-08-27T18:02:31.043886Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqavs6z3mq1S1iVU9YDv",
+   "name": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+   "displayName": "Llama 4 Scout 17B 16E Instruct",
+   "description": "Llama 4 Scout 17B 16E Instruct is a Meta open model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Meta",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cbz9svE5RPgh8V8WBP1bV",
+   "baseModel": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_Cbz9svE5RPgh8V8WBP1bV",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-f62eb44ac8ad",
+     "certifiedConfigRevisionId": "cr_CeQCoSYx8RgyGE3CYqrcu",
+     "certifiedModelRevisionId": "rv_Ccmqp7J4DT1WhkJCR8wnr",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/configs/cr_CeQCoSYx8RgyGE3CYqrcu",
+     "model": "projects/proj_CbJF6vaSodZ5wPmZtkGjH/models/ml_Cbz9svE5RPgh8V8WBP1bV/revisions/rv_Ccmqp7J4DT1WhkJCR8wnr",
+     "parallelism": "TP4",
+     "modelName": "meta-llama/Llama-4-Scout-17B-16E-Instruct-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:29.446533Z",
+   "updatedAt": "2026-08-27T18:02:31.681671Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Cdv3TZ8NaZLx43TETi2Wk",
+   "name": "meta-models/Muse-Glimmer-30B",
+   "displayName": "Muse Glimmer 30B",
+   "description": "Muse Glimmer 30B \u2014 Meta reasoning + tool-calling chat model (FP8), multimodal input (text, image, video).",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Meta",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "displayType": "chat",
+   "baseModelId": "ml_CduarENWYtUBtY3dvj5GK",
+   "baseModel": "projects/proj_Cduaew4QNQHimsRTfmy9U/models/ml_CduarENWYtUBtY3dvj5GK",
+   "deploymentProfiles": [
+    {
+     "profileId": "fp8-h100-tp2",
+     "certifiedConfigRevisionId": "cr_CehAZrDvykri1nyV1s8va",
+     "certifiedModelRevisionId": "rv_CdubEhyYqiVt7RBwvW99D",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_Cduaew4QNQHimsRTfmy9U/configs/cr_CehAZrDvykri1nyV1s8va",
+     "model": "projects/proj_Cduaew4QNQHimsRTfmy9U/models/ml_CduarENWYtUBtY3dvj5GK/revisions/rv_CdubEhyYqiVt7RBwvW99D",
+     "parallelism": "TP2",
+     "modelName": "meta-models/Muse-Glimmer-30B"
+    }
+   ],
+   "createdAt": "2026-08-11T00:50:13.381329Z",
+   "updatedAt": "2026-08-11T00:50:13.381329Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcrDkwTDBLCXTiQyC3H2q",
+   "name": "MiniMaxAI/MiniMax-M2.7",
+   "displayName": "MiniMax M2.7",
+   "description": "MiniMax M2.7 is a MiniMax model for agentic workflows, coding, and long-form text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "196608",
+   "publisher": "MiniMaxAI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbdkbYc7y9VUKvnCh3ujp",
+   "baseModel": "projects/proj_CbGpVCc4V59P1zaG43iZf/models/ml_CbdkbYc7y9VUKvnCh3ujp",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-b4665558fa5f",
+     "certifiedConfigRevisionId": "cr_CeQCoahbJ8dNtJ27NEp42",
+     "certifiedModelRevisionId": "rv_CbdpuscKyMuTeWoACvBuM",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 2,
+     "quantization": "FP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVCc4V59P1zaG43iZf/configs/cr_CeQCoahbJ8dNtJ27NEp42",
+     "model": "projects/proj_CbGpVCc4V59P1zaG43iZf/models/ml_CbdkbYc7y9VUKvnCh3ujp/revisions/rv_CbdpuscKyMuTeWoACvBuM",
+     "parallelism": "TP2",
+     "modelName": "MiniMaxAI/MiniMax-M2.7-FP4"
+    }
+   ],
+   "createdAt": "2026-07-09T09:08:27.201945Z",
+   "updatedAt": "2026-08-27T18:02:32.356596Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcrDkuoEUagAqrEKzY9mY",
+   "name": "MiniMaxAI/MiniMax-M3",
+   "displayName": "MiniMax M3",
+   "description": "MiniMax M3 is a MiniMax model for agentic workflows, coding, and long-form text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_SERVERLESS"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "524288",
+   "publisher": "MiniMaxAI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "serverlessEndpoint": "MiniMax-M3",
+   "serverlessEndpointId": "ep_CdkANhmvGLDTYb1b8fC7e",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 0.3,
+    "output": 1.2,
+    "cachedInput": 0.06
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_CcoPmbGSTwHvgVDoJAbG4",
+   "baseModel": "projects/proj_CbGpVCc4V59P1zaG43iZf/models/ml_CcoPmbGSTwHvgVDoJAbG4",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-3f504826fea2",
+     "certifiedConfigRevisionId": "cr_CeQCoiYsX54buUeVWLYjd",
+     "certifiedModelRevisionId": "rv_CcoU9rWK4TsxchVR9Q297",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpVCc4V59P1zaG43iZf/configs/cr_CeQCoiYsX54buUeVWLYjd",
+     "model": "projects/proj_CbGpVCc4V59P1zaG43iZf/models/ml_CcoPmbGSTwHvgVDoJAbG4/revisions/rv_CcoU9rWK4TsxchVR9Q297",
+     "parallelism": "TP4",
+     "modelName": "MiniMaxAI/MiniMax-M3-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T09:08:26.814186Z",
+   "updatedAt": "2026-09-17T20:43:17.681730Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcrDeX9oFqf9CzB81ebSp",
+   "name": "mistralai/Mistral-7B-Instruct-v0.3",
+   "displayName": "Mistral 7B Instruct v0.3",
+   "description": "Mistral 7B Instruct v0.3 is a Mistral AI open model for chat and instruction-following workloads.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "32768",
+   "publisher": "Mistral AI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cce8FdpNQgsuUPfmogwYa",
+   "baseModel": "projects/proj_CcY7foW55C47JegpaHqMM/models/ml_Cce8FdpNQgsuUPfmogwYa",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-180f694f5b3d",
+     "certifiedConfigRevisionId": "cr_CeQCorv9z892KEVWup6US",
+     "certifiedModelRevisionId": "rv_CcoSQKXfT5CvNZoFaX7EJ",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CcY7foW55C47JegpaHqMM/configs/cr_CeQCorv9z892KEVWup6US",
+     "model": "projects/proj_CcY7foW55C47JegpaHqMM/models/ml_Cce8FdpNQgsuUPfmogwYa/revisions/rv_CcoSQKXfT5CvNZoFaX7EJ",
+     "parallelism": "TP1",
+     "modelName": "mistralai/Mistral-7B-Instruct-v0.3-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T09:07:00.122596Z",
+   "updatedAt": "2026-08-27T18:02:33.661172Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcrDm1zoYmw1kKE3REG9M",
+   "name": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+   "displayName": "Mixtral 8x7B Instruct v0.1",
+   "description": "Mixtral 8x7B Instruct v0.1 is a Mistral AI mixture-of-experts model for chat and instruction-following workloads.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "32768",
+   "publisher": "Mistral AI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cce97aFhrNg7dpaBQyMW7",
+   "baseModel": "projects/proj_CcY7foW55C47JegpaHqMM/models/ml_Cce97aFhrNg7dpaBQyMW7",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-f219a02eb22b",
+     "certifiedConfigRevisionId": "cr_CeQCoyp98yUiYm9hXURi6",
+     "certifiedModelRevisionId": "rv_CcoT8QKa3cLvxcBY9VB2j",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CcY7foW55C47JegpaHqMM/configs/cr_CeQCoyp98yUiYm9hXURi6",
+     "model": "projects/proj_CcY7foW55C47JegpaHqMM/models/ml_Cce97aFhrNg7dpaBQyMW7/revisions/rv_CcoT8QKa3cLvxcBY9VB2j",
+     "parallelism": "TP2",
+     "modelName": "mistralai/Mixtral-8x7B-Instruct-v0.1-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T09:08:28.264623Z",
+   "updatedAt": "2026-08-27T18:02:34.294491Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcxzRVeR9hUH6hztfKdXh",
+   "name": "moonshotai/Kimi-K2.6",
+   "displayName": "Kimi K2.6",
+   "description": "Kimi K2.6 is a Moonshot AI model for agentic workflows, coding, reasoning, and chat.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Moonshot AI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcoPorEAgn4JaDiXkQ9sJ",
+   "baseModel": "projects/proj_CbJKSC8aAkUxaQmfsNtmi/models/ml_CcoPorEAgn4JaDiXkQ9sJ",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-0c4570e35ff8",
+     "certifiedConfigRevisionId": "cr_Cd35GioGqawKB4gLep7L2",
+     "certifiedModelRevisionId": "rv_CcoUpFopqrqnz5nN42zTY",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 8,
+     "quantization": "FP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbJKSC8aAkUxaQmfsNtmi/configs/cr_Cd35GioGqawKB4gLep7L2",
+     "model": "projects/proj_CbJKSC8aAkUxaQmfsNtmi/models/ml_CcoPorEAgn4JaDiXkQ9sJ/revisions/rv_CcoUpFopqrqnz5nN42zTY",
+     "parallelism": "TP8",
+     "modelName": "moonshotai/Kimi-K2.6-FP4"
+    }
+   ],
+   "createdAt": "2026-07-12T22:57:44.276938Z",
+   "updatedAt": "2026-07-15T18:30:58.215012Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqavtovsFmzkggHcjDcY",
+   "name": "moonshotai/Kimi-K2.7-Code",
+   "displayName": "Kimi K2.7 Code",
+   "description": "Kimi K2.7 Code is a Moonshot AI model for agentic workflows, coding, reasoning, and chat.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Moonshot AI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcEy2PgKi98n6SctmF1zL",
+   "baseModel": "projects/proj_CbJKSC8aAkUxaQmfsNtmi/models/ml_CcEy2PgKi98n6SctmF1zL",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-512ac1267ac3",
+     "certifiedConfigRevisionId": "cr_CeQCpCPwV1WkthAUoXQeQ",
+     "certifiedModelRevisionId": "rv_CcEykcrFtUX7RrHzs6Pen",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 8,
+     "quantization": "FP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbJKSC8aAkUxaQmfsNtmi/configs/cr_CeQCpCPwV1WkthAUoXQeQ",
+     "model": "projects/proj_CbJKSC8aAkUxaQmfsNtmi/models/ml_CcEy2PgKi98n6SctmF1zL/revisions/rv_CcEykcrFtUX7RrHzs6Pen",
+     "parallelism": "TP8",
+     "modelName": "moonshotai/Kimi-K2.7-Code-FP4"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:29.845742Z",
+   "updatedAt": "2026-08-27T18:02:34.974117Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Cf9gD8oqGDzYf1LoM268T",
+   "name": "moonshotai/Kimi-K3",
+   "displayName": "Kimi K3",
+   "description": "Kimi K3 is a Moonshot AI multimodal model for agentic workflows, coding, reasoning, and chat.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_SERVERLESS"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048576",
+   "publisher": "Moonshot AI",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "serverlessEndpoint": "Kimi-K3",
+   "serverlessEndpointId": "ep_CeRwymRYnqk1bFJ5HdDEE",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 3,
+    "output": 15,
+    "cachedInput": 0.3
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_CdxPRWoWYcT8mobKFkwm1",
+   "baseModel": "projects/proj_CbJKSC8aAkUxaQmfsNtmi/models/ml_CdxPRWoWYcT8mobKFkwm1",
+   "createdAt": "2026-09-17T20:54:21.245544Z",
+   "updatedAt": "2026-09-17T20:54:21.578453Z",
+   "tags": [],
+   "deploymentProfiles": []
+  },
+  {
+   "id": "arch_CdvzNy734Yg2gp8hHmmSG",
+   "name": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-FP8",
+   "displayName": "NVIDIA Nemotron 3.5 Lightning 30B",
+   "description": "NVIDIA Nemotron 3.5 Lightning 30B (A3B, FP8) \u2014 reasoning + tool-calling MoE chat model.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "262144",
+   "publisher": "NVIDIA",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "displayType": "chat",
+   "baseModelId": "ml_CdtMgBBj6kmWewppHrRMa",
+   "baseModel": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/models/ml_CdtMgBBj6kmWewppHrRMa",
+   "deploymentProfiles": [
+    {
+     "profileId": "fp8-h100-tp1",
+     "certifiedConfigRevisionId": "cr_Ceh96vQq7sDV7XwfWZ2ba",
+     "certifiedModelRevisionId": "rv_CduN69frTwpbo8ri6HwSV",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/configs/cr_Ceh96vQq7sDV7XwfWZ2ba",
+     "model": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/models/ml_CdtMgBBj6kmWewppHrRMa/revisions/rv_CduN69frTwpbo8ri6HwSV",
+     "parallelism": "TP1",
+     "modelName": "nvidia/Nemotron-3.5-Lightning-30B-A3B-FP8"
+    },
+    {
+     "profileId": "fp8-h100-tp2",
+     "certifiedConfigRevisionId": "cr_Ceh972E5QYTTQtt7C18jw",
+     "certifiedModelRevisionId": "rv_CduN69frTwpbo8ri6HwSV",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/configs/cr_Ceh972E5QYTTQtt7C18jw",
+     "model": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/models/ml_CdtMgBBj6kmWewppHrRMa/revisions/rv_CduN69frTwpbo8ri6HwSV",
+     "parallelism": "TP2",
+     "modelName": "nvidia/Nemotron-3.5-Lightning-30B-A3B-FP8"
+    },
+    {
+     "profileId": "fp8-h100-tp4",
+     "certifiedConfigRevisionId": "cr_Ceh977teGqLMqmMfgrqVb",
+     "certifiedModelRevisionId": "rv_CduN69frTwpbo8ri6HwSV",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/configs/cr_Ceh977teGqLMqmMfgrqVb",
+     "model": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/models/ml_CdtMgBBj6kmWewppHrRMa/revisions/rv_CduN69frTwpbo8ri6HwSV",
+     "parallelism": "TP4",
+     "modelName": "nvidia/Nemotron-3.5-Lightning-30B-A3B-FP8"
+    }
+   ],
+   "createdAt": "2026-08-11T12:50:26.344680Z",
+   "updatedAt": "2026-08-11T13:04:22.587100Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqavvY7YFTQSqxK8wzG5",
+   "name": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4",
+   "displayName": "NVIDIA Nemotron 3 Ultra 550B A55B",
+   "description": "NVIDIA Nemotron 3 Ultra 550B A55B is an NVIDIA model for reasoning, coding, and enterprise text-generation workloads.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "262144",
+   "publisher": "NVIDIA",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcB8jwFYgZaYqU6qva7t5",
+   "baseModel": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/models/ml_CcB8jwFYgZaYqU6qva7t5",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-67d85891f11c",
+     "certifiedConfigRevisionId": "cr_CeQCpKogFXnsFY1mvwAqV",
+     "certifiedModelRevisionId": "rv_CcB9B6x9FwY57dm4eVJEc",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/configs/cr_CeQCpKogFXnsFY1mvwAqV",
+     "model": "projects/proj_CbVjjuoQ9rktGN5KxkGD7/models/ml_CcB8jwFYgZaYqU6qva7t5/revisions/rv_CcB9B6x9FwY57dm4eVJEc",
+     "parallelism": "TP4",
+     "modelName": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:30.249871Z",
+   "updatedAt": "2026-08-27T18:02:35.647647Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcxverjKT1Sgkgo38EPEE",
+   "name": "openai/gpt-oss-120b",
+   "displayName": "OpenAI GPT-OSS 120B",
+   "description": "OpenAI GPT-OSS 120B is an OpenAI open-weight model for reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "131072",
+   "publisher": "OpenAI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbvRwMSJseaqzFNwCPJkL",
+   "baseModel": "projects/proj_CbGpV7sJnPRceWzWAUM12/models/ml_CbvRwMSJseaqzFNwCPJkL",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-2e35eae34a3f",
+     "certifiedConfigRevisionId": "cr_CeQCpaKoF2PFT67uESQ1c",
+     "certifiedModelRevisionId": "rv_Ccu6vAmqnvhPekVvo8XC7",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "MXFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV7sJnPRceWzWAUM12/configs/cr_CeQCpaKoF2PFT67uESQ1c",
+     "model": "projects/proj_CbGpV7sJnPRceWzWAUM12/models/ml_CbvRwMSJseaqzFNwCPJkL/revisions/rv_Ccu6vAmqnvhPekVvo8XC7",
+     "parallelism": "TP2",
+     "modelName": "openai/gpt-oss-120b-MXFP4"
+    }
+   ],
+   "createdAt": "2026-07-12T22:08:18.278387Z",
+   "updatedAt": "2026-08-27T18:02:36.963026Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcsNkeWHG5TM3BzaJA1dT",
+   "name": "openai/gpt-oss-20b",
+   "displayName": "OpenAI GPT-OSS 20B",
+   "description": "OpenAI GPT-OSS 20B is an OpenAI open-weight model for reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "131072",
+   "publisher": "OpenAI",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbJ9yCnij7A47b1xkpioB",
+   "baseModel": "projects/proj_CbGpV7sJnPRceWzWAUM12/models/ml_CbJ9yCnij7A47b1xkpioB",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-7eb9fbe9ab59",
+     "certifiedConfigRevisionId": "cr_CeQCpSxnouhi8r8N561VL",
+     "certifiedModelRevisionId": "rv_CbJ9yNrws93VQrZum1fTE",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "MXFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV7sJnPRceWzWAUM12/configs/cr_CeQCpSxnouhi8r8N561VL",
+     "model": "projects/proj_CbGpV7sJnPRceWzWAUM12/models/ml_CbJ9yCnij7A47b1xkpioB/revisions/rv_CbJ9yNrws93VQrZum1fTE",
+     "parallelism": "TP1",
+     "modelName": "openai/gpt-oss-20b-MXFP4"
+    }
+   ],
+   "createdAt": "2026-07-09T23:47:00.280379Z",
+   "updatedAt": "2026-08-27T18:02:36.314459Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqavx876DvG8DQLYmVmc",
+   "name": "Qwen/Qwen2.5-7B-Instruct",
+   "displayName": "Qwen2.5 7B Instruct",
+   "description": "Qwen2.5 7B Instruct is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "32768",
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbJFrnksihiPfgywV8AAk",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbJFrnksihiPfgywV8AAk",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-0dd6c9b295fb",
+     "certifiedConfigRevisionId": "cr_CeQCpiPDwSBAdxbNx9d5J",
+     "certifiedModelRevisionId": "rv_CbJNZAc6iFA8JLZwu8sdQ",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCpiPDwSBAdxbNx9d5J",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbJFrnksihiPfgywV8AAk/revisions/rv_CbJNZAc6iFA8JLZwu8sdQ",
+     "parallelism": "TP1",
+     "modelName": "Qwen/Qwen2.5-7B-Instruct-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:30.620442Z",
+   "updatedAt": "2026-08-27T18:02:37.635983Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcsNkhUdJPVktsLgNkxbJ",
+   "name": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+   "displayName": "Qwen3 235B A22B Instruct 2507",
+   "description": "Qwen3 235B A22B Instruct 2507 is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "262144",
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cbus6vs96JWnw9m5vhMUS",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbus6vs96JWnw9m5vhMUS",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-cee8b824be4d",
+     "certifiedConfigRevisionId": "cr_CeQCpqR9R2McaPPEJ13Dh",
+     "certifiedModelRevisionId": "rv_CbusPtWUyR6cgTPkU54R3",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCpqR9R2McaPPEJ13Dh",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbus6vs96JWnw9m5vhMUS/revisions/rv_CbusPtWUyR6cgTPkU54R3",
+     "parallelism": "TP4",
+     "modelName": "Qwen/Qwen3-235B-A22B-Instruct-2507-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T23:47:00.975590Z",
+   "updatedAt": "2026-08-27T18:02:38.292566Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcsNkjGmYPDhMo9SXfKzh",
+   "name": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+   "displayName": "Qwen3 235B A22B Thinking 2507",
+   "description": "Qwen3 235B A22B Thinking 2507 is a Qwen reasoning model for complex problem solving and multi-step instruction following.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "262144",
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbvRvmtxRv3EusGQCLC41",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbvRvmtxRv3EusGQCLC41",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-2e9dab149a4b",
+     "certifiedConfigRevisionId": "cr_CeQCpxjCAuxpnAWeaYdnK",
+     "certifiedModelRevisionId": "rv_CbvSDbeH7ijM3bRTeuCrZ",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCpxjCAuxpnAWeaYdnK",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbvRvmtxRv3EusGQCLC41/revisions/rv_CbvSDbeH7ijM3bRTeuCrZ",
+     "parallelism": "TP4",
+     "modelName": "Qwen/Qwen3-235B-A22B-Thinking-2507-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T23:47:01.395078Z",
+   "updatedAt": "2026-08-27T18:02:38.918358Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqaw2YGZuFkyXxizoXjv",
+   "name": "Qwen/Qwen3.5-122B-A10B",
+   "displayName": "Qwen3.5 122B A10B",
+   "description": "Qwen3.5 122B A10B is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CcoKPzhWxAMZf66izKXHn",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CcoKPzhWxAMZf66izKXHn",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-1a7ac7163e9f",
+     "certifiedConfigRevisionId": "cr_CeQCr8nTAb3vrahUvLd2H",
+     "certifiedModelRevisionId": "rv_CcoTmE6SoWMEwqLQWFgcQ",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 2,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCr8nTAb3vrahUvLd2H",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CcoKPzhWxAMZf66izKXHn/revisions/rv_CcoTmE6SoWMEwqLQWFgcQ",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3.5-122B-A10B-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:31.653804Z",
+   "updatedAt": "2026-08-27T18:02:44.120760Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqaw4917Ds8BdSGmwc16",
+   "name": "Qwen/Qwen3.5-27B",
+   "displayName": "Qwen3.5 27B",
+   "description": "Qwen3.5 27B is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbzKKMuQgoCZNFPuoVjzb",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbzKKMuQgoCZNFPuoVjzb",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-0d293be0ee4d",
+     "certifiedConfigRevisionId": "cr_CeQCqt9tL8AaBbcZ7BRck",
+     "certifiedModelRevisionId": "rv_CbzKPAHXNXdXQrSiMLBPj",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCqt9tL8AaBbcZ7BRck",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbzKKMuQgoCZNFPuoVjzb/revisions/rv_CbzKPAHXNXdXQrSiMLBPj",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3.5-27B-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:32.027184Z",
+   "updatedAt": "2026-08-27T18:02:42.836079Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqaw65qFVXbtnceEDwyE",
+   "name": "Qwen/Qwen3.5-35B-A3B",
+   "displayName": "Qwen3.5 35B A3B",
+   "description": "Qwen3.5 35B A3B is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbzKT3MRCDrbMTj7azW9S",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbzKT3MRCDrbMTj7azW9S",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-bdf51e738541",
+     "certifiedConfigRevisionId": "cr_CeQCr1CYnaQedfojuZPqG",
+     "certifiedModelRevisionId": "rv_CbzKYV38tKKTsUExkjthT",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCr1CYnaQedfojuZPqG",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbzKT3MRCDrbMTj7azW9S/revisions/rv_CbzKYV38tKKTsUExkjthT",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3.5-35B-A3B-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:32.482280Z",
+   "updatedAt": "2026-08-27T18:02:43.470717Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcrDm5X8pwzEWrnTmjmsQ",
+   "name": "Qwen/Qwen3.5-397B-A17B",
+   "displayName": "Qwen3.5 397B A17B",
+   "description": "Qwen3.5 397B A17B is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cbv6LK8yCHznBzciDhyr1",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbv6LK8yCHznBzciDhyr1",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-60a5b4f6ff31",
+     "certifiedConfigRevisionId": "cr_CeQCrG1Y2q45RZa1D1EBn",
+     "certifiedModelRevisionId": "rv_Cbv6eSDc9d2ppzh3H7MzX",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "FP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCrG1Y2q45RZa1D1EBn",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbv6LK8yCHznBzciDhyr1/revisions/rv_Cbv6eSDc9d2ppzh3H7MzX",
+     "parallelism": "TP4",
+     "modelName": "Qwen/Qwen3.5-397B-A17B-FP4"
+    }
+   ],
+   "createdAt": "2026-07-09T09:08:29.088702Z",
+   "updatedAt": "2026-08-27T18:02:44.770478Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CfJvpLK2APvokyCGLHRx1",
+   "name": "Qwen/Qwen3.5-4B",
+   "displayName": "Qwen3.5 4B",
+   "description": "Qwen3.5 4B is a Qwen vision-language model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "displayType": "chat",
+   "baseModelId": "ml_CfHPAL2z5iD9vkaHZ8dmB",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CfHPAL2z5iD9vkaHZ8dmB",
+   "deploymentProfiles": [
+    {
+     "profileId": "qwen3-5-4b-bf16-h100-tp1",
+     "certifiedConfigRevisionId": "cr_CfHSNAes5gNmGHLdTQSVv",
+     "certifiedModelRevisionId": "rv_CfHPHEyaW6ng7piBCi8fm",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CfHSNAes5gNmGHLdTQSVv",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CfHPAL2z5iD9vkaHZ8dmB/revisions/rv_CfHPHEyaW6ng7piBCi8fm",
+     "parallelism": "TP1",
+     "modelName": "Qwen/Qwen3.5-4B-BF16"
+    }
+   ],
+   "createdAt": "2026-09-22T18:11:15.084322Z",
+   "updatedAt": "2026-09-22T18:11:15.084322Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqTKyTw8XamS4VedT5US",
+   "name": "Qwen/Qwen3.5-9B",
+   "displayName": "Qwen3.5 9B",
+   "description": "Qwen3.5 9B is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbuqU8KKAtoGrowco4nqK",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbuqU8KKAtoGrowco4nqK",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-a2fac933-57d",
+     "certifiedConfigRevisionId": "cr_CeQCqcGQpVCeTctadrHjy",
+     "certifiedModelRevisionId": "rv_CbuqVQcNzbCXhReTiKTnc",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCqcGQpVCeTctadrHjy",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbuqU8KKAtoGrowco4nqK/revisions/rv_CbuqVQcNzbCXhReTiKTnc",
+     "parallelism": "TP1",
+     "modelName": "Qwen/Qwen3.5-9B-BF16"
+    },
+    {
+     "profileId": "profile-b0db9ba6-fc9",
+     "certifiedConfigRevisionId": "cr_CeQCqkAAuVSXrf8JLRVxm",
+     "certifiedModelRevisionId": "rv_Cbuqhg5tb3gD39vwzJbao",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCqkAAuVSXrf8JLRVxm",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbuqh6mfYmt2AHL5kzDb7/revisions/rv_Cbuqhg5tb3gD39vwzJbao",
+     "parallelism": "TP1",
+     "modelName": "Qwen/Qwen3.5-9B-FP8"
+    }
+   ],
+   "createdAt": "2026-07-08T23:25:48.377734Z",
+   "updatedAt": "2026-08-27T19:39:03.721588Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqaw7eqfHPzgMgV414JN",
+   "name": "Qwen/Qwen3.6-27B",
+   "displayName": "Qwen3.6 27B",
+   "description": "Qwen3.6 27B is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbJNwQC2ZqCU2iFT3mrCh",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbJNwQC2ZqCU2iFT3mrCh",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-2ae85e4e9ffb",
+     "certifiedConfigRevisionId": "cr_CeQCrPsofx3wzkGKCizcF",
+     "certifiedModelRevisionId": "rv_CbJPzJZtk9ut1AiFHR9Mb",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCrPsofx3wzkGKCizcF",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbJNwQC2ZqCU2iFT3mrCh/revisions/rv_CbJPzJZtk9ut1AiFHR9Mb",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3.6-27B-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:32.849313Z",
+   "updatedAt": "2026-08-27T18:02:45.396427Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqaw9EMHakbn3cBnX1Rs",
+   "name": "Qwen/Qwen3.6-35B-A3B",
+   "displayName": "Qwen3.6 35B A3B",
+   "description": "Qwen3.6 35B A3B is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbSJsoXB4sHXmSRLUm9es",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbSJsoXB4sHXmSRLUm9es",
+   "deploymentProfiles": [
+    {
+     "profileId": "fp8-b200-tp1",
+     "certifiedConfigRevisionId": "cr_Ceh96pLTPcNatioB4YfHe",
+     "certifiedModelRevisionId": "rv_CbSJvpfxiZZ5yQ33rfXTV",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 1,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_Ceh96pLTPcNatioB4YfHe",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbSJsoXB4sHXmSRLUm9es/revisions/rv_CbSJvpfxiZZ5yQ33rfXTV",
+     "parallelism": "TP1",
+     "modelName": "Qwen/Qwen3.6-35B-A3B-FP8"
+    },
+    {
+     "profileId": "profile-5b48102ee30f",
+     "certifiedConfigRevisionId": "cr_Ceh96pLTPcNatioB4YfHe",
+     "certifiedModelRevisionId": "rv_CbSJvpfxiZZ5yQ33rfXTV",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_Ceh96pLTPcNatioB4YfHe",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbSJsoXB4sHXmSRLUm9es/revisions/rv_CbSJvpfxiZZ5yQ33rfXTV",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3.6-35B-A3B-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:33.218840Z",
+   "updatedAt": "2026-08-27T18:02:46.039844Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CeN2FRmFkvmXSbW8ps48g",
+   "name": "Qwen/Qwen3.8-27B",
+   "displayName": "Qwen3.8 27B",
+   "description": "Qwen3.8 27B is a Qwen hybrid-attention model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "displayType": "chat",
+   "baseModelId": "ml_CeEG8brPkhwEGvVg9a6hh",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CeEG8brPkhwEGvVg9a6hh",
+   "deploymentProfiles": [
+    {
+     "profileId": "qwen3-8-27b-nvfp4-b200-tp1",
+     "certifiedConfigRevisionId": "cr_Ceh97Syr8v6H8pSuZaiwm",
+     "certifiedModelRevisionId": "rv_CeEGGkn8Zz1sCQDRUcKYn",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 1,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_Ceh97Syr8v6H8pSuZaiwm",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CeEG8brPkhwEGvVg9a6hh/revisions/rv_CeEGGkn8Zz1sCQDRUcKYn",
+     "parallelism": "TP1",
+     "modelName": "Qwen/Qwen3.8-27B-NVFP4"
+    },
+    {
+     "profileId": "qwen3-8-27b-fp8-h100-tp2",
+     "certifiedConfigRevisionId": "cr_Ceh97MUDAHhwPqZTgXD9h",
+     "certifiedModelRevisionId": "rv_CeGmRxpoot8jaxTZSxhHu",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_Ceh97MUDAHhwPqZTgXD9h",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CeGmEZ22uUuWLHSKj43rJ/revisions/rv_CeGmRxpoot8jaxTZSxhHu",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3.8-27B-FP8"
+    }
+   ],
+   "createdAt": "2026-08-24T18:09:48.920097Z",
+   "updatedAt": "2026-08-24T18:09:48.920097Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqavybAYykq86YQizrW8",
+   "name": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+   "displayName": "Qwen3 Coder 480B A35B Instruct",
+   "description": "Qwen3 Coder 480B A35B Instruct is a Qwen model for code generation, software engineering, and agentic coding workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "262144",
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbusJA1UauhW1PrddVDw5",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbusJA1UauhW1PrddVDw5",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-7faca272ef13",
+     "certifiedConfigRevisionId": "cr_CeQCq6NpUuPtz13Wdsz1i",
+     "certifiedModelRevisionId": "rv_CbustfHnwobmKiThtSndw",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCq6NpUuPtz13Wdsz1i",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbusJA1UauhW1PrddVDw5/revisions/rv_CbustfHnwobmKiThtSndw",
+     "parallelism": "TP4",
+     "modelName": "Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:30.963745Z",
+   "updatedAt": "2026-08-27T18:02:39.552650Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcsNkoMM7VTon2UZcwTSR",
+   "name": "Qwen/Qwen3-Coder-Next",
+   "displayName": "Qwen3 Coder Next",
+   "description": "Qwen3 Coder Next is a Qwen model for code generation, software engineering, and agentic coding workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "262144",
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbuqZbhyzUxBeMUUeAPW9",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbuqZbhyzUxBeMUUeAPW9",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-5bd23993bcce",
+     "certifiedConfigRevisionId": "cr_CeQCqDVSvDvonk7hg9Hv9",
+     "certifiedModelRevisionId": "rv_CbuqfYgaWrwxJmRCcqKi1",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 2,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCqDVSvDvonk7hg9Hv9",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_CbuqZbhyzUxBeMUUeAPW9/revisions/rv_CbuqfYgaWrwxJmRCcqKi1",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3-Coder-Next-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T23:47:02.349807Z",
+   "updatedAt": "2026-08-27T18:02:40.192889Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcsNkpYnHduFoxQbNvfQj",
+   "name": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+   "displayName": "Qwen3 Next 80B A3B Instruct",
+   "description": "Qwen3 Next 80B A3B Instruct is a Qwen model for chat, reasoning, coding, and general-purpose text generation.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "262144",
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cbuqro6oyWjr5QLNVLc7f",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbuqro6oyWjr5QLNVLc7f",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-b24076babf4e",
+     "certifiedConfigRevisionId": "cr_CeQCqLW7g2sGZDAwQV2BZ",
+     "certifiedModelRevisionId": "rv_Cbuqxpt8hWZL8RxABiAbM",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 2,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCqLW7g2sGZDAwQV2BZ",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbuqro6oyWjr5QLNVLc7f/revisions/rv_Cbuqxpt8hWZL8RxABiAbM",
+     "parallelism": "TP2",
+     "modelName": "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8"
+    }
+   ],
+   "createdAt": "2026-07-09T23:47:02.629875Z",
+   "updatedAt": "2026-08-27T18:02:40.858525Z",
+   "tags": []
+  },
+  {
+   "id": "arch_Ccqaw18SLVCjmW9dtCmhT",
+   "name": "Qwen/Qwen3-VL-8B-Instruct",
+   "displayName": "Qwen3 VL 8B Instruct",
+   "description": "Qwen3 VL 8B Instruct is a Qwen vision-language model for image understanding and instruction-following workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Qwen",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_Cbuqi7hFc4HMA3euHXFSV",
+   "baseModel": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbuqi7hFc4HMA3euHXFSV",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-1c58bb94a31c",
+     "certifiedConfigRevisionId": "cr_CeQCqUcn15iB2ztgx4tw3",
+     "certifiedModelRevisionId": "rv_Cbuqj5P8R2bDWAx2E7mkr",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 1,
+     "quantization": "BF16",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbGpV8orZSw72BARMZy4i/configs/cr_CeQCqUcn15iB2ztgx4tw3",
+     "model": "projects/proj_CbGpV8orZSw72BARMZy4i/models/ml_Cbuqi7hFc4HMA3euHXFSV/revisions/rv_Cbuqj5P8R2bDWAx2E7mkr",
+     "parallelism": "TP1",
+     "modelName": "Qwen/Qwen3-VL-8B-Instruct-BF16"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:31.323811Z",
+   "updatedAt": "2026-08-27T18:02:41.525485Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CdZQygcnWvTWDscbs1emG",
+   "name": "thinkingmachines/Inkling-Small",
+   "displayName": "Inkling Small",
+   "description": "Inkling-Small is a ThinkingMachines sparse mixture-of-experts multimodal model (text, image, audio input) for chat, reasoning, and tool use.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_AUDIO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "publisher": "Thinking Machines",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CdXb5yXb94NzGz7MqUNPf",
+   "baseModel": "projects/proj_Cd65e9gLx1pCotE9j4EkW/models/ml_CdXb5yXb94NzGz7MqUNPf",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-2558c6e9887c",
+     "certifiedConfigRevisionId": "cr_CesLJet6AzaChGdkR9Jne",
+     "certifiedModelRevisionId": "rv_CdXcXHPhA9jJfvuM4UuFs",
+     "gpuType": "NVIDIA-H100",
+     "gpuCount": 8,
+     "quantization": "FP8",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_Cd65e9gLx1pCotE9j4EkW/configs/cr_CesLJet6AzaChGdkR9Jne",
+     "model": "projects/proj_Cd65e9gLx1pCotE9j4EkW/models/ml_CdXb5yXb94NzGz7MqUNPf/revisions/rv_CdXcXHPhA9jJfvuM4UuFs",
+     "parallelism": "TP8",
+     "modelName": "thinkingmachines/Inkling-Small-FP8"
+    }
+   ],
+   "createdAt": "2026-07-31T03:19:56.733910Z",
+   "updatedAt": "2026-09-16T16:05:48.317321Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcqawBhBM7pwUuAEyrjKc",
+   "name": "zai-org/GLM-5.1",
+   "displayName": "GLM 5.1",
+   "description": "GLM 5.1 is a Z.ai model for chat, reasoning, coding, and agentic workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_FINE_TUNING"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "202752",
+   "publisher": "Z.ai",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "displayType": "chat",
+   "baseModelId": "ml_CbekxBgNNwXjZCxoqCMHe",
+   "baseModel": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CbekxBgNNwXjZCxoqCMHe",
+   "deploymentProfiles": [
+    {
+     "profileId": "profile-59fc8a992222",
+     "certifiedConfigRevisionId": "cr_CeQCrfMidZumzqrZ6sWri",
+     "certifiedModelRevisionId": "rv_CbemZcvdxrNao8S868BWo",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "FP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/configs/cr_CeQCrfMidZumzqrZ6sWri",
+     "model": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CbekxBgNNwXjZCxoqCMHe/revisions/rv_CbemZcvdxrNao8S868BWo",
+     "parallelism": "TP4",
+     "modelName": "zai-org/GLM-5.1-FP4"
+    }
+   ],
+   "createdAt": "2026-07-09T01:05:33.794509Z",
+   "updatedAt": "2026-08-27T18:02:46.705560Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CcsNkmePoNXoyvSsCv3om",
+   "name": "zai-org/GLM-5.2",
+   "displayName": "GLM 5.2",
+   "description": "GLM 5.2 is a Z.ai model for chat, reasoning, coding, and agentic workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_DEDICATED",
+    "PRODUCT_SERVERLESS"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048575",
+   "publisher": "Z.ai",
+   "status": "SUPPORTED_MODEL_STATUS_RECOMMENDED",
+   "serverlessEndpoint": "GLM-5.2",
+   "serverlessEndpointId": "ep_CdkAxYorqai61okfEKw6e",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 1.4,
+    "output": 4.4,
+    "cachedInput": 0.25999999999999995
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_CcEtnFUbitJYNja6TTR6U",
+   "baseModel": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CcEtnFUbitJYNja6TTR6U",
+   "deploymentProfiles": [
+    {
+     "profileId": "b200-nvfp4-tp8",
+     "certifiedConfigRevisionId": "cr_CeVrkZBRAsfcyBPxLsz6X",
+     "certifiedModelRevisionId": "rv_CeVoekq8dspL2iJSuWFpX",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 8,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/configs/cr_CeVrkZBRAsfcyBPxLsz6X",
+     "model": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CdyqdFojFqZrv75jqDCEu/revisions/rv_CeVoekq8dspL2iJSuWFpX",
+     "parallelism": "TP8",
+     "modelName": "zai-org/GLM-5.2-NVFP4"
+    },
+    {
+     "profileId": "profile-cabcbcec874c",
+     "certifiedConfigRevisionId": "cr_Ceh9uzWh374PPUEHYa6M7",
+     "certifiedModelRevisionId": "rv_CcEuPu4Gk6c4M7v4PTYuG",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 4,
+     "quantization": "FP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/configs/cr_Ceh9uzWh374PPUEHYa6M7",
+     "model": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CcEtnFUbitJYNja6TTR6U/revisions/rv_CcEuPu4Gk6c4M7v4PTYuG",
+     "parallelism": "TP4",
+     "modelName": "zai-org/GLM-5.2-FP4"
+    }
+   ],
+   "createdAt": "2026-07-09T23:47:01.950027Z",
+   "updatedAt": "2026-08-27T18:02:47.363905Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CeXJBDXqwPCAku2BFsHgW",
+   "name": "zai-org/GLM-5.3",
+   "displayName": "GLM 5.3",
+   "description": "GLM 5.3 is a Z.ai model for chat, reasoning, coding, and agentic workflows.",
+   "inputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_SERVERLESS",
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048575",
+   "publisher": "Z.ai",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "serverlessEndpoint": "GLM-5.3",
+   "serverlessEndpointId": "ep_CeUtUgVVYyF8r2LbrX1oJ",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 1.4,
+    "output": 4.4,
+    "cachedInput": 0.25999999999999995
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_CeVYmprgdDQmSqeWkCG7h",
+   "baseModel": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CeVYmprgdDQmSqeWkCG7h",
+   "deploymentProfiles": [
+    {
+     "profileId": "glm-5-3-nvfp4-b200-tp8",
+     "certifiedConfigRevisionId": "cr_Cf3yApYdaWMrH6RsyVmh7",
+     "certifiedModelRevisionId": "rv_Cf3rxHHAR3brSZ2BLon5N",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 8,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/configs/cr_Cf3yApYdaWMrH6RsyVmh7",
+     "model": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CeVYmprgdDQmSqeWkCG7h/revisions/rv_Cf3rxHHAR3brSZ2BLon5N",
+     "parallelism": "TP8",
+     "modelName": "zai-org/GLM-5.3-NVFP4"
+    }
+   ],
+   "createdAt": "2026-08-29T15:44:01.781784Z",
+   "updatedAt": "2026-09-10T19:43:18.872308Z",
+   "tags": []
+  },
+  {
+   "id": "arch_CedHsbQFjuwnACJGTKMpp",
+   "name": "zai-org/GLM-5.3-Flash",
+   "displayName": "GLM 5.3 Flash",
+   "description": "GLM 5.3 Flash is a Z.ai multimodal model for chat, reasoning, coding, and agentic workflows, with image and video input.",
+   "inputModalities": [
+    "MODALITY_TEXT",
+    "MODALITY_IMAGE",
+    "MODALITY_VIDEO"
+   ],
+   "outputModalities": [
+    "MODALITY_TEXT"
+   ],
+   "products": [
+    "PRODUCT_SERVERLESS",
+    "PRODUCT_DEDICATED"
+   ],
+   "features": [
+    "FEATURE_TOOL_CALLING",
+    "FEATURE_REASONING",
+    "FEATURE_STRUCTURED_OUTPUT"
+   ],
+   "capabilities": [
+    "CAPABILITY_CHAT"
+   ],
+   "contextLength": "1048575",
+   "publisher": "Z.ai",
+   "status": "SUPPORTED_MODEL_STATUS_SUPPORTED",
+   "serverlessEndpoint": "GLM-5.3-Flash",
+   "serverlessEndpointId": "ep_CeRXnyAPHGa9abtYr2q69",
+   "serverlessEndpointProjectId": "proj_Cdk8UejYGJco1A17G7hSg",
+   "pricing": {
+    "input": 0.15,
+    "output": 0.5,
+    "cachedInput": 0.030000000000000002
+   },
+   "displayType": "chat",
+   "baseModelId": "ml_CeVwaUpJ5fZDNMJ7vi91M",
+   "baseModel": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CeVwaUpJ5fZDNMJ7vi91M",
+   "deploymentProfiles": [
+    {
+     "profileId": "glm-5-3-flash-nvfp4-b200-tp2",
+     "certifiedConfigRevisionId": "cr_Ces6eXaih39ipdwHZnHq1",
+     "certifiedModelRevisionId": "rv_CergTWhY5VjPz9bxjn5FS",
+     "gpuType": "NVIDIA-B200",
+     "gpuCount": 2,
+     "quantization": "NVFP4",
+     "performanceBenchmarks": {},
+     "config": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/configs/cr_Ces6eXaih39ipdwHZnHq1",
+     "model": "projects/proj_CbdXDuLRFhUPv1mGfxwUc/models/ml_CeVwaUpJ5fZDNMJ7vi91M/revisions/rv_CergTWhY5VjPz9bxjn5FS",
+     "parallelism": "TP2",
+     "modelName": "zai-org/GLM-5.3-Flash-NVFP4"
+    }
+   ],
+   "createdAt": "2026-09-01T19:43:36.604628Z",
+   "updatedAt": "2026-09-10T19:43:19.531528Z",
+   "tags": []
+  }
+ ],
+ "object": "list"
+}

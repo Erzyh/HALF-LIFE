@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415751231",
+ "title": "Dezinformacije generisane veštačkom inteligencijom: pregled globalnih mehanizama, rizika i izazova za lokalne zajednice",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"OpenAI je lansirao naprednije verzije: ChatGPT-4, GPT-4 Turbo i GPT-4o... GPT-4.1...\" (background narrative on OpenAI's release history; also appears in a reference-list citation)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Literature-review paper; no prompt or experiment of any kind."
+ },
+ "claim": {
+  "metric": "none (literature review, no experiment)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a; the paper is a literature review with no dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Serbian-language literature review on AI-generated disinformation; GPT-4 Turbo/GPT-4o/GPT-4.1 appear only in a historical narrative about OpenAI's model releases and in reference-list citations of other authors' work, never as a model the authors query themselves."
+}

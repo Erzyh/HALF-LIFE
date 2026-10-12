@@ -1,0 +1,109 @@
+{
+  "card_id": "W4394708144",
+  "openalex_id": "https://openalex.org/W4394708144",
+  "title": "Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators",
+  "doi": "10.48550/arXiv.2404.04475",
+  "paper": {
+    "doi": "10.48550/arXiv.2404.04475",
+    "authors": "Dubois, Galambosi, Liang, Hashimoto",
+    "year": 2024,
+    "version_read": "arXiv v2 (2025-03-10), external/papers/W4394708144.txt",
+    "repo": "https://github.com/tatsu-lab/alpaca_eval",
+    "repo_license": "Apache-2.0",
+    "repo_commit": "cd543a149df89434d8a54582c0151c0b945c3d20 (HEAD 2025-08-09; clone external/repos/W4394708144/tatsu-lab__alpaca_eval)"
+  },
+  "dependence": {
+    "type": "annotator",
+    "strength": "core",
+    "note": "Every number in the paper derives from pairwise preferences emitted by the AlpacaEval 2.0 auto-annotator (config weighted_alpaca_eval_gpt4_turbo = gpt-4-1106-preview, logprob-weighted). The LC method itself is an offline GLM fitted on those preferences; the LLM dependence sits entirely in the annotation layer."
+  },
+  "claim": {
+    "statement": "Length-controlling the GPT-4-Turbo-preview auto-annotator's AlpacaEval 2.0 win rates raises Spearman correlation with LMSYS Chatbot Arena from 0.94 to 0.98 and cuts length gameability (normalized SD of win rate across concise/standard/verbose prompts) from 26% to 10% (Table 1; Fig. 1; Fig. 3: gpt4_1106_preview raw win rate swings 22.9-64.3% vs LC 41.9-51.6%).",
+    "claim_type": "method_effect",
+    "metric": "Spearman rho between benchmark score and Chatbot Arena Elo over the 37-38 models present in both (notebooks/benchmarks.csv); gameability = normalized SD of a model's win rate across its 3 verbosity-prompt variants; adversarial gain = LC win-rate increase under a truncation attack on gpt-4 outputs.",
+    "original_values": {
+      "arena_spearman_raw_winrate": 0.94,
+      "arena_spearman_length_controlled": 0.98,
+      "arena_spearman_length_normalized": 0.96,
+      "arena_spearman_length_balanced": 0.95,
+      "gameability_raw": 0.26,
+      "gameability_lc": 0.10,
+      "adversarial_winrate_gain_lc_regularized": 8.5,
+      "bootstrap_p_lc_vs_raw": 0.07,
+      "gpt4_1106_preview_concise_raw_winrate": 22.92,
+      "gpt4_1106_preview_verbose_raw_winrate": 64.30,
+      "gpt4_1106_preview_concise_lc_winrate": 41.90,
+      "gpt4_1106_preview_verbose_lc_winrate": 51.58,
+      "n_models_arena_overlap": "38 per paper (37 rows with both Arena Elo [Feb 2 2024] and LC in benchmarks.csv)"
+    },
+    "original_source": "Paper Table 1 and Sec. 4.1-4.2; leaderboard CSV src/alpaca_eval/leaderboards/data_AlpacaEval_2/weighted_alpaca_eval_gpt4_turbo_leaderboard.csv (columns win_rate, length_controlled_winrate); notebooks/benchmarks.csv (Arena Elo snapshots Feb 2 / Apr 18 2024)"
+  },
+  "protocol": {
+    "model": "gpt-4-1106-preview (annotator; config weighted_alpaca_eval_gpt4_turbo). NOT gpt-4-turbo-2024-04-09: the scaffold's live-arm hit is the paper's phrase 'GPT-4 turbo', which denotes the 1106 preview. The repo later added weighted_alpaca_eval_gpt4_turbo_new (alias gpt-4-turbo -> 2024-04-09) but the paper did not use it.",
+    "model_status": "dead (gpt-4-1106-preview shut down 2026-03-26 per target_models.json). Live arm not an experimental arm.",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (alpaca_eval openai_completions)",
+    "prompt_source": "src/alpaca_eval/evaluators_configs/alpaca_eval_clf_gpt4_turbo/alpaca_eval_clf.txt (system + user turn; model outputs shown as identifiers m / M, order randomized per example)",
+    "messages": [
+      { "role": "system", "content": "You are a highly efficient assistant, who evaluates and selects the best large language model (LLMs) based on the quality of their responses to a given instruction. ..." },
+      { "role": "user", "content": "I require a leaderboard for various large language models. ... {instruction} ... model_identifier m: {output_1} ... model_identifier M: {output_2} ... ## Best Model Identifier" }
+    ],
+    "params": {
+      "temperature": 1,
+      "max_tokens": 1,
+      "logprobs": true,
+      "top_logprobs": 5,
+      "seed": "not set",
+      "parser": "logprob_parser: preference = P(m)/(P(m)+P(M)) from top-5 logprobs, not binarized (completion_key completions_all)"
+    },
+    "n_items": "805 instructions x 1 pairwise comparison vs baseline gpt4_1106_preview, per evaluated model; paper uses ~38 leaderboard models for the Arena correlation plus 12 verbosity variants (6 models x concise/verbose) for gameability",
+    "samples_per_item": 1,
+    "evaluation": "Automatic. (1) annotations.json per model -> raw win rate = mean preference; (2) GLM length_controlled_v1 in src/alpaca_eval/metrics/glm_winrate.py (formula tanh(std_delta_len) + instruction_difficulty + model term, 5-fold CV, regularize_to_baseline_lambda 0.2) -> LC win rate; (3) Spearman vs Arena Elo (notebooks/length_controlled.ipynb, figures_length_controlled.ipynb). Needs logprobs from the annotator.",
+    "environment_check": "Re-fit the GLM from the cached annotations (results/*/weighted_alpaca_eval_gpt4_turbo/annotations.json, 221 models) and confirm the leaderboard CSV values and rho = 0.98 are recovered offline before any API spend."
+  },
+  "artifacts": {
+    "prompts_path": "src/alpaca_eval/evaluators_configs/alpaca_eval_clf_gpt4_turbo/alpaca_eval_clf.txt; configs at src/alpaca_eval/evaluators_configs/weighted_alpaca_eval_gpt4_turbo/configs.yaml",
+    "data_path": "results/<model>/model_outputs.json (805 outputs per model, incl. *_concise / *_verbose variants for gpt4_1106_preview, gpt4_0613, claude-2.1, gpt-3.5-turbo-1106, Mixtral-8x7B, alpaca-7b); results/<model>/weighted_alpaca_eval_gpt4_turbo/annotations.json (cached annotator preferences with raw logprobs); notebooks/benchmarks.csv (Arena Elo)",
+    "eval_path": "src/alpaca_eval/metrics/glm_winrate.py; src/alpaca_eval/metrics/weights/weighted_alpaca_eval_gpt4_turbo/length_controlled_v1/; notebooks/length_controlled.ipynb; notebooks/figures_length_controlled.ipynb",
+    "data_public": true,
+    "data_license": "Apache-2.0 (repo); instruction set = AlpacaEval (805 items from 5 public eval sets); model outputs generated under each provider's ToS",
+    "redistributable": true,
+    "notes": "L1-complete on the artifact side: prompts, outputs, raw annotations with logprobs, GLM code and weights are all in the repo. The annotator model is the only non-preservable component."
+  },
+  "blockers": [
+    "live model not an experimental arm: the paper's annotator is gpt-4-1106-preview (dead 2026-03-26); gpt-4-turbo-2024-04-09 was never used in the paper",
+    "Chatbot Arena Elo is a frozen snapshot (Feb 2 / Apr 18 2024) in benchmarks.csv; a re-correlation against today's Arena would be a different quantity",
+    "requires logprobs (top_logprobs) from the annotator; any successor annotator must expose them or fall back to sampling",
+    "full re-annotation is ~40k judge calls (50 model-runs x 805)"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "note": "none available; original annotator dead" },
+    "successors": [
+      "gpt-4-turbo-2024-04-09 as successor annotator via repo config weighted_alpaca_eval_gpt4_turbo_new (dying 2026-10-23)",
+      "gpt-5-2025-08-07 / gpt-5-mini-2025-08-07 (logprobs availability to verify)",
+      "claude (current Sonnet/Opus id per target_models; no logprobs -> sampling fallback)",
+      "gemini (current Pro/Flash id)",
+      "llama (open weights, pinned hash; logprobs available)",
+      "qwen (open weights, pinned hash; logprobs available)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 } },
+    "sampling_scheme": "annotator uses max_tokens=1 with logprob weighting, so extra seeds add little; 1 pass + bootstrap over 805 instructions (paper practice); ANALYSIS_PLAN 3 seeds would triple the figures below",
+    "full_hypothetical": { "est_calls": 40250, "est_tokens_in": 56000000, "est_tokens_out": 40250, "est_cost_usd": 565, "note": "50 model-runs (38 Arena-overlap models + 12 verbosity variants) x 805 calls x ~1,400 input tokens (paper cache reports price_per_example 0.0137 -> ~11 USD per model-run); HYPOTHETICAL, card is blocked" },
+    "representative_subset": { "est_calls": 17710, "est_tokens_in": 25000000, "est_tokens_out": 17710, "est_cost_usd": 250, "note": "12 verbosity variants + 10 anchor leaderboard models (22 runs): preserves the gameability claim and a partial Arena correlation" },
+    "offline_reproduction": { "est_calls": 0, "est_cost_usd": 0, "note": "GLM re-fit + Spearman from cached annotations tests only the method layer, not model drift" }
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1. Survival requires BOTH (a) direction: rho(LC) > rho(raw) against the same frozen Arena Elo snapshot, with the bootstrap CI of the difference (over models) excluding 0 or matching the original's marginal p ~0.07 magnitude, and (b) gameability(LC) < gameability(raw) with the gpt4_1106_preview-variant win-rate range shrinking. Partial: direction holds but rho gap or gameability reduction changes order of magnitude. Dead: rho(LC) <= rho(raw) or LC does not reduce the verbosity swing.",
+    "notes": "Not executable on the original annotator; if a successor-annotator run is approved this becomes a successor-only card with no live baseline."
+  },
+  "status": "blocked",
+  "status_reason": "live model not an experimental arm (annotator gpt-4-1106-preview is dead; gpt-4-turbo-2024-04-09 unused in the paper)",
+  "user_checks": [
+    "Accept weighted_alpaca_eval_gpt4_turbo_new (alias gpt-4-turbo -> gpt-4-turbo-2024-04-09, dying) as a successor-annotator arm even though no live baseline exists for this paper?",
+    "If yes: run the representative subset (12 verbosity variants + 10 anchor models, ~250 USD) instead of all 38 Arena-overlap models?",
+    "Record the zero-cost offline GLM re-fit from cached annotations as a separate 'computational reproduction' outcome rather than a survival judgment?",
+    "Is the gameability sub-claim (Fig. 3, 26% -> 10%) acceptable as the primary judged number, since the Arena correlation depends on a frozen human-rating snapshot?"
+  ],
+  "domain_notes": "This is a tool-validity/method paper: the LLM is the measuring instrument, not the subject. The instrument (gpt-4-1106-preview) is gone, but its complete raw output (805 x 221 model preferences with logprobs) is archived in the repo, so the regression method and all reported numbers can be recomputed offline. Any re-execution with a different annotator measures whether the length-control method transfers to a new judge, not whether the original judge drifted. The scaffold's 'gpt-4-turbo' match is an alias false positive."
+}

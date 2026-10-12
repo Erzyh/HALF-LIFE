@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7161204348",
+ "title": "Portable Agent Memory: A Protocol for Cryptographically-Verified Memory Transfer Across Heterogeneous AI Agents",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec 5.1: \"we evaluated three model pairs (Claude-3.5-Sonnet→GPT-4-Turbo, GPT-4-Turbo→Gemini-1.5-Pro, Gemini-1.5-Pro→Claude-3.5-Sonnet)\"; Table 3 row \"Claude→GPT-4 0.87 0.92 0.85 0.88\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Sec 5.1-5.2 (task categories named - coding continuation, Q&A recall, planning - but no task instances, prompts, or appendix given)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Transfer Continuity Score (TCS), Claude-3.5-Sonnet→GPT-4-Turbo pair",
+  "value": 0.88,
+  "n_items": 50,
+  "location": "Table 3, row Claude→GPT-4, Mean column (pilot study, N=50 tasks total)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Custom pilot task set (coding/Q&A/planning); no release statement or repository link found"
+ },
+ "cost": {
+  "est_calls": 50,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Explicitly a small 'pilot study' (the authors flag a planned full-scale follow-up, N>=500, as future work); no prompts, task instances, or dataset are given or released, so neither the TCS number nor the RHF/security tables (also using a Claude→GPT-4 pair) can be independently reconstructed despite GPT-4-Turbo being run directly by the authors (role S)."
+}

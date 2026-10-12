@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7163572523",
+ "title": "Finite sample size errors in the context of multiple error sources in quantitative medical imaging: An evaluation for breast magnetic resonance diffusion-weighted imaging",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "Chat GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Acknowledgments: \"Chat GPT-4-turbo was partly used to improve the manuscript.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - writing-assistance disclosure only",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (this is a manuscript-writing-assistance disclosure, not a research method)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "In-house breast DWI study data plus 24 published studies (Tables 2-4); irrelevant since GPT-4-turbo is not a research method here"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "This is a quantitative-imaging statistics paper (Monte Carlo/PDF error analysis of ADC values); GPT-4-turbo is disclosed only as a manuscript-writing aid, not used for any research task."
+}

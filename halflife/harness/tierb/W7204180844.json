@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7204180844",
+  "title": "ExploreAI: Agentic Exploration Knowledge Bases for Reproducible Observable-Regression Testing of Black-Box VR and 3D Applications",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "B",
+    "evidence": "\"a small model from three providers: GPT-5.4 and GPT-5 mini (gpt-5.4, gpt-5-mini-2025-08-07), Gemini 2.5 ...\" (RQ1 LLM configurations)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Prompts and EKB schema released in the artifact only",
+    "note": ""
+  },
+  "claim": {
+    "metric": "EKB completeness / exploration cost per scene",
+    "value": null,
+    "n_items": 6,
+    "location": "Table III",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Black-box VR/3D Unity scenes shipped in the artifact"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "Agentic exploration loop with YOLO perception and simulator interaction; not light re-execution."
+}

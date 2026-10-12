@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403573504",
+  "title": "Athena: Retrieval-augmented Legal Judgment Prediction with Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"For the LLM foundation model, we use ChatGPT with the following versions: GPT-3.5-turbo, GPT-4-turbo, and GPT-4o\" (Sec. 4.1); Table 1"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Fig. 1 template shows 'Judgement candidates: {candidates} In the legal syllogism, ...... {format}'; baseline 'bare prompt' only described",
+    "note": "Ellipsis hides the syllogism definition; JSON output format not printed"
+  },
+  "claim": {
+    "metric": "accuracy, Baseline prompting",
+    "value": 0.58,
+    "n_items": 256,
+    "location": "Table 1, row GPT-4-turbo, column Baseline",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "CAIL2018 (public); 'first 256 legal cases' of an unspecified split"
+  },
+  "cost": {
+    "est_calls": 768,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Athena result (0.85) additionally needs OpenAI embeddings and LLM-generated accusation descriptions. Version not printed; date rule (Oct 2024)."
+}

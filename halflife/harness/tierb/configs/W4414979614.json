@@ -1,0 +1,87 @@
+{
+  "wid": "W4414979614",
+  "title": "Overcoming Language Barriers: Multilingual Analysis of the 2023 Swiss Privacy Law's Impact",
+  "status": "ready",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "max_tokens": 2048
+    },
+    "params_source": "artifact Artifacts/LLM/Validation/Validation_GPT_Swiss_GDPR_class.py: model 'gpt-5-chat-latest' (commented '# resolved to the version gpt-5-2025-08-07'), seed=123, temperature and max_tokens explicitly commented out, response_format = strict json_schema 'PolicyAnalysis'. Our max_tokens 2048 is the runner's floor for a gpt-5 body; the answer is a ten-key JSON object.",
+    "seeds": 3
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 30,
+    "subset_rule": "paper-defined split: the 30 English policies of the 120-policy human-annotated validation set (Sec. 3.3), i.e. a_policy_1 .. a_policy_30 of the artifact's ANON_Sample3_Policies",
+    "approximation": "The paper's call pins seed=123 and forces the answer through a strict json_schema response_format; the runner treats any gpt-5* id as a reasoning model and sends neither, so the JSON comes only from the prompt's own '### OUTPUT ###' instruction. The paper ran one pass; we run three seeds. Otherwise identical: same system prompt, same codebook user prompt, same anonymized policy text as a second user message."
+  },
+  "items": {
+    "source_type": "zenodo",
+    "source": "Zenodo 10.5281/zenodo.20512191 (concept DOI; current record 20794417), file Artifacts.zip -> Artifacts/LLM/Validation/ANON_Sample3_Policies/a_policy_{1..30}.txt plus Artifacts/LLM/Validation/Annotated_Ground_Truth/Phase_3_Ground_Truth.csv",
+    "config_or_split": "validation set, English block (policy_name 1-30; 31-60 de, 61-90 fr, 91-120 it)",
+    "filter": "lang == 'en'",
+    "fields": {
+      "input": "policy_text",
+      "label": "contr",
+      "id": "id"
+    },
+    "license": "CC BY 4.0 (Zenodo record)",
+    "access_checked": true,
+    "size_mb": 0.32,
+    "file_url": "https://zenodo.org/api/records/20794417/files/Artifacts.zip/content",
+    "fields_prose": {
+      "input": "the anonymized policy text, sent as its own user message",
+      "label": "contr = 1 when the policy discloses the controller's identity and contact details (13 of the 30 English policies)",
+      "id": "policy number 1-30"
+    },
+    "local_files": {
+      "dir": "external/data/tierb_items/W4414979614/",
+      "files": [
+        "policies/a_policy_{1..120}.txt (120 files, 1.7 MB unpacked; the hook uses 1-30)",
+        "validation_system.txt (541 B), validation_user.txt (7,962 B)",
+        "Phase_3_Ground_Truth.csv (3,491 B), eval_metrics.csv, Validation_metrics.py, Validation_GPT_Swiss_GDPR_class.py"
+      ]
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "Artifacts.zip is 2,107 MB, far over the 50 MB ceiling, so it was NOT downloaded. Zenodo answers HTTP Range requests (206), so the zip's central directory (69 KB) was read from the end of the file and the needed members were pulled individually: 0.59 MB compressed for the 120 policies plus ~27 KB for the prompts, ground truth and metrics. Nothing else was fetched."
+    }
+  },
+  "prompt": {
+    "system": "### Task ###\n\nYou will be assigned a privacy policy (\"policy\"). The policy can be in English, German, French, or Italian. All policies are anonymized (\"<redacted>\" snippets). You will need to review and answer the questions presented below (including specific instructions and sample snippets) related to this policy. Read the text carefully to ensure that you do not miss any important context. Provide responses as \"true\" or \"false\" except where specfied otherwise. If a date is mentioned, ensure it is converted to the specified format.",
+    "user_template": "see hook: message 2 is Artifacts/LLM/Validation/validation_user.txt verbatim (the ten codebook questions with their instructions and examples, ending with the '### OUTPUT ###' block), message 3 is the policy text",
+    "placeholders": {
+      "policy_text": "items.policy_text"
+    },
+    "few_shot": "none as demonstrations; each codebook question carries its own printed true/false examples",
+    "source_location": "Sec. 3 ('We release the prompts and the schema verbatim with our artifacts'); files Artifacts/LLM/Validation/validation_system.txt and validation_user.txt of the Zenodo artifact. The paper itself prints no prompt text.",
+    "verbatim": "full, read byte-for-byte from the released artifact rather than from the PDF; nothing reconstructed",
+    "placeholders_paper": {
+      "policy_text": "the contents of ANON_Sample3_Policies/a_policy_<n>.txt, passed as a separate user message (Validation_GPT_Swiss_GDPR_class.py)"
+    }
+  },
+  "output": {
+    "parse": "json field contr",
+    "postprocess": "true/false (boolean or string); a reply with no parsable contr key counts as a negative prediction",
+    "parse_paper": "json.loads of the structured-output reply, key 'contr', validated by the PolicyAnalysis pydantic model"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Binary F1 for the contr disclosure with 'true' as the positive class over the 30 English validation policies: F1 = 2PR/(P+R) with P = TP/(TP+FP) and R = TP/(TP+FN). Computed by the hook (the runner's macro_f1 would average the true and false classes instead).",
+    "judge": "rule",
+    "original_value": 0.93,
+    "original_location": "Sec. 4 Results / Figure 1, practice contr, language English (artifact Results_GPT5/eval_metrics.csv gives 0.9285714285714286, with accuracy 0.9333, precision 0.8667, recall 1.0)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 90,
+    "est_usd": 2.38,
+    "tier": "mid",
+    "est_usd_prepare": 2.38,
+    "prepare_note": "runner --prepare --dry-run 2026-09-19 (chars/4 input tokens; gpt-5 adds 600 hidden reasoning tokens per call to the output guess)"
+  },
+  "open_points": [],
+  "notes": "Gold labels come from Phase_3_Ground_Truth.csv (13 of 30 English policies have contr = 1), which is the file the artifact's own Validation_metrics.py scores against; the released Results_GPT5/eval_metrics.csv reproduces the paper's 0.93 exactly, so the cell, the split and the metric definition are all confirmed from the artifact rather than inferred. || The other three languages (German 0.91, French 0.83, Italian 0.95) and the other seven practices (ispol, purp, rect, forg, port, comp, hum) are the same 120 calls away - only items.filter and metric.definition change - so sibling configs are cheap. || The dropped response_format is the one protocol difference worth watching: if gpt-5-2025-08-07 stops emitting clean JSON without the schema, the parse rate in result.json will show it."
+}

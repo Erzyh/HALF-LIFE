@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7162606056",
+ "title": "LLM-as-a-Judge in Healthcare: A Scoping Analysis of Applications, Methods, and Human Alignment",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Table entry \"Chen et al. (2025) Clinical NLP (Clinical Documentation) GPT-4-turbo\" -- cataloguing which judge model a different, surveyed paper used."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Scoping-review paper; no original prompting experiments."
+ },
+ "claim": {
+  "metric": "none",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "n/a (literature review; surveyed papers cited)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A scoping review cataloguing LLM-as-judge usage across other healthcare papers; GPT-4-turbo appears only inside a summary table crediting a third-party study, not as this paper's own experiment."
+}

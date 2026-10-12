@@ -1,0 +1,56 @@
+{
+  "wid": "W4403370432",
+  "title": "An Evaluation of Requirements Modeling for Cyber-Physical Systems via LLMs",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 48,
+  "original_location": "TABLE III, block 3-shot, row gpt-4, column Entity Ave (P/R/F1 = 43/54/48)",
+  "reexecution": {
+    "mean_over_seeds": 0.5079321663019694,
+    "per_seed": {
+      "0": {
+        "value": 0.5079321663019694,
+        "n": 1135,
+        "ci95": [
+          0.4879610916340139,
+          0.5291660200168893
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4403370432",
+    "n_items": 1135,
+    "n_requests": 1135,
+    "seeds": 1,
+    "est_usd": 19.09,
+    "subset_note": "cost cap $19.1: seeded random subset of 1135 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 48,
+    "cap_usd": 19.1
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "None beyond the model alias: folds and retrieved shots are the authors' own released files, the prompt is the release's prompt/ner.txt assembled exactly as src/llm/gpt_inference.py (3 shots, single user turn, temperature 0); max_tokens assumed.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4403370432"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 50.79321663019694,
+    "delta": 2.7932166301969374,
+    "original_inside_ci95": false
+  }
+}

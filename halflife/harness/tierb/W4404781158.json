@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404781158",
+  "title": "MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4 turbo-2024-04-09\" (Table 4, model versions); \"GPT-4 65.00 83.89 82.22 70.00 75.28 72.50 81.25 68.75\" (Table 5, scores by maxim and language)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 12 (actual prompt with a test unit)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "score (% correct answers, average of 3 trials), English overall",
+    "value": 75.28,
+    "n_items": 300,
+    "location": "Table 5, row GPT-4, English Avg. (German 72.50, Korean 81.25, Chinese 68.75)",
+    "task_type": "other",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/DojunPark/MultiPragEval (1,200 units, 300 per language)"
+  },
+  "cost": {
+    "est_calls": 900,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: correctness of free-form answers is rated by humans (inter-rater agreement in Table 13), so re-execution needs human scoring. Temperature 0.5, three trials averaged.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The gap is human rating of free-form answers. Take the 300 English test units (context, statement, options A-E, answer key) from the released suite; build each prompt exactly as Table 12 (context, statement, 'Choose the most appropriate meaning of the above utterance from the following options.', options). Query gpt-4-turbo-2024-04-09 at temperature 0.5 three times, extract the chosen option automatically (letter or option text, LLM fallback) and score against the key; average the three trials and compare with 75.28 (Table 5).",
+    "approximation": "Automatic option extraction replaces the three human ratings (Fleiss' kappa 0.87 for GPT-4 English, Table 13).",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

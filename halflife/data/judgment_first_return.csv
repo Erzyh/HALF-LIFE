@@ -1,0 +1,5 @@
+﻿sheet,level,rows_in_first_return,note,agreement_with_final_majority_pct,kappa_vs_final_majority,agreement_with_final_B_pct,kappa_vs_final_B,agreement_with_final_C_pct,kappa_vs_final_C,rows_changed_by_A_between_first_and_final,alpha_A_first_B_final_C_final,alpha_three_final_returns
+prompt-level results (baseline and successor conditions),survival class,343,,92.7,0.877,92.7,0.877,92.7,0.877,26,0.918,0.997
+prompt-level results (baseline and successor conditions),conclusion level,2,not comparable: the first return's conclusion column repeated the survival classes (the query round clarified the column),0.0,0.0,0.0,0.0,0.0,0.0,2,0.231,0.915
+repository-based claims,survival class,95,,85.3,0.519,85.3,0.519,85.3,0.519,13,0.678,0.977
+repository-based claims,conclusion level,0,not comparable: the first return's conclusion column repeated the survival classes (the query round clarified the column),,,,,,,0,,0.731

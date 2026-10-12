@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403364995",
+ "title": "RDT-1B: a Diffusion Foundation Model for Bimanual Manipulation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"we utilize GPT-4-Turbo (Achiam et al., 2023) to rewrite human-annotated instructions to increase text diversity\"; \"utilize GPT-4-Turbo to generate 100 expanded instructions and one simplified instruction for each task.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix E (instruction augmentation details)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (paraphrase/augmentation utility for training data, not a scored LLM capability)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "RDT-1B robot manipulation dataset (paper's own release)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-Turbo is used purely to paraphrase/expand instruction text for the robot-manipulation training corpus; no capability metric is attributed to it."
+}

@@ -1,0 +1,66 @@
+{
+  "wid": "W7166799942",
+  "title": "CMTD: Cognitive Modeling with Traits and Distortions for Multimodal Emotion Recognition in Conversations",
+  "model": "gpt-5.6-luna",
+  "metric": "accuracy",
+  "original_value": 42.45,
+  "original_location": "Table 2, MELD block, row gpt-4.1-nano, column Text-only ACC (weighted F1 39.34)",
+  "reexecution": {
+    "mean_over_seeds": 0.6421455938697318,
+    "per_seed": {
+      "0": {
+        "value": 0.6421455938697318,
+        "n": 280,
+        "ci95": [
+          0.6237547892720307,
+          0.6609291187739463
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7166799942",
+    "n_items": 280,
+    "n_requests": 280,
+    "seeds": 1,
+    "est_usd": 0.02,
+    "subset_note": "paraphrase f1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [280]; model field rewritten from gpt-4.1-nano-2025-04-14 to gpt-5.6-luna in 280 bodies",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-luna",
+    "source_model": "gpt-4.1-nano-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 42.45,
+    "cap_usd": 2.0,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7166799942",
+    "paraphrase": "f1",
+    "pairs": [
+      [
+        "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation.",
+        "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation, choosing exactly one label per utterance from: neutral, joy, surprise, anger, sadness, disgust, fear."
+      ]
+    ],
+    "params_added": {}
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-luna"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "the printed Text-only prompt gives no label set or output format: the reply is parsed for one of the seven MELD labels per numbered utterance (synonyms mapped), unlabelled utterances count as wrong; conversation rendered as numbered 'Speaker: utterance' lines (rendering not printed)",
+  "arm": {
+    "model": "gpt-5.6-luna",
+    "config_model": "gpt-4.1-nano-2025-04-14",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\format_f1\\W7166799942"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 64.21455938697318,
+    "delta": 21.764559386973175,
+    "original_inside_ci95": false
+  }
+}

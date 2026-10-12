@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7196942148",
+  "title": "LabAlignAgent: A LOINC-Enriched Ontology-Guided Agent for Cross-Hospital Semantic Alignment of EMR Laboratory Tests",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 2: \"Model for pairwise comparison GPT-4 (gpt-4-0613); Model for LOINC batch prompting GPT-4 Turbo (gpt-4-turbo-2024-04-09); Temperature 0.0\"; Sec. 6.3: pairs \"were submitted to GPT-4 Turbo using batch processing\"."
+  },
+  "prompt": {"verbatim": "partial", "location": "Listing 2 (dynamic prompt template for LOINC enrichment, Sec. 4)", "note": "Template with metadata slots; the pairwise-comparison prompt is described, not printed."},
+  "claim": {
+    "metric": "count of LLM-resolved LOINC matches (not an accuracy)", "value": 67, "n_items": 262, "location": "Table 3, column GPT (KFSH 10, SGH 57 of 262 tests); expert validation: 94/100 sampled LOINC assignments correct (Sec. 6.2)",
+    "task_type": "extraction",
+    "judge": "human"
+  },
+  "data": {"public": "yes", "source": "https://github.com/SarahayadAOU/LabAlignAgent (lab test lists for KFSH and SGH, ontologies, alignment results)"},
+  "cost": {"est_calls": 500, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "No self-contained model metric: the 67 matches are what the LLM stage produced after exact and fuzzy matching consumed the rest of the pipeline, and the 94% precision is an expert review of an unidentified random sample. Table 2 and the text disagree on whether pairwise comparison used gpt-4-0613 (dead) or GPT-4 Turbo."
+}

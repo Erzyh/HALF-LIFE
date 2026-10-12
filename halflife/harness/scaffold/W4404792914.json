@@ -1,0 +1,55 @@
+{
+  "openalex_id": "https://openalex.org/W4404792914",
+  "title": "PATIENT-𝜓: Using Large Language Models to Simulate Patients for Training Mental Health Professionals",
+  "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.711",
+  "field": "Psychology",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/ruiyiw/patient-psi",
+    "github.com/ruiyiw/patient-psi2https"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/ruiyiw/patient-psi",
+      "cloned": true,
+      "audit": {
+        "n_files": 133,
+        "ext_top": {
+          ".tsx": 75,
+          ".ts": 20,
+          ".json": 5,
+          ".png": 5,
+          ".pdf": 5,
+          "": 3,
+          ".md": 3,
+          ".svg": 3
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 3,
+        "n_data_files": 5,
+        "files_mentioning_prompt": 3,
+        "files_with_eval_terms": 2,
+        "model_ids_in_code": {
+          "o1": 33,
+          "o4": 30,
+          "o3": 26,
+          "gpt-4": 1
+        },
+        "readme_head": "<div style=\"width: 100%;\">\n  <img src=\"title.png\" style=\"width: 100%;\" alt=\"patient-psi\"></img>\n</div>\n\n# Patient-Ψ: Using Large Language Models to Simulate Patients for Training Mental Health Professionals\n[![Paper PDF](https://img.shields.io/badge/Paper-PDF-red.svg)](https://arxiv.org/pdf/2405.19660) [![huggingface](https://img.shields.io/badge/%F0%9F%A4%97-Data-yellow)]() [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3109/) [![twitter](https://img.shields.io/badge/Twitter-Thread-cyan)]() [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)\n\n## 📌 Table of Contents\n- [Get started on local computer](#get-started-on-local-computer)\n  - [Install](#install)\n  - [Set up Vercel app](#set-up-vercel-app)\n- [Quickly start the Patient-Ψ-Trainer](#quickly-start-the-patient-ψ-trainer)\n- [Cognitive model generation - Patient-Ψ-CM dataset](#cognitive-model-generation---patient-ψ-cm-dataset)\n- [Prompts for Patient-Ψ](#prompts-for-patient-ψ)\n- [Citation](#citation)\n\n## Get started on local computer\n\n### Install\n\nWe recommend starting a virtual environment with miniconda ([quick command line installation](https://docs.anaconda.com/miniconda/#quick-command-line-install)):\n\n```bash\nconda create -n patient-psi python=3.11.0\n```\n\nThen install requirements for python3 and for Next.js-based [Vercel app](https://vercel.com/).\n\n```bash\n# Python packages\npip"
+      },
+      "commit": "de72a768e5366d3e94f7d8c711c563fb4a5b4d26"
+    },
+    {
+      "url": "https://github.com/ruiyiw/patient-psi2https",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4404792914.txt",
+  "paper_text_status": "pdf"
+}

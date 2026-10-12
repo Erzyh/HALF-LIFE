@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416017844",
+  "title": "The ORCA Benchmark: Evaluating Real-World Calculation Accuracy in Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo / o3-mini (cited); ChatGPT-5 (UI)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Each prompt was tested against five newest, leading LLMs: ChatGPT-5, Gemini 2.5 Flash, Claude 4.5 Sonnet ... via its native interface - for instance, ChatGPT-5 through the OpenAI UI\" (Sec. 2)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 1 (example benchmark prompt); 500 prompts described in Table 2",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy of ChatGPT-5 (UI) on 500 calculator prompts",
+    "value": 49.4,
+    "n_items": 500,
+    "location": "Sec. 3 / Figure 1 (ChatGPT-5 49.4%)",
+    "task_type": "other",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "ORCA benchmark of 500 Omni Calculator prompts (release not confirmed in text)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "The listed live ids (gpt-4-turbo, o3-mini) are mentioned only in related-work citations. Models were queried through chat interfaces, not the API, and answers were graded by experts."
+}

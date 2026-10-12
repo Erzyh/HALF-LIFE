@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403965314",
+ "title": "AgentsCoMerge: Large Language Model Empowered Collaborative Decision Making for Ramp Merging",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Table 2 (closed-loop, LimSim++): \"GPT-4 Turbo 0.797 0.424 0.907 71.697\" (Comfort/Efficiency/Safety/Driving Score) vs. the authors' AgentsCoMerge and other baselines"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Fig. 7 (\"Qualitative analysis and prompts visualization\")",
+  "note": "A prompt example is visualized in a figure; the reflection/fine-tuning prompts described in Sec. 4.5 are for the authors' own trained agent, not clearly the exact baseline prompt given to GPT-4 Turbo."
+ },
+ "claim": {
+  "metric": "Driving Score (DS), closed-loop ramp-merging simulation (LimSim++/SUMO)",
+  "value": 71.697,
+  "n_items": null,
+  "location": "Table 2, row GPT-4 Turbo, DS column (CS 0.797, ES 0.424, SS 0.907)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "LimSim++ / SUMO multi-lane merging simulator; nuScenes and HighD datasets for the open-loop tables"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "GPT-4 Turbo is one of several closed- and open-source LLM baselines compared against the authors' proposed multi-agent method in a driving simulator. Soft gaps: the exact prompt given to the GPT-4-Turbo baseline isn't clearly separated from the authors' own agent's prompts, and the number of closed-loop episodes underlying Table 2 is not stated."
+}

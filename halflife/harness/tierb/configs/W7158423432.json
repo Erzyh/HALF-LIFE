@@ -1,0 +1,70 @@
+{
+  "wid": "W7158423432",
+  "title": "Expert Evaluation of LLM's Open-Ended Legal Reasoning on the Japanese Bar Exam Writing Task",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "max_tokens": 8192,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Sec. 4.1 ('The o3 model does not provide explicit sampling parameters for users. For the reasoning effort, we used a default of medium. Unless otherwise stated, no explicit maximum output token limit was imposed'); max_tokens is our own generous allowance",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 21,
+    "subset_rule": "the 21 essay questions of the Japanese bar exam 2021-2023 (7 compulsory subjects per year), zero-shot setting",
+    "approximation": "Only the ZS setting is the claimed cell; FS and FS+Law add in-context examples from the 2018 and 2019 exams and statutory references from the authors' dataset."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "the official published Japanese bar exam questions for 2021-2023 (Ministry of Justice); the authors' processed dataset, including the statutory references used in FS+Law, is not released",
+    "config_or_split": "seven compulsory subjects (Constitution, Civil Code, Penal Code, administrative law, Code of Civil Procedure, Code of Criminal Procedure, commercial law) for each of 2021, 2022, 2023",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "label": "expert_score",
+      "id": "year_subject"
+    },
+    "license": "official exam papers (public)",
+    "access_checked": false,
+    "size_mb": 0,
+    "file_url": null
+  },
+  "prompt": {
+    "system": "not printed: Sec. 4.1 says that 'for all models, system prompts assign the role of a Japanese legal expert and require that outputs be based on Japanese law and written in a casual form (non-polite form)'",
+    "user_template": "the exam question verbatim, preceded by the temporal-scope instruction quoted in Sec. 4.1: 'Answer based on laws and regulations in force as of [the date of the examination]'",
+    "placeholders": {
+      "question": "the official exam question text",
+      "date": "the date of that year's examination"
+    },
+    "few_shot": "none in the ZS setting (FS uses 2018 and 2019 questions with sample answers)",
+    "source_location": "Sec. 4.1",
+    "verbatim": "partial: one instruction sentence is quoted, the system prompt is only described, and the Japanese wording of both is not printed"
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "the answer is a full written bar-exam essay in Japanese"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "average expert score on a 0-100 scale over the 21 questions, graded by seven legal-faculty evaluators against the official grading criteria (the paper also reports categorical grades: excellent / good / adequate / poor)",
+    "judge": "human: seven legal-faculty expert graders",
+    "original_value": 29.8,
+    "original_location": "Table 1, row 'o3 ZS', column Avg. (per-subject scores 18.7 / 31.3 / 51.3 / 34.7 / 10.7 / 40.7 / 21.3; categorical grades 0 excellent, 3 good, 0 adequate, 18 poor)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 21,
+    "est_usd": 3.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "The metric is a human expert score: reproducing the number needs seven equivalent Japanese legal-faculty graders, not API calls. No LLM judge is defined in the paper, so no judge stage can stand in for it.",
+    "The system prompt and the Japanese wording of the instruction are not printed, only described.",
+    "The 21 exam questions are public documents but are not released as a machine-readable dataset by the authors; they would have to be transcribed from the Ministry of Justice exam papers."
+  ],
+  "notes": "The o3 FS (29.4) and FS+Law (30.5) rows are the same questions with in-context examples and statutes. GPT-4o in this paper is gpt-4o-2024-11-20 and Claude 3 Opus is claude-3-opus-20240229, so o3-2025-04-16 is the live-listed snapshot. The hallucination analysis (Tables 2-3) is a second human annotation layer on the same outputs."
+}

@@ -1,0 +1,9521 @@
+{
+  "seed_0": {
+    "weighted_f1": 0.565872927562034,
+    "ci95_bootstrap": [
+      0.4294215713364649,
+      0.698982651260888
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_1": {
+    "weighted_f1": 0.5235332043842682,
+    "ci95_bootstrap": [
+      0.3773193925580031,
+      0.6674623939701272
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 21,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 9,
+      "abstention": 0
+    }
+  },
+  "seed_2": {
+    "weighted_f1": 0.568773029753066,
+    "ci95_bootstrap": [
+      0.4270551528163038,
+      0.7045727380710287
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_3": {
+    "weighted_f1": 0.5764171229287508,
+    "ci95_bootstrap": [
+      0.42702637887990313,
+      0.7120171046032915
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 31,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 8,
+      "abstention": 5
+    }
+  },
+  "seed_4": {
+    "weighted_f1": 0.5260394644115575,
+    "ci95_bootstrap": [
+      0.3964953931203931,
+      0.6657270869954838
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 31,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_5": {
+    "weighted_f1": 0.528775857309504,
+    "ci95_bootstrap": [
+      0.38896221887734783,
+      0.6716882811141321
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 30,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_6": {
+    "weighted_f1": 0.5570617639583156,
+    "ci95_bootstrap": [
+      0.408910726359315,
+      0.6901648646409411
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 29,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 8,
+      "abstention": 5
+    }
+  },
+  "seed_7": {
+    "weighted_f1": 0.5362859362859363,
+    "ci95_bootstrap": [
+      0.39951146806002313,
+      0.6666361158548403
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 28,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_8": {
+    "weighted_f1": 0.4929467084639499,
+    "ci95_bootstrap": [
+      0.3462427603176577,
+      0.6335548509836703
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 24,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 8,
+      "abstention": 4
+    }
+  },
+  "seed_9": {
+    "weighted_f1": 0.49775726281750377,
+    "ci95_bootstrap": [
+      0.3671793613372713,
+      0.6307356593739215
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 31,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_10": {
+    "weighted_f1": 0.6366630734219667,
+    "ci95_bootstrap": [
+      0.5046322165575039,
+      0.7710004457829062
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_11": {
+    "weighted_f1": 0.5202538202538203,
+    "ci95_bootstrap": [
+      0.38212589569296884,
+      0.6501353793707876
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 32,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_12": {
+    "weighted_f1": 0.5723211496407372,
+    "ci95_bootstrap": [
+      0.4288562655661424,
+      0.709846079316177
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 24,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 6,
+      "abstention": 1
+    }
+  },
+  "seed_13": {
+    "weighted_f1": 0.6043207191532551,
+    "ci95_bootstrap": [
+      0.459939087519402,
+      0.7352548252927759
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 40,
+      "against": 24,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_14": {
+    "weighted_f1": 0.5174242424242423,
+    "ci95_bootstrap": [
+      0.38195625468255673,
+      0.659092834443958
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_15": {
+    "weighted_f1": 0.7060597565223301,
+    "ci95_bootstrap": [
+      0.5801306360497961,
+      0.8279467375689806
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 14,
+      "abstention": 0
+    }
+  },
+  "seed_16": {
+    "weighted_f1": 0.4835579102880868,
+    "ci95_bootstrap": [
+      0.34039904862579284,
+      0.6228892568545972
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 35,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_17": {
+    "weighted_f1": 0.5853142886608571,
+    "ci95_bootstrap": [
+      0.4514374514374515,
+      0.7158190161944855
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 29,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_18": {
+    "weighted_f1": 0.568773029753066,
+    "ci95_bootstrap": [
+      0.4245768130530299,
+      0.7039521634483576
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_19": {
+    "weighted_f1": 0.5608665843959961,
+    "ci95_bootstrap": [
+      0.4114325533819204,
+      0.7012844611528822
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_20": {
+    "weighted_f1": 0.5112299465240642,
+    "ci95_bootstrap": [
+      0.372349075167257,
+      0.6440497744579592
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 26,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 9,
+      "abstention": 4
+    }
+  },
+  "seed_21": {
+    "weighted_f1": 0.556259458698483,
+    "ci95_bootstrap": [
+      0.41572282667096494,
+      0.6901147901147902
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 31,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_22": {
+    "weighted_f1": 0.45584881068752037,
+    "ci95_bootstrap": [
+      0.31068339967242786,
+      0.6033684672815107
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 20,
+      "abstention": 13
+    },
+    "predicted": {
+      "favour": 60,
+      "against": 4,
+      "abstention": 2
+    }
+  },
+  "seed_23": {
+    "weighted_f1": 0.5286524980527428,
+    "ci95_bootstrap": [
+      0.3911589157096382,
+      0.662635291851926
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 28,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_24": {
+    "weighted_f1": 0.5565330726621049,
+    "ci95_bootstrap": [
+      0.4187780636197053,
+      0.6983702355404551
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 23,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 8,
+      "abstention": 0
+    }
+  },
+  "seed_25": {
+    "weighted_f1": 0.5634906679394107,
+    "ci95_bootstrap": [
+      0.4288561686081557,
+      0.6984439506558491
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 33,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_26": {
+    "weighted_f1": 0.5582025479682361,
+    "ci95_bootstrap": [
+      0.42310347261434217,
+      0.6838054131691983
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 32,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 15,
+      "abstention": 0
+    }
+  },
+  "seed_27": {
+    "weighted_f1": 0.6573199527744983,
+    "ci95_bootstrap": [
+      0.5186295546589889,
+      0.7889373850767573
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 25,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 10,
+      "abstention": 6
+    }
+  },
+  "seed_28": {
+    "weighted_f1": 0.4135642135642135,
+    "ci95_bootstrap": [
+      0.2800365669683851,
+      0.555792737970609
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 6,
+      "abstention": 1
+    }
+  },
+  "seed_29": {
+    "weighted_f1": 0.6006493506493508,
+    "ci95_bootstrap": [
+      0.46510587554005284,
+      0.7296147144330968
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 11,
+      "abstention": 4
+    }
+  },
+  "seed_30": {
+    "weighted_f1": 0.6437451437451436,
+    "ci95_bootstrap": [
+      0.5106151117247463,
+      0.7690303910007754
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 23,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_31": {
+    "weighted_f1": 0.49419191919191924,
+    "ci95_bootstrap": [
+      0.35460993114715833,
+      0.6315783830367161
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 31,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_32": {
+    "weighted_f1": 0.6106060606060606,
+    "ci95_bootstrap": [
+      0.4687876582952984,
+      0.7556830257075511
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 21,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 7,
+      "abstention": 0
+    }
+  },
+  "seed_33": {
+    "weighted_f1": 0.5098039215686274,
+    "ci95_bootstrap": [
+      0.362455636571201,
+      0.6521633434564704
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 25,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_34": {
+    "weighted_f1": 0.5127035347353585,
+    "ci95_bootstrap": [
+      0.3725112335297545,
+      0.6550307384274162
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_35": {
+    "weighted_f1": 0.5258021390374331,
+    "ci95_bootstrap": [
+      0.393620939888301,
+      0.6628295793270352
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 18,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_36": {
+    "weighted_f1": 0.5416337285902504,
+    "ci95_bootstrap": [
+      0.3953549000395609,
+      0.6819549619910443
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 21,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_37": {
+    "weighted_f1": 0.5712121212121213,
+    "ci95_bootstrap": [
+      0.4406045045503076,
+      0.7094065656565656
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 21,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_38": {
+    "weighted_f1": 0.46674057649667405,
+    "ci95_bootstrap": [
+      0.3336848804034944,
+      0.5973984698493957
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 30,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_39": {
+    "weighted_f1": 0.6681339082524853,
+    "ci95_bootstrap": [
+      0.5362478962062507,
+      0.7878789787519946
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 21,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_40": {
+    "weighted_f1": 0.6397382920110193,
+    "ci95_bootstrap": [
+      0.5059196088903881,
+      0.7674308650859978
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 29,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_41": {
+    "weighted_f1": 0.6533910533910534,
+    "ci95_bootstrap": [
+      0.5189892506042086,
+      0.7810422876094592
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_42": {
+    "weighted_f1": 0.6166371507280598,
+    "ci95_bootstrap": [
+      0.4830638700688756,
+      0.7465207441725469
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 25,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_43": {
+    "weighted_f1": 0.5454545454545454,
+    "ci95_bootstrap": [
+      0.4085196554656388,
+      0.6811548650905636
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 30,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 10,
+      "abstention": 6
+    }
+  },
+  "seed_44": {
+    "weighted_f1": 0.5726672447141999,
+    "ci95_bootstrap": [
+      0.4354891470701747,
+      0.702021416083916
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 8,
+      "abstention": 2
+    }
+  },
+  "seed_45": {
+    "weighted_f1": 0.6198846169201899,
+    "ci95_bootstrap": [
+      0.48096609156364006,
+      0.749787263875802
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_46": {
+    "weighted_f1": 0.47946084724005134,
+    "ci95_bootstrap": [
+      0.34641573391573394,
+      0.6168842451191758
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 27,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_47": {
+    "weighted_f1": 0.5454545454545454,
+    "ci95_bootstrap": [
+      0.4030456198700743,
+      0.6766189102951341
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 32,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 9,
+      "abstention": 5
+    }
+  },
+  "seed_48": {
+    "weighted_f1": 0.6354870314030836,
+    "ci95_bootstrap": [
+      0.4999116075824049,
+      0.7547142362311571
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_49": {
+    "weighted_f1": 0.6063196063196064,
+    "ci95_bootstrap": [
+      0.47143480257116616,
+      0.7341703611661331
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 26,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_50": {
+    "weighted_f1": 0.6021450459652706,
+    "ci95_bootstrap": [
+      0.46213365860134753,
+      0.7336896874935855
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 26,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_51": {
+    "weighted_f1": 0.6772804620223791,
+    "ci95_bootstrap": [
+      0.5382336095264878,
+      0.7989261572208792
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 30,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_52": {
+    "weighted_f1": 0.5218626482213439,
+    "ci95_bootstrap": [
+      0.37924260848337454,
+      0.6669213139801375
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 25,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_53": {
+    "weighted_f1": 0.6081504702194356,
+    "ci95_bootstrap": [
+      0.47364612132053996,
+      0.737991867368555
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_54": {
+    "weighted_f1": 0.4940280602931206,
+    "ci95_bootstrap": [
+      0.3536815539532931,
+      0.6304608638010185
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 32,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_55": {
+    "weighted_f1": 0.6362192148567253,
+    "ci95_bootstrap": [
+      0.5038108478560686,
+      0.766051250273383
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 30,
+      "abstention": 1
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_56": {
+    "weighted_f1": 0.5546819546819546,
+    "ci95_bootstrap": [
+      0.41091332111141354,
+      0.6851675186408386
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_57": {
+    "weighted_f1": 0.4832570173479265,
+    "ci95_bootstrap": [
+      0.34020170877200484,
+      0.6311675056586219
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 31,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 6,
+      "abstention": 3
+    }
+  },
+  "seed_58": {
+    "weighted_f1": 0.535683614630983,
+    "ci95_bootstrap": [
+      0.3869561893111095,
+      0.6797191570233612
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 31,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_59": {
+    "weighted_f1": 0.4977359804946012,
+    "ci95_bootstrap": [
+      0.3655098452883263,
+      0.6355333105028843
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 22,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_60": {
+    "weighted_f1": 0.5773809523809523,
+    "ci95_bootstrap": [
+      0.4420108344725753,
+      0.7222523812476898
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 25,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 15,
+      "abstention": 0
+    }
+  },
+  "seed_61": {
+    "weighted_f1": 0.5914813156192466,
+    "ci95_bootstrap": [
+      0.4508060524927994,
+      0.7189645220679702
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 31,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_62": {
+    "weighted_f1": 0.648873003977633,
+    "ci95_bootstrap": [
+      0.5168446670278781,
+      0.7710390317501287
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 25,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_63": {
+    "weighted_f1": 0.5264680971202711,
+    "ci95_bootstrap": [
+      0.39542718855218856,
+      0.650915404040404
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 21,
+      "against": 41,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 15,
+      "abstention": 3
+    }
+  },
+  "seed_64": {
+    "weighted_f1": 0.5244579861542925,
+    "ci95_bootstrap": [
+      0.3900929482103263,
+      0.6564486856741408
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 23,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_65": {
+    "weighted_f1": 0.5521377248181373,
+    "ci95_bootstrap": [
+      0.40525670679716114,
+      0.6960195492850798
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 60,
+      "against": 5,
+      "abstention": 1
+    }
+  },
+  "seed_66": {
+    "weighted_f1": 0.6406949934123848,
+    "ci95_bootstrap": [
+      0.498992628992629,
+      0.7643951810066535
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_67": {
+    "weighted_f1": 0.5740245176746437,
+    "ci95_bootstrap": [
+      0.434513776857026,
+      0.7067642370549346
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 31,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_68": {
+    "weighted_f1": 0.584090909090909,
+    "ci95_bootstrap": [
+      0.43821599744010015,
+      0.7125889061699415
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 29,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_69": {
+    "weighted_f1": 0.5914567360350493,
+    "ci95_bootstrap": [
+      0.4472440413425957,
+      0.7207277478618942
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_70": {
+    "weighted_f1": 0.5490396362835226,
+    "ci95_bootstrap": [
+      0.40232558139534885,
+      0.684802908113392
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 25,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_71": {
+    "weighted_f1": 0.7007270775386718,
+    "ci95_bootstrap": [
+      0.5795324399152151,
+      0.8207621840075472
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 17,
+      "abstention": 1
+    }
+  },
+  "seed_72": {
+    "weighted_f1": 0.5802672826266293,
+    "ci95_bootstrap": [
+      0.44208470388905546,
+      0.7206766903357605
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_73": {
+    "weighted_f1": 0.6008104595152535,
+    "ci95_bootstrap": [
+      0.4628402425214538,
+      0.7314132098935471
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 27,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_74": {
+    "weighted_f1": 0.5280934343434343,
+    "ci95_bootstrap": [
+      0.38671887362642426,
+      0.6619563420768954
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 21,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_75": {
+    "weighted_f1": 0.5773426573426574,
+    "ci95_bootstrap": [
+      0.44294342811584186,
+      0.702673818298818
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 36,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 16,
+      "abstention": 2
+    }
+  },
+  "seed_76": {
+    "weighted_f1": 0.6001862597607279,
+    "ci95_bootstrap": [
+      0.46145464384100743,
+      0.7394129702825355
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 20,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 7,
+      "abstention": 3
+    }
+  },
+  "seed_77": {
+    "weighted_f1": 0.6785655016761261,
+    "ci95_bootstrap": [
+      0.5564373263978009,
+      0.7936501377410465
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 26,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 18,
+      "abstention": 2
+    }
+  },
+  "seed_78": {
+    "weighted_f1": 0.4834169156352255,
+    "ci95_bootstrap": [
+      0.35170518996705497,
+      0.6169567607848037
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 29,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 19,
+      "abstention": 1
+    }
+  },
+  "seed_79": {
+    "weighted_f1": 0.5336219336219337,
+    "ci95_bootstrap": [
+      0.3843508119651023,
+      0.6733352734663708
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 29,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_80": {
+    "weighted_f1": 0.7007270775386718,
+    "ci95_bootstrap": [
+      0.5781136606894182,
+      0.8137408912623575
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 17,
+      "abstention": 1
+    }
+  },
+  "seed_81": {
+    "weighted_f1": 0.5487967914438503,
+    "ci95_bootstrap": [
+      0.4098886817324277,
+      0.6842449532790441
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_82": {
+    "weighted_f1": 0.5070638820638821,
+    "ci95_bootstrap": [
+      0.3703925110405986,
+      0.6502956232734203
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_83": {
+    "weighted_f1": 0.5940547986002531,
+    "ci95_bootstrap": [
+      0.4578110875630014,
+      0.7268613731759627
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 25,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_84": {
+    "weighted_f1": 0.6638257575757576,
+    "ci95_bootstrap": [
+      0.5315336560972235,
+      0.788215740535255
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 40,
+      "against": 21,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_85": {
+    "weighted_f1": 0.7458691201332075,
+    "ci95_bootstrap": [
+      0.6202489104623011,
+      0.8562876628666102
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 26,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_86": {
+    "weighted_f1": 0.4733627384229794,
+    "ci95_bootstrap": [
+      0.3393700146859792,
+      0.6080852883675464
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 27,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_87": {
+    "weighted_f1": 0.5595238095238094,
+    "ci95_bootstrap": [
+      0.41824358479023793,
+      0.6967183416980064
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 25,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_88": {
+    "weighted_f1": 0.5450807486131287,
+    "ci95_bootstrap": [
+      0.4052314452813345,
+      0.6802883244206771
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 30,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_89": {
+    "weighted_f1": 0.5495105495105495,
+    "ci95_bootstrap": [
+      0.4140800935468699,
+      0.6825925631288838
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 26,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_90": {
+    "weighted_f1": 0.548597521200261,
+    "ci95_bootstrap": [
+      0.41752888968522883,
+      0.6771000768555114
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 31,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 18,
+      "abstention": 2
+    }
+  },
+  "seed_91": {
+    "weighted_f1": 0.4627265808772658,
+    "ci95_bootstrap": [
+      0.32604292341285124,
+      0.5983697655079843
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 24,
+      "against": 37,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 11,
+      "abstention": 6
+    }
+  },
+  "seed_92": {
+    "weighted_f1": 0.6862818033030799,
+    "ci95_bootstrap": [
+      0.5576932967370474,
+      0.8048581217471666
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 45,
+      "against": 19,
+      "abstention": 2
+    }
+  },
+  "seed_93": {
+    "weighted_f1": 0.5426252698979972,
+    "ci95_bootstrap": [
+      0.3983467794831432,
+      0.6857100415923943
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 29,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 8,
+      "abstention": 2
+    }
+  },
+  "seed_94": {
+    "weighted_f1": 0.5147165434246773,
+    "ci95_bootstrap": [
+      0.3679973499672542,
+      0.6573224448871859
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 60,
+      "against": 6,
+      "abstention": 0
+    }
+  },
+  "seed_95": {
+    "weighted_f1": 0.555738379267791,
+    "ci95_bootstrap": [
+      0.41971619925415127,
+      0.6928033162756889
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 24,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_96": {
+    "weighted_f1": 0.5880070869990225,
+    "ci95_bootstrap": [
+      0.44420571296853373,
+      0.7308978675645342
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_97": {
+    "weighted_f1": 0.492302333681644,
+    "ci95_bootstrap": [
+      0.34973497179379537,
+      0.6326929365106704
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 26,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_98": {
+    "weighted_f1": 0.5476190476190477,
+    "ci95_bootstrap": [
+      0.4147654857397505,
+      0.6839769193740524
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 28,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_99": {
+    "weighted_f1": 0.4734028597664961,
+    "ci95_bootstrap": [
+      0.3394619446628055,
+      0.6151162220938613
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 23,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_100": {
+    "weighted_f1": 0.694451160541586,
+    "ci95_bootstrap": [
+      0.5597640406623782,
+      0.8143835440874915
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 21,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_101": {
+    "weighted_f1": 0.6541551882460973,
+    "ci95_bootstrap": [
+      0.5163461659494191,
+      0.7770629326110609
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 23,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 13,
+      "abstention": 0
+    }
+  },
+  "seed_102": {
+    "weighted_f1": 0.7301587301587301,
+    "ci95_bootstrap": [
+      0.6060557184750733,
+      0.8472013862946383
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 43,
+      "against": 17,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_103": {
+    "weighted_f1": 0.5202983614575691,
+    "ci95_bootstrap": [
+      0.3764021752781989,
+      0.6589833169902294
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 24,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 5,
+      "abstention": 2
+    }
+  },
+  "seed_104": {
+    "weighted_f1": 0.6173934466617393,
+    "ci95_bootstrap": [
+      0.48902155330868335,
+      0.7408320007086608
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 30,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_105": {
+    "weighted_f1": 0.5371260170414505,
+    "ci95_bootstrap": [
+      0.39988952020202023,
+      0.6817168473073406
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 24,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_106": {
+    "weighted_f1": 0.5843685161933767,
+    "ci95_bootstrap": [
+      0.4527047361486721,
+      0.7064991771758689
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_107": {
+    "weighted_f1": 0.5228064618308521,
+    "ci95_bootstrap": [
+      0.38882438164470096,
+      0.657022553431076
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 31,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_108": {
+    "weighted_f1": 0.6144133644133645,
+    "ci95_bootstrap": [
+      0.4876854781997187,
+      0.7425314697287192
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 18,
+      "abstention": 1
+    }
+  },
+  "seed_109": {
+    "weighted_f1": 0.5872053872053873,
+    "ci95_bootstrap": [
+      0.45366478778243485,
+      0.7204278748146495
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 23,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_110": {
+    "weighted_f1": 0.5244206773618538,
+    "ci95_bootstrap": [
+      0.38632317516705966,
+      0.6618517495793244
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 27,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_111": {
+    "weighted_f1": 0.6707070707070706,
+    "ci95_bootstrap": [
+      0.5371421703877627,
+      0.7933729619614877
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 24,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_112": {
+    "weighted_f1": 0.4511784511784512,
+    "ci95_bootstrap": [
+      0.31973872851433677,
+      0.583393973327904
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 31,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_113": {
+    "weighted_f1": 0.6372808306396316,
+    "ci95_bootstrap": [
+      0.5033292647476656,
+      0.765124458874459
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 28,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_114": {
+    "weighted_f1": 0.5880952380952381,
+    "ci95_bootstrap": [
+      0.45664471772519716,
+      0.7168487189597246
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 22,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_115": {
+    "weighted_f1": 0.4574314574314573,
+    "ci95_bootstrap": [
+      0.3164682326461105,
+      0.5980205371357056
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 30,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_116": {
+    "weighted_f1": 0.48581466842336407,
+    "ci95_bootstrap": [
+      0.34008946887102587,
+      0.6312358961960026
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 4,
+      "abstention": 4
+    }
+  },
+  "seed_117": {
+    "weighted_f1": 0.5732817240297101,
+    "ci95_bootstrap": [
+      0.43834015775831636,
+      0.7008799578584937
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 28,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 16,
+      "abstention": 0
+    }
+  },
+  "seed_118": {
+    "weighted_f1": 0.5197345505875451,
+    "ci95_bootstrap": [
+      0.37930748229043687,
+      0.6589337517626991
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_119": {
+    "weighted_f1": 0.5710687779653296,
+    "ci95_bootstrap": [
+      0.4287782827308796,
+      0.7049985189134749
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 29,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_120": {
+    "weighted_f1": 0.5592675523710007,
+    "ci95_bootstrap": [
+      0.4200627599524658,
+      0.6986852142416903
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 26,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_121": {
+    "weighted_f1": 0.6352813852813853,
+    "ci95_bootstrap": [
+      0.5059167640691781,
+      0.7609502735263383
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_122": {
+    "weighted_f1": 0.5444079729794016,
+    "ci95_bootstrap": [
+      0.4007017543859649,
+      0.6837053590442338
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 60,
+      "against": 5,
+      "abstention": 1
+    }
+  },
+  "seed_123": {
+    "weighted_f1": 0.7024275008145976,
+    "ci95_bootstrap": [
+      0.5704003173431326,
+      0.824070414462694
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 21,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_124": {
+    "weighted_f1": 0.5677627337201805,
+    "ci95_bootstrap": [
+      0.42369538761105024,
+      0.6987623522042126
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 35,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_125": {
+    "weighted_f1": 0.5704349529780565,
+    "ci95_bootstrap": [
+      0.42298929933654783,
+      0.7063571808308651
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 22,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_126": {
+    "weighted_f1": 0.6872085021790657,
+    "ci95_bootstrap": [
+      0.5593049769731201,
+      0.8118494265063814
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 28,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_127": {
+    "weighted_f1": 0.6323249920810897,
+    "ci95_bootstrap": [
+      0.4932244697134979,
+      0.7562172438336319
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_128": {
+    "weighted_f1": 0.596969696969697,
+    "ci95_bootstrap": [
+      0.45915198824215814,
+      0.7387324861518407
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 9,
+      "abstention": 0
+    }
+  },
+  "seed_129": {
+    "weighted_f1": 0.5046828171828172,
+    "ci95_bootstrap": [
+      0.35913459827307614,
+      0.6485872657290954
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 25,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_130": {
+    "weighted_f1": 0.6591690096844737,
+    "ci95_bootstrap": [
+      0.5265139238102721,
+      0.7848470765443892
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 42,
+      "against": 18,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_131": {
+    "weighted_f1": 0.5723581973581973,
+    "ci95_bootstrap": [
+      0.42826020681415566,
+      0.7149239354045656
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 20,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 6,
+      "abstention": 2
+    }
+  },
+  "seed_132": {
+    "weighted_f1": 0.5163833456516382,
+    "ci95_bootstrap": [
+      0.3797454937133371,
+      0.6566327503719119
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_133": {
+    "weighted_f1": 0.44352617079889806,
+    "ci95_bootstrap": [
+      0.3145647525165598,
+      0.5779106573758981
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 25,
+      "abstention": 13
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 8,
+      "abstention": 2
+    }
+  },
+  "seed_134": {
+    "weighted_f1": 0.7581828471471936,
+    "ci95_bootstrap": [
+      0.6314890459648351,
+      0.8713659557145969
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 42,
+      "against": 20,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_135": {
+    "weighted_f1": 0.6302590331628444,
+    "ci95_bootstrap": [
+      0.4999897729421269,
+      0.7632829147981356
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_136": {
+    "weighted_f1": 0.4830037723334577,
+    "ci95_bootstrap": [
+      0.3437562818864841,
+      0.6277269861011392
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 27,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 7,
+      "abstention": 4
+    }
+  },
+  "seed_137": {
+    "weighted_f1": 0.5990224828934506,
+    "ci95_bootstrap": [
+      0.458449531073991,
+      0.7274133769669484
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 22,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 9,
+      "abstention": 4
+    }
+  },
+  "seed_138": {
+    "weighted_f1": 0.5966844587534241,
+    "ci95_bootstrap": [
+      0.45999355339868025,
+      0.7300084485477745
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 26,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 11,
+      "abstention": 4
+    }
+  },
+  "seed_139": {
+    "weighted_f1": 0.6601398601398601,
+    "ci95_bootstrap": [
+      0.5299217691684152,
+      0.7839468273336828
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 15,
+      "abstention": 2
+    }
+  },
+  "seed_140": {
+    "weighted_f1": 0.5532746823069403,
+    "ci95_bootstrap": [
+      0.40803545577229783,
+      0.6968929809193737
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 22,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_141": {
+    "weighted_f1": 0.5027548209366391,
+    "ci95_bootstrap": [
+      0.37212042551618657,
+      0.6397562225872502
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 29,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 15,
+      "abstention": 0
+    }
+  },
+  "seed_142": {
+    "weighted_f1": 0.6513589503280224,
+    "ci95_bootstrap": [
+      0.5154079430670341,
+      0.7810441985199267
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 40,
+      "against": 20,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_143": {
+    "weighted_f1": 0.5867909867909868,
+    "ci95_bootstrap": [
+      0.451531498015873,
+      0.7137627591438693
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 17,
+      "abstention": 3
+    }
+  },
+  "seed_144": {
+    "weighted_f1": 0.677143778207608,
+    "ci95_bootstrap": [
+      0.5394958500643225,
+      0.7983669105447848
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 40,
+      "against": 23,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_145": {
+    "weighted_f1": 0.5543329637841833,
+    "ci95_bootstrap": [
+      0.4145376242891303,
+      0.6843698347107436
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 29,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_146": {
+    "weighted_f1": 0.5806396834696077,
+    "ci95_bootstrap": [
+      0.4405160108715343,
+      0.7100712440420208
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 31,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_147": {
+    "weighted_f1": 0.6031042128603104,
+    "ci95_bootstrap": [
+      0.4745713949241479,
+      0.7322834241760655
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 27,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_148": {
+    "weighted_f1": 0.538627010849233,
+    "ci95_bootstrap": [
+      0.3978731247166243,
+      0.6683045201551695
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 31,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_149": {
+    "weighted_f1": 0.5033259423503326,
+    "ci95_bootstrap": [
+      0.35888449687060797,
+      0.6400148346193765
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 30,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 10,
+      "abstention": 4
+    }
+  },
+  "seed_150": {
+    "weighted_f1": 0.4276066655065835,
+    "ci95_bootstrap": [
+      0.29663875951960655,
+      0.5534561665394102
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 20,
+      "against": 38,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 15,
+      "abstention": 2
+    }
+  },
+  "seed_151": {
+    "weighted_f1": 0.5176767676767677,
+    "ci95_bootstrap": [
+      0.3795303822947292,
+      0.6545849001691615
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 35,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 13,
+      "abstention": 3
+    }
+  },
+  "seed_152": {
+    "weighted_f1": 0.48041264572704734,
+    "ci95_bootstrap": [
+      0.351876365001365,
+      0.6190053208033413
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 23,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_153": {
+    "weighted_f1": 0.6291815289694398,
+    "ci95_bootstrap": [
+      0.4962453490379847,
+      0.7536704419051471
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 32,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_154": {
+    "weighted_f1": 0.5737373737373738,
+    "ci95_bootstrap": [
+      0.4435237111373475,
+      0.7043738439221944
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 22,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_155": {
+    "weighted_f1": 0.4750182119621192,
+    "ci95_bootstrap": [
+      0.33799578088114796,
+      0.6075378642582324
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 34,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_156": {
+    "weighted_f1": 0.5668982180610088,
+    "ci95_bootstrap": [
+      0.4254851417150882,
+      0.6947755285307377
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 25,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_157": {
+    "weighted_f1": 0.5515441496302739,
+    "ci95_bootstrap": [
+      0.42001223747891364,
+      0.6875087723080253
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 26,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_158": {
+    "weighted_f1": 0.540650406504065,
+    "ci95_bootstrap": [
+      0.40057620316614323,
+      0.6752921971151441
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 26,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_159": {
+    "weighted_f1": 0.5291943828529194,
+    "ci95_bootstrap": [
+      0.40356553024790276,
+      0.6669938016528926
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 26,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_160": {
+    "weighted_f1": 0.6297289989808865,
+    "ci95_bootstrap": [
+      0.4898811996584273,
+      0.7613719613719614
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 24,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 7,
+      "abstention": 3
+    }
+  },
+  "seed_161": {
+    "weighted_f1": 0.4537129537129537,
+    "ci95_bootstrap": [
+      0.3168943903318904,
+      0.5950922269188874
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 30,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_162": {
+    "weighted_f1": 0.5809153309153309,
+    "ci95_bootstrap": [
+      0.441269083679619,
+      0.7078812258615214
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 26,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_163": {
+    "weighted_f1": 0.6152029306854333,
+    "ci95_bootstrap": [
+      0.4811387827148697,
+      0.7404481448946059
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 33,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_164": {
+    "weighted_f1": 0.5212011716076758,
+    "ci95_bootstrap": [
+      0.3816485746363795,
+      0.6514094736458409
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 28,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_165": {
+    "weighted_f1": 0.6445123503947033,
+    "ci95_bootstrap": [
+      0.5077517461365012,
+      0.7727602622661176
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 23,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_166": {
+    "weighted_f1": 0.5548509828788839,
+    "ci95_bootstrap": [
+      0.4130065745306387,
+      0.6823689335046292
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 27,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_167": {
+    "weighted_f1": 0.6470029448085874,
+    "ci95_bootstrap": [
+      0.5110208350318209,
+      0.7737634761525213
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 31,
+      "abstention": 1
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 13,
+      "abstention": 0
+    }
+  },
+  "seed_168": {
+    "weighted_f1": 0.4738281431829819,
+    "ci95_bootstrap": [
+      0.3303185413472443,
+      0.6191224926704926
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 23,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 5,
+      "abstention": 3
+    }
+  },
+  "seed_169": {
+    "weighted_f1": 0.5434318692126408,
+    "ci95_bootstrap": [
+      0.40581858483796346,
+      0.6787570322201256
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 28,
+      "abstention": 13
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 18,
+      "abstention": 2
+    }
+  },
+  "seed_170": {
+    "weighted_f1": 0.6391650176541342,
+    "ci95_bootstrap": [
+      0.5130722805726701,
+      0.7569801260590734
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 32,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 42,
+      "against": 23,
+      "abstention": 1
+    }
+  },
+  "seed_171": {
+    "weighted_f1": 0.5381818181818182,
+    "ci95_bootstrap": [
+      0.38992081467596934,
+      0.6916793535501617
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 17,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 61,
+      "against": 3,
+      "abstention": 2
+    }
+  },
+  "seed_172": {
+    "weighted_f1": 0.5782828282828283,
+    "ci95_bootstrap": [
+      0.43924639343717337,
+      0.7038545485051306
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_173": {
+    "weighted_f1": 0.6634986225895316,
+    "ci95_bootstrap": [
+      0.5296322532513648,
+      0.7839712885680628
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 29,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_174": {
+    "weighted_f1": 0.539856395278082,
+    "ci95_bootstrap": [
+      0.4006625635354829,
+      0.6708154684231239
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 33,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_175": {
+    "weighted_f1": 0.6108273748723186,
+    "ci95_bootstrap": [
+      0.47150866096394595,
+      0.7462117964087952
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_176": {
+    "weighted_f1": 0.4434772583155589,
+    "ci95_bootstrap": [
+      0.3021098725638347,
+      0.5881438700188699
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 30,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_177": {
+    "weighted_f1": 0.5537101787101787,
+    "ci95_bootstrap": [
+      0.40559003862706217,
+      0.6874593655199324
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 5,
+      "abstention": 3
+    }
+  },
+  "seed_178": {
+    "weighted_f1": 0.5917239941630186,
+    "ci95_bootstrap": [
+      0.45577364948949217,
+      0.7201440364033423
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 25,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_179": {
+    "weighted_f1": 0.6433030570961605,
+    "ci95_bootstrap": [
+      0.5089375684556409,
+      0.7681676949911483
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 24,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_180": {
+    "weighted_f1": 0.5081103635320503,
+    "ci95_bootstrap": [
+      0.3631209779503867,
+      0.6460525723510091
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 33,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 9,
+      "abstention": 4
+    }
+  },
+  "seed_181": {
+    "weighted_f1": 0.5668923275306254,
+    "ci95_bootstrap": [
+      0.4231175390266299,
+      0.7068849006581752
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 7,
+      "abstention": 3
+    }
+  },
+  "seed_182": {
+    "weighted_f1": 0.4812608110705362,
+    "ci95_bootstrap": [
+      0.34925409087397863,
+      0.6183863699653174
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 21,
+      "abstention": 13
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_183": {
+    "weighted_f1": 0.5992063492063492,
+    "ci95_bootstrap": [
+      0.4709283895869262,
+      0.7272999343277979
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 21,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_184": {
+    "weighted_f1": 0.5443429155828275,
+    "ci95_bootstrap": [
+      0.40240292274775036,
+      0.6888266174158866
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 22,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_185": {
+    "weighted_f1": 0.5462376377010523,
+    "ci95_bootstrap": [
+      0.4020343982063417,
+      0.6799793676109466
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_186": {
+    "weighted_f1": 0.6897255382103866,
+    "ci95_bootstrap": [
+      0.5628554041398686,
+      0.8160341329385093
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 28,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 16,
+      "abstention": 3
+    }
+  },
+  "seed_187": {
+    "weighted_f1": 0.514713444946003,
+    "ci95_bootstrap": [
+      0.38067054473304474,
+      0.6561417074010617
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 25,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_188": {
+    "weighted_f1": 0.6426723682821245,
+    "ci95_bootstrap": [
+      0.5104222901281724,
+      0.7638154517380268
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 15,
+      "abstention": 0
+    }
+  },
+  "seed_189": {
+    "weighted_f1": 0.6177156177156177,
+    "ci95_bootstrap": [
+      0.47741517741517747,
+      0.7498149704934566
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 30,
+      "abstention": 1
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_190": {
+    "weighted_f1": 0.5875932852677039,
+    "ci95_bootstrap": [
+      0.4420902592395488,
+      0.7282095860794412
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 29,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 10,
+      "abstention": 4
+    }
+  },
+  "seed_191": {
+    "weighted_f1": 0.6526986526986527,
+    "ci95_bootstrap": [
+      0.5129546442046442,
+      0.7804219186774366
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 27,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_192": {
+    "weighted_f1": 0.5758023762163325,
+    "ci95_bootstrap": [
+      0.4383422459893048,
+      0.7158234859026255
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_193": {
+    "weighted_f1": 0.6041128646580582,
+    "ci95_bootstrap": [
+      0.46595622309036944,
+      0.7297008982343021
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_194": {
+    "weighted_f1": 0.6844956201442411,
+    "ci95_bootstrap": [
+      0.5458241103128795,
+      0.8091724238317399
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_195": {
+    "weighted_f1": 0.5545149139773999,
+    "ci95_bootstrap": [
+      0.42415241905714895,
+      0.6827553310886643
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 34,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 13,
+      "abstention": 3
+    }
+  },
+  "seed_196": {
+    "weighted_f1": 0.5820003751038234,
+    "ci95_bootstrap": [
+      0.445092358398878,
+      0.7180596232614865
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 29,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_197": {
+    "weighted_f1": 0.43042671614100186,
+    "ci95_bootstrap": [
+      0.2854424855969572,
+      0.5854053219284403
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 62,
+      "against": 4,
+      "abstention": 0
+    }
+  },
+  "seed_198": {
+    "weighted_f1": 0.6334760529722194,
+    "ci95_bootstrap": [
+      0.49808314590612895,
+      0.7569499224785065
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 30,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_199": {
+    "weighted_f1": 0.5188103949713856,
+    "ci95_bootstrap": [
+      0.378994876375599,
+      0.6550230199813867
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_200": {
+    "weighted_f1": 0.5939642664676864,
+    "ci95_bootstrap": [
+      0.4630118113249202,
+      0.7208264653474061
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 31,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_201": {
+    "weighted_f1": 0.5087121212121213,
+    "ci95_bootstrap": [
+      0.3608129040064777,
+      0.6574509305543789
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 25,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_202": {
+    "weighted_f1": 0.6855154414963027,
+    "ci95_bootstrap": [
+      0.5612133157391778,
+      0.8102989435416971
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_203": {
+    "weighted_f1": 0.5464646464646465,
+    "ci95_bootstrap": [
+      0.4117334490219804,
+      0.6764659411179543
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 19,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_204": {
+    "weighted_f1": 0.5357213438735178,
+    "ci95_bootstrap": [
+      0.4004408297766053,
+      0.6693636515629732
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 33,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_205": {
+    "weighted_f1": 0.5950355950355951,
+    "ci95_bootstrap": [
+      0.46078235612307833,
+      0.7296144155213572
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 25,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_206": {
+    "weighted_f1": 0.5704636728733113,
+    "ci95_bootstrap": [
+      0.4308633977218688,
+      0.6958583714907993
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_207": {
+    "weighted_f1": 0.5277574456318418,
+    "ci95_bootstrap": [
+      0.39202403343782655,
+      0.6599759594883708
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 34,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_208": {
+    "weighted_f1": 0.6434755720470005,
+    "ci95_bootstrap": [
+      0.5023147433588859,
+      0.773250995558141
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 21,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_209": {
+    "weighted_f1": 0.6036428110896196,
+    "ci95_bootstrap": [
+      0.46584394311667043,
+      0.7376786296141135
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 9,
+      "abstention": 0
+    }
+  },
+  "seed_210": {
+    "weighted_f1": 0.5633821087588211,
+    "ci95_bootstrap": [
+      0.4383361749158529,
+      0.6903284712799637
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 31,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 17,
+      "abstention": 2
+    }
+  },
+  "seed_211": {
+    "weighted_f1": 0.5255496137849079,
+    "ci95_bootstrap": [
+      0.392945652173913,
+      0.6721551801197818
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 20,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 61,
+      "against": 4,
+      "abstention": 1
+    }
+  },
+  "seed_212": {
+    "weighted_f1": 0.48573390433855557,
+    "ci95_bootstrap": [
+      0.34575771063331967,
+      0.6234804774130617
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 31,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 8,
+      "abstention": 2
+    }
+  },
+  "seed_213": {
+    "weighted_f1": 0.6217948717948718,
+    "ci95_bootstrap": [
+      0.4951294650091442,
+      0.7532160286972782
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 24,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 15,
+      "abstention": 2
+    }
+  },
+  "seed_214": {
+    "weighted_f1": 0.5794530672579453,
+    "ci95_bootstrap": [
+      0.4393800729293662,
+      0.7101862342114797
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_215": {
+    "weighted_f1": 0.6645635238010603,
+    "ci95_bootstrap": [
+      0.5274287382798394,
+      0.793722708181471
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 23,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_216": {
+    "weighted_f1": 0.5205761316872428,
+    "ci95_bootstrap": [
+      0.38549285329186334,
+      0.6545491202346041
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 30,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_217": {
+    "weighted_f1": 0.6460021905805038,
+    "ci95_bootstrap": [
+      0.5161464893722958,
+      0.766423814760508
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_218": {
+    "weighted_f1": 0.5735018726591761,
+    "ci95_bootstrap": [
+      0.4389348025711662,
+      0.7086016571812026
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 20,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_219": {
+    "weighted_f1": 0.4640833421321226,
+    "ci95_bootstrap": [
+      0.32191740362971805,
+      0.5994360460483393
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 32,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_220": {
+    "weighted_f1": 0.4903427457056608,
+    "ci95_bootstrap": [
+      0.3489646982469949,
+      0.6270004505298623
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 31,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_221": {
+    "weighted_f1": 0.5025079799361605,
+    "ci95_bootstrap": [
+      0.36778305641942,
+      0.6384461602373942
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 26,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 8,
+      "abstention": 2
+    }
+  },
+  "seed_222": {
+    "weighted_f1": 0.5756082997462307,
+    "ci95_bootstrap": [
+      0.43550255053314013,
+      0.7103290974258716
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 24,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_223": {
+    "weighted_f1": 0.5422647527910684,
+    "ci95_bootstrap": [
+      0.4045648426989007,
+      0.6795311589540495
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_224": {
+    "weighted_f1": 0.6297044519266741,
+    "ci95_bootstrap": [
+      0.4926447968648104,
+      0.75438995215311
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 32,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_225": {
+    "weighted_f1": 0.6130892771039649,
+    "ci95_bootstrap": [
+      0.4741261542133053,
+      0.7452172667094729
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 11,
+      "abstention": 4
+    }
+  },
+  "seed_226": {
+    "weighted_f1": 0.5427255006202375,
+    "ci95_bootstrap": [
+      0.39787062352851826,
+      0.6859533511765034
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 21,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 6,
+      "abstention": 2
+    }
+  },
+  "seed_227": {
+    "weighted_f1": 0.6073794626426205,
+    "ci95_bootstrap": [
+      0.4822002679859822,
+      0.7336082267032893
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 35,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 17,
+      "abstention": 1
+    }
+  },
+  "seed_228": {
+    "weighted_f1": 0.451574569221628,
+    "ci95_bootstrap": [
+      0.31650652643475613,
+      0.5914219331130881
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 28,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_229": {
+    "weighted_f1": 0.6455766455766455,
+    "ci95_bootstrap": [
+      0.5078727002164503,
+      0.7760064887908024
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 22,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_230": {
+    "weighted_f1": 0.5653907496012759,
+    "ci95_bootstrap": [
+      0.4312620067203122,
+      0.6953278236914601
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 32,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 16,
+      "abstention": 4
+    }
+  },
+  "seed_231": {
+    "weighted_f1": 0.5147991543340381,
+    "ci95_bootstrap": [
+      0.38363275817898623,
+      0.6470309572895779
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 31,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 12,
+      "abstention": 4
+    }
+  },
+  "seed_232": {
+    "weighted_f1": 0.6252262423167214,
+    "ci95_bootstrap": [
+      0.487139510199855,
+      0.7528239383078092
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 29,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_233": {
+    "weighted_f1": 0.3713559168104623,
+    "ci95_bootstrap": [
+      0.23812201484380352,
+      0.506451726112052
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 23,
+      "against": 30,
+      "abstention": 13
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_234": {
+    "weighted_f1": 0.5033799533799534,
+    "ci95_bootstrap": [
+      0.36535803360592084,
+      0.6457167635955515
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 28,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 11,
+      "abstention": 4
+    }
+  },
+  "seed_235": {
+    "weighted_f1": 0.6403030303030304,
+    "ci95_bootstrap": [
+      0.5018310098617376,
+      0.7683843785448063
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 18,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 7,
+      "abstention": 0
+    }
+  },
+  "seed_236": {
+    "weighted_f1": 0.5962135497019219,
+    "ci95_bootstrap": [
+      0.4586113525195749,
+      0.7310355995015085
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 10,
+      "abstention": 5
+    }
+  },
+  "seed_237": {
+    "weighted_f1": 0.5435638288729611,
+    "ci95_bootstrap": [
+      0.41003600060660017,
+      0.6797092566660163
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_238": {
+    "weighted_f1": 0.6854801209021157,
+    "ci95_bootstrap": [
+      0.5486934896032333,
+      0.8080625919734827
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 23,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_239": {
+    "weighted_f1": 0.6498535134898771,
+    "ci95_bootstrap": [
+      0.5212283886842586,
+      0.7800691121743754
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 43,
+      "against": 19,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_240": {
+    "weighted_f1": 0.5338108356290174,
+    "ci95_bootstrap": [
+      0.4043713869663237,
+      0.6641116745616324
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 29,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 15,
+      "abstention": 4
+    }
+  },
+  "seed_241": {
+    "weighted_f1": 0.5528973950026581,
+    "ci95_bootstrap": [
+      0.42694493305288755,
+      0.6777714548704674
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 32,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 16,
+      "abstention": 2
+    }
+  },
+  "seed_242": {
+    "weighted_f1": 0.5498955067920585,
+    "ci95_bootstrap": [
+      0.41536672923779194,
+      0.6857389237941155
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 21,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_243": {
+    "weighted_f1": 0.46808365343576613,
+    "ci95_bootstrap": [
+      0.3444290075303406,
+      0.5963694884126317
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 23,
+      "against": 32,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 18,
+      "abstention": 0
+    }
+  },
+  "seed_244": {
+    "weighted_f1": 0.6039238539238538,
+    "ci95_bootstrap": [
+      0.46507787512167986,
+      0.7340340755952489
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 28,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_245": {
+    "weighted_f1": 0.5789600449594561,
+    "ci95_bootstrap": [
+      0.4489274348291406,
+      0.7132348582563446
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 29,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_246": {
+    "weighted_f1": 0.4259655377302436,
+    "ci95_bootstrap": [
+      0.2810564302496555,
+      0.560355839092681
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 29,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_247": {
+    "weighted_f1": 0.5870383312725123,
+    "ci95_bootstrap": [
+      0.4524669104841519,
+      0.7218718391949465
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_248": {
+    "weighted_f1": 0.6025405570860116,
+    "ci95_bootstrap": [
+      0.4674975877536119,
+      0.7318508073048186
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 23,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_249": {
+    "weighted_f1": 0.595137914913511,
+    "ci95_bootstrap": [
+      0.4588417640554222,
+      0.7363952341027439
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 20,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_250": {
+    "weighted_f1": 0.5183520599250936,
+    "ci95_bootstrap": [
+      0.38367336712456357,
+      0.6549154427611265
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 32,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_251": {
+    "weighted_f1": 0.524535679374389,
+    "ci95_bootstrap": [
+      0.3868675522879631,
+      0.6669050847197963
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 23,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 8,
+      "abstention": 4
+    }
+  },
+  "seed_252": {
+    "weighted_f1": 0.575032375032375,
+    "ci95_bootstrap": [
+      0.43473737373737376,
+      0.7052305125992085
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 32,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 13,
+      "abstention": 5
+    }
+  },
+  "seed_253": {
+    "weighted_f1": 0.5353535353535354,
+    "ci95_bootstrap": [
+      0.38306014271923366,
+      0.6806638662696483
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 60,
+      "against": 5,
+      "abstention": 1
+    }
+  },
+  "seed_254": {
+    "weighted_f1": 0.5390972663699937,
+    "ci95_bootstrap": [
+      0.3948261735984035,
+      0.6816614617915373
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 30,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_255": {
+    "weighted_f1": 0.6621528553346735,
+    "ci95_bootstrap": [
+      0.5364974895583401,
+      0.7897930151623721
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 24,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_256": {
+    "weighted_f1": 0.682174688057041,
+    "ci95_bootstrap": [
+      0.5517379780858178,
+      0.8087952951063602
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 13,
+      "abstention": 3
+    }
+  },
+  "seed_257": {
+    "weighted_f1": 0.5304927630509025,
+    "ci95_bootstrap": [
+      0.39071515650643984,
+      0.6638685830350677
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_258": {
+    "weighted_f1": 0.6456228956228957,
+    "ci95_bootstrap": [
+      0.5127629869740669,
+      0.7748456431320881
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 19,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_259": {
+    "weighted_f1": 0.5229273160307644,
+    "ci95_bootstrap": [
+      0.38621185182704504,
+      0.6650547673871834
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 29,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_260": {
+    "weighted_f1": 0.5036879054474361,
+    "ci95_bootstrap": [
+      0.36281695131449637,
+      0.6369325178468399
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 22,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_261": {
+    "weighted_f1": 0.5183566433566434,
+    "ci95_bootstrap": [
+      0.38106600379463956,
+      0.6622786561264823
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 21,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 5,
+      "abstention": 2
+    }
+  },
+  "seed_262": {
+    "weighted_f1": 0.47498471617712806,
+    "ci95_bootstrap": [
+      0.34357997969109083,
+      0.6152785331406412
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 29,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_263": {
+    "weighted_f1": 0.6733185513673319,
+    "ci95_bootstrap": [
+      0.5498908813305183,
+      0.7910771514032381
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 25,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 16,
+      "abstention": 2
+    }
+  },
+  "seed_264": {
+    "weighted_f1": 0.4968668659018606,
+    "ci95_bootstrap": [
+      0.3576298276886512,
+      0.6403154690644184
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 35,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_265": {
+    "weighted_f1": 0.5869821781841955,
+    "ci95_bootstrap": [
+      0.4468488844575801,
+      0.7192233877233876
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 29,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_266": {
+    "weighted_f1": 0.5612156043190526,
+    "ci95_bootstrap": [
+      0.42279681129681135,
+      0.7055863254392666
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 30,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_267": {
+    "weighted_f1": 0.6195698241152786,
+    "ci95_bootstrap": [
+      0.48182012271140295,
+      0.7560069472371636
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_268": {
+    "weighted_f1": 0.4890330552981156,
+    "ci95_bootstrap": [
+      0.34548135040311057,
+      0.6239139132973818
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 29,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_269": {
+    "weighted_f1": 0.5414079822616409,
+    "ci95_bootstrap": [
+      0.4034600194977097,
+      0.6722754069892624
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 11,
+      "abstention": 4
+    }
+  },
+  "seed_270": {
+    "weighted_f1": 0.6382663847780127,
+    "ci95_bootstrap": [
+      0.5010716632609399,
+      0.7676839793801966
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_271": {
+    "weighted_f1": 0.6604136604136603,
+    "ci95_bootstrap": [
+      0.5209888612004484,
+      0.7930844705660339
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 42,
+      "against": 19,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 8,
+      "abstention": 2
+    }
+  },
+  "seed_272": {
+    "weighted_f1": 0.6795328486149743,
+    "ci95_bootstrap": [
+      0.5486967201893783,
+      0.7975956627642022
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 30,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_273": {
+    "weighted_f1": 0.6270486619323828,
+    "ci95_bootstrap": [
+      0.4829387626262626,
+      0.7587537511464928
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 13,
+      "abstention": 6
+    }
+  },
+  "seed_274": {
+    "weighted_f1": 0.5821510990050316,
+    "ci95_bootstrap": [
+      0.43665930134680137,
+      0.7230386936886137
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 28,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_275": {
+    "weighted_f1": 0.514038520064345,
+    "ci95_bootstrap": [
+      0.37279831599677005,
+      0.648356169348992
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 31,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_276": {
+    "weighted_f1": 0.5267188009123493,
+    "ci95_bootstrap": [
+      0.38513079226744484,
+      0.6730152114800123
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 23,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_277": {
+    "weighted_f1": 0.5055096418732783,
+    "ci95_bootstrap": [
+      0.3714023635006278,
+      0.6418449197860963
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 34,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 10,
+      "abstention": 6
+    }
+  },
+  "seed_278": {
+    "weighted_f1": 0.5051572810558012,
+    "ci95_bootstrap": [
+      0.3685581973237253,
+      0.638164527939973
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 31,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 12,
+      "abstention": 5
+    }
+  },
+  "seed_279": {
+    "weighted_f1": 0.5298935298935299,
+    "ci95_bootstrap": [
+      0.38563045574686783,
+      0.6683680107942727
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_280": {
+    "weighted_f1": 0.5239057239057239,
+    "ci95_bootstrap": [
+      0.3828861851800681,
+      0.6581816369435985
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_281": {
+    "weighted_f1": 0.4809304619431202,
+    "ci95_bootstrap": [
+      0.3430671639540858,
+      0.6155937306122132
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 31,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_282": {
+    "weighted_f1": 0.7344961240310077,
+    "ci95_bootstrap": [
+      0.6129088681793434,
+      0.8407972581075792
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 25,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 15,
+      "abstention": 2
+    }
+  },
+  "seed_283": {
+    "weighted_f1": 0.6665173089050416,
+    "ci95_bootstrap": [
+      0.5363050867277587,
+      0.7827197128434686
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 26,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 18,
+      "abstention": 1
+    }
+  },
+  "seed_284": {
+    "weighted_f1": 0.6254060743567267,
+    "ci95_bootstrap": [
+      0.4964953512396694,
+      0.7508539601900278
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_285": {
+    "weighted_f1": 0.5532802921612103,
+    "ci95_bootstrap": [
+      0.41965306285779724,
+      0.6876108483939078
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_286": {
+    "weighted_f1": 0.5888294711824124,
+    "ci95_bootstrap": [
+      0.45709241804303685,
+      0.7158521681140728
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 28,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_287": {
+    "weighted_f1": 0.4520282085278915,
+    "ci95_bootstrap": [
+      0.30831427666760486,
+      0.5899724768715114
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 28,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_288": {
+    "weighted_f1": 0.6832683268326832,
+    "ci95_bootstrap": [
+      0.5444534632034632,
+      0.803320707070707
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 43,
+      "against": 16,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 8,
+      "abstention": 0
+    }
+  },
+  "seed_289": {
+    "weighted_f1": 0.573048128342246,
+    "ci95_bootstrap": [
+      0.43776664239650503,
+      0.6925423201641188
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 36,
+      "abstention": 1
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 15,
+      "abstention": 5
+    }
+  },
+  "seed_290": {
+    "weighted_f1": 0.3944019138755981,
+    "ci95_bootstrap": [
+      0.25425263504611334,
+      0.5321628964737987
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 23,
+      "against": 37,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 13,
+      "abstention": 0
+    }
+  },
+  "seed_291": {
+    "weighted_f1": 0.5663875598086123,
+    "ci95_bootstrap": [
+      0.4221703338748793,
+      0.7051514161220043
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 30,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_292": {
+    "weighted_f1": 0.49410963568266936,
+    "ci95_bootstrap": [
+      0.35240816485032983,
+      0.6326273509603787
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_293": {
+    "weighted_f1": 0.4605465456529287,
+    "ci95_bootstrap": [
+      0.32262013543570345,
+      0.6051629205982798
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 22,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 4,
+      "abstention": 3
+    }
+  },
+  "seed_294": {
+    "weighted_f1": 0.5881516312550795,
+    "ci95_bootstrap": [
+      0.4565637290899133,
+      0.7212143716992855
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 25,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_295": {
+    "weighted_f1": 0.5792796384901648,
+    "ci95_bootstrap": [
+      0.4462714097496706,
+      0.7100071645878774
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 29,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 19,
+      "abstention": 1
+    }
+  },
+  "seed_296": {
+    "weighted_f1": 0.5984293484293484,
+    "ci95_bootstrap": [
+      0.4659722317911973,
+      0.726561592678614
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 27,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_297": {
+    "weighted_f1": 0.5923347067925381,
+    "ci95_bootstrap": [
+      0.4586711007920722,
+      0.7198487201204592
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 29,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_298": {
+    "weighted_f1": 0.5752296100753451,
+    "ci95_bootstrap": [
+      0.4337952897752368,
+      0.7166380080468365
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 22,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 7,
+      "abstention": 3
+    }
+  },
+  "seed_299": {
+    "weighted_f1": 0.4383838383838383,
+    "ci95_bootstrap": [
+      0.3051543817200383,
+      0.5750204858767954
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 29,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_300": {
+    "weighted_f1": 0.5742121884028757,
+    "ci95_bootstrap": [
+      0.43841828402923,
+      0.7115072917492271
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 30,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_301": {
+    "weighted_f1": 0.4735156442473515,
+    "ci95_bootstrap": [
+      0.3331012926568905,
+      0.6076237989652623
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 31,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_302": {
+    "weighted_f1": 0.6090353676560574,
+    "ci95_bootstrap": [
+      0.4641647667901586,
+      0.7379994137806636
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 28,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 9,
+      "abstention": 4
+    }
+  },
+  "seed_303": {
+    "weighted_f1": 0.37703081232492996,
+    "ci95_bootstrap": [
+      0.25177320675105486,
+      0.5131664662385179
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 25,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_304": {
+    "weighted_f1": 0.657824201462168,
+    "ci95_bootstrap": [
+      0.5251062641258823,
+      0.7904862579281184
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 29,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 12,
+      "abstention": 5
+    }
+  },
+  "seed_305": {
+    "weighted_f1": 0.5605230840718245,
+    "ci95_bootstrap": [
+      0.4184806734361529,
+      0.6927140426943987
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 32,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_306": {
+    "weighted_f1": 0.5043718922975888,
+    "ci95_bootstrap": [
+      0.3626884668709288,
+      0.644554639612779
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 27,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_307": {
+    "weighted_f1": 0.5017749652724186,
+    "ci95_bootstrap": [
+      0.3590805003439412,
+      0.6434633968403282
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 25,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 60,
+      "against": 6,
+      "abstention": 0
+    }
+  },
+  "seed_308": {
+    "weighted_f1": 0.6203907025163065,
+    "ci95_bootstrap": [
+      0.4827884104199893,
+      0.7456119807423542
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 33,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 13,
+      "abstention": 3
+    }
+  },
+  "seed_309": {
+    "weighted_f1": 0.5365031897926635,
+    "ci95_bootstrap": [
+      0.3870575359798234,
+      0.6730804097665458
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 26,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 59,
+      "against": 6,
+      "abstention": 1
+    }
+  },
+  "seed_310": {
+    "weighted_f1": 0.694125874125874,
+    "ci95_bootstrap": [
+      0.5619409685215156,
+      0.8147647367393744
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 43,
+      "against": 18,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_311": {
+    "weighted_f1": 0.6527836504580691,
+    "ci95_bootstrap": [
+      0.5148419697490906,
+      0.7790725542461653
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_312": {
+    "weighted_f1": 0.43506493506493504,
+    "ci95_bootstrap": [
+      0.3108828132456181,
+      0.5644063479623824
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 24,
+      "against": 30,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 18,
+      "abstention": 2
+    }
+  },
+  "seed_313": {
+    "weighted_f1": 0.4415584415584415,
+    "ci95_bootstrap": [
+      0.3084596581732576,
+      0.5786033949984465
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 31,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_314": {
+    "weighted_f1": 0.596903096903097,
+    "ci95_bootstrap": [
+      0.46701653981750807,
+      0.7175060365322008
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 35,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 45,
+      "against": 17,
+      "abstention": 4
+    }
+  },
+  "seed_315": {
+    "weighted_f1": 0.5320399113082039,
+    "ci95_bootstrap": [
+      0.3941769091225613,
+      0.6666844919786096
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 26,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_316": {
+    "weighted_f1": 0.6599562054107508,
+    "ci95_bootstrap": [
+      0.518902652931843,
+      0.786697226974519
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 42,
+      "against": 19,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_317": {
+    "weighted_f1": 0.5779349849117291,
+    "ci95_bootstrap": [
+      0.44019923823999063,
+      0.7090901503419598
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 28,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_318": {
+    "weighted_f1": 0.6218262479605492,
+    "ci95_bootstrap": [
+      0.48726037718262594,
+      0.7488239538239536
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 26,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_319": {
+    "weighted_f1": 0.532538050185109,
+    "ci95_bootstrap": [
+      0.39319581625568323,
+      0.6672876555262919
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_320": {
+    "weighted_f1": 0.4353979353979354,
+    "ci95_bootstrap": [
+      0.2926482815964523,
+      0.5734328737106515
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 30,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_321": {
+    "weighted_f1": 0.5852813852813853,
+    "ci95_bootstrap": [
+      0.4490668230620351,
+      0.7160358102319422
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_322": {
+    "weighted_f1": 0.5764762246975685,
+    "ci95_bootstrap": [
+      0.42406827190488744,
+      0.7118541666666665
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 25,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_323": {
+    "weighted_f1": 0.5975135975135974,
+    "ci95_bootstrap": [
+      0.468820670635321,
+      0.7227779459331849
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 34,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 17,
+      "abstention": 1
+    }
+  },
+  "seed_324": {
+    "weighted_f1": 0.5471587236293118,
+    "ci95_bootstrap": [
+      0.4054507575757576,
+      0.6923225946332007
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_325": {
+    "weighted_f1": 0.5046828171828172,
+    "ci95_bootstrap": [
+      0.36784270805927693,
+      0.6443074426563731
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 25,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_326": {
+    "weighted_f1": 0.5604635698679585,
+    "ci95_bootstrap": [
+      0.4249990981240982,
+      0.6998708746450681
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 19,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 10,
+      "abstention": 4
+    }
+  },
+  "seed_327": {
+    "weighted_f1": 0.6858435681965094,
+    "ci95_bootstrap": [
+      0.5499775692531375,
+      0.8065904613420524
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 23,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_328": {
+    "weighted_f1": 0.5678866587957496,
+    "ci95_bootstrap": [
+      0.43499945488581854,
+      0.6975936039696163
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 35,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 14,
+      "abstention": 4
+    }
+  },
+  "seed_329": {
+    "weighted_f1": 0.5905849943283099,
+    "ci95_bootstrap": [
+      0.45890820991153064,
+      0.7202433240916386
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 24,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_330": {
+    "weighted_f1": 0.6145521145521146,
+    "ci95_bootstrap": [
+      0.47464805832139856,
+      0.7455107048748353
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 12,
+      "abstention": 4
+    }
+  },
+  "seed_331": {
+    "weighted_f1": 0.35514274754781083,
+    "ci95_bootstrap": [
+      0.22177160192967285,
+      0.49668060139044146
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 24,
+      "against": 31,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_332": {
+    "weighted_f1": 0.6226401097882126,
+    "ci95_bootstrap": [
+      0.4845664787408973,
+      0.7569127420422924
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_333": {
+    "weighted_f1": 0.5813695568786378,
+    "ci95_bootstrap": [
+      0.4428300828286649,
+      0.7051212095320947
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 31,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 15,
+      "abstention": 3
+    }
+  },
+  "seed_334": {
+    "weighted_f1": 0.601392485575394,
+    "ci95_bootstrap": [
+      0.4617292809783947,
+      0.7348636935587861
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 18,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_335": {
+    "weighted_f1": 0.6256977981115912,
+    "ci95_bootstrap": [
+      0.4857641479582525,
+      0.7550367024280067
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 10,
+      "abstention": 4
+    }
+  },
+  "seed_336": {
+    "weighted_f1": 0.616432946486138,
+    "ci95_bootstrap": [
+      0.48276190802108365,
+      0.7438363262280449
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 33,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_337": {
+    "weighted_f1": 0.4735772357723578,
+    "ci95_bootstrap": [
+      0.3439560145373509,
+      0.6090174840777249
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 23,
+      "abstention": 13
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_338": {
+    "weighted_f1": 0.7314794132975951,
+    "ci95_bootstrap": [
+      0.6041890231327511,
+      0.8519353146853146
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 26,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 11,
+      "abstention": 5
+    }
+  },
+  "seed_339": {
+    "weighted_f1": 0.5813492063492064,
+    "ci95_bootstrap": [
+      0.45292821815946444,
+      0.7145027690549082
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 16,
+      "abstention": 3
+    }
+  },
+  "seed_340": {
+    "weighted_f1": 0.6896168896168896,
+    "ci95_bootstrap": [
+      0.5613061279925767,
+      0.8126717787537359
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 24,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_341": {
+    "weighted_f1": 0.5525130826335645,
+    "ci95_bootstrap": [
+      0.41914645015434115,
+      0.6853216735071465
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 26,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_342": {
+    "weighted_f1": 0.34784592917123036,
+    "ci95_bootstrap": [
+      0.22054294550122536,
+      0.48218014718014707
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 34,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 6,
+      "abstention": 2
+    }
+  },
+  "seed_343": {
+    "weighted_f1": 0.522953108318962,
+    "ci95_bootstrap": [
+      0.3812527702781835,
+      0.6668276061266257
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 28,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_344": {
+    "weighted_f1": 0.5933005411558818,
+    "ci95_bootstrap": [
+      0.4585842328538957,
+      0.7270832525953791
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 29,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_345": {
+    "weighted_f1": 0.5670557568090775,
+    "ci95_bootstrap": [
+      0.4209235588219482,
+      0.7018424648453359
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 25,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_346": {
+    "weighted_f1": 0.716577540106952,
+    "ci95_bootstrap": [
+      0.5833311875463038,
+      0.8403805496828752
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_347": {
+    "weighted_f1": 0.5663780663780664,
+    "ci95_bootstrap": [
+      0.4372264977820533,
+      0.7005284373360482
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 29,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_348": {
+    "weighted_f1": 0.495492459347881,
+    "ci95_bootstrap": [
+      0.3607586022593589,
+      0.6281542066207539
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 27,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_349": {
+    "weighted_f1": 0.49963573355386215,
+    "ci95_bootstrap": [
+      0.3594459974072274,
+      0.637709179365526
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 29,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 9,
+      "abstention": 5
+    }
+  },
+  "seed_350": {
+    "weighted_f1": 0.5860189193522527,
+    "ci95_bootstrap": [
+      0.4490491203147289,
+      0.7169485164573228
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 12,
+      "abstention": 4
+    }
+  },
+  "seed_351": {
+    "weighted_f1": 0.5981035052130018,
+    "ci95_bootstrap": [
+      0.46104833430890474,
+      0.723436361330197
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 33,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 14,
+      "abstention": 0
+    }
+  },
+  "seed_352": {
+    "weighted_f1": 0.6019813519813518,
+    "ci95_bootstrap": [
+      0.4715733441394254,
+      0.7327049294791229
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_353": {
+    "weighted_f1": 0.5719696969696969,
+    "ci95_bootstrap": [
+      0.43142124591482295,
+      0.70404063774075
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 23,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_354": {
+    "weighted_f1": 0.4130875316633831,
+    "ci95_bootstrap": [
+      0.2733579042081949,
+      0.5532966976149607
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 31,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 7,
+      "abstention": 3
+    }
+  },
+  "seed_355": {
+    "weighted_f1": 0.49927735221852876,
+    "ci95_bootstrap": [
+      0.36666191269005705,
+      0.6294711482642515
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 37,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_356": {
+    "weighted_f1": 0.6632935525857485,
+    "ci95_bootstrap": [
+      0.538521751145141,
+      0.7898618900039354
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 24,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 14,
+      "abstention": 0
+    }
+  },
+  "seed_357": {
+    "weighted_f1": 0.5688610240334379,
+    "ci95_bootstrap": [
+      0.4195667198298777,
+      0.7057401602229187
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 23,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 6,
+      "abstention": 4
+    }
+  },
+  "seed_358": {
+    "weighted_f1": 0.566727884909703,
+    "ci95_bootstrap": [
+      0.42823577740979507,
+      0.6990806670979084
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 24,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_359": {
+    "weighted_f1": 0.6310051736881006,
+    "ci95_bootstrap": [
+      0.4938441826458585,
+      0.7532533877361464
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 29,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 12,
+      "abstention": 5
+    }
+  },
+  "seed_360": {
+    "weighted_f1": 0.5864797165200392,
+    "ci95_bootstrap": [
+      0.44671577516438254,
+      0.7147151447444698
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_361": {
+    "weighted_f1": 0.4239034442154842,
+    "ci95_bootstrap": [
+      0.2891905245166115,
+      0.5589798714798715
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 24,
+      "against": 32,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_362": {
+    "weighted_f1": 0.43124609943831915,
+    "ci95_bootstrap": [
+      0.29041516466274453,
+      0.5665608697514538
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 24,
+      "against": 34,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_363": {
+    "weighted_f1": 0.6426677340271176,
+    "ci95_bootstrap": [
+      0.5029277045422212,
+      0.766604476267351
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 32,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 14,
+      "abstention": 4
+    }
+  },
+  "seed_364": {
+    "weighted_f1": 0.6098249576510446,
+    "ci95_bootstrap": [
+      0.467192082111437,
+      0.7380450868416512
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_365": {
+    "weighted_f1": 0.5452418926103135,
+    "ci95_bootstrap": [
+      0.4006707874887982,
+      0.6840213263747433
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 30,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 8,
+      "abstention": 2
+    }
+  },
+  "seed_366": {
+    "weighted_f1": 0.6560451536296947,
+    "ci95_bootstrap": [
+      0.5339022914140286,
+      0.7712180071737679
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 19,
+      "abstention": 0
+    }
+  },
+  "seed_367": {
+    "weighted_f1": 0.6398196398196397,
+    "ci95_bootstrap": [
+      0.5038580551270377,
+      0.7728564049586776
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 25,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_368": {
+    "weighted_f1": 0.5596953578336556,
+    "ci95_bootstrap": [
+      0.42162427977097117,
+      0.6908799655487928
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 34,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_369": {
+    "weighted_f1": 0.6221961014790871,
+    "ci95_bootstrap": [
+      0.483896922000924,
+      0.7556187705093516
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_370": {
+    "weighted_f1": 0.5894291754756871,
+    "ci95_bootstrap": [
+      0.4533624410976008,
+      0.7251276530600778
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 11,
+      "abstention": 5
+    }
+  },
+  "seed_371": {
+    "weighted_f1": 0.646086956521739,
+    "ci95_bootstrap": [
+      0.5059680776330974,
+      0.7787935390204279
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 43,
+      "against": 15,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_372": {
+    "weighted_f1": 0.43385070214338506,
+    "ci95_bootstrap": [
+      0.2964618826294068,
+      0.5662439028818338
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 30,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_373": {
+    "weighted_f1": 0.6396755060121397,
+    "ci95_bootstrap": [
+      0.49065742016120806,
+      0.7738834922735851
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 43,
+      "against": 19,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_374": {
+    "weighted_f1": 0.5635638870932989,
+    "ci95_bootstrap": [
+      0.42272289325644846,
+      0.7064988026158238
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_375": {
+    "weighted_f1": 0.4219909942801509,
+    "ci95_bootstrap": [
+      0.29386950646819066,
+      0.5629994052476891
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 25,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_376": {
+    "weighted_f1": 0.6329768270944741,
+    "ci95_bootstrap": [
+      0.501362461827578,
+      0.7611858416702914
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_377": {
+    "weighted_f1": 0.5690354589230994,
+    "ci95_bootstrap": [
+      0.4285747954022703,
+      0.6959115643771733
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 24,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 11,
+      "abstention": 0
+    }
+  },
+  "seed_378": {
+    "weighted_f1": 0.50873440285205,
+    "ci95_bootstrap": [
+      0.3730276345835279,
+      0.6478792749421776
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 31,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_379": {
+    "weighted_f1": 0.5575848849945235,
+    "ci95_bootstrap": [
+      0.4226393380753318,
+      0.6957076654088724
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 13,
+      "abstention": 3
+    }
+  },
+  "seed_380": {
+    "weighted_f1": 0.6184343434343434,
+    "ci95_bootstrap": [
+      0.4776993708174926,
+      0.7543471157003471
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 23,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_381": {
+    "weighted_f1": 0.6716178988906263,
+    "ci95_bootstrap": [
+      0.5379676400694543,
+      0.7966644515328724
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 26,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 11,
+      "abstention": 4
+    }
+  },
+  "seed_382": {
+    "weighted_f1": 0.5171042880890865,
+    "ci95_bootstrap": [
+      0.37677013637419915,
+      0.65877090712318
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 27,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 7,
+      "abstention": 2
+    }
+  },
+  "seed_383": {
+    "weighted_f1": 0.5279687894692526,
+    "ci95_bootstrap": [
+      0.3914404058114501,
+      0.6569183855491357
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 28,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_384": {
+    "weighted_f1": 0.6261451726568006,
+    "ci95_bootstrap": [
+      0.48963205484267397,
+      0.752033346122016
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 13,
+      "abstention": 0
+    }
+  },
+  "seed_385": {
+    "weighted_f1": 0.5114081996434938,
+    "ci95_bootstrap": [
+      0.3769525879572914,
+      0.6481957967909435
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 28,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_386": {
+    "weighted_f1": 0.4970049330514447,
+    "ci95_bootstrap": [
+      0.3499307372381972,
+      0.6334871526850137
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 9,
+      "abstention": 5
+    }
+  },
+  "seed_387": {
+    "weighted_f1": 0.5844965844965846,
+    "ci95_bootstrap": [
+      0.4455533234787447,
+      0.7168860037338298
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 27,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_388": {
+    "weighted_f1": 0.628287391133241,
+    "ci95_bootstrap": [
+      0.49986676202585295,
+      0.7483677422037872
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 31,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 47,
+      "against": 15,
+      "abstention": 4
+    }
+  },
+  "seed_389": {
+    "weighted_f1": 0.6072631072631073,
+    "ci95_bootstrap": [
+      0.4704183349447124,
+      0.7414953919796289
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 25,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_390": {
+    "weighted_f1": 0.6134859657264649,
+    "ci95_bootstrap": [
+      0.47711650161325986,
+      0.7382089108279584
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 30,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 13,
+      "abstention": 5
+    }
+  },
+  "seed_391": {
+    "weighted_f1": 0.6844153106012688,
+    "ci95_bootstrap": [
+      0.5531511949349028,
+      0.8095851983157499
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 24,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_392": {
+    "weighted_f1": 0.6189492325855963,
+    "ci95_bootstrap": [
+      0.4912574673604086,
+      0.7452608993196682
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 18,
+      "abstention": 2
+    }
+  },
+  "seed_393": {
+    "weighted_f1": 0.6213039485766758,
+    "ci95_bootstrap": [
+      0.47609118190722516,
+      0.752842143454502
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 25,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_394": {
+    "weighted_f1": 0.555580347656084,
+    "ci95_bootstrap": [
+      0.40925109847958924,
+      0.6919278185582532
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 22,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_395": {
+    "weighted_f1": 0.701617680565049,
+    "ci95_bootstrap": [
+      0.5657775546577821,
+      0.8254662004662006
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 25,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_396": {
+    "weighted_f1": 0.5089369191002584,
+    "ci95_bootstrap": [
+      0.3692882977312357,
+      0.6531428081973651
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_397": {
+    "weighted_f1": 0.7434318276161365,
+    "ci95_bootstrap": [
+      0.627519958824442,
+      0.8475331546760116
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 32,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 42,
+      "against": 23,
+      "abstention": 1
+    }
+  },
+  "seed_398": {
+    "weighted_f1": 0.5226072467451777,
+    "ci95_bootstrap": [
+      0.3699380165289256,
+      0.6593911939392878
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_399": {
+    "weighted_f1": 0.6126436781609196,
+    "ci95_bootstrap": [
+      0.4841677445405959,
+      0.7467630643976245
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_400": {
+    "weighted_f1": 0.5237400745422136,
+    "ci95_bootstrap": [
+      0.3786169970380497,
+      0.6610686711613745
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 24,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_401": {
+    "weighted_f1": 0.5088512558392077,
+    "ci95_bootstrap": [
+      0.3725732169253511,
+      0.6580459406317309
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 29,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_402": {
+    "weighted_f1": 0.6283401389784369,
+    "ci95_bootstrap": [
+      0.4904040404040404,
+      0.7632777317375578
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 26,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_403": {
+    "weighted_f1": 0.6012423081388598,
+    "ci95_bootstrap": [
+      0.46858146347460156,
+      0.741453040548107
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 25,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_404": {
+    "weighted_f1": 0.6334244702665754,
+    "ci95_bootstrap": [
+      0.4914209105501241,
+      0.75957294622358
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 19,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_405": {
+    "weighted_f1": 0.47960833632770394,
+    "ci95_bootstrap": [
+      0.3294426723374092,
+      0.6172122143744144
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 6,
+      "abstention": 3
+    }
+  },
+  "seed_406": {
+    "weighted_f1": 0.4887396694214876,
+    "ci95_bootstrap": [
+      0.35733560132135933,
+      0.6264602347926229
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 31,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_407": {
+    "weighted_f1": 0.6839476313160524,
+    "ci95_bootstrap": [
+      0.5547038587327666,
+      0.8079215083162451
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 26,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_408": {
+    "weighted_f1": 0.563991563991564,
+    "ci95_bootstrap": [
+      0.42234955316387485,
+      0.6960841116417064
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 28,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_409": {
+    "weighted_f1": 0.5724895145994175,
+    "ci95_bootstrap": [
+      0.43007068643696555,
+      0.702025801249748
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 30,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_410": {
+    "weighted_f1": 0.6127289151679396,
+    "ci95_bootstrap": [
+      0.4786685276077291,
+      0.7394642090512179
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 32,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_411": {
+    "weighted_f1": 0.6159850250759342,
+    "ci95_bootstrap": [
+      0.4889860613641102,
+      0.7360087624154117
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 30,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_412": {
+    "weighted_f1": 0.4951844021611463,
+    "ci95_bootstrap": [
+      0.3582507879348234,
+      0.6285905996726153
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 30,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 13,
+      "abstention": 1
+    }
+  },
+  "seed_413": {
+    "weighted_f1": 0.6529348787413304,
+    "ci95_bootstrap": [
+      0.5223754244125122,
+      0.7804471417727364
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 25,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_414": {
+    "weighted_f1": 0.5898217967183484,
+    "ci95_bootstrap": [
+      0.4495466065392987,
+      0.7243148632760648
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_415": {
+    "weighted_f1": 0.3998425816607635,
+    "ci95_bootstrap": [
+      0.2721769571493264,
+      0.5326949414048955
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 24,
+      "against": 30,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_416": {
+    "weighted_f1": 0.5892728122742148,
+    "ci95_bootstrap": [
+      0.45029505336617404,
+      0.7176861001317523
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 22,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_417": {
+    "weighted_f1": 0.6112152452358638,
+    "ci95_bootstrap": [
+      0.46749613664507284,
+      0.7441913216106764
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 40,
+      "against": 24,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_418": {
+    "weighted_f1": 0.489419224335784,
+    "ci95_bootstrap": [
+      0.35957098215268146,
+      0.6295617369508028
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 28,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_419": {
+    "weighted_f1": 0.5283622744296901,
+    "ci95_bootstrap": [
+      0.3911565624542164,
+      0.6725540878827351
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_420": {
+    "weighted_f1": 0.535013434003333,
+    "ci95_bootstrap": [
+      0.39128223852949556,
+      0.6732436048799685
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 32,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_421": {
+    "weighted_f1": 0.5441650548033526,
+    "ci95_bootstrap": [
+      0.3971697766676462,
+      0.6782487998799878
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 21,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 7,
+      "abstention": 3
+    }
+  },
+  "seed_422": {
+    "weighted_f1": 0.6599767839687195,
+    "ci95_bootstrap": [
+      0.5229219854219854,
+      0.7823883118809688
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 23,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_423": {
+    "weighted_f1": 0.5466219174084341,
+    "ci95_bootstrap": [
+      0.4030261921540992,
+      0.685683817648627
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_424": {
+    "weighted_f1": 0.5560308972073678,
+    "ci95_bootstrap": [
+      0.4105062191930944,
+      0.6914848427281935
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 25,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_425": {
+    "weighted_f1": 0.6538642236316654,
+    "ci95_bootstrap": [
+      0.5199067082788014,
+      0.7809339225589222
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 24,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_426": {
+    "weighted_f1": 0.490006447453256,
+    "ci95_bootstrap": [
+      0.3597749380379168,
+      0.6207451747438139
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 32,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_427": {
+    "weighted_f1": 0.5421436588103254,
+    "ci95_bootstrap": [
+      0.4088091233577342,
+      0.6690792121342516
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 26,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_428": {
+    "weighted_f1": 0.5396371418843329,
+    "ci95_bootstrap": [
+      0.3907329882524124,
+      0.6746940545998376
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_429": {
+    "weighted_f1": 0.564468211527035,
+    "ci95_bootstrap": [
+      0.4345690235690236,
+      0.6931406983447745
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 35,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 16,
+      "abstention": 0
+    }
+  },
+  "seed_430": {
+    "weighted_f1": 0.5828489498566225,
+    "ci95_bootstrap": [
+      0.43945582941550687,
+      0.7181381695795709
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 25,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 9,
+      "abstention": 1
+    }
+  },
+  "seed_431": {
+    "weighted_f1": 0.5829072887896417,
+    "ci95_bootstrap": [
+      0.4441412248695857,
+      0.7102186812713126
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_432": {
+    "weighted_f1": 0.673347937203359,
+    "ci95_bootstrap": [
+      0.5465272952339103,
+      0.7943873256373255
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 26,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_433": {
+    "weighted_f1": 0.5294322535701845,
+    "ci95_bootstrap": [
+      0.38783727085555214,
+      0.6708399358923232
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 24,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_434": {
+    "weighted_f1": 0.6898475041678925,
+    "ci95_bootstrap": [
+      0.5506558078168065,
+      0.8158571131555694
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 45,
+      "against": 17,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_435": {
+    "weighted_f1": 0.689182030091121,
+    "ci95_bootstrap": [
+      0.5604910945166315,
+      0.8094987091222031
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 45,
+      "against": 17,
+      "abstention": 4
+    }
+  },
+  "seed_436": {
+    "weighted_f1": 0.6204867827208254,
+    "ci95_bootstrap": [
+      0.4875666075948031,
+      0.7499340479260691
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 32,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 15,
+      "abstention": 2
+    }
+  },
+  "seed_437": {
+    "weighted_f1": 0.6275221502494229,
+    "ci95_bootstrap": [
+      0.5035106358554252,
+      0.759401732050391
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 23,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_438": {
+    "weighted_f1": 0.4475093207748157,
+    "ci95_bootstrap": [
+      0.316748368494841,
+      0.5750133909517711
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 21,
+      "against": 34,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 48,
+      "against": 13,
+      "abstention": 5
+    }
+  },
+  "seed_439": {
+    "weighted_f1": 0.5332251082251083,
+    "ci95_bootstrap": [
+      0.3947521608508749,
+      0.6683475306053867
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 29,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_440": {
+    "weighted_f1": 0.6346203775824338,
+    "ci95_bootstrap": [
+      0.4969008523374552,
+      0.7611852573603057
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 27,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 11,
+      "abstention": 4
+    }
+  },
+  "seed_441": {
+    "weighted_f1": 0.5225019069412662,
+    "ci95_bootstrap": [
+      0.387410765726821,
+      0.6580377833627113
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 32,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_442": {
+    "weighted_f1": 0.636485335280516,
+    "ci95_bootstrap": [
+      0.5043941494705411,
+      0.7732414631840723
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_443": {
+    "weighted_f1": 0.6233585858585858,
+    "ci95_bootstrap": [
+      0.49577137458338566,
+      0.7458255290352939
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 32,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_444": {
+    "weighted_f1": 0.6444229529335912,
+    "ci95_bootstrap": [
+      0.4998544266191325,
+      0.7740090979053363
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 22,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_445": {
+    "weighted_f1": 0.4678999295278365,
+    "ci95_bootstrap": [
+      0.33254997275097864,
+      0.6112156896013099
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 31,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 9,
+      "abstention": 3
+    }
+  },
+  "seed_446": {
+    "weighted_f1": 0.5179526355996944,
+    "ci95_bootstrap": [
+      0.3839903669200399,
+      0.6581534011826204
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 32,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_447": {
+    "weighted_f1": 0.6725211296639868,
+    "ci95_bootstrap": [
+      0.5327143861293346,
+      0.7991341991341991
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 40,
+      "against": 22,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 8,
+      "abstention": 0
+    }
+  },
+  "seed_448": {
+    "weighted_f1": 0.6287374857219646,
+    "ci95_bootstrap": [
+      0.49728241212672664,
+      0.7493614317582943
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_449": {
+    "weighted_f1": 0.4756871035940803,
+    "ci95_bootstrap": [
+      0.3345280224825679,
+      0.6118860891451252
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 32,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_450": {
+    "weighted_f1": 0.5618543155128521,
+    "ci95_bootstrap": [
+      0.43291274598876067,
+      0.6911829025781726
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 31,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_451": {
+    "weighted_f1": 0.5882427882427882,
+    "ci95_bootstrap": [
+      0.4460905844004755,
+      0.7181277168602024
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 27,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 10,
+      "abstention": 0
+    }
+  },
+  "seed_452": {
+    "weighted_f1": 0.5465298142717498,
+    "ci95_bootstrap": [
+      0.4095762920686314,
+      0.6849339009183105
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 23,
+      "abstention": 10
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_453": {
+    "weighted_f1": 0.5954897815362932,
+    "ci95_bootstrap": [
+      0.46099431192293056,
+      0.7254487418646105
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 28,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 12,
+      "abstention": 2
+    }
+  },
+  "seed_454": {
+    "weighted_f1": 0.5173160173160174,
+    "ci95_bootstrap": [
+      0.37110767704517705,
+      0.658677880059627
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 30,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_455": {
+    "weighted_f1": 0.5904761904761905,
+    "ci95_bootstrap": [
+      0.455984135923284,
+      0.7303545814283892
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_456": {
+    "weighted_f1": 0.6706693220868478,
+    "ci95_bootstrap": [
+      0.5360719948364647,
+      0.7934242799279927
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 42,
+      "against": 22,
+      "abstention": 2
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 10,
+      "abstention": 1
+    }
+  },
+  "seed_457": {
+    "weighted_f1": 0.5210599050651925,
+    "ci95_bootstrap": [
+      0.38137387680070606,
+      0.6648998614405486
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 8,
+      "abstention": 3
+    }
+  },
+  "seed_458": {
+    "weighted_f1": 0.5842663084042394,
+    "ci95_bootstrap": [
+      0.44593728295751367,
+      0.7176792946366981
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 30,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_459": {
+    "weighted_f1": 0.536292444361903,
+    "ci95_bootstrap": [
+      0.39519247709654687,
+      0.6799883439009089
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 24,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_460": {
+    "weighted_f1": 0.5067028985507246,
+    "ci95_bootstrap": [
+      0.36863719509068343,
+      0.6470332099822059
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 35,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_461": {
+    "weighted_f1": 0.5410419989367358,
+    "ci95_bootstrap": [
+      0.39893587959943766,
+      0.6750755690307914
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 7,
+      "abstention": 1
+    }
+  },
+  "seed_462": {
+    "weighted_f1": 0.6512401456221681,
+    "ci95_bootstrap": [
+      0.531021342148965,
+      0.7719827300359214
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 39,
+      "against": 24,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_463": {
+    "weighted_f1": 0.6512720790795656,
+    "ci95_bootstrap": [
+      0.5200834912475457,
+      0.7785710087790046
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 23,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 11,
+      "abstention": 3
+    }
+  },
+  "seed_464": {
+    "weighted_f1": 0.3957716701902748,
+    "ci95_bootstrap": [
+      0.25720544921590216,
+      0.5303507213999026
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 24,
+      "against": 36,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 56,
+      "against": 7,
+      "abstention": 3
+    }
+  },
+  "seed_465": {
+    "weighted_f1": 0.6591877857862513,
+    "ci95_bootstrap": [
+      0.5270761922526157,
+      0.7816137173813998
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 22,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 12,
+      "abstention": 0
+    }
+  },
+  "seed_466": {
+    "weighted_f1": 0.477765586390844,
+    "ci95_bootstrap": [
+      0.34242965040983336,
+      0.6194941712454475
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 31,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_467": {
+    "weighted_f1": 0.6054263565891473,
+    "ci95_bootstrap": [
+      0.46788536515516554,
+      0.7375412551721084
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 28,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_468": {
+    "weighted_f1": 0.45930735930735933,
+    "ci95_bootstrap": [
+      0.31882059327203943,
+      0.6027225924736114
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 32,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 8,
+      "abstention": 4
+    }
+  },
+  "seed_469": {
+    "weighted_f1": 0.5392220073071137,
+    "ci95_bootstrap": [
+      0.4129751008762301,
+      0.6704847565148948
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 33,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 14,
+      "abstention": 3
+    }
+  },
+  "seed_470": {
+    "weighted_f1": 0.6126126126126126,
+    "ci95_bootstrap": [
+      0.4748273319220234,
+      0.7468447642986812
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 23,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 14,
+      "abstention": 2
+    }
+  },
+  "seed_471": {
+    "weighted_f1": 0.5148629148629149,
+    "ci95_bootstrap": [
+      0.3687306847621678,
+      0.6551094529292203
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 7,
+      "abstention": 7
+    }
+  },
+  "seed_472": {
+    "weighted_f1": 0.6040404040404042,
+    "ci95_bootstrap": [
+      0.4592744127881688,
+      0.7340106630155173
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 38,
+      "against": 22,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 8,
+      "abstention": 1
+    }
+  },
+  "seed_473": {
+    "weighted_f1": 0.4873883076130267,
+    "ci95_bootstrap": [
+      0.342457073091513,
+      0.6290604741322444
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 28,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 57,
+      "against": 9,
+      "abstention": 0
+    }
+  },
+  "seed_474": {
+    "weighted_f1": 0.4473581973581974,
+    "ci95_bootstrap": [
+      0.31015852604997346,
+      0.5805094038698804
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 36,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_475": {
+    "weighted_f1": 0.6187719895585063,
+    "ci95_bootstrap": [
+      0.4823558902811102,
+      0.7501589002856507
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 36,
+      "against": 24,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 12,
+      "abstention": 1
+    }
+  },
+  "seed_476": {
+    "weighted_f1": 0.5831037649219466,
+    "ci95_bootstrap": [
+      0.4525520893421287,
+      0.7120802042932843
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 40,
+      "abstention": 1
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_477": {
+    "weighted_f1": 0.5721539721539722,
+    "ci95_bootstrap": [
+      0.43961472222631454,
+      0.6996326454317093
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 25,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 12,
+      "abstention": 3
+    }
+  },
+  "seed_478": {
+    "weighted_f1": 0.5538277511961722,
+    "ci95_bootstrap": [
+      0.4258335232019442,
+      0.6837787044891326
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 21,
+      "abstention": 11
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 17,
+      "abstention": 3
+    }
+  },
+  "seed_479": {
+    "weighted_f1": 0.5996300211416491,
+    "ci95_bootstrap": [
+      0.46905195622860074,
+      0.7204028396280906
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 31,
+      "against": 27,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 16,
+      "abstention": 1
+    }
+  },
+  "seed_480": {
+    "weighted_f1": 0.6668426424523985,
+    "ci95_bootstrap": [
+      0.5397014518962354,
+      0.7906026557711952
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 34,
+      "against": 26,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 50,
+      "against": 15,
+      "abstention": 1
+    }
+  },
+  "seed_481": {
+    "weighted_f1": 0.5771464646464646,
+    "ci95_bootstrap": [
+      0.44074638429752055,
+      0.71342329010524
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 32,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 13,
+      "abstention": 2
+    }
+  },
+  "seed_482": {
+    "weighted_f1": 0.574048174048174,
+    "ci95_bootstrap": [
+      0.4366721438517777,
+      0.7045992968008212
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 32,
+      "abstention": 5
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_483": {
+    "weighted_f1": 0.616573138795361,
+    "ci95_bootstrap": [
+      0.47907149223325685,
+      0.7414072885852976
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 27,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 13,
+      "abstention": 4
+    }
+  },
+  "seed_484": {
+    "weighted_f1": 0.5173297088190705,
+    "ci95_bootstrap": [
+      0.3789320921889212,
+      0.6437081038462417
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 34,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 13,
+      "abstention": 7
+    }
+  },
+  "seed_485": {
+    "weighted_f1": 0.6721456994184267,
+    "ci95_bootstrap": [
+      0.5408386473391699,
+      0.7939092501592502
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 23,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_486": {
+    "weighted_f1": 0.45392107892107897,
+    "ci95_bootstrap": [
+      0.3128077997740919,
+      0.5953066439880259
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 33,
+      "against": 27,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 58,
+      "against": 5,
+      "abstention": 3
+    }
+  },
+  "seed_487": {
+    "weighted_f1": 0.5114140773620799,
+    "ci95_bootstrap": [
+      0.38051545507338186,
+      0.6558715924303272
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 27,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_488": {
+    "weighted_f1": 0.6766613503455609,
+    "ci95_bootstrap": [
+      0.5430682255115484,
+      0.800190982371294
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 41,
+      "against": 19,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 11,
+      "abstention": 1
+    }
+  },
+  "seed_489": {
+    "weighted_f1": 0.44904148937119204,
+    "ci95_bootstrap": [
+      0.3165239777566226,
+      0.5828081030243786
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 25,
+      "against": 33,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  },
+  "seed_490": {
+    "weighted_f1": 0.6091871091871092,
+    "ci95_bootstrap": [
+      0.469883685872058,
+      0.7363858747430176
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 37,
+      "against": 25,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_491": {
+    "weighted_f1": 0.622788893721908,
+    "ci95_bootstrap": [
+      0.4845888505619228,
+      0.7545569629190318
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 28,
+      "abstention": 3
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 10,
+      "abstention": 3
+    }
+  },
+  "seed_492": {
+    "weighted_f1": 0.47693869916092135,
+    "ci95_bootstrap": [
+      0.3463031438725883,
+      0.6111712728969599
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 25,
+      "abstention": 12
+    },
+    "predicted": {
+      "favour": 52,
+      "against": 10,
+      "abstention": 4
+    }
+  },
+  "seed_493": {
+    "weighted_f1": 0.6064990328820117,
+    "ci95_bootstrap": [
+      0.47178238554867874,
+      0.734387208320135
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 30,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 46,
+      "against": 17,
+      "abstention": 3
+    }
+  },
+  "seed_494": {
+    "weighted_f1": 0.41729330340441456,
+    "ci95_bootstrap": [
+      0.2785099180879027,
+      0.5564103362391034
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 26,
+      "against": 31,
+      "abstention": 9
+    },
+    "predicted": {
+      "favour": 55,
+      "against": 9,
+      "abstention": 2
+    }
+  },
+  "seed_495": {
+    "weighted_f1": 0.5285279403243314,
+    "ci95_bootstrap": [
+      0.39406785243741765,
+      0.6606476307929796
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 30,
+      "against": 32,
+      "abstention": 4
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 15,
+      "abstention": 2
+    }
+  },
+  "seed_496": {
+    "weighted_f1": 0.5238636363636363,
+    "ci95_bootstrap": [
+      0.3832879241970151,
+      0.6487112445224427
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 29,
+      "against": 30,
+      "abstention": 7
+    },
+    "predicted": {
+      "favour": 51,
+      "against": 14,
+      "abstention": 1
+    }
+  },
+  "seed_497": {
+    "weighted_f1": 0.43461399711399706,
+    "ci95_bootstrap": [
+      0.3009457418891381,
+      0.5636176923430463
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 27,
+      "against": 31,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_498": {
+    "weighted_f1": 0.6202173247627792,
+    "ci95_bootstrap": [
+      0.4859187672618353,
+      0.7495640375216436
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 35,
+      "against": 25,
+      "abstention": 6
+    },
+    "predicted": {
+      "favour": 53,
+      "against": 11,
+      "abstention": 2
+    }
+  },
+  "seed_499": {
+    "weighted_f1": 0.5294991961658628,
+    "ci95_bootstrap": [
+      0.39322303387174873,
+      0.6697184353559653
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 32,
+      "against": 26,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 49,
+      "against": 11,
+      "abstention": 6
+    }
+  },
+  "seed_500": {
+    "weighted_f1": 0.5169992609016999,
+    "ci95_bootstrap": [
+      0.3799529749412363,
+      0.6463709450722438
+    ],
+    "n": 66,
+    "unparsed": 0,
+    "support": {
+      "favour": 28,
+      "against": 30,
+      "abstention": 8
+    },
+    "predicted": {
+      "favour": 54,
+      "against": 10,
+      "abstention": 2
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "wid": "W7126280993",
+  "title": "Semantic Content Determines Algorithmic Performance",
+  "model": "o3-2025-04-16",
+  "metric": "custom",
+  "original_value": 0.4,
+  "original_location": "Table 1, row o3, column \"Delta_sem with Explicit Separator\" (= 0.9625 cities - 0.5625 chemicals in data/semantic_gap_all_ablations.json, key shuffle_entity_general_entity)",
+  "reexecution": {
+    "mean_over_seeds": 0.5373015873015873,
+    "per_seed": {
+      "0": {
+        "value": 0.5499999999999999,
+        "n": 133,
+        "ci95": [
+          0.3154361263736264,
+          0.8461538461538461
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.4976190476190476,
+        "n": 132,
+        "ci95": [
+          0.2857142857142857,
+          0.829891304347826
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.5642857142857143,
+        "n": 132,
+        "ci95": [
+          0.3287860576923076,
+          0.8652272727272727
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7126280993",
+    "n_items": 458,
+    "n_requests": 1374,
+    "seeds": 3,
+    "est_usd": 19.94,
+    "subset_note": "cost cap $20.0: seeded random subset of 458 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "o3-2025-04-16",
+    "metric": "custom",
+    "original_value": 0.4,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "o3-2025-04-16"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none - the archived reports hold the exact prompts the paper sent, so the items are the paper's own, not a regeneration",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.5373015873015873,
+    "delta": 0.13730158730158726,
+    "original_inside_ci95": true
+  }
+}

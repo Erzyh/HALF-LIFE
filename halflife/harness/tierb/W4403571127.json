@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4403571127",
+  "title": "Efficiently Democratizing Medical LLMs for 50 Languages via a Mixture of Language Family Experts",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 4 (\"Main Results on 50 languages\"), row \"GPT-4 Turbo - 79.4 73.3 79.8 84.7 68.5 85.8 89.7 72.8 80.9 77.5 79.5 87.0 78.1 68.9\" (Average High-resource accuracy and per-language columns, translated MMLU clinical-knowledge)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a for the MMLU evaluation itself; Figure 7 only gives the prompt for a different sub-task (generating synthetic doctor-patient dialogues)", "note": "No zero-/few-shot template for the medical-MMLU evaluation is printed anywhere in the paper."},
+  "claim": {
+    "metric": "Average accuracy (%), high-resource languages, translated MMLU clinical-knowledge subset", "value": 79.4, "n_items": 3180,
+    "location": "Table 4, row GPT-4 Turbo, Average High column; ~265-question clinical-knowledge subset x 12 shown high-resource languages",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "MMLU clinical-knowledge section, machine-translated into 50 languages (built on public MMLU)"},
+  "cost": {"est_calls": 9540, "tier": "mid"},
+  "blockers": ["prompt_none"],
+  "notes": "ICLR 2025 (Apollo-MoE). GPT-4o also appears in the same table (undated, ambiguous whether pre/post the Oct 2024 cutoff given the Oct 10, 2024 v1 submission); GPT-4-turbo is used instead because it resolves unambiguously via the post-2024-07-01 rule. n_items is an estimate from the standard MMLU clinical-knowledge size across the 12 high-resource languages shown."
+}

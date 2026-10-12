@@ -1,0 +1,57 @@
+{
+  "wid": "W4415270561",
+  "title": "Diff-XYZ: A Benchmark for Evaluating Diff Understanding",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "metric": "exact_match",
+  "original_value": 0.38,
+  "original_location": "Table 1, row 'GPT 4.1 nano w/o format', column Apply / EM",
+  "reexecution": {
+    "mean_over_seeds": 0.379,
+    "per_seed": {
+      "0": {
+        "value": 0.379,
+        "n": 1000,
+        "ci95": [
+          0.349975,
+          0.409
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4415270561",
+    "n_items": 1000,
+    "n_requests": 1000,
+    "seeds": 1,
+    "est_usd": 0.64,
+    "subset_note": "same-model re-run: items and seed-0 request bodies copied from the pre-retirement baseline",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-nano-2025-04-14",
+    "metric": "exact_match",
+    "original_value": 0.38,
+    "cap_usd": 1.0,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4415270561"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 8
+  },
+  "approximation": "none for the Apply task under the w/o-format condition; the diff handed to the model is the dataset's `udiff` column (the standard unified diff of Figure 6), which is the format Table 1 evaluates.",
+  "arm": {
+    "model": "gpt-4.1-nano-2025-04-14",
+    "config_model": "gpt-4.1-nano-2025-04-14",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\drift_ctrl\\W4415270561"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.379,
+    "delta": -0.0010000000000000009,
+    "original_inside_ci95": true
+  }
+}

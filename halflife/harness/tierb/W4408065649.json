@@ -1,0 +1,38 @@
+{
+ "openalex_id": "W4408065649",
+ "title": "How does ChatGPT 4omni perform in consenting for common orthopedic and musculoskeletal interventional procedures?",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT 4omni (ChatGPT 4o)",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "\"The new ChatGPT 4omni (ChatGPT 4o)...In this study, we examined the role of the new ChatGPT 4o...ChatGPT-4o was asked to consent patients on these procedures [Tables 1 and 2].\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods: \"ChatGPT-4o was asked to consent patients on\" ten named procedures; Tables 1-2 show the resulting text",
+  "note": "Only the topic/procedure list is given as the effective prompt (e.g. \"consent for total hip replacement surgery\"); no system prompt or exact query wording is quoted."
+ },
+ "claim": {
+  "metric": "none found (qualitative consent-information text per procedure; no accuracy/quality score located in the retrieved sections)",
+  "value": null,
+  "n_items": 10,
+  "location": "Tables 1-2 (10 procedures, each with a full ChatGPT-4o text response)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "10 procedures selected by the authors' own consultant radiologists/surgeons; not a released dataset"
+ },
+ "cost": {
+  "est_calls": 10,
+  "tier": "low"
+ },
+ "blockers": [
+  "alias_unpinned",
+  "no_number",
+  "webui"
+ ],
+ "notes": "Paper dated 2025-02-28 (alias_note), past the undated-GPT-4o cutoff, so resolved stays unresolved per the dating rule. No API/programmatic access is described anywhere in the text (consistent with the consumer ChatGPT interface typical of this clinical-education genre). No numeric metric was located in the retrieved sections; the output is 10 free-text consent explanations with no stated accuracy/quality score."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412887717",
+  "title": "Aria-UI: Visual Grounding for GUI Instructions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Table 4 (Multimodal-Mind2Web) baseline rows 'AXTree GPT-4-Turbo Choice 30.6 59.7', 'Image + AXTree GPT-4-Turbo SoM 25.4 67.7' (cited from prior work)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Multimodal-Mind2Web, ScreenSpot"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Cited baseline numbers; the paper's subject is the Aria-UI model."
+}

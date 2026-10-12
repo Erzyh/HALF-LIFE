@@ -1,0 +1,68 @@
+{
+  "wid": "W4404470015",
+  "title": "Comparative Performance of Claude and GPT Models in Basic Radiological Imaging Tasks",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.7,
+      "max_tokens": 50,
+      "top_p": 1.0
+    },
+    "params_source": "paper Testing section (default API values used; GPT default stated as 0.7); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 100,
+    "subset_rule": "seeded stratified sample (seed 20260907) from the public ROCOv2 test/valid images matching Table 1 strata: CT 40 (abdomen and pelvis 15, chest 14, brain 10, spine 1), MRI 31 (brain 15, spine 16), X-ray 29 (chest 10, abdomen 3, skeletal 16)",
+    "approximation": "different images than the paper's unlisted subset, screened by a human for burnt-in annotations and poor quality; strata and ground truth derived from the ROCOv2 concept CSVs; accuracy taken from the first iteration as in the paper, with three iterations for consistency"
+  },
+  "items": {
+    "source_type": "zenodo",
+    "source": "ROCOv2, https://doi.org/10.5281/zenodo.8333645 (test_images.zip 861 MB, test_concepts_manual.csv, cui_mapping.csv, test_captions.csv)",
+    "config_or_split": "test (or valid) split",
+    "filter": "modality in {CT, MRI, X-ray} and anatomy CUI mapping to the Table 1 regions; manual quality screening",
+    "fields": {
+      "input": "image file (ID.jpg)",
+      "label": "anatomical region (from the manual concept CUIs via cui_mapping.csv) and modality",
+      "id": "ID"
+    },
+    "license": "cc-by-nc-4.0",
+    "access_checked": true,
+    "size_mb": 861
+  },
+  "prompt": {
+    "system": "You are a useful research assistant.\n\nYou are being provided with images to determine the anatomical region and modality.\n\nYou should return a one-line answer in CSV format and never return header.\n\nYou should NEVER return \"Unknown\" and instead provide best guess.\n\nYou should return 1st col as Modality and 2nd col as Anatomical Region.\n\nExample output format:\nCT,Brain\nX-ray,Foot\nMRI,Brain",
+    "user_template": "{image}",
+    "placeholders": {
+      "image": "the radiology image as the only user content (no user text is reported)"
+    },
+    "few_shot": "none",
+    "source_location": "Table 2 (ROCOv2 System Prompt)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "regex ^\\s*([^,]+),\\s*(.+?)\\s*$ on the first line; second group = anatomical region",
+    "postprocess": "strip, lowercase; correct if the region string matches the ground-truth region or an accepted synonym (mapping to be fixed by the human)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 100 images whose predicted anatomical region matches the ground truth in the first iteration",
+    "judge": "rule",
+    "original_value": 78.0,
+    "original_location": "Table 3, column gpt-4-turbo-2024-04-09, row Total, Anat Id (%)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 300,
+    "est_usd": 5.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "no hook: image inputs (each call sends one radiograph) from an 861 MB Zenodo archive, above the 100 MB download limit, and the runner builds text-only messages.",
+    "a human must draw and quality-screen the 100-image stratified sample (burnt-in annotations excluded) and map ROCOv2 anatomy CUIs to the Table 1 region labels.",
+    "the scoring rule for free-text regions ('Abdomen' vs 'Abdomen and pelvis', 'Lumbar spine' vs 'Spine') is not described; a synonym table must be fixed before the run."
+  ],
+  "notes": "Set-level comparison only (binomial spread about +/-8 points at n=100). Each call is one image (~$0.015)."
+}

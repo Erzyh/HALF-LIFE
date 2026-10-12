@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4411120327",
+  "title": "Investigating the Shortcomings of LLMs in Step-by-Step Legal Reasoning",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'We evaluate a range of closed-source LLMs including GPT-4-Turbo, GPT-4o, GPT-3.5-turbo ... on the Civ. Pro. dataset using the zero-shot CoT prompting setting'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 2 (answer-format template: Legal Context / Question / Options / step-by-step explanation / final answer); Figure 18 (example scenario)",
+    "note": "Format lines are rendered inside a figure; exact zero-shot CoT wording and any system prompt are not printed."
+  },
+  "claim": {
+    "metric": "accuracy",
+    "value": 0.725,
+    "n_items": 175,
+    "location": "Table 4, row GPT-4-turbo, column A (accuracy)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Civ. Pro. dataset (175 MCQs from the Glannon Guide to Civil Procedure), released at github.com/VenkyMishra/legal_reasoning"
+  },
+  "cost": {
+    "est_calls": 175,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Soundness/correctness columns of Table 4 come from a GPT-4o auto-evaluator; accuracy only needs the final option. OpenAI API used; temperature not stated. Soft gap: prompt shown as a figure template.",
+  "resolution": {
+    "gap": "placeholder_prompt",
+    "plan": "The Figure 2 template text is recoverable from the extraction: legal context, question and lettered options, then 'While answering make sure to use the following format:' with '[Explanation of your legal reasoning step by step as numbered points]' and '[Final Answer with the correct option]'. Fill it per item from the 175-item Civ. Pro. dataset (github.com/VenkyMishra/legal_reasoning), run gpt-4-turbo-2024-04-09 zero-shot CoT, parse the final option, and compare accuracy 0.725.",
+    "approximation": "Instruction wording reconstructed from the figure layout (the repository holds the exact prompt for a cross-check); no system prompt or temperature stated.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

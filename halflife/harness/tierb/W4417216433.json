@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4417216433",
+  "title": "Benchmarking GPT-5 in radiation oncology: measurable gains, but persistent need for expert oversight",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 2.1: 'The specific model identifier is gpt-5-2025-08-07 ... Each API call was executed in a fresh session'; Results: five independent runs."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 2.2 describes the instruction ('select exactly one option and return the format Final answer: X'); no verbatim prompt",
+    "note": ""
+  },
+  "claim": {
+    "metric": "TXIT accuracy (%), mean of 5 runs",
+    "value": 92.8,
+    "n_items": 300,
+    "location": "Abstract/Results: 'GPT-5 achieved a mean accuracy of 92.8%' on the 2021 ACR TXIT",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "2021 ACR Radiation Oncology In-Training Examination (300 MCQs; not openly redistributed); 60 clinical vignettes in the Supplementary Material (expert-rated)"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt",
+    "data_closed"
+  ],
+  "notes": "The vignette part is human-rated (Likert). The prompt is paraphrased; exam items are ACR material."
+}

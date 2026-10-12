@@ -1,0 +1,56 @@
+{
+  "wid": "W7169474262",
+  "title": "The One-Word Census: Answer-Choice Conformity Across 44 Language Models",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 40,
+  "original_location": "Table 1 (appendix scorecard), rank 10, row 'gpt-4-turbo': 2.05 [1.67, 2.45] surprisal, 51% modal avoidance, 1% novel, 40% self-distinctness",
+  "reexecution": {
+    "mean_over_seeds": 0.41935483870967744,
+    "per_seed": {
+      "0": {
+        "value": 0.41935483870967744,
+        "n": 124,
+        "ci95": [
+          0.3756765873015874,
+          0.4880616359447004
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7169474262",
+    "n_items": 124,
+    "n_requests": 124,
+    "seeds": 1,
+    "est_usd": 0.05,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 40,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper served every model through OpenRouter under the alias 'gpt-4-turbo' in July 2026; this run calls the dated snapshot gpt-4-turbo-2024-04-09 on the OpenAI API directly, so routing and any provider-side sampling differences are not reproduced. Self-distinctness is a within-model statistic, so it does not depend on the other 43 models; the plural merge, which the authors apply over the whole panel's answers for a category, is applied here to our own four answers only.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7169474262"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 41.935483870967744,
+    "delta": 1.9354838709677438,
+    "original_inside_ci95": true
+  }
+}

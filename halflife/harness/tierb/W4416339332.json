@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416339332",
+  "title": "\"As Eastern Powers, I will veto.\" : An Investigation of Nation-level Bias of Large Language Models in International Relations",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini-2025-01-31",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "B",
+    "evidence": "\"o3-mini (OpenAI 2025)(o3-mini-2025-01-31) and DeepSeek-R1 ...\" (Sec. 5); Table 2 row o3-mini: 65 44 46 62 56 (weighted F1 x100 by persona)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 15 (persona-assigned vote simulation prompt, Example 1) and Figure 1",
+    "note": "Debiasing variant adds rehearsal history and reflection (Example 2)."
+  },
+  "claim": {
+    "metric": "weighted F1 (x100) of simulated votes, U.S. persona",
+    "value": 65,
+    "n_items": null,
+    "location": "Table 2, row o3-mini, column U.S.",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "UNSC resolution dataset (515 adopted + 66 non-adopted, 2013-2024), https://github.com/concistency/Nation-Level_Bias (CC license)"
+  },
+  "cost": {
+    "est_calls": 2905,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the number of resolutions used per persona in the vote simulation is not stated (dataset has 581). Basic models were run at temperature 0 with three repetitions; o3-mini has no temperature control.",
+  "resolution": {
+    "gap": "other",
+    "plan": "n is derivable: Sec. 4.2 states the vote simulation uses only the non-adopted resolutions, of which the dataset has 66 (Sec. 3; P5 members have 66 voting records on them). Run the Table 15 Example 1 persona prompt with the U.S. persona on the 66 resolutions with o3-mini-2025-01-31, three repetitions, and compute weighted F1 (favour/against/abstention) against the recorded U.S. votes (65); the resolution texts and votes are in the released dataset (CC BY-NC 4.0).",
+    "approximation": "o3-mini has no temperature control; how the three repetitions are aggregated into one F1 is not stated; call count is about 200 per persona, well below the record's estimate.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

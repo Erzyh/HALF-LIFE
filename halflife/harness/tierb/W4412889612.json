@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4412889612",
+  "title": "CiteEval: Principle-Driven Citation Evaluation for Source Attribution",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Results table: \"ATTRISCORE-STRICT† GPT-4-turbo 0.459 0.281 0.254 0.196 0.079 0.097\" (Pearson/Spearman/Kendall-Tau, CiteBench-Statement/CiteBench-Response)"
+  },
+  "prompt": {"verbatim": "partial", "location": "Appendix A.2-A.4 (human annotation/rating guidelines); the AttriScore judge prompt itself is from the cited AttriScore paper, not reproduced here", "note": "AttriScore is a baseline metric from prior work being re-run by these authors as a comparison point to CiteEval's own GPT-4o-based CITEEVAL-AUTO metric."},
+  "claim": {
+    "metric": "Pearson correlation with human ratings, AttriScore-Strict (GPT-4-turbo), CiteBench-Statement level", "value": 0.459, "n_items": null,
+    "location": "Main results table, row ATTRISCORE-STRICT† GPT-4-turbo, CiteBench-Statement/Pearson column",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "CiteBench (new benchmark released with this paper, per ACL practice); exact statement/response count not clearly stated in the excerpted text"},
+  "cost": {"est_calls": null, "tier": "mid"},
+  "blockers": [],
+  "notes": "ACL 2025. The paper's own contribution (CITEEVAL-AUTO) is backed by undated GPT-4o rather than a dated snapshot; GPT-4-turbo appears only in the AttriScore baseline rows, whose exact judge prompt is attributed to prior work rather than printed here, and CiteBench's exact size is unclear -- both treated as the soft gap for 'maybe'."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403906127",
+ "title": "Performance of a large language model for identifying central line-associated bloodstream infections (CLABSI) using real clinical notes",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT 4.0 (gpt-4-turbo)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"On January 29, 2024, Stanford Health Care and Stanford School of Medicine launched a secure LLM, powered by OpenAI's GPT 4.0 (gpt-4-turbo), cleared for protected health information data. We aimed to assess this LLM's performance in identifying CLABSI cases.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Methods: \"We prompted the secure LLM with clinical information and blood culture results, asking if each patient met the NHSN CLABSI definition...we copied to the chat window only the blood culture results triggering the CLABSI alert and the last two progress notes\"",
+  "note": "Prompting approach is described in prose; no literal prompt template is printed, and real per-patient clinical notes formed part of every prompt."
+ },
+ "claim": {
+  "metric": "agreement with infection-preventionist CLABSI determination",
+  "value": null,
+  "n_items": 40,
+  "location": "Methods/Table 1: pilot study of 40 patients (20 CLABSI, 20 non-CLABSI) reviewed Nov 2023-Mar 2024; Table 1 lists only the disagreement cases",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "Real, identifiable protected health information (Stanford EHR clinical notes and blood-culture results); not released"
+ },
+ "cost": {
+  "est_calls": 40,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Model is a Stanford-hosted, HIPAA-compliant private deployment of GPT-4 Turbo (\"secure LLM...cleared for protected health information\"), accessed via a chat window rather than the standard public API, and every prompt embeds real patient blood-culture results and progress notes for 40 real patients. Fundamentally not re-executable outside that institution's secure environment regardless of the model still being callable."
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7127563185",
+ "title": "Současná role AI v historických vědách a výzkumu",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"potvrzuje i benchmark HiST-LLM, ve kterem GPT-4 Turbo dosahuje... pouze 46% uspesnosti\" (\"even the HiST-LLM benchmark confirms GPT-4 Turbo reaches only 46% success\") - a cited benchmark result."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Czech-language review essay; no original experiment."
+ },
+ "claim": {
+  "metric": "none (46% belongs to the cited HiST-LLM benchmark paper)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Czech-language essay on AI in historical scholarship; GPT-4 Turbo appears only via a cited HiST-LLM benchmark figure."
+}

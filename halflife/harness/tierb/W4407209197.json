@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4407209197",
+  "title": "RAG for Personalized Medicine: A Framework for Integrating Patient Data and Pharmaceutical Knowledge for Treatment Recommendations",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"on open-medical QA tasks compared to GPT-4-Turbo without RAG, highlighting the importance of\" (related-work sentence citing a third-party comparison)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "Conceptual/proposed RAG framework paper; no implemented system or prompts of its own."},
+  "claim": {
+    "metric": "none", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (framework proposal, no experiments run)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "Published in a minor open-access journal (OAML). GPT-4-Turbo, GPT-3.5, and GPT-4 are mentioned only while summarizing other papers' findings in the related-work section; the paper itself proposes an architecture without running any model."
+}

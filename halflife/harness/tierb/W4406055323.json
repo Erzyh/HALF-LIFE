@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4406055323",
+  "title": "Data-Centric Human Preference with Rationales for Direct Preference Alignment",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (AlpacaEval 2.0 judge); GPT-4o (rationale judge)",
+    "resolved": "unresolved",
+    "role": "A",
+    "evidence": "Sec. 4: 'AlpacaEval 2.0 benchmark ... with GPT-4-turbo as a judge and report the raw winrate'; Sec. 3: 'We use GPT-4o (Achiam et al., 2023) as a judge'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix Prompts 3-4 (GPT-4o preference and rationale-scoring prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Win rates are properties of fine-tuned Llama/Mistral policies, not of the judge",
+    "task_type": "generation",
+    "judge": "llm:gpt-4-1106-preview (AlpacaEval 2.0 default)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AlpacaEval 2.0, Anthropic HH, UltraFeedback (public)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "AlpacaEval 2.0's default annotator is gpt-4-1106-preview (dead), so the judge alias is likely dead as well."
+}

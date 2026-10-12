@@ -1,0 +1,12 @@
+[
+ {
+  "wid": "W4403882451",
+  "cap": 16.0,
+  "seeds": 1,
+  "arm": "drift_ctrl",
+  "arm_model": "gpt-4-turbo-2024-04-09",
+  "model": "gpt-4-turbo-2024-04-09",
+  "force": true,
+  "note": "Strawberry Fields planning: drift control stopped at its cap after 455 of 600 calls; archived calls are reused, the remaining 145 calls and their judge pairs are sent"
+ }
+]

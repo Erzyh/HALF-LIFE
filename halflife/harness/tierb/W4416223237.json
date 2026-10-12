@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416223237",
+  "title": "Detecting Emotional Dynamic Trajectories: An Evaluation Framework for Emotional Support in Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "O3-2025-04-16",
+    "resolved": "o3-2025-04-16",
+    "role": "S",
+    "evidence": "Appendix C.3: 'O3: o3-2025-04-16 (OpenAI, 2025) ... each model generated a maximum of 512 tokens per dialogue turn. The temperature was set to 1'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix (therapist role prompt 'Agent Role: Professional Therapist'); user-simulator and scenario prompts are not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Baseline Emotional Level (BEL), first case column",
+    "value": 43.98,
+    "n_items": 60,
+    "location": "Table 1, row O3-2025-04-16 (first column)",
+    "task_type": "agentic",
+    "judge": "llm:Skywork-Reward-V2-Llama-3.1-8B"
+  },
+  "data": {
+    "public": "partial",
+    "source": "60 test samples provided with the submission; the full dataset (1,152 disturbance events) is promised after publication"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Multi-turn simulation: gpt-4o-2024-11-20 plays the user and a Skywork reward model scores emotion per turn; the ETrajEval framework code is required. Column semantics of Table 1 (per-case BEL) were not resolved from the text."
+}

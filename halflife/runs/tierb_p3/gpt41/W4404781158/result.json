@@ -1,0 +1,56 @@
+{
+  "wid": "W4404781158",
+  "title": "MultiPragEval: Multilingual Pragmatic Evaluation of Large Language Models",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 75.28,
+  "original_location": "Table 5, row GPT-4, English Avg. (quantity 65.00, quality 83.89, relation 82.22, manner 70.00)",
+  "reexecution": {
+    "mean_over_seeds": 0.6708333333333333,
+    "per_seed": {
+      "0": {
+        "value": 0.6708333333333333,
+        "n": 240,
+        "ci95": [
+          0.6125,
+          0.7291666666666666
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4404781158",
+    "n_items": 240,
+    "n_requests": 240,
+    "seeds": 1,
+    "est_usd": 0.83,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 75.28,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 55
+  },
+  "approximation": "automatic option extraction replaces the three human ratings of the free-form answers (resolution plan)",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4404781158"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 67.08333333333333,
+    "delta": -8.196666666666673,
+    "original_inside_ci95": false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W4414789220",
+  "title": "Application of Large Language Models (LLM) for Automatic Classification of Work Accident Text Data: Verification of Accuracy and Practicality",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Methods: 'GPT-4.1, GPT-4.1 mini, GPT-4o mini, and o4-mini ... processing was conducted in June 2025, using the latest versions'; Batch API, temperature 0 (Table 2)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 1 (Original Prompts Input to LLM for Each Classification Item, seven items)",
+    "note": "Prompts may be English renderings of Japanese originals (input texts are Japanese accident descriptions)."
+  },
+  "claim": {
+    "metric": "Cohen's kappa, causal substance",
+    "value": 0.662,
+    "n_items": 2619,
+    "location": "Table 3, block Causal Substance, row o4-mini",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "2021 Survey on Industrial Accidents (MHLW Japan, open anonymized data); expert ground-truth labels from the authors' prior study (ref. 2), release not stated"
+  },
+  "cost": {
+    "est_calls": 7857,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "gpt-4-turbo appears only as a citation of another study (role C). Ground-truth labels are the soft gap.",
+  "resolution": {
+    "gap": "unreleased",
+    "plan": "The kappa is computed against expert labels for 2,619 fall cases that were created in the authors' previous study (ref. 2, in press) and are not stated to be released anywhere; only the raw MHLW accident texts are open data. Expert classifications cannot be reconstructed from the public record, so the number cannot be re-executed.",
+    "approximation": "Not applicable; without the labels no agreement statistic can be computed.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

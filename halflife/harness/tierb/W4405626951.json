@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4405626951",
+ "title": "Energy-Based Preference Model Offers Better Offline Alignment than the Bradley-Terry Preference Model",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"Its metrics are win-rates...against GPT-4-turbo across 805 test samples with the judge being GPT-4-turbo itself\" (standard AlpacaEval 2.0 protocol description)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Describes the standard AlpacaEval 2.0 evaluation protocol; no prompt specific to querying GPT-4-turbo itself is shown."
+ },
+ "claim": {
+  "metric": "none for the live id (GPT-4-turbo is the fixed baseline/judge; the reported win-rates describe the authors' own Energy-Based Preference Model, not GPT-4-turbo)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AlpacaEval 2.0 (805 test samples, public benchmark)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo serves only as AlpacaEval 2.0's fixed baseline generator and default judge for scoring the authors' own trained preference models; no claim in the paper is about GPT-4-turbo's own performance."
+}

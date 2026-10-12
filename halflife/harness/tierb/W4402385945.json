@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4402385945",
+  "title": "PLUGH: A Benchmark for Spatial Understanding and Reasoning in Large Language Models",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 2: 'gpt-4-turbo 66.8% 70.7% 70.8% 71.4%' (edges F1, 0/1/2/3-shot); Sec. 3.6: 'with temperature 0.01 (since some of the models deny usage of zero temperature)'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3.1 'Task Description' block (instruction text for Task 1); exact prompt and few-shot format in the repo",
+    "note": "Appendix A prints only the GPT-4 data-conversion prompt used to build the benchmark."
+  },
+  "claim": {
+    "metric": "edges retrieval F1, Task 1 Graph Reconstruction, 0-shot",
+    "value": 66.8,
+    "n_items": 125,
+    "location": "Table 2, row gpt-4-turbo, column 0-shot",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PLUGH benchmark and code, https://github.com/altsoph/PLUGH (5 tasks x 125 texts with ground-truth graphs)"
+  },
+  "cost": {
+    "est_calls": 375,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Paper dated 2024-08-03 with no preview string, so 'gpt-4-turbo' resolves to the 2024-04-09 GA. Fuzzy node matching and graphviz parsing from the repo are needed for scoring; the task description reads like the prompt but is not labelled as verbatim.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Sec. 3.1 prints the Task 1 instruction block but not the exact 0-shot prompt layout; take the prompt, the 125 fiction texts, the ground-truth graphs and the flexible graphviz parser plus fuzzy matcher (lowercasing, article/preposition stripping, substring equality) from the repository. Run gpt-4-turbo-2024-04-09 at temperature 0.01 once per text, parse the returned graph and compute edges-retrieval F1; compare with 66.8 (Table 2; Table 8 reports 67.4 for the fuzzy 0-shot metric).",
+    "approximation": "If the repository prompt differs from the Sec. 3.1 block, the repository version is used; the parser and fuzzy matching must be the repository's to reproduce the metric.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/altsoph/PLUGH",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

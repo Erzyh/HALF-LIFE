@@ -1,0 +1,89 @@
+{
+  "wid": "W7135428876",
+  "title": "Large Language Models for Biomedical Article Classification",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1,
+      "top_p": 1.0,
+      "logprobs": true,
+      "top_logprobs": 20
+    },
+    "params_source": "paper Sec. 3.5-3.10 (temperature 0; Token-Word output: class probabilities from the first-token top-20 logprobs available through the OpenAI API; 3-shot examples by L2 similarity in all-distilroberta-v1 space)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 16483,
+    "subset_rule": "all abstracts of the 15 DCR datasets (Table 2 counts), stratified 5-fold cross-validation (seed 20260907): each abstract classified once with examples drawn from its training folds",
+    "approximation": "CV fold seed differs from the authors'; some PubMed abstracts may be missing or revised since the 2006 release; the exact topic strings inserted for {topic} are not printed (dataset names of Table 2 used)."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "DCR systematic drug-class review data (Cohen et al. 2006): https://dmice.ohsu.edu/cohenaa/systematic-drug-class-review-data.html, file epc-ir-data/epc-ir.clean.tsv (topic, PMID, abstract-level and article-level inclusion); abstracts fetched from PubMed E-utilities by PMID",
+    "config_or_split": "all 15 topics; 5-fold stratified CV",
+    "filter": null,
+    "fields": {
+      "input": "abstract",
+      "label": "abstract_inclusion",
+      "id": "PMID"
+    },
+    "license": "DCR data page: unknown (public research release); PubMed abstracts: NLM terms",
+    "access_checked": true,
+    "size_mb": 40,
+    "file_url": "https://dmice.ohsu.edu/cohenaa/epc-ir-data/epc-ir.clean.tsv",
+    "fields_prose": {
+      "input": "abstract text (PubMed) + topic",
+      "label": "abstract-level inclusion (positive) vs exclusion (Table 2 positive rates match the abstract-level column)",
+      "id": "PMID + topic"
+    },
+    "filter_prose": "PMIDs with a retrievable abstract"
+  },
+  "prompt": {
+    "system": "You are a helpful assistant.",
+    "user_template": "[user] Is this an abstract of a high-quality article on {topic}? Answer yes or no.\n\"{example_text}\"\n[assistant] {example_answer}\n(the user/assistant pair above is repeated for each of the 3 examples)\n[user] Is this an abstract of a high-quality article on {topic}? Answer yes or no.\n\"{text}\"",
+    "placeholders": {
+      "topic": "items.topic",
+      "text": "items.abstract",
+      "example_text": "3-shot nearest neighbours from the training folds (not expressible)",
+      "example_answer": "(not expressible)"
+    },
+    "few_shot": "k=3 nearest training-fold abstracts in all-distilroberta-v1 embedding space (Few-Shot-Selection experiment, Sec. 3.8)",
+    "source_location": "Appendix A, Table 14 (prompt B, few-shot), used in the Baseline experiment (Sec. 3.10)",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "topic": "review topic of the dataset (Table 2 name, e.g. 'ACE inhibitors')",
+      "example_text": "abstract of a training-fold example (3 nearest by L2 distance of all-distilroberta-v1 embeddings)",
+      "example_answer": "'yes' or 'no' for the example",
+      "text": "the abstract to classify",
+      "_note": "[user]/[assistant] markers denote chat turns; the first user message and the assistant message are repeated per example (Appendix A, Table 14 note)"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "tokens outside the top-20 treated as probability zero (Sec. 3.10); neither prefix present -> 0.5",
+    "parse_prose": "logprobs: from the top-20 first-token distribution, sum the probabilities of tokens that are case-insensitive prefixes of 'yes' and of 'no'; P(positive) = p_yes / (p_yes + p_no)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "AUPRC (area under the precision-recall curve) of P(positive) per DCR dataset over its 5 CV folds, macro-averaged over the 15 datasets ('Average' row).",
+    "judge": "none",
+    "original_value": 0.439,
+    "original_location": "Table 11 (Macro-averaged AUPRC scores for the Baseline experiment), column gptna, row Avg",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 49449,
+    "est_usd": 25.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "no hook: 3-shot examples are chosen by all-distilroberta-v1 embedding similarity inside 5 CV folds (needs torch/sentence-transformers), ~16.5k PubMed abstracts must be fetched by PMID (the TSV carries labels only), scoring uses the first-token top-20 logprobs (a hook's parse() receives only the text; logprobs sit in the archived response) and the metric is per-dataset AUPRC macro-averaged over 15 datasets.",
+    "epc-ir.clean.tsv has no header row (topic, EndNote id, PMID, abstract-level label, article-level label)."
+  ],
+  "notes": "One call per abstract per seed (3 seeds = 49,449 calls) with max_tokens 1. Per-dataset gptna AUPRCs in Table 11 allow a per-topic check. Retrieval of ~16.5k PubMed abstracts and the embedding step are local preprocessing.",
+  "machine_fields_added": "2026-09-07 (normalize_2)"
+}

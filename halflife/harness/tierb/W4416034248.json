@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4416034248",
+ "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of Planning Capabilities",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Appendix E.1 model table: \"GPT-4-turbo gpt-4-turbo-2024-04-09 2023 128K General Model\"; Table 2 row \"GPT-4-turbo ✗ 10.78% 10.78% 17.65%\" (Korean/English/Math)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Figure 1 (few-shot evaluation prompt template with {example_task}/{example_solution}/{task} placeholders); Appendix F.1 (regex-based scoring scripts)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "planning accuracy, Multi-Plan (Math-structured format)",
+  "value": 17.65,
+  "n_items": 204,
+  "location": "Table 2, row GPT-4-turbo, Math column (Multi-Plan benchmark, 204 scenarios)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Multi-Plan benchmark, huggingface.co/datasets/Bllossom/Multi-Plan"
+ },
+ "cost": {
+  "est_calls": 204,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "o3-mini (pinned as o3-mini-2025-01-31 in the same Appendix E.1 table) is evaluated on the same 204-item benchmark with far higher accuracy (82.84% Korean/English, 80.39% Math) and is an equally eligible, if pricier, alternative claim. 11 models total are compared; undated GPT-4 and GPT-4o rows also appear but are not used here since GPT-4-turbo is separately and explicitly pinned."
+}

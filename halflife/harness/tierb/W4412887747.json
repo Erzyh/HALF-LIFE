@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4412887747",
+  "title": "Rethinking Table Instruction Tuning",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Appendix A.4: 'We prompt the GPT-3.5-turbo and GPT-4-turbo models and set the temperature to 0.'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix F (dataset examples with Instruction/Input/Output format, e.g. F.1 WikiTQ, F.2 FeTaQA)",
+    "note": "Per-dataset instruction and table serialization shown as examples; an AIT-QA example was not confirmed in the extraction."
+  },
+  "claim": {
+    "metric": "accuracy",
+    "value": 88.57,
+    "n_items": 300,
+    "location": "Table 6, row GPT-4, column AIT (AIT-QA test; no dagger = run by the authors)",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AIT-QA (Katsis et al. 2022), public GitHub release; test size 0.3K per Table 5"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Most GPT-4 numbers in Table 6 are copied from prior work (dagger); only AIT (88.57), InfoTabs (58.60) and Table-Syn S1 (80.20, Table 8) were run by the authors. Footnote 2: GPT test sets capped at 500 sampled items, so n is approximate.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "AIT-QA is listed as a 0.1K/0.3K split of the 515-question release (Table 5) with no example in Appendix F, and A.5 says formats follow Zhang et al. (2024a) or Xie et al. (2022), neither of which covers AIT-QA; the exact test split and AIT serialization therefore live in the TAMA repository. Pull both, run gpt-4-turbo-2024-04-09 at temperature 0, and compute exact-match accuracy; compare with 88.57 (Table 6).",
+    "approximation": "If the repository lacks the split, run all 515 AIT-QA questions with the F.1 WikiTQ-style instruction/table format and compare at the set level.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/MichiganNLP/TAMA",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

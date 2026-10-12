@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403570177",
+  "title": "RMB: Comprehensively Benchmarking Reward Models in LLM Alignment",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Table 3 (RMB leaderboard): 'GPT-4o-2024-05-13 0.639 0.815 0.682 0.814 0.738'; Sec. 4: generative models evaluated as reward models (LLM-as-a-Judge)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.2 (Assessment prompts for generative RMs; Figures 16-17 helpfulness/harmlessness prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "pairwise accuracy, helpfulness set",
+    "value": 0.815,
+    "n_items": 10067,
+    "location": "Table 3, row GPT-4o-2024-05-13, column Helpfulness Pairwise",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "RMB benchmark (github.com/Zhou-Zoey/RMB-Reward-Model-Benchmark); helpfulness pairwise 10,067, harmlessness pairwise 7,064, BoN lists 2,109/1,677"
+  },
+  "cost": {
+    "est_calls": 30201,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Harmlessness subset contains harmful prompts but the live model only judges responses. Overall 0.738 also needs BoN sets."
+}

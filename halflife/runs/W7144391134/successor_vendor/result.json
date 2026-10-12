@@ -1,0 +1,230 @@
+{
+  "card": "W7144391134",
+  "model": "gpt-5.6-luna",
+  "n_calls": 3193,
+  "split_mode": "exact",
+  "original": {
+    "floats_print_like_julia": true,
+    "split": {
+      "mode": "exact",
+      "test_match": 150,
+      "groups": {
+        "0": {
+          "folds": [
+            0
+          ],
+          "first_train_pos": [
+            30,
+            31,
+            32
+          ]
+        },
+        "1": {
+          "folds": [
+            1
+          ],
+          "first_train_pos": [
+            0,
+            1,
+            2
+          ]
+        },
+        "2": {
+          "folds": [
+            2,
+            3,
+            4
+          ],
+          "first_train_pos": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "first_test": [
+        "Dicofol",
+        "1,2,4,5-Tetramethylbenzene",
+        "Bromophos"
+      ],
+      "first_ext": [
+        "Propylisopropylether",
+        "2,3,4,5-Tetrachlorophenol",
+        "Diethyl ether "
+      ]
+    },
+    "prompts_verbatim": {
+      "system": true,
+      "analysis": true,
+      "prediction": true,
+      "zs_system": true,
+      "zs_question": true,
+      "ext_header": true
+    },
+    "parser_agreement": [
+      2700,
+      2700
+    ],
+    "icl": {
+      "60-shot": {
+        "rescored": {
+          "n": 150,
+          "r": 42.9,
+          "n_pred_valid": 1500,
+          "n_pred_total": 1500,
+          "n_mol_without_valid": 0,
+          "ci": [
+            28.2,
+            56.1
+          ]
+        },
+        "csv": [
+          150,
+          42.9,
+          28.2,
+          56.1
+        ]
+      },
+      "1000-shot": {
+        "rescored": {
+          "n": 150,
+          "r": 75.6,
+          "n_pred_valid": 300,
+          "n_pred_total": 300,
+          "n_mol_without_valid": 0,
+          "ci": [
+            68.5,
+            81.5
+          ]
+        },
+        "csv": [
+          150,
+          75.6,
+          68.5,
+          81.5
+        ]
+      }
+    },
+    "bootstrap_csv_rows_reproduced": [
+      81,
+      81
+    ],
+    "zeroshot": {
+      "n": 1128,
+      "pearson_r": 0.407,
+      "r2": 0.105,
+      "n_predictions": 5640,
+      "exact3": {
+        "matches": 6,
+        "total": 4360,
+        "pct": 0.14
+      },
+      "R21_pct": 9.7,
+      "R21_counts": [
+        918,
+        89
+      ],
+      "R32_pct": 9.0,
+      "R32_counts": [
+        67,
+        6
+      ]
+    },
+    "zeroshot_reference": {
+      "pearson_r": 0.407,
+      "r2": 0.105,
+      "n": 1128,
+      "exact3_pct": 0.14,
+      "R21_pct": 9.7,
+      "R32_pct": 9.0
+    }
+  },
+  "n_truncated_replies": 0,
+  "zeroshot": {
+    "n": 517,
+    "pearson_r": 0.952,
+    "r2": 0.861,
+    "n_predictions": 2581,
+    "exact3": {
+      "matches": 73,
+      "total": 2026,
+      "pct": 3.6
+    },
+    "R21_pct": 26.1,
+    "R21_counts": [
+      1064,
+      278
+    ],
+    "R32_pct": 31.1,
+    "R32_counts": [
+      225,
+      70
+    ]
+  },
+  "60-shot": {
+    "n": 150,
+    "r": 94.2,
+    "n_pred_valid": 300,
+    "n_pred_total": 300,
+    "n_mol_without_valid": 0,
+    "ci": [
+      91.5,
+      96.5
+    ],
+    "per_run_r": {
+      "0": 95.1,
+      "1": 90.9
+    },
+    "item_level_vs_original": {
+      "n": 150,
+      "pearson": 0.506,
+      "mean_abs_diff": 1.568
+    }
+  },
+  "1000-shot": {
+    "n": 150,
+    "r": 97.5,
+    "n_pred_valid": 300,
+    "n_pred_total": 300,
+    "n_mol_without_valid": 0,
+    "ci": [
+      96.3,
+      98.4
+    ],
+    "per_run_r": {
+      "0": 97.3,
+      "1": 97.4
+    },
+    "item_level_vs_original": {
+      "n": 150,
+      "pearson": 0.772,
+      "mean_abs_diff": 1.11
+    }
+  },
+  "gain_60shot_minus_0shot_on_test150": {
+    "n": 70,
+    "r_0shot_test150": 96.5,
+    "r_icl": 94.8,
+    "gain": -1.7,
+    "ci": [
+      -6.0,
+      0.8
+    ]
+  },
+  "gain_1000shot_minus_0shot_on_test150": {
+    "n": 70,
+    "r_0shot_test150": 96.5,
+    "r_icl": 97.7,
+    "gain": 1.2,
+    "ci": [
+      0.0,
+      2.6
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-luna"
+    ],
+    "n_fingerprints": 0
+  }
+}

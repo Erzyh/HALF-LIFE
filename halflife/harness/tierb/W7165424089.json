@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7165424089",
+ "title": "AI4SE and SE4AI Exploration: A Decade Looking Back and Forward",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"AI-SME, a CATIA Magic plugin powered by GPT-4 Turbo for model-based systems engineering (Johns et al., 2024)\" -- an illustrative example citing a different paper's tool"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Decade-retrospective survey of AI-for-software-engineering trends; no experiment of its own."
+ },
+ "claim": {
+  "metric": "none (illustrative anecdote about a third-party tool, not this paper's measurement)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Survey/retrospective paper on AI4SE/SE4AI; GPT-4 Turbo appears only inside a hypothetical usage vignette citing Johns et al. (2024)'s AI-SME tool, not as something these authors ran."
+}

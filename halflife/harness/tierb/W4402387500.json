@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402387500",
+  "title": "Can We Rely on LLM Agents to Draft Long-Horizon Plans? Let's Take TravelPlanner as an Example",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (1106-preview)",
+    "resolved": "dead-preview",
+    "role": "B",
+    "evidence": "Sec. 3: 'GPT-3.5-Turbo (0125)' and 'GPT-4-Turbo (1106-preview)' as feedback generators; Table 2 block 'GPT-4-Turbo (1106-preview)'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.5 (prompt templates for Scrubber, Planner, Refiner agents)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "feedback-generator ratios (uplift/flat/downgrade)",
+    "value": null,
+    "n_items": 100,
+    "location": "Table 2, block GPT-4-Turbo (1106-preview), round 1 (row values 86.9/32.8/39.3/...; column header not recovered)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TravelPlanner (Hugging Face)"
+  },
+  "cost": {
+    "est_calls": 1200,
+    "tier": "mid"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "Preview model retired."
+}

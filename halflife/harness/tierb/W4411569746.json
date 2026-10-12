@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411569746",
+ "title": "Optimal large language models to screen citations for systematic reviews",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Refers to \"our previous study\" where GPT-4 Turbo was used; this paper's own comparison instead runs GPT-4o, Gemini 1.5 Pro, Claude 3.5 Sonnet, and Llama 3.3 70B."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "The current paper reuses a prompt originally built for GPT-4 Turbo in an earlier (cited) study, but does not re-run GPT-4 Turbo itself here."
+ },
+ "claim": {
+  "metric": "none for GPT-4 Turbo in this paper (its results are reported in the earlier, cited study, not this one)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "J-SSCG 2024 sepsis guideline citation set"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is referenced three times, always as background to the authors' own earlier study; the current paper's four-model comparison (GPT-4o, Gemini 1.5 Pro, Claude 3.5 Sonnet, Llama 3.3 70B) does not include GPT-4 Turbo as a tested arm."
+}

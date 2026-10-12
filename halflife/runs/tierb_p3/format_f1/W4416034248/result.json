@@ -1,0 +1,66 @@
+{
+  "wid": "W4416034248",
+  "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of Planning Capabilities",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 17.65,
+  "original_location": "Table 2, row GPT-4-turbo, column Math (Korean 10.78%, English 10.78%)",
+  "reexecution": {
+    "mean_over_seeds": 0.6617647058823529,
+    "per_seed": {
+      "0": {
+        "value": 0.6617647058823529,
+        "n": 204,
+        "ci95": [
+          0.5980392156862745,
+          0.7207107843137248
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 9
+  },
+  "prepare": {
+    "wid": "W4416034248",
+    "n_items": 204,
+    "n_requests": 204,
+    "seeds": 1,
+    "est_usd": 9.79,
+    "subset_note": "paraphrase f1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [204]; model field rewritten from gpt-4-turbo-2024-04-09 to gpt-5.6-sol in 204 bodies",
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "source_model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 17.65,
+    "cap_usd": 3.54,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416034248",
+    "paraphrase": "f1",
+    "pairs": [
+      [
+        "Your solution should be concise, and you should omit any additional explanations.",
+        "Your solution should be concise, and you should omit any additional explanations; output only the plan lines, in exactly the format of the example, and nothing else."
+      ]
+    ],
+    "params_added": {}
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "Figure 1 is a few-shot template and Sec. 3.1 says the examples were 'randomly selected examples from the dataset'; Table 2 is the 1-shot setting (its Korean column 10.78% equals the 1-shot column of Table 12), but the drawn example is not printed, so each item gets one demonstration drawn from the other 203 scenarios with the harness RNG (seed 20260907). Appendix F.1 prints the visit/fly regular expressions in English only while the Math split's gold plans are Korean, so the hook applies the same two sentence shapes in Korean as well; a reply written in English is therefore scored wrong against the Korean gold, as in the paper's own script.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\format_f1\\W4416034248"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 66.17647058823529,
+    "delta": 48.52647058823529,
+    "original_inside_ci95": false
+  }
+}

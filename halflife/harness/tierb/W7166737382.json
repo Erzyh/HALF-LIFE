@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7166737382",
+ "title": "Why Trust Your Agent? Empirical Security Gains from TRiSM-Guided Agentic Workflows in Healthcare",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Abstract: \"Both workflows were evaluated across five LLMs (Claude Haiku 4.5, GPT-4.1-nano, GPT-4.1-mini, GPT-5.4-mini, and Gemini 2.5 Flash) on two report types, totalling 800 generations and 500 attack scenarios\"."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "The captured text file is only the arXiv abstract landing page (submission metadata, bibliographic-tool links); the paper body, methods, prompts and tables were not retrieved into papers_tierb."
+ },
+ "claim": {
+  "metric": "none isolable for GPT-4.1-nano (abstract gives only cross-model aggregates)",
+  "value": null,
+  "n_items": null,
+  "location": "Abstract: mean attack success rate 31%->10% (RAG poisoning), 42%->25% (data-field injection); report accuracy 72.5%->86.5%; all pooled across all 5 LLMs together",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Synthetic medical report-generation scenarios and an attack corpus (RAG poisoning, data-field/network injection); not shown to be released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_prompt",
+  "no_number"
+ ],
+ "notes": "GPT-4.1-nano is explicitly one of five LLMs the authors evaluated (role S) and resolves cleanly, but only the arXiv abstract page was available under papers_tierb (no body text), so no GPT-4.1-nano-specific number, prompt, or table could be located; the only percentages given are pooled across all five models. Worth re-checking if the full text is added later."
+}

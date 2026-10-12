@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4406192716",
+ "title": "Vision Language Models as Values Detectors",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"The models evaluated are gpt-4o-2024-05-13, llava-v1.6-34b-hf, llava-v1.6-mistral-7b-hf, llava-v1.6-vicuna-7b-hf, and llava-v1.6-vicuna-13b-hf.\"; Table 2 row 'GPT-4o', Average 0.33, SD 0.48."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec 3.1: \"The prompt used is: 'Identify what is the element that needs attention in this image. If nothing is relevant answer with none.'\"",
+  "note": "Temperature 1, no system prompt, generation capped at 100 tokens, 3 completions per image."
+ },
+ "claim": {
+  "metric": "element-of-focus alignment score (0-1), GPT-4o",
+  "value": 0.33,
+  "n_items": 36,
+  "location": "Table 2, row 'GPT-4o': Average 0.33, SD 0.48; 12 images x 3 completions = 36 generations (Sec 3.2)",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "partial",
+  "source": "12 custom images depicting ambiguous/potentially sensitive everyday scenes with 14 human annotators (168 sentences); dataset release not confirmed in retrieved text"
+ },
+ "cost": {
+  "est_calls": 36,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "GPT-4o is one of five vision-language models compared against 14 human annotators on identifying the salient element in ambiguous images; all models used the identical printed prompt. Model outputs were binary-scored by hand against the human-annotated 'most common element of focus', which is ordinary correctness grading rather than a human_outcome-style dependent variable."
+}

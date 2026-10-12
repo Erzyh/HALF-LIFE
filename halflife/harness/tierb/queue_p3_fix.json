@@ -1,0 +1,15 @@
+[
+ {
+  "wid": "W7131319772",
+  "cap": 8.6,
+  "seeds": 1,
+  "arm": "vendor",
+  "arm_model": "gpt-5.6-terra",
+  "model": "gpt-5-mini-2025-08-07",
+  "est_usd": 5.55,
+  "n_calls_baseline": 3000,
+  "config_seeds": 3,
+  "title": "Can Large Language Models Replace Human Coders? Intr",
+  "force": true
+ }
+]

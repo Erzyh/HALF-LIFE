@@ -1,0 +1,11 @@
+{
+  "seeds": 3,
+  "writer_calls": 30,
+  "judge_released_calls": 360,
+  "judge_new_calls": 120,
+  "tokens_in": 517452.75,
+  "tokens_out": 67832.5,
+  "usd_refined": 7.209502499999999,
+  "usd_battery_upper_bound": 4.5875325,
+  "built_utc": "2026-09-19T11:15:19.405228+00:00"
+}

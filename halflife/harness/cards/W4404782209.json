@@ -1,0 +1,110 @@
+{
+  "card_id": "W4404782209",
+  "openalex_id": "https://openalex.org/W4404782209",
+  "title": "Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate",
+  "doi": "10.18653/v1/2024.emnlp-main.992",
+  "paper": {
+    "doi": "10.18653/v1/2024.emnlp-main.992",
+    "authors": "Liang, He, Jiao, Wang, Wang, Wang, Yang, Shi, Tu",
+    "year": 2024,
+    "venue": "EMNLP 2024 (Main), pp. 17889-17904",
+    "repo": "https://github.com/Skytliang/Multi-Agents-Debate",
+    "repo_commit": "e58d146033568ccf737d8031a93748597907d7d3",
+    "repo_license": "GNU GPL (LICENSE file; version header only says 'GNU General Public License')",
+    "repo_note": "Scaffold cloned Unbabel/COMET (third-party metric) and failed on the glued 'Multi-Agents-Debate.1' link; the paper's own repo was cloned for this card. Repo ships 200 archived debate transcripts for the Lexical subset (data/CommonMT/Lexical_Ambiguity/MAD_Debate_Process, model_name gpt-3.5-turbo, temperature 0) - an L1-grade artifact for the dead baseline."
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "All agents (two debaters + moderator/judge) are the LLM under test; the method-effect claim (MAD vs baseline/self-reflection) is measured on GPT-3.5-Turbo-0301 and GPT-4-0314 (both dead) and Vicuna-7B/13B-v1.5-16k (open weights). gpt-4-turbo does NOT occur anywhere in the paper text."
+  },
+  "claim": {
+    "statement": "Multi-Agent Debate (2 debaters + judge, adaptive break, max 3 rounds) improves GPT-3.5-Turbo on Common MT (Lexical: COMET 80.3 -> 82.0, BLEURT 68.2 -> 70.9, HUMAN 3.14 -> 3.78; Contextless 84.0 -> 84.8 / 72.9 -> 73.7 / 3.43 -> 3.67; Contextual 84.9 -> 85.3 / 73.4 -> 74.0 / 3.57 -> 3.67), matching or surpassing GPT-4 (82.0/70.1/3.41 on Lexical), and raises Counter-Intuitive AR accuracy from 26.0 to 37.0 (GPT-4: 51.0; CoT 28.0; Self-Consistency 29.5; Self-Reflect 27.5) (Table 1, Table 3).",
+    "claim_type": "method_effect",
+    "metric": "Common MT: COMET (Unbabel/wmt22-comet-da), BLEURT-20, HUMAN direct assessment 1-5 by 3 professional translators; Counter-Intuitive AR: accuracy (judge's final answer vs answer list)",
+    "original_values": {
+      "common_mt_turbo_baseline": { "lexical": { "comet": 80.3, "bleurt": 68.2, "human": 3.14 }, "contextless": { "comet": 84.0, "bleurt": 72.9, "human": 3.43 }, "contextual": { "comet": 84.9, "bleurt": 73.4, "human": 3.57 } },
+      "common_mt_turbo_mad": { "lexical": { "comet": 82.0, "bleurt": 70.9, "human": 3.78 }, "contextless": { "comet": 84.8, "bleurt": 73.7, "human": 3.67 }, "contextual": { "comet": 85.3, "bleurt": 74.0, "human": 3.67 } },
+      "common_mt_gpt4": { "lexical": { "comet": 82.0, "bleurt": 70.1, "human": 3.41 }, "contextless": { "comet": 84.7, "bleurt": 73.6, "human": 3.63 }, "contextual": { "comet": 85.0, "bleurt": 73.7, "human": 3.65 } },
+      "ciar_accuracy": { "gpt-4": 51.0, "gpt-3.5-turbo": 26.0, "cot": 28.0, "self_consistency": 29.5, "self_reflect": 27.5, "mad": 37.0 },
+      "judge_choices_table6": { "turbo_all": { "aff": 87, "neg": 104, "tie": 9 }, "gpt4_all": { "aff": 67, "neg": 124, "tie": 9 } }
+    },
+    "original_source": "Table 1 (Common MT), Table 3 (CIAR), Table 5-7 (judge/debater ablations), App. A (dataset sizes: 200 lexical / 450 contextless / 350 contextual; CIAR 200 questions)"
+  },
+  "protocol": {
+    "model": "NONE ALIVE. Experimental arms: GPT-3.5-Turbo-0301 (dead 2024-09-13) and GPT-4-0314 (dead 2024-06-13) via OpenAI API; vicuna-7b-v1.5-16k and vicuna-13b-v1.5-16k (open weights, still downloadable). 'gpt-4-turbo' is not an experimental arm: the census hit is a false positive from the Table 6 row text 'GPT-4 Turbo GPT-4' (judge/debater columns).",
+    "model_status": "gpt-3.5-turbo-0301: dead; gpt-4-0314: dead; gpt-4-turbo: not used in the paper",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (code/utils/agent.py; support_models restricted to gpt-3.5-turbo, gpt-3.5-turbo-0301, gpt-4, gpt-4-0314)",
+    "prompt_source": "code/utils/config4tran.json (translation: player_meta_prompt, moderator_meta_prompt, affirmative/negative/moderator/judge prompts) and code/utils/config4all.json (QA); debate-level variants in App. D Table 11",
+    "params": {
+      "temperature": 0,
+      "max_round": 3,
+      "num_players": 3,
+      "max_tokens": "context limit minus prompt tokens (agent.py ask())",
+      "adaptive_break": "moderator JSON field 'Whether there is a preference' ends the debate early; otherwise judge extracts the final answer after round 3",
+      "seed": "not set; single run",
+      "baseline": "1 direct call with base_prompt ('Translate the following text from zh to en: ...')"
+    },
+    "n_items": "Common MT 1,000 sentences (200 lexical + 450 contextless + 350 contextual); Counter-Intuitive AR 200 questions (repo ships only 50 in data/CounterintuitiveQA/CIAR.json)",
+    "samples_per_item": "1 debate per item (up to 3 rounds); baseline 1 call",
+    "evaluation": "Common MT: automatic COMET/BLEURT (re-runnable; Unbabel/COMET cloned by the scaffold) + HUMAN rating by 3 professional translators (not reproducible, Krippendorff alpha 0.76). CIAR: automatic accuracy; the scoring script is not in the repo (debate4tran.py handles translation only; QA via interactive.py/config4all.json) - answer matching must be re-implemented against the 'answer' list field.",
+    "execution_environment": "Python 3 with openai (legacy client), tiktoken 0.4.0, backoff; COMET/BLEURT need a GPU-capable torch env (wmt22-comet-da ~2.3 GB, BLEURT-20 ~2 GB); no docker; Lexical raw data (data/CommonMT/Lexical_Ambiguity/raw/lexical.zh-en.{zh,en}) in repo, other subsets from tjunlp-lab/CommonMT.",
+    "representative_subset": "(P3 successor-only, if pursued) Lexical 200 + CIAR 50 (as shipped) x 2 runs; automatic metrics only (COMET/BLEURT/accuracy), no HUMAN."
+  },
+  "artifacts": {
+    "prompts_path": "code/utils/config4tran.json; code/utils/config4all.json",
+    "data_path": "data/CommonMT/Lexical_Ambiguity/raw (200 pairs); other Common MT subsets: https://github.com/tjunlp-lab/CommonMT (He et al. 2020); data/CounterintuitiveQA/CIAR.json (50 of 200 questions); data/CommonMT/Lexical_Ambiguity/MAD_Debate_Process/*.json (200 archived gpt-3.5-turbo debates)",
+    "eval_path": "null (COMET/BLEURT via external packages; CIAR accuracy script not released)",
+    "data_public": "partial",
+    "data_license": "repo GPL; Common MT test suite: license per tjunlp-lab/CommonMT (not checked); CIAR: collected from elicitation.info and geeksforgeeks puzzles (third-party content)",
+    "redistributable": "unknown",
+    "notes": "Archived debate transcripts (200 lexical) give per-item original outputs for the dead baseline model; they can serve as the 'original' side of a paired comparison for successor arms. HUMAN scores (the metric the paper stresses) are not reproducible."
+  },
+  "blockers": [
+    "live model not an experimental arm: gpt-4-turbo never used; both API arms (gpt-3.5-turbo-0301, gpt-4-0314) are dead -> no baseline_alive possible",
+    "Primary evidence on Common MT is a human direct assessment (3 professional translators); automatic COMET/BLEURT differences are within ~1-2 points",
+    "CIAR dataset only 50/200 questions in the repo; accuracy scoring script not released",
+    "Repo code hard-restricts model ids (support_models) and uses the legacy OpenAI client; successor arms require patching"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "purpose": "none - all API arms dead; census hit was a false positive" },
+    "successors": [
+      "gpt-5-2025-08-07 (P3 successor-only comparison against archived gpt-3.5-turbo debates)",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated snapshot)",
+      "gemini (current dated snapshot)",
+      "llama (open weights, weight hash pinned) - replaces the Vicuna open arm",
+      "qwen (open weights, weight hash pinned)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "reference_gpt-4-turbo": { "input": 10.0, "output": 30.0 } },
+    "unit_basis": "Hypothetical (no live arm): per item ~9 calls (2 debaters + moderator per round, up to 3 rounds, + judge + baseline) with growing context ~1.5K in / ~200 out each -> ~15K in / ~2K out per item (~$0.21 at gpt-4-turbo prices; App. E: MAD generates 2.46x the tokens of CoT)",
+    "full": {
+      "definition": "Common MT 1,000 + CIAR 200, MAD + baseline, 3 runs (successor arm at gpt-4-turbo-equivalent prices)",
+      "est_calls": 32400,
+      "est_tokens_in": 54000000,
+      "est_tokens_out": 7200000,
+      "est_cost_usd": 760
+    },
+    "subset": {
+      "definition": "Lexical 200 + CIAR 50, MAD + baseline, 2 runs",
+      "est_calls": 4500,
+      "est_tokens_in": 7500000,
+      "est_tokens_out": 1000000,
+      "est_cost_usd": 105
+    },
+    "cap_usd": "0 for P0 (blocked); to be set if adopted as P3"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1, method_effect (applicable only to successor arms, no live baseline). Direction: MAD > baseline on COMET and BLEURT for each Common MT subset and on CIAR accuracy. SURVIVED if the sign holds on all three automatic metrics with effect sizes of the same order (COMET/BLEURT +1 to +3 points; CIAR +5 to +15 points) and a paired bootstrap over items excludes 0. PARTIAL if the sign holds but the effect is not significant or shrinks below +0.5 COMET / +3 CIAR points. DEAD if MAD <= baseline on the automatic metrics (e.g. successor baselines already resolve the ambiguities, leaving no room for debate gains).",
+    "notes": "The paper's headline metric on Common MT is HUMAN; a re-run can only judge the automatic metrics and must say so. Without a live baseline the card cannot contribute to the H1 live-vs-original survival estimate; it can only feed the successor (P3) analysis with the archived gpt-3.5-turbo debate transcripts as the historical reference."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Confirm the census false positive: 'gpt-4-turbo' matched the Table 6 row 'GPT-4 Turbo GPT-4' (judge = GPT-4, debaters = Turbo/GPT-4), not a model id. Remove this paper from the gpt-4-turbo live stratum?",
+    "Keep the paper as a P3 (successor-only) method_effect case using the 200 archived gpt-3.5-turbo debates as the original reference, or drop it from the re-execution pool?",
+    "If kept: obtain the remaining 150 CIAR questions from the authors, and the contextless/contextual Common MT subsets from tjunlp-lab/CommonMT (license check needed)."
+  ],
+  "domain_notes": "The paper's own results are already a comparison between two dead API models and an open model; the released Lexical debate transcripts are the only per-item original outputs. Human direct assessment carries the main evidence, and the automatic-metric deltas are small (about 1-2 COMET points), so any successor re-run has low power on Common MT; CIAR (accuracy, +11 points) is the more decisive automatic signal but only 50 questions are shipped."
+}

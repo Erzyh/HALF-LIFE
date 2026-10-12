@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416683695",
+  "title": "AI Self-preferencing in Algorithmic Hiring: Empirical Evidence and Insights",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we generate multiple counterfactual versions using...GPT-4o, GPT-4o-mini, GPT-4-turbo...\"; Figure (\"GPT-4-turbo / GPT-4o-mini / GPT-4o / 93.0%\")."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B (resume-generation prompt and evaluator/judge prompt)",
+    "note": "One prompt rewrites a human resume into an LLM-authored version; a separate evaluator prompt asks a judge LLM to pick the higher-quality resume."
+  },
+  "claim": {
+    "metric": "LLM-vs-Human statistical-parity self-preference bias (%) for GPT-4-turbo-generated resumes",
+    "value": 93.0,
+    "n_items": 2484,
+    "location": "Figure (\"LLM-vs-Human Statistical Parity Self-preference Bias\"), GPT-4-turbo bar",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o (and separately DeepSeek-V3, LLaMA-3.3-70B, as the three evaluator models)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "publicly available dataset of 2,484 anonymized human-written resumes (a separate count of 2,245 also appears in the paper, likely a filtered subset)"
+  },
+  "cost": {
+    "est_calls": 7452,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "GPT-4-turbo is one of 3 closed-source generator models (plus 4 open-source) whose resumes are judged; the exact chart-to-text mapping of the 93.0%/91.2% bars to GPT-4-turbo specifically is inferred from consistent label ordering across two figures, not a literal inline sentence value."
+}

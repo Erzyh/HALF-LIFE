@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7131246555",
+  "title": "A Study on the Performance of SOTA LLMs on Nepalese IOE Entrance Examination",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Abstract: 'ChatGPT (gpt-5-2025-08-07)'; Results: 'ChatGPT at 83.13% (409/492)'; temperature 1.0"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (prompt specification, system and user components)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, IOE entrance exam MCQs",
+    "value": 83.13,
+    "n_items": 492,
+    "location": "Results text (409/492); Figure 1",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Recalled IOE entrance questions digitized from PDFs; 'never been published on the internet'; no release statement"
+  },
+  "cost": {
+    "est_calls": 1476,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": ""
+}

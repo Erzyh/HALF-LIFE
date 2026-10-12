@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4404985489",
+  "title": "Variable Extraction for Model Recovery in Scientific Literature",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT4 Turbo (GPT4T)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"pureGPT4T 0.655 0.443 0.491\" (Table 1, overall recall/precision/F1); \"We employed the GPT-4 turbo model to perform similarity evaluations\" (Sec. 5)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 4 (extraction prompt template for all LLM baselines), Figure 6 (GPT4 Turbo similarity-evaluator prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "F1 of variable extraction, pure GPT4 Turbo setup",
+    "value": 0.491,
+    "n_items": 556,
+    "location": "Table 1, row pureGPT4T, Overall F1 (556 text chunks, 2,083 annotations)",
+    "task_type": "extraction",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/mitdbg/scivar (annotated variable-extraction dataset)"
+  },
+  "cost": {
+    "est_calls": 556,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Temperature 0. Paper dated 2024-11-21 with no preview string, so the undated 'GPT4 Turbo' resolves to gpt-4-turbo-2024-04-09 for both subject and judge. Cost is dominated by pairwise judge calls (Cartesian candidate pairs; 330,558 pairs across all baselines), output limited to one token."
+}

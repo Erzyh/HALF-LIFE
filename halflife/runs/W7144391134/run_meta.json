@@ -1,0 +1,82 @@
+{
+  "card_id": "W7144391134",
+  "run_date_utc": "2026-09-07",
+  "target_paper": {
+    "title": "In-Context Molecular Property Prediction with LLMs: A Blinding Study on Memorization and Knowledge Conflicts",
+    "repo": "https://github.com/MatthiasHBusch/BlindingLLMs",
+    "repo_commit": "29f607c2fa18c74251136f50c6f4769129bb9fed",
+    "original_source": "results/bootstrap_correlation_ci.csv, LLM_Results_delaney*.json, zeroshot_accuracy.csv (gpt-4.1-nano, Delaney, names_only/with_preanalysis)"
+  },
+  "generation": {
+    "model_requested": "gpt-4.1-nano-2025-04-14",
+    "model_served": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 9,
+    "parameters": "temperature 0.7, top_p 0.95, max_tokens 4000 (ICL) / 800 (zero-shot), 2 runs per configuration as in the paper; OpenAI endpoint instead of the Azure deployment",
+    "battery": "zero-shot 1,128 x 5 + analyses 12 + predictions 600 = 6,252 calls; molecule split and fold order reproduced exactly (MersenneTwister port, 150/150 test names)"
+  },
+  "results": {
+    "zeroshot": {
+      "r": 0.406,
+      "orig_r": 0.407,
+      "exact3_pct": 0.21,
+      "orig_exact3_pct": 0.14,
+      "R21_pct": 10.0,
+      "orig_R21_pct": 9.7
+    },
+    "icl_60": {
+      "r": 37.6,
+      "ci95": [
+        21.7,
+        52.2
+      ],
+      "orig_r": 42.9,
+      "orig_ci95": [
+        28.2,
+        56.1
+      ],
+      "per_run_r": {
+        "0": 22.1,
+        "1": 36.1
+      }
+    },
+    "icl_1000": {
+      "r": 76.6,
+      "ci95": [
+        69.2,
+        82.8
+      ],
+      "orig_r": 75.6,
+      "orig_ci95": [
+        68.5,
+        81.5
+      ],
+      "per_run_r": {
+        "0": 70.8,
+        "1": 69.9
+      }
+    },
+    "gain_1000_vs_0shot": {
+      "n": 150,
+      "r_0shot_test150": 35.0,
+      "r_icl": 76.6,
+      "gain": 41.6,
+      "ci": [
+        27.2,
+        56.0
+      ]
+    },
+    "cost_usd": 1.92,
+    "calls": 6252,
+    "errors": 0,
+    "judgment": "생존 (survived)",
+    "judged_by": "automatic rule per ANALYSIS_PLAN §1; human double-coding pending",
+    "note": "Zero-shot r 0.406 vs 0.407; 1000-shot r 76.6 [69.2, 82.8] vs 75.6 [68.5, 81.5]; 60-shot r 37.6 [21.7, 52.2] vs 42.9 [28.2, 56.1] (overlapping, larger run-to-run spread at temperature 0.7); memorization indicators unchanged (3-significant-digit exact matches 0.21% vs 0.14%, retention 10.0% vs 9.7% at the ~10% coincidence floor). The claim that many-shot in-context examples lift the correlation without verbatim recall reproduces."
+  },
+  "reproducibility_frictions_observed": [
+    "pipeline is Julia; Julia not installed, so prompts, parsing and the Mersenne-Twister molecule split were ported to Python and validated against the archived chats (2,700/2,700 replies re-parse; 150/150 test names)",
+    "original runs went through an Azure deployment; the OpenAI endpoint served gpt-4.1-nano-2025-04-14 (9 fingerprints)",
+    "one 1000-shot call is ~30k tokens; prompt caching makes cost depend on call ordering"
+  ]
+}

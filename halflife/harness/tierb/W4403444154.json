@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403444154",
+  "title": "Evaluating Transformer Models for Suicide Risk Detection on Social Media",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Sec. IV.B: 'We set the temperature parameter to 0.0 ... Both configurations were tested using the gpt-4o-2024-05-13 model' (CoT 100-shot and 500-shot)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. IV.B (instruction prompt printed; the 100/500 few-shot examples come from the training set, selection unspecified)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "weighted F1, preliminary test set",
+    "value": 58.9,
+    "n_items": 100,
+    "location": "Table IV, row 'GPT-4o CoT 100 shot'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "IEEE BigData 2024 Cup suicide-risk dataset (500 annotated training posts; 100-post preliminary test set with hidden labels scored by the organizers)"
+  },
+  "cost": {
+    "est_calls": 100,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Preliminary test labels are held by the competition organizers; the reported number cannot be recomputed locally."
+}

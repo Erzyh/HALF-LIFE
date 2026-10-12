@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416037849",
+  "title": "CRAB: A Benchmark for Evaluating Curation of Retrieval-Augmented LLMs in Biomedicine",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o3-mini",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Sec. 4: 'We select four representative reasoning LLMs for evaluation and analysis, namely o3-mini, Gemini-2.5-pro, DeepSeek-R1, and QwQ'; Table 2: 'o3-mini 69.16 73.78 71.47 68.60 77.35 72.98'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C.1.2 (Task A standalone reference-classification prompt printed verbatim); the main CRAB instruction appears only as a figure label ('Instruction prompt')",
+    "note": ""
+  },
+  "claim": {
+    "metric": "RP F1 (%) in standalone reference classification (SRC), English",
+    "value": 71.22,
+    "n_items": 400,
+    "location": "Table 7, row o3-mini, column SRC RP",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/zhm0/CRAB (expert-written biomedical queries with relevant/irrelevant references, 4 languages)"
+  },
+  "cost": {
+    "est_calls": 400,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Headline number (Table 2, English CE F1 71.47) uses the unprinted main protocol prompt; the printed Task A prompt supports only the ablation claim. Snapshot not stated (o3-mini has one snapshot).",
+  "resolution": {
+    "gap": "other",
+    "plan": "The chosen claim uses the printed Task A prompt (C.1.2: classify each reference as relevant (1) or irrelevant (0)), evaluated over the 400 English CRAB queries (huggingface.co/datasets/zhm0/CRAB) with references balanced 40%/60% relevant/irrelevant per query. Run o3-mini-2025-01-31 (single snapshot), compute the relevance-precision F1 (SRC RP) and compare with 71.22 (Table 7).",
+    "approximation": "The per-query 40/60 reference draw is not listed, so the comparison is at the set level; the headline Table 2 number (unprinted main prompt) stays out of scope.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

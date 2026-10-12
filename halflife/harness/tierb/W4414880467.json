@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4414880467",
+  "title": "VLM-Guided Visual Place Recognition for Planet-Scale Geo-Localization",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "\"we evaluate it using two recent state-of-the-art (SoTA) models: GPT-4o (gpt-4o-2024-05-13) ... and Gemini-1.5-Pro. Both models are prompted using the Least-to-Most (LTM) prompting strategy\" (Sec. Method); Table 1/2 report accuracy at multiple spatial resolutions"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "\"We use the LTM prompt from Mendes et al. [2024], which we omit here for brevity\" -- the prompt is explicitly not reproduced, only cited to an external paper."},
+  "claim": {
+    "metric": "Street-level (1 km) localization accuracy (%), IM2GPS3k, GPT-4o + VPR pipeline", "value": null, "n_items": 3000,
+    "location": "Table 1/2 (geo-localization accuracy at 1/25/200/750/2500 km on IM2GPS3k [3,000 images], IM2GPS, and GWS15k)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "partial", "source": "IM2GPS3k and MP-16 (public); GWS15k is explicitly \"not publicly available\", reconstructed by the authors following Clark et al. [2023]'s instructions"},
+  "cost": {"est_calls": 9000, "tier": "mid"},
+  "blockers": ["prompt_none"],
+  "notes": "Otherwise a clean, dated role-B baseline (GPT-4o explicitly pinned), but the exact LTM prompt text used to query the VLM is deliberately omitted and only cited to Mendes et al. [2024]; one of the three benchmarks (GWS15k) is also not directly public."
+}

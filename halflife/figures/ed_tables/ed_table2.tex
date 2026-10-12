@@ -1,0 +1,46 @@
+\begingroup\scriptsize\setlength{\tabcolsep}{2.5pt}\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30mm}>{\raggedright\arraybackslash}p{24mm}rrr>{\raggedright\arraybackslash}p{34mm}}
+\toprule
+\textbf{mode} & \textbf{stage} & \textbf{count} & \shortstack[r]{\textbf{denomi-\allowbreak{}}\\\textbf{nator}} & \shortstack[r]{\textbf{share}\\\textbf{(\%)}} & \textbf{protocol item} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{mode} & \textbf{stage} & \textbf{count} & \shortstack[r]{\textbf{denomi-\allowbreak{}}\\\textbf{nator}} & \shortstack[r]{\textbf{share}\\\textbf{(\%)}} & \textbf{protocol item} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 identifier retired (access lost) & census & 17,027 & 49,212 & 34.6 & dated snapshot identifier and fingerprint distribution in the paper; request-\allowbreak{}response logs deposited \\
+1 identifier retired (access lost) & Tier B triage, ineligible reasons & 56 & 766 & 7.3 & dated snapshot identifier and fingerprint distribution in the paper; request-\allowbreak{}response logs deposited \\
+1 identifier retired (access lost) & Tier A blocked cards & 18 & 33 & 54.5 & dated snapshot identifier and fingerprint distribution in the paper; request-\allowbreak{}response logs deposited \\
+2 web interface only (no API snapshot) & Tier B triage, ineligible reasons & 56 & 766 & 7.3 & run through the API with a dated snapshot, or record interface version and date with the transcripts \\
+2 web interface only (no API snapshot) & Tier A blocked cards & 4 & 33 & 12.1 & same \\
+1 identifier retired (access lost) & Tier B triage, ineligible reasons (mixed with mode 3) & 465 & 766 & 60.7 & dated snapshot identifier and fingerprint distribution in the paper; request-\allowbreak{}response logs deposited \\
+3 procedure under-\allowbreak{}reported (prompt, settings, item list) & Tier B triage, ineligible reasons & 125 & 766 & 16.3 & verbatim prompts, decoding parameters and item identifiers deposited \\
+3 procedure under-\allowbreak{}reported (prompt, settings, item list) & Tier B configurations needing a human & 22 & 130 & 16.9 & same \\
+3 procedure under-\allowbreak{}reported (prompt, settings, item list) & Tier B deviations after triage & 2 & 20 & 10 & same \\
+4 data unavailable, gated or licence-\allowbreak{}uncertain & Tier B triage, ineligible reasons & 136 & 766 & 17.8 & items or their hashes deposited; licence recorded at submission \\
+4 data unavailable, gated or licence-\allowbreak{}uncertain & Tier B configurations needing a human & 14 & 130 & 10.8 & same \\
+4 data unavailable, gated or licence-\allowbreak{}uncertain & Tier A blocked cards & 3 & 33 & 9.1 & same \\
+4 data unavailable, gated or licence-\allowbreak{}uncertain & deposit of this study & 32 & 86 & 37.2 & same \\
+5 auxiliary model dependency (LLM judge, parser, translator) & Tier B triage, ineligible reasons & 25 & 766 & 3.3 & judge outputs deposited; judge snapshot pinned and dated \\
+5 auxiliary model dependency (LLM judge, parser, translator) & Tier B configurations needing a human & 26 & 130 & 20 & same \\
+5 auxiliary model dependency (LLM judge, parser, translator) & Tier B executed papers & 9 & 86 & 10.5 & same \\
+5 auxiliary model dependency (LLM judge, parser, translator) & Tier A executed papers & 1 & 25 & 4 & same \\
+6 multi-\allowbreak{}stage, agentic or multimodal protocol & Tier B configurations needing a human & 65 & 130 & 50 & container or trace of the full pipeline, not only the prompt \\
+6 multi-\allowbreak{}stage, agentic or multimodal protocol & Tier B executed by task type & 1 & 14 & 7.1 & same \\
+7 outcome measured on people & Tier B triage, ineligible reasons & 29 & 766 & 3.8 & model outputs shown to participants deposited \\
+7 outcome measured on people & Tier A blocked cards & 3 & 33 & 9.1 & same \\
+8 terms-\allowbreak{}of-\allowbreak{}service and account policy & Tier B triage, ineligible reasons & 20 & 766 & 2.6 & policy check before re-\allowbreak{}execution; bias audits kept on the original vendor \\
+8 terms-\allowbreak{}of-\allowbreak{}service and account policy & successor arms & 7 & 74 & 9.5 & same \\
+9 provider-\allowbreak{}side change under a pinned identifier & Tier B executed papers & 73 & 75 & 97.3 & fingerprint and date per call; at least three passes; same-\allowbreak{}snapshot re-\allowbreak{}run planned \\
+9 provider-\allowbreak{}side change under a pinned identifier & same-\allowbreak{}snapshot re-\allowbreak{}run (drift control) & 0 & 20 & 0 & fingerprint and date per call; at least three passes; same-\allowbreak{}snapshot re-\allowbreak{}run before retirement \\
+10 interface change on the successor & successor arms & 2 & 74 & 2.7 & full request bodies archived, so a rejected field is visible \\
+10 interface change on the successor & third-\allowbreak{}party and open-\allowbreak{}weight arms & 4 & 67 & 6 & same \\
+11 hidden reasoning inside the output allowance & Tier B executed papers & 2 & 86 & 2.3 & max\_\allowbreak{}tokens and consumed reasoning tokens recorded per call \\
+11 hidden reasoning inside the output allowance & Gemini arm & 35,646 & 66,123 & 53.9 & same \\
+12 format non-\allowbreak{}compliance or safety filtering on the successor & successor arms & 4 & 254 & 1.6 & raw replies archived; parser rules deposited \\
+12 format non-\allowbreak{}compliance or safety filtering on the successor & Gemini arm & 10 & 66,123 & 0 & same \\
+13 capability shift on replacement (the number moves) & successor arms & 147 & 250 & 58.8 & report the number as a dated measurement; re-\allowbreak{}measure rather than cite when the model changes \\
+\end{longtable}
+\endgroup

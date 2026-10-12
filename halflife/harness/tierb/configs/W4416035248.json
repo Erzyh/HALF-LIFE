@@ -1,0 +1,89 @@
+{
+  "wid": "W4416035248",
+  "title": "CANDY: Benchmarking LLMs' Limitations and Assistive Potential in Chinese Misinformation Fact-Checking",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.7,
+      "max_tokens": 256,
+      "top_p": 0.95
+    },
+    "params_source": "paper Appendix C (nucleus sampling, temperature 0.7, top-p 0.95)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 10342,
+    "subset_rule": "paper-defined: contamination-free subset = candyset_v1.jsonl claims with publish_date after 2023-05-31 (GPT-4-turbo cut-off '2023-5', Table 10); 10,342 rows verified (5,924 true / 4,418 rumor)",
+    "approximation": "Exact cut-off day not printed (2023-05-31 used; >= 2023-05-01 gives 10,951 rows); sampling variance at temperature 0.7; the Chinese prompt is used (the English print is a translation); 1,027 rows have partial (year-month or year) dates and 3 have none - treat partial dates as their first day.",
+    "n_items_prepare": 10342
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/SCUNLP/CANDY, file Candyset/candyset_v1.jsonl (20,435 rows verified; v2 is a later modified release)",
+    "config_or_split": "single JSONL",
+    "filter": "publish_date > '2023-05-31'",
+    "fields": {
+      "input": "claim",
+      "label": "label",
+      "id": "id",
+      "domain": "domain",
+      "publish_date": "publish_date"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 17.5,
+    "file_url": "https://raw.githubusercontent.com/SCUNLP/CANDY/main/Candyset/candyset_v1.jsonl",
+    "fields_paper": {
+      "input": "claim + publish_date",
+      "label": "label (0 true -> 非谣言, 1 rumor -> 谣言)",
+      "domain": "domain",
+      "id": "id"
+    },
+    "label_map": {
+      "0": "非谣言",
+      "1": "谣言"
+    },
+    "filter_paper": "publish_date > 2023-05-31"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "你是一位极其严格的事实核查专家，你会收到用户输入的事件信息，其中日期信息可能略晚于claim实际发布日期，你需要直接给出结论。其中结论只能是：谣言/非谣言。\n输出格式如下：\n结论：\n现在，我将提供一个新的事件信息，请你根据以上格式给出结论和分析。\n事件信息：\n\"claim\": \"{claim}\",\n\"publish_date\": \"{publish_date}\",",
+    "placeholders": {
+      "claim": "items.claim",
+      "publish_date": "items.publish_date"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix, 'Zero-shot and w/o CoT Prompt for Fact-Checking Conclusion (Chinese)' (English translation printed below it)",
+    "verbatim": "full (line breaks as printed; the two JSON-style lines carry the slots)",
+    "placeholders_paper": {
+      "claim": "items.claim",
+      "publish_date": "items.publish_date"
+    }
+  },
+  "output": {
+    "parse": "label from set [非谣言, 谣言]",
+    "postprocess": "strip; unparseable = incorrect",
+    "parse_paper": "label from set [谣言, 非谣言] after '结论：' (test 非谣言 before 谣言)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "micro accuracy over the contamination-free subset (micro-F1 72.0 secondary, Appendix C)",
+    "judge": "none",
+    "original_value": 72.2,
+    "original_location": "Table 4, row GPT-4-Turbo (2023.5), column Zero-shot w/o CoT Acc., value outside the parentheses",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 10342,
+    "est_usd": 103.0,
+    "tier": "high",
+    "est_usd_prepare": 85.31,
+    "prepare_note": "runner --prepare --dry-run 2026-09-07 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [],
+  "notes": "English translation of the prompt (Appendix): You are an extremely strict fact-checking expert. You will receive event information from users, where the date provided may be slightly later than the actual publication date of the claim. You need to provide the conclusion directly, which can only be: rumor or non-rumor. Output Format: Conclusion: Now, I will provide a new event information. Please give a conclusion and analysis based on the above format. Event Information: \"claim\": \"claim\", \"publish_date\": \"publish_date\" || The in-parentheses value 81.1 is the full-set (contamination) accuracy over all 20,435 claims. || [normalize 2026-09-07] candyset_v1.jsonl verified (20,435 rows; id, claim, publish_date, label, domain, 'gold evidence'). publish_date is a string in mixed formats (YYYY-MM-DD 19,162; YYYY/M/D and variants 1,270; empty 3). The string filter publish_date > '2023-05-31' was checked against a proper parse (partial dates -> first day): both select the same 10,342 rows (5,924 label 0 / 4,418 label 1). Gold remapped 0 -> 非谣言, 1 -> 谣言; '非谣言' is listed first. Note the runner's word-boundary match needs the label to follow punctuation (e.g. '结论：谣言'), which the prompt's output format enforces."
+}

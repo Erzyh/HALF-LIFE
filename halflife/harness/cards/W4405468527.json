@@ -1,0 +1,91 @@
+{
+  "card_id": "W4405468527",
+  "openalex_id": "https://openalex.org/W4405468527",
+  "title": "A recent evaluation on the performance of LLMs on radiation oncology physics using questions of randomly shuffled options",
+  "doi": "10.3389/fonc.2025.1557064",
+  "paper": {
+    "authors": "Wang, Holmes, Liu, Chen, Liu, Shen, Liu (Mayo Clinic Radiation Oncology)",
+    "year": 2025,
+    "repo": "https://github.com/Mayo-Clinic-RadOnc-Foundation-Models/Radiation-Oncology-NLP-Database",
+    "repo_note": "Named in the Data Availability Statement (scaffold URL had 'Author' glued to it). It is the lab's general radiation-oncology NLP dataset repo (2023), not a paper-specific code release.",
+    "repo_commit": "27e04f14a141a3a92dcc1df0449245175ae94b7c",
+    "repo_license": "Apache-2.0"
+  },
+  "dependence": {
+    "type": "subject",
+    "strength": "core",
+    "note": "All results are LLM accuracies on the 100-question exam (5 option-shuffled trials, plus a 'None of the above' deductive-reasoning variant and an explain-first prompt variant). Humans are a majority vote from a prior study, not re-run."
+  },
+  "claim": {
+    "statement": "All five evaluated LLMs (o1-preview, GPT-4o, LLaMA 3.1 405B, Gemini 1.5 Pro, Claude 3.5 Sonnet) scored above 80% mean accuracy over five option-shuffled versions of the 100-question radiation oncology physics exam, with o1-preview (~94%) exceeding the medical-physicist majority vote and GPT-4o (~90%) second (Figure 1a; Discussion 4.1); replacing the correct option with 'None of the above' caused a steep drop for every model (Figure 3).",
+    "claim_type": "capability_level",
+    "metric": "mean accuracy (%) over 5 shuffled trials +/- SD across trials; 100 MCQs (17 math-based); answer letter extracted from free-text responses by a locally hosted LLaMA 3.1 405B and manually verified",
+    "original_values": {
+      "o1_preview_mean_pct": "~94 (Discussion 4.1 narrative; exact Figure-1 bar value not in extracted text)",
+      "gpt4o_mean_pct": "~90 (Discussion 4.1 narrative)",
+      "all_five_models": "> 80% (Results 3.1)",
+      "gpt_4_turbo": "NOT evaluated in this paper; 68.0% is a citation of the authors' prior TXIT study (ref 19)",
+      "nota_variant": "all models 'much more poorly' (Figure 3; numbers only in figure)",
+      "cot_prompt_gain_gemini15pro_math_pct": "24 -> 68"
+    },
+    "original_source": "Figure 1 (bars, numeric values only in figure/Supplementary Material), Figure 3, Figure 4; Results 3.1-3.2; Discussion 4.1"
+  },
+  "protocol": {
+    "model": null,
+    "model_note": "BLOCKED - live model not an experimental arm. 'GPT-4-turbo' appears only in the Introduction as a cited prior result (68.0% on ACR TXIT). The experimental OpenAI arms were o1-preview (dead, 2025-07-28) and 'GPT-4o' whose snapshot is unspecified ('recently released version before September 30, 2024' - i.e. gpt-4o-2024-08-06 or gpt-4o-2024-05-13).",
+    "model_status": "not applicable; possible re-scope to gpt-4o-2024-05-13 (dying 2026-10-23, in target list) or gpt-4o-2024-08-06 (not in target list)",
+    "endpoint": "OpenAI chat completions (if re-scoped to GPT-4o); LLaMA 3.1 405B was self-hosted",
+    "prompt_source": "Methods 2.1, verbatim: 'Please solve this radiation oncology physics problem: [radiation oncology physics problem].' ; Methods 2.2.2 explain-first/step-by-step prompt verbatim",
+    "params": {
+      "temperature": 0.1,
+      "temperature_note": "0.1 for all LLMs except o1-preview (fixed at 1); chosen instead of 0 because of cross-vendor semantics",
+      "max_tokens": "not reported",
+      "seed": "not reported (shuffle seeds for the five exam sets not published)",
+      "other": "each question queried individually through the vendor API; all models 'recently released before 2024-09-30'"
+    },
+    "n_items": 100,
+    "samples_per_item": 5,
+    "samples_note": "five trials = five independently shuffled option orders, one query each; mean +/- SD over trials is the paper's sampling scheme (use instead of 3 seeds)",
+    "evaluation": "Answer-letter extraction from free-form output by a self-hosted LLaMA 3.1 405B, followed by manual verification; accuracy vs. answer key; per-topic and math-subset breakdowns; human reference = majority vote of 9 medical physicists from the prior study"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "prompts_note": "prompts are verbatim in the paper",
+    "data_path": "5-Question and answering (QA)/Medical-Physics-100questions-QA-format.csv (100 questions x options, correct flag) and '5-Question and answering (QA)/Radiation Physics Questions for ChatGPT.txt'",
+    "eval_path": null,
+    "eval_note": "shuffling, 'None of the above' replacement and answer-extraction scripts are not in the repo",
+    "data_public": true,
+    "data_license": "Apache-2.0 (repo)",
+    "redistributable": true,
+    "notes": "Exam authored by a Mayo medical physicist following the ABR study guide; 2 of 100 items have an option E. Frontiers Supplementary Material (not fetched) holds the option-position distribution and probably the per-model numbers."
+  },
+  "blockers": [
+    "live model not an experimental arm: gpt-4-turbo is only cited from prior work; experimental OpenAI arms were o1-preview (dead) and GPT-4o (snapshot unspecified)",
+    "per-model numeric results are only in Figure 1/3 bars and Supplementary Material, not in the text",
+    "option-shuffle seeds and NOTA-replacement code not published, so the five exam sets cannot be regenerated identically",
+    "answer extraction used a self-hosted LLaMA 3.1 405B plus manual verification"
+  ],
+  "arms": {
+    "baseline_alive": { "model": null, "alternative": "gpt-4o-2024-05-13 as an unverifiable proxy for 'GPT-4o' (dying 2026-10-23)" },
+    "successors": ["gpt-5-2025-08-07", "gpt-5-mini-2025-08-07", "claude (current dated snapshot)", "gemini (current dated snapshot)", "llama-3.1-405B/70B (open weights, hash-pinned)", "qwen3 (open weights, hash-pinned)"]
+  },
+  "budget": {
+    "est_calls": 500,
+    "est_tokens_in": 110000,
+    "est_tokens_out": 225000,
+    "est_cost_usd": 3.9,
+    "pricing_usd_per_1m": { "gpt-4o": { "input": 5.0, "output": 15.0 } },
+    "assumptions": "CONDITIONAL re-scope to GPT-4o, short-prompt shuffled condition only: 100 items x 5 shuffles; ~220 in / ~450 out tokens. Adding the NOTA condition doubles it (~USD 7.8); the explain-first condition was not run for GPT-4o beyond a 1% check."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1 (only if re-scoped): survival if the GPT-4o mean accuracy over 5 shuffles lies within the original Figure-1 value +/- 2 SD (bootstrap over 100 items) and stays > 80%; direction of the NOTA claim (shuffled >> NOTA accuracy) must hold.",
+    "notes": "Original values must first be read off Figure 1 / Supplementary Material; the text gives only ~90% (GPT-4o) and ~94% (o1-preview)."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Re-scope the card from gpt-4-turbo (only cited) to GPT-4o? If yes, which snapshot: gpt-4o-2024-05-13 (in target_models) or gpt-4o-2024-08-06 (the likely 'latest before 2024-09-30', not in target_models)?",
+    "Obtain the exact per-model Figure-1 values from the Frontiers Supplementary Material before freezing original_values.",
+    "Is 'all five models > 80%; GPT-4o ~ 90%' acceptable as the core claim without exact per-model numbers?"
+  ],
+  "domain_notes": "The 100-item exam follows the ABR radiation-physics study guide (12 basic physics, 10 measurements, 20 treatment planning, 17 imaging, 13 brachytherapy, 16 advanced planning, 12 safety/QA; 17 math-based). Shuffling options mitigates contamination from the previously published exam; commonly missed items (14, 27, 42, 67, 87, 95, 96) concern clinical medical-physics practice (AAPM TG reports), not calculation. The 'None of the above' variant was deliberately not given to humans, so it has no human reference."
+}

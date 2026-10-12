@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4415162359",
+  "title": "Distinct Profiles of Run-to-Run Score Reliability and Expert-Panel Alignment Across Four LLM Evaluators of Simulated Japanese-Language AI-to-AI Counseling",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Methods: 'GPT-minimal used GPT-4-turbo with a minimal role instruction, GPT-SMDP used GPT-4-turbo with SMDP'; 'all transcripts were generated on April 12, 2024'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Online Resource 1, Section S1 (not in the extracted text); minimal role instruction quoted in Methods",
+    "note": "GPT-4-turbo produced the 18 counselling transcripts; the evaluators are GPT-5.5, Gemini 3.5 Flash, Claude Opus 4.8 and Fable 5 (not in the target list)."
+  },
+  "claim": {
+    "metric": "expert-panel rating difference (GPT-SMDP vs GPT-minimal)",
+    "value": null,
+    "n_items": 18,
+    "location": "Results, secondary benchmark analysis (18 sessions, 6 profiles x 3 conditions)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Zenodo 10.5281/zenodo.22106028 and OSF (osf.io/p8c39); raw identifiable evaluator records not shared"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "human_outcome",
+    "no_number"
+  ],
+  "notes": "Alias on 2024-04-12 already pointed to gpt-4-turbo-2024-04-09. Outcomes are expert-panel and evaluator-model ratings of fixed transcripts; the client simulator was claude-3-opus (retired)."
+}

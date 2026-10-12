@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7204543494",
+  "title": "Artificial intelligence-driven study selection in systematic reviews of randomized controlled trials, emulated trials and economic evaluation studies using large language models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Introduction: 'used GPT-3.5 Turbo [20] and GPT-4 Turbo [21] to reduce workload, they only screened titles/abstracts' (description of Oami et al.)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 2.3.1 (prompt V1-V5 structure); S1-S10 Tables (finalized prompts, supporting information)",
+    "note": "Subjects are Llama 3.1, Qwen 2.5 and Gemini 2.0 Flash."
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Five systematic-review title/abstract and full-text datasets (Table 1-2); bibliographic records"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo is mentioned only when citing prior work."
+}

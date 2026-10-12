@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403818357",
+ "title": "Interactive Speculative Planning: Enhance Agent Efficiency through Co-design of System and User Interface",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo (planning backbone)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "'Setting 1: A employs direct-generation-based planning with a GPT-4-turbo backbone, while T...'; results table gives TT/ST/TO/SO/MC/cost statistics per setting"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "The paper's Algorithm/Figures reference a generic 'task prompt p' as an algorithmic variable (pseudo-code), not a literal printed prompt template."
+ },
+ "claim": {
+  "metric": "none reproducible at prompt level (reported metrics are system-level: total time TT, steps ST, tokens TO/SO, model calls MC, and dollar cost, for a speculative multi-agent planning-and-UI system)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Not identified as a released benchmark in the excerpt read"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "This is a systems/HCI paper about speculative-execution efficiency (approximation agent + target agent + UI), not a benchmarked LLM accuracy claim; reproducing its timing/cost numbers needs the full speculative-planning system and UI, and no literal prompt text is printed."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7203709730",
+  "title": "Class Imbalance and Batch Effects in LLM-Based Screening for Systematic Reviews",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 3.2: \"Two models were evaluated: Llama-3.3-70B-Instruct-Turbo ... and gpt-5-mini-2025-08-07, accessed via the OpenAI API ... Calls were executed with temperature 0\"."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "exact templates for the four conditions are in the supplementary artifact package (Hida et al. 2026a), not in the paper text",
+    "note": "Common structure (task definition, eligibility criteria, screening instructions, JSON output) is described in Sec. 3.3."
+  },
+  "claim": {
+    "metric": "recall / F2 for study inclusion, individual mode, review rsl 2",
+    "value": 0.369,
+    "n_items": 1527,
+    "location": "Sec. 4.5: \"GPT-5-mini reached a recall of 0.369 and F2 of 0.409\" on rsl 2 (N = 1,527, Table 1); full values in Supplementary Material Part II",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SESR-Eval (Huotala et al., 2025), five selected reviews listed in Table 1"
+  },
+  "cost": {
+    "est_calls": 4581,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the prompt templates are only in the accompanying artifact package rather than the paper body; if that package is public the run is straightforward. Per-review numbers for GPT-5-mini are mostly in the supplement; only rsl 2 is quoted in the text.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Take the exact GPT-5-mini prompt template for the individual-mode condition from the Zenodo artifact package (supplementary document, Sec. 5); fill it with each of the 1,527 rsl 2 titles/abstracts and the review's eligibility criteria from SESR-Eval (public); call gpt-5-mini-2025-08-07 at temperature 0 (Sec. 3.2), parse the JSON include/exclude decision and compute recall and F2 vs 0.369 / 0.409.",
+    "approximation": "none beyond run-to-run variability; gpt-5-mini may not honour the temperature setting",
+    "needs_repo": true,
+    "repo_url": "https://doi.org/10.5281/zenodo.20414963",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

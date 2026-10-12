@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4415625458",
+  "title": "Benchmarking large-language-model vision capabilities in oral and maxillofacial anatomy: A cross-sectional study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini (Copilot Deep); GPT-4 Turbo (mention only)",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "Table 1: \"Copilot Deep (Think Deeper): Copilot conversation mode powered by Azure OpenAI o3-mini model\"; \"Models were accessed via their official web or API front-ends using the default temperature\" (Methods)."
+  },
+  "prompt": {"verbatim": "full", "location": "Methods (standardized prompt quoted after the image submission paragraph)", "note": "Single standardized prompt per labeled plate."},
+  "claim": {
+    "metric": "label identification accuracy (%), total sample", "value": 25.0, "n_items": 260, "location": "Table 2, row Copilot Deep, Total sample column (95% CI 20.0-30.5)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "26 plates from the digital 8th edition of Netter's Atlas of Human Anatomy with author-added numbered markers"},
+  "cost": {"est_calls": 780, "tier": "low"},
+  "blockers": ["webui", "data_closed"],
+  "notes": "The gpt-4-turbo hit is a descriptive mention in Table 1 (GPT-4o described as cheaper than GPT-4 Turbo). o3-mini was reached through the Copilot chat interface, not the API, and the atlas plates are copyrighted."
+}

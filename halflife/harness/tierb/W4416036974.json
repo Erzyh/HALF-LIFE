@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416036974",
+  "title": "Glider: Global and Local Instruction-Driven Expert Router",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Section 4: 'We used the gpt-4-turbo model along with the prompt provided in Appendix B' to generate task descriptions/queries used by the router."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix B.1 'Prompt Template'",
+    "note": ""
+  },
+  "claim": {
+    "metric": "routing accuracy of GLIDER (not a gpt-4-turbo metric)",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 1, 4-6",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "T0 held-in/held-out, BBH, BBL"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The live model is an auxiliary generator of instructions; reported numbers belong to the routing system."
+}

@@ -1,0 +1,66 @@
+{
+  "wid": "W4416034223",
+  "title": "When Instructions Multiply: Measuring and Estimating LLM Capabilities of Multiple Instructions Following",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 0.57,
+  "original_location": "Table 8, row GPT-4o, column n = 5",
+  "reexecution": {
+    "mean_over_seeds": 0.7175925925925926,
+    "per_seed": {
+      "0": {
+        "value": 0.7129629629629629,
+        "n": 216,
+        "ci95": [
+          0.6527777777777778,
+          0.7685185185185185
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7222222222222222,
+        "n": 216,
+        "ci95": [
+          0.6620370370370371,
+          0.7824074074074074
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416034223",
+    "n_items": 216,
+    "n_requests": 432,
+    "seeds": 2,
+    "est_usd": 1.5,
+    "subset_note": "repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 0.57,
+    "cap_usd": 2.26,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4416034223"
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 46
+  },
+  "approximation": "IFEval checkers re-implemented in the hook (strict mode, all five must pass): sentence counting by a regex splitter instead of nltk punkt, capital-word tokenization by a regex instead of nltk word_tokenize, langdetect English check skipped for the all-capital / all-lowercase instructions; the 15 instruction types present in the 216 rows are covered",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 2,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\gpt41_rep\\W4416034223"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7175925925925926,
+    "delta": 0.1475925925925926,
+    "original_inside_ci95": false
+  }
+}

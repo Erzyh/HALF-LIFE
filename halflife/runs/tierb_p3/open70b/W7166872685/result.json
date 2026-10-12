@@ -1,0 +1,56 @@
+{
+  "wid": "W7166872685",
+  "title": "Machine Behavior in Relational Moral Dilemmas: Moral Rightness, Predicted Human Behavior, and Model Decisions",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.53,
+  "original_location": "Figure 3, row o3-mini, first value (Moral Rightness); the three values printed are 0.53 / 1.00 / 1.00 for the three perspectives",
+  "reexecution": {
+    "mean_over_seeds": 0.9884259259259259,
+    "per_seed": {
+      "0": {
+        "value": 0.9884259259259259,
+        "n": 432,
+        "ci95": [
+          0.9768518518518519,
+          0.9976851851851852
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7166872685",
+    "n_items": 432,
+    "n_requests": 432,
+    "seeds": 1,
+    "est_usd": 0.07,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.53,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper says the 27 instances per (severity, closeness) cell come from '3 crime types, 3 different scenarios for the severity description, and 3 paraphrased descriptions for closeness levels'. Only three severity wordings per level are printed (one per crime type, Table 1 and Table 5), while exactly three template variants are printed (Sec. 3.1 and Table 3), so 27 is built here as 3 crime types x 3 closeness paraphrases x 3 template variants. Seeds: Sec. 4 says each instance was run three times with distinct seeds, Appendix B.3 says a single deterministic pass was used; three seeds are run.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "o3-mini-2025-01-31",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W7166872685"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.9884259259259259,
+    "delta": 0.4584259259259259,
+    "original_inside_ci95": false
+  }
+}

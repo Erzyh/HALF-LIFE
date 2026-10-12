@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412888523",
+  "title": "FiDeLiS: Faithful Reasoning in Large Language Models for Knowledge Graph Question Answering",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo",
+    "resolved": "unresolved",
+    "role": "S",
+    "evidence": "'GPT-4-turbo (between Feb, 2024 to July, 2024)' ... 'temperature T = 0.3 and p = 1.0' (Appendix A.3); Table 1 rows 'Prompting - LLM Only gpt-4-turbo' and FiDeLiS gpt-4-turbo"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C (prompts for plan-and-solve, deductive verification and other FiDeLiS steps); LLM-only IO/Few-shot/CoT baseline prompts are not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Hits@1 (WebQSP, LLM-only CoT prompting)",
+    "value": 72.11,
+    "n_items": 1639,
+    "location": "Table 1, row Prompting - LLM Only gpt-4-turbo, CoT (FiDeLiS with gpt-4-turbo: 84.39)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "WebQSP, CWQ, CR-LT (public KGQA benchmarks over Freebase); code https://github.com/Y-Sui/"
+  },
+  "cost": {
+    "est_calls": 4917,
+    "tier": "mid"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "Runs dated Feb-Jul 2024 may predate the 2024-04-09 GA alias (0125-preview era). n_items is the standard WebQSP test size, not printed. FiDeLiS itself is a beam-search KG pipeline needing code."
+}

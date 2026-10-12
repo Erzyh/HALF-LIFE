@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4409363989",
+ "title": "Evaluating the Evaluator: Measuring LLMs' Adherence to Task Evaluation Instructions",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT4-Turbo-0125",
+  "resolved": "dead-preview",
+  "role": "S",
+  "evidence": "\"we test several current LLMs: GPT4-Turbo-0125 (OpenAI 2023) as large closed-model baseline\" (Model Selection for LLM-as-a-judge)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Figure 1 (four prompting settings shown); referenced technical report (Murugadoss et al. 2024) for criteria list",
+  "note": "Four settings: 1-Perplexity/no prompt, 2-Generic prompt, 3-Specific prompt, 4-Full rubric prompt."
+ },
+ "claim": {
+  "metric": "Pearson correlation with human annotations, GPT4-Turbo-0125 as LLM-as-a-judge",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (model-level results across prompting settings)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Benchmark datasets with human annotations (per Murugadoss et al. 2024 technical report)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [
+  "dead_alias"
+ ],
+ "notes": "The paper explicitly names the January 2024 preview snapshot (\"GPT4-Turbo-0125\"), which is a retired preview model, not one of the still-callable ids. The experiment design (LLM-as-a-judge tested across 4 prompting settings) is otherwise clean and well-documented, but cannot be re-run against a live endpoint under this snapshot."
+}

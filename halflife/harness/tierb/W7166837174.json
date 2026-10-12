@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7166837174",
+ "title": "One Joke to Rule them All? On the (Im)possibility of Generalizing Humor Detection",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"To create negative examples that closely match the positive class in content, writing style, and semantics, we used GPT-4 Turbo (OpenAI, 2023) in a few-shot setup.\" (see prompt in Appendix A)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix A (few-shot negative-example generation prompt)",
+  "note": "Prompt is printed, but only supports a data-generation role, not a benchmark claim."
+ },
+ "claim": {
+  "metric": "none tied to a benchmark capability; a generation-quality check exists (97.37% of 3,000 manually reviewed outputs preserved style/content) but this is a QA check on synthetic-data generation, not a classification/accuracy claim",
+  "value": null,
+  "n_items": null,
+  "location": "Sec 2 (dataset construction); Tables 2-4 report only Mistral/LLaMA-2 fine-tuned classifier accuracies, never a GPT-4 Turbo row",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Four existing humor datasets (Table 1: e.g. Reddit jokes, Amazon, Headlines, Dad Jokes)"
+ },
+ "cost": {
+  "est_calls": 3000,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo's only role is generating negative (non-humorous) examples for a humor-detection dataset (role A, data generator); all reported accuracy figures (up to 75%, Tables 2-4) belong to fine-tuned Mistral/LLaMA-2 classifiers."
+}

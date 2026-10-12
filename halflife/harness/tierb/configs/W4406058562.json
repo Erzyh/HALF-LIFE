@@ -1,0 +1,79 @@
+{
+  "wid": "W4406058562",
+  "title": "Applicability of Large Language Models and Generative Models for Legal Case Judgement Summarization",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2048,
+      "top_p": 1.0
+    },
+    "params_source": "assumed for temperature (paper silent); max_tokens per Sec. 4.4 is set per item to the target length (YY words ~ 1.33*YY tokens), 2048 is the cap; snapshot by the date rule",
+    "seeds": 1
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 100,
+    "subset_rule": "paper-defined split: UK-Abs test set (100 judgments)",
+    "approximation": "Whole judgment in one prompt (128K context, Sec. 4.2) with YY = reference summary word count (Sec. 4.4 rule K*|Exp|/|Doc| with a single chunk); ROUGE implementation settings not stated. ROUGE-L is the runner's LCS-based F1 over lowercased whitespace tokens (rouge-score's rougeL tokenizer differs slightly)."
+  },
+  "items": {
+    "source_type": "zenodo",
+    "source": "https://zenodo.org/record/7152317 (dataset.zip 97.8 MB; folder UK-Abs/test-data with judgement/ and summary/full/; linked from github.com/Law-AI/summarization)",
+    "config_or_split": "UK-Abs/test-data",
+    "filter": null,
+    "fields": {
+      "input": "judgement",
+      "label": "summary",
+      "id": "file"
+    },
+    "license": "cc-by-4.0",
+    "access_checked": true,
+    "size_mb": 98,
+    "file_url": "https://zenodo.org/record/7152317/files/dataset.zip",
+    "fields_prose": {
+      "input": "judgement/<id>.txt (full judgment text)",
+      "label": "summary/full/<id>.txt (official press summary)",
+      "id": "file name"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{judgment} Summarize the document in {YY} words",
+    "placeholders": {
+      "judgment": "items.judgement",
+      "YY": "items.YY"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 4.2.3 (i) gpt4-summ; Sec. 4.4 'Deciding the target summary length'",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "judgment": "full judgment text (<text to summarize>)",
+      "YY": "word count of the reference summary (Sec. 4.4 target-length rule)"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "none"
+  },
+  "metric": {
+    "name": "rouge_l",
+    "definition": "ROUGE-L F1 between the generated and the gold summary, averaged over the 100 test judgments (use rouge-score defaults without stemming)",
+    "judge": "none",
+    "original_value": 0.198,
+    "original_location": "Table 4 (UK-Abs), row gpt4-summ, column RL-F1",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 100,
+    "est_usd": 23.0,
+    "tier": "high"
+  },
+  "open_points": [],
+  "notes": "Inputs average 14,476 words (~20k tokens) so each call costs ~$0.23. Same row: R2-F1 0.159, METEOR 0.207, BERTScore 0.631; IN-Abs gpt4-summ RL-F1 0.206 is the alternative cell. || [hooks_4 2026-09-07] hook reads the 97.8 MB zip (100 test judgements; mean YY 1095.49 words = the paper's Table 2 test-set summary length) and exposes YY as a field.",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "harness/tierb/hooks/W4406058562.py: load_items (Zenodo dataset.zip cached under external/data/tierb_items/W4406058562/, UK-Abs/test-data judgement + summary/full, YY = reference word count); render + rouge_l = runner"
+}

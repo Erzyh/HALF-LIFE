@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4407631979",
+ "title": "Mind What You Ask For: Emotional and Rational Faces of Persuasion by Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"OpenAI [OpenAI, 2024]: GPT-3.5 Turbo, GPT-4, GPT-4 Turbo, GPT-4o\" (Sec. 2, one of 12 tested models); grouped among models with \"highest baseline scores\" for the all-or-none LIWC category"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 1 (Baseline/Emotional/Rational prompt templates printed in full)",
+  "note": "Baseline prompt administered 60 times per model via LangChain."
+ },
+ "claim": {
+  "metric": "LIWC 'all-or-none' thinking-style category (% of words), emotional-setup responses",
+  "value": null,
+  "n_items": 60,
+  "location": "Sec. 4.1 groups GPT-4 Turbo among models with the \"highest baseline scores\" in this category, but only cites exact figures for GPT-3.5 Turbo (1.04) and GPT-4 (1.2), not GPT-4 Turbo specifically",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Persuasion-task prompt dataset (Mieleszczenko-Kowszewicz et al. 2024) plus the paper's own baseline generations; LIWC-22 is a licensed (not free) analysis tool"
+ },
+ "cost": {
+  "est_calls": 180,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "Methodology is clean and fully reproducible (full prompt templates, n=60/model for the baseline condition, mechanical LIWC scoring so no LLM judge needed). Soft gap: the extracted text states GPT-4 Turbo's category membership (among the highest scorers) but does not give its exact numeric value, only examples for two other models in the same group."
+}

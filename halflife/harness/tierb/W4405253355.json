@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405253355",
+  "title": "LLMs-as-Judges: A Comprehensive Survey on LLM-based Evaluation Methods",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Table 1 (overview of fine-tuning methods) lists 'GPT-4-Turbo' as a data-generation model of a surveyed method"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a (survey)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Survey; no experiments."
+}

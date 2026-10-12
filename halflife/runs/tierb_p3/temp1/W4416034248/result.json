@@ -1,0 +1,81 @@
+{
+  "wid": "W4416034248",
+  "title": "Can LLMs Truly Plan? A Comprehensive Evaluation of Planning Capabilities",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 17.65,
+  "original_location": "Table 2, row GPT-4-turbo, column Math (Korean 10.78%, English 10.78%)",
+  "reexecution": {
+    "mean_over_seeds": 0.24183006535947713,
+    "per_seed": {
+      "0": {
+        "value": 0.25,
+        "n": 204,
+        "ci95": [
+          0.19117647058823528,
+          0.3088235294117647
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.22549019607843138,
+        "n": 204,
+        "ci95": [
+          0.1715686274509804,
+          0.28431372549019607
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.25,
+        "n": 204,
+        "ci95": [
+          0.19117647058823528,
+          0.30392156862745096
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416034248",
+    "n_items": 204,
+    "n_requests": 612,
+    "seeds": 3,
+    "est_usd": 9.79,
+    "subset_note": "paraphrase t1: 0 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: []; 3 independent calls per item; parameters added {'temperature': 1.0}",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "source_model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 17.65,
+    "cap_usd": 13.57,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4416034248",
+    "paraphrase": "t1",
+    "pairs": [],
+    "params_added": {
+      "temperature": 1.0
+    }
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 15
+  },
+  "approximation": "Figure 1 is a few-shot template and Sec. 3.1 says the examples were 'randomly selected examples from the dataset'; Table 2 is the 1-shot setting (its Korean column 10.78% equals the 1-shot column of Table 12), but the drawn example is not printed, so each item gets one demonstration drawn from the other 203 scenarios with the harness RNG (seed 20260907). Appendix F.1 prints the visit/fly regular expressions in English only while the Math split's gold plans are Korean, so the hook applies the same two sentence shapes in Korean as well; a reply written in English is therefore scored wrong against the Korean gold, as in the paper's own script.",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 3,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\temp1\\W4416034248"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 24.18300653594771,
+    "delta": 6.533006535947713,
+    "original_inside_ci95": false
+  }
+}

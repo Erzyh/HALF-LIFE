@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403322117",
+ "title": "Human Bias in the Face of AI: Examining Human Judgment Against Text Labeled as AI Generated",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "Gpt-4o-2024-05-13 (ChatGPT)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"we sent each entry to three major LLMs accessed by API keys between August 10 and August 17, 2024 -- Gpt-4o-2024-05-13 (ChatGPT), Claude-2 (Claude), and Meta-Llama-3.1-8B-Instruct (Llama)\"; 200 entries/dataset x 3 datasets."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 2.1: task instructions paraphrased (\"asked to rephrase them for readability\", \"instructed to write summaries\", \"instructed to write persuasive articles\"); \"instructed to generate content with lengths similar to human-written content\"",
+  "note": "Task instructions are described but not quoted verbatim."
+ },
+ "claim": {
+  "metric": "none automated; the paper's dependent variable is human raters' bias/misattribution rate",
+  "value": null,
+  "n_items": 200,
+  "location": "Sec 2.2-3 (Mechanical Turk study design); Table 1 gives only word-count descriptive stats, not a capability score",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Wikipedia-intro, CNN/DailyMail, and a persuasive-essay dataset, all via Hugging Face"
+ },
+ "cost": {
+  "est_calls": 600,
+  "tier": "low"
+ },
+ "blockers": [
+  "human_outcome"
+ ],
+ "notes": "gpt-4o-2024-05-13's own text-generation step is clean and reproducible (200 items x 3 scenarios via API), but the paper's actual claim is about human (MTurk) bias in judging AI- vs human-written text, not a score attributable to the model itself; no automated/model-based metric is reported as an alternative."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4405090298",
+  "title": "AI-Driven Day-to-Day Route Choice",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Table 2: 'LLM-gpt4o GPT-4o-2024-05-13'; Sec. 3.1: each scenario simulated for 100 days per run, three runs; temperature 0"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 2 (example prompt template, figure), Sec. 2.2 (components), Table 3/7 (prompt-response examples)",
+    "note": "Template is a figure image; components (profile, task, experiences, thinking guidance, JSON output) are described in prose."
+  },
+  "claim": {
+    "metric": "mean travel time on route 1, Scenario 1",
+    "value": 22.29,
+    "n_items": 300,
+    "location": "Table 4, Scenario 1, row LLM-gpt4o, column Route 1 Mean (100 days x 3 runs)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Scenario cost functions printed (Table 1); OW network demand printed (Table 6); code at github.com/georgewanglz2019/LLMTraveler"
+  },
+  "cost": {
+    "est_calls": 14400,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Closed-loop day-to-day simulation must be re-implemented (route costs from chosen flows).",
+  "resolution": {
+    "gap": "prompt_as_image",
+    "plan": "Transcribe the prompt template from Figure 2 of the PDF (profile, task, experiences/memory, thinking guidance, JSON output). Re-implement the Scenario 1 two-route day-to-day loop with the Table 1 cost function: each traveller is a gpt-4o-2024-05-13 agent at temperature 0 choosing a route daily, route costs computed from the chosen flows, 100 days x 3 runs; compare the mean route-1 travel time with 22.29 (Table 4).",
+    "approximation": "Memory (chosen times, EWMA travel time) and agent-count details come from Sec. 2-3 prose; the released code at github.com/georgewanglz2019/LLMTraveler is the fallback if the figure text is ambiguous.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": true,
+    "resolved_by": "maybe-pass-1"
+  }
+}

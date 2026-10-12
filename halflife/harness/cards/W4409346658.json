@@ -1,0 +1,91 @@
+{
+  "card_id": "W4409346658",
+  "openalex_id": "https://openalex.org/W4409346658",
+  "title": "Zero-Shot Learning for Materials Science Texts: Leveraging Duck Typing Principles (MatDuck)",
+  "doi": "10.1609/aaai.v39i1.32100",
+  "paper": {
+    "authors": "Zhang, Zhang, Yuan, Li (Wuhan University of Technology / Yonsei)",
+    "year": 2025,
+    "venue": "AAAI-25, pp. 1129-1137",
+    "repo": "https://github.com/xinzcode/MatDuck (stated in paper Section 'Implementation Details' and in the WanyuGroup/AI-for-Crystal-Materials index) - returns 404 as of 2026-09-04; not archived retrievably (web.archive.org not reachable from this environment); no repo under the author's account (xinzcode) contains MatDuck (repos: BattFailScholar, ClassMATe, DebiasCL, ...)",
+    "repo_commit": null,
+    "repo_license": "unknown (repository unavailable)",
+    "other_artifacts": "Benchmark data = MatSci-NLP (Song, Miret, Liu, ACL 2023; 7 tasks, 8 datasets; public on GitHub BangLab-UdeM-Mila/NLP4MatSci-ACL23 / Hugging Face) - third-party, not the paper's own artifact"
+  },
+  "dependence": {
+    "type": "component",
+    "strength": "core",
+    "note": "MatDuck is a prompting/ICL method whose backbone LLM generates class definitions (Steps 1-3), performs task adaptation and does code-style inference; every reported F1 (Table 2) is LLM output, and the 'GPT-4-Turbo' backbone is one of three live/dead backbones (with Claude 3.5 Sonnet - dead - and LLaMA3-8B - open)."
+  },
+  "claim": {
+    "statement": "With GPT-4-Turbo as backbone, MatDuck raises zero-shot materials-science text-mining performance from the plain GPT-4 baseline's overall macro-F1 0.557 (micro 0.511) to 0.661 (micro 0.579), a +10.4-point gain averaged over 7 MatSci-NLP tasks (NER 0.497->0.564, RE 0.549->0.579, EAE 0.516->0.538, PC 0.708->0.768, SAR 0.745->0.851, SC 0.354->0.817, SF 0.529->0.516) (Table 2; Section 'Comparison with Zero-Shot Baselines (RQ1)').",
+    "claim_type": "method_effect",
+    "metric": "Macro-F1 (top row) and micro-F1 (bottom row) per task, classification formulation of MatSci-NLP tasks (Song, Miret, Liu 2023); 'Overall' = mean over the 7 tasks.",
+    "original_values": {
+      "GPT-4_zero_shot": { "NER": 0.497, "RE": 0.549, "EAE": 0.516, "PC": 0.708, "SAR": 0.745, "SC": 0.354, "SF": 0.529, "overall_macro": 0.557, "overall_micro": 0.511 },
+      "MatDuck_GPT4": { "NER": 0.564, "RE": 0.579, "EAE": 0.538, "PC": 0.768, "SAR": 0.851, "SC": 0.817, "SF": 0.516, "overall_macro": 0.661, "overall_micro": 0.579 },
+      "MatDuck_Claude3.5_overall_macro": 0.697,
+      "MatDuck_LLaMA3-8B_overall_macro": 0.629,
+      "dataset_sizes_table1": { "NER": 112191, "RC": 25674, "EAE": 6566, "PC": 1500, "SAR": 5547, "SC": 9466, "SF": 8253, "total": 169197 }
+    },
+    "original_source": "Paper Table 2 (zero-shot and fine-tuning results, macro-F1 top / micro-F1 bottom), Table 1 (dataset statistics), Table 3 (ablations, Claude backbone only). No result files available (repo gone)."
+  },
+  "protocol": {
+    "model": "GPT-4-Turbo (undated alias; paper: 'the GPT-4 version used is GPT-4-Turbo', API access, references accessed 2024-08-15 -> the alias resolved to gpt-4-turbo-2024-04-09 at that time)",
+    "model_status": "gpt-4-turbo / gpt-4-turbo-2024-04-09: dying, OpenAI shutdown 2026-10-23 (alias stratum: exact snapshot not stated by the paper)",
+    "model_usage_verified": "yes as an experimental backbone (Table 2 rows 'GPT-4' and 'MatDuck (GPT4)'), but only the undated alias is given",
+    "endpoint": "OpenAI chat completions (presumed; not documented)",
+    "prompt_source": "not available - prompt templates for class-definition generation (Steps 1-3), fitness counting (Eq. 4-6) and code-style ICL (Figure 3 shows one NER example) were only in the now-missing repository; the paper gives structure (5 properties per class definition, 10% of task texts for adaptation, Python class-style prompt with task constraints as parameters) but not verbatim text",
+    "messages": null,
+    "params": {
+      "temperature": "not reported",
+      "max_tokens": "not reported",
+      "seed": "not reported",
+      "n_properties": 5,
+      "adaptation_text_fraction": 0.10
+    },
+    "n_items": "not stated whether the full MatSci-NLP evaluation sets were used; Table 1 lists 169,197 samples in total (NER alone 112,191) - the query count formula (Eq. 9) implies one query per sample",
+    "samples_per_item": 1,
+    "evaluation": "Automatic: macro/micro F1 of predicted descriptor class vs gold label per task following Song, Miret, Liu (2023); requires MatSci-NLP evaluation splits and the MatDuck output parser (unavailable).",
+    "environment": "unknown (repo unavailable); LLaMA3-8B arm ran on 2x RTX 4090"
+  },
+  "artifacts": {
+    "prompts_path": null,
+    "data_path": "external: MatSci-NLP (third-party; public)",
+    "eval_path": null,
+    "data_public": "partial (benchmark data public; the paper's generated class definitions, prompts and predictions are not)",
+    "data_license": "MatSci-NLP: as published by Song et al. 2023 (not verified here); paper artifacts: unknown",
+    "redistributable": "unknown",
+    "notes": "The AAAI paper and the WanyuGroup index both point to github.com/xinzcode/MatDuck, which no longer exists; the first author's later repo ClassMATe (Active Knowledge Structuring for LLMs in Materials Science Text Mining) is a different method and does not mention MatDuck."
+  },
+  "blockers": [
+    "Paper artifact repository is gone (404): prompt templates, class-definition generation code, task-adaptation code and output parsers are unavailable; the method cannot be re-executed faithfully from the paper text alone.",
+    "Model given only as the undated alias 'GPT-4-Turbo' (alias stratum); sampling parameters unreported.",
+    "Scale: Table 1 implies up to 169,197 evaluation samples; a full re-run of baseline + MatDuck with gpt-4-turbo pricing would cost several thousand dollars per seed - only a stratified subsample is affordable, and the paper does not state whether it subsampled.",
+    "Benchmark data is third-party (MatSci-NLP) and its license was not verified."
+  ],
+  "arms": {
+    "baseline_alive": { "model": "gpt-4-turbo-2024-04-09 (best-guess resolution of the alias)", "purpose": "would be the live baseline if the pipeline could be reconstructed" },
+    "successors": [ "gpt-5 family (gpt-5-2025-08-07 / gpt-5-mini / gpt-5-nano)", "claude (current Anthropic release)", "gemini (current Google release)", "llama (open weights, hash-pinned; paper's LLaMA3-8B arm)", "qwen (open weights, hash-pinned)" ],
+    "dead_comparators_not_runnable": [ "claude-3-5-sonnet-20240620 (Claude3.5 backbone)", "ChatGPT/gpt-3.5 alias" ]
+  },
+  "budget": {
+    "est_calls": 0,
+    "est_tokens_in": 0,
+    "est_tokens_out": 0,
+    "est_cost_usd": 0,
+    "pricing_usd_per_1m": { "gpt-4-turbo-2024-04-09": { "input": 10.0, "output": 30.0 } },
+    "assumptions": "Blocked. For reference: full scale = 169,197 samples x 2 conditions x 3 seeds ~ 1.0M calls x ~700 input tokens ~ 710M tokens ~ $7,100 input alone; a 500-per-task stratified subsample (3,500 items) x 2 conditions x 3 seeds = 21,000 calls ~ $150 plus the class-definition generation overhead (m*h*(1+r)*(1+k) queries, small)."
+  },
+  "judgment": {
+    "rule": "Not applicable while blocked. If the authors supply the code: survival = MatDuck minus baseline overall macro-F1 difference (paper +0.104) stays positive with a bootstrap 95% CI over items excluding 0 and the same sign on >= 5 of 7 tasks; partial = positive but CI includes 0 or fewer tasks agree; death = difference <= 0.",
+    "notes": "SF was the one task where MatDuck slightly hurt GPT-4 (0.529 -> 0.516); SC drove much of the gain (0.354 -> 0.817)."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Contact the corresponding author (yjl@whut.edu.cn) for the MatDuck code/prompts and the exact GPT-4-Turbo snapshot and evaluation sample sizes? Without them the card stays blocked.",
+    "If code is recovered: approve a stratified subsample (e.g. 500 items per task, ~$150 for 3 seeds) instead of the full 169k-sample evaluation?",
+    "Census classification: keep as 'alias-only' (GPT-4-Turbo without date) for the H3 snapshot-notation stratum."
+  ],
+  "domain_notes": "MatSci-NLP tasks are descriptor-classification reformulations of NER, relation extraction, event-argument extraction, paragraph/sentence classification, synthesis-action retrieval and slot filling over materials-science abstracts; descriptor meanings vary across tasks (31.6% 'misuse rate'), which is what MatDuck's class-definition anchoring targets. Fine-tuned MatBERT (0.722 macro-F1) still beats all zero-shot variants, so the claim is about zero-shot improvement, not state of the art. Reviewers should note the large sample counts (Table 1) make even 1-point F1 differences statistically significant if the full sets were used."
+}

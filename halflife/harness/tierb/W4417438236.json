@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4417438236",
+  "title": "Evaluating Multimodal Large Language Model (LLM) (Generative Pre-trained Transformer 5 (GPT-5)) for Meniscal Tear Detection on Knee Magnetic Resonance Imaging (MRI): A Pilot Study",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "\"Images were submitted to GPT-5 (model: gpt-5-2025-08-07) via OpenAI's application programming interface (API)\" (Methods, Image analysis procedure)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods, 'Image analysis procedure': prompt quoted verbatim ('Analyze these knee MRI images ... Respond only with yes or no')",
+    "note": "One call per case with sagittal T2 + coronal T1 PNG slices"
+  },
+  "claim": {
+    "metric": "accuracy",
+    "value": 0.76,
+    "n_items": 100,
+    "location": "Results / Table 1 (n=100, 95% CI 0.668-0.833)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "MRNet validation set (Stanford, registration required); 100 of 120 cases chosen 50/50 with quality exclusion, case IDs not listed"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Reasoning-effort/verbosity settings not stated; 20-44 slices per series sent as 256x256 PNGs.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "Register for the MRNet dataset (Stanford AIMI) and use the 120-case validation set, or a seeded 50/50 draw of 100 cases with complete sagittal T2 and coronal T1 series; convert slices to 256x256 PNGs, send one request per case with the printed prompt to gpt-5-2025-08-07 and parse yes/no; compare accuracy with 0.76 (95% CI 0.668-0.833) at the set level.",
+    "approximation": "The paper's 100 cases and its quality exclusions are not listed; reasoning effort, verbosity and service tier are defaults; the comparison is approximate and should fall inside the reported CI.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "wid": "W4412944528",
+  "title": "Do Language Models Mirror Human Confidence? Exploring Psychological Insights to Address Overconfidence in LLMs",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 64
+    },
+    "params_source": "paper Sec. 3 Models (temperature 0, top-p 1); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 1650,
+    "subset_rule": "all questions of the nine Table 1 subtasks: MMLU high-school physics/chemistry/biology (170/230/340), MMLU college physics/chemistry/biology (110/110/160), GPQA expert physics/chemistry/biology (220/210/100)",
+    "approximation": "the Vanilla verbalized-confidence prompt is only described by a quoted phrase in the paper; the full template comes from the code release (code/vanilla.py), which also shows one question per call"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "chenjux/AFCE, Data/ directory (CSV per subject: columns question, A, B, C, D, answer; MMLU and GPQA subsets as used in the paper, order shuffled)",
+    "config_or_split": "the nine subject x difficulty files used in Table 1",
+    "filter": "none",
+    "fields": {
+      "input": "question, A, B, C, D",
+      "label": "answer (letter)",
+      "id": "file + row index",
+      "subtask": "subject x difficulty (9 groups)"
+    },
+    "license": "unknown (repository license not read)",
+    "access_checked": true,
+    "size_mb": 2
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Read the question, provide your answer and your confidence in this answer. Note: The confidence indicates how likely you think your answer is true.\nUse the following format to answer:\nAnswer and Confidence (0-100):[ONLY the option letter; not a complete sentence], [Your confidence level, please only include the numerical number in the range of 0-100]%\nOnly the answer and confidence, don’t give me the explanation. \nQuestion: 1. {question}\n   A. {A}\n   B. {B}\n   C. {C}\n   D. {D}\nNow, please answer this question and provide the confidence level in this format:\nAnswer: <only Option Letter>\nConfidence: <only Your confidence(0-100)>",
+    "placeholders": {
+      "question": "items.question",
+      "A": "items.A",
+      "B": "items.B",
+      "C": "items.C",
+      "D": "items.D"
+    },
+    "few_shot": "none",
+    "source_location": "Sec. 3 'Vanilla Verbalized Confidence' (quoted phrase only); full template from code/vanilla.py in the code release (github.com/chenjux/AFCE); Appendix A.5 Table 7 prints only the AFCE prompts",
+    "verbatim": "partial: only the phrase 'Read the question, provide your answer, and report your confidence in this answer' is printed in the paper; the surrounding format lines are taken from the released code (indentation of the code's prefix removed)"
+  },
+  "output": {
+    "parse": "regex 'Answer:\\s*([A-D])' and 'Confidence:\\s*(\\d{1,3})' (fallback: 'Answer and Confidence (0-100):\\s*([A-D])\\s*,\\s*(\\d{1,3})')",
+    "postprocess": "letter uppercased; confidence clipped to [0,100] and divided by 100; unparsable answer counted incorrect with confidence of the parsed value or 1.0"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "AvE = mean over the nine subtasks of ECE (%), where ECE = sum_m |B_m|/n x |acc(B_m) - conf(B_m)| over 10 equal-width confidence bins per subtask (Appendix B)",
+    "judge": "none",
+    "original_value": 33.2,
+    "original_location": "Table 1, block GPT-4o, row Vanilla, column AvE (per-subtask ECE 20.6, 12.5, 2.9, 25.3, 31.1, 4.0, 43.4, 48.5, 20.1)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 4950,
+    "est_usd": 25.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "The Vanilla prompt is not printed in the paper (only a quoted phrase); decide whether to run the code-release template given above (deviates from the 'printed prompt only' rule) or to switch the claim to the AFCE row (AvE 13.8, prompts printed in Table 7: 10 questions per call plus a separate 0-10 estimate call).",
+    "Check that the Data/ CSVs of the code release reproduce the Table 3 subtask sizes (170/230/340/110/110/160/220/210/100); the MMLU/GPQA subsets are the authors' own draws."
+  ],
+  "notes": "Note that the printed AvE (33.2) is not the arithmetic mean of the nine printed ECEs (23.2); the aggregation may be question-weighted or the row may be mislabelled - compare both. Per-subtask ECE gives a finer check."
+}

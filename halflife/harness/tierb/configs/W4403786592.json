@@ -1,0 +1,76 @@
+{
+  "wid": "W4403786592",
+  "title": "A Comprehensive Evaluation of Large Language Models on Mental Illnesses",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 2,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.1 ('standard parameters (e.g., temperature 0)') and Sec. 3.8 (response length limit of 2 tokens for all models); top_p assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1000,
+    "subset_rule": "paper-defined: fair (class-balanced) random sample of 1,000 posts = 250 per severity level, seeded 20260907 (hook load_items; Sec. 3.3 / 3.6)",
+    "approximation": "Different 1,000-post balanced sample (IDs unpublished); SEV-4 wording transcribed from the Figure 1 image, block separators and post placement (post appended after a blank line) assumed."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/usmaann/Depression_Severity_Dataset, file Reddit_depression_dataset.csv (3,553 rows verified: minimum 2,587 / mild 290 / moderate 394 / severe 282)",
+    "config_or_split": "single CSV",
+    "filter": "none",
+    "fields": {
+      "input": "post",
+      "label": "gold",
+      "id": "id"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 1.6,
+    "file_url": "https://raw.githubusercontent.com/usmaann/Depression_Severity_Dataset/main/Reddit_depression_dataset.csv",
+    "label_map": {
+      "minimum": "0",
+      "mild": "1",
+      "moderate": "2",
+      "severe": "3"
+    }
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "As a psychologist, analyze the provided social media post(s).\nIs the poster depressed?\nOn a scale of 0 to 3, how likely is this?\nLabel Representations:\n0. No depressive symptoms\n1. Mild depressive symptoms\n2. Moderate depressive symptoms\n3. Severe depressive symptoms\n(Answer only with a number between 0 and 3 without explaining your reasoning. If the post is unclear, choose the most probable label without any extra explanation.)\n(Please return only the label and no other text.)\n\n{post}",
+    "placeholders": {
+      "post": "items.post"
+    },
+    "few_shot": "none",
+    "source_location": "Figure 1 (SEV-4 = SEV-1 + label representations + response formatting + repetition line; transcribed from the PDF image, arXiv 2409.15687v2 p. 13)",
+    "verbatim": "full for the prompt text (Figure 1 image transcribed); block separators and the post placement are not printed",
+    "placeholders_prose": {
+      "post": "items.post (hook load_items: the Reddit post text)"
+    }
+  },
+  "output": {
+    "parse": "hook: integers in the reply; exactly one integer within 0-3 -> level, else invalid (Sec. 3.7)",
+    "postprocess": "invalid responses reported separately and counted as incorrect"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "hook: BA (%) = mean per-class recall over the four severity levels (Sec. 3.6; invalid = wrong); MAE over valid replies printed (secondary, 0.805)",
+    "judge": "none",
+    "original_value": 39.6,
+    "original_location": "Table 10, row GPT-4-Turbo, column DepSeverity (39.6 / 0.805)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 30.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "The CSV spells the lowest level 'minimum' (paper: 'minimal'). Table 5/Figure 1 show SEV-1..SEV-4 differ by numbered list, ambiguity clause and repetition line only. || [hooks_2 2026-09-07] SEV-4 transcribed from the Figure 1 image; balanced sampling per Sec. 3.6; 2-token limit per Sec. 3.8; BA = mean per-class recall; prepare verified (1,000 items x 3 seeds).",
+  "hook": "harness/tierb/hooks/W4403786592.py: load_items (balanced 250/class seeded), parse (single integer 0-3), score (balanced accuracy, weighted per-item)"
+}

@@ -1,0 +1,117 @@
+{
+  "card_id": "W4416034576",
+  "dry_run_utc": "2026-09-19T13:44:40.803895+00:00",
+  "api_calls": 0,
+  "model": "o3-mini-2025-01-31",
+  "params": {
+    "reasoning_effort": "low",
+    "max_completion_tokens": 4000
+  },
+  "scope": "DiscoveryBench only, 239 tasks x 2 prompts (CoT, RoT) x 3 seeds",
+  "pricing_usd_per_1m": {
+    "input": 1.1,
+    "output": 4.4
+  },
+  "cap_usd": 80.0,
+  "within_cap": true,
+  "stages": {
+    "analyst_r1": {
+      "calls": 1434.0,
+      "tokens_in": 3450150.0,
+      "tokens_out": 4015200.0,
+      "usd": 21.46
+    },
+    "analyst_r2": {
+      "calls": 1434.0,
+      "tokens_in": 4597350.0,
+      "tokens_out": 1720800.0,
+      "usd": 12.63
+    },
+    "inspector_acc": {
+      "calls": 1434.0,
+      "tokens_in": 726109.5,
+      "tokens_out": 573600.0,
+      "usd": 3.32
+    },
+    "inspector_w2c": {
+      "calls": 1220.98,
+      "tokens_in": 447630.68,
+      "tokens_out": 1465175.16,
+      "usd": 6.94
+    },
+    "inspector_concl": {
+      "calls": 1220.98,
+      "tokens_in": 1322074.09,
+      "tokens_out": 610489.65,
+      "usd": 4.14
+    },
+    "inspector_sim": {
+      "calls": 1220.98,
+      "tokens_in": 2697507.27,
+      "tokens_out": 854685.51,
+      "usd": 6.73
+    },
+    "judge_noise_inspector_acc": {
+      "calls": 200.0,
+      "tokens_in": 101270.5,
+      "tokens_out": 80000.0,
+      "usd": 0.46
+    },
+    "judge_noise_inspector_w2c": {
+      "calls": 170.29,
+      "tokens_in": 62431.06,
+      "tokens_out": 204348.0,
+      "usd": 0.97
+    },
+    "judge_noise_inspector_concl": {
+      "calls": 170.29,
+      "tokens_in": 184389.69,
+      "tokens_out": 85145.0,
+      "usd": 0.58
+    },
+    "judge_noise_inspector_sim": {
+      "calls": 170.29,
+      "tokens_in": 376221.38,
+      "tokens_out": 119203.0,
+      "usd": 0.94
+    }
+  },
+  "total": {
+    "calls": 8675.81,
+    "tokens_in": 13965134.16,
+    "tokens_out": 9728646.32,
+    "usd": 58.17
+  },
+  "requests_written": {
+    "analyst_round1": 1434,
+    "path": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\W4416034576\\baseline_alive\\requests.jsonl",
+    "provisional": 10,
+    "provisional_path": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\W4416034576\\baseline_alive\\requests_provisional.jsonl",
+    "note": "requests.jsonl holds the only fully determined stage (analyst round 1). Round 2 and the four inspector stages depend on replies that do not exist yet; requests_provisional.jsonl holds one exactly-shaped example of each with placeholder text of the assumed length."
+  },
+  "estimate_model": {
+    "measured": "analyst round-1 prompts and every inspector prompt segment whose text is known offline (question, gold answer, dataset names, templates, system messages)",
+    "assumed_tokens": {
+      "r1_out": 2800,
+      "r2_in_add": 800,
+      "r2_out": 1200,
+      "pred_answer": 300,
+      "acc_out": 400,
+      "workflow": 200,
+      "w2c_out": 1200,
+      "code2": 700,
+      "out2": 300,
+      "concl_out": 500,
+      "code1": 300,
+      "out1": 250,
+      "concl1": 300,
+      "concl2": 200,
+      "sim_out": 700
+    },
+    "inexecutable_rates_used": {
+      "COT": 13.81,
+      "ROT": 15.9
+    },
+    "note": "the assumed segments come from the card's budget block and the paper's reasoning_effort=low / max_completion_tokens=4000 setting. battery.py's own generic --dry-run on requests.jsonl reports a higher figure (~$29 for round 1 alone) because it charges the full max_completion_tokens to every call."
+  }
+}

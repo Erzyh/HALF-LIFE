@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404330874",
+  "title": "GPT-4o System Card",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (comparison point)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 1: 'It matches GPT-4 Turbo performance on text in English and code'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Vendor system card; internal evaluations"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Vendor system card; GPT-4 Turbo is a comparison reference without printed prompts or public item sets tied to it."
+}

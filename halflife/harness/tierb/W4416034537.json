@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416034537",
+ "title": "Enhancing Financial RAG with Agentic AI and Multi-HyDE: A Novel Approach to Knowledge Retrieval and Hallucination Reduction",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"FinanceBench reveals GPT-4-Turbo with retrieval systems incorrectly answers or refuses 81% of questions (Islam et al., 2023)\" - citing another paper, not this paper's own run."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none attributable to this paper's own experiments for gpt-4-turbo",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "extraction",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ConvFinQA, FinanceBench, financial-qa-10K (public financial QA benchmarks)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The paper's own generator model (used across Tables 1-8 with Naive-RAG/HyDE/Multi-HyDE) was not confirmed as gpt-4-turbo in the sections reviewed; the only gpt-4-turbo mention found is a citation to the FinanceBench paper's own reported failure rate."
+}

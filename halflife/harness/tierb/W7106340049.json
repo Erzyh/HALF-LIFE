@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7106340049",
+  "title": "Automatic screening of articles for systematic reviews using large language models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'4.3.1. Results across multiple datasets with GPT-4-Turbo' (table of contents); the results chapter itself is absent from the extracted text"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Listings 4.1-4.6 (prompt excerpts, Section 4.1); Appendix A 'Prompt Template in EBNF Notation' (p. 97) is not in the extracted text",
+    "note": "Prompt is a feature model (context, uncertainty levels U0-U3, confidence scale, output format); excerpts only."
+  },
+  "claim": {
+    "metric": "MCC / balanced accuracy (SLR screening)",
+    "value": null,
+    "n_items": null,
+    "location": "Chapter 4.3, Tables 4.1-4.5 (pp. 48-59), not present in the extracted text",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "SLR screening datasets from Syriani et al. replication package (BEHAVE 601, DTCPS 454, ESM2 114, ESPLE 963, GAMESEFINAL 614, MPM4CPS 205; LC/DSMLCompo 2683 'in progress'), Table 3.1"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Extracted text ends at thesis page 40 (last page-number line), so the GPT-4-Turbo results (pp. 48-59) and Appendix A cannot be verified; text is the right document but truncated."
+}

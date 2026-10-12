@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404304526",
+  "title": "AskBeacon -- Performing genomic data exchange and analytics with natural language",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Supplementary Sec. 3: 'the API models - GPT-4-turbo and GPT-3.5-turbo - are also implemented using the OpenAI Python clients from the Langchain library'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Supplementary Section 3 (scope and granularity extraction templates printed as QUERY / INSTRUCTIONS / OUTPUT)",
+    "note": "Variant/filter extraction prompts ask for SQL; templates also at github.com/aehrc/AskBeacon."
+  },
+  "claim": {
+    "metric": "F1 (ROUGE-based)",
+    "value": 0.873,
+    "n_items": 150,
+    "location": "Supplementary Table 4.1, row GPT-4 Turbo, column Scope extraction",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "150 scope-extraction questions created by the authors (Supplementary 1.3); release not stated"
+  },
+  "cost": {
+    "est_calls": 150,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Soft gap: availability of the evaluation questions must be checked in the GitHub repo. Model snapshot and temperature not stated (Oct 2024 preprint, resolved by the date rule).",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 150 scope-extraction questions were written by the authors (Supplementary 1.3) and the paper gives no release statement; the repository holding the templates and chains is the only public place they could be. If present, fill the Supplementary Section 3 scope-extraction template (QUERY/INSTRUCTIONS/OUTPUT) per question, run gpt-4-turbo-2024-04-09, and compute the ROUGE-based F1 against the expected scopes; compare with 0.873 (Supplementary Table 4.1).",
+    "approximation": "Snapshot and temperature unstated (date rule; default temperature).",
+    "needs_repo": true,
+    "repo_url": "https://github.com/aehrc/AskBeacon",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7130349016",
+ "title": "ED-Triage-Agent: A Framework for Human-AI Collaborative Emergency Triage",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano",
+  "role": "A",
+  "evidence": "Sec 3.1: \"we utilize GPT-4.1-nano, the most lightweight variant\" for the patient-facing Intake Interview Agent; Sec 4.1: simulated patient/clinician agents in evaluation are also GPT-4.1-nano."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec. 3.4 (prompt engineering strategies described); no verbatim prompt text quoted",
+  "note": "Agent prompts described at a high level (JSON schemas, role definitions); not printed."
+ },
+ "claim": {
+  "metric": "none isolating gpt-4.1-nano (headline ESI accuracy is a whole-pipeline metric)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "ESI Implementation Handbook v4 case studies (60 cases, licensed handbook); code at https://github.com/Karthick47v2/ED-Triage-Agent"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "The reported ESI-classification accuracies (Tables 3-5) come from the whole multi-agent pipeline, dominated by GPT-4.1-mini (CRA/PAA/TCA/OA reasoning agents), which is not on the tracked still-callable list. GPT-4.1-nano is used only for the patient-facing intake agent (IIA) and as a simulated-patient/clinician generator in the evaluation harness; no standalone accuracy number is reported for its own extraction output."
+}

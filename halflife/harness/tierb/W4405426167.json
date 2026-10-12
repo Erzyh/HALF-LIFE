@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4405426167",
+  "title": "Migrating Existing Container Workload to Kubernetes -- LLM Based Approach and Evaluation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. VI.A: \"Four OpenAI models were used: GPT-3.5 Turbo, GPT-4, GPT-4 Turbo, and GPT-4o, with the temperature set to 0.7, seed set to 1, and n set to 50.\""
+  },
+  "prompt": {"verbatim": "partial", "location": "Fig. 3 (zero-shot prompt, ExpertPrompting example, JSON schema), Fig. 2 (context-groundedness evaluation prompt)", "note": "Prompt figures are referenced; text extraction shows only their captions."},
+  "claim": {
+    "metric": "correctness on benchmark items (figure only)", "value": null, "n_items": null, "location": "Figs. 4-6 (consistency, context-groundedness, correctness); no table values",
+    "task_type": "generation",
+    "judge": "llm:unspecified"
+  },
+  "data": {"public": "yes", "source": "https://github.com/m-ueno/compose2kube (Compose specifications and benchmark)"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "All results are plotted, none tabulated; correctness needs the compose2kube benchmark scripts and a Kubernetes toolchain, and context-groundedness is scored by an LLM with a printed prompt. No snapshot named; the paper is dated 2024-08-21 with no preview strings."
+}

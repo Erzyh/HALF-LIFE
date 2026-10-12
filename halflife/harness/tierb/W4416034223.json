@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416034223",
+  "title": "When Instructions Multiply: Measuring and Estimating LLM Capabilities of Multiple Instructions Following",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"we evaluated GPT-4o (gpt-4o-2024-05-13) (OpenAI, 2024b), Claude 3.5 Sonnet ..., and o3-mini (OpenAI, 2025)\" (Sec. 4.1); Table 8 GPT-4o 0.94 0.85 0.73 0.64 0.57 ... 0.21"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 1 (ManyIFEval prompt examples), Table 10 (example prompt/response); full prompts are dataset items in the repo",
+    "note": ""
+  },
+  "claim": {
+    "metric": "prompt-level accuracy on ManyIFEval with 5 instructions",
+    "value": 0.57,
+    "n_items": 216,
+    "location": "Table 8, row GPT-4o, column n = 5 (216 task descriptions per instruction count; 2,160 total)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/kenoharada/ (ManyIFEval and StyleMBPP, rule-based checkers)"
+  },
+  "cost": {
+    "est_calls": 2160,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Verification is programmatic (IFEval-style checkers). GPT-4o was not run greedily (API limitation noted). o3-mini is undated and reported at three reasoning-effort levels (Table 8)."
+}

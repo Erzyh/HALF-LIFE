@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4414981059",
+ "title": "Benchmark It Yourself (BIY): Preparing a Dataset and Benchmarking AI Models for Scatterplot-Related Tasks",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "o3-2025-04-16",
+  "resolved": "o3-2025-04-16",
+  "role": "S",
+  "evidence": "Sec.3.2: \"o3-2025-04-16 (o3)... with the temperature set to 1 and reasoning effort to medium\"; Sec.3.3.1: \"the best value for cluster counting is 0.03 (o3 when few-shot prompted)\" (MAE)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec.3.2 (5 verbatim zero-shot task prompts, e.g. \"How many clusters are there in the scatterplot? Answer with a number in curly brackets, e.g., {4}.\")",
+  "note": "One-shot/few-shot variants add worked examples on top of the same zero-shot prompt; six examples per data generator, described in text."
+ },
+ "claim": {
+  "metric": "MAE, cluster counting, few-shot prompting",
+  "value": 0.03,
+  "n_items": 1725,
+  "location": "Sec.3.3.1 (\"the best value for cluster counting is 0.03 (o3 when few-shot prompted)\"); full benchmark = 1,725 scatterplots",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "https://github.com/feedzai/biy-paper (synthetic Vega-Lite scatterplots + generation pipeline)"
+ },
+ "cost": {
+  "est_calls": 25875,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "All snapshots are pinned exactly in text (gpt-4.1-nano-2025-04-14, o4-mini-2025-04-16, o3-2025-04-16 also present). Paper reports total cost $666 for 258,750 requests across 10 models (~25,875/model); images are synthetic and can be regenerated from the released pipeline."
+}

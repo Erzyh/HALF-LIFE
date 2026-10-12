@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406071650",
+ "title": "Towards Automated Functional Equation Proving: A Benchmark Dataset and A Domain-Specific In-Context Agent",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec.5: \"four different LLMs: GPT-4 Turbo, Gemini-1.5-Pro, Claude-3.5-Sonnet, and Llama3 70b\"; Table 1/2 row \"GPT\", temperature 0."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Fig. 1 (image, prompt not in extracted text); Sec.4 describes the PROMPTIFY structure in prose",
+  "note": "System prompt built from proof state + domain heuristics + Lean examples (COPRA framework); no verbatim template printed, base prompt inherited from cited COPRA code."
+ },
+ "claim": {
+  "metric": "pass@1, FEAS+Heuristics, Simple tier of FunEq",
+  "value": 86.11,
+  "n_items": 18,
+  "location": "Table 1, row GPT, column FEAS+Heuristics (86.11%, 94.44% pass@2)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FunEq dataset, https://github.com/bio-ontology-research-group/FunEq.git"
+ },
+ "cost": {
+  "est_calls": 4000,
+  "tier": "high"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "Alias resolved by date rule (arXiv paper dated 2024-07-05, after 2024-07-01, no preview string). GPT-4 Turbo is one of four LLMs actually run inside the FEAS/COPRA in-context loop (up to 60 queries/problem, two runs on Simple+Intermediate tiers), but the exact prompt text is only shown as a figure image, not in the extracted text."
+}

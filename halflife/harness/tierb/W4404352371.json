@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404352371",
+  "title": "EEE-Bench: A Comprehensive Multimodal Electrical And Electronics Engineering Benchmark",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (run as GPT-4V)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'GPT-4V \"model\" : \"gpt-4-turbo\", \"temperature\" : 0, \"max tokens\" : 1024' (Table 5); Table 2 row GPT-4V overall accuracy 40.21"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 4 (answer-extraction instructions), Appendix C (caption prompt); question prompt follows the MathVista pipeline",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on EEE-Bench, all subjects",
+    "value": 40.21,
+    "n_items": 2860,
+    "location": "Table 2, row GPT-4V, column ALL",
+    "task_type": "mcq",
+    "judge": "llm:gpt-4o-mini (undated, answer extraction)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "EEE-Bench (2,860 problems with images and metadata; benchmark and evaluation code released per Sec. 2)"
+  },
+  "cost": {
+    "est_calls": 2860,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gaps: answer extraction uses an undated GPT-4o-mini, and the question prompt is described by reference to MathVista. Paper dated 2024-11-03 with no preview string: 'gpt-4-turbo' resolves to gpt-4-turbo-2024-04-09. Each setting was run twice and averaged.",
+  "resolution": {
+    "gap": "other",
+    "plan": "The question prompt is specified by reference to MathVista: the query is the Table 4 task instruction for the item's question/answer type prepended to the question title and choices (Sec. 2.1 'Release'), with the image attached. Run gpt-4-turbo at temperature 0 / max_tokens 1024 twice and average; extract answers with gpt-4o-mini (single snapshot, 2024-07-18) using the MathVista answer-extraction prompt printed in the MathVista paper, then score against ground truth over 2,860 items.",
+    "approximation": "Extraction prompt taken from MathVista rather than the authors' exact system prompt; the benchmark release location is not given in the extracted text.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

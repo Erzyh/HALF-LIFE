@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403786592",
+  "title": "A Comprehensive Evaluation of Large Language Models on Mental Illnesses",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 3: \"GPT-4-Turbo [7] Proprietary OpenAI OpenAI API $22.5\"; Table 10 row \"GPT-4-Turbo 39.6 / 0.805 59.7 / 0.455 39.5 / 0.757 26.8 / 2.171 41.4 / 1.047\" (BA / MAE)."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 4 (BIN-1 to BIN-4), Table 6 (SEV-4 few-shot), Table 7 (KNOW-1)",
+    "note": "Temperature 0; no snapshot named, paper dated 2024-09-24 without preview strings."
+  },
+  "claim": {
+    "metric": "balanced accuracy (%) / MAE on depression severity, prompt SEV-4 zero-shot, DepSeverity",
+    "value": 39.6,
+    "n_items": 1000,
+    "location": "Table 10, row GPT-4-Turbo, column DepSeverity (39.6 / 0.805)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "DepSeverity (Reddit, public per Table 2); experiments use 1,000 sampled instances per dataset (Sec. 3.1) whose IDs are not linked to a release; DEPTWEET is available upon request"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Soft gap: the 1,000-instance samples per dataset are not identified, so the exact evaluation set must be re-sampled. Binary-task results for GPT-4-Turbo are mostly in figures (Figure 2) and prose (e.g. 63.7% RED SAM). Table 5 reports variability over five runs on DEPTWEET.",
+  "resolution": {
+    "gap": "subset_unlisted",
+    "plan": "DepSeverity (3,553 Reddit posts, public per Table 2) was reduced to a 'fair random sample' of 1,000 posts (Sec. 3.3) whose IDs are not published. Draw a seeded uniform sample of 1,000 posts, run the SEV-4 zero-shot prompt (Table 6 base wording) with gpt-4-turbo-2024-04-09 at temperature 0, and compute balanced accuracy and MAE over the four severity levels; compare with 39.6 / 0.805 (Table 10) at the set level.",
+    "approximation": "Different 1,000-post sample; the paper's Hoeffding bound puts sampling error within about 5 points.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

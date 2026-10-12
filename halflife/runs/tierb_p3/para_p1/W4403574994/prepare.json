@@ -1,0 +1,21 @@
+{
+  "wid": "W4403574994",
+  "n_items": 133,
+  "n_requests": 133,
+  "seeds": 1,
+  "est_usd": 0.75,
+  "subset_note": "paraphrase p1: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [133]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 52.97,
+  "cap_usd": 1.3,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4403574994",
+  "paraphrase": "p1",
+  "pairs": [
+    [
+      "Please response with your selected choice to the given question. Below is an example that you can refer.",
+      "Reply to the question with the choice you select. An example you may use as a reference is given below."
+    ]
+  ]
+}

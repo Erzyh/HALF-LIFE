@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4411120358",
+  "title": "CFinBench: A Comprehensive Chinese Financial Benchmark for Large Language Models",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT4 (gpt-4-turbo)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "'two API-based LLMs, i.e., ChatGPT (gpt-3.5-turbo-0125) and GPT4 (gpt-4-turbo)' (Section 4.2); OpenCompass, temperature and top-p 1.0 with greedy decoding"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C, Figures 5-7 (zero-shot, few-shot and CoT prompt examples with English translations)",
+    "note": "Answer-only prompts; input limited to 2048 tokens, output 64."
+  },
+  "claim": {
+    "metric": "accuracy (answer-only, 0-shot, Average over Subject/Qualification/Practice/Law, test split)",
+    "value": 57.43,
+    "n_items": 79280,
+    "location": "Table 2, row GPT4, column Average 0-shot (3-shot 56.77)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CFinBench (99,100 questions; project page and GitHub release); test split is 80% of the validation+test pool"
+  },
+  "cost": {
+    "est_calls": 237840,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "n_items computed from the 2:8 validation/test split (exact count not printed). Scoring weights single/multiple/judgment questions 0.4/0.4/0.2. Unversioned 'gpt-4-turbo' resolved by the date rule (NAACL 2025)."
+}

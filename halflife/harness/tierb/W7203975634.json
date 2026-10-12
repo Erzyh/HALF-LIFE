@@ -1,0 +1,38 @@
+{
+  "openalex_id": "W7203975634",
+  "title": "Large Language Models as Simulated Candidates in Objective Structured Clinical Examinations: A Rubric-Mapping Proof-of-Concept Study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (gpt-4-turbo-2024-04-09) via ChatGPT Plus",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Methods: 'GPT-4 Turbo (OpenAI; model identifier gpt-4-turbo-2024-04-09), accessed through the ChatGPT Plus consumer subscription interface (not the developer API) in May 2025'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary Material S1 (fixed system prompt)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "checklist coverage (%) across 10 OSCE stations",
+    "value": null,
+    "n_items": 10,
+    "location": "Table 2 (per-station coverage; single run)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "10 institutional OSCE stations and rubrics (only characteristics in Table 1)"
+  },
+  "cost": {
+    "est_calls": 20,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_prompt",
+    "human_outcome"
+  ],
+  "notes": "Single-run study; generation parameters not user-configurable in the consumer interface."
+}

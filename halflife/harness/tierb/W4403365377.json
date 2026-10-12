@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403365377",
+  "title": "Chain-of-Sketch: Enabling Global Visual Reasoning",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "o4-mini",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "\"we used the following checkpoints of the models: gpt-4o-2024-08-06, o4-mini-2025-04-16, and o3-2025-04-16\" (Appendix); Table 1 row Cycles 6 nodes, o4-mini Prompt=68.9%"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 5 (Appendix C.5): e.g. \"This image contains <NODES> nodes ... Provide your reasoning and end your answer with 'output: 1' or 'output: 2'. <task img>\"",
+    "note": "High-resolution 512x512 task images; tool calling disabled in all API calls."
+  },
+  "claim": {
+    "metric": "accuracy, Cycles task (6 nodes, detailed-prompt setting)",
+    "value": 68.9,
+    "n_items": 1000,
+    "location": "Table 1, row Cycles 6 nodes, o4-mini \"Prompt\" column; \"1000 test samples per task (500 from each class)\"",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Procedurally generated cycle-graph and maze images (deterministic generator, parameters described in Sec. 2.2/Appendix); no explicit dataset release link found in the text"
+  },
+  "cost": {
+    "est_calls": 2000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "o3-2025-04-16 is run identically in the same table (e.g. Cycles 6 nodes Prompt=63.4%). Two settings per task (zero-shot prompt vs. 4-shot ICL with images) both use image inputs; the maze task adds a second task family at the same 1000-sample size."
+}

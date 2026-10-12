@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4414633513",
+  "title": "Exploring Cognitive and Aesthetic Causality for Multimodal Aspect-Based Sentiment Analysis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "\"we employ GPT-4o (gpt-4o-2024-05-13) via the OpenAI API to generate SR\" (Sec. 4); Table 7 zero-shot GPT-4o on Twitter-2015: Acc 46.87, F1 47.47"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Tables 1-2 print the rationale-generation (SR/IR) prompts; the zero-shot MASC evaluation prompt is not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, zero-shot MASC, Twitter-2015 test",
+    "value": 46.87,
+    "n_items": 1037,
+    "location": "Table 7, row GPT-4o, Twitter-2015 Acc (F1 47.47)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Twitter-2015 / Twitter-2017 MASC datasets (public; test 1,037 / 1,234 aspects)"
+  },
+  "cost": {
+    "est_calls": 1037,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Ineligible because the prompt used for the GPT-4o zero-shot sentiment baseline is not printed (only the rationale-generation prompts are). GPT-4o also acts as the rationale generator for the proposed Chimera model."
+}

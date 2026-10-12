@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7104377898",
+ "title": "POW: Political Overton Windows of Large Language Models",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"we applied the Preference Revelation through Indirect Stimulus [PRISM] methodology to probe 28 LLMs given the Political Compass Test (PCT)\"; Table 1 row 'OpenAI gpt-4-turbo': Cent.(-0.7) & Lib.(-3.1), Area 53.5."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 3 (Method): PRISM methodology applied to the Political Compass Test statements to elicit extreme positions",
+  "note": "Methodology is named and cited; the exact indirect-stimulus prompt templates were not located in the retrieved excerpt."
+ },
+ "claim": {
+  "metric": "Overton window area (political-position coverage), gpt-4-turbo",
+  "value": 53.5,
+  "n_items": null,
+  "location": "Table 1, row 'OpenAI gpt-4-turbo', 'Area' column (53.5)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Political Compass Test (PCT), a standard public instrument"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "gpt-4-turbo is 1 of 28 LLMs directly probed. The 'Area' metric is a composite derived from many indirect-stimulus probes per model (PRISM method) rather than one prompt; the exact number of probes per model, and the full prompt-variation template, were not found in the retrieved text, so cost and full prompt reconstruction remain a soft gap."
+}

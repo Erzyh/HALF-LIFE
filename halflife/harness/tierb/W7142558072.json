@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7142558072",
+  "title": "Can MLLMs Read Students' Minds? Unpacking Multimodal Error Analysis in Handwritten Math",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini; gpt-4o-2024-05-13 (data generation); o3-mini (judge)",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Table 3: 'o4-mini∗ – 71.8 69.7 1 40.1 47.3 3 57.2 1'; Sec. 4.1: 'we utilized a structured prompt during testing'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 4.1 mentions a structured prompt and a CoT variant; not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Error Cause Explanation score (Primary), LLM-judged",
+    "value": 71.8,
+    "n_items": null,
+    "location": "Table 3, row o4-mini, column ECE Primary",
+    "task_type": "generation",
+    "judge": "llm:o3-mini-2025-01-31"
+  },
+  "data": {
+    "public": "partial",
+    "source": "ScratchMath (handwritten scratchwork images); described as publicly available but no URL in the text"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "o4-mini snapshot not stated (single snapshot); split sizes not in the extracted text."
+}

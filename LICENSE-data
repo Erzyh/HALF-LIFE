@@ -1,0 +1,13 @@
+Data licence
+
+The data tables, manifests, figures and documents in this repository (everything under halflife/data, halflife/figures,
+halflife/runs, halflife/coding and the Markdown documents) are released under the Creative Commons Attribution 4.0
+International licence (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/). The code (halflife/harness,
+halflife/scripts, release tooling) is released under the MIT licence in LICENSE.
+
+Attribution: cite the paper and the Zenodo record listed in CITATION.cff.
+
+Two exceptions apply. Bibliographic records harvested from OpenAlex keep OpenAlex's CC0 dedication. Benchmark items,
+prompts and model replies that belong to the re-executed papers keep the licence of their source; the request-response
+archives are therefore not in this repository but in the Zenodo deposit, where items whose licence forbids
+redistribution are replaced by their SHA-256 hashes and identifiers.

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4409361695",
+ "title": "Multi-Agent Security Tax: Trading Off Security and Collaboration Capabilities in Multi-Agent Systems",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo-2024-04-09",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"without defense, most models maintained high unusual but harmless instruction success rates (91-92%), with gpt-4-turbo-2024-04-09 being the exception at 64.4%.\"; results table row \"gpt-4-turbo-2024-04-09 64.4%+-7pp ...\"."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix (vaccine/system-prompt text, harmless-instruction list, and 'infection' instructions, all repeatedly referenced as \"see the Appendix\")",
+  "note": "Judge (undated \"GPT-4 Omni\") resolved to gpt-4o-2024-05-13 under the pre-2024-10-02 rule, consistent with the AAAI 2025 submission timeline."
+ },
+ "claim": {
+  "metric": "agent acceptance rate on harmless-but-unusual instructions, no-defense baseline",
+  "value": 64.4,
+  "n_items": 180,
+  "location": "Results table, row gpt-4-turbo-2024-04-09, no-defense column",
+  "task_type": "agentic",
+  "judge": "llm:gpt-4o-2024-05-13"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Authors' own 6 harmless-but-unusual instructions and vaccine/defense prompts, printed in the Appendix"
+ },
+ "cost": {
+  "est_calls": 180,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "5,400 total trials span 6 agent models x 5 defense conditions x 6 instructions; n_items=180 is derived (5400/30) and is consistent with the reported +-7pp confidence interval via a binomial approximation. A separate experiment on adversarial 'infection spread' (Sec. 3.1) is distinct from this harmless-instruction helpfulness measure."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7164615251",
+  "title": "MoCA-Agent: A Market-of-Claims Code Agent for Financial and Numerical Reasoning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini / GPT-4-Turbo / o3-mini",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Best zero-shot baselines (He et al., 2025) ... o4-mini ZS 69.45\" (Table 3); GPT-4-Turbo and o3-mini rows are also reproduced from prior work"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D Prompt Library (Figures D.1-D.9)",
+    "note": "Prompts are for the MoCA-Agent pipeline run on open backbones (Qwen3.6-27B), not for the live OpenAI models."
+  },
+  "claim": {
+    "metric": "none (all OpenAI numbers are cited from He et al. 2025 / Shu et al. 2025)",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 3 and 6 (cited rows)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "FinQA, MultiHiertt, DocMath, TAT-QA, ESGenius, FinChart (public benchmarks); code at GitHub per footnote 1"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The authors never call an OpenAI model; the agent's backbones are Qwen3.6-27B, Gemma-4 31B and Qwen-3.5 9B (Table 5). All live-model mentions are leaderboard numbers copied from other papers, so role C."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4399554416",
+  "title": "How Far Can Transformers Reason? The Globality Barrier and Inductive Scratchpad",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Appendix I / Figure 11 legend: 'GPT-4-turbo-2024-04-09 (with CoT)', 'GPT-4-turbo-2024-04-09 (no CoT)'; caption: 'we used 1000 examples for each value of n'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix I (example question for n=1; no-CoT instruction 'Answer only with a yes or no.' quoted; CoT instruction quoted for GPT-3.5)",
+    "note": "Name pool and randomisation are described, not listed; generation code at github.com/aryol/inductive-scratchpad."
+  },
+  "claim": {
+    "metric": "accuracy on the height-comparison task (no CoT)",
+    "value": null,
+    "n_items": 1000,
+    "location": "Figure 11 (plot only; text says no-CoT accuracy is 'near random for n > 1')",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "synthetic task generated from the printed recipe (3n+2 people, 3n+1 relations, query between person n+1 and 2n+2)"
+  },
+  "cost": {
+    "est_calls": 22000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Appendix-only LLM experiment; exact accuracies are readable only from the plot. A cheap partial check (n=1..4, no CoT, 1,000 items each) would be possible if a value were printed."
+}

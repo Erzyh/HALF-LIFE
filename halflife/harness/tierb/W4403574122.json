@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403574122",
+ "title": "A Cross-Lingual Statutory Article Retrieval Dataset for Taiwan Legal Studies",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-0125",
+  "resolved": "dead-preview",
+  "role": "S",
+  "evidence": "Table 2/3/4 rows \"GPT-4-0125 Answer Expansion 0.393 0.510 0.612 0.206 0.225 0.232\" (Table 2), etc. - the model actually evaluated in the results tables."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 5.2 (Answer Expansion / Statutory Article Expansion methods named); no full prompt text located",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Legal QA evaluation, Answer Expansion",
+  "value": 0.393,
+  "n_items": 92,
+  "location": "Table 2, row GPT-4-0125 Answer Expansion (92 human-labeled legal retrieval instances, Sec 3.1)",
+  "task_type": "extraction",
+  "judge": "llm:gpt-4"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Authors' own LawFactsQA-TW / National Regulatory Database TW (92 human-labeled + synthetic pairs); no explicit public-release statement found"
+ },
+ "cost": {
+  "est_calls": 92,
+  "tier": "low"
+ },
+ "blockers": [
+  "dead_alias"
+ ],
+ "notes": "The model actually run for the headline results tables is \"GPT-4-0125\" (the gpt-4-0125-preview snapshot), a dead preview per the alias rule. Bare \"gpt-4-turbo\" appears separately, but only as the generator for synthetic question/answer pairs (role A, Sec 3.2), with no accuracy table of its own."
+}

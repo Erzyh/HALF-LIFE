@@ -1,0 +1,112 @@
+{
+  "set": "main",
+  "coders": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "files": [
+    "coding\\results_main\\halflife_coding_main_coderA.xlsx",
+    "coding\\results_main\\halflife_coding_main_coderB.xlsx",
+    "coding\\results_main\\halflife_coding_main_coderC.xlsx",
+    "coding\\results_main\\halflife_coding_main_coderD.xlsx"
+  ],
+  "coded_papers": {
+    "A": 249,
+    "B": 250,
+    "C": 250,
+    "D": 250
+  },
+  "role": {
+    "units_coded_by_2plus": 732,
+    "alpha": 0.713,
+    "percent_agreement": 0.865
+  },
+  "dependence_collapsed": {
+    "units_coded_by_2plus": 675,
+    "alpha": 0.824,
+    "percent_agreement": 0.929
+  },
+  "pairwise_role_kappa": {
+    "A-B": {
+      "n": 173,
+      "percent_agreement": 0.809,
+      "kappa": 0.618
+    },
+    "A-C": {
+      "n": 0
+    },
+    "A-D": {
+      "n": 189,
+      "percent_agreement": 0.804,
+      "kappa": 0.586
+    },
+    "B-C": {
+      "n": 170,
+      "percent_agreement": 0.929,
+      "kappa": 0.838
+    },
+    "B-D": {
+      "n": 0
+    },
+    "C-D": {
+      "n": 200,
+      "percent_agreement": 0.915,
+      "kappa": 0.818
+    }
+  },
+  "questions": {
+    "Q1 접근경로": {
+      "units_coded_by_2plus": 449,
+      "alpha": 0.35,
+      "percent_agreement": 0.561
+    },
+    "Q2 버전표기": {
+      "units_coded_by_2plus": 461,
+      "alpha": 0.443,
+      "percent_agreement": 0.703
+    },
+    "Q3 실행시점": {
+      "units_coded_by_2plus": 460,
+      "alpha": 0.373,
+      "percent_agreement": 0.813
+    },
+    "Q5 열람": {
+      "units_coded_by_2plus": 484,
+      "alpha": 0.169,
+      "percent_agreement": 0.955
+    },
+    "Q6 확신도": {
+      "units_coded_by_2plus": 485,
+      "alpha": -0.049,
+      "percent_agreement": 0.786
+    }
+  },
+  "role_distribution": {
+    "A": {
+      "실행": 245,
+      "못찾음": 2,
+      "인용·언급": 90,
+      "판단불가": 25
+    },
+    "B": {
+      "실행": 234,
+      "인용·언급": 96,
+      "못찾음": 7,
+      "판단불가": 7
+    },
+    "C": {
+      "실행": 255,
+      "인용·언급": 85,
+      "판단불가": 20,
+      "못찾음": 10
+    },
+    "D": {
+      "실행": 265,
+      "인용·언급": 93,
+      "못찾음": 14,
+      "판단불가": 17
+    }
+  }
+}

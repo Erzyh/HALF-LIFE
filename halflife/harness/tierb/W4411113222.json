@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4411113222",
+  "title": "LLMs for Mathematical Modeling: Towards Bridging the Gap between Natural and Mathematical Languages",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Footnote 1: \"Here GPT-4-turbo denotes GPT-4-turbo-2024-04-09; GPT-4o denotes GPT-4o-2024-05-13\"; Table 4 row GPT-4-turbo, Overall(%) column 66.34 (+1.41)"
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix R (Figures 17-20, full system+task prompt text quoted)", "note": "Closed-source models called via API at temperature=0.8 (Appendix Q); o1-preview run at default temperature (override not permitted)."},
+  "claim": {
+    "metric": "Overall accuracy rate (%), Mamo benchmark, raw (pre code-modifier)", "value": 66.34, "n_items": 1209,
+    "location": "Table 4, row GPT-4-turbo, Overall(%) column; 1,209 = 346 ODE + 652 Easy_LP + 211 Complex_LP problems (Sec. 3.5 Data Statistics)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Mamo benchmark (1,209 ODE/LP/MILP modeling questions), CC BY-SA 4.0 license (license statement near Appendix)"},
+  "cost": {"est_calls": 3627, "tier": "high"},
+  "blockers": [],
+  "notes": "NAACL 2025 Findings. Automatic grading is solver-based (generated .lp/ODE code executed and compared numerically to ground truth), not an LLM judge. Table 4 also reports a code-modifier-corrected score per model; Table 6 gives execution-success-rate diagnostics. Cost taken as high given full natural-language problem statements plus a second code-modifier pass in the full pipeline."
+}

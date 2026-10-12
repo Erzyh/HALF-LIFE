@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402618820",
+  "title": "The Power of Combining Data and Knowledge: GPT-4o is an Effective Interpreter of Machine Learning Models in Predicting Lymph Node Metastasis of Lung Cancer",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "'We selected OpenAI's most advanced model, GPT-4o (gpt-4o-2024-05-13)' (Section 2.5); same prompt three times per patient, four ensemble strategies"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 2 (prompt template: Role, Task, Patient data, ML prediction, output; text in Section 2.4)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "AUC (N2 lymph node metastasis prediction, mean over folds)",
+    "value": 0.714,
+    "n_items": null,
+    "location": "Table 2, row GPT-4o (AUC 0.714 +/- 0.083, AP 0.284); GPT-4o+LR mean 0.767",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "767 lung cancer patients from Peking University Cancer Hospital (clinical records, CT reports)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Patient-level data are not public; per-fold test size not stated."
+}

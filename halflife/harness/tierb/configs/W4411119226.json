@@ -1,0 +1,70 @@
+{
+  "wid": "W4411119226",
+  "title": "AI with Emotions: Exploring Emotional Expressions in Large Language Models",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 4096,
+      "top_p": 1.0
+    },
+    "params_source": "paper Sec. 3.1 ('All parameters for the LLMs were set to defaults' -> OpenAI defaults temperature 1, top_p 1)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 120,
+    "subset_rule": "all (10 questions x 12 emotional states)",
+    "approximation": "System prompt decoded from a glyph-shifted extraction of Figure 1 (letters certain, punctuation and numeric bounds reconstructed); Russell (1980) term angles for the label mapping must be taken from Russell's paper."
+  },
+  "items": {
+    "source_type": "in_paper",
+    "source": "Table 1 (10 questions) x 12 states on the unit circle of the valence-arousal plane (Sec. 3.1: (Valence, Arousal) = (cos t, sin t), t = 0, 30, ..., 330 degrees)",
+    "config_or_split": "none",
+    "filter": "none",
+    "fields": {
+      "input": "question text (Table 1)",
+      "state": "(valence, arousal) unit vector",
+      "label": "the specified (valence, arousal) vector",
+      "id": "question number x angle"
+    },
+    "license": "n/a (printed in the paper)",
+    "access_checked": true,
+    "size_mb": 0
+  },
+  "prompt": {
+    "system": "Assume the role of a character who is experiencing an emotional state as described by Russell's Circumplex Model. Produce a response that accurately reflects this emotional state, presenting only the response itself. State: Arousal (min -1, max 1): {arousal_value}, Valence (min -1, max 1): {valence_value}. Respond in a few sentences.",
+    "user_template": "{question}",
+    "placeholders": {
+      "arousal_value": "arousal component (sin t)",
+      "valence_value": "valence component (cos t)",
+      "question": "one of the ten Table 1 questions (listed in notes)"
+    },
+    "few_shot": "none",
+    "source_location": "Figure 1 (system prompt with arousal/valence slots; user turn = question); Table 1 (questions); Sec. 3.1 (states)",
+    "verbatim": "partial (decoded from a +1 glyph-shifted extraction of Figure 1; the '(min -1, max 1)' bounds, punctuation and line breaks are reconstructed - verify against the PDF)"
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "classify with HF jkhan447/sentiment-model-sample-27go-emotion; map the predicted GoEmotions label to a Russell term (Appendix B Table 3, in notes) and to its arousal-valence unit vector (Figure 2 / Russell 1980 angles; multi-term labels averaged); cosine similarity with the specified vector"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "mean over the 120 generated texts of cos(specified vector, evaluated vector); Table 2 'Total' = mean over the 10 questions",
+    "judge": "rule: HF classifier jkhan447/sentiment-model-sample-27go-emotion + Appendix B Table 3 mapping",
+    "original_value": 0.53,
+    "original_location": "Table 2, row GPT-4 turbo, column Total (0.530)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 360,
+    "est_usd": 4.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "Scoring needs the HF transformer classifier jkhan447/sentiment-model-sample-27go-emotion (torch/transformers), which the hook contract (standard library + numpy/pandas) cannot run; a scorer outside the runner must classify the 120 texts, map labels with Appendix B Table 3 and take the term angles from Russell (1980) (the paper's Figure 2 is an image).",
+    "Verify the decoded Figure 1 system prompt against the PDF (font-shifted extraction; the '(min -1, max 1)' bounds and punctuation are reconstructed)."
+  ],
+  "notes": "Questions: 1. What does the future hold for AI and mankind? | 2. How do you view the balance between work and personal life? | 3. How do you feel about the role of social media in our lives? | 4. How do you feel about the unpredictability of the weather? | 5. What are your thoughts on the importance of art in society? | 6. What’s your stance on the preservation of nature versus urban development? | 7. How do you define happiness? | 8. How do you handle difficult emotions? | 9. What does freedom mean to you? | 10. How do you stay motivated during tough times? || Table 3 mapping: admiration->glad; amusement->pleased, delighted; anger->angry; annoyance->annoyed; approval->satisfied; caring->serene; confusion->alarmed; curiosity->excited, delighted; desire->excited, aroused; disappointment->depressed; disapproval->gloomy; disgust->frustrated; embarrassment->distressed; excitement->excited; fear->afraid; gratitude->pleased; grief->miserable; joy->happy; love->content; nervousness->tense; optimism->at ease; pride->delighted; realization->astonished; relief->relaxed; remorse->droopy; sadness->sad; surprise->aroused; neutral->- || GPT-4o row Total 0.420 is the other live cell. || [hook pass 2026-09-07] no hook: items (10 questions x 12 angles) and render are trivial to hook once a scorer exists; blocked by the external classifier, not by the runner."
+}

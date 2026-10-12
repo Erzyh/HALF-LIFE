@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7135028473",
+  "title": "Cardiology knowledge assessment of retrieval-augmented open versus proprietary large language models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT 4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Results: 'GPT 4 Turbo (73.7%, 95% CI: 69.5-77.6%)' on 449 ACCSAP multiple-choice questions"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "S1 Fig (orchestration prompt template), S2 Fig (generation prompt template) in supplementary figures",
+    "note": "Snapshot not stated."
+  },
+  "claim": {
+    "metric": "accuracy, ACCSAP cardiology MCQs (no RAG)",
+    "value": 73.7,
+    "n_items": 449,
+    "location": "Results text; S3 Table",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "American College of Cardiology Self-Assessment Program (ACCSAP), third-party proprietary question bank"
+  },
+  "cost": {
+    "est_calls": 1347,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": ""
+}

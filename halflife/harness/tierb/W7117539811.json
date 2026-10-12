@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7117539811",
+ "title": "Retrieval-Augmented Generation in LLMs for Mental Health: Examining the Impact on User Intent Detection in Wysa",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1 nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "S",
+  "evidence": "Companion/earlier Research Square preprint of the same Wysa study; identical Table 2 McNemar figures (\"GPT-4.1 nano GPT-4.1 nano 687 124 535 334\")."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Same setup as W7171902763; no prompt text quoted."
+ },
+ "claim": {
+  "metric": "accuracy, intent classification, RAG-enabled",
+  "value": 72.7,
+  "n_items": 1680,
+  "location": "Table 2 (same as companion paper)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Wysa Inc.'s proprietary anonymized user-chatbot data (same source as W7171902763)"
+ },
+ "cost": {
+  "est_calls": 1680,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Research Square preprint (posted 2025-12-30) that is essentially a companion/earlier version of W7171902763, same authors (Wysa Inc.) and same proprietary dataset."
+}

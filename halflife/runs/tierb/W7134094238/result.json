@@ -1,0 +1,65 @@
+{
+  "wid": "W7134094238",
+  "title": "BioLLMAgent: A Hybrid Framework with Enhanced Structural Interpretability for Simulating Human Decision-Making in Computational Psychiatry",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "custom",
+  "original_value": 0.002,
+  "original_location": "Table V, row GPT-4o w/ (Chi-sq p 0.988, KL 0.002, Std 0.017)",
+  "reexecution": {
+    "mean_over_seeds": 0.0003932736497002792,
+    "per_seed": {
+      "0": {
+        "value": 0.0003932736497002792,
+        "n": 30,
+        "ci95": [
+          0.0003932736497002792,
+          0.0003932736497002792
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.0003932736497002792,
+        "n": 30,
+        "ci95": [
+          0.0003932736497002792,
+          0.0003932736497002792
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.0003932736497002792,
+        "n": 30,
+        "ci95": [
+          0.0003932736497002792,
+          0.0003932736497002792
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7134094238",
+    "n_items": 30,
+    "n_requests": 90,
+    "seeds": 3,
+    "est_usd": 0.42,
+    "subset_note": null,
+    "model": "gpt-4o-2024-05-13",
+    "metric": "custom",
+    "original_value": 0.002
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "the number of simulated participants/trials behind Table V is unstated; the LLM-only prior is evaluated without the ORL/PyMC loop; KL scales with sample size, so KL <= 0.01 is treated as agreement",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.0003932736497002792,
+    "delta": -0.0016067263502997208,
+    "original_inside_ci95": false
+  }
+}

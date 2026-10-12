@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402698999",
+  "title": "Grounding Fallacies Misrepresenting Scientific Publications in Evidence",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "dead-preview",
+    "role": "B",
+    "evidence": "Appendix: 'GPT-4 Turbo (model version: 1106-Preview)'; Table 4 caption: results for GPT-4 run once"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 12 (PRP prompt template), Table 26 and Appendix prompt templates",
+    "note": ""
+  },
+  "claim": {
+    "metric": "R@5 with fallacy+passage judge, MISSCI",
+    "value": 0.308,
+    "n_items": 84,
+    "location": "Table 4, row GPT-4 Turbo DL, column MISSCI R@5 (phi f+p)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MISSCI / MISSCIPLUS (github.com/UKPLab)"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias"
+  ],
+  "notes": "Azure API version 2023-10-01-preview; GPT-4 Turbo = gpt-4-1106-preview (retired)."
+}

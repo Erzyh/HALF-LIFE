@@ -1,0 +1,71 @@
+{
+  "_note": "Format-adaptation case studies on the designated replacement (approved 2026-10-02, cap US$100 in total). Selection rule (scripts/format_case_queues.py): the vendor-arm results of data/p3_format_bound.csv whose share of unparsable replies exceeds 5%, plus the next-highest share, read 2026-10-02. Two pre-specified, minimal adaptations of the paper's own prompt, each one pass on the successor with the baseline's items and seed-0 request bodies: f1 adds one sentence that states the output format the paper's parser expects; f2 is f1 plus the lowest reasoning setting of the successor (reasoning_effort none). Nothing else is tuned, and the results are reported whatever they show. Each entry is an [old, new] pair applied once per message in which the old text occurs (harness/tierb_runner.py prepare_paraphrase); the model field is rewritten to the successor named by --model and the body made legal for it. An entry may name items_from_arm: the run is then restricted to the items of that earlier arm (the healthcare paper's vendor arm ran a seeded cost-cap subset of 1,213 of 1,272 items).",
+  "W4403556032": {
+    "f1": {
+      "pairs": [
+        [
+          "Then, provide your response in the following format:",
+          "Then, provide your response in the following format, as plain text without any markdown formatting (no asterisks or bold):"
+        ]
+      ],
+      "params": {},
+      "items_from_arm": "vendor"
+    },
+    "f2": {
+      "pairs": [
+        [
+          "Then, provide your response in the following format:",
+          "Then, provide your response in the following format, as plain text without any markdown formatting (no asterisks or bold):"
+        ]
+      ],
+      "params": {
+        "reasoning_effort": "none"
+      },
+      "items_from_arm": "vendor"
+    }
+  },
+  "W7166799942": {
+    "f1": {
+      "pairs": [
+        [
+          "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation.",
+          "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation, choosing exactly one label per utterance from: neutral, joy, surprise, anger, sadness, disgust, fear."
+        ]
+      ],
+      "params": {}
+    },
+    "f2": {
+      "pairs": [
+        [
+          "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation.",
+          "Based on the provided conversation, identify the primary emotion expressed for each utterance in the conversation, choosing exactly one label per utterance from: neutral, joy, surprise, anger, sadness, disgust, fear."
+        ]
+      ],
+      "params": {
+        "reasoning_effort": "none"
+      }
+    }
+  },
+  "W4416034248": {
+    "f1": {
+      "pairs": [
+        [
+          "Your solution should be concise, and you should omit any additional explanations.",
+          "Your solution should be concise, and you should omit any additional explanations; output only the plan lines, in exactly the format of the example, and nothing else."
+        ]
+      ],
+      "params": {}
+    },
+    "f2": {
+      "pairs": [
+        [
+          "Your solution should be concise, and you should omit any additional explanations.",
+          "Your solution should be concise, and you should omit any additional explanations; output only the plan lines, in exactly the format of the example, and nothing else."
+        ]
+      ],
+      "params": {
+        "reasoning_effort": "none"
+      }
+    }
+  }
+}

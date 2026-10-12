@@ -1,0 +1,56 @@
+{
+  "wid": "W4411119985",
+  "title": "How Inclusively do LMs Perceive Social and Moral Norms?",
+  "model": "gpt-5.6-sol",
+  "metric": "mean_abs_error",
+  "original_value": 0.92,
+  "original_location": "Table 1, row 'GPT-4 Turbo', Zero-Shot / CONF column (the same row gives AITA 0.79, ROC 0.79, DEAR 1.02)",
+  "reexecution": {
+    "mean_over_seeds": 0.6,
+    "per_seed": {
+      "0": {
+        "value": 0.6,
+        "n": 100,
+        "ci95": [
+          0.495,
+          0.71
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119985",
+    "n_items": 100,
+    "n_requests": 100,
+    "seeds": 1,
+    "est_usd": 1.27,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "mean_abs_error",
+    "original_value": 0.92,
+    "cap_usd": 2.9
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "none for the CONF cell. The paper's other three columns (AITA / ROC / DEAR) are the same 100-RoT blocks of the same split and can be run by changing AREA in the hook.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W4411119985"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.6,
+    "delta": -0.32000000000000006,
+    "original_inside_ci95": false
+  }
+}

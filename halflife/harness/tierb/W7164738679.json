@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7164738679",
+ "title": "Investigation of the Anchoring Effect and its Occurrence Mechanism in LLM-driven Price Negotiation Simulation",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "o1 (Sec. 4.2, footnote 5)",
+  "resolved": "o1-2024-12-17",
+  "role": "S",
+  "evidence": "Sec. 4.2 footnote list: \"5 o1-2024-12-17\"; o1 substituted as the buyer's reasoning model in the negotiation simulation (results table for buyer-LLM comparison)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Fig. 2-4 (templated system prompts with $PRODUCT/$TARGET_PRICE/$PERSONA placeholders), Table 1 (fully instantiated example)",
+  "note": "gpt-4-turbo-2024-04-09 (footnote 2) is also used as \"GPT-4\" seller/buyer with its own results row."
+ },
+ "claim": {
+  "metric": "buyer achievement score, Anchoring condition (o1 as buyer vs. GPT-4o seller)",
+  "value": -0.19,
+  "n_items": 50,
+  "location": "Buyer-LLM achievement results table (o1 row), Sec. 5.1",
+  "task_type": "agentic",
+  "judge": "llm:gpt-4o-2024-05-13"
+ },
+ "data": {
+  "public": "yes",
+  "source": "CraigslistBargain dataset (He et al. 2018), 161 product listings"
+ },
+ "cost": {
+  "est_calls": 900,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "322 total simulated negotiations (161 items x Control/Anchoring/Informed) run across 6 LLM buyer/seller combinations for up to 20 turns each; the exact per-cell n for the o1-as-buyer condition is not restated and is only approximately derivable from the reported confidence intervals, so n_items=50 is an estimate. A low-temperature ChatGPT (undated) is also used as an auxiliary dialogue-act classifier (role A)."
+}

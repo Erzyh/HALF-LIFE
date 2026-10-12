@@ -1,0 +1,66 @@
+{
+  "wid": "W7166799942",
+  "title": "CMTD: Cognitive Modeling with Traits and Distortions for Multimodal Emotion Recognition in Conversations",
+  "model": "gpt-4.1-nano-2025-04-14",
+  "metric": "accuracy",
+  "original_value": 42.45,
+  "original_location": "Table 2, MELD block, row gpt-4.1-nano, column Text-only ACC (weighted F1 39.34)",
+  "reexecution": {
+    "mean_over_seeds": 0.13218390804597702,
+    "per_seed": {
+      "0": {
+        "value": 0.13448275862068965,
+        "n": 280,
+        "ci95": [
+          0.12145593869731801,
+          0.1482758620689655
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.12873563218390804,
+        "n": 280,
+        "ci95": [
+          0.11647509578544062,
+          0.1421455938697318
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.13333333333333333,
+        "n": 280,
+        "ci95": [
+          0.12068007662835249,
+          0.14675287356321834
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 83
+  },
+  "prepare": {
+    "wid": "W7166799942",
+    "n_items": 280,
+    "n_requests": 840,
+    "seeds": 3,
+    "est_usd": 0.02,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-nano-2025-04-14",
+    "metric": "accuracy",
+    "original_value": 42.45
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "n_fingerprints": 9
+  },
+  "approximation": "the printed Text-only prompt gives no label set or output format: the reply is parsed for one of the seven MELD labels per numbered utterance (synonyms mapped), unlabelled utterances count as wrong; conversation rendered as numbered 'Speaker: utterance' lines (rendering not printed)",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 13.218390804597702,
+    "delta": -29.2316091954023,
+    "original_inside_ci95": false
+  }
+}

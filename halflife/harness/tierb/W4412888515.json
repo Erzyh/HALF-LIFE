@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4412888515",
+  "title": "EMPEC: A Comprehensive Benchmark for Evaluating Large Language Models Across Diverse Healthcare Professions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (0125 version)",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "Sec. 4.2: \"We use the 0125 version of GPT-turbo models.\"; Sec. 5: \"We tested GPT-4-turbo (cutoff on Dec. 2023)\"; Table 3 column GPT4."
+  },
+  "prompt": {"verbatim": "partial", "location": "Sec. 4.2 (zero-shot instruction quoted in part), Appendix D (prompt examples)", "note": "Temperature setting stated in Sec. 4."},
+  "claim": {
+    "metric": "test-set accuracy by profession", "value": null, "n_items": null, "location": "Table 3, column GPT4",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "https://github.com/ (EMPEC data and code, footnote 1)"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["dead_alias"],
+  "notes": "The evaluated GPT-4 Turbo is explicitly gpt-4-0125-preview, which is retired; the CSV post-GA alias resolution does not hold for this paper."
+}

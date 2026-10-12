@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416034134",
+ "title": "Large Language Model Agents in Finance: A Survey Bridging Research, Practice, and Real-World Deployment",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"chain-of-thought prompting in GPT-4 Turbo (Kim et al., 2024)\"; also cited as the backbone of third-party systems FinCon/HedgeAgents in a survey table."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Survey paper; no original experiments by these authors."
+ },
+ "claim": {
+  "metric": "none (ARR/TR figures quoted for FinCon/HedgeAgents are those systems' own published results, not run by this survey's authors)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (survey, no experiment)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A finance-agent survey; every GPT-4-Turbo mention either cites a third-party paper's method or catalogues another system's architecture (FinCon, HedgeAgents) in a summary table, never the survey authors' own run."
+}

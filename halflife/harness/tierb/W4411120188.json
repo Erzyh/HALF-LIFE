@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4411120188",
+ "title": "Multi3Hate: Multimodal, Multilingual, and Multicultural Hate Speech Detection with Vision-Language Models",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4o",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "\"API Version: gpt-4o-2024-05-13\" (footnote); results table row \"GPT-4o / en: IMG 75.8±2.1\" (US ground truth)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix B.2 (\"detailed prompts\"); multilingual versions in Figure 11",
+  "note": "Multiple-choice (a) hate speech / (b) non-hate speech, 3 answer-order variations x 2 input variations (IMG vs +CAPT) = 6 prompts."
+ },
+ "claim": {
+  "metric": "hate-speech classification accuracy (US ground truth, English prompt, image-only input)",
+  "value": 75.8,
+  "n_items": 300,
+  "location": "Results table, row GPT-4o, en/IMG/US column; 300 memes per language (1,500 memes across 5 languages total)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Multi3Hate benchmark (300 meme templates x 5 languages = 1,500 memes)"
+ },
+ "cost": {
+  "est_calls": 5400,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Full grid covers 5 languages x 5 ground-truth cultures x 2 input variations x 6 prompt variations for GPT-4o alone; est_calls approximates one full pass (300 memes x 6 prompts x 3 seeds) for the en/US cell family only, not the entire cross-cultural grid."
+}

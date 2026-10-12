@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7124967256",
+  "title": "MARAG-Fin: An Intelligent Multi-agent RAG-LLM Architecture Integrating Financial News Sentiment and Time Series Data for Data-driven Trading Decision-making",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 2 \"Performance Evaluation of Agentic RAG Based on Prompt Engineering Methods using GPT-4.1-nano\": ReAct Prompting Faithfulness=0.86; Table 3 compares GPT-4.1-nano vs GPT-4.1"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Sec. 4.1 describes role/instruction/template prompting narratively; no template, figure, or appendix text quoted",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Faithfulness (RAGAS), ReAct Prompting",
+    "value": 0.86,
+    "n_items": 50,
+    "location": "Table 2 (News/Macroeconomic agents; \"Each agent completed 50 trials\", Sec. 4.3)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Yahoo Finance news + market data (scraped via Python; Sec. 3.1.1), not a fixed released dataset"
+  },
+  "cost": {
+    "est_calls": 200,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "GPT-4.1 (undated, single release) is run for the same comparison (Table 3, Faithfulness=0.91); both share the no_prompt gap since no prompt template or figure is printed anywhere in the paper."
+}

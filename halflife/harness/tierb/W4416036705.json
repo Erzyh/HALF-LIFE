@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416036705",
+ "title": "Stimulate the Critical Thinking of LLMs via Debiasing Discussion",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "Sec 1 footnote 1: \"The examples and results are from testing GPT-4 Turbo, which is one of the best LLMs in the world.\" (Figure 1 motivating example); Sec 3: \"Utilizing GPT-4 turbo as the base model, we constructed Eq-Discussion\" (200K-dialogue synthetic dataset generator)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "Appendix A/B are cited for \"agent prompts\" used to build Eq-Discussion, but no prompt text appears in the extracted text; Figure 1's motivating accuracy histogram is not reproduced as text either",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none quotable (Figure 1's motivating accuracy histogram is described only qualitatively, \"less than half of the ideal situation\"; the main Tables 1/2/3/4 report only open-source models - LLaMA3, ChatGLM3, Vicuna, Mistral - with and without the authors' MDTA fine-tuning method)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 1(c)-(d) (figure only); Tables 1-4 do not include a GPT-4 Turbo row",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Eq-Discussion (200,000 dialogues, 100M tokens), authors' own synthetic dataset generated with GPT-4 Turbo; no release link found in the text"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo's two uses are (1) a qualitative, figure-only motivating example, and (2) the generator model for a training dataset (role A); the paper's actual accuracy tables (Tables 1-4) fine-tune and evaluate only open-source 7-8B models, never GPT-4 Turbo itself."
+}

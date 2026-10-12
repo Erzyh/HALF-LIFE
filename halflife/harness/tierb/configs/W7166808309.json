@@ -1,0 +1,87 @@
+{
+  "wid": "W7166808309",
+  "title": "From Sparse to Sense-Grounded: Wikipedia Training for Ukrainian Visual-WSD",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.01,
+      "max_tokens": 128,
+      "image_detail": "high"
+    },
+    "params_source": "paper Sec. 3 (fixed temperature 0.01 for all LLM evaluations) and Table 2 row 'HIGH' (image detail); max_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 381,
+    "subset_rule": "all 381 benchmark entries",
+    "approximation": "the order in which the 10 candidate images are presented is not stated; the gold image is placed at a seeded random position (seed 20260907) among the nine distractors"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "yuriilaba/ukrainian-visual-wsd-benchmark, u-vwsd/metadata.json (fields uuid, word, word_definition, trigger, negative_image_paths (9), ground_truth_path) with images under u-vwsd/images/<uuid>/",
+    "config_or_split": "u-vwsd (381 entries, 3,810 images)",
+    "filter": null,
+    "fields": {
+      "input": "trigger",
+      "label": "ground_truth_path",
+      "id": "uuid"
+    },
+    "license": "MIT",
+    "access_checked": true,
+    "size_mb": 400,
+    "hf": {
+      "dataset": "yuriilaba/ukrainian-visual-wsd-benchmark",
+      "config": "default",
+      "split": "train"
+    },
+    "fields_prose": {
+      "input": "word, trigger, 10 images (9 negative_image_paths + ground_truth_path, shuffled)",
+      "label": "position (1-10) of ground_truth_path in the shuffled list",
+      "id": "uuid"
+    },
+    "filter_prose": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "[Instruction]\nYou are an expert in semantic analysis of polysemous Ukrainian words.\nGiven an ambiguous word, a short trigger phrase, and 10 candidate images:\n(1) Infer the intended sense of the ambiguous word from the trigger phrase.\n(2) Rank the 10 images by how well they depict that sense.\n[Output format]\nReturn ONLY valid JSON (no extra text):\n{\"ranked_images\":[i1, i2, i3, i4, i5, i6, i7, i8, i9, i10]}\nwhere i1..i10 are a permutation of integers 1..10 (no repeats).\n[Input]\nword: \"{WORD}\"\ntrigger: \"{TRIGGER}\"\nimages: 1..10",
+    "placeholders": {
+      "WORD": "items.word",
+      "TRIGGER": "items.trigger"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B 'LLM Visual-WSD prompt template'",
+    "verbatim": "full (monospace extraction spacing inside the JSON and brackets removed; line wraps re-joined)",
+    "placeholders_prose": {
+      "WORD": "items.word",
+      "TRIGGER": "items.trigger",
+      "<images>": "the 10 candidate images attached in order as image parts 1..10 of the same user message, detail 'high'"
+    }
+  },
+  "output": {
+    "parse": "json field ranked_images",
+    "postprocess": "invalid JSON or a first element outside 1..10 -> counted as a miss; MRR uses the rank of the gold index in the list",
+    "parse_prose": "json field ranked_images (list of 10 integers); prediction = first element"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "HIT@1 (%) = fraction of the 381 entries whose top-ranked image index is the gold image",
+    "judge": "none",
+    "original_value": 19.9,
+    "original_location": "Table 2, row GPT-4.1-nano / HIGH, column HIT@1 (MRR 39.0; LOW 19.7, AUTO 19.3)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1143,
+    "est_usd": 2.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "Image inputs: every call needs the 10 candidate images (9 negative_image_paths + ground_truth_path, seeded shuffle) attached as image parts at detail 'high'; the runner and the hook contract send text-only messages, and the 3,810 PNGs (~400 MB) exceed the download limit. Everything else (json field ranked_images -> first element vs the gold position, HIT@1) is a few lines once image parts exist."
+  ],
+  "notes": "Ten images at high detail are ~8k input tokens per call; gpt-4.1-nano makes this cheap. The images must be fetched from the dataset repository (3,810 PNGs, ~400 MB estimated) - download check for size only. || [hooks_2 2026-09-07] reviewed for a per-paper hook: image inputs; no hook written.",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "none (needs_human: image inputs)"
+}

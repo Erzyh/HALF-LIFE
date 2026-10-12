@@ -1,0 +1,77 @@
+{
+ "wid": "W4403365377",
+ "title": "Chain-of-Sketch: Enabling Global Visual Reasoning",
+ "status": "needs_human",
+ "model": {
+  "id": "o4-mini-2025-04-16",
+  "params": {
+   "max_tokens": 8192,
+   "tools": "disabled"
+  },
+  "params_source": "assumed (the paper states only that tool calling was disabled and that images were sent at 512x512 in the API's high-resolution mode; no decoding parameters are given). o4-mini ignores temperature; max_tokens is set generously because the prompt asks for reasoning before the verdict.",
+  "seeds": 3
+ },
+ "task": {
+  "type": "classification",
+  "n_items": 1000,
+  "subset_rule": "the paper's 1,000 test samples for Cycles with 6 nodes (500 per class)",
+  "approximation": "BLOCKING - the 1,000 images are neither released nor reproducible from a released generator, and the runner cannot attach images."
+ },
+ "items": {
+  "source_type": "in_paper",
+  "source": "procedurally generated 448x448 cycle images, rendered to 512x512 for the API (Appendix C.1 gives the generation algorithm: 2n nodes placed at random angles on an invisible circle of radius 220 with a minimum separation of epsilon radians, joined by 2n edges forming either one 2n-cycle (label 1) or two n-cycles (label 0), equiprobably). No dataset link, code link or generator seed appears anywhere in the paper.",
+  "config_or_split": "Cycles, 6 nodes, zero-shot 'Prompt' setting (the 'ICL' column uses the same images with four in-context example images)",
+  "filter": null,
+  "fields": {
+   "input": "task image",
+   "label": "1 (single cycle) or 2 (two cycles)",
+   "id": "sample index"
+  },
+  "license": "unknown (no release)",
+  "access_checked": false,
+  "size_mb": null,
+  "inline": null,
+  "fields_note": "The label the prompt asks for is 1 or 2; the dataset's own label is 1 = connected (single cycle) and 0 = two cycles, so any re-implementation must map 0 -> 'output: 2'."
+ },
+ "prompt": {
+  "system": null,
+  "user_template": "This image contains {NODES} nodes which are shown by large white filled dots. There are {NODES} edges between the nodes. Does the image contain a single closed cycle or two separate closed cycles? (A cycles is a closed path which passes through a number of nodes so when there is a single cycle all nodes are reachable from each other and when answer is 2 there are two separate connected components in the graph.) Provide your reasoning and end your answer with “output: 1” or “output: 2”. <task img>",
+  "placeholders": {
+   "NODES": "literal:6",
+   "task_img": "NOT EXPRESSIBLE: <task img> is the 512x512 cycle image, attached to the same user message in the API's high-resolution mode"
+  },
+  "few_shot": "none for this cell (the ICL column of Table 1 prepends four example images, two per class)",
+  "source_location": "Table 5 (Appendix C.5), row 'Cycles with no in-context examples'",
+  "verbatim": "full, with two repairs of PDF damage: the line-break hyphenation is undone and the placeholder <NODES> is written as the config slot {NODES} (set to 6 for the 6-node row). The typographic quotes around output: 1 / output: 2 are kept as printed."
+ },
+ "output": {
+  "parse": "regex output:\\s*([12])",
+  "postprocess": "take the last output: n in the reply; an unparsable reply counts as wrong",
+  "parse_paper": "the prompt requires the answer to end with output: 1 or output: 2"
+ },
+ "metric": {
+  "name": "accuracy",
+  "definition": "share of the 1,000 test images whose predicted class (1 = single cycle, 2 = two cycles) matches the gold class",
+  "judge": "none",
+  "original_value": 68.9,
+  "original_location": "Table 1, row Cycles 6 nodes, column o4-mini / Prompt (o3 scores 63.4 and GPT-4o 61.9 on the same cell; the caption gives a 95% CI of about +-3%)",
+  "bootstrap_unit": "item",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 3000,
+  "est_usd": 36.0,
+  "tier": "mid",
+  "est_note": "1,000 images x 3 seeds at o4-mini prices; one 512x512 high-detail image plus a few thousand reasoning tokens per call. Not a dry-run number: --prepare cannot build these items."
+ },
+ "open_points": [
+  "runner gap: image input; the task IS an image and the runner sends text only.",
+  "Items unavailable: no dataset or generator is released. Appendix C.1 specifies the algorithm well enough to re-implement (node angles, minimum separation, one 2n-cycle vs two n-cycles, 448x448 canvas), but node radius drawing style, line width, anti-aliasing and the 448 -> 512 rescale are unspecified, and re-implementing the stimulus generator would make this our own benchmark rather than the paper's. A human must decide whether that substitution is acceptable.",
+  "Chance is 50% and the paper's own CI is about +-3 points, so a 1,000-item run is the minimum useful size; a cost cap that subsets the items would make the comparison uninformative."
+ ],
+ "notes": "The same table gives the rectangular-maze rows and the four-shot ICL columns with the prompts printed in the same Table 5, so any image-capable successor to this config can cover them without new prompt work. || Appendix C.5 records the checkpoints as gpt-4o-2024-08-06, o4-mini-2025-04-16 and o3-2025-04-16 and notes that 512x512 in high-resolution mode worked best.",
+ "runner_gaps": [
+  "prompt: image attachment placeholder",
+  "items: no released dataset or generator"
+ ]
+}

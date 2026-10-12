@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4406233392",
+  "title": "Artificial intelligence for detecting anaphylaxis in electronic medical records",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT 4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Using the primary prompt, GPT 4 Turbo detected anaphylaxis cases with 90.6% precision, 100% sensitivity, 99.5% specificity, 99.5% accuracy, and a Cohen kappa coefficient of 0.95\" (Abstract; Table 1)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 2.2: five instruction items paraphrased; prompt text not quoted",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Cohen kappa vs expert diagnosis, primary prompt",
+    "value": 0.95,
+    "n_items": 969,
+    "location": "Table 1, row 4 Turbo",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "969 Brazilian-Portuguese texts: 60 anonymized medical records (private), 29 case reports, 10 literature cases, 870 SemClinBr texts (corpus on request)"
+  },
+  "cost": {
+    "est_calls": 2907,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt"
+  ],
+  "notes": "Version not printed; experiments predate the Jan 2025 publication, so the date-rule resolution is uncertain. Text scraped from the Ovid page but full article present."
+}

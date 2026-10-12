@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4401246245",
+  "title": "Imaging protocol suggested by large language model depends on language: preliminary experiments using GPT-4",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"We used the latest model...namely GPT-4o (gpt-4o-2024-05-13)\"; \"The scores for the sequences proposed by GPT were 27/40 points in English and 28/40 points in Japanese\""
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "\"System prompt for GPT-4\" quoted in full in the Methods section",
+    "note": "Only the disease name was sent as the user prompt; temperature=0.0."
+  },
+  "claim": {
+    "metric": "expert score (0-2 per case, summed), English",
+    "value": 27,
+    "n_items": 20,
+    "location": "Results: \"scores for the sequences proposed by GPT were 27/40 points in English\"; 20 disease names, max 2 pts each",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "20 brain-MRI disease names (standard neuroradiology conditions); full GPT responses provided as a supplementary Excel sheet"
+  },
+  "cost": {
+    "est_calls": 20,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Scored 0/1/2 by two radiologists with 20+ years' experience (human judge). The Japanese-language run gives 28/40 with a different pattern of inappropriate cases (Moyamoya disease, neuromyelitis optica, plus cerebral infarction in Japanese only)."
+}

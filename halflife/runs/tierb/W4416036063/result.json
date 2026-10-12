@@ -1,0 +1,49 @@
+{
+  "wid": "W4416036063",
+  "title": "sudoLLM: On Multi-role Alignment of Language Models",
+  "model": "o1-2024-12-17",
+  "metric": "accuracy",
+  "original_value": 89.2,
+  "original_location": "Table 1, caption line \"OQ MMLU accuracy: 89.2 +- 0.9 %\" (response accuracy of o1-2024-12-17 on the original queries)",
+  "reexecution": {
+    "mean_over_seeds": 0.9166666666666666,
+    "per_seed": {
+      "0": {
+        "value": 0.9166666666666666,
+        "n": 480,
+        "ci95": [
+          0.8916666666666667,
+          0.9416666666666667
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 3
+  },
+  "prepare": {
+    "wid": "W4416036063",
+    "n_items": 480,
+    "n_requests": 480,
+    "seeds": 1,
+    "est_usd": 19.98,
+    "subset_note": "cost cap $20.0: seeded random subset of 480 items (seed 20260907)",
+    "dropped_unrenderable": 0,
+    "model": "o1-2024-12-17",
+    "metric": "accuracy",
+    "original_value": 89.2,
+    "cap_usd": 20.0
+  },
+  "served": {
+    "models": [
+      "o1-2024-12-17"
+    ],
+    "n_fingerprints": 5
+  },
+  "approximation": "The paper draws 3 mutually-exclusive sets of 500 OQ samples from the MMLU test split and reports their mean +- sd (89.2 +- 0.9). The exact draw lives in data/mmlu_quality/MMLU_samples.json of the release, which is NOT in the repository (DATA.md points at an empty link), so a seeded draw of the same size (1500) from the same split is used and one pooled accuracy is compared with the reported mean.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 91.66666666666666,
+    "delta": 2.4666666666666544,
+    "original_inside_ci95": true
+  }
+}

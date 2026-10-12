@@ -1,0 +1,40 @@
+{
+  "wid": "W4412888118",
+  "title": "Nunchi-Bench: Benchmarking Language Models on Cultural Reasoning with a Focus on Korean Superstition",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "accuracy",
+  "original_value": 96.7,
+  "original_location": "Appendix E, Table 15, row GPT-4o, column English MCQ (30 of 31; Korean 93.5)",
+  "reexecution": {
+    "mean_over_seeds": null,
+    "per_seed": {},
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4412888118",
+    "n_items": 31,
+    "n_requests": 31,
+    "seeds": 1,
+    "est_usd": 0,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 96.7,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W4412888118",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [],
+    "n_fingerprints": 0
+  },
+  "approximation": "none",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W4412888118"
+  }
+}

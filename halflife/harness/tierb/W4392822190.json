@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4392822190",
+  "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Appendix Table 2 lists 'gpt-4-turbo-2024-04-09'; Sec. 4: 'we generate 10 candidate answers for each problem ... nucleus sampling with temperature 0.2 and top p 0.95'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C.2 (Code Generation Prompt with question and starter-code placeholders)",
+    "note": "Formatting constants (PromptConstants.*) are referenced, not printed."
+  },
+  "claim": {
+    "metric": "Pass@1 (%), code generation, all problems",
+    "value": 41.1,
+    "n_items": 511,
+    "location": "Appendix Table 3, row GPT-4-Turbo-2024-04-09, column Total",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "LiveCodeBench problems and tests (511 problems, May 2023 to May 2024; released on HF)"
+  },
+  "cost": {
+    "est_calls": 5110,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Pass@1 needs execution of generated programs against the released tests (benchmark harness). Whether Table 3 uses all 511 problems or a date-filtered subset was not confirmed. gpt-4o-2024-05-13 row: 41.9.",
+  "resolution": {
+    "gap": "prompt_in_repo",
+    "plan": "Appendix C.2 prints the code-generation template but the two formatting constants (PromptConstants.FORMATTING_MESSAGE / FORMATTING_WITHOUT_STARTER_MESSAGE) are only in the LiveCodeBench codebase linked from the project site. Appendix Table 3 (Total column) is over the full 511 May-2023 to May-2024 problem set; the 349-problem Sep-end subset is used only for the DeepSeek contamination analysis. Run 10 samples per problem at temperature 0.2 / top-p 0.95, execute against the released tests, and report Pass@1 over 511.",
+    "approximation": "Sandbox time/memory limits differ from the authors' runner; otherwise none once the constants are copied from the repository.",
+    "needs_repo": true,
+    "repo_url": "https://livecodebench.github.io/",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

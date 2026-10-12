@@ -1,0 +1,67 @@
+{
+  "wid": "W4399911093",
+  "title": "Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 90.24,
+  "original_location": "Table 4, row gpt-4-turbo, column F-score (%) = 90.24 +/- 0.55 (accuracy 89.40, precision 89.53, recall 90.96); also quoted in Sec. 4.2",
+  "reexecution": {
+    "mean_over_seeds": 0.9087313306025434,
+    "per_seed": {
+      "0": {
+        "value": 0.9100219458668616,
+        "n": 100,
+        "ci95": [
+          0.891305501993632,
+          0.9292827341322681
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.9050772626931568,
+        "n": 100,
+        "ci95": [
+          0.8870083325602133,
+          0.9261600362892595
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.911094783247612,
+        "n": 100,
+        "ci95": [
+          0.8945974328173282,
+          0.9302341952077975
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4399911093",
+    "n_items": 100,
+    "n_requests": 300,
+    "seeds": 3,
+    "est_usd": 5.16,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 90.24,
+    "cap_usd": 9.5
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "3 harness seeds instead of the paper's 5 runs. The released notebook is parameterised for gpt-4o-2024-11-20; the model id is set to the snapshot Table 4 names as the selected model (gpt-4-turbo = gpt-4-turbo-2024-04-09 per Sec. 4.2). Everything else - prompt pattern, five priming examples, skip list, answer parser, count definitions and the pooled F-score - is the authors' own released code.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 90.87313306025435,
+    "delta": 0.6331330602543517,
+    "original_inside_ci95": true
+  }
+}

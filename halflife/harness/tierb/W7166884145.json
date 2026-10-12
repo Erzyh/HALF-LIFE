@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7166884145",
+ "title": "Action Boundary Blindness: When LLM Agents Cannot Tell Where One Action Ends and Another Begins",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Table 4 (main results, ReAct, weighted avg. 1,655 tasks): \"GPT-4-turbo .386 .692 .386 .110 .155\" (ABS/GAR/SVR/BASR/SR); Table 6 EBP-Full ABS .482."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix L (EBP boundary-prompt template, full text)",
+  "note": "Base ReAct scaffold follows the public Yao et al. (2022) method (not reprinted); six benchmarks each supply their own public task prompts/environments."
+ },
+ "claim": {
+  "metric": "Action Boundary Score (ABS) with EBP-Full boundary prompting",
+  "value": 0.482,
+  "n_items": 1655,
+  "location": "Table 6, row GPT-4-turbo, EBP column (Base .386 in Table 4)",
+  "task_type": "agentic",
+  "judge": "llm:unresolved (bare \"GPT-4\", temperature 0, used only for ambiguous violation classification)"
+ },
+ "data": {
+  "public": "yes",
+  "source": "tau-bench, WebArena, ALFWorld, TheAgentCompany, OSWorld (all public agent benchmarks)"
+ },
+ "cost": {
+  "est_calls": 22000,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Reproduction needs the six agent-benchmark environments/simulators (public, but a heavy engineering lift) plus an undated bare \"GPT-4\" LLM-judge for ambiguous cases (soft gap, precedent treats undated judges as \"maybe\" rather than aux_model_dead); rule-based classification covers unambiguous cases without a judge call."
+}

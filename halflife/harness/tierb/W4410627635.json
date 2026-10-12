@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4410627635",
+ "title": "Analysis of automation and retraining opportunities for the Brazilian federal public service",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Abstract: \"assessment of...automation of each job duty by GPT-4 Turbo\"; \"a prompt (Appendix 2) for the GPT-4 Turbo API was developed\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix 2",
+  "note": "GPT-4 Turbo is queried via its API to assess automation importance/horizon per job duty, and separately to associate relevant technologies, with a required justification."
+ },
+ "claim": {
+  "metric": "% of job duties classified with an immediate or short-term automation-impact horizon",
+  "value": 72,
+  "n_items": 1136,
+  "location": "Abstract (\"72% of the job duties with different automation levels in an immediate or short-term impact horizon\"); \"GPT-4 Turbo associated 59 technologies with the 1,136 job duties evaluated (Table 3)\"",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Job duties of 142 intermediate-level Brazilian federal public positions, extracted from an official government classification document"
+ },
+ "cost": {
+  "est_calls": 3408,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Digital Government Research (dg.o 2025) conference paper. Data provenance (\"a government document\") is described but the specific document/URL was not directly confirmed in the excerpt read; treated as public given it is an official public-sector classification record. est_calls = 1,136 job duties x 3 seeds."
+}

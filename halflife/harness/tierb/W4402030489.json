@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402030489",
+  "title": "Generative Multimodal Models for Social Science: An Application with Satellite and Streetscape Imagery",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Section 4.2: 'we implemented our prompt using API access to gpt-4o-2024-05-13 ... temperature parameter to 0 ... repeated each city-specific API call three times'; 327 sites, 1,101 images."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 4.2 prints the system prompt; the '[list of 18 pre-defined built environment feature labels]' placeholder and per-city user prompt are not expanded",
+    "note": ""
+  },
+  "claim": {
+    "metric": "average F1 against expert labels",
+    "value": 0.66,
+    "n_items": 147,
+    "location": "Section 4.3.2 / Table 9 (validity test set, n = 147 images)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "Satellite and streetscape images pulled from the Google Maps API / Street View Static API for author-defined sites; no image or site-list release"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Images are not archived and Google imagery changes; expert labels and site coordinates are not published."
+}

@@ -1,0 +1,56 @@
+{
+  "wid": "W4411119711",
+  "title": "FaithBench: A Diverse Hallucination Benchmark for Summarization by Modern LLMs",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "custom",
+  "original_value": 55.96,
+  "original_location": "Table 2, row 'GPT-4-Turbo w/ simple, zero-shot prompt (Luo et al., 2023)', column BA (%) (F1-M 42.16)",
+  "reexecution": {
+    "mean_over_seeds": 0.5734837753522914,
+    "per_seed": {
+      "0": {
+        "value": 0.5734837753522914,
+        "n": 750,
+        "ci95": [
+          0.5500234300910778,
+          0.5997876659423347
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4411119711",
+    "n_items": 750,
+    "n_requests": 750,
+    "seeds": 1,
+    "est_usd": 0.41,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "custom",
+    "original_value": 55.96,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper cites the prompt to Luo et al. (2023) rather than printing it; the exact system/user strings are taken from the authors' own judge notebook, which also fixes temperature 0 and the answer parser. The alias 'GPT-4-Turbo' of Table 2 is read as the tracked snapshot gpt-4-turbo-2024-04-09.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4411119711"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 57.34837753522915,
+    "delta": 1.3883775352291465,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4416035826",
+ "title": "Massive Supervised Fine-tuning Experiments Reveal How Data, Layer, and Training Factors Shape LLM Alignment Quality",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo (AlpacaEval v2 baseline); gpt-4o-2024-07-18 (evaluator)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Sec (AlpacaEval v2): 'comparing the responses of our fine-tuned models against those of GPT-4-Turbo, and report the win rate...We used gpt-4o-2024-07-18 as the evaluator LLM.'"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "AlpacaEval v2's standard fixed reference outputs are used for win-rate comparison; no separate GPT-4-Turbo prompt is printed for this paper's own use of it."
+ },
+ "claim": {
+  "metric": "none for the live id (used only as AlpacaEval v2's fixed comparison baseline, not itself scored)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "llm:gpt-4o-2024-07-18"
+ },
+ "data": {
+  "public": "yes",
+  "source": "AlpacaEval v2 (805 questions); 1,000+ fine-tuned SFT models and benchmark results released on GitHub per abstract"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number",
+  "aux_model_dead"
+ ],
+ "notes": "GPT-4-Turbo appears only as AlpacaEval v2's fixed reference baseline (pre-existing outputs), not re-called by these authors; the reported win-rate is a property of the fine-tuned open models, not of GPT-4-Turbo itself. The evaluator gpt-4o-2024-07-18 is not on the still-callable list."
+}

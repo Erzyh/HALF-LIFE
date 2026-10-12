@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4411119258",
+  "title": "FollowIR: Evaluating and Teaching Information Retrieval Models to Follow Instructions",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-1106",
+    "resolved": "dead-preview",
+    "role": "A",
+    "evidence": "\"we created these short instructions and keywords by prompting GPT-4-Turbo-1106 to generate them from the full instructions\" (Sec. 5; prompt in Appendix H)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix H 'Prompts Used' (instruction-shortening prompts)",
+    "note": "Data-generation prompts only"
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "FollowIR benchmark"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "no_number"
+  ],
+  "notes": "Live ID is a dead preview used only to generate short instructions; evaluated systems are retrieval models scored with p-MRR."
+}

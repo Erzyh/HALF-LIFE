@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7155247005",
+  "title": "Auditing Automated Evaluation, Error Propagation, and Runtime Mitigation in Tool-Using Language Agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano; o3-mini",
+    "resolved": "gpt-4.1-nano",
+    "role": "S",
+    "evidence": "Sec. 3: 'We collect traces from nine proprietary models (GPT-4o, ..., GPT-4.1-nano, GPT-3.5-turbo, o3-mini, ...) ... through an identical prompted-ReAct harness at temperature 0.'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "ReAct harness prompt not printed (released with the code)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "baseline task correctness (%) judged by the LLM ensemble",
+    "value": 45.3,
+    "n_items": 450,
+    "location": "Table 5, row GPT-4.1-nano, baseline column (45.3 [40.4, 50.0])",
+    "task_type": "agentic",
+    "judge": "llm:ensemble GPT-4o + Gemini-2.5-Flash + GPT-4o-mini (majority vote)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "AgentProp-Bench (2,000 tasks, 14,750 traces, labels), https://github.com/bhaskargurram-ai/"
+  },
+  "cost": {
+    "est_calls": 2700,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Tool-using agent loop with injected tool errors; needs the harness and tool simulators, and correctness is judged by an unpinned LLM ensemble."
+}

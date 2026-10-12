@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402510068",
+  "title": "Chinese Metaphor Recognition Using a Multi-stage Prompting Large Language Model",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (shared-task organizer baseline)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Sec. 4: 'The official offers benchmark results for the MAP-NEO [29], CT-LLM [8], Yi-1.5-34B, Qwen2-72B, and GPT-4-Turbo models on the test set. From Fig. 4, ...'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a for GPT-4-Turbo (organizer-provided baseline); the authors' multi-stage prompts are printed for their own Qwen-based method",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (organizer baseline, bar chart only)",
+    "value": null,
+    "n_items": null,
+    "location": "Fig. 4",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "NLPCC-2024 Shared Task 9 (Chinese metaphor), https://github.com/xingweiqu/NLPCC-2024-Shared-Task-9"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4-Turbo numbers come from the shared-task organizers and appear only as a bar chart; the authors did not run the model."
+}

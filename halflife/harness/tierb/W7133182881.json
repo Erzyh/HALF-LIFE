@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7133182881",
+  "title": "Automating crash diagram generation using vision-language models: a case study on multilane roundabouts",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (API version: gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 3.3: 'The experiments were conducted using the following model versions: GPT-4o (API version: gpt-4o-2024-05-13), Gemini-1.5-Flash, and Janus-4o.'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 'Prompt Design' describes the three-part structured prompt (narrative + base roundabout layout + report image); wording not printed in full",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean rubric score (0-10) over crash diagrams",
+    "value": null,
+    "n_items": 79,
+    "location": "Sec. 5 table of ten binary metrics per model (GPT-4o highest; values not tied to a single printed total)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "79 MV-104A police crash reports (roundabout crashes) with officer sketches; not released"
+  },
+  "cost": {
+    "est_calls": 79,
+    "tier": "low"
+  },
+  "blockers": [
+    "human_outcome",
+    "data_closed"
+  ],
+  "notes": "Diagrams are scored 0/1 on ten criteria by trained human experts; outputs are images."
+}

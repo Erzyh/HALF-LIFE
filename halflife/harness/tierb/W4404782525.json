@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4404782525",
+  "title": "Characterizing LLM Abstention Behavior in Science QA with Context Perturbations",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (GPT4o)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4: \"gpt-3.5-turbo-0613 (GPT3.5), and gpt-4o-2024-05-13 (GPT4o) ... We set temperature to 0 and top-p sampling to 1\"; Table 3(a) row \"GPT4o 82.6 61.2 97.9 54.1\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Sec. 3 (constrained prompt for QASPER quoted), Appendix A (prompts for SQuAD2, PubMedQA, BioASQ)", "note": "Zero-shot; answers post-processed by rules described in Appendix B."},
+  "claim": {
+    "metric": "zero-shot task accuracy with gold context, PubMedQA", "value": 61.2, "n_items": 500, "location": "Table 3(a), row GPT4o, PubMedQA column (SQuAD2 82.6, BioASQ 97.9, QASPER 54.1); PubMedQA test size 500 (Table 1)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "PubMedQA, BioASQ, SQuAD2, QASPER; code at the GitHub link in footnote 1"},
+  "cost": {"est_calls": 1500, "tier": "low"},
+  "blockers": [],
+  "notes": "Deterministic decoding; PubMedQA (500 boolean questions) gives the cheapest headline cell, SQuAD2 (11,873) the most expensive. Abstention rates in Table 4 use the same runs."
+}

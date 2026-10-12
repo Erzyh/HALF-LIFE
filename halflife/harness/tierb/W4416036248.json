@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4416036248",
+  "title": "CheckEval: A reliable LLM-as-a-Judge framework for evaluating text generation using checklists",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"(4) GPT models: GPT-4-Turbo, GPT-4o, GPT-4o-mini\"; \"we set temperature = 0, n = 1, and fix the random seed for both G-Eval, SEEval and CheckEval\" (Sec. 4.3-4.4)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix F: Figures 5-6 (evaluation prompt), 7-8 (augmentation), 9 (filtering); checklist questions themselves are examples only",
+    "note": "Checklists generated with GPT-4o + human filtering, released in github.com/yukyunglee/CheckEval"
+  },
+  "claim": {
+    "metric": "sample-level Spearman rho with human scores, SummEval average over 4 dimensions (CheckEval)",
+    "value": 0.52,
+    "n_items": 1600,
+    "location": "Table 1, row GPT-4 Turbo / CheckEval, column SummEval rho",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SummEval (1,600 summaries with human ratings); Topical-Chat"
+  },
+  "cost": {
+    "est_calls": 19200,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Version not printed; resolved by date rule (EMNLP 2025). Paper reports ~$66 per full SummEval run with GPT-4 Turbo.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The evaluation prompt (Figures 5-6) is printed but the per-dimension checklists (GPT-4o-generated, human-filtered) that fill it are only in the repository. Take the SummEval checklists from the repo, run GPT-4 Turbo at temperature 0, n = 1, fixed seed over the 1,600 SummEval summaries for the four dimensions, aggregate the Boolean answers into scores, and compute sample-level Spearman with the human ratings, averaged over dimensions (0.52).",
+    "approximation": "Seed is unspecified; snapshot resolved by the date rule.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/yukyunglee/CheckEval",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

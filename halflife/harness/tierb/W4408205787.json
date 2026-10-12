@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4408205787",
+ "title": "Editorial: Educational policies and practices in emerging multicultural contexts",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"The author(s) declare that GPT-4-turbo on ChatGPT was used for drafting purposes in earlier versions of this manuscript.\" (Generative AI statement)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Writing-assistance disclosure only; this is an editorial, not a study."
+ },
+ "claim": {
+  "metric": "none (editorial; no experiment)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Frontiers in Education editorial; GPT-4-turbo is disclosed only as a manuscript-drafting aid, with no research content or reportable metric."
+}

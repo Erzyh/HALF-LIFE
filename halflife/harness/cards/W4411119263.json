@@ -1,0 +1,171 @@
+{
+ "card_id": "W4411119263",
+ "openalex_id": "https://openalex.org/W4411119263",
+ "title": "ReIFE: Re-evaluating Instruction-Following Evaluation",
+ "doi": "https://doi.org/10.18653/v1/2025.naacl-long.610",
+ "paper": {
+  "authors": "Yixin Liu, Kejian Shi, Alexander Fabbri, Yilun Zhao, Peifeng Wang, Chien-Sheng Wu, Shafiq Joty, Arman Cohan (Yale NLP / Salesforce AI)",
+  "year": 2025,
+  "venue": "NAACL 2025 Long Papers pp. 12246-12283 (earlier arXiv 2410.07069)",
+  "repo": "https://github.com/yale-nlp/ReIFE",
+  "repo_commit": "cfcb8fc2cd078b91e1fe26d81ddbd03672b60175 (2024-10-10, branch main); shallow clone under external/repos/W4411119263/yale-nlp__ReIFE",
+  "repo_license": "none - no LICENSE file in the tree and the GitHub API reports license: null (default all-rights-reserved). Only the derived Hugging Face dataset yale-nlp/ReIFE carries a licence (apache-2.0).",
+  "clone_note": "Repository is ~2.6 GB (results/ raw outputs). We checked out only ReIFE/ configs/ data/ prompts/ misc/ tests/ and the root scripts; results/ was left unchecked out (one path, results/meta_eval_cache/instrusum.gemma-2b.cot\\&consistency.json, contains a backslash and cannot be written on Windows).",
+  "other_artifacts": "Hugging Face dataset yale-nlp/ReIFE (apache-2.0, 10 files, last modified 2024-10-10): subset 'src' = the four source datasets, subset 'predictions' = 450 evaluator result rows per dataset. We downloaded llmbar_natural.jsonl (450 lines) and confirmed every base_LLM value is one of the 25 open-source models: no proprietary item-level predictions are released."
+ },
+ "dependence": {
+  "type": "judge",
+  "strength": "core",
+  "note": "The live model IS the object of study: gpt-4o-2024-05-13 is one of the 13 proprietary base LLMs meta-evaluated as an LLM-evaluator, and its reported number is its own evaluation accuracy against human preference labels. Human labels and both candidate outputs are frozen and public, so only the evaluator arm has to be re-run."
+ },
+ "claim": {
+  "statement": "Used as a pairwise LLM-evaluator under the base protocol, gpt-4o-2024-05-13 agrees with human preference judgements at 95.5 / 80.7 / 79.5 / 80.3 accuracy on LLMBar-Natural / LLMBar-Adversarial / MTBench / InstruSum, averaging 84.0 - below gpt-4o-2024-08-06 (85.7) and o1-mini (85.3), and below the open-source llama-3.1-405b (84.5) (Table 2, Section 4.1).",
+  "claim_type": "tool_validity",
+  "metric": "Evaluation accuracy (%) against human preference labels, averaged over the two presentation orders (output_1/output_2 swapped); the reported Avg. is the unweighted mean over the four datasets, not item-weighted. Auxiliary: self-agreement across the two orders in Krippendorff's alpha.",
+  "original_values": {
+   "gpt-4o-2024-05-13": {
+    "llmbar_natural": 95.5,
+    "llmbar_adversarial": 80.7,
+    "mtbench": 79.5,
+    "instrusum": 80.3,
+    "avg": 84.0
+   },
+   "context_rows": {
+    "gpt-4o-2024-08-06": 85.7,
+    "o1-mini-2024-09-12": 85.3,
+    "gpt-4-0613": 84.2,
+    "llama-3.1-405b": 84.5,
+    "gpt-4o-mini": 78.4,
+    "gpt-3.5-turbo-0125": 63.8
+   },
+   "subset_sizes": {
+    "llmbar_natural": 100,
+    "llmbar_adversarial": 319,
+    "mtbench": 200,
+    "instrusum": 411,
+    "total_pairs": 1030
+   },
+   "avg_check": "(95.5 + 80.7 + 79.5 + 80.3) / 4 = 84.0 exactly - the Avg. column is the macro mean over datasets"
+  },
+  "original_source": "Paper Table 2 (Section 4.1, 'Proprietary LLMs' block), row gpt-4o-24-05-13; Appendix B Table 12 (model registry) spells the snapshot gpt-4o-2024-05-13. Values are given to one decimal."
+ },
+ "protocol": {
+  "model": "gpt-4o-2024-05-13",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+  "model_usage_verified": "yes - a dated snapshot, not an alias: Appendix B Table 12 lists gpt-4o-2024-05-13 in the model registry and Table 2 abbreviates it gpt-4o-24-05-13. No date rule needed. The census hit 'gpt-4-turbo' for this paper is a false positive: GPT-4-Turbo appears only as the model WildBench used to write its checklists (Appendix C.2).",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions, via ReIFE/models/gpt.py class GPT (openai SDK, client.chat.completions.create)",
+  "prompt_source": "prompts/pairwise_vanilla.txt and prompts/pairwise_vanilla_swap.txt (the LLMBar base pairwise prompt, paper Appendix C.1 Figure 6); <|im_start|>/<|im_end|> markers are split into a system message plus a user message by ReIFE/evaluator.py",
+  "messages": [
+   {
+    "role": "system",
+    "content": "You are a helpful assistant in evaluating the quality of the outputs for a given instruction. Your goal is to select the best output for the given instruction."
+   },
+   {
+    "role": "user",
+    "content": "Select the Output (a) or Output (b) that is better for the given instruction. [...] # Instruction:\\n{INSTRUCTION}\\n\\n# Output (a):\\n{OUTPUT_1}\\n\\n# Output (b):\\n{OUTPUT_2}\\n\\n# Which is better [...]"
+   }
+  ],
+  "params": {
+   "temperature": 0.0,
+   "top_p": 1.0,
+   "max_tokens": 64,
+   "n": 1,
+   "logprobs": 5,
+   "source": "configs/gpt/pairwise_base.yaml and configs/gpt/pairwise_base_swap.yaml (eval_kwargs) - these exact values are in the repo, so nothing has to be assumed; the paper only says 'greedy decoding by default' (Section 3)",
+   "parse": "regex pattern 'Output \\((\\S+)\\)' (config field `pattern`), parse_method base_pairwise; a reply matching neither marker is a miss"
+  },
+  "n_items": 1030,
+  "n_calls_per_seed": 2060,
+  "samples_per_item": 1,
+  "presentation_orders": 2,
+  "evaluation": "meta_eval.py: pairwise_meta_eval() computes accuracy against the human 'winner' label separately for the normal and swapped runs and averages them; the Table 2 Avg. column is then the unweighted mean over the four datasets. Also reports Krippendorff alpha self-agreement between the two orders.",
+  "environment": "Python >= 3.10, openai SDK; vllm/transformers are needed only for the open-source arms, not for the GPT arm. run.py --model_cls gpt --model_pt gpt-4o-2024-05-13 --config_dir configs/gpt/pairwise_base (and _swap), --key_path/--account_path for the API key and organisation."
+ },
+ "tierb_relationship": {
+  "existing_config": "harness/tierb/configs/W4411119263.json (status ready, hook harness/tierb/hooks/W4411119263.py), triage harness/tierb/W4411119263.json (verdict eligible, no blockers)",
+  "upgrade": "yes - the repository lets us run the authors' own pipeline end to end (run.py + configs/gpt/pairwise_base{,_swap} + meta_eval.py), so this is an upgrade from a prompt-level replay to repository-based re-execution.",
+  "protocol_differences": [
+   "Prompt text is identical (the Tier B config transcribes prompts/pairwise_vanilla.txt verbatim), so the two protocols cannot differ on wording.",
+   "Params: the Tier B config assumed max_tokens 16; the repo config sets max_tokens 64, n 1, top_p 1.0 and logprobs 5. The repo values should win. logprobs=5 is requested but the base_pairwise parser uses the text, so it only changes the response payload, not the decision.",
+   "Item handling: Tier B builds 2,060 rows by duplicating each pair in both orders through the hook; the repo instead runs two separate passes with two prompt files (pairwise_vanilla / pairwise_vanilla_swap) and joins them in meta_eval.py. Same 2,060 calls, same averaging.",
+   "Scoring: Tier B's hook reweights per-item values so their mean equals the macro average; the repo computes the macro average directly. Same Avg., but the repo path also yields the Krippendorff alpha self-agreement that Tier B drops.",
+   "Data source: Tier B loads Hugging Face yale-nlp/ReIFE subset 'src'; the repo ships the same four files under data/*.json (100/319/200/411 rows, fields instruction / output_1 / output_2 / winner). We verified the counts locally."
+  ]
+ },
+ "artifacts": {
+  "prompts_path": "prompts/pairwise_vanilla.txt, prompts/pairwise_vanilla_swap.txt (17 other protocols' prompts also shipped)",
+  "data_path": "data/llmbar_natural.json (100), data/llmbar_adversarial.json (319), data/mtbench.json (200), data/instrusum.json (411); identical copies as Hugging Face yale-nlp/ReIFE subset 'src'",
+  "eval_path": "run.py (inference) + meta_eval.py / meta_eval.sh / meta_eval.ipynb (accuracy and Krippendorff alpha); ReIFE/methods/base_pairwise.py is the protocol",
+  "data_public": true,
+  "data_license": "apache-2.0 on the Hugging Face mirror; the underlying items come from LLMBar (princeton-nlp), MTBench (lm-sys FastChat) and InstruSum (yale-nlp), which the paper asks users to cite separately",
+  "redistributable": true,
+  "notes": "results/outputs/ holds 3,159 raw output files but only for the 25 open-source base LLMs (25 x 18 protocols x 4 datasets); we confirmed the same restriction on the Hugging Face 'predictions' subset, where all 450 rows of llmbar_natural.jsonl carry an open-source base_LLM. No item-level gpt-4o predictions exist anywhere, so the comparison is at the accuracy level (one decimal) only."
+ },
+ "blockers": [
+  "No item-level original outputs for the gpt-4o-2024-05-13 arm (repo results/ and the HF 'predictions' subset both cover only the 25 open-source base LLMs), so per-item McNemar-style comparison is impossible; we can only compare accuracies to one decimal.",
+  "The repository has no licence (GitHub API license: null, no LICENSE file). Code may be read and run but not redistributed; only the HF dataset mirror is apache-2.0.",
+  "Repository size ~2.6 GB and one result path contains a backslash that Windows cannot create; the code subset must be checked out selectively (done).",
+  "InstruSum's 411 pairs carry ~1,150-word instructions and dominate cost (about 80% of input tokens); a reduced-cost variant would have to drop or subsample that dataset and would no longer reproduce the Avg. column."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "gpt-4o-2024-05-13",
+   "purpose": "live baseline (P0) - the retiring snapshot named in the paper's own model registry"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for gpt-4o per the OpenAI deprecations page)",
+   "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+  ],
+  "dead_comparators_not_runnable": [
+   "gpt-4-0613",
+   "gpt-3.5-turbo-0125",
+   "gpt-4o-2024-08-06 (the paper's top row)",
+   "o1-mini-2024-09-12"
+  ]
+ },
+ "budget": {
+  "est_calls": 6180,
+  "est_tokens_in": 7605000,
+  "est_tokens_out": 25000,
+  "est_cost_usd": 38,
+  "pricing_usd_per_1m": {
+   "gpt-4o-2024-05-13": {
+    "input": 5.0,
+    "output": 15.0
+   }
+  },
+  "assumptions": "1,030 pairs x 2 presentation orders x 3 seeds = 6,180 calls. Input per call from Table 1 word counts (instruction + 2 outputs) x 1.35 tokens/word plus ~250 template tokens: Nat ~476, Adv ~590, MT ~849, Ins ~2,097 tokens, giving ~2.54M input tokens per seed. Output is 'Output (a)' ~4 tokens (max_tokens 64 is only a cap). 3 seeds at temperature 0 capture API nondeterminism only; a single seed costs ~USD 13, and dropping InstruSum would cut the full run to ~USD 8 but change the claim."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: the Avg. column (macro mean over the four datasets) for gpt-4o-2024-05-13 under the base protocol. Survival = the median of 3 seeds falls inside the bootstrap 95% CI over the 1,030 items of the original 84.0 (about +/- 2.2 pp) AND the tool-validity direction holds: accuracy stays far above the 50% random-oracle floor and the per-dataset ordering Nat > Adv ~ Ins ~ MT is preserved. Partial = the level moves outside the CI but the model still beats gpt-4o-mini's 78.4 and the adversarial-set gap persists. Death = the evaluator no longer separates LLMBar-Adversarial from chance, or refusal/format failures make a dataset unscorable.",
+  "notes": "Secondary checks: (a) the per-dataset cells 95.5 / 80.7 / 79.5 / 80.3; (b) the paper's headline cross-row claim that an open-source model (llama-3.1-405b, 84.5) matches this proprietary evaluator - that comparison row is frozen, so only our gpt-4o side moves; (c) Krippendorff alpha self-agreement across the two orders, which meta_eval.py emits for free and which detects a shift into position bias."
+ },
+ "decisions_2026_09_19": {
+  "datasets": "all four (llmbar_natural 100, llmbar_adversarial 319, mtbench 200, instrusum 411 = 1,030 pairs); judged quantity = the macro mean over the four accuracies, i.e. the paper's Avg. 84.0. InstruSum is kept even though it carries ~65% of the input tokens, because dropping it would change the claim.",
+  "params": "the repository's own eval_kwargs (configs/gpt/pairwise_base.yaml and pairwise_base_swap.yaml, identical): max_tokens 64, n 1, temperature 0.0, top_p 1.0, logprobs 5 -> the API body ReIFE/models/gpt.py sends is logprobs=true + top_logprobs=5. Supersedes the Tier B config's assumed max_tokens 16.",
+  "seeds": "1 (the paper ran greedy decoding once, Sec. 3); seed_idx 0, no seed parameter is sent. The Tier B run's 3 seeds spread only 0.20 points (84.32 / 84.51 / 84.35), so a second pass buys little.",
+  "presentation_orders": "both, as the repository does: two passes over the same 1,030 pairs with prompts/pairwise_vanilla.txt and prompts/pairwise_vanilla_swap.txt, averaged per dataset by meta_eval.pairwise_meta_eval (which also yields the Krippendorff alpha self-agreement)",
+  "cost_cap_usd": 20,
+  "adapter": "harness/adapters/reife_W4411119263.py (--check / --dry-run / --run / --analyze); the repository's code is imported, not copied",
+  "estimate_2026_09_19": "2,060 calls, 2.189M input + ~8.2k output tokens, USD 11.07 expected (tiktoken o200k_base, calibrated exactly against the archived Tier B calls); USD 12.92 if every reply hit max_tokens=64",
+  "resolves_user_checks": "all three (datasets, eval_kwargs, seeds); the Tier B prompt-level run runs/tierb/W4411119263 (84.39, 3 seeds, $33.11) is superseded as the primary evidence but kept as a comparison row",
+  "corrections_to_this_card": [
+   "tierb_relationship.protocol_differences claims 'Prompt text is identical (the Tier B config transcribes prompts/pairwise_vanilla.txt verbatim)'. It is not: the Tier B user_template collapses all 6 blank lines of the prompt file to single newlines (20 newlines in the file vs 14 in the config) and writes '**equally likely**' without the markdown emphasis. The item content is identical (verified over all 1,030 pairs against the archived Tier B requests).",
+   "The two protocols also build the swapped order differently: the repository swaps the two DISPLAY POSITIONS and keeps Output (a) bound to output_1 (prompts/pairwise_vanilla_swap.txt), while the Tier B hook keeps the a-then-b display order and swaps the two output CONTENTS, remapping the gold letter.",
+   "protocol.params.parse says 'a reply matching neither marker is a miss'. The repository's base_pairwise_parse instead resolves it with random.randint(1,2) under random.seed(42) (set once per output file), and it is case sensitive and takes the first 'Output (x)' in the reply - so 'output (a)', 'Output (A)' and 'Both Output (a) and Output (b) are good' are all scored, two of them by coin flip."
+  ]
+ },
+ "status": "done",
+ "user_checks": [
+  "Run all four datasets (USD ~38 at 3 seeds) or drop InstruSum, which is ~80% of the cost but also one of the four cells in the Avg.?",
+  "Adopt the repo's own eval_kwargs (max_tokens 64, top_p 1.0, logprobs 5) over the Tier B config's assumed max_tokens 16, and supersede the Tier B prompt-level config with this repository run?",
+  "3 seeds at temperature 0, or 1 seed (the paper ran greedy decoding once)?"
+ ],
+ "domain_notes": "Meta-evaluation of LLM evaluators: 25 open-source and 13 proprietary base LLMs x 18 evaluation protocols = 450 released evaluator configurations. The paper's own conclusion is that proprietary evaluators are not indispensable (llama-3.1-405b at 84.5 sits above gpt-4o-2024-05-13 at 84.0) and that elaborate protocols do not beat the plain base protocol. Contamination risk for successor arms is real: LLMBar, MTBench and InstruSum are all public and pre-2024.",
+ "judgment_provisional": {
+  "value": "생존 (survived)",
+  "cost_usd": 11.067,
+  "run_date": "2026-09-19",
+  "source": "runs/W4411119263/run_meta.json"
+ }
+}

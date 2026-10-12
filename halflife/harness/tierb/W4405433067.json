@@ -1,0 +1,45 @@
+{
+  "openalex_id": "W4405433067",
+  "title": "Atomic Learning Objectives Labeling: A High-Resolution Approach for Physics Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Footnote 2: 'The specific models we use are GPT-4o: gpt-4o-2024-05-13, GPT-3.5: gpt-3.5-turbo-0125 ...'; Table 5 (OpenStax - ch8 GPT-4o): 'CoT 2 2/44 0.559 0.698 4.432'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 4 (Simple / Explanation / CoT prompts printed); LO formats in Sec. 4",
+    "note": "temperature 0.9, top-p 1"
+  },
+  "claim": {
+    "metric": "F1 of predicted learning-objective set vs expert labels, OpenStax ch8 (CoT prompting, LO format 2)",
+    "value": 0.698,
+    "n_items": 44,
+    "location": "Table 5, block OpenStax - ch8 GPT-4o, row CoT 2 (columns: failures/44, metric 1, F1, avg #LOs)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "OpenStax College Physics questions (open textbook) and a private course dataset; the atomic learning-objective taxonomy and expert labels are described but their release is not stated"
+  },
+  "cost": {
+    "est_calls": 132,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Column semantics of Table 5 are inferred (the header is missing from the extracted text; 0.698 is read as F1 given the text's 'F1 value of 0.5-0.7'). Sampling temperature 0.9 makes seeds matter.",
+  "resolution": {
+    "gap": "unreleased",
+    "plan": "The 44 OpenStax University Physics ch. 8 questions are public, but the ground truth is a single expert's atomic-LO labels over a 194-code taxonomy (Sec. 4.1-4.3); the paper prints only taxonomy counts and examples (Tables 1-2, 9), no per-question labels, no full LO list and no repository or supplement URL. Without the labels the Table 5 F1 (0.698) cannot be recomputed.",
+    "approximation": "n/a",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

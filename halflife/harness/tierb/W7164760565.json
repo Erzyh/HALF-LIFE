@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7164760565",
+  "title": "Analyzing the Multilingual Ability of Vision-Language Models to Generate Explanations for Artworks",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (via https://chatgpt.com/, dataset construction)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "A",
+    "evidence": "Footnote 3 (Sec. 3): 'https://chatgpt.com/. gpt-4o-2024-05-13 を用いる' (used through ChatGPT to build the multilingual explanation dataset)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a (dataset-construction step)",
+    "note": "Japanese text with corrupted glyph mapping; only fragments are readable."
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Extended multilingual artwork-explanation dataset (release not verifiable from the garbled text)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "webui"
+  ],
+  "notes": "Evaluated subject models are LLaVA-NeXT, Qwen-VL and GPT-4o-mini-2024-07-18 (Table 15), not the live id; the live model was used through the ChatGPT web app for data creation. The text file is mostly unreadable Japanese glyphs but the title/abstract match."
+}

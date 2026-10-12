@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404310870",
+  "title": "ReasonAgain: Using Extractable Symbolic Programs to Evaluate Mathematical Reasoning",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We evaluate 4 LLMs in this paper: GPT-4-Turbo (OpenAI et al., 2024), GPT-4o ..., LLama-3.1-8B ..., and Qwen-2.5-7B ... using ... direct, few-shot CoT, and CoT+SC\" (Sec. 3.1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 3.1: Direct prompt printed verbatim; CoT uses the 8-shot template of Wei et al. (2022)",
+    "note": "Direct-setting temperature not stated (CoT: 0, CoT+SC: 0.7)"
+  },
+  "claim": {
+    "metric": "exact-match accuracy, Direct, GSM8K original questions ('Before')",
+    "value": 45.43,
+    "n_items": 1121,
+    "location": "Table 1, row GPT4-Turbo / Direct, GSM8K Accu. Before",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "GSM8K and MATH public; the 1121/268 filtered cases and 5 GPT-4o-generated perturbations per case are in github.com/CogComp/reasoning-eval (contents unverified)"
+  },
+  "cost": {
+    "est_calls": 3363,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "'After' numbers need the released perturbations. Version not printed; resolved by date rule (Oct 2024).",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 1,121 GSM8K cases are the subset whose GPT-4o-extracted program reproduces the gold answer; take the released case list from the repository, run the printed Direct prompt with gpt-4-turbo-2024-04-09 at temperature 0 and compute exact match vs Table 1 (45.43). Without the repository, run the full GSM8K test set (1,319) and compare at set level.",
+    "approximation": "Direct-setting temperature assumed 0 (stated only for CoT); the fallback uses the full test set instead of the filtered 1,121.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/CogComp/reasoning-eval",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7155654736",
+  "title": "Intersectional Fairness in Large Language Models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "'GPT-3.5-turbo (OpenAI, 2024b), GPT-4-turbo (OpenAI et al., 2024a), GPT-4o (OpenAI, 2024a)' in the related-work table; 'Our Study GPT-4o, Llama-3, Gemma-3, Gemini-2.0 Flash, ...'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Section 4 (MCQ prompting over BBQ-based questions described; consistency via 20 repeated prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (disambiguated context)",
+    "value": 95.48,
+    "n_items": 8952,
+    "location": "Table (GPT-4o row: 95.48% accuracy; 8,952 questions x 20 repetitions)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "two public BBQ-based intersectional MCQ datasets (8,952 questions)"
+  },
+  "cost": {
+    "est_calls": 179040,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live id is mention-only; subject GPT-4o is unversioned, temperature 1.0."
+}

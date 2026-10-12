@@ -1,0 +1,68 @@
+{
+ "wid": "W4413735524",
+ "title": "From text to design: a framework to leverage LLM agents for automated CAD generation",
+ "status": "needs_human",
+ "model": {
+  "id": "gpt-4-turbo-2024-04-09",
+  "params": {
+   "temperature": 0.0,
+   "max_tokens": 1024,
+   "top_p": 1.0
+  },
+  "params_source": "assumed (the paper states no decoding parameters; it only says ChatGPT-4 Turbo was used through its API with function calling)",
+  "seeds": 3
+ },
+ "task": {
+  "type": "other",
+  "n_items": 60,
+  "subset_rule": "paper-defined: 4 test geometries (box, corner plate, u-profile, toy car) x 15 attempts = 60 runs under the stepPlanning agent workflow; each geometry is described by 3 distinct textual prompts",
+  "approximation": "an agentic multi-turn loop with function calling into a CAD kernel, not a single chat completion; the runner cannot execute it"
+ },
+ "items": {
+  "source_type": "github",
+  "source": "https://github.com/R-SMP/text-to-design (Appendix A: 'The code for framework, including the predefined set of prompts and the experimental data, can be found here'); repository reachable 2026-09-19 (HTTP 200)",
+  "config_or_split": "the predefined prompt set for the four test geometries",
+  "filter": null,
+  "fields": {
+   "input": "textual prompt describing the geometry",
+   "label": "ground-truth CAD model (Fig. 2a), judged visually"
+  },
+  "license": "unknown (not read; the repository was only checked for existence)",
+  "access_checked": true,
+  "size_mb": null,
+  "file_url": null
+ },
+ "prompt": {
+  "system": null,
+  "user_template": null,
+  "placeholders": {},
+  "few_shot": "none",
+  "source_location": "Appendix A - which contains no prompt text, only the repository link; Fig. 1 shows the flowchart with a 'predefined context' and a 'function call file' as separate inputs",
+  "verbatim": "none (no prompt is printed in the paper; the three textual prompts per geometry, the stepPlanning instruction and the function-call schema all live in the repository only)"
+ },
+ "output": {
+  "parse": "free text",
+  "postprocess": "the agent emits function calls that are assembled into a CAD script; the artefact, not the text, is scored",
+  "parse_paper": "the workflow terminates when the model returns the Finished function; the generated geometry is then rendered"
+ },
+ "metric": {
+  "name": "custom",
+  "definition": "success rate = successful attempts / attempts, where an attempt counts as successful only if the part was generated, complete and accurate under a binary success/failure visual inspection (Sec. 4.1, Fig. 2b)",
+  "judge": "human (binary visual inspection of the rendered geometry against the ground-truth CAD model)",
+  "original_value": 43,
+  "original_location": "Table 2 (stepPlanning workflow), row GPT-4 Turbo, Total column: 26/60 (43%); the same 26/60 also appears as the stepPlanning row of Table 1",
+  "bootstrap_unit": "attempt",
+  "scale": 100
+ },
+ "cost": {
+  "est_calls": 180,
+  "est_usd": 20.0,
+  "tier": "low"
+ },
+ "open_points": [
+  "prompt not printed: Appendix A is a bare repository link, so the three prompts per geometry and the agent-workflow system messages would have to be taken from github.com/R-SMP/text-to-design rather than from the paper.",
+  "environment: the framework drives a CAD kernel through function calls and assembles the geometry in Rhino/Grasshopper; reproducing a run means standing up that toolchain, which is outside the runner and needs a licensed CAD environment.",
+  "judge: success is a human binary visual inspection of the rendered part against the Fig. 2a ground truth; there is no automatic scorer in the paper."
+ ],
+ "notes": "GPT-4 Turbo also has a Table 1 cell (111/240 across all four agent workflows) and Table 3/4 cells for the FCRC bracket case study; all of them are scored the same way. The FCRC bracket additionally needs topology optimisation in Rhino/Grasshopper with the tOpos plugin."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4404261523",
+  "title": "An Eye for an AI: Evaluating GPT-4o's Visual Perception Skills and Geometric Reasoning Skills Using Computer Graphics Questions",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o (snapshot not stated); 'GPT-4 Turbo' appears only in related work",
+    "resolved": "gpt-4o-2024-05-13 (inferred from mid-2024 study date; unresolved in text)",
+    "role": "S",
+    "evidence": "Sec. 3.4: 'the data is sent to GPT-4o via the OpenAI API ... Each JSON object is sent 10 times ... temperature is set to 0.75'; Table 1: 'CG_TEST: All questions 42.1% 50.1%'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 3.4 (system message printed); Figures 2-4 (JSON input formats and textual descriptions of images)",
+    "note": "MCQ and programming questions; 10 samples per question at temperature 0.75"
+  },
+  "claim": {
+    "metric": "percentage of correct responses, CG_TEST all questions",
+    "value": 50.1,
+    "n_items": 1350,
+    "location": "Table 1, row CG_TEST: All questions, column GPT-4o (676/1350 responses; 101 questions x 10 samples, image questions in two formats)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CG_TEST and CG_EASY question sets released at https://github.com/TFPlusPlus/GPT-4V-vs.-CG"
+  },
+  "cost": {
+    "est_calls": 4050,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "CSV live_id gpt-4-turbo is a related-work citation (role C). The subject 'GPT-4o' has no snapshot in the text (SIGGRAPH Asia 2024; the API alias pointed to gpt-4o-2024-05-13 until October 2024). Programming answers need the course auto-assessment test cases; the MCQ subset (800 responses, 62.6%) is simpler.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The repository provides the images, textual descriptions and JSON inputs (text-only and multimodal versions); the MCQ answer keys and the course auto-assessment test cases for the programming questions must be checked there. Run gpt-4o-2024-05-13 with the printed system message at temperature 0.75, 10 samples per JSON object (135 objects = 1,350 responses), mark MCQs by option match and programming answers by the test cases, and compare with 50.1% (676/1350).",
+    "approximation": "The GPT-4o snapshot is inferred from the mid-2024 date; if the auto-assessment test cases are absent, compare only the MCQ subset (62.6%, 501/800).",
+    "needs_repo": true,
+    "repo_url": "https://github.com/TFPlusPlus/GPT-4V-vs.-CG",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

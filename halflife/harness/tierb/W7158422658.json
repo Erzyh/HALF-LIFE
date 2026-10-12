@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7158422658",
+  "title": "IntrAgent: An LLM Agent for Content-Grounded Information Retrieval through Literature Review",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o4-mini-20250416 (also o3-20250416; gpt-4-turbo is mention only)",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Appendix G: 'We conducted all experiments using API access to GPT-4o-20240806, GPT-4.1-20250414, and DeepSeek-R1-20250120, o3-20250416, o4-mini-20250416'; Table 2 column o4-mini"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix E (E.1 section ranking, E.2 iterative reading and sufficiency check, E.2.5 final answer, E.3 evaluation-protocol mapping prompts)",
+    "note": "about eight distinct prompts forming a multi-stage agent loop; temperature 0.0"
+  },
+  "claim": {
+    "metric": "accuracy, macro average over 5 domains (%)",
+    "value": 73.8,
+    "n_items": 325,
+    "location": "Table 2, row IntrAgent (Ours), column o4-mini",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4.1-2025-04-14 (maps free-form answers to MCQ choices, Appendix E.3)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "IntraBench, https://huggingface.co/datasets/IntrAgent/IntraBench (25 papers, 5 per field; ~65 questions per domain)"
+  },
+  "cost": {
+    "est_calls": 10000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Re-execution means re-implementing the whole IntrAgent loop (hierarchy-aware section ranking, iterative reading with sufficiency check, synthesis) from the printed prompts; GPT-4o-2024-08-06 is used inside some pipeline stages and is not in the live list. n_items inferred as 5 domains x 65 questions (Table 5 reports x/65). gpt-4-turbo appears only in baseline descriptions (role C).",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "IntraBench (Hugging Face) provides the 25 papers and about 65 questions per domain. Re-run the loop (section-title parsing, reasoning-based ranking, iterative reading with detail extraction and sufficiency check, final synthesis) with the Appendix E prompts and o4-mini-2025-04-16 as backbone at temperature 0, mapping free-form answers to options with gpt-4.1-2025-04-14 (E.3); macro accuracy over five domains vs 73.8 (Table 2).",
+    "approximation": "Loop control (reading budget, stopping rule, PDF-to-section conversion) must follow the repository code; reasoning-model sampling makes runs vary.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/FengboMa/IntrAgent",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

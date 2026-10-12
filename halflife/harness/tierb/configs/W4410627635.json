@@ -1,0 +1,94 @@
+{
+  "wid": "W4410627635",
+  "title": "Analysis of automation and retraining opportunities for the Brazilian federal public service",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 512
+    },
+    "params_source": "assumed (the released script Prompt GPT-4-gov-v4.py passes no decoding parameters at all, so the API defaults temperature 1 / top_p 1 were in force; temperature 0 is the ANALYSIS_PLAN default). max_tokens 512 covers one CSV row with three justifications. Seeds 1 per CONFIG_SCHEMA.md (high cost tier); the triage record's est_calls 3,408 assumed 3 seeds.",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1136,
+    "subset_rule": "all 1,136 job duties of the 142 intermediate-level federal positions (sheet 'nova' of cargo_atividade_ni_prompt.xlsx)",
+    "approximation": "One duty per call, following the released script's own user message; the prompt's worked example instead shows twelve duties in a single call, so the paper's batch size is unknown and batching changes the model's context. Decoding parameters were not recorded by the authors."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "Google Drive folder 1kYqUzCRbaFB3YpfJij8KSOeiy-5thLr- (cited in footnote 2 and the Data Availability note of the paper), file cargo_atividade_ni_prompt.xlsx, sheet 'nova'",
+    "config_or_split": "sheet 'nova', all 1,136 rows (columns id, tipo, atividade_proposta, frequencia, importancia); sheet 'cargos' holds the 142 position names",
+    "filter": null,
+    "fields": {
+      "input": "atividade_proposta",
+      "label": null,
+      "id": "row_no"
+    },
+    "license": "unknown (the Drive folder is publicly readable but carries no licence statement; the underlying job descriptions come from the official Brazilian federal position classification)",
+    "access_checked": true,
+    "size_mb": 0.15,
+    "file_url": "https://drive.usercontent.google.com/download?id=1ASLxQei9lMSf7SUGWtC0vJ_g93VgRAb5&export=download",
+    "fields_prose": {
+      "input": "one job duty rendered as '<row number>;<POSITION NAME>;<duty text>'",
+      "label": "none - the claim is a distribution over the model's own answers, not agreement with a gold label",
+      "id": "1-based row number in sheet 'nova', which is exactly the number the released prompt uses"
+    },
+    "local_files": {
+      "dir": "external/data/tierb_items/W4410627635/",
+      "files": [
+        "cargo_atividade_ni_prompt.xlsx (146,770 B; sheets nova / teste3 / teste2 / teste1 / original / cargos)",
+        "Prompt_GPT-4-gov-v4.py (19,335 B; the released call, system prompt included)",
+        "system_prompt_extracted.txt (18,160 B; the triple-quoted system string of that script, verbatim)",
+        "Qualificacao_v3.xlsx (108,590 B; the retraining half of the study, not used here)"
+      ]
+    },
+    "download": {
+      "date": "2026-09-19",
+      "note": "three small files from the public Drive folder (~275 KB total); the .py needed the virus-scan confirm form. Item assembly verified against the released prompt: its user message is '581;RECREACIONISTA;Organizar eventos e festividades com foco em atividades de lazer e entretenimento', and row 581 of sheet 'nova' has cargo id 73 = RECREACIONISTA with exactly that duty text, so the '<row number>;<POSITION>;<duty>' format is confirmed byte-for-byte."
+    }
+  },
+  "prompt": {
+    "system": "see hook: external/data/tierb_items/W4410627635/system_prompt_extracted.txt, 18,160 characters, the triple-quoted string of the released Prompt GPT-4-gov-v4.py verbatim (objective, five numbered instructions, the twelve-column CSV specification, the automation-level and horizon scales, the seven technology categories with their technologies, a twelve-row worked example, and the closing '#Respire fundo e pense passo a passo.'). It is kept in a file rather than inlined here because of its size; it is not summarised or edited, including the stray leading apostrophe produced by the script's four-quote typo and the twelve-space indentation of every line.",
+    "user_template": "\n{row_no};{cargo};{atividade}\n\n",
+    "placeholders": {
+      "row_no": "1-based row number in sheet 'nova'",
+      "cargo": "position name from sheet 'cargos', indexed by the row's id column",
+      "atividade": "items.atividade_proposta"
+    },
+    "few_shot": "k=12 fixed examples printed inside the system prompt ('#Exemplo:' with a twelve-duty input and the corresponding twelve output rows)",
+    "source_location": "Appendix 2 of the paper per Sec. 4 ('a prompt (Appendix 2) for the GPT-4 Turbo API was developed'); the appendix is NOT present in the extracted text, so the prompt was taken from the authors' own public release, Prompt GPT-4-gov-v4.py in the Drive folder cited in footnote 2",
+    "verbatim": "full relative to the released script (read from the file, nothing reconstructed); the paper's own Appendix 2 could not be compared because the appendix is missing from external/papers_tierb/W4410627635.txt"
+  },
+  "output": {
+    "parse": "hook: split the CSV row on ';' and take the last field that is a bare integer 0-3 (the automation horizon)",
+    "postprocess": "strip; a reply with no such field is unparsed and excluded from the rate",
+    "parse_paper": "the authors read the returned CSV into a spreadsheet; the column layout is specified as twelve columns (id;niv_auto;justificativa1;cat_tec1;tec1;cat_tec2;tec2;cat_tec3;tec3;justificativa2;horizonte;justificativa3) but the prompt's own worked example prints ten-column rows without justificativa1/justificativa3, so the positional index of 'horizonte' is ambiguous"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "Share of job duties whose returned automation horizon is immediate (0) or short term (1): 817 of 1,136 = 71.9%, reported as 72%. There is no gold label; the statistic is a property of the model's own answers, so the 'reproduction' is a rate-to-rate comparison.",
+    "judge": "none",
+    "original_value": 72,
+    "original_location": "Abstract ('72% of the job duties ... in an immediate or short-term impact horizon') and Sec. 5 ('817 (72%) job duties were between immediate (411) and short-term (406), 250 had a medium-term horizon and 69 had a long-term horizon', Figure 7)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1136,
+    "est_usd": 73.0,
+    "tier": "high",
+    "prepare_note": "--prepare was not run because the model id is still undecided (see open points). The estimate is 1,136 calls (1 seed, high tier) x (~5.2k system-prompt tokens + ~40 item tokens) at gpt-4-turbo $10/$30 per 1M, i.e. roughly $60 input plus ~$13 output; batching duties as the prompt's example does would cut this by an order of magnitude."
+  },
+  "open_points": [
+    "MODEL: the triage resolved the paper's 'GPT-4 Turbo' to gpt-4-turbo-2024-04-09, but the authors' released script calls model='gpt-4-1106-preview' - the earlier GPT-4 Turbo preview, a different snapshot. A human must decide which id the claim is about before the run (and the answer changes whether the claim is re-executable at all).",
+    "OUTPUT LAYOUT: instruction 5 of the system prompt specifies twelve semicolon-separated columns with 'horizonte' eleventh, while the worked example inside the same prompt prints ten-column rows in which the horizon sits ninth. The hook's rule (last bare 0-3 field) resolves both layouts on every example row, but a human should confirm it rather than let a parsing choice drive the headline number.",
+    "BATCH SIZE: the released script sends one duty per call; the prompt's example sends twelve. est_calls 1,136 assumes one duty per call at 1 seed (the triage record's 3,408 assumed 3 seeds, which the high cost tier rules out). Batching is both much cheaper and a different protocol.",
+    "NO GOLD LABELS: the 72% is the model's own output distribution, so nothing scores it. The comparison is a rate-vs-rate check and the CI is a binomial over duties; this should be stated in the write-up, because 'reproducing' it does not test correctness.",
+    "PROMPT PROVENANCE: the paper's Appendix 2 is absent from the extracted text; the prompt used here is the authors' public Drive release. If the published appendix differs from the released script, the run is against the script, not the paper."
+  ],
+  "notes": "Data provenance resolved from the public record only: footnote 2 of the paper points at a publicly readable Google Drive folder holding Avaliação impacto da automação.xlsx, Prompt GPT-4-gov-v4.py, Prompt GPT-4-quali_v5.py, Qualificação_v3.xlsx, cargo_atividade_ni_prompt.xlsx, convert pdf.py and gerar_atividades.py. Sheet 'nova' has exactly 1,136 rows and 142 distinct position ids, matching the paper's '1,136 job duties' and '142 intermediate-level positions'. || The .py file was read as text only and never executed. || The second half of the study (the retraining/qualification prompt, Prompt GPT-4-quali_v5.py with Qualificação_v3.xlsx) is a separate claim that could be configured the same way."
+}

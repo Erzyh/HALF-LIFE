@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7104183057",
+  "title": "LLMs as Judges: Toward The Automatic Review of GSN-compliant Assurance Cases",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Related work: 'two LLMs (i.e. GPT-4 Turbo and GPT-4o) from the GPT series to automatically generate assurance cases' (prior work); this study uses GPT-4o, GPT-4.1, DeepSeek-R1, Gemini 2.0 Flash"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Tables 3, 16, 17 (system prompt templates) for the studied models",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Four assurance cases from Odu et al. (Table 4)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4.1 (May 2025) is a subject but not in the catalog live list."
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4406058562",
+  "title": "Applicability of Large Language Models and Generative Models for Legal Case Judgement Summarization",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (no snapshot stated)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 4 (UK-Abs): 'GPT-4 Turbo / gpt4-summ 0.193 0.146 0.159 0.235 0.182 0.198 0.207 0.631' (R2-P R2-R R2-F1 RL-P RL-R RL-F1 METEOR BERTScore)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 4 (prompt strings for the summ / tldr / explicit / hybrid variants printed inline, e.g. '<text to summarize> Summarize the document in <YY> words')",
+    "note": ""
+  },
+  "claim": {
+    "metric": "ROUGE-L F1 on the UK-Abs test set",
+    "value": 0.198,
+    "n_items": 100,
+    "location": "Table 4, row gpt4-summ, column RL-F1",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "UK-Abs and IN-Abs (Shukla et al. 2022; 100 test judgments each with gold summaries); GOVREPORT for additional experiments"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Snapshot and long-document handling for GPT-4 Turbo are not stated (ChatGPT/Llama rows carry 1024-token chunk sizes, the GPT-4 Turbo rows do not, suggesting whole ~14k-word documents). Paper dated July 2024, alias resolved by rule. Consistency metrics (Table 6) are also reported.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Long-document handling is resolved by Sec. 4.2: GPT-4 Turbo's 128K context is used to feed whole judgments, and the target length rule K x |Exp|/|Doc| reduces to the reference summary length for a single chunk. For each of the 100 UK-Abs test judgments prompt gpt-4-turbo-2024-04-09 with '<full judgment> Summarize the document in <YY> words' with YY = reference summary word count, and compute ROUGE-L F1 vs Table 4 (0.198).",
+    "approximation": "Snapshot resolved by the date rule; temperature and max_tokens not stated; ~14k-word inputs make the run high-cost.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

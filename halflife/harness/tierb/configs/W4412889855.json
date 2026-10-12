@@ -1,0 +1,69 @@
+{
+  "wid": "W4412889855",
+  "title": "Towards Robust Universal Information Extraction: Dataset, Evaluation, and Solution",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 640,
+      "top_p": 1.0
+    },
+    "params_source": "resolution plan (paper Sec. 5.2 states temperature 0 and max output 640 for its own model's inference; assumed for the API baselines)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 1000,
+    "subset_rule": "all 1,000 RUIE-Bench original NER samples (134 ACE05-Ent, 294 CoNLL03, 572 WikiANN)",
+    "approximation": "The 10 demonstrations are a seeded random draw from the corresponding source training set (the authors' draw is unlisted); the release may omit the ACE05 portion (LDC licence)."
+  },
+  "items": {
+    "source_type": "url",
+    "source": "RUIE-Bench subset on Google Drive (file id 1xCp6hEvEQxXYNe9aunVsOY3Mb2OXC2qi), linked from https://github.com/ICT-GoKnow/RobustUIE; demonstrations from the CoNLL03 / WikiANN / ACE05 training sets",
+    "config_or_split": "NER, original (unperturbed) test samples",
+    "filter": "task == NER and perturbation == original",
+    "fields": {
+      "input": "sentence",
+      "label": "entities [{name, type}] with dataset-specific type set",
+      "id": "sample id + source dataset"
+    },
+    "license": "unknown (release states copyright-restricted portions are withheld)",
+    "access_checked": true,
+    "size_mb": 10
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "## Task Objective\nPerform Named Entity Recognition (NER) on input sentences to extract entities of these types:\n##Entity Types:\n{entity_types_block}\n## Output Formatting\n1. Return a JSON list of entities\n2. Each entity must include:\n- **Type**: Entity category (exact uppercase labels)\n- **Name**: Original text span\n3. Return empty list if no entities found\n## Examples (10-shot)\n{examples_block}\n## Current Task\nInput: {test_sentence}\nOutput:",
+    "placeholders": {
+      "entity_types_block": "one line per type of the sample's source dataset: '{entity_type}: {description}'",
+      "examples_block": "ten lines '{k}. Input: {example sentence}\\nOutput: {recognition result}' with the JSON list format above, drawn with seed 20260907 from the source dataset's training set",
+      "test_sentence": "items.sentence"
+    },
+    "few_shot": "k=10 seeded from the source training set (Appendix D: 'randomly sampled from the training set')",
+    "source_location": "Appendix D, Table 7 (Prompt for Few-Shot NER)",
+    "verbatim": "full (template); the demonstrations and type descriptions are filled from the release"
+  },
+  "output": {
+    "parse": "json field: first JSON list in the completion, elements with keys name/type (case-insensitive keys accepted)",
+    "postprocess": "strip; type upper-cased; unparsable output = empty prediction"
+  },
+  "metric": {
+    "name": "micro_f1",
+    "definition": "span-based Micro F1 over all 1,000 samples: an entity is correct only if both its text span (offsets) and type match the gold annotation (Sec. 5.1).",
+    "judge": "none",
+    "original_value": 60.6,
+    "original_location": "Table 2, row GPT-4-turbo, NER 'Original' column",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "est_usd": 20.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "The public RUIE-Bench release omits copyright-restricted data (likely the 134 ACE05 samples); decide whether to run on the released subset (~866 samples, approximate comparison) or obtain ACE05 under an LDC licence.",
+    "The Google Drive id resolves to RUIE-Bench.zip (size not reported by the redirect); field names, entity-type descriptions and the 10-shot demonstrations (drawn from the CoNLL03 / WikiANN / ACE05 training sets, the last LDC-gated) must be confirmed by a human before a hook can be written"
+  ],
+  "notes": "Offsets: the paper scores span offsets; with text-only model output, map each predicted span to its first occurrence in the sentence."
+}

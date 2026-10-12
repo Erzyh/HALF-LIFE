@@ -1,0 +1,31 @@
+﻿variant,n_curve,born_dead,pct_dead_today,pct_lost_by_2026_end,median_months,q25_months,q75_months,median_openai,median_anthropic,median_google
+base (published retirement dates; year-only dates at 1 July; origin no earlier than the release; aliases read at publication),49212,9408,34.6,94.2,9.4,5.4,15.6,10.4,7.0,7.6
+as-of Kaplan-Meier censored at 2026-10-12 (the estimand of the earlier versions),49212,9408,34.6,94.2,20.7,9.4,32.3,31.6,7.7,7.2
+"as-of Kaplan-Meier censored at 2026-10-24, the day after the 23 October retirements",49212,9408,65.7,94.2,13.7,7.1,22.5,15.7,7.7,7.3
+year-only dates kept at 1 January (as OpenAlex prints them),50375,8245,37.5,94.4,10.1,5.9,15.8,11.3,7.4,8.8
+year-only dates set to 31 December,45599,12753,34.1,93.8,9.7,5.4,14.8,10.2,6.6,7.4
+no origin correction (papers dated before the release keep their indexed date),49212,9408,34.6,94.2,9.4,5.4,15.6,10.4,7.0,7.6
+papers dated before the release of the first-retiring identifier dropped,48739,9408,34.4,94.3,9.4,5.4,15.3,10.4,6.9,7.6
+dateless aliases read 4 months before publication,49212,9408,37.7,94.2,9.1,5.4,14.7,10.0,7.0,7.6
+dateless aliases read 8 months before publication (the median lag from release to publication),49212,9408,41.1,94.2,8.5,4.7,13.7,9.2,7.0,7.6
+dateless aliases read 13 months before publication,48152,10468,42.2,94.1,8.2,4.5,13.0,9.0,7.0,7.6
+dateless aliases read as their earliest snapshot (bound),43590,15030,47.4,93.5,8.0,4.4,12.4,8.6,7.0,7.6
+gpt-4-turbo alias rule off (every gpt-4-turbo = live snapshot),49212,9408,34.2,94.2,9.4,5.4,15.6,10.4,7.0,7.6
+gpt-4-turbo unresolved window read as retired previews,49212,9408,35.1,94.2,9.4,5.4,15.6,10.4,7.0,7.6
+gpt-4-turbo lag window 0 (every alias after GA = live snapshot),49212,9408,34.6,94.2,9.4,5.4,15.6,10.4,7.0,7.6
+"gpt-4-turbo lag window 6 months, unresolved read as retired previews",49212,9408,36.2,94.2,9.4,5.4,15.6,10.4,7.0,7.6
+born-dead papers kept as events at 0 months,58620,9408,45.1,95.2,7.7,3.0,13.9,9.7,3.5,3.0
+journal articles only,13965,2851,21.3,93.7,8.9,5.1,13.1,9.5,6.2,5.3
+preprints only,22982,3758,39.6,93.3,9.8,5.6,16.4,10.7,7.6,9.3
+conference papers only,9841,2208,44.2,97.5,9.7,5.0,15.7,14.1,6.1,4.8
+citation-weighted (weight = citations + 1),49212,9408,34.6,94.2,12.2,6.1,18.5,13.4,12.0,8.8
+papers with at least 10 citations,4040,624,65.7,99.8,14.0,6.9,21.6,15.6,12.6,9.6
+field Computer Science left out,22008,3896,27.9,92.8,9.3,5.3,14.2,10.1,7.0,7.0
+field Medicine left out,43655,8346,35.6,94.4,9.5,5.4,15.7,10.6,7.0,7.8
+field Social Sciences left out,44884,8593,34.8,94.2,9.5,5.4,15.6,10.4,7.1,7.6
+single-vendor papers only,44942,7075,29.2,93.8,9.7,5.4,15.7,10.4,6.2,6.9
+preview and experimental identifiers removed from every paper (21 identifiers),48731,8237,31.6,93.9,9.6,5.4,15.7,10.7,7.0,8.0
+papers naming any preview or experimental identifier left out,46342,7811,30.5,93.9,9.5,5.4,15.4,10.5,6.8,7.8
+"census under the vocabulary of 2 September 2026 (55 identifiers), current rules and dates",20625,6419,56.4,100.0,9.6,4.8,15.7,11.2,9.4,7.2
+"census under the vocabulary of 2 October 2026 (75 identifiers), current rules and dates",31967,7480,45.7,98.7,11.1,5.7,18.4,14.5,8.6,7.7
+"census under the vocabulary of 11 October 2026 (81 identifiers), current rules and dates",35240,7487,43.8,91.6,11.3,6.1,18.4,14.1,8.6,7.7

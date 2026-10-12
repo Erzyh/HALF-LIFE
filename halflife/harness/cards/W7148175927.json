@@ -1,0 +1,152 @@
+{
+  "card_id": "W7148175927",
+  "openalex_id": "https://openalex.org/W7148175927",
+  "title": "Learning to Predict Future-Aligned Research Proposals with Language Models",
+  "doi": "https://doi.org/10.48550/arXiv.2603.27146",
+  "paper": {
+    "authors": "Heng Wang, Pengcheng Jiang, Jiashuo Sun, Zhiyi Shi, Haofei Yu, Jiawei Han, Heng Ji (UIUC)",
+    "year": 2026,
+    "venue": "arXiv:2603.27146v3 (26 May 2026); preprint, no venue yet",
+    "repo": "https://github.com/Arthur-Heng/future-aligned-proposals",
+    "repo_commit": "59a03f4439df71ef2df5276a3e726cfa1a4e059b (2026-05-08, branch master, single commit 'Initial release'); shallow clone under external/repos/W7148175927/Arthur-Heng__future-aligned-proposals, 237 MB",
+    "repo_license": "none - no LICENSE file and the GitHub API reports license: null (default all-rights-reserved)",
+    "other_artifacts": "None. No Hugging Face dataset, no LoRA adapters, and no generated-proposal files are released; data/ ships only the SFT and test inputs."
+  },
+  "dependence": {
+    "type": "judge",
+    "strength": "core",
+    "note": "The paper's whole evaluation signal (Future Alignment Score) is an LLM judgement. The primary judge is GPT-4.1-mini, which is not retiring; the retiring snapshot enters as the high-capability cross-check judge (GPT-5-mini) whose agreement with the primary judge is the evidence that FAS is not an artifact of judge capability. GPT-5 also appears as the reasoning-trace synthesiser for the SFT data (data_synthesis/one_layer_sft.py, reasoning_model default 'gpt-5') - that is a distillation role we do not re-run."
+  },
+  "claim": {
+    "statement": "The Future Alignment Score is robust to judge capability: re-scoring the same proposals with GPT-5-mini instead of the primary judge GPT-4.1-mini gives per-example Pearson r = 0.803 / 0.796 / 0.824 and Spearman rho = 0.796 / 0.781 / 0.765 for Stepwise CoT / Untuned / CoI, rates 86.0-89.0% of proposals within 1 point on the 1-10 scale, and recovers the identical model ordering (Table 7, Appendix C).",
+    "claim_type": "tool_validity",
+    "metric": "Per-example Pearson r and Spearman rho between the GPT-5-mini judge's max_llm_score and the GPT-4.1-mini judge's max_llm_score over the same sampled test instances, plus the share of instances whose two scores differ by at most 1 point; and the sign of the induced system ordering.",
+    "original_values": {
+      "gpt5_mini_judge_vs_gpt41_mini": {
+        "stepwise_cot": {
+          "pearson_r": 0.803,
+          "spearman_rho": 0.796,
+          "within_1_pt": 0.86
+        },
+        "untuned": {
+          "pearson_r": 0.796,
+          "spearman_rho": 0.781,
+          "within_1_pt": 0.886
+        },
+        "coi": {
+          "pearson_r": 0.824,
+          "spearman_rho": 0.765,
+          "within_1_pt": 0.89
+        }
+      },
+      "gpt4o_mini_judge_vs_gpt41_mini_reference": {
+        "stepwise_cot": {
+          "pearson_r": 0.681,
+          "spearman_rho": 0.614,
+          "within_1_pt": 0.987
+        },
+        "untuned": {
+          "pearson_r": 0.694,
+          "spearman_rho": 0.684,
+          "within_1_pt": 0.977
+        },
+        "coi": {
+          "pearson_r": 0.74,
+          "spearman_rho": 0.693,
+          "within_1_pt": 0.943
+        }
+      },
+      "baseline_fas_table6_n300": {
+        "ours": 6.94,
+        "untuned": 6.46,
+        "coi": 6.07
+      },
+      "ordering_claimed": "OURS (Stepwise CoT) > CoI > Untuned on agreement, and OURS > Untuned > CoI on FAS level (Table 6)"
+    },
+    "original_source": "Paper Table 7 (Appendix C, 'Inter-Judge Agreement'); Table 6 gives the n=300 baseline configuration and the FAS levels. The within-1-pt percentages are consistent with n=300 (296/300 = 98.7%, 293/300 = 97.7%, 283/300 = 94.3%, 258/300 = 86.0%), but Table 7 does not restate n."
+  },
+  "protocol": {
+    "model": "gpt-5-mini-2025-08-07",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json)",
+    "model_usage_verified": "partly - the paper writes 'GPT-5-mini' with no date and utils/api.py passes the bare alias through to client.chat.completions.create; the repo's own PRICING table in evaluation/validate_robustness.py carries a 'gpt-5-mini' entry at 0.25/2.00, confirming it was actually billed. We pin gpt-5-mini-2025-08-07, the only gpt-5-mini snapshot in harness/pricing.json. Separately, the census live_id 'gpt-4.1-nano' is a reference-list false positive (OpenAI 2025a, 'Introduces GPT-4.1, GPT-4.1 mini, and GPT-4.1 nano'); the repo does call gpt-4.1-nano, but only to generate summaries and highlight keywords in the human-annotation UI (human_evaluation/serve_comparison.py).",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions via utils/api.py call_chat_completion()",
+    "prompt_source": "evaluation/evaluate.py LLM_JUDGE_SUBFIELD_PROMPT (the judge used when --subfield-scores is set, which is the paper's configuration: FAS is reported per component and overall). LLM_JUDGE_PROMPT is the overall-only variant. Paper Appendix E.6 / Figure 12.",
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are an expert research paper evaluator. [...] ## Generated Proposal: {proposal} ## Candidate Paper: {candidate_summary} ## Task: Rate the similarity on a scale of 0-10 [...] Respond with ONLY a JSON object"
+      }
+    ],
+    "params": {
+      "temperature": "NOT SENT for the gpt-5 arm - utils/api.py branches on `if \"gpt-5\" in model` and omits both temperature and max_tokens, so gpt-5-mini runs at API defaults (default reasoning effort). The gpt-4.1-mini reference judge runs at temperature 0.1 (evaluate.py llm_judge_similarity).",
+      "max_tokens": "not set for gpt-5-mini; not set for gpt-4.1-mini either",
+      "seed": "not set; sampling of test instances uses seed 42 (validate_robustness.py --seed)",
+      "retrieval": "EmbeddingRetriever over text-embedding-3-large, top_k = 10, then the top judge_top_n = 5 retrieved papers are judged; FAS is the max over those 5"
+    },
+    "n_items": 300,
+    "n_systems": 3,
+    "judge_calls_per_item": 5,
+    "samples_per_item": 1,
+    "evaluation": "evaluation/validate_robustness.py: runs the same 300 sampled predictions per system under two judge configurations, then compute_correlation() (scipy pearsonr / spearmanr) on the per-instance max_llm_score lists, and prints the ranking-consistency check. The within-1-point share is not computed by the shipped script and must be added (a two-line diff on the individual_scores arrays).",
+    "environment": "Python >= 3.10, pip install -e . ; OPENAI_API_KEY. A local GPU is needed only to regenerate the proposals (Qwen2.5-14B-Instruct / Llama-3.1-8B-Instruct inference at temperature 0.7)."
+  },
+  "artifacts": {
+    "prompts_path": "evaluation/evaluate.py (LLM_JUDGE_SUBFIELD_PROMPT, LLM_JUDGE_PROMPT, GAP_GROUNDEDNESS_PROMPT); data_synthesis/ holds the structuring and reasoning-synthesis prompts",
+    "data_path": "data/test_set/test_set_n819.jsonl (819 held-out instances, prompts self-contained) and data/test_set/structured_papers.json (12.5 MB future corpus judged against); data/sft/sft_n2823_*.jsonl for training",
+    "eval_path": "evaluation/evaluate.py, evaluation/validate_robustness.py, analysis/evaluate_ablation.py",
+    "data_public": true,
+    "data_license": "unstated - no LICENSE in the repo; the underlying content is NeurIPS/ICML/ICLR 2024-2025 paper text structured by GPT-4.1 from OpenReview PDFs",
+    "redistributable": false,
+    "notes": "The generated proposals (analyze/predictions_819/*.json, the script's default input) are NOT shipped, and neither are the LoRA adapters. validate_robustness.py also defaults to corpus paths data/paper_structured/*.json and data/accepted_papers/*.json that do not exist in the release; the README's data/test_set/structured_papers.json is the shipped equivalent. DEFAULT_CONFIGS contains gpt-4.1-mini, gpt-4o-mini and embedding variants but no gpt-5-mini entry - the Table 7 configuration must be added by hand (one RobustnessConfig line)."
+  },
+  "blockers": [
+    "The model outputs being judged are not released: reproducing Table 7 requires first regenerating proposals for three systems, and the LoRA adapters are not published.",
+    "Regenerating the 'Stepwise CoT' (OURS) system means LoRA-fine-tuning Qwen2.5-14B on data/sft/sft_n2823_stepwise_cot.jsonl, whose reasoning traces were synthesised by gpt-5 (data_synthesis/one_layer_sft.py reasoning_model default). That is training on commercial-model outputs, which this study does not do - so the OURS row is out of scope and only the Untuned and CoI rows can be re-executed.",
+    "Judge snapshot named only by alias ('GPT-5-mini'); pinned to gpt-5-mini-2025-08-07 by inference.",
+    "Table 7 does not state n; we assume the n=300 sample of Table 6 (seed 42). The within-1-point statistic is not implemented in the shipped script.",
+    "The GPT-5-mini arm runs at API defaults because utils/api.py strips temperature/max_tokens for gpt-5 models, so reasoning effort is whatever the endpoint defaults to - an uncontrolled parameter that may itself have drifted.",
+    "No repository licence; code can be run but not redistributed."
+  ],
+  "arms": {
+    "baseline_alive": {
+      "model": "gpt-5-mini-2025-08-07",
+      "purpose": "live baseline (P0) - the retiring cross-check judge of Table 7; the gpt-4.1-mini primary judge must be run alongside it because the claim is a correlation between the two"
+    },
+    "successors": [
+      "gpt-5.6-terra (vendor-designated replacement for gpt-5-mini per the OpenAI deprecations page)"
+    ],
+    "companion_not_retiring": [
+      "gpt-4.1-mini-2025-04-14 (primary judge; alive, not on the retirement list - needed as the correlation reference)",
+      "text-embedding-3-large (retriever; alive)"
+    ]
+  },
+  "budget": {
+    "est_calls": 18000,
+    "est_tokens_in": 27000000,
+    "est_tokens_out": 5940000,
+    "est_cost_usd": 21,
+    "pricing_usd_per_1m": {
+      "gpt-5-mini-2025-08-07": {
+        "input": 0.25,
+        "output": 2.0
+      },
+      "gpt-4.1-mini-2025-04-14": {
+        "input": 0.4,
+        "output": 1.6
+      }
+    },
+    "assumptions": "Restricted variant (Untuned + CoI only, the OURS row excluded as distillation): 2 systems x 300 instances x 5 judge calls x 3 seeds = 9,000 calls per judge, 18,000 total. Input 1,500 tokens per call (the repo's own estimate in validate_robustness.py). Output: gpt-4.1-mini ~60 tokens of JSON; gpt-5-mini assumed ~600 (JSON plus hidden reasoning at default effort, the reasoning-model rule). gpt-5-mini ~USD 14.2, gpt-4.1-mini ~USD 6.3, corpus embeddings ~USD 0.4. One seed instead of three costs ~USD 7. Including the OURS row would add ~50% (USD ~31) on top of the excluded fine-tuning."
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN section 1. Primary numbers: the two per-system Pearson r values for the GPT-5-mini judge (Untuned 0.796, CoI 0.824). Survival = the re-run r for each system lies inside the bootstrap 95% CI over the 300 instances of the original (Fisher-z, about +/- 0.05 at n=300, r ~ 0.8) AND the tool-validity direction holds: agreement stays high (r > 0.7), the within-1-point share stays above 80%, and the GPT-5-mini judge still ranks CoI above Untuned exactly as the GPT-4.1-mini judge does. Partial = r drops below the CI but stays above 0.6 with the ordering intact. Death = the ordering flips under the GPT-5-mini judge, or r falls to a level at which FAS conclusions would depend on judge choice.",
+    "notes": "This is a correlation between two judges, so the target moves only if judge behaviour drifts; both judges must be re-run in the same batch, and the proposals must be identical across judges. Because we regenerate the proposals (the originals are not released), the absolute FAS levels of Table 6 are NOT the comparison target - only the judge-agreement statistics, which are a property of the judge pair on comparable material."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Accept the restricted target (Untuned + CoI rows of Table 7 only), since regenerating the OURS system would require fine-tuning on gpt-5-synthesised reasoning traces?",
+    "Accept regenerating the proposals locally (Qwen2.5-14B-Instruct at temperature 0.7 on the 819-item test set, then a 300-item sample at seed 42), given the authors released no predictions?",
+    "Pin the alias 'GPT-5-mini' to gpt-5-mini-2025-08-07 and run it at API defaults (no temperature, default reasoning effort) as the repo's code does?",
+    "Use n=300 (the Table 6 sample) for Table 7, and add the missing within-1-point statistic to validate_robustness.py?"
+  ],
+  "domain_notes": "The paper reframes research-proposal generation as time-sliced forecasting: proposals written from pre-2025 inputs are scored by semantic alignment with NeurIPS/ICML/ICLR 2025 papers. The trained systems are open-weight (Qwen2.5-7B/14B, Llama-3.1-8B, LoRA), so the only commercial dependence is the judge, the embedding retriever, the GPT-4.1 paper-structuring step and the GPT-5 reasoning-trace synthesis. Three retiring snapshots appear in the repo in different roles: gpt-5-mini (inspiring-paper selection and the Table 7 judge), gpt-5 (SFT reasoning traces - distillation, excluded) and gpt-4.1-nano (annotator-UI readability summaries - cosmetic). Only the Table 7 judge role has a published number attached to it."
+}

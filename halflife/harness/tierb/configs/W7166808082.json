@@ -1,0 +1,91 @@
+{
+  "wid": "W7166808082",
+  "title": "TURTLEAI: Benchmarking Multimodal Models for Visual Programming in Turtle Graphics",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "temperature": null,
+      "max_tokens": 8192,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Appendix F.2 (o3-2025-04-16, reasoning_effort=medium, max_completion_tokens 8192); temperature not applicable to o3",
+    "seeds": 3
+  },
+  "task": {
+    "type": "generation",
+    "n_items": 102,
+    "subset_rule": "paper-defined split: TURTLEAI-DSReal (source == 'dsreal', 102 tasks)",
+    "approximation": "none (symbolic scoring uses the benchmark's released canonicalizing emulator and threshold)"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/machine-teaching-group/acl2026-turtleai, file data/test/metadata.jsonl with images in data/test/images/",
+    "config_or_split": "data/test (823 tasks)",
+    "filter": "source == 'dsreal'",
+    "fields": {
+      "input": "file_name",
+      "label": "code",
+      "id": "id",
+      "source": "source",
+      "category": "category",
+      "difficulty": "difficulty"
+    },
+    "license": "not stated in the repository (no LICENSE file); unknown",
+    "access_checked": true,
+    "size_mb": 6,
+    "file_url": "https://raw.githubusercontent.com/machine-teaching-group/acl2026-turtleai/main/data/test/metadata.jsonl",
+    "fields_prose": {
+      "input": "image",
+      "label": "code (reference draw(t) program)",
+      "id": "id",
+      "options": "category"
+    },
+    "label_map": null,
+    "columns_verified": "metadata.jsonl 823 rows: id, file_name, code, source (dssyn 619, dsreal 102, dscraft 102), category, difficulty"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "<image>You are a Turtle Graphics programmer tasked with creating Python code to replicate a specified geometric pattern using the Turtle Graphics library.\n### Task Overview:\nAnalyze the provided image of a geometric pattern. Carefully break down the pattern into individual shapes, colors, angles, and layout components. Using this information, write Python code within a function called `draw(t)`, where `t` is a Turtle object. Assume:\n- The turtle starts at the center of the screen at coordinates `(0, 0)`.\n- The turtle initially faces east (to the right).\nThe goal is for your `draw(t)` function to accurately recreate the pattern shown in the image, including its positioning, angles, colors, and details.\n### Requirements:\n1. Code Structure:\n- Place all code inside the `draw(t)` function.\n- The function takes a turtle object `t` as input.\n- Format your code using triple backticks with the 'python' language specifier, i.e., ```python```.\nExample format:\n```python\ndef draw(t):\n    # Your code here\n```\n2. Color Accuracy:\n- Match colors in the image exactly, both for fills and outlines.\n3. Pattern Precision:\n- Reproduce the pattern as accurately as possible, maintaining symmetry, shapes, and angles.\n4. Self-Contained:\n- Do not include code outside the `draw(t)` function.\n- All necessary imports, variables, and helper functions should be inside `draw(t)`.\n### Execution Context:\nYour `draw(t)` function will be called in the following manner:\n```python\nimport turtle\ndef draw(t):\n    # Describe the drawing steps here\n    pass\nt = turtle.Turtle()\ndraw(t)\n```\n### Example Outputs:\n- Example 1 - Drawing a Rectangle:\n```python\ndef draw(t):\n    \"\"\"Draw a rectangle.\"\"\"\n    def draw_rectangle(t):\n        # Draw a rectangle with side length 10\n        for _ in range(4):\n            t.forward(10)\n            t.right(90)\n    draw_rectangle(t)\n```\n- Example 2 - Drawing a circle:\n```python\ndef draw(t):\n    \"\"\"Draw a circle.\"\"\"\n    import math\n    def draw_circle(t, radius):\n        circumference = 2 * math.pi * radius\n        step_length = circumference / 360\n        step_angle = 1\n        for _ in range(360):\n            t.forward(step_length)\n            t.left(step_angle)\n    draw_circle(t, 50)\n```\nNote: The examples are simplified. Your final code may require nested loops or additional logic to fully replicate complex patterns.\nNow, write the code for the `draw(t)` function to recreate the pattern shown in the image as closely as possible in terms of shape, color, and structure.",
+    "placeholders": {},
+    "few_shot": "none",
+    "source_location": "Appendix H, Figure 15 'Prompt for Generating Code from Image'",
+    "verbatim": "full (code-block indentation and the spaces around inline backticks, lost in extraction, restored)",
+    "placeholders_prose": {
+      "<image>": "the task image attached to the user message (the '<image>' token marks its position)"
+    },
+    "placeholders_note": {
+      "<image>": "attach data/test/images/<file_name> as an image content part at the start of the user message (NOT expressible)"
+    }
+  },
+  "output": {
+    "parse": "regex ```python\\n(.*?)```",
+    "postprocess": "no fenced block or execution error = fail",
+    "parse_prose": "regex ```python\\n(.*?)``` (first fenced block) -> candidate program defining draw(t)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "symbolic success rate: execute the reference and candidate draw(t) in the benchmark's recording Turtle emulator, canonicalize (normalize coordinates, center, unit line width) and mark success when the fraction of matching pixels exceeds the benchmark threshold (Sec. 4.2; released turtleai.evaluate(method='symbolic')); success rate = successes / 102 (x100).",
+    "judge": "rule",
+    "original_value": 40.2,
+    "original_location": "Table 1, row o3, column TURTLEAI-DSReal Sym. (%) (40.20)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 306,
+    "est_usd": 25.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "runner gap: image input (the task image is the whole input); the runner sends text-only messages.",
+    "runner gap: scoring executes reference and candidate draw(t) in the benchmark's Turtle emulator and compares canonicalised drawings (symbolic success) - an external scorer, not a listed metric.",
+    "items/filter/parse are machine-readable (metadata.jsonl verified, 102 dsreal rows)."
+  ],
+  "notes": "Column names verified from the repository README (id, image, code, source, category). GPT-4V row = gpt-4-turbo-2024-04-09 (15.69% DSReal) is a cheaper secondary check.",
+  "runner_gaps": [
+    "prompt: image attachment placeholder",
+    "metric: external program execution scorer"
+  ]
+}

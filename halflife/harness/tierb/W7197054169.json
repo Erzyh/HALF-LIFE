@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7197054169",
+  "title": "JudgeArena: A Unified Framework for Reproducible LLM-Judge Evaluation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini-2025-04-16",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "C",
+    "evidence": "\"Figure 4: Elo ratings estimated by LLM vs. human annotators for four judges\" lists o4-mini-2025-04-16 among battle models whose stored completions are judged"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Judge prompt templates in framework description",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Arena-Hard, AlpacaEval, MT-Bench, m-Arena-Hard completions"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "o4-mini is an evaluated battle model with pre-existing completions; judges studied are open-weight models, gemini-3.1-flash and gpt-5.4-nano (Table 2)."
+}

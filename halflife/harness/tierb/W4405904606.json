@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4405904606",
+ "title": "MapExplorer: New Content Generation from Low-Dimensional Visualizations",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "'We use gpt-4o-2024-05-13 as the backbone LLM in Atometric... for all RAG-based methods and set temperature=0'; results table: 'GPT-4o CoT-RAG(1) FS-RAG(1) RAG(2) RAG(1)...Atometric-F1 (L) 0.893 (0.012) 0.852 0.824 0.822'"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Figure 6 (Atometric decomposition prompt, printed verbatim), Figure 7 (Atometric verification prompt, printed verbatim); the CoT-RAG/FS-RAG content-generation prompt itself is described in the Method section",
+  "note": "The scoring-metric prompts (Atometric) are printed in full; the generation-method prompt used to produce the persona text being scored was not confirmed verbatim in the excerpt read."
+ },
+ "claim": {
+  "metric": "Atometric-F1 (long), Persona dataset, CoT-RAG(1) configuration",
+  "value": 0.893,
+  "n_items": null,
+  "location": "Results table, Persona (Text) row, GPT-4o CoT-RAG(1) column",
+  "task_type": "generation",
+  "judge": "llm:gpt-4o-2024-05-13"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Persona dataset (synthetic personas, related to the '1,000,000,000 Personas' public dataset); also Red-Teaming Strategies and CS Research Idea/Context datasets"
+ },
+ "cost": {
+  "est_calls": 500,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Atometric is itself computed by prompting the same gpt-4o-2024-05-13 model (decomposition + verification), so this is a self-evaluation setup. Persona dataset size (n_items) was not located in the excerpt read. A separate use of GPT-4o (Figure 10) summarizes red-teaming dialogues for a different sub-dataset; that prompt asks for analytical summarization of existing red-team strategies, not generation of new harmful content, so it is not treated as a tos violation."
+}

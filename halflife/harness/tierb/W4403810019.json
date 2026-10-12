@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403810019",
+  "title": "Enhancing TinyBERT for Financial Sentiment Analysis Using GPT-Augmented FinBERT Distillation",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Sec. 3.5: 'GPT-3.5 Turbo (gpt-3.5-turbo-0125) is 10 times cheaper than GPT-4 Omni (gpt-4o-2024-05-13)'; Sec. 3.4.2: 'GPT-4o was also employed to label these sentences'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 3.4.2 (system prompt and user prompt for sentiment labelling, batches of 100 statements, 5 shuffled iterations); Sec. 3.5 variation-generation prompts",
+    "note": ""
+  },
+  "claim": {
+    "metric": "labelling accuracy on Financial PhraseBank test split",
+    "value": null,
+    "n_items": 970,
+    "location": "Table 5.4 'LLM Labelling performance on Financial PhraseBank Test Data' (p.75) - not contained in the extracted text",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Financial PhraseBank (Malo et al. 2014); author-specific 970-sentence test split not released"
+  },
+  "cost": {
+    "est_calls": 30,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Extracted text stops at Section 3.5.6 (p.52); Chapters 4-5 with all result tables are absent, so no GPT-4o number can be read. Master's thesis; GPT-4o mainly acts as data generator/annotator for FinBERT distillation. If the full thesis is obtained, Table 5.4 could turn this into a candidate."
+}

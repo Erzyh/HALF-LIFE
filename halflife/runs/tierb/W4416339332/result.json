@@ -1,0 +1,65 @@
+{
+  "wid": "W4416339332",
+  "title": "\"As Eastern Powers, I will veto.\" : An Investigation of Nation-level Bias of Large Language Models in International Relations",
+  "model": "o3-mini-2025-01-31",
+  "metric": "custom",
+  "original_value": 65,
+  "original_location": "Table 2, row o3-mini, column U.S.",
+  "reexecution": {
+    "mean_over_seeds": 0.663261471607049,
+    "per_seed": {
+      "0": {
+        "value": 0.6818181818181818,
+        "n": 66,
+        "ci95": [
+          0.5485422212219387,
+          0.7895850917975781
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.6430449069003286,
+        "n": 66,
+        "ci95": [
+          0.5121371851040526,
+          0.7670533764397194
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.6649213261026367,
+        "n": 66,
+        "ci95": [
+          0.5471026642073947,
+          0.7797601561152321
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4416339332",
+    "n_items": 66,
+    "n_requests": 198,
+    "seeds": 3,
+    "est_usd": 1.06,
+    "subset_note": null,
+    "model": "o3-mini-2025-01-31",
+    "metric": "custom",
+    "original_value": 65
+  },
+  "served": {
+    "models": [
+      "o3-mini-2025-01-31"
+    ],
+    "n_fingerprints": 7
+  },
+  "approximation": "weighted F1 computed per repetition and averaged over the three seeds (the paper does not say how its three repetitions were aggregated); resolutions where the United States has no recorded vote are skipped",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 66.32614716070489,
+    "delta": 1.3261471607048918,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7129376919",
+  "title": "Collaborative large language models (LLMs) are all you need for screening in systematic reviews",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo [4T]",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"Three commercial LLMs (GPT-4 Turbo [4T]...) were used utilizing the versions released in May 2024\"; \"GPT-4T exhibited a mean precision of 99.74...and a mean recall of 95.5%\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Supplement Tables 1-3",
+    "note": "Zero-shot chain-of-thought PICOS screening prompt (task, inclusion criteria, output format, title+abstract), used identically for the independent-LLM and collaborative setups."
+  },
+  "claim": {
+    "metric": "mean recall (inclusion), independent GPT-4T screening",
+    "value": 95.5,
+    "n_items": 11300,
+    "location": "Results (\"Independent individual LLMs without conflict resolution\"); Table 2, across five systematic reviews",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "code and fully annotated gold-standard datasets released at https://github.com/Mihir3009/SR_LLMs"
+  },
+  "cost": {
+    "est_calls": 33900,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "11,300 title/abstract pairs across five systematic-review datasets (PARP toxicity, mHCC, mCRPC, mHSPC, RCC); precision for exclusion was even higher (99.74%). The paper also reports collaborative (multi-LLM) setups, but the single-model GPT-4T numbers above are directly attributable to the tracked snapshot."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404839867",
+  "title": "Prompt Engineering for Automatic Short Answer Grading in Brazilian Portuguese",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 3.2: 'we used the OpenAI API to access the GPT-3.5-Turbo and GPT-4-Turbo Models.' Table 5: 'role, think, step by step, few shot, rubric 0.326 0.752 0.704 0.898' (GPT-3.5 and GPT-4 kappa/QWK)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Table 3 (prompt components described in one line each, not the exact wording)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Cohen's kappa vs instructor scores, best prompt",
+    "value": 0.704,
+    "n_items": 2242,
+    "location": "Table 5, row 'role, think, step by step, few shot, rubric', GPT-4 kappa column",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "PT ASAG dataset (Galhardi et al., 2020; 7,473 answers, 30% stratified sample used); availability not stated, study artifacts 'available from the corresponding author'"
+  },
+  "cost": {
+    "est_calls": 6726,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Prompt wording is only partially specified (component table) and dataset availability is not stated. Paper 2024-11 with no preview string."
+}

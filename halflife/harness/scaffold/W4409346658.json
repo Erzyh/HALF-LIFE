@@ -1,0 +1,26 @@
+{
+  "openalex_id": "https://openalex.org/W4409346658",
+  "title": "Zero-Shot Learning for Materials Science Texts: Leveraging Duck Typing Principles",
+  "doi": "https://doi.org/10.1609/aaai.v39i1.32100",
+  "field": "Materials Science",
+  "year": "2025",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/xinzcode/MatDuck",
+    "github.com/xinzcode/MatDuck.Experimental"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/xinzcode/MatDuck",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/xinzcode/MatDuck.Experimental",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4409346658.txt",
+  "paper_text_status": "pdf"
+}

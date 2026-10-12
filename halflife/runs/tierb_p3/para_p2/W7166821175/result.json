@@ -1,0 +1,76 @@
+{
+  "wid": "W7166821175",
+  "title": "From Regulatory Approvals to Patents: Cross-Domain Linking for Cardiovascular Device Traceability",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 60.1,
+  "original_location": "Table 2, Group B, row GPT-4-turbo, column R@Gold (repeated as Table 14, row GPT-4-turbo, Recall 60.1)",
+  "reexecution": {
+    "mean_over_seeds": 0.747008547008547,
+    "per_seed": {
+      "0": {
+        "value": 0.747008547008547,
+        "n": 585,
+        "ci95": [
+          0.7111111111111111,
+          0.7829059829059829
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7166821175",
+    "n_items": 585,
+    "n_requests": 585,
+    "seeds": 1,
+    "est_usd": 13.91,
+    "subset_note": "paraphrase p2: 4 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [585, 585, 585, 585]",
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 60.1,
+    "cap_usd": 10.92,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7166821175",
+    "paraphrase": "p2",
+    "pairs": [
+      [
+        "You are an expert biomedical engineer and patent analyst.",
+        "Act as an experienced biomedical engineer who also analyses patents."
+      ],
+      [
+        "Task: Determine if the Medical Device likely uses the technology described in the Patent.",
+        "Task: Decide whether it is likely that the Medical Device makes use of the technology described in the Patent."
+      ],
+      [
+        "1. **Core Match**: Do they share the same SPECIFIC device type or unique mechanism? (e.g., \"Drug-eluting Stent\" matches \"Bioabsorbable Scaffold\").\n2. **Ignore Generics**: Do NOT link based solely on generic terms like \"catheter\", \"sensor\", or \"needle\" unless the context is identical.\n3. **Semantic Check**: Look for synonyms (e.g., \"Atrial Fibrillation\" == \"Arrhythmia\").",
+        "1. **Core Match**: Check whether both involve the same SPECIFIC device type or unique mechanism (e.g., \"Drug-eluting Stent\" matches \"Bioabsorbable Scaffold\").\n2. **Ignore Generics**: A shared generic term like \"catheter\", \"sensor\" or \"needle\" is not enough for a link unless the context is identical.\n3. **Semantic Check**: Treat synonyms as matches (e.g., \"Atrial Fibrillation\" == \"Arrhythmia\")."
+      ],
+      [
+        "Provide a JSON object with a \"reasoning\" field (for your internal thought process) and a \"linked\" field.",
+        "Give a JSON object with two fields: \"reasoning\" (your internal thinking) and \"linked\"."
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 15
+  },
+  "approximation": "Only the gold positives are run: R@Gold is recall over the 585 verified pairs, so the negatives of the paper's 'balanced evaluation set' (hard negatives with S >= 70 and sim > 0.8, plus random negatives, counts unreported) are not needed for this claim and the companion FPR (28.6%) is therefore not reproduced. The prompt's two entity slots are filled with the released ontology entity lists (ent_names_d / ent_names_p); the repository's few-shot script instead fills them with an entity-overlap score hint, and the paper does not say which filling the Table 14 0-shot run used. Device and patent text are truncated to 400 characters, as that script does. The released gold standard covers 74 devices, the paper's Table 14 caption says 85.",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p2\\W7166821175"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 74.7008547008547,
+    "delta": 14.600854700854704,
+    "original_inside_ci95": false
+  }
+}

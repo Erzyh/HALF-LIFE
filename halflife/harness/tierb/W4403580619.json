@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4403580619",
+  "title": "Evaluating Gender Bias of LLMs in Making Morality Judgements",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo (gpt-4-turbo-2024-04-09 variant)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"we evaluate GPT-3.5-turbo, GPT-3.5-turbo-instruct and GPT-4-turbo by leveraging the OpenAI API\" (footnote 4: \"gpt-4-turbo-2024-04-09 variant\"); Table 2 row GPT-4-turbo, PM=161, PMR=0.1773 (CoT prompt)"
+  },
+  "prompt": {"verbatim": "full", "location": "Table 6 (data-filtering prompt templates), Table 7 (CoT / non-CoT evaluation prompt templates, verbatim)", "note": "Temperature 0, fixed seed, max_tokens=500 (Sec. 3/5.2); Table 5/8 give a temperature-sensitivity ablation and non-CoT results."},
+  "claim": {
+    "metric": "Prediction Mismatch (PM) / Prediction Mismatch Rate (PMR), CoT prompt", "value": 0.1773, "n_items": 1003,
+    "location": "Table 2, row GPT-4-turbo, PM/PMR columns; dataset = 199 Moral Stories + 549 ETHICS + 255 Social Chemistry story pairs (Sec. 3.5)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Moral Stories (Emelin et al.), ETHICS, and Social Chemistry datasets (all public)"},
+  "cost": {"est_calls": 3009, "tier": "mid"},
+  "blockers": [],
+  "notes": "arXiv 2024 (SOC). PMR=0.1773 implies roughly 908 evaluable pairs after per-model response filtering, slightly below the 1,003-pair nominal dataset; Table 8 (Appendix C) gives the non-CoT counterpart. Very clean reproduction target: fixed temperature/seed, exact prompt text, public data."
+}

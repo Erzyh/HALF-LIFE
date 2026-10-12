@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4405762666",
+  "title": "APBench: Benchmarking Large Language Model Performance in Fundamental Astrodynamics Problems for Space Engineering",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"GPT-4 2024-04-09 52.0 48.5 49.2 OpenAI gpt-4-turbo-2024-04-09\" (Table 3, Open APBench); LLM-as-a-judge \"employs GPT4o (gpt-4o-2024-08-06)\" (Evaluation)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figure 1 (evaluation flow: content + progressive content + question); no verbatim prompt text",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on APBench-gamma",
+    "value": 49.2,
+    "n_items": null,
+    "location": "Table 3, row GPT-4 (gpt-4-turbo-2024-04-09), column APBench-gamma (%)",
+    "task_type": "other",
+    "judge": "llm:gpt-4o-2024-08-06 (message-format answers) + MiniLM embedding similarity"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://huggingface.co/datasets/woodywu/APBench (open set, 299 problems); private set not released"
+  },
+  "cost": {
+    "est_calls": 299,
+    "tier": "mid"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Message-format answers are scored by gpt-4o-2024-08-06, which is not in the project's live list; numeric answers use error margins. Sizes of the alpha/beta/gamma versions are not stated. Progressive prompting adds solved sub-problems to the context."
+}

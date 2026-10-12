@@ -1,0 +1,63 @@
+{
+  "openalex_id": "https://openalex.org/W7144391134",
+  "title": "In-Context Molecular Property Prediction with LLMs: A Blinding Study on Memorization and Knowledge Conflicts",
+  "doi": "",
+  "field": "Materials Science",
+  "year": "2026",
+  "live_models": "gpt-4.1-nano",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/MatthiasHBusch/BlindingLLMs",
+    "github.com/MatthiasHBusch/BlindingLLMs.References",
+    "huggingface.co/datasets/HR-machine",
+    "huggingface.co/datasets/HR-machine/QM7-Dataset"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/MatthiasHBusch/BlindingLLMs",
+      "cloned": true,
+      "audit": {
+        "n_files": 204,
+        "ext_top": {
+          ".png": 112,
+          ".jl": 27,
+          ".py": 23,
+          ".csv": 20,
+          ".json": 15,
+          "": 2,
+          ".md": 2,
+          ".tex": 2
+        },
+        "has_license": true,
+        "has_requirements": true,
+        "has_readme": true,
+        "n_notebooks": 0,
+        "n_py": 23,
+        "n_data_files": 35,
+        "files_mentioning_prompt": 8,
+        "files_with_eval_terms": 14,
+        "model_ids_in_code": {
+          "o1": 2150,
+          "gpt-4": 435,
+          "gpt-5": 141,
+          "o3": 124,
+          "gemini-2.5-pro": 118,
+          "gemini-2.5-flash": 104,
+          "gemini-2.5-flash-lite": 104,
+          "gpt-5-mini": 61,
+          "gpt-5-nano": 61,
+          "gpt-5-mini_2024-12-01-preview": 42
+        },
+        "readme_head": "# In-Context Molecular Property Prediction with LLMs: A Blinding Study on Memorization and Knowledge Conflicts\n\n[![arXiv](https://img.shields.io/badge/arXiv-2603.25857-b31b1b.svg)](https://arxiv.org/abs/2603.25857)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n\n> **Paper:** [arXiv:2603.25857](https://arxiv.org/abs/2603.25857)\n\n## Overview\n\nThis repository provides the code and data for reproducing the experiments in our paper on evaluating LLMs for molecular property prediction. We introduce a **six-level blinding framework** that progressively removes contextual information to disentangle memorization, domain knowledge, and in-context learning capabilities of large language models.\n\n### Key Contributions\n\n- A systematic blinding framework (6 levels) for evaluating LLM molecular property prediction\n- Evaluation of 9 LLM variants across 3 families (GPT-4.1, GPT-5, Gemini 2.5) and 3 size classes\n- Analysis on 3 MoleculeNet datasets (Delaney/ESOL, Lipophilicity, QM7)\n- Evidence that LLMs rely on domain knowledge rather than direct memorization\n- Discovery that prior knowledge can interfere with in-context learning\n\n## Repository Structure\n\n```\n├── README.md\n├── LICENSE\n├── requirements.txt          # Python dependencies\n├── data/\n│   ├── delaney-processed.csv # ESOL solubility dataset (1,128 molecules)\n│   ├── Lipophilicity.csv     # Lipophilicity dataset (4,200 molecules)\n│   └── qm7.csv              # QM7 atomizatio"
+      },
+      "commit": "29f607c2fa18c74251136f50c6f4769129bb9fed"
+    },
+    {
+      "url": "https://github.com/MatthiasHBusch/BlindingLLMs.References",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W7144391134.txt",
+  "paper_text_status": "pdf"
+}

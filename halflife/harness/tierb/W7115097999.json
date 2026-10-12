@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7115097999",
+  "title": "The Llama 3 herd of models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Section 5.4.x: 'Figure 22 provides text-based prompt injection success rates across Llama 3, GPT-4 Turbo, Gemini Pro, and Mixtral models' (bars only)."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Not printed (CyberSecEval 2 prompt-injection benchmark)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "prompt injection success rate",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 22 (bars, no table)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CyberSecEval 2 (public)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Model-release report; the live model appears in one figure of a safety comparison with no numeric value in the text."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412887910",
+  "title": "Implicit Cross-Lingual Rewarding for Efficient Multilingual Preference Alignment",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Sec. 5: 'The X-AlpacaEval leaderboard ... shows the win rate over GPT-4 Turbo' (reference responses supplied by the benchmark), judged with GPT-4o"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix E (prompt templates for translation and judging)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "win rate vs GPT-4 Turbo references",
+    "value": null,
+    "n_items": null,
+    "location": "Table 2 (subjects are Llama-3-8B variants)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-08-06"
+  },
+  "data": {
+    "public": "yes",
+    "source": "X-AlpacaEval, multilingual MT-Bench"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "GPT-4 Turbo only provides pre-generated reference outputs inside X-AlpacaEval; not run by the authors."
+}

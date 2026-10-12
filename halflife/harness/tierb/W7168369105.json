@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7168369105",
+  "title": "Poor Man's Agentic Modeling: Simulating Large LLM-Agent Societies on a Laptop",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"We fit beta(N) by maximum likelihood from real decisions elicited with their verbatim prompt across six models\"; Table 3 row GPT-4-Turbo: betaeff trend=\"slow decay\", our Nc~1600"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "The paper states it reuses \"their [De Marzo et al./EconAgent's] verbatim prompt\" but does not reprint that prompt text; the only appendix (D) is a mathematical proof."
+  },
+  "claim": {
+    "metric": "critical group size Nc (naming-game consensus threshold)",
+    "value": 1600,
+    "n_items": null,
+    "location": "Table 3, row GPT-4-Turbo, \"our Nc\" column",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "De Marzo et al. naming-game task; EconAgent household prompts (external, cited sources)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "This is a low-cost replication/reanalysis of De Marzo et al. and EconAgent using cloned surrogate models plus spot checks on real APIs (GPT-4-Turbo, GPT-4o, Llama-3.3-70B, DeepSeek, plus futuristic-sounding 'Opus-4.8'/'GLM-5.2'); reproducing it requires the source papers' prompts, which are cited but not reproduced here."
+}

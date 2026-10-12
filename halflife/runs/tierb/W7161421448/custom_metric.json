@@ -1,0 +1,13 @@
+{
+  "yes_present": 1012,
+  "no_present": 214,
+  "yes_absent": 21,
+  "no_absent": 1097,
+  "odds_ratio": 247.03248776145972,
+  "woolf_ci95": [
+    156.53027418203175,
+    389.8610050260862
+  ],
+  "zero_cell_shift": false,
+  "stories_unparsed": 4
+}

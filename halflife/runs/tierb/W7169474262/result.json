@@ -1,0 +1,67 @@
+{
+  "wid": "W7169474262",
+  "title": "The One-Word Census: Answer-Choice Conformity Across 44 Language Models",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 40,
+  "original_location": "Table 1 (appendix scorecard), rank 10, row 'gpt-4-turbo': 2.05 [1.67, 2.45] surprisal, 51% modal avoidance, 1% novel, 40% self-distinctness",
+  "reexecution": {
+    "mean_over_seeds": 0.41397849462365593,
+    "per_seed": {
+      "0": {
+        "value": 0.4274193548387097,
+        "n": 124,
+        "ci95": [
+          0.3823055555555555,
+          0.4963575268817204
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 0.43548387096774194,
+        "n": 124,
+        "ci95": [
+          0.38308614951356884,
+          0.4941887888097566
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 0.3790322580645161,
+        "n": 124,
+        "ci95": [
+          0.3644012414788277,
+          0.4655204231252619
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7169474262",
+    "n_items": 124,
+    "n_requests": 372,
+    "seeds": 3,
+    "est_usd": 4.53,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 40,
+    "cap_usd": 7.2
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "The paper served every model through OpenRouter under the alias 'gpt-4-turbo' in July 2026; this run calls the dated snapshot gpt-4-turbo-2024-04-09 on the OpenAI API directly, so routing and any provider-side sampling differences are not reproduced. Self-distinctness is a within-model statistic, so it does not depend on the other 43 models; the plural merge, which the authors apply over the whole panel's answers for a category, is applied here to our own four answers only.",
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 41.39784946236559,
+    "delta": 1.397849462365592,
+    "original_inside_ci95": true
+  }
+}

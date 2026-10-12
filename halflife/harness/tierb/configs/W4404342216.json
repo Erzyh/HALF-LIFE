@@ -1,0 +1,70 @@
+{
+  "wid": "W4404342216",
+  "title": "AAAR-1.0: Assessing AI's Potential to Assist Research",
+  "status": "needs_human",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "reasoning_effort": "medium",
+      "max_completion_tokens": 4096
+    },
+    "params_source": "assumed (paper gives no decoding parameters for o3-mini; Appendix B.2: closed-source models run three times and the median reported)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 4196,
+    "subset_rule": "all: 1,049 EQINFER instances x 4 candidate equations (1,049 positive + 3,147 negative)",
+    "approximation": "the prediction prompt is a figure (image) in the paper and must be transcribed; the paper reports the median of three runs, here a single run with item bootstrap"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "Reza8848/AAAR-1.0, file Equation_Inference/equation.1049.json (58 MB; 1,049 records)",
+    "config_or_split": "Equation_Inference",
+    "filter": "none",
+    "fields": {
+      "input": "context_before + context_after (LaTeX source around the equation slot)",
+      "options": "options_list (4 LaTeX equations, labels (A)-(D); one positive, three negative)",
+      "label": "answer (letter of the positive equation); each option becomes one binary item",
+      "id": "record index + option letter"
+    },
+    "license": "MIT",
+    "access_checked": true,
+    "size_mb": 58
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "NOT AVAILABLE IN THE TEXT EXTRACTION: the EQINFER prediction prompt is Figure 11 (an image). Transcribe it from the PDF and insert it here with placeholders {context_before}, {context_after}, {options}.",
+    "placeholders": {
+      "context_before": "items.context_before (truncated to the context length used for Table 1)",
+      "context_after": "items.context_after",
+      "options": "items.options (the four labelled equations)"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix E, Figure 11 (EQINFER data-collection and model-prediction prompts)",
+    "verbatim": "none: Figure 11 is an image in the extracted text; nothing could be copied"
+  },
+  "output": {
+    "parse": "to be fixed after transcription: expected either a per-equation binary judgment or a selected letter (A-D) per instance (Sec. 5.1 describes one-by-one and whole-list prompting)",
+    "postprocess": "strip; per-equation predictions derived from the chosen letter(s)"
+  },
+  "metric": {
+    "name": "micro_f1",
+    "definition": "F1 (%) over the 4,196 candidate equations with the positive (correct) equation as the positive class (Sec. 4: F1 is the EQINFER criterion)",
+    "judge": "none",
+    "original_value": 47.98,
+    "original_location": "Table 1, row o3-mini, column F1 (Prec. 34.34, Rec. 79.59)",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 1049,
+    "est_usd": 80.0,
+    "tier": "high"
+  },
+  "open_points": [
+    "The EQINFER model-prediction prompt is Figure 11 of the PDF (an image); the extraction holds only the caption, so the template must be transcribed from the PDF before a hook can render it.",
+    "Fix the protocol behind Table 1 for o3-mini: one-by-one classification of each equation or whole-list selection (Sec. 5.1 discusses both), and the input-context length (Appendix B / Table 12).",
+    "Decide whether to mirror the paper's three-run median (3,147 calls) or the single run assumed here."
+  ],
+  "notes": "Cost estimate assumes one whole-list call per instance with long LaTeX contexts (~10k tokens). o3-mini has a single snapshot; the version list in Appendix B.2 predates it. || [hook pass 2026-09-07] no hook: prompt not in the text extraction."
+}

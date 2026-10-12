@@ -1,0 +1,14 @@
+{
+  "wid": "W4411112894",
+  "n_items": 1266,
+  "n_requests": 2532,
+  "seeds": 2,
+  "est_usd": 8.6,
+  "subset_note": "cost cap $4.3: seeded random subset of 1266 items (seed 20260907); repeat of the gpt41 condition: same items and request bodies, 2 fresh calls per item",
+  "dropped_unrenderable": 0,
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 0.683,
+  "cap_usd": 7.78,
+  "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\gpt41\\W4411112894"
+}

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4415128218",
+  "title": "Piloting Temperature-Driven Variability in Emergency Diagnostic Accuracy Using a Leading Large Language Model",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Methods: 'GPT-4o (model version gpt-4o-2024-05-13 via the OpenAI Application Programming Interface) was chosen'; 'each of the four cases was iterated 250 times at five distinct temperature settings'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 2 (system prompt with JSON output schema); Table 1 (case details)",
+    "note": "JSON-only output with a differential_diagnoses array of exactly 3."
+  },
+  "claim": {
+    "metric": "leading-diagnosis accuracy (%) at temperature 0.0 with physical exam",
+    "value": 100,
+    "n_items": 1000,
+    "location": "Results: 100% across all cases at temperature 0.0 (89.4% at 1.0)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Case details in Table 1 (adapted from the FoEM curriculum)"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Published version of W4411080278 (medRxiv); run only one of the two. Scoring by keyword match against the gold diagnosis."
+}

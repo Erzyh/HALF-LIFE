@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7167154566",
+  "title": "Anthropomorphism in AI Companion Communities: Age, Gender, and Emotional Correlates",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-nano",
+    "resolved": "gpt-4.1-nano",
+    "role": "S",
+    "evidence": "Sec. 2: 'Each comment was classified by GPT-4.1-nano using a prompt supplying the rubric, definitions, examples, and linguistic indicators across the five levels.' Appendix: 'Temperature 0.1'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A 'AnthroIndex Classification Prompt' ('sent verbatim to GPT-4.1-nano'); Appendix B lexicon context block appended before classification",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Cohen's kappa (within-one agreement) of AnthroIndex vs expert consensus labels on the validation set",
+    "value": 0.58,
+    "n_items": 151,
+    "location": "Sec. 2 validation paragraph: 'Pearson r=0.59 ... 64.0% exact agreement and 96.0% within-one agreement (Cohen's kappa=0.58)'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/bodenmoraski/Illusion-Project-Home-Repo (comments, prompts, model outputs, human validation labels; Reddit ToS, non-commercial research use)"
+  },
+  "cost": {
+    "est_calls": 453,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Snapshot not pinned (only gpt-4.1-nano-2025-04-14 exists). Reference labels are fixed human consensus, so no new human work is needed; the exact kappa definition should be checked against the repo's scoring script."
+}

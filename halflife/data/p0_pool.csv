@@ -1,0 +1,47 @@
+﻿source,title,field,year,citations,live_models,dead_models,p0_eligible,flags,openalex_id
+v1,Durably reducing conspiracy beliefs through dialogues with AI,Social Sciences,2024,292,gpt-4-turbo,,yes,,https://openalex.org/W4402474910
+v1,MEDEC: A Benchmark for Medical Error Detection and Correction in Clinical Notes,Health Professions,2025,19,gpt-4-turbo|gpt-4o-2024-05-13,o1-mini|o1-preview,yes,,https://openalex.org/W4412887943
+v1,Performance of DeepSeek-R1 in Ophthalmology: An Evaluation of Clinical Decision-Making and Cost-Effectiveness,"Economics, Econometrics and Finance",2025,17,o1-2024-12-17,,yes,,https://openalex.org/W4407394923
+v1,Collaborative large language models for automated data extraction in living systematic reviews,Decision Sciences,2025,38,gpt-4-turbo,,yes,,https://openalex.org/W4406663495
+v1,The Impact of Temperature on Extracting Information From Clinical Trial Publications Using Large Language Models,Computer Science,2024,17,gpt-4o-2024-05-13,,yes,,https://openalex.org/W4405408496
+v1,Assessing DxGPT: Diagnosing Rare Diseases with Various Large Language Models,"Biochemistry, Genetics and Molecular Biology",2024,15,gpt-4-turbo,gemini-1.5-pro|gpt-4-0613,yes,,https://openalex.org/W4396768794
+v1,"Human versus Artificial Intelligence: ChatGPT-4 Outperforming Bing, Bard, ChatGPT-3.5 and Humans in Clinical Chemistry Multiple-Choice Questions",Medicine,2024,30,gpt-4-turbo,,yes,,https://openalex.org/W4402692922
+v1,When ELIZA meets therapists: A Turing test for the heart and mind,Psychology,2025,63,gpt-4-turbo,,yes,,https://openalex.org/W4407403557
+v1,Validating the use of large language models for psychological text classification,Psychology,2025,15,gpt-4-turbo|gpt-4o-2024-05-13,,yes,,https://openalex.org/W4407828806
+v1,Divergent Creativity in Humans and Large Language Models,Psychology,2024,15,gpt-4-turbo,gpt-4-0314|gpt-4-0613,yes,,https://openalex.org/W4398794862
+v1,Do Language Models Exhibit the Same Cognitive Biases in Problem Solving as Human Learners?,Social Sciences,2024,21,gpt-4-turbo,,yes,,https://openalex.org/W4391463123
+v1,PATIENT-𝜓: Using Large Language Models to Simulate Patients for Training Mental Health Professionals,Psychology,2024,39,gpt-4-turbo,,yes,,https://openalex.org/W4404792914
+v1,Questioning the Survey Responses of Large Language Models,Computer Science,2023,19,gpt-4-turbo,gpt-3.5-turbo-0613|gpt-4-0613|text-davinci-001|text-davinci-002|text-davinci-003,yes,,https://openalex.org/W4380715567
+v1,Accuracy and Political Bias of News Source Credibility Ratings by Large Language Models,Social Sciences,2023,41,gpt-4-turbo|gpt-4-turbo-2024-04-09|gpt-4o-2024-05-13,gemini-1.0-pro|gemini-1.5-flash|gemini-1.5-pro|o1-mini,yes,,https://openalex.org/W4362598103
+v1,LLM Voting: Human Choices and AI Collective Decision-Making,"Economics, Econometrics and Finance",2024,35,gpt-4-turbo,gpt-4-1106-preview,yes,,https://openalex.org/W4404518327
+v1,Cultural bias and cultural alignment of large language models,Psychology,2024,308,gpt-4-turbo,gpt-3.5-turbo-0613|gpt-4-0613|text-davinci-002,yes,,https://openalex.org/W4402565126
+v1,AI Conversational Interviewing: Transforming Surveys with LLMs as Adaptive Interviewers,Medicine,2025,16,gpt-4-turbo,,yes,,https://openalex.org/W4411120612
+v1,Generative AI and Power Imbalances in Global Education: Frameworks for Bias Mitigation,Social Sciences,2024,24,gpt-4-turbo,,yes,,https://openalex.org/W4399453660
+v1,Humans or LLMs as the Judge? A Study on Judgement Bias,"Economics, Econometrics and Finance",2024,58,gpt-4-turbo,claude-2|claude-3-opus-20240229|gpt-4-0613|gpt-4-1106-preview,yes,,https://openalex.org/W4404782878
+v1,Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate,Computer Science,2024,249,gpt-4-turbo,gpt-3.5-turbo-0301|gpt-4-0314,yes,agentic/heavy,https://openalex.org/W4404782209
+v1,Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Large Language Model Performance.,Computer Science,2024,43,gpt-4-turbo,claude-3-haiku|gemini-1.5-flash,yes,,https://openalex.org/W4404783537
+v1,Does Prompt Formatting Have Any Impact on LLM Performance?,Computer Science,2024,22,gpt-4-turbo,gpt-4-1106-preview|gpt-4-32k,yes,,https://openalex.org/W4404569914
+v1,"The Good, The Bad, and The Greedy: Evaluation of LLMs Should Not Ignore Non-Determinism",Computer Science,2025,23,gpt-4-turbo,,yes,,https://openalex.org/W4411120389
+v1,Examining the robustness of LLM evaluation to the distributional assumptions of benchmarks,Engineering,2024,14,gpt-4-turbo,claude-2|gpt-4-0314|gpt-4-0613|text-davinci-002|text-davinci-003,yes,,https://openalex.org/W4402671999
+v1,Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators,Computer Science,2024,16,gpt-4-turbo,claude-2.1,yes,,https://openalex.org/W4394708144
+v1,TopicGPT: A Prompt-based Topic Modeling Framework,Social Sciences,2024,89,gpt-4-turbo,,yes,,https://openalex.org/W4401043789
+v1,Evaluating Very Long-Term Conversational Memory of LLM Agents,Computer Science,2024,66,gpt-4-turbo,gemini-1.0-pro|text-davinci-003,yes,agentic/heavy,https://openalex.org/W4402684150
+v1,Agentless: Demystifying LLM-based Software Engineering Agents,Computer Science,2024,17,gpt-4o-2024-05-13,claude-3-5-sonnet,yes,agentic/heavy,https://openalex.org/W4400337928
+v1,TravelPlanner: A Benchmark for Real-World Planning with Language Agents,Computer Science,2024,14,gpt-4-turbo,,yes,agentic/heavy,https://openalex.org/W4391591592
+v1,LLMs Assist NLP Researchers: Critique Paper (Meta-)Reviewing,Medicine,2024,18,gpt-4-turbo,claude-3-opus-20240229|gemini-1.5-flash,yes,,https://openalex.org/W4404782918
+v2,Benchmarking Large Language Models for Bio-Image Analysis Code Generation,"Biochemistry, Genetics and Molecular Biology",2024,4,gpt-4-turbo|gpt-4-turbo-2024-04-09,claude-3-opus-20240229|gpt-4-1106-preview,yes,,https://openalex.org/W4394986684
+v2,Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Medicine,"Biochemistry, Genetics and Molecular Biology",2025,7,gpt-4-turbo|gpt-4-turbo-2024-04-09|gpt-4o-2024-05-13,,yes,,https://openalex.org/W4412945732
+v2,MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding,"Biochemistry, Genetics and Molecular Biology",2025,3,o1-2024-12-17|o3-mini,claude-3-5-sonnet|gemini-1.5-pro|o1-preview,yes,,https://openalex.org/W4407012395
+v2,GPT for RCTs? Using AI to determine adherence to clinical trial reporting guidelines,Medicine,2025,17,gpt-4-turbo,,yes,,https://openalex.org/W4408685817
+v2,Swedish Medical LLM Benchmark: development and evaluation of a framework for assessing large language models in the Swedish medical domain,Medicine,2025,9,gpt-4-turbo,,yes,,https://openalex.org/W4412188064
+v2,A recent evaluation on the performance of LLMs on radiation oncology physics using questions of randomly shuffled options,Medicine,2025,9,gpt-4-turbo,gemini-1.5-pro|o1-preview,yes,,https://openalex.org/W4405468527
+v2,How Can We Diagnose and Treat Bias in Large Language Models for Clinical Decision-Making?,Medicine,2025,6,gpt-4-turbo|gpt-4-turbo-2024-04-09|gpt-4o-2024-05-13,gpt-3.5-turbo-0301,yes,,https://openalex.org/W4411119520
+v2,A multi-model longitudinal assessment of ChatGPT performance on medical residency examinations,Medicine,2025,5,gpt-4-turbo|o4-mini,o1-preview,yes,data-check,https://openalex.org/W4413440509
+v2,Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty,Health Professions,2026,2,gpt-4.1-nano|gpt-4.1-nano-2025-04-14,,yes,,https://openalex.org/W7140135941
+v2,Leveraging large language models for nano synthesis mechanism explanation: solid foundations or mere conjectures?,Materials Science,2024,0,gpt-4-turbo,gpt-4-0125-preview,yes,,https://openalex.org/W4400667840
+v2,Unveiling the Potential of AI for Nanomaterial Morphology Prediction,Materials Science,2024,3,gpt-4-turbo,gpt-4-0125-preview|gpt-4-0613,yes,,https://openalex.org/W4399425290
+v2,Zero-Shot Learning for Materials Science Texts: Leveraging Duck Typing Principles,Materials Science,2025,0,gpt-4-turbo,,yes,,https://openalex.org/W4409346658
+v2,In-Context Molecular Property Prediction with LLMs: A Blinding Study on Memorization and Knowledge Conflicts,Materials Science,2026,0,gpt-4.1-nano,,yes,,https://openalex.org/W7144391134
+v2,Tag Questions and the Generational Reversal of Sycophancy Across 45 Language Models,Neuroscience,2026,0,gpt-4-turbo,claude-3-haiku,yes,,https://openalex.org/W7171749161
+v2,AIRepr: An Analyst-Inspector Framework for Evaluating Reproducibility of LLMs in Data Science,"Biochemistry, Genetics and Molecular Biology",2025,3,o3-mini|o3-mini-2025-01-31,,yes,,https://openalex.org/W4416034576
+v2,"Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs",Health Professions,2024,2,gpt-4-turbo,claude-2|claude-2.1|claude-3-haiku|claude-instant-1.2|gpt-4-0125-preview|gpt-4-0613,yes,,https://openalex.org/W4400435289

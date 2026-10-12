@@ -1,0 +1,89 @@
+{
+  "wid": "W4404352371",
+  "title": "EEE-Bench: A Comprehensive Multimodal Electrical And Electronics Engineering Benchmark",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "paper Appendix E, Table 5, row GPT-4V ('model': 'gpt-4-turbo', temperature 0, max tokens 1024); top_p assumed",
+    "seeds": 1
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 2860,
+    "subset_rule": "all (test split; the release also has a 572-item testmini)",
+    "approximation": "Single run instead of the paper's average of two runs; answer extraction with gpt-4o-mini-2024-07-18 and the MathVista extraction prompt (the paper's 'exemplary system prompt' is not printed); image detail default; free-form items scored by answer type."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "afdsafas/EEE-Bench (MIT; card cites arXiv 2411.01492)",
+    "config_or_split": "default / test (2,860 rows verified; features image, problem, solution)",
+    "filter": null,
+    "fields": {
+      "input": "problem",
+      "image": "image",
+      "label": "solution",
+      "id": null
+    },
+    "license": "mit",
+    "access_checked": true,
+    "size_mb": 133,
+    "hf": {
+      "dataset": "afdsafas/EEE-Bench",
+      "config": "default",
+      "split": "test"
+    },
+    "fields_paper": {
+      "input": "problem (already prefixed with the Table 4 task instruction as 'Hint: ...' followed by 'Question: ...' and the choices)",
+      "image": "image",
+      "label": "solution",
+      "id": "row index"
+    },
+    "filter_paper": "none"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "{problem}",
+    "placeholders": {
+      "problem": "items.problem",
+      "image": "items.image attached as an image content part (not expressible)"
+    },
+    "few_shot": "none",
+    "source_location": "Table 4 (task instructions per answer type) and Appendix C.3 (instruction header prepended to each question, following MathVista); Sec. 3.1 'Evaluation'",
+    "verbatim": "full (the release stores the Table 4 header inside the problem field)",
+    "placeholders_paper": {
+      "problem": "items.input verbatim (release field; equals the Table 4 instruction for the item's answer type + question + choices, MathVista style)",
+      "image": "items.image attached as an image content part"
+    }
+  },
+  "output": {
+    "parse": "free text",
+    "postprocess": "MathVista normalization: strip, letter match, numeric comparison by answer type (Float(1)/(2)/(3), Integer, List)",
+    "parse_paper": "free text -> extracted answer by the judge; letter for multiple-choice, number/list for free-form"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 2,860 items whose extracted answer matches solution",
+    "judge": "llm:gpt-4o-mini-2024-07-18, prompt: MathVista answer-extraction prompt (Lu et al. 2023, MathVista repo prompts/ext_ans.py) per the resolution plan",
+    "original_value": 40.21,
+    "original_location": "Table 2, row GPT-4V, column ALL",
+    "bootstrap_unit": "item",
+    "name_paper": "accuracy",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 5720,
+    "est_usd": 59.0,
+    "tier": "high",
+    "prepare_note": "not prepared (source gated / archive / unreachable / >100 MB)"
+  },
+  "open_points": [
+    "no hook: every item needs its image as an image_url content part (the test parquet is ~133 MB of images, above the 100 MB limit) and the runner builds text-only messages.",
+    "answer extraction by an LLM judge (gpt-4o-mini, unpinned alias, MathVista prompt) plus type-aware numeric comparison would need a judge stage written against that alias."
+  ],
+  "notes": "Per-subject columns (EMag 44.12 ... ED 48.86) allow a subject-level check if the release carries a subject field (only image/problem/solution were visible)."
+}

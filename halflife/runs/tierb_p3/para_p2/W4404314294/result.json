@@ -1,0 +1,64 @@
+{
+  "wid": "W4404314294",
+  "title": "DisasterQA: A Benchmark for Assessing the performance of LLMs in Disaster Response",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 0.817,
+  "original_location": "Table II (Results from No Prompting), row GPT-4 Turbo, column 1st Index (81.70%)",
+  "reexecution": {
+    "mean_over_seeds": 0.8297872340425532,
+    "per_seed": {
+      "0": {
+        "value": 0.8297872340425532,
+        "n": 707,
+        "ci95": [
+          0.8014184397163121,
+          0.8567375886524823
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4404314294",
+    "n_items": 707,
+    "n_requests": 707,
+    "seeds": 1,
+    "est_usd": 27.24,
+    "subset_note": "paraphrase p2: 1 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [707]",
+    "dropped_unrenderable": null,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 0.817,
+    "cap_usd": 5.0,
+    "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W4404314294",
+    "paraphrase": "p2",
+    "pairs": [
+      [
+        "Please answer the question above and end your answer with 'The answer is {letter}', where letter is A, B, C, D, E, or F.",
+        "Respond to the question above and close your response with 'The answer is {letter}', letter being A, B, C, D, E, or F."
+      ]
+    ]
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 15
+  },
+  "approximation": "Temperature 0.0 instead of the (unstated, presumably default) sampling temperature used to obtain five distinct completions; 'first index' = the single completion per seed.",
+  "arm": {
+    "model": "gpt-4-turbo-2024-04-09",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\para_p2\\W4404314294"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.8297872340425532,
+    "delta": 0.01278723404255322,
+    "original_inside_ci95": true
+  }
+}

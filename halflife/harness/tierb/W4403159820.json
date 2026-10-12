@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403159820",
+  "title": "Large Language Models versus Classical Machine Learning: Performance in COVID-19 Mortality Prediction Using High-Dimensional Tabular Data",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Supplementary Table S2: 'GPT4T gpt-4-turbo-2024-04-09 OpenAI API: Temperature 1'; Table 3 ZSC validation row 'LLM gpt-4-turbo 0.57 0.82 0.19 0.96 0.31 0.57'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Supplementary Table S1 (raw and improved prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy, zero-shot mortality classification",
+    "value": 0.57,
+    "n_items": 590,
+    "location": "Table 3, block ZSC Validation, row LLM gpt-4-turbo, column Accuracy",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "Tehran COVID-19 cohort (9,134 patients); 'available from the corresponding author on reasonable request'"
+  },
+  "cost": {
+    "est_calls": 1770,
+    "tier": "low"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "gpt-4o-2024-05-13 also run (accuracy 0.50). Temperature 1."
+}

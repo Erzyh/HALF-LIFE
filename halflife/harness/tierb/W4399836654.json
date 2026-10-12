@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4399836654",
+ "title": "From Crowdsourced Data to High-Quality Benchmarks: Arena-Hard and BenchBuilder Pipeline",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "Table 10 (\"bias in GPT-4-Turbo as a Judge\"): \"gpt-4-turbo 0 0\"; footnote 4 lists gpt-4-turbo-2024-04-09 among top-20 Chatbot Arena models used to build Arena-Hard-Auto."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix (LLM-judge prompt referenced for Arena-Hard-Auto scoring)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none isolating GPT-4-Turbo's own win-rate (Table 13 leaderboard numeric rows not confirmed in the excerpt reviewed; Table 10 reports it only as a bias-audit judge)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 10 (self-bias = 0, as judge)",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Chatbot Arena conversations, Arena-Hard-Auto / BenchBuilder pipeline (public methodology paper)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-Turbo appears in this paper mainly as (a) one of ~20 models ranked on the externally-hosted Chatbot Arena leaderboard and (b) an LLM-judge whose self-preference bias is audited (found to be 0). No standalone GPT-4-Turbo generation accuracy number attributable to this paper's own run was located; the Arena-Hard-Auto leaderboard table (Table 13) numeric rows were not visible in the section reviewed."
+}

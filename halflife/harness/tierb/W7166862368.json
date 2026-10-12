@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166862368",
+  "title": "Benchmarking LLMs on Authentic Cases from Medical Journals",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini-2025-04-16 (also o3-mini-2025-01-31)",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Table 3: 'o4-mini-2025-04-16 45.2 46.5 51.4 41.3 41.9 42.9 38.3 46.5 45.8 40.7 45.4 45.4'; Sec. 4.1: 'we set the temperature to t=0.6 and report the average results over three independent runs'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D.1, Figure 7 (ClinBenchText evaluation prompt: Question/Options/Instruction with answer format)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (%) averaged over 11 specialties, ClinBenchText",
+    "value": 45.4,
+    "n_items": 2000,
+    "location": "Table 3, row o4-mini-2025-04-16, Avg column",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "ClinBench (PMC-sourced authentic cases, expert reviewed); no release URL anywhere in the text"
+  },
+  "cost": {
+    "est_calls": 6000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "n_items is approximate ('over 2,000 questions' across text and multimodal tracks). Table 6 gives the o3-mini full-set cost as $5.46, so three seeds of o4-mini would be mid tier. If the benchmark is released this becomes eligible (prompt printed, snapshot pinned)."
+}

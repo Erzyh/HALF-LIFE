@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W7162700493",
+  "title": "JuICE: A Benchmark for Evaluating LLM-Judge in Identifying Cultural Errors",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "B",
+    "evidence": "Sec. 3.2: \"We then generate responses with three LLMs: gemini-2.5-flash, gpt-5-mini-2025-08-07, and Qwen3-235B-A22B-Instruct-2507 ... 1,050 pairs overall.\""
+  },
+  "prompt": {"verbatim": "partial", "location": "Appendix C.1 (response generation), C.2 (grammar post-processing), E.1 (judge template)", "note": "Response-generation prompts are the translated queries; judge prompt is printed."},
+  "claim": {
+    "metric": "none tied to gpt-5-mini; Table 4 span-detection F1 is for other judges", "value": null, "n_items": 1050, "location": "Table 4 (judges: gemini-3.1-pro-preview, gpt-5.5, claude-haiku-4.5, claude-opus-4.7, gemini-3-flash-preview, gpt-5.4-mini)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {"public": "yes", "source": "https://jinjh0123.github.io/JuICE (dataset, annotations, code, prompts)"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "gpt-5-mini only generated one third of the responses that humans annotated; Figure 3 shows counts of error spans in its outputs, which is a property of the annotation, not a model metric. The evaluated LLM judges are newer models."
+}

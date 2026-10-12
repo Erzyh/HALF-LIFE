@@ -1,0 +1,13 @@
+{
+  "label": "W4416034223",
+  "calls": 215,
+  "errors": 1,
+  "cost_usd": 2.3946999999999994,
+  "tokens_in": 26450,
+  "tokens_out": 114445,
+  "cap_usd": 4.8,
+  "stopped_at_cap": false,
+  "started": "2026-09-18T12:08:32.045949+00:00",
+  "updated": "2026-09-18T12:24:01.298233+00:00",
+  "last_error": "exhausted retries"
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4414713350",
+  "title": "Lab-scale production of postbiotic proteins from Bifidobacterium adolescentis with antiviral and epithelial-protective properties",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT (GPT-4, model \"gpt-4-turbo\" version)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "\"Generative AI statement: ... ChatGPT artificial intelligence tool (GPT-4-turbo version) (OpenAI) used for proofreading the manuscript in English.\""
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "n/a",
+    "note": "This is a journal-mandated AI-use disclosure for manuscript proofreading, not a research experiment."
+  },
+  "claim": {
+    "metric": "none (no experiment; writing-assistance disclosure only)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "no_number"
+  ],
+  "notes": "ChatGPT (the consumer web app) was used only to proofread the manuscript's English; the paper's actual science is wet-lab microbiology, unrelated to any LLM benchmark."
+}

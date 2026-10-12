@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7140103084",
+  "title": "Who Plays Which Role? Protagonist Detection and Classification in Moral Discourse",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "S",
+    "evidence": "Table 6: \"gpt-5-mini gpt-5-mini-2025-08-07\"; Table 1, row gpt-5-mini pd_cot_10shot_def, F1 strict=0.4882"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "A.9 Prompts: \"All prompts are available in our project repository.\"",
+    "note": "Prompt variants (pd_basic_0shot / pd_cot_0shot / pd_cot_10shot / pd_cot_10shot_def) are named and described narratively in Sec 4.1, but the literal text lives only in the linked GitHub repository, not the paper."
+  },
+  "claim": {
+    "metric": "F1 (micro-avg, strict matching), protagonist detection, pd_cot_10shot_def",
+    "value": 0.4882,
+    "n_items": null,
+    "location": "Table 1, row gpt-5-mini, pd_cot_10shot_def, strict column",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MORCORP corpus (project repository, github.com/GS-Uni-Heidelberg)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "GPT-5-mini is also used for protagonist role/group classification (Table 2, best cell F1=0.6426, context+def setting); same no_prompt gap applies since all prompt templates are only in the repository."
+}

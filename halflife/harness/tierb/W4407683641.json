@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4407683641",
+  "title": "Linking Cryptoasset Attribution Tags to Knowledge Graph Entities: An LLM-based Approach",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 5.1: 'GPT-4o, GPT-3.5 Turbo ... employed in their specific versions: gpt-3.5-turbo-0125 and gpt-4o-2024-05-13'; 'For all models, we set the temperature to 0'."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Figure 4 (base prompt template: SYS, FEW-SHOT, INPUT, OUT parts); Table 2 (ten template configurations)",
+    "note": "Five-shot examples come from the 25-sample train split."
+  },
+  "claim": {
+    "metric": "macro F1, candidate selection, GraphSense TagPack validation set, five-shot template 7",
+    "value": 0.939,
+    "n_items": 771,
+    "location": "Table 4, row GPT4o, Five-Shot columns (T=7, F1 0.939, Acc 0.983)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "GraphSense TagPack datasets and code at github.com/ravice234/cryptoasset-attribution-tag-linker; validation split 771 tags"
+  },
+  "cost": {
+    "est_calls": 771,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Model inputs are candidate sets produced by the BM25-based blocking stage (Table 3); reproducing them is the soft gap. The paper reports one GPT-4o run at $3.36.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "Model inputs are candidate sets from concept filtering plus BM25 blocking (k candidates) and five-shot examples from the 25-tag train split; regenerate both with the released code and data, build template 7 (Figure 4 / Table 2), run gpt-4o-2024-05-13 at temperature 0 on the 771-tag validation split and compare macro F1 0.939 / accuracy 0.983 (Table 4). Fallback: re-implement BM25 blocking with rank_bm25 per Sec. 4.1 on the GraphSense TagPacks.",
+    "approximation": "Candidate sets may differ if the TagPack data changed or blocking is re-implemented.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/ravice234/cryptoasset-attribution-tag-linker",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

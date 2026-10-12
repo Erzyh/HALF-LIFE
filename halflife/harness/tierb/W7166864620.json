@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7166864620",
+ "title": "Can AI Revise Research Papers with Human Review Feedback? An Empirical Study and Benchmark",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "O4-MINI",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "Table 3 (\"main performance of models with OpenHands on ReviseBench\"): \"O4-MINI 25.00% 25.00% 16.67% 0.00%\" (PDF Gen Rate / Valid PDF Gen Rate / Win Rate vs. Original / Win Rate vs. Human)."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix D.2 (\"Prompt Settings\"); code/data released at github.com/CGCL-codes/ReviseBench",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Win Rate vs. Original",
+  "value": 16.67,
+  "n_items": 12,
+  "location": "Table 3; ReviseBench \"currently only comprises 12 tasks\"",
+  "task_type": "agentic",
+  "judge": "llm:unspecified"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ReviseBench, github.com/CGCL-codes/ReviseBench (papers crawled from OpenReview/GitHub)"
+ },
+ "cost": {
+  "est_calls": 12,
+  "tier": "mid"
+ },
+ "blockers": [
+  "alias_unpinned"
+ ],
+ "notes": "o4-mini is never dated in the text (Table 3 and surrounding discussion use the bare label \"O4-MINI\"); no explicit o4-mini-2025-04-16 string was found anywhere in the paper, so the exact snapshot is unconfirmed. Otherwise strong: full public code/data/prompt release and a small, exactly-stated task count (12), run through the OpenHands agent scaffold."
+}

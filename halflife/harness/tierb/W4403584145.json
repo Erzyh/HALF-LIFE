@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403584145",
+  "title": "AI agents can coordinate beyond human scale",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "GPT-4 Turbo gpt-4-turbo-2024-04-09 (Table 1, Methods); 'In all the simulations reported in the main text we used T = 0.2'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods, 'Opinion dynamics simulations' (prompt block with friend list and bracketed reply)",
+    "note": "Opinion names are random letters/strings shuffled each iteration; the simulation loop is given as steps 1-4."
+  },
+  "claim": {
+    "metric": "coordination level C at t=10 for N=50 agents (fraction of realizations reaching C=1)",
+    "value": 1.0,
+    "n_items": 20,
+    "location": "Figure 2 and Results text: 'Claude 3 Opus and GPT-4 Turbo, coordinate in all simulations' (20 realizations)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Synthetic agents (random names/opinions); code at https://github.com/giordano-demarzo/LLMs-Opinion-Dynamics"
+  },
+  "cost": {
+    "est_calls": 30000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Each realization needs up to N x t = 500 model calls (fewer if coordination is reached early); 20 realizations x 3 seeds ~ 30k short calls. Cheaper secondary check: Table 3 majority-counting success 0.735 at N=51 (trial count not stated)."
+}

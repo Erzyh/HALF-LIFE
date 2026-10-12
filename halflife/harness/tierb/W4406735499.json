@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4406735499",
+ "title": "Resilience of LTE-A/5G-NR links Against Transient Electromagnetic Interference",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "[GPT-4-turbo version 4.1]",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Acknowledgments: \"During the preparation of this manuscript/study, the authors used [GPT-4-turbo version 4.1] for the purposes of generating Figure 2. The authors reviewed and edited the output and take full responsibility for the content of this publication.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Standard AI-assisted-writing/figure disclosure; no prompt given."
+ },
+ "claim": {
+  "metric": "none (manuscript-preparation disclosure, not a research finding)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Paper topic (railway EM interference on LTE-A/5G-NR links) is unrelated to LLM research; the only model mention is a disclosure that AI helped generate one figure. \"[GPT-4-turbo version 4.1]\" is an ambiguous, non-standard name (conflates GPT-4 Turbo and GPT-4.1), so it is recorded as unresolved."
+}

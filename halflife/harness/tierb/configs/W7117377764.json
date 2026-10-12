@@ -1,0 +1,77 @@
+{
+  "wid": "W7117377764",
+  "title": "Benchmarking large language models for geolocating colonial Virginia land grants",
+  "status": "ready",
+  "model": {
+    "id": "o3-2025-04-16",
+    "params": {
+      "temperature": null,
+      "max_tokens": 16384,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Appendix A.2 Table A1 (M-2: one_shot pipeline, reasoning effort medium; o-series at service defaults, Sec. 4.5); max_tokens 16384 (maps to max_completion_tokens) instead of null because the runner cannot build a reasoning-model request from a null value",
+    "seeds": 3
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 43,
+    "subset_rule": "paper-defined split: the 43 grants with verified ground truth (hook load_items; recomputing the released M-2 per-grant errors over these 43 rows gives 23.39 km = Table 4)",
+    "approximation": "the position of the abstract relative to the printed instruction (appended after it) is assumed; unparsable replies are excluded from the mean and counted"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/ryanmio/colonial-virginia-llm-geolocation, file data/processed/validation.csv (45 rows, 43 with ground truth); corpus archive Zenodo 10.5281/zenodo.16269949 is access-restricted",
+    "config_or_split": "validation.csv",
+    "filter": null,
+    "fields": {
+      "input": "raw_entry",
+      "label": "latitude/longitude",
+      "id": "subject_id"
+    },
+    "license": "unknown (repository LICENSE file not read; Zenodo record is CC BY-NC 4.0)",
+    "access_checked": true,
+    "size_mb": 0.1,
+    "file_url": "https://raw.githubusercontent.com/ryanmio/colonial-virginia-llm-geolocation/main/data/processed/validation.csv",
+    "fields_prose": {
+      "input": "raw_entry (grant abstract)",
+      "label": "latitude/longitude (verified centroid of the matched patent polygon)",
+      "id": "subject_id"
+    },
+    "filter_prose": "hook: rows whose results_row_index is marked is_locatable == 1 in results/full_results.csv (43 rows = the paper's verified test grants; test_entry_17 and test_entry_98 are the two has_ground_truth rows the paper excluded)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "Geolocate this colonial Virginia land grant to precise latitude and longitude coordinates.\nRespond with ONLY the coordinates in this format: [DD][MM]'[SS].[SSSSS]\"N [DDD][MM]'[SS].[SSSSS]\"W\n\n{abstract}",
+    "placeholders": {
+      "abstract": "items.raw_entry"
+    },
+    "few_shot": "none beyond the single exemplar output format inside the instruction (Sec. 4.5 'one-shot')",
+    "source_location": "Sec. 4.5 and Appendix A.2 'One-shot prompt (M-series)'",
+    "verbatim": "partial (instruction verbatim; where the abstract is inserted is not printed)"
+  },
+  "output": {
+    "parse": "regex (\\d{1,2})[°\\s]*(\\d{1,2})'\\s*([\\d.]+)\"?\\s*N\\s*(\\d{1,3})[°\\s]*(\\d{1,2})'\\s*([\\d.]+)\"?\\s*W",
+    "postprocess": "great-circle (haversine) distance in km to the ground-truth coordinate",
+    "parse_prose": "regex (\\d{1,2})[°\\s]*(\\d{1,2})'\\s*([\\d.]+)\"?\\s*N\\s*(\\d{1,3})[°\\s]*(\\d{1,2})'\\s*([\\d.]+)\"?\\s*W -> decimal degrees (lon negative)"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "mean great-circle error in km over the 43 verified grants (Table 4 also gives the median and the share within 10 km)",
+    "judge": "none",
+    "original_value": 23.4,
+    "original_location": "Table 4, row M-2 o3-2025-04-16, column Mean (95% CI 17.4-29.3); median 14.3 km",
+    "bootstrap_unit": "item",
+    "name_prose": "mean_error",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 129,
+    "est_usd": 7.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "Small n gives wide CIs, which suits a seed-variance check. The ensemble row E-1 (five stochastic calls, 19.2 km) is a cheap extension. ~$0.05 per o3 call. || [hooks_2 2026-09-07] 43-grant set pinned from results/full_results.csv (is_locatable == 1); hook added; prepare verified (43 items, 129 requests).",
+  "machine_fields_added": "2026-09-07 (normalize_2)",
+  "hook": "harness/tierb/hooks/W7117377764.py: load_items (validation.csv x results/full_results.csv is_locatable filter), parse (DMS -> decimal degrees), score (mean haversine km, per-item)"
+}

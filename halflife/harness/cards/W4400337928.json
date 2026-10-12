@@ -1,0 +1,116 @@
+{
+  "card_id": "W4400337928",
+  "openalex_id": "https://openalex.org/W4400337928",
+  "title": "Agentless: Demystifying LLM-based Software Engineering Agents",
+  "doi": "10.48550/arXiv.2407.01489",
+  "paper": {
+    "doi": "10.48550/arXiv.2407.01489",
+    "authors": "Xia, Deng, Dunn, Zhang",
+    "year": 2024,
+    "venue": "arXiv v2 (2024-10-29) = Agentless 1.5; numbers in this card are from v2",
+    "repo": "https://github.com/OpenAutoCoder/Agentless",
+    "repo_commit": "5ce5888b9f149beaace393957a55ea8ee46c9f71 (HEAD, 2024-12-22 'fix: post-processing default value fix'); paper-version tag v1.5.0 = b150f28465a77a81a7f4776384957a4271f5bd69 (2024-10-29)",
+    "repo_license": "MIT",
+    "repo_note": "Release v1.5.0 attaches the complete original run: agentless_swebench_lite.zip (690.9 MB, per-step outputs/trajectories for all 300 issues), agentless_swebench_verified.zip (1.17 GB), swebench_repo_structure.txt (link to preprocessed repo structures). This is an L1-grade artifact enabling paired per-issue comparison."
+  },
+  "dependence": {
+    "type": "component",
+    "strength": "core",
+    "note": "The LLM (gpt-4o-2024-05-13) is the engine of every phase (file/element/edit-location localization, 40 patch samples, 40 reproduction-test samples, regression-test selection); the headline resolve rate is inseparable from the model and Table 1 attributes it to 'GPT-4o'. Embedding retrieval uses OpenAI text-embedding-3-small (second API component, still available)."
+  },
+  "claim": {
+    "statement": "Agentless (v1.5: hierarchical localization -> 4x10 Search/Replace patch samples -> reproduction-test + regression-test filtering + majority re-ranking) with gpt-4o-2024-05-13 resolves 96/300 = 32.00% of SWE-bench Lite issues at an average cost of $0.70 and 78,166 tokens per issue, the highest among open-source approaches at the time (Table 1); 84/249 = 33.73% on the filtered SWE-bench Lite-S (Table 5); ablations: majority voting only 77 (25.67%), + regression tests 81 (27.00%), + reproduction tests 96 (Table 4); repair with 4 location sets x 10 samples 96 vs greedy-location 40 samples 88 (Table 3).",
+    "claim_type": "capability_level",
+    "metric": "% Resolved on SWE-bench Lite = share of the 300 instances whose submitted patch passes all FAIL_TO_PASS and PASS_TO_PASS tests in the official SWE-bench harness; secondary: Avg $ cost, Avg # tokens, % correct location (file/function/line)",
+    "original_values": {
+      "swe_bench_lite": { "resolved": 96, "n": 300, "pct": 32.00, "avg_cost_usd": 0.70, "avg_tokens": 78166, "correct_loc_line": 35.3, "correct_loc_function": 52.0, "correct_loc_file": 69.7 },
+      "swe_bench_lite_s": { "resolved": 84, "n": 249, "pct": 33.73 },
+      "ablation_patch_selection": { "majority_voting": 77, "plus_regression": 81, "plus_reproduction": 96 },
+      "ablation_repair": { "greedy_location_40_samples": 88, "merged_locations_40_samples": 85, "4x10_samples": 96 },
+      "reproduction_tests": { "selected_reproducing": 213, "plausible_after_gold_patch": 94 },
+      "upper_bound_any_sample_resolves": 126
+    },
+    "original_source": "Table 1, Table 3, Table 4, Table 5, Sec. 5.1.3 and Fig. 6 of arXiv:2407.01489v2; per-issue outputs in release v1.5.0 agentless_swebench_lite.zip"
+  },
+  "protocol": {
+    "model": "gpt-4o-2024-05-13 (verified: Sec. 4 'Implementation' and default --model in localize.py, repair.py, generate_reproduction_tests.py, select_regression_tests.py)",
+    "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json priority 1)",
+    "endpoint": "POST https://api.openai.com/v1/chat/completions (agentless/util/api_requests.py, backend 'openai'); embeddings: POST /v1/embeddings text-embedding-3-small via llama-index (agentless/fl/Index.py, chunk size 512, overlap 0)",
+    "prompt_source": "agentless/fl/FL.py (obtain_relevant_files_prompt, obtain_irrelevant_files_prompt, obtain_relevant_code_combine_top_n_prompt, obtain_relevant_functions_and_vars_from_raw_files_prompt), agentless/repair/repair.py (repair_prompt_combine_topn_cot_diff), agentless/test/generate_reproduction_tests.py (generate_tests_prompt_template), agentless/test/select_regression_tests.py (select_tests_prompt_template); exact CLI in README_swebench.md",
+    "params": {
+      "localization_file_level": { "temperature": 0, "top_n_files": 3, "embedding_model": "text-embedding-3-small" },
+      "localization_related_elements": { "temperature": 0, "compress": true, "compress_assign": true },
+      "localization_edit_locations": { "temperature": 0.8, "num_samples": 4 },
+      "repair": { "samples_per_location_set": "10 (1 greedy + 9 at temperature 0.8)", "location_sets": 4, "total_patches": 40, "context_window": 10, "format": "Search/Replace diff with CoT (--cot --diff_format --loc_interval --top_n 3)" },
+      "reproduction_tests": { "max_samples": "40 (1 greedy + 39 at temperature 0.8)" },
+      "regression_test_selection": { "temperature": 0 },
+      "rerank": "--num_samples 40 --deduplicate --regression --reproduction (majority vote on AST-normalized patches after test filtering)",
+      "max_tokens": "make_model default 1024 unless overridden per step (agentless/util/model.py)",
+      "seed": "not set; sampling steps are inherently stochastic; single pipeline run reported"
+    },
+    "n_items": 300,
+    "samples_per_item": "1 final patch per issue, produced from 40 patch samples + 40 test samples; re-run = 3 independent full pipeline runs (ANALYSIS_PLAN 3 seeds); prompt paraphrase (2 variants) applied only to the natural-language preamble of the repair and localization prompts",
+    "evaluation": "Automatic. Final: official SWE-bench harness (swebench package, docker) on all_preds.jsonl -> resolved iff FAIL_TO_PASS and PASS_TO_PASS all pass. Intermediate: agentless/test/run_regression_tests.py and run_reproduction_tests.py execute selected/generated tests inside the same docker images (modified harness that runs arbitrary tests; PASS_TO_PASS field deliberately NOT used, fn.1).",
+    "execution_environment": "Linux x86_64 host with Docker (SWE-bench evaluation images for 300 Lite instances: expect 100-150 GB disk and several hours of image builds; README suggests --num_workers 10 and up to 6 parallel harness runs -> >=16 cores / 64 GB RAM recommended). Python 3.11 conda env from requirements.txt (openai, anthropic, datasets, tiktoken, libcst, llama-index, jsonlines, swebench@git). Optional: download swebench_lite_repo_structure from release v1.5.0 and set PROJECT_FILE_LOC to skip repository checkouts. Embedding index persisted under embedding/swe-bench_simple. Wall-clock for one full 300-issue run: ~1 day including test execution.",
+    "representative_subset": "100 SWE-bench Lite instances stratified proportionally over the 11 repositories (django, sympy, sphinx, matplotlib, scikit-learn, pytest, xarray, astropy, requests, pylint, flask/seaborn/psf etc.), fixed by a published random seed, x 2 independent pipeline runs. Score also on the Lite-S intersection (classification/load_filtered_benchmark.py). Binomial CI on 100 items is +/-9 pts, so the subset is a pilot; the full 300 x 3 is needed for a judgment at the paper's precision.",
+    "environment_check": "Before any LLM call: run the official harness with the SWE-bench gold patches on all 300 (or the 100 subset) instances and confirm 100% resolved; then apply the released v1.5.0 all_preds.jsonl and confirm the harness reproduces 96/300 (evaluator + docker drift check)."
+  },
+  "artifacts": {
+    "prompts_path": "agentless/fl/FL.py; agentless/repair/repair.py; agentless/test/generate_reproduction_tests.py; agentless/test/select_regression_tests.py",
+    "data_path": "HF princeton-nlp/SWE-bench_Lite (300 test instances, loaded via datasets); classification/swebench_lite_classifications.csv + load_filtered_benchmark.py (Lite-S ids); release v1.5.0 assets (original outputs, repo structures)",
+    "eval_path": "agentless/test/run_tests.py, run_regression_tests.py, run_reproduction_tests.py, agentless/repair/rerank.py; final scoring = swebench.harness.run_evaluation; dev/util/cost.py for cost accounting",
+    "data_public": true,
+    "data_license": "SWE-bench Lite dataset card shows no license field (SWE-bench code is MIT); instances are issues/patches/tests from open-source Python repositories under their own OSS licenses; Agentless code + classifications: MIT",
+    "redistributable": true,
+    "notes": "Original per-issue trajectories/outputs are public (release zip), which allows a paired McNemar-style comparison instead of only aggregate rates. HEAD differs from v1.5.0 by a post-processing fix and added Claude/DeepSeek backends; use tag v1.5.0 for fidelity."
+  },
+  "blockers": [
+    "Heavy execution environment: docker-based SWE-bench harness for 300 instances (disk/CPU/time), plus the Agentless-modified test runner for 40 patches x regression + reproduction tests per issue",
+    "Ranking claim ('highest among open-source approaches') is not re-executable because the 26 baseline agents are not re-run; only the absolute 32.00% is",
+    "Stochastic multi-sample pipeline (T=0.8 sampling in 3 stages) -> single-run variance of a few points is expected even with the same model",
+    "Cost: ~$0.70 per issue -> ~$210 per full run; embedding cost ~$0.04 per issue additional"
+  ],
+  "arms": {
+    "baseline_alive": { "model": "gpt-4o-2024-05-13", "purpose": "live baseline (exact snapshot used in the paper)" },
+    "successors": [
+      "gpt-5-2025-08-07",
+      "gpt-5-mini-2025-08-07",
+      "claude (current dated Sonnet/Opus snapshot; repo has an 'anthropic' backend)",
+      "gemini (current dated snapshot; needs an OpenAI-compatible endpoint or a new backend)",
+      "llama (open weights, weight hash pinned, served via OpenAI-compatible endpoint)",
+      "qwen (open weights, weight hash pinned, served via OpenAI-compatible endpoint)"
+    ]
+  },
+  "budget": {
+    "pricing_usd_per_1m": { "gpt-4o-2024-05-13": { "input": 5.0, "output": 15.0 }, "text-embedding-3-small": { "input": 0.02 } },
+    "unit_basis": "Paper: avg $0.70 and 78,166 tokens per issue; solving 5*in + 15*out = 700,000 (micro-USD) with in + out = 78,166 gives ~47K input / ~31K output tokens per issue. Calls per issue ~88: 3 greedy localization calls + 4 edit-location samples + 40 repair samples + 40 reproduction-test samples + 1 regression-selection call (plus embedding requests).",
+    "full": {
+      "definition": "300 SWE-bench Lite issues x 3 independent pipeline runs",
+      "est_calls": 79200,
+      "est_tokens_in": 42300000,
+      "est_tokens_out": 27900000,
+      "est_cost_usd": 635,
+      "compute_note": "plus ~3 x 24 h docker test execution on a 16-core host"
+    },
+    "subset": {
+      "definition": "100 stratified issues x 2 pipeline runs",
+      "est_calls": 17600,
+      "est_tokens_in": 9400000,
+      "est_tokens_out": 6200000,
+      "est_cost_usd": 142
+    },
+    "cap_usd": "to be set by user (recommend 200 for the subset, 700 for the full protocol)"
+  },
+  "judgment": {
+    "rule": "ANALYSIS_PLAN Sec. 1, capability_level. Reference: 96/300 = 32.0% (Wilson 95% CI 27.0-37.5%). SURVIVED if the median re-run resolve rate (3 runs x 2 paraphrases) lies inside 27.0-37.5% AND avg cost per issue stays within the same order of magnitude (< $2). PARTIAL if outside the CI but within 22-45% (same order, method still 'competitive and cheap'). DEAD if < 22% or the pipeline no longer produces resolved patches at a rate comparable to the paper (e.g. collapse due to API/harness changes not attributable to environment drift after the gold-patch check). Paired analysis: McNemar test of per-issue resolved flags vs the released v1.5.0 all_preds outcomes as supplementary evidence.",
+    "notes": "The 'highest open-source' ranking is recorded as not re-executable (baselines frozen at their 2024 leaderboard values). Subset (100 issues) results are reported with their wider CI and used only as a pilot for the full run. Environment drift (docker image rebuilds, flaky tests) must be excluded first by the gold-patch and released-predictions checks."
+  },
+  "status": "needs-user-check",
+  "user_checks": [
+    "Pin the code to tag v1.5.0 (b150f28, paper version) rather than HEAD 5ce5888 (post-processing default fix on 2024-12-22 may change patch extraction) - OK?",
+    "Confirm the docker/compute budget: ~100-150 GB disk and ~1 day per full 300-issue run (3 runs for the full protocol); is a Linux host with Docker available, or should the subset (100 issues x 2 runs, ~$142) be the only live-arm run?",
+    "Use the released agentless_swebench_lite.zip per-issue outcomes as the 'original' for a paired comparison (recommended) - confirm archival of the 690.9 MB zip with hash.",
+    "Successor arms: gemini/llama/qwen need an OpenAI-compatible endpoint (backend 'openai' with base_url) - acceptable, or restrict successors to gpt-5 and claude (native backends)?"
+  ],
+  "domain_notes": "The pipeline is deterministic in structure but stochastic in content (T=0.8 sampling at three stages, majority voting), so run-to-run variance of 2-4 points is normal and the paper reports one run; three full runs are the minimum for a fair survival call. SWE-bench Lite instance images pin repository commits, so the task itself does not drift, but harness/docker changes can; the gold-patch and released-predictions checks isolate that. The embedding model text-embedding-3-small is a second live API dependency to log (model id + dimension)."
+}

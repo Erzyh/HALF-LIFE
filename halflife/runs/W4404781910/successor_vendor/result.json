@@ -1,0 +1,270 @@
+{
+  "rows": {
+    "length": {
+      "acc": 100.0,
+      "per_seed": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "ci95": [
+        100.0,
+        100.0
+      ],
+      "orig": 91.2,
+      "orig_counts": [
+        31,
+        34
+      ],
+      "n": 34,
+      "delta": 8.8
+    },
+    "concreteness": {
+      "acc": 100.0,
+      "per_seed": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "ci95": [
+        100.0,
+        100.0
+      ],
+      "orig": 92.9,
+      "orig_counts": [
+        26,
+        28
+      ],
+      "n": 28,
+      "delta": 7.1
+    },
+    "empty_reference": {
+      "acc": 100.0,
+      "per_seed": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "ci95": [
+        100.0,
+        100.0
+      ],
+      "orig": 50.0,
+      "orig_counts": [
+        13,
+        26
+      ],
+      "n": 26,
+      "delta": 50.0
+    },
+    "content_continuation": {
+      "acc": 100.0,
+      "per_seed": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "ci95": [
+        100.0,
+        100.0
+      ],
+      "orig": 100.0,
+      "orig_counts": [
+        24,
+        24
+      ],
+      "n": 24,
+      "delta": 0.0
+    },
+    "nested_instruction": {
+      "acc": 100.0,
+      "per_seed": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "ci95": [
+        100.0,
+        100.0
+      ],
+      "orig": 91.7,
+      "orig_counts": [
+        22,
+        24
+      ],
+      "n": 24,
+      "delta": 8.3
+    },
+    "familiar_knowledge": {
+      "acc": 87.5,
+      "per_seed": [
+        83.3,
+        91.7,
+        87.5
+      ],
+      "ci95": [
+        66.66666666666666,
+        100.0
+      ],
+      "orig": 95.8,
+      "orig_counts": [
+        23,
+        24
+      ],
+      "n": 24,
+      "delta": -8.3
+    },
+    "total": {
+      "acc": 98.1,
+      "per_seed": [
+        97.5,
+        98.8,
+        98.1
+      ],
+      "ci95": [
+        95.0,
+        100.0
+      ],
+      "orig": 86.9,
+      "delta": 11.2,
+      "n": 160,
+      "orig_band_binomial_80_pairs": [
+        79.51,
+        94.29
+      ],
+      "orig_inside_ci": false,
+      "rerun_inside_orig_band": false,
+      "positional_agreement": 100.0,
+      "orig_positional_agreement": "not reported for EvalBiasBench (Table 2 covers LLMBar / HHH / MT-Bench)"
+    }
+  },
+  "per_seed": {
+    "0": {
+      "cells": {
+        "length": 100.0,
+        "concreteness": 100.0,
+        "empty_reference": 100.0,
+        "content_continuation": 100.0,
+        "nested_instruction": 100.0,
+        "familiar_knowledge": 83.3
+      },
+      "counts": {
+        "length": [
+          34,
+          34
+        ],
+        "concreteness": [
+          28,
+          28
+        ],
+        "empty_reference": [
+          26,
+          26
+        ],
+        "content_continuation": [
+          24,
+          24
+        ],
+        "nested_instruction": [
+          24,
+          24
+        ],
+        "familiar_knowledge": [
+          20,
+          24
+        ]
+      },
+      "correct": 156,
+      "n": 160,
+      "total": 97.5,
+      "positional_agreement": 100.0,
+      "pair_agree": 80,
+      "pairs": 80
+    },
+    "1": {
+      "cells": {
+        "length": 100.0,
+        "concreteness": 100.0,
+        "empty_reference": 100.0,
+        "content_continuation": 100.0,
+        "nested_instruction": 100.0,
+        "familiar_knowledge": 91.7
+      },
+      "counts": {
+        "length": [
+          34,
+          34
+        ],
+        "concreteness": [
+          28,
+          28
+        ],
+        "empty_reference": [
+          26,
+          26
+        ],
+        "content_continuation": [
+          24,
+          24
+        ],
+        "nested_instruction": [
+          24,
+          24
+        ],
+        "familiar_knowledge": [
+          22,
+          24
+        ]
+      },
+      "correct": 158,
+      "n": 160,
+      "total": 98.8,
+      "positional_agreement": 100.0,
+      "pair_agree": 80,
+      "pairs": 80
+    },
+    "2": {
+      "cells": {
+        "length": 100.0,
+        "concreteness": 100.0,
+        "empty_reference": 100.0,
+        "content_continuation": 100.0,
+        "nested_instruction": 100.0,
+        "familiar_knowledge": 87.5
+      },
+      "counts": {
+        "length": [
+          34,
+          34
+        ],
+        "concreteness": [
+          28,
+          28
+        ],
+        "empty_reference": [
+          26,
+          26
+        ],
+        "content_continuation": [
+          24,
+          24
+        ],
+        "nested_instruction": [
+          24,
+          24
+        ],
+        "familiar_knowledge": [
+          21,
+          24
+        ]
+      },
+      "correct": 157,
+      "n": 160,
+      "total": 98.1,
+      "positional_agreement": 98.8,
+      "pair_agree": 79,
+      "pairs": 80
+    }
+  },
+  "judgment": "부분 생존 (partial)"
+}

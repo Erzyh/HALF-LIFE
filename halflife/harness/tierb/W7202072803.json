@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7202072803",
+  "title": "Latency and Factual Accuracy in Generative AI: An Empirical Analysis of Model Performance, User Satisfaction, and the Role of Prompt Complexity",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "Introduction: 'Recent advances in models such as OpenAI's GPT-4 Turbo [2, 3, 4] and Google's Gemini'; data are '1,000 simulated AI usage sessions' from a Kaggle dataset."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Kaggle dataset of 1,000 simulated LLM interaction sessions (Nadeem, 2026)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "No model was queried; the study analyzes a synthetic tabular dataset."
+}

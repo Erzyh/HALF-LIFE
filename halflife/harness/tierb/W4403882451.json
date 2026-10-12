@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403882451",
+  "title": "Planning in Strawberry Fields: Evaluating and Improving the Planning and Scheduling Capabilities of LRM o1",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo / GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Table 1 (Blocksworld, 600 instances): GPT-4 Turbo column, zero-shot 241/600 (40.1%), one-shot 138/600 (23%); \"o1-mini does not beat even GPT-4-turbo, remaining at 1.67%\" (Sec. 3)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix H (Blocksworld prompts), Appendix I-M (other domains)",
+    "note": "Zero-shot and one-shot prompts printed per domain."
+  },
+  "claim": {
+    "metric": "plan accuracy on Blocksworld, zero-shot",
+    "value": 40.1,
+    "n_items": 600,
+    "location": "Table 1, Blocksworld / Zero Shot, column GPT-4 Turbo (241/600)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "PlanBench static test sets (https://github.com/karthikv792/LLMs-Planning); plans validated with VAL"
+  },
+  "cost": {
+    "est_calls": 600,
+    "tier": "mid"
+  },
+  "blockers": [],
+  "notes": "Snapshot is not stated; alias rule (paper 2024-10-03, no preview string) gives gpt-4-turbo-2024-04-09, but the GPT-4 Turbo numbers may be carried over from earlier PlanBench runs on a 2023 preview. Scoring needs the VAL plan validator (standard tool). Subject models are o1-preview/o1-mini (dead previews).",
+  "resolution": {
+    "gap": "other",
+    "plan": "The gap is snapshot uncertainty, not a missing input. Take the 600 three-to-five-block Blocksworld instances of the PlanBench static test set (natural-language format, LLMs-Planning repository named in the paper) and the zero-shot Blocksworld prompt of Appendix H; run gpt-4-turbo-2024-04-09 once per instance at temperature 0; validate each returned plan with VAL against the instance PDDL and compare accuracy with 40.1% (241/600, Table 1).",
+    "approximation": "The paper names neither the GPT-4 Turbo snapshot nor decoding parameters, and Table 1 mixes 'current and previous generation' runs, so a mismatch may reflect alias drift rather than a failed replication.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4403663202",
+  "title": "DSBench: How Far Are Data Science Agents from Becoming Data Science Experts?",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09 (GPT-4); gpt-4o-2024-05-13 (GPT-4o)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Appendix A: \"the versions of ... GPT-4, and GPT-4o are ... gpt-4-turbo-2024-04-09, and gpt-4o-2024-05-13\"; Table 4, Model-only rows: GPT-4 25.97, GPT-4o 28.11 task-level accuracy."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix C (data analysis prompt template with <introduction>, <excel>, <question> tags; judge prompt)",
+    "note": "Template printed; some tasks include images and Excel content serialized by the authors' code."
+  },
+  "claim": {
+    "metric": "task-level accuracy (%), model-only data analysis",
+    "value": 25.97,
+    "n_items": 466,
+    "location": "Table 4, Framework Model-only, row GPT-4 (Task-level Accuracy 25.97, Competition-level 17.21)",
+    "task_type": "other",
+    "judge": "llm:gpt-4o"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/LiqiangJing/DSBench (466 data analysis tasks from ModelOff)"
+  },
+  "cost": {
+    "est_calls": 1400,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Soft gap: inputs mix text, tables, Excel workbooks and images, and the serialization of workbooks into the <excel> field follows the released code. Correctness is judged by GPT-4o with a printed prompt (snapshot 2024-05-13 by Appendix A). Long contexts make calls expensive; 466 tasks x 3 seeds.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "Use the repository's 466 data-analysis tasks together with its serialization of Excel workbooks, tables and images into the Appendix C template fields (<introduction>, <excel>, <question>). Run gpt-4-turbo-2024-04-09 model-only, judge each answer against the gold answer with the printed judge prompt on gpt-4o (2024-05-13 while callable, else the current alias), and compare task-level accuracy with 25.97 (Table 4).",
+    "approximation": "The judge snapshot may differ; image-bearing tasks depend on how the repository passes images to GPT-4 Turbo; long contexts make the run costly.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/LiqiangJing/DSBench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

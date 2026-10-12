@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4404261107",
+  "title": "SmartGSN: an online tool to semi-automatically manage assurance cases",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "\"our tool offers users the choice between two LLMs (i.e. GPT-4o and GPT-4 Turbo)\"; Table 2 row \"BLUEROV2 GPT-4 Turbo 0.5 1 0.67...\" (R/P/FM, avg. of 5 runs)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 (metric-based prompting rule, referencing prior work [19] for exact technique)",
+    "note": "SmartGSN assembles a prompt from a system's domain knowledge and a chosen assurance-case pattern; full technique detailed in a separate prior paper, not fully self-contained here."
+  },
+  "claim": {
+    "metric": "F-Measure, defeater/case generation for the BLUEROV2 system",
+    "value": 0.67,
+    "n_items": null,
+    "location": "Table 2, row 'BLUEROV2 GPT-4 Turbo'",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "five public assurance-case studies (ACAS XU, BLUEROV2, GPCA, IM Software, DeepMind), standard examples in the assurance-case literature"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Table 1 reports dataset statistics (placeholders/GSN elements per pattern) but an exact item count usable as n_items was not located in the reviewed excerpt; results are averaged over five runs per threshold."
+}

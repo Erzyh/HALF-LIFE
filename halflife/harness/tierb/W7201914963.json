@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7201914963",
+  "title": "DelusionEval: Measuring Delusion-Linked Behaviors in AI Chatbots",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Run manifest table: 'gpt-4-turbo-2024-04-09 none gpt-5.1 1 13m 2m 22m 809k 192 36 228'; Sec. 4.1: 'gpt-4-turbo (13.2%)' discouraging harm; Sec. 5: 'roughly its gpt-4-turbo level (~21%)' sycophancy"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix Figure 5 (LLM-as-judge prompts from Moore et al.); the evaluated model receives the raw conversation history",
+    "note": ""
+  },
+  "claim": {
+    "metric": "prevalence of discourages-harm behaviour (%)",
+    "value": 13.2,
+    "n_items": 677,
+    "location": "Sec. 4.1 / Figure 2 / Table 4 (677 code-conditioned histories over 16 codes)",
+    "task_type": "generation",
+    "judge": "llm:gpt-5.1 (2025-11-13)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "DelusionEval on HuggingFace (jlcmoore/delusioneval; real user-chatbot transcripts, PII removed)"
+  },
+  "cost": {
+    "est_calls": 20000,
+    "tier": "high"
+  },
+  "blockers": [
+    "aux_model_dead"
+  ],
+  "notes": "Judge gpt-5.1 is not in the live list; items are real conversations about delusions, relationships and self-harm (sensitive content; judge run at temperature 1). Percentages are read from figures and Table 4 by category."
+}

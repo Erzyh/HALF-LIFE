@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4406604156",
+  "title": "ComplexFuncBench: Exploring Multi-Step and Constrained Function Calling under Long-Context Scenario",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Table 2 caption: 'The specific endpoint ... gpt-4o-2024-08-06, gpt-4-turbo-2024-04-09, claude-3-5-sonnet-20241022'; Table 2 row 'GPT-4-Turbo ... 49.50 71.38 1.72 1.81'."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B.1 (greedy decoding, max 2048 tokens, tool_choice=auto); Figures 10-12 (LLM-based match, completeness, correctness prompts)",
+    "note": "No free-text prompt: models receive the user query plus function schemas via native function calling; API responses are replayed from annotations."
+  },
+  "claim": {
+    "metric": "overall success rate",
+    "value": 49.5,
+    "n_items": 1000,
+    "location": "Table 2, row GPT-4-Turbo, column Overall Success (Call Acc 71.38)",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o-2024-08-06"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/THUDM/ComplexFuncBench (1,000 annotated multi-step samples with API responses)"
+  },
+  "cost": {
+    "est_calls": 10000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Requires the golden-response replay harness (public) and GPT-4o judge for parameter matching and response scoring; long contexts (128k) at 3 seeds are costly.",
+  "resolution": {
+    "gap": "evaluator_in_repo",
+    "plan": "Use the repository's 1,000 samples (queries, function schemas, golden call lists, annotated API responses) and its replay harness (Algorithm 1: golden-call matching with the Figure 10 LLM-match prompt and golden-list updating). Run gpt-4-turbo-2024-04-09 with native function calling, greedy decoding, max 2048 tokens, tool_choice auto; success = final response passes the Figure 11/12 completeness and correctness judges; compare with 49.5 (call accuracy 71.38, Table 2).",
+    "approximation": "The judge gpt-4o-2024-08-06 may need the current gpt-4o alias if retired; long 128k contexts at three seeds are costly.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/THUDM/ComplexFuncBench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

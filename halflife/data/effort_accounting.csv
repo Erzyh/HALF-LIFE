@@ -1,0 +1,18 @@
+﻿stage,papers,archived_calls,cost_usd,cost_per_paper_usd,provider,deposit_MB,deposit_MB_per_paper
+Tier A,25,118321,371.59,14.86,OpenAI,519,20.8
+Tier B,86,229281,1097.11,12.76,OpenAI,1625,18.9
+Tier B prompt variants,2,2148,10.49,5.25,OpenAI,17,8.5
+P3 vendor-designated (gpt-5.6),74,70393,224.6,3.04,OpenAI,408,5.5
+P3 gpt-4.1,49,42299,74.31,1.52,OpenAI,335,6.8
+P3 open-weight (Together),67,80593,40.47,0.6,Together AI (+ OpenAI second stages),429,6.4
+P3 Gemini 3.8 Flash (Google),67,82295,92.8,1.39,Google AI Studio (+ OpenAI second stages),483,7.2
+Drift control (same snapshot),20,20962,53.48,2.67,OpenAI,124,6.2
+Seed-variance repeat (four conditions),80,70460,124.71,1.56,"OpenAI, Together AI, Google AI Studio",436,5.4
+"BF16 check (open-weight, dedicated endpoint)",12,4762,9.84,0.82,"Together AI dedicated endpoint (4x H100, billed per minute)",48,4.0
+"Wording check (two rewordings, pinned model)",36,41196,99.94,2.78,OpenAI,245,6.8
+Repository-based successor (five papers),5,6640,25.38,5.08,OpenAI,61,12.1
+"Format-adaptation cases (three papers, two adaptations)",6,3394,22.02,3.67,OpenAI,24,3.9
+Temperature check (four papers),4,9290,54.45,13.61,OpenAI,70,17.4
+"Triage cross-judgement (60 verdicts, second reader)",60,60,2.57,0.04,OpenAI,5,0.1
+total,,782094,2303.76,,,4829,
+incidents,,,,,"OpenAI credit exhaustion 4 times (client waits for auto-recharge); OpenAI account terminated once during bias-audit prompts, restored after appeal (about 30 h lost); Google Tier 1 quota (10K requests/day) until the paid tier changed; Together Cloudflare block without a User-Agent",,

@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4416074906",
+  "title": "AgentMisalignment: Measuring the Propensity for Misaligned Behaviour in LLM-Based Agents",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini / o4-mini-2025-04-16",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "\"We evaluated six frontier models (GPT-4.1, Claude 3.7 Sonnet, Gemini 2.5 Pro, o4-mini, ...)\" (Sec. 4); snapshot \"o4-mini-2025-04-16\" listed in Appendix G."
+  },
+  "prompt": {"verbatim": "partial", "location": "Appendix C (C.1-C.9 per-task system/user prompts), Appendix E (personality prompts)", "note": "Prompts are quoted per task but several are abridged with ellipses; persona/scenario JSON files referenced, not printed in full."},
+  "claim": {
+    "metric": "raw CMS score (Moral Flexibility task, no persona)", "value": 0.670, "n_items": null, "location": "Table 6, row o4-mini, column None (Appendix D.5)",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "InspectAI task environments and scorers attached as anonymized supplementary material; not released at time of text"},
+  "cost": {"est_calls": 300, "tier": "mid"},
+  "blockers": ["data_closed"],
+  "notes": "Agentic evaluations run inside sandboxed InspectAI environments with bash/tool access and code-based CMS scorers (phrase-pattern parsers); the number cannot be regenerated from printed prompts alone. Single run per model-persona, temperature 0 not settable for o4-mini. n_items per task given as variant counts (e.g. Resource Negotiation 14, Cybersecurity Sandbagging 90) but not for Moral Flexibility."
+}

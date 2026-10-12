@@ -1,0 +1,266 @@
+{
+  "card": "W4403885225",
+  "checked_utc": "2026-09-19T11:19:02.870799+00:00",
+  "python": "3.13.7",
+  "model": "gpt-4-turbo-2024-04-09",
+  "repo": {
+    "path": "external/repos/W4403885225/Y0oMu__LLM-Judge-Bias-Dataset",
+    "head": "f6248e9f9a93c20c2059bbb46ce3096ca414ad19",
+    "template_file": "external/repos/W4403885225/Y0oMu__LLM-Judge-Bias-Dataset/promptTemplate.py",
+    "template_sha256": "8943d0d71f5d6f85cc8e4f6147eb476726a7983f7f90d0314309e24e62dac15e"
+  },
+  "data": {
+    "file": "external/repos/W4403885225/Y0oMu__LLM-Judge-Bias-Dataset/bias_datasets/verbosity_bias_standardized.json",
+    "n_items": 500,
+    "fields": [
+      "answer1",
+      "answer2",
+      "answer2_longer",
+      "data_resource",
+      "question"
+    ],
+    "composition": {
+      "ScienceQA": 200,
+      "GSM8K": 151,
+      "MATH": 149
+    },
+    "composition_matches_card": true,
+    "mean_chars": {
+      "answer1": 616,
+      "answer2": 595,
+      "answer2_longer": 1265
+    },
+    "padding_ratio": 2.13,
+    "padded_never_shorter": true,
+    "distinct_questions": 500,
+    "base_fact_related_rows": 500,
+    "unperturbed_pairs_found_in_base_dataset": 467
+  },
+  "prompt": {
+    "source": "promptTemplate.evaluate_ai_responses(question, answer_a, answer_b, need_tie=False), imported from the release",
+    "messages": 1,
+    "role": "user",
+    "identical_to_evaluate_ai_responses_no_tie": true,
+    "tie_option_offered": false,
+    "need_tie_variant_differs": true,
+    "system_header_is_text": true,
+    "leading_newline": true,
+    "trailing_repr": "'Answer]\\n    '",
+    "rendered_sha256": {
+      "orig": "e01fc716e8f55229dde84883cae279914654c80cdf4e3e3dbd68b72155f581d6",
+      "pert": "1fc536ba6876885d63099cd31b6156c55510f29d498d84f27c45fdf021e06c7d",
+      "rep": "e01fc716e8f55229dde84883cae279914654c80cdf4e3e3dbd68b72155f581d6"
+    },
+    "rep_prompt_byte_identical_to_orig": true,
+    "pert_differs_only_in_assistant_b_block": true,
+    "vs_tierb_transcription": {
+      "config": "harness/tierb/configs/W4403885225.json",
+      "byte_identical": false,
+      "identical_after_whitespace_normalisation": true,
+      "note": "the Tier B config joined the PDF's hard line wraps into one line; the repo string is the source form"
+    },
+    "excerpt_first_240_chars": "\n[System]\nPlease act as an impartial judge and evaluate the quality of the responses provided by two\nAI assistants to the user question displayed below. You should choose the assistant that\nfollows the user’s instructions and answers the us"
+  },
+  "parser": {
+    "rule": "last match of \\[\\[([AB])\\]\\]; None otherwise (case-sensitive, no tie label)",
+    "all_synthetic_cases_pass": true,
+    "synthetic_cases": [
+      {
+        "reply": "Comparing the two ... [[A]]",
+        "verdict": "A",
+        "expected": "A"
+      },
+      {
+        "reply": "blah\nFinal verdict: [[B]]",
+        "verdict": "B",
+        "expected": "B"
+      },
+      {
+        "reply": "[[A]] then finally [[B]]",
+        "verdict": "B",
+        "expected": "B"
+      },
+      {
+        "reply": "A is better",
+        "verdict": null,
+        "expected": null
+      },
+      {
+        "reply": "",
+        "verdict": null,
+        "expected": null
+      },
+      {
+        "reply": null,
+        "verdict": null,
+        "expected": null
+      },
+      {
+        "reply": "The verdict is [[C]] - a tie.",
+        "verdict": null,
+        "expected": null
+      },
+      {
+        "reply": "[[a]]",
+        "verdict": null,
+        "expected": null
+      },
+      {
+        "reply": "[[A]] [[B]] [[A]]",
+        "verdict": "A",
+        "expected": "A"
+      },
+      {
+        "reply": "Assistant A is better.",
+        "verdict": null,
+        "expected": null
+      },
+      {
+        "reply": "verdict: [[ A ]]",
+        "verdict": null,
+        "expected": null
+      }
+    ],
+    "scorer_selftest_passes": true,
+    "scorer_selftest_expected": {
+      "drop": {
+        "rr": 0.6667,
+        "n_rr": 3,
+        "rr_items_dropped": 3,
+        "cr": 0.5,
+        "n_cr": 4
+      },
+      "flip": {
+        "rr": 0.4,
+        "n_rr": 5,
+        "rr_items_dropped": 1,
+        "cr": 0.4,
+        "n_cr": 5
+      }
+    },
+    "scorer_selftest_values": {
+      "drop": {
+        "rr": 0.6667,
+        "n_rr": 3,
+        "rr_items_dropped": 3,
+        "cr": 0.5,
+        "n_cr": 4
+      },
+      "flip": {
+        "rr": 0.4,
+        "n_rr": 5,
+        "rr_items_dropped": 1,
+        "cr": 0.4,
+        "n_cr": 5
+      }
+    }
+  },
+  "budget": {
+    "calls": 1500,
+    "encoding": "cl100k_base",
+    "tokens_in": 967977,
+    "tokens_in_per_judgment": {
+      "orig": 298581,
+      "pert": 370815,
+      "rep": 298581
+    },
+    "tokens_out_calibrated": 427892,
+    "tokens_out_upper": 1536000,
+    "output_calibration": "measured on runs/tierb/W4403885225/calls.jsonl (1000 replies)",
+    "usd_calibrated": 22.52,
+    "usd_upper": 55.76,
+    "pricing_usd_per_1m": {
+      "input": 10.0,
+      "output": 30.0
+    },
+    "cap_usd": 30.0,
+    "n_calls": 1500,
+    "seeds": 1,
+    "params": {
+      "temperature": 0.7,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    }
+  },
+  "original": {
+    "Ver_RR": 0.915,
+    "CR_FR": 0.99,
+    "n_items": 500,
+    "composition": {
+      "ScienceQA": 200,
+      "GSM8K": 151,
+      "MATH": 149
+    },
+    "other_judges_Ver_RR": {
+      "ChatGPT": 0.9,
+      "GPT-4o": 0.977,
+      "GLM-4": 0.887,
+      "Claude-3.5": 0.952,
+      "Qwen2": 0.884
+    },
+    "source": "Table 4 (D_FR, row GPT-4-Turbo, columns Ver. and CR_FR); RR/CR defined in Sec. 3 Metrics"
+  },
+  "tierb_rescore": {
+    "run_dir": "runs/tierb/W4403885225",
+    "rr_by_rule": {
+      "drop": {
+        "rr": 0.9354,
+        "n": 495
+      },
+      "flip": {
+        "rr": 0.926,
+        "n": 500
+      }
+    },
+    "published_rr": 0.926,
+    "unparsed_replies": [
+      {
+        "id": "111_orig",
+        "tie_like": true,
+        "chars": 1727,
+        "finish_reason": "stop"
+      },
+      {
+        "id": "155_orig",
+        "tie_like": true,
+        "chars": 1628,
+        "finish_reason": "stop"
+      },
+      {
+        "id": "272_orig",
+        "tie_like": true,
+        "chars": 1999,
+        "finish_reason": "stop"
+      },
+      {
+        "id": "409_orig",
+        "tie_like": true,
+        "chars": 1683,
+        "finish_reason": "stop"
+      },
+      {
+        "id": "466_pert",
+        "tie_like": true,
+        "chars": 2123,
+        "finish_reason": "stop"
+      }
+    ],
+    "reproduces_published_value": true,
+    "n_unparsed": 5,
+    "unparsed_tie_like": 5,
+    "note": "Tier B ran only orig+pert (no CR arm) with the PDF transcription of the template"
+  },
+  "checks": {
+    "n_items 500": true,
+    "composition": true,
+    "padded never shorter": true,
+    "no tie option": true,
+    "leading newline": true,
+    "rep == orig prompt": true,
+    "pert differs only in B": true,
+    "tierb transcription == repo (normalised)": true,
+    "parser cases": true,
+    "scorer self-test": true,
+    "tierb published RR reproduced": true
+  }
+}

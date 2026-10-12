@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7134897214",
+  "title": "Comparison of large language models and expert multidisciplinary team decisions in colorectal cancer",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "OpenAI o3-mini-2025-01-31",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "\"Three LLMs-OpenAI o3-mini-2025-01-31, DeepSeek-R1 671b and Qwen qwq-plus-2025-03-05-were tested\"; concordance with MDT consensus=65.4% for O3 (n=971 consistent cases)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "\"details in online supplemental methods\"; Figure 1 depicts the structured multirole prompt conceptually",
+    "note": "The literal multirole MDT-simulation prompt is not reproduced in the main text."
+  },
+  "claim": {
+    "metric": "concordance rate with expert MDT consensus",
+    "value": 65.4,
+    "n_items": 971,
+    "location": "Results: \"agreement rates were 65.4% for O3\"; 971 of 1423 cases with consistent outputs across 3 runs",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "1423 colorectal cancer MDT records from Peking University Cancer Hospital (Jan 2023-Dec 2024), real patient data"
+  },
+  "cost": {
+    "est_calls": 4269,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt"
+  ],
+  "notes": "Each of 1423 cases run 3x (4,269 calls) to check consistency; only 971 O3 cases had consistent outputs and entered the formal concordance analysis. DeepSeek-R1 671b and QwQ-plus-2025-03-05 run identically for comparison."
+}

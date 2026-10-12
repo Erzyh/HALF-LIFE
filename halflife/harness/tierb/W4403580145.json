@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403580145",
+ "title": "Unearthing Skill-Level Insights for Understanding Trade-Offs of Foundation Models",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4o",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "footnote 4: \"GPT-4v denotes GPT-4 Turbo 2024-04-09, and GPT-4o denotes GPT-4o 2024-05-13 throughout our paper.\"; Table 2 row \"GPT-4o 70.62 56.09 87.46 ... 62.84\" per-dataset accuracy."
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix C (rationale-generation system prompt with in-context example, quoted in full)",
+  "note": "Same call that answers the evaluation instance and produces the step-by-step rationale used for skill parsing; underlies the Table 2 accuracies."
+ },
+ "claim": {
+  "metric": "accuracy, SEEDBench",
+  "value": 70.62,
+  "n_items": 14232,
+  "location": "Table 2, row GPT-4o, SEEDBench column (# of instances given in header row)",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "12 public multimodal benchmarks (SEEDBench, MMLU Pro, MMBench, MMTBench, MME, MMC, MathVista, MMMU, RealWorld-QA, MMVP, VibeEval, MMVet); authors release rationales/annotations at github.com/microsoft/skill-slice-insights"
+ },
+ "cost": {
+  "est_calls": 14232,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "MMVet is the cheapest column in the same table (n=218, GPT-4o=62.84) if a lower-cost re-run is preferred, though MMVet's own scoring convention normally needs an LLM judge (not addressed in this paper's text). GPT-4 Turbo 2024-04-09 ('GPT-4v') also appears, but only as one of three post-hoc verifier models judging skill relevance (94.1% of GPT-4o skills marked relevant, Fig. 3) - a secondary role-A use, not the primary claim used here."
+}

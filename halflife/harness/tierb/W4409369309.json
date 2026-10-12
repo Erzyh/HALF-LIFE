@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4409369309",
+ "title": "VerilogCoder: Autonomous Verilog Coding Agents with Graph-based Planning and Abstract Syntax Tree (AST)-based Waveform Tracing Tool",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "OpenAI's GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"We use OpenAI's GPT-4 Turbo (OpenAI 2024)...as the LLM models for the proposed VerilogCoder\"; Table 1: \"VerilogCoder (GPT-4 Turbo) Undisclosed Closed 94.2\"."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Section 'Experimental Results' (planning/coding/debugging prompt roles described via Thought-Action-Observation); Figure 4 shows an example interaction",
+  "note": "Exact prompt text not confirmed printed in the body reviewed; likely released with the public VerilogCoder code."
+ },
+ "claim": {
+  "metric": "Verilog functional correctness pass-rate",
+  "value": 94.2,
+  "n_items": 156,
+  "location": "Table 1, row 'VerilogCoder (GPT-4 Turbo)'; VerilogEval-Human v2 benchmark (156 problems)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "VerilogEval-Human v2 benchmark (Pinckney et al. 2024); golden testbenches used for automated pass/fail scoring"
+ },
+ "cost": {
+  "est_calls": 1560,
+  "tier": "mid"
+ },
+ "blockers": [],
+ "notes": "Agentic method run once per problem (156 runs), but each run involves multiple planning/coding/debugging LLM calls (iterative Thought-Action-Observation loop until the code passes or a limit is reached), so total call count exceeds 156. Temperature 0.1, top_p 1.0."
+}

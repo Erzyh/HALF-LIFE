@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166803750",
+  "title": "Your LLM Agents are Temporally Blind: The Misalignment Between Tool Use Decisions and Human Time Perception",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4.1-Nano, o4-Mini",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "\"We evaluate 18 proprietary and open-weight LLMs ... report the Normalized Alignment Rate in Figure 2\"; GPT-4.1-Nano and o4-Mini bars in Figs. 2-3, no results table."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 4 (timestamp-prepending method described: \"[2025-12-04T10:22:44Z]\" prefix); tool-call schema not printed",
+    "note": "TicToc conversation turns themselves are the released dataset, not a fixed prompt template."
+  },
+  "claim": {
+    "metric": "Normalized Alignment Rate (with timestamp)",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 2 (bar chart only); Figure 3 attempt rate also chart-only; no per-model numeric table",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "TicToc dataset, https://huggingface.co/datasets/yizecheng/TicToc"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Both live models appear only as bars in Figures 2/3 (NAR peaking under 65%); no per-model numeric table exists (only Tables 1-6 cover timestamp frequency, think-answer mismatch, DPO training config, and dataset-curation pace/Gaussian parameters)."
+}

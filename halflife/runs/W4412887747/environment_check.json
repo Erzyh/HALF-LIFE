@@ -1,0 +1,269 @@
+{
+  "card_id": "W4412887747",
+  "checked_utc": "2026-09-19T12:56:15.474986+00:00",
+  "python": "3.13.7",
+  "model": "gpt-4-turbo-2024-04-09",
+  "seeds": 3,
+  "no_api_calls_made": true,
+  "repo": {
+    "path": "external\\repos\\W4412887747\\MichiganNLP__TAMA",
+    "head": "8d3a2c274a6038f0afbf25ba894a5a04313ca4ca",
+    "card_commit": "8d3a2c274a6038f0afbf25ba894a5a04313ca4ca",
+    "head_matches_card": true,
+    "imported": [
+      "src/src/process_data/tama_instruct/process_aitqa.py",
+      ".../process_infotabs.py",
+      "src/src/evaluation/aitqa.py",
+      "src/src/evaluation/infotabs.py",
+      "src/src/evaluation/utils/utils.py"
+    ],
+    "stubbed_or_nulled": [
+      "loguru",
+      "evaluate"
+    ],
+    "openai_sdk_installed": "2.30.0",
+    "shims": [
+      "loguru is not installed -> a no-op logger module (the repository only logs)",
+      "aitqa.py imports the `evaluate` package at module level and never uses it -> stubbed",
+      "builtins.open forced to utf-8 around the repository's own reads/writes (cp949 locale)",
+      "utils.root_dir (hard-coded /code/table-sft/...) rebound in the imported module, file untouched",
+      "the processing scripts write beside their inputs, so they run with cwd = external\\data\\W4412887747\\cwd and never touch the checkout"
+    ]
+  },
+  "data": {
+    "stage": "external\\data\\W4412887747",
+    "downloaded_bytes": 0,
+    "sources": [],
+    "bytes_on_disk": 6620582,
+    "aitqa_files": {
+      "aitqa_questions.jsonl": 118376,
+      "aitqa_tables.jsonl": 137106
+    },
+    "infotabs_tsv": {
+      "infotabs_test_alpha1.tsv": 127372,
+      "infotabs_test_alpha2.tsv": 121471,
+      "infotabs_test_alpha3.tsv": 133467
+    },
+    "infotabs_html_tables": 2720,
+    "under_50mb": true
+  },
+  "item_sets": {
+    "aitqa": {
+      "n": 315,
+      "expected_n": 315,
+      "matches_card": true,
+      "sha256": "390c2e6bfbeb9e68934aefd53cb32a0cf781664f5d92424f32912e67a569a3ae",
+      "mean_input_chars": 1337.0,
+      "mean_output_chars": 5.2,
+      "distinct_golds": 265,
+      "preimage_of_paper_cell": [
+        279
+      ],
+      "original": 88.57,
+      "binomial_band": [
+        85.06,
+        92.08
+      ]
+    },
+    "infotabs": {
+      "n": 500,
+      "expected_n": 500,
+      "matches_card": true,
+      "sha256": "42fe10926ec52772c14b0f6d957517baa53765611b090212732dec124fa25c2f",
+      "mean_input_chars": 1754.8,
+      "mean_output_chars": 7.7,
+      "distinct_golds": 3,
+      "preimage_of_paper_cell": [
+        293
+      ],
+      "original": 58.6,
+      "binomial_band": [
+        54.28,
+        62.92
+      ]
+    }
+  },
+  "sample_requests": {
+    "aitqa": {
+      "prompt_sha256": "d8804f67bb22f1c0f9d311e5e391bdf06bbcd80496433ac6a07ba994c3c83fee",
+      "chars": 1627,
+      "head": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that\nappropriately completes the request.\n\n### Instruction:\nPlease answer the question given the table content\n\n### Input:\nTable: header | Year ",
+      "tail": " (0.66) | (0.65) | [SEP] | Fuel per ASM:(In cents)Total CASM, excluding net special items and fuel | 11.46 | 11.06\n\nQuestion: What was American's regional cost of fuel per ASM in 2019?\n\n### Response:\n",
+      "max_tokens": 64,
+      "role": "user",
+      "messages": 1
+    },
+    "infotabs": {
+      "prompt_sha256": "d8481834148a8d3bb4e578fc02b13481a744575bcb79f1c90ea314a79fec52f3",
+      "chars": 2782,
+      "head": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that\nappropriately completes the request.\n\n### Instruction:\nPlease select the relationship between the table and the hypothesis, you may choose ",
+      "tail": "/th><td><span >www<wbr/>.ets<wbr/>.org<wbr/>/toefl</span></td></tr></tbody></table>\"\n\nHypothesis: A college applicant can use a TOEFL score from an exam taken within the previous year.\n\n### Response:\n",
+      "max_tokens": 32,
+      "role": "user",
+      "messages": 1
+    }
+  },
+  "prompt": {
+    "template": "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that\nappropriately completes the request.\n\n### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:\n",
+    "sha256": "ef4fa13cfb2456c2b7c21fef925faf216cc127a60c73a8c56f13abff3234a9aa",
+    "messages": 1,
+    "role": "user",
+    "source": "README 'We recommend using the following prompt structure' / examples/inference.py",
+    "paraphrase": "the GPT chat wrapper was never released; this is the documented paraphrase chosen in decisions_2026_09_19. The '### Question:' slot of the README is dropped because the released processed items have only {instruction, input}.",
+    "parameters": {
+      "temperature": 0,
+      "max_tokens": {
+        "aitqa": 64,
+        "infotabs": 32
+      },
+      "top_p": null,
+      "seed": null,
+      "system_prompt": null,
+      "source": "Appendix A.4 (temperature 0); the rest unreported"
+    }
+  },
+  "scorers": {
+    "repo_original": "src/src/evaluation/{aitqa,infotabs}.py via a root_dir containing 'gpt-4' (find_files -> original_* branch). aitqa counts `gold in pred` AND `pred == gold`.",
+    "strict": "aitqa: the SAME unmodified script through its non-original branch (root_dir .../strict, folder 0-tablegpt_large-5.0e-7/checkpoint-0) = pred == gold, the rule TAMA's checkpoints were scored under. infotabs: pred == gold computed here (infotabs.py has only one live branch; its commented-out alternative predict.startswith(gold) is reported as a diagnostic).",
+    "containment": "aitqa only, derived: repo_original - strict = the `gold in pred` rate.",
+    "judgment_basis_rule": "the repository's number, unless it differs from the strict number by more than 2 points, in which case the strict number (decisions_2026_09_19)."
+  },
+  "synthetic_scorer_runs": {
+    "aitqa": {
+      "exact": {
+        "repo_original": 200.0,
+        "strict": 100.0,
+        "containment": 100.0
+      },
+      "verbose": {
+        "repo_original": 100.0,
+        "strict": 0.0,
+        "containment": 100.0
+      },
+      "wrong": {
+        "repo_original": 0.0,
+        "strict": 0.0,
+        "containment": 0.0
+      },
+      "empty": {
+        "repo_original": 0.0,
+        "strict": 0.0,
+        "containment": 0.0
+      },
+      "target": {
+        "repo_original": 88.5714,
+        "strict": 0.0,
+        "containment": 88.5714
+      }
+    },
+    "infotabs": {
+      "exact": {
+        "repo_original": 100.0,
+        "strict": 100.0,
+        "startswith": 100.0
+      },
+      "verbose": {
+        "repo_original": 100.0,
+        "strict": 0.0,
+        "startswith": 0.0
+      },
+      "wrong": {
+        "repo_original": 0.0,
+        "strict": 0.0,
+        "startswith": 0.0
+      },
+      "empty": {
+        "repo_original": 0.0,
+        "strict": 0.0,
+        "startswith": 0.0
+      },
+      "target": {
+        "repo_original": 58.6,
+        "strict": 0.0,
+        "startswith": 0.0
+      }
+    }
+  },
+  "synthetic_definitions": {
+    "exact": "the gold string alone",
+    "verbose": "'The answer is {gold}.' - contains the gold but is not equal to it",
+    "wrong": "'I am not able to determine that from the table.'",
+    "empty": "an empty completion (a refusal or a truncated reply)",
+    "target": "the paper's own integer pre-image: {k} items answer verbosely, the rest are wrong"
+  },
+  "synthetic_mismatches": [],
+  "released_model_outputs": {
+    "generated_predictions_jsonl_in_repo": [],
+    "note": "the card records none; drift is measurable at the accuracy level only"
+  },
+  "original": {
+    "aitqa": {
+      "value": 88.57,
+      "n": 315,
+      "tama": 89.21,
+      "llama": 82.54,
+      "gpt35": 84.13,
+      "band": [
+        85.06,
+        92.08
+      ],
+      "preimage": [
+        279
+      ]
+    },
+    "infotabs": {
+      "value": 58.6,
+      "n": 500,
+      "tama": 64.54,
+      "llama": 48.39,
+      "gpt35": 56.0,
+      "band": [
+        54.28,
+        62.92
+      ],
+      "preimage": [
+        293
+      ]
+    },
+    "source": "paper Table 6, rows GPT-3.5 / GPT-4, undaggered cells AIT and Inf (author-run); Appendix A.4 temperature 0"
+  },
+  "estimate": {
+    "encoding": "cl100k_base",
+    "pricing": {
+      "input": 10.0,
+      "output": 30.0
+    },
+    "per_dataset": {
+      "aitqa": {
+        "calls": 945,
+        "tokens_in": 518619,
+        "max_tokens": 64,
+        "mean_tokens_in": 548.8,
+        "tokens_out_expected": 7560,
+        "tokens_out_max": 60480,
+        "usd_expected": 5.413,
+        "usd_max_bound": 7.001
+      },
+      "infotabs": {
+        "calls": 1500,
+        "tokens_in": 970023,
+        "max_tokens": 32,
+        "mean_tokens_in": 646.7,
+        "tokens_out_expected": 6000,
+        "tokens_out_max": 48000,
+        "usd_expected": 9.88,
+        "usd_max_bound": 11.14
+      }
+    },
+    "total": {
+      "calls": 2445,
+      "tokens_in": 1488642,
+      "tokens_out_expected": 13560,
+      "tokens_out_max": 108480,
+      "usd_expected": 15.293,
+      "usd_max_bound": 18.141
+    }
+  },
+  "cap_usd": 25.0,
+  "decisions": "card key decisions_2026_09_19"
+}

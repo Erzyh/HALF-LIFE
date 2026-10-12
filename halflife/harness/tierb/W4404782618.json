@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4404782618",
+  "title": "Visual Prompting in LLMs for Enhancing Emotion Recognition",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"We include both commercial models such as GPT-4V-turbo (Achiam et al., 2023) and GPT-4o-2024-05-13 (Achiam et al., 2024)\" (Sec. 4.1); Table 1 row \"GPT-4o (Achiam et al., 2024) +SoV (Ours) ... Total 50.10 24.20\""
+  },
+  "prompt": {"verbatim": "full", "location": "Figure 5 (example zero-shot dialogue for both prompt types), Sec. 4.1 (model settings), Appendix A.1 (dataset)", "note": "Two prompt types: plain-text group-emotion prompt, and combined text+Set-of-Vision-marks prompt for per-person emotion."},
+  "claim": {
+    "metric": "Total accuracy (%), zero-shot emotion recognition with SoV prompting, all difficulty levels", "value": 50.10, "n_items": 459, "location": "Table 1, row \"GPT-4o (Achiam et al., 2024) +SoV (Ours)\", Total Acc(%) column; face counts (174+171+114) in Appendix A.1/Table 4",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "Custom dataset of 119 ABC News images / 459 faces (Easy/Medium/Hard splits); project page https://wangzhifengharrison.github.io/sov_prompts_emnlp"},
+  "cost": {"est_calls": 1377, "tier": "mid"},
+  "blockers": [],
+  "notes": "EMNLP 2024 main. GPT-4V-turbo (undated) also appears in the same table with a higher score (55.33 Total) but is not a resolvable snapshot; GPT-4o-2024-05-13 is explicitly dated in text and used for the eligible claim instead."
+}

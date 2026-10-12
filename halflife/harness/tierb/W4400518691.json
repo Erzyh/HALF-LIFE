@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W4400518691",
+  "title": "InsightBench: Evaluating Business Analytics Agents Through Multi-Step Insight Generation",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Footnote 4: 'We use gpt-4-turbo-2024-04-09 and gpt-3.5-turbo-0125, specifically.'; Table 1: 'Ours (gpt-4-turbo) 0.30 ±0.02 0.56±0.02 0.35±0.08 0.35±0.04'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix D, Prompts 1-10 (question extraction, code generation/execution, follow-ups, interpretation, summary, LLaMA-3-Eval scoring)",
+    "note": "The AgentPoirot control loop (Sec. 3.1, steps 1-3) must be reimplemented from the printed prompts; generated pandas code is executed on the datasets."
+  },
+  "claim": {
+    "metric": "LLaMA-3-Eval insight-level score (mean of 5 seeds)",
+    "value": 0.56,
+    "n_items": 100,
+    "location": "Table 1, row Ours (gpt-4-turbo), column Insight-level LLaMA-3-Eval",
+    "task_type": "agentic",
+    "judge": "llm:llama-3-70b-instruct (open weights, self-hosted)"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/ServiceNow/insight-bench (100 datasets, 475 planted insights)"
+  },
+  "cost": {
+    "est_calls": 4000,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Agentic multi-step pipeline with code execution and a hosted Llama-3-70B judge (temperature 0); summary-level score 0.35 is the alternative claim. Eligible on paper, kept at maybe because the scaffold is not fully specified by the prompts alone.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Sec. 3.1 fixes the AgentPoirot loop (schema extraction; k=3 root questions; code generation, execution and interpretation; n=4 follow-ups per root question; summary) and Appendix D prints Prompts 1-10, but the schema string format, the sandboxed pandas execution, output truncation and error handling exist only in the repository. Re-implement or reuse that scaffold with gpt-4-turbo-2024-04-09 on the 100 released datasets, then score insight-level LLaMA-3-Eval with self-hosted Llama-3-70B-Instruct (temperature 0, Prompts 9-10) against the 475 ground-truth insights; compare with 0.56 (Table 1, mean of 5 seeds).",
+    "approximation": "Scaffold details taken from the repository; open-weight judge hosted locally.",
+    "needs_repo": true,
+    "repo_url": "https://github.com/ServiceNow/insight-bench",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

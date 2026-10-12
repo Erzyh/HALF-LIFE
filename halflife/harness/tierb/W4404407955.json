@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404407955",
+  "title": "Sharingan: Extract User Action Sequence from Desktop Recordings",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo (reference URL)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"[20] OpenAI. Gpt-4o. https://platform.openai.com/docs/models/gpt-4o ... gpt-4-turbo-and-gpt-4, 2024.\" (reference list); no GPT-4 Turbo experiment"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix I (Table XV and prompt section C)",
+    "note": "Prompts are for the GPT-4o / GPT-4o-mini / Gemini VLM pipelines."
+  },
+  "claim": {
+    "metric": "none for the live id (GPT-4 Turbo appears only in a reference URL)",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "extraction",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "ACTONE and ACTREAL desktop-recording datasets (release status not verified in text)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "The evaluated VLMs are undated GPT-4o and GPT-4o-mini (Tables II-III, temperature 0), which are not pinned snapshots in the live list."
+}

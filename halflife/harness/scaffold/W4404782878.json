@@ -1,0 +1,23 @@
+{
+  "openalex_id": "https://openalex.org/W4404782878",
+  "title": "Humans or LLMs as the Judge? A Study on Judgement Bias",
+  "doi": "https://doi.org/10.18653/v1/2024.emnlp-main.474",
+  "field": "Economics, Econometrics and Finance",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "claude-2|claude-3-opus-20240229|gpt-4-0613|gpt-4-1106-preview",
+  "flags": "",
+  "all_links": [
+    "github.com/FreedomIntelligence/Humans_LLMs_Judgement_Biasbenchmarks",
+    "github.com/tatsu-lab/alpaca_eval",
+    "github.com/tatsu-lab/alpaca_eval.Yiqi"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/FreedomIntelligence/Humans_LLMs_Judgement_Biasbenchmarks",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4404782878.txt",
+  "paper_text_status": "pdf"
+}

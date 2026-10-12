@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4415673480",
+ "title": "Artificial Intelligence Powered Research Automation (AIPRA) Versus Human Expert: A Two-Arm Ophthalmology Comparative Study",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT-4o (gpt-40-2025-10-18)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"This article was partly revised by ChatGPT-4o, a large language model...The version of ChatGPT-4o used was gpt-40-2025-10-18.\" (manuscript-preparation disclosure, not an experimental claim)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "No prompt for this disclosure; the actual study workflow, AIPRA, is run on the third-party \"High Yield Med\" platform whose underlying model is not disclosed."
+ },
+ "claim": {
+  "metric": "none tied to a trackable live model (AIPRA vs human mean quality score is reported, but AIPRA's underlying model is undisclosed)",
+  "value": null,
+  "n_items": null,
+  "location": "Abstract: \"Mean total scores: human 74.7%, AIPRA 65.3%\" -- not attributable to a specific named/dated model",
+  "task_type": "other",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "Proprietary \"High Yield Med\" AIPRA platform; underlying model/prompting not disclosed"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number",
+  "data_closed"
+ ],
+ "notes": "The only model identifier in the text (\"ChatGPT-4o\", dated 2025-10-18, not on the live list anyway) appears solely in the standard AI-assisted-writing disclosure for the manuscript itself, not the study. The actual experiment compares human experts to \"AIPRA\", a closed third-party research-automation platform whose underlying LLM is never named, so no live-model claim can be tied to it. The live_ids screen's 'gpt-4-turbo' flag for this wid did not match any string found in the text."
+}

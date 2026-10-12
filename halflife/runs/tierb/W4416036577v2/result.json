@@ -1,0 +1,67 @@
+{
+  "wid": "W4416036577v2",
+  "title": "Cross-domain Rumor Detection via Test-Time Adaptation and Large Language Models [variant: base prompt + 4 source-domain demonstrations]",
+  "model": "gpt-4o-2024-05-13",
+  "metric": "accuracy",
+  "original_value": 0.643,
+  "original_location": "Table 1, row GPT-4o, block Source TWITTER / Target Twitter-COVID19, column Acc.",
+  "reexecution": {
+    "mean_over_seeds": 0.5750000000000001,
+    "per_seed": {
+      "0": {
+        "value": 0.5825,
+        "n": 400,
+        "ci95": [
+          0.535,
+          0.6325
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.58,
+        "n": 400,
+        "ci95": [
+          0.5325,
+          0.63
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.5625,
+        "n": 400,
+        "ci95": [
+          0.515,
+          0.6125
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W4416036577v2",
+    "n_items": 400,
+    "n_requests": 1200,
+    "seeds": 3,
+    "est_usd": 2.65,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4o-2024-05-13",
+    "metric": "accuracy",
+    "original_value": 0.643,
+    "cap_usd": 6.0
+  },
+  "served": {
+    "models": [
+      "gpt-4o-2024-05-13"
+    ],
+    "n_fingerprints": 5
+  },
+  "approximation": "Variant of the base prompt with four source-domain demonstrations, to test the triage hypothesis that the Table 1 LLM rows used source-domain examples (the paper's numbers differ by source domain on the same 400 target events). Layout of the demonstrations is our design.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.5750000000000001,
+    "delta": -0.06799999999999995,
+    "original_inside_ci95": false
+  }
+}

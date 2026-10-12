@@ -1,0 +1,110 @@
+{
+  "wid": "W4404782900",
+  "title": "LitSearch: A Retrieval Benchmark for Scientific Literature Search",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (the paper states only 'We use gpt-4o-2024-05-13 in our experiments', footnote 5)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 442,
+    "subset_rule": "the 442 questions annotated 'specific' in the LitSearch query set (597 questions in total: 231 inline-citation and 211 author-written specific, 155 broad)",
+    "approximation": "One reranking call per question over the top 100 papers returned by GritLM-7B; the ranked list is cut at 5 for the claimed cell. The retrieval stage is not part of the call: it has to be run first."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "princeton-nlp/LitSearch (query set and retrieval corpus); code at github.com/princeton-nlp/LitSearch",
+    "config_or_split": "config query, split full (597 rows)",
+    "filter": "specificity == 1",
+    "fields": {
+      "input": "query",
+      "label": "corpusids",
+      "id": "query"
+    },
+    "license": "see the repository LICENSE (MIT) and the S2ORC terms for the corpus",
+    "access_checked": true,
+    "size_mb": 0.05,
+    "hf": {
+      "dataset": "princeton-nlp/LitSearch",
+      "config": "query",
+      "split": "full"
+    },
+    "checks_2026_09_19": [
+      "the Hugging Face dataset exists, is public and ungated; the query parquet is 50,621 bytes with columns query_set, query, specificity, quality, corpusids; 442 rows have specificity 1",
+      "the repository holds eval/retrieval (index building for BM25, GTR, Instructor, E5, GritLM), eval/reranking/rerank.py and eval/onehop, but no precomputed retrieval output"
+    ]
+  },
+  "prompt": {
+    "system": "You are RankGPT, an intelligent assistant that can rank papers based on their relevancy to a research query.",
+    "user_template": "I will provide you with the abstracts of 100 papers, each indicated by number identifier []. \nRank the papers based on their relevance to research question: {query}.",
+    "conversation": [
+      {
+        "role": "system",
+        "content": "You are RankGPT, an intelligent assistant that can rank papers based on their relevancy to a research query."
+      },
+      {
+        "role": "user",
+        "content": "I will provide you with the abstracts of 100 papers, each indicated by number identifier []. \nRank the papers based on their relevance to research question: {query}."
+      },
+      {
+        "role": "assistant",
+        "content": "Okay, please provide the papers."
+      },
+      {
+        "role": "user",
+        "content": "[1] Title: {Title1}\n Abstract: {Abstract1}"
+      },
+      {
+        "role": "assistant",
+        "content": "Received passage [1]."
+      },
+      {
+        "role": "note",
+        "content": "... one user/assistant pair per retrieved paper, up to [100] ..."
+      },
+      {
+        "role": "user",
+        "content": "Search Query: {query}. \nRank the 100 papers above based on their relevance to the research query. The papers should be listed in descending order using identifiers. The most relevant papers should be listed first. The output format should be [] > [], e.g., [1] > [2]. Only respond with the ranking results, do not say any words or explain."
+      }
+    ],
+    "placeholders": {
+      "query": "items.query",
+      "Title_i / Abstract_i": "title and abstract of the i-th paper of the GritLM-7B top-100 list for this query"
+    },
+    "few_shot": "none",
+    "source_location": "Table 13 ('The prompt used for reranking retrieved documents using GPT-4o', adapted from Sun et al. 2023a)",
+    "verbatim": "full; the printed '\\n' tokens are kept as written and the elided passages [3]-[99] are marked in the conversation field"
+  },
+  "output": {
+    "parse": "regex (\\[\\d+\\](?:\\s*>\\s*\\[\\d+\\])+)",
+    "postprocess": "read the permutation of identifiers, reorder the 100 candidates accordingly, keep the first 5"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "recall@5: the share of questions whose gold papers (corpusids) all appear in the top 5 of the reranked list, averaged over the specific questions of both query sets; the runner has no recall@k over a ranked list, so a hook parse()/score() would be needed",
+    "judge": "none",
+    "original_value": 79.2,
+    "original_location": "Table 3, row 'GPT-4o reranking (w/ GritLM)', last column (Avg. / Specific). Per the table header and caption that column is recall@5, not recall@20: R@20 is reported for broad questions and R@5 and R@20 for specific ones, and the two averaging columns are 'Avg. Broad R@20' (75.3) and 'Avg. Specific R@5' (79.2). The triage record labels the cell recall@20.",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 1326,
+    "est_usd": 220.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "The reranking input is the GritLM-7B top-100 for each query, and no retrieval output is released: building the index over the LitSearch corpus with a 7B embedding model on a GPU is a prerequisite, and the corpus (corpus_clean / corpus_s2orc configs) is far larger than the 50 MB download limit.",
+    "Each call carries 100 titles and abstracts in a 203-message conversation, roughly 25k input tokens, so the 442 specific questions cost about USD 70 per seed even before the broad subset.",
+    "Metric gap: recall@k over a model-produced ranking is not one of the runner's metric names.",
+    "Claim-cell label: the value 79.2 is the average recall@5 over specific questions; the triage record calls it recall@20 (the specific-question R@20 columns are 79.9 for inline-citation and 92.4 for author-written questions)."
+  ],
+  "notes": "GPT-4o is also used for one-hop reranking (Table 3, 77.0 in the same column) and, as an undated 'GPT-4', for inline-citation question generation (Table 12, dataset construction rather than evaluation). est_calls is 442 specific questions x 3 seeds."
+}

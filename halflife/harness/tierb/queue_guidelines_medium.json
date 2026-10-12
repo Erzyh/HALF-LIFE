@@ -1,0 +1,10 @@
+[
+ {
+  "wid": "W7162149911",
+  "cap": 15.0,
+  "seeds": 3,
+  "force": true,
+  "model": "gpt-5-2025-08-07",
+  "note": "annotation guidelines, third run: reasoning_effort medium (released provider default), 100 documents x 3 seeds, low-rate run on the restored account"
+ }
+]

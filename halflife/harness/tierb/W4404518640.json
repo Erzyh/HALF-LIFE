@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4404518640",
+  "title": "Legal Minds, Algorithmic Decisions: How LLMs Apply Constitutional Principles in Complex Scenarios",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-TURBO-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "S",
+    "evidence": "Sec. 2: 'specifically the GPT-4-TURBO-2024-04-09 version of the model, chosen for its advanced capabilities in handling complex text and context length capacity.'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendix B.1/B.2 are referenced but live only in the arXiv supplementary (https://arxiv.org/abs/2407.19760), not in this AIES text",
+    "note": ""
+  },
+  "claim": {
+    "metric": "mean cosine distance between GPT-4 arguments and the State's arguments, Founded rulings, FATTO setting",
+    "value": 0.685,
+    "n_items": 17,
+    "location": "Table 2, State block, row Founded, column FATTO (0.685±0.090)",
+    "task_type": "generation",
+    "judge": "llm:custom fine-tuned all-mpnet-base-v2"
+  },
+  "data": {
+    "public": "partial",
+    "source": "17 Italian Constitutional Court rulings (public at cortecostituzionale.it); labeled argument pairs and the fine-tuned embedder are not released"
+  },
+  "cost": {
+    "est_calls": 200,
+    "tier": "low"
+  },
+  "blockers": [
+    "aux_model_dead",
+    "no_prompt"
+  ],
+  "notes": "Alignment scores depend on a contrastively fine-tuned sentence-transformer trained on the authors' labeled pairs (unreleased); Figure 2 rubric scores are human-rated. Explicit snapshot, so the alias is not an issue."
+}

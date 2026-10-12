@@ -1,0 +1,56 @@
+{
+  "wid": "W7169474262",
+  "title": "The One-Word Census: Answer-Choice Conformity Across 44 Language Models",
+  "model": "gpt-5.6-sol",
+  "metric": "custom",
+  "original_value": 40,
+  "original_location": "Table 1 (appendix scorecard), rank 10, row 'gpt-4-turbo': 2.05 [1.67, 2.45] surprisal, 51% modal avoidance, 1% novel, 40% self-distinctness",
+  "reexecution": {
+    "mean_over_seeds": 0.4112903225806452,
+    "per_seed": {
+      "0": {
+        "value": 0.4112903225806452,
+        "n": 124,
+        "ci95": [
+          0.373079365079365,
+          0.4829500768049155
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7169474262",
+    "n_items": 124,
+    "n_requests": 124,
+    "seeds": 1,
+    "est_usd": 2.49,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-5.6-sol",
+    "metric": "custom",
+    "original_value": 40,
+    "cap_usd": 3.3
+  },
+  "served": {
+    "models": [
+      "gpt-5.6-sol"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper served every model through OpenRouter under the alias 'gpt-4-turbo' in July 2026; this run calls the dated snapshot gpt-4-turbo-2024-04-09 on the OpenAI API directly, so routing and any provider-side sampling differences are not reproduced. Self-distinctness is a within-model statistic, so it does not depend on the other 43 models; the plural merge, which the authors apply over the whole panel's answers for a category, is applied here to our own four answers only.",
+  "arm": {
+    "model": "gpt-5.6-sol",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\vendor\\W7169474262"
+  },
+  "comparison": {
+    "scale_applied": 100.0,
+    "reexecution_scaled": 41.12903225806452,
+    "delta": 1.1290322580645196,
+    "original_inside_ci95": true
+  }
+}

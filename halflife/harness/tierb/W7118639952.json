@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7118639952",
+  "title": "Accuracy and reliability of Manus, ChatGPT, and Claude in case-based dental diagnosis",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "ChatGPT (GPT-4-turbo, OpenAI, version released January 2024)",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "Methods: 'ChatGPT (GPT-4-turbo, OpenAI, version released January 2024) ... each of the 117 MCQs was individually submitted to the interface of each AI model'."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Supplementary Material S2 (prompt phrasing)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "diagnostic accuracy (%), second round",
+    "value": 76.9,
+    "n_items": 117,
+    "location": "Abstract/Results: 'compared to ChatGPT's 76.9%'",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "117 case-based MCQs in Supplementary Material S1"
+  },
+  "cost": {
+    "est_calls": 117,
+    "tier": "low"
+  },
+  "blockers": [
+    "webui",
+    "dead_alias"
+  ],
+  "notes": "Web interface use; the January 2024 GPT-4 Turbo corresponds to the 0125-preview."
+}

@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4414249912",
+  "title": "MGDF: an embedded multi-graph deep learning method for crude oil price forecasting",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-turbo",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "'through the API interface, the large language model GPT-4-turbo ... is integrated to score the articles based on the prompt we provide' (Section 3, Step 1)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 3.1 (scoring prompt printed: 'Please perform a comprehensive analysis to explore the ...')",
+    "note": ""
+  },
+  "claim": {
+    "metric": "forecast error of MGDF (crude oil price)",
+    "value": null,
+    "n_items": null,
+    "location": "Results tables (MGDF vs baselines)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "news articles crawled from Google search (not released); price series public"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number",
+    "data_closed"
+  ],
+  "notes": "GPT-4-turbo only produces edge weights for a text graph inside a forecasting model."
+}

@@ -1,0 +1,129 @@
+{
+  "wid": "W4411119490",
+  "title": "Are We Done with MMLU?",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "frequency_penalty": 0,
+      "presence_penalty": 0,
+      "max_tokens": 600
+    },
+    "params_source": "paper Appendix G (temperature 0.0, top_p 1, frequency/presence penalty 0, max_tokens 600, default seed)",
+    "seeds": 1
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 3000,
+    "subset_rule": "all: MMLU-Redux (30 subjects x 100 questions)",
+    "approximation": "the input block layout after the '# Task:' text is taken from the code release (src/taxonomy/data_utils.py verbaliser), not from the paper"
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "edinburgh-dawg/mmlu-redux (original 3,000-item release, 30 subject configs with test.csv each; fields question, choices, answer, error_type, source, correct_answer, potential_reason)",
+    "config_or_split": "all 30 subject configs, split test",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "options": "choices",
+      "label": "error_type",
+      "id": null,
+      "answer_index": "answer"
+    },
+    "license": "CC BY 4.0",
+    "access_checked": true,
+    "size_mb": 3,
+    "hf": {
+      "dataset": "edinburgh-dawg/mmlu-redux",
+      "config": "college_chemistry",
+      "split": "test",
+      "configs": [
+        "anatomy",
+        "astronomy",
+        "business_ethics",
+        "clinical_knowledge",
+        "college_chemistry",
+        "college_computer_science",
+        "college_mathematics",
+        "college_medicine",
+        "college_physics",
+        "conceptual_physics",
+        "econometrics",
+        "electrical_engineering",
+        "formal_logic",
+        "global_facts",
+        "high_school_chemistry",
+        "high_school_geography",
+        "high_school_macroeconomics",
+        "high_school_mathematics",
+        "high_school_physics",
+        "high_school_statistics",
+        "high_school_us_history",
+        "human_aging",
+        "logical_fallacies",
+        "machine_learning",
+        "miscellaneous",
+        "philosophy",
+        "professional_accounting",
+        "professional_law",
+        "public_relations",
+        "virology"
+      ]
+    },
+    "fields_paper": {
+      "input": "question, choices (4 strings), answer (index 0-3)",
+      "label": "error_type ('ok' vs not ok)",
+      "id": "config + row index"
+    },
+    "label_map": {
+      "wrong_groundtruth": "not ok",
+      "no_correct_answer": "not ok",
+      "bad_question_clarity": "not ok",
+      "bad_options_clarity": "not ok",
+      "multiple_correct_answers": "not ok",
+      "expert": "not ok"
+    },
+    "filter_paper": "none (every question is an item; error_type 'ok' = negative, any other value = positive 'not ok')"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "# Task:\nGiven a question, its choices, and the ground truth answer, classify the question as either ‘ok’ or ‘not ok’.\n- ‘ok’ means that the question and the choices are understandable, and the ground truth answer is correct.\n- ‘not ok’ means that the ground truth answer is incorrect, or the question and the choices are not well presented.\nClassify with ‘ok’ or ‘not ok’ WITHOUT PROVIDING ANY REASONING\nQuestion: {question}\nChoices:\n{choices}\nGround Truth Answer: {answer}\nYour Response: ",
+    "placeholders": {
+      "question": "items.question",
+      "choices": "options_lettered(choices)",
+      "answer": "hook: '<letter>. <choice text>' selected by the integer items.answer (verbaliser in src/taxonomy/data_utils.py)"
+    },
+    "few_shot": "none (Zero-Shot row)",
+    "source_location": "Appendix G 'Standard Prompting'",
+    "verbatim": "partial: the task block is verbatim from Appendix G; the input block ('Question: ... Choices: ... Ground Truth Answer: ... Your Response: ') comes from the code release's verbaliser (QUESTION_VERBALISER in src/taxonomy/data_utils.py)",
+    "user_template_paper": "# Task:\nGiven a question, its choices, and the ground truth answer, classify the question as either ‘ok’ or ‘not ok’.\n- ‘ok’ means that the question and the choices are understandable, and the ground truth answer is correct.\n- ‘not ok’ means that the ground truth answer is incorrect, or the question and the choices are not well presented.\nClassify with ‘ok’ or ‘not ok’ WITHOUT PROVIDING ANY REASONING\n{input_block}",
+    "placeholders_paper": {
+      "input_block": "the question, its four choices and the MMLU ground-truth answer (layout to be confirmed from the code release github.com/aryopg/mmlu-redux; provisional: '# Question:\\n{question}\\n# Choices:\\nA. ...\\nB. ...\\nC. ...\\nD. ...\\n# Ground Truth Answer:\\n{answer letter}')"
+    }
+  },
+  "output": {
+    "parse": "label from set [not ok, ok]",
+    "postprocess": "strip, lowercase, strip quotes; unparsable replies scored as 'ok'",
+    "parse_paper": "label from set [ok, not ok]: 'not ok' if the reply contains 'not ok' (case-insensitive), else 'ok' if it contains 'ok'"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "F1 (%) of the positive class 'not ok' (any error_type other than ok) over the 3,000 questions: 2TP/(2TP+FP+FN)",
+    "judge": "none",
+    "original_value": 22.7,
+    "original_location": "Table 3, row GPT-4 Turbo / Zero-Shot, column F1 (Recall 22.81, F2 23.90)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 30.0,
+    "tier": "high",
+    "prepare_note": "runner --prepare failed: placeholder spec not machine-readable: \"'<letter>. <choice text>' built from the integer 'answer' index (verbaliser in src/taxonomy/data_utils.py); not expressible - needs a placeholder form such as option_at(choices, answer)\""
+  },
+  "open_points": [],
+  "notes": "Deterministic decoding, single seed. Positive class = every error_type other than 'ok' (the paper's binary 'not ok'); 'expert' rows count as not ok. Per-subject F1 in Table 6 (e.g. College Chemistry zero-shot 52.94) gives a 100-item check per subject. Use the original mmlu-redux dataset, not mmlu-redux-2.0. || [normalize 2026-09-07] Input block confirmed from the code release (QUESTION_VERBALISER in src/taxonomy/data_utils.py): 'Question: {question}\\nChoices:\\n{choices}\\nGround Truth Answer: {answer}\\nYour Response: ' with choices as 'A. ..' lines and answer as '<letter>. <text>'; the template now carries this layout (the Appendix G text is unchanged; the earlier provisional layout is kept in user_template_paper). college_chemistry/test verified (100 rows; question, choices, answer(int), error_type, source, correct_answer, potential_reason; error_type ok 75 / wrong_groundtruth 21 / no_correct_answer 2 / bad_question_clarity 2). label_map folds every non-ok error_type into 'not ok'. || [hooks_4 2026-09-07] items.hf.configs lists the 30 subject configs (runner concatenates them, id = row index 0-2999); hook closes the index-to-option and binary-F1 gaps.",
+  "hook": "harness/tierb/hooks/W4411119490.py: render (verbaliser block, Ground Truth Answer from the index), parse ('not ok' > 'ok' > None), score (positive-class F1, unparsable scored as 'ok'; no per-item list)"
+}

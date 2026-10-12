@@ -1,0 +1,26 @@
+{
+  "openalex_id": "https://openalex.org/W4411120612",
+  "title": "AI Conversational Interviewing: Transforming Surveys with LLMs as Adaptive Interviewers",
+  "doi": "https://doi.org/10.18653/v1/2025.latechclfl-1.17",
+  "field": "Medicine",
+  "year": "2025",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "",
+  "flags": "",
+  "all_links": [
+    "github.com/AIinterviewing/ai-",
+    "github.com/AIinterviewing/ai-conversational-interviewing-LaTeCH-CLfL20252"
+  ],
+  "candidate_repos": [
+    {
+      "url": "https://github.com/AIinterviewing/ai-",
+      "cloned": false
+    },
+    {
+      "url": "https://github.com/AIinterviewing/ai-conversational-interviewing-LaTeCH-CLfL20252",
+      "cloned": false
+    }
+  ],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4411120612.txt",
+  "paper_text_status": "pdf"
+}

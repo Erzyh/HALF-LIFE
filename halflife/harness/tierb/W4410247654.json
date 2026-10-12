@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4410247654",
+ "title": "New insights into the phenomenon of remissions and relapses in autoimmune diseases and the puzzle of benign autoantibodies in healthy individuals",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "ChatGPT (GPT-4-turbo variant, August 2024 release)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "\"the assistance of ChatGPT (GPT-4-turbo variant, August 2024 release) in helping with the English editing of this manuscript\" (Acknowledgments)"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Writing-assistance disclosure only."
+ },
+ "claim": {
+  "metric": "none (immunology review article; no LLM experiment)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Frontiers in Immunology review; GPT-4-turbo is disclosed only as an English-editing aid, with no research use or reportable metric."
+}

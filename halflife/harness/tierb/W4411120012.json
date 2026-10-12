@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411120012",
+ "title": "Cross-lingual Transfer of Reward Models in Multilingual Alignment",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "'the win rate was measured against GPT-4-Turbo, a strong proprietary language model, such enhancements strongly support the validity of using English RMs...'"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "GPT-4-Turbo is used only as AlpacaEval-style fixed reference text for a win-rate metric, not re-run by these authors."
+ },
+ "claim": {
+  "metric": "none for GPT-4-Turbo itself (it is the fixed win-rate reference target; the scored models are Qwen2.5-7B-Instruct DPO variants)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "RewardBench / Multilingual RewardBench"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A separate, undated GPT-4o is evaluated with its own numeric row (Table 2, generative RM comparison, e.g. 86.7 EN) but GPT-4o is not one of the paper's live-listed identifiers of interest here; GPT-4-Turbo itself is only ever a fixed comparison baseline."
+}

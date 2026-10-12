@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7169689017",
+ "title": "BioTIER: A Refusal Benchmark for Targeted Biological Risk Mitigation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "o4-mini (also o3, o3-pro, o3-mini, GPT-5 family)",
+  "resolved": "o4-mini-2025-04-16",
+  "role": "S",
+  "evidence": "'followed by GPT-5 (73.4%), o3 (73.1%), and o4-mini (72.4%)...within OpenAI, o3-pro led at 76.1%'; 'The benchmark consists of 542 expert-curated prompts' organized into Catastrophe Avoidance (CA), Biomedical DURC (BD), and Related Biology (RB) risk tiers"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "By design, this benchmark's prompts (especially the Catastrophe-Avoidance tier) are curated to probe for genuinely high-risk biological-uplift content; exact prompts are not reproduced here."
+ },
+ "claim": {
+  "metric": "refusal/compliance rate (%) across risk tiers",
+  "value": 72.4,
+  "n_items": 542,
+  "location": "Results narrative, o4-mini figure (72.4%); 542 expert-curated prompts total across three risk tiers",
+  "task_type": "classification",
+  "judge": "llm:model grader jury (GPT-4.1 mini, Gemini, others; majority vote)"
+ },
+ "data": {
+  "public": "partial",
+  "source": "BioTIER (542 expert-curated prompts); paper states the benchmark is released, but the highest-risk 'Catastrophe Avoidance' tier content is sensitive by design"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "tos"
+ ],
+ "notes": "This is a legitimate biosecurity-safety benchmark from a credible research group (SecureBio), but re-executing it means sending real biological-risk-uplift probes (its Catastrophe-Avoidance tier is explicitly designed to contain the most dangerous content) to commercial model APIs, which this project does not do. Flagged tos regardless of the benchmark's own research legitimacy."
+}

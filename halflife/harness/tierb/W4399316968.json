@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4399316968",
+  "title": "Grounded or Silent: Citation-Faithful Legal Question Answering for Pakistani Law",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Sec. 5.3: 'For GPT-4, we prompted the LLM via the OpenAI API (model gpt-4-turbo-2024-04-09) with the following instruction, appending the query afterwards'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Section 5.3 (system instruction printed verbatim; query appended)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "hallucination rate, expert-coded",
+    "value": null,
+    "n_items": 202,
+    "location": "Figure 1 / Figure 4 (GPT-4 bars; percentages not given in the text)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "partial",
+    "source": "202 preregistered legal queries (OSF preregistration); dataset 'will be made available upon publication'"
+  },
+  "cost": {
+    "est_calls": 606,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Text file is arXiv 2405.20362 'Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools' (Magesh et al.), which does not match the CSV title. Outcome needs expert legal coding of every response; GPT-4 rates appear only graphically."
+}

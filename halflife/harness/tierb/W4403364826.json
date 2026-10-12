@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4403364826",
+  "title": "StepTool: Enhancing Multi-Step Tool Usage in LLMs via Step-Grained Reinforcement Learning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Sec. 4.1: 'a hybrid approach of rule-based heuristics and GPT-4 (gpt-4-turbo-2024-04-09) to annotate step-grained rewards'; GPT-4 also judges pass rate following ToolBench."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. 4.1 ('Annotation Prompt for GPT-4')",
+    "note": "The printed prompt is for reward annotation, not for a subject model."
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "StableToolBench / ToolBench I1-I3 and ToolLens test tasks"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Subject models are fine-tuned ToolLLaMA variants; the live model annotates rewards and evaluates pass rate."
+}

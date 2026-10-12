@@ -1,0 +1,4 @@
+﻿quantity,n,raw_share_pct,raked_share_pct,raked_ci95_lo,raked_ci95_hi,weight_min,weight_max,design_effect,one_dim_field_group_pct,one_dim_year_pct,one_dim_document_type_pct,one_dim_task_type_pct,one_dim_model_family_pct,one_dim_cost_tier_pct,population_covered_pct_min_over_dims,note
+deviated on the designated replacement,72,52.8,56.1,37.9,73.3,0.09,5.27,2.24,53.3,52.6,52.5,54.8,53.9,51.4,96.8,"scorable vendor-arm results, one per paper; population: 216 eligible papers"
+reproduced before retirement,86,62.8,58.6,43.9,72.6,0.13,5.6,1.9,61.4,62.9,62.7,62.9,60.4,61.9,99.5,executed prompt-level papers; population: 216 eligible papers
+deviated before retirement,86,23.3,21.3,11.4,33.5,0.13,5.6,1.9,22.3,23.3,23.0,23.1,25.8,21.8,99.5,executed prompt-level papers; population: 216 eligible papers

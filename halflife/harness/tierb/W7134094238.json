@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7134094238",
+  "title": "BioLLMAgent: A Hybrid Framework with Enhanced Structural Interpretability for Simulating Human Decision-Making in Computational Psychiatry",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. IV.A: 'LLM API calls used fixed parameters (T=0.5, top-p p=0.9) with model versions GPT-4o (gpt-4o-2024-05-13) and DeepSeek-V3.'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A.1 (Neutral Prior Prompt: [System]/[Task]/[Instruction]/[Output] blocks) and A.2 (CBT prompt)",
+    "note": "Additional conditions (Noisy Control, Community Education) are in an online supplement."
+  },
+  "claim": {
+    "metric": "KL divergence of the LLM action distribution from uniform, with the uniform-selection instruction",
+    "value": 0.002,
+    "n_items": null,
+    "location": "Table V, row GPT-4o w/ (Chi-sq p 0.988, KL 0.002, Std 0.017)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Six public IGT datasets (N=350 participants; Ahn et al., Horstmann et al., Kjome et al., Maia & McClelland); code and anonymized data promised on GitHub/Zenodo"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The headline number (Table VI: GPT-4o T=0.5 MSD=1.00 across 6 datasets) requires the full hybrid ORL+LLM framework with PyMC inference, i.e. code. Only the prompt-ablation statistics (Table V) are LLM-only, and the number of sampled calls behind them is not stated.",
+  "resolution": {
+    "gap": "other",
+    "plan": "Table V's 'w/' row is LLM-only: the Appendix A.1 neutral-prior prompt with the uniform-selection instruction ('choose uniformly among decks A-D over 100 trials'), run on gpt-4o-2024-05-13 at T=0.5, top-p 0.9, without the ORL/PyMC loop. Sample deck choices, pool the distribution, and compute the chi-square p-value against uniform, the KL divergence from uniform and the std of deck proportions; compare with KL 0.002 (p 0.988, std 0.017).",
+    "approximation": "The number of simulated participants/trials behind Table V is unstated; use a fixed budget (e.g. 30 x 100 choices), report n, and treat KL <= 0.01 as agreement since KL scales with sample size.",
+    "needs_repo": false,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

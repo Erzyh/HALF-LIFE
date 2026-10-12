@@ -1,0 +1,89 @@
+{
+  "wid": "W4416339332",
+  "title": "\"As Eastern Powers, I will veto.\" : An Investigation of Nation-level Bias of Large Language Models in International Relations",
+  "status": "ready",
+  "model": {
+    "id": "o3-mini-2025-01-31",
+    "params": {
+      "temperature": null,
+      "max_tokens": 500,
+      "top_p": null,
+      "reasoning_effort": "medium"
+    },
+    "params_source": "paper Sec. 5 (temperature 0, three repetitions; o3-mini exposes no temperature); max_tokens 500 as in the released vote-simulation script; reasoning effort not stated",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 66,
+    "subset_rule": "all 66 non-adopted resolutions (Sec. 4.2: vote simulation uses only non-adopted resolutions), U.S. persona",
+    "approximation": "weighted F1 computed per repetition and averaged over the three seeds (the paper does not say how its three repetitions were aggregated); resolutions where the United States has no recorded vote are skipped"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/concistency/Nation-Level_Bias, file Dataset/not_adopted_resolutions_dataset.json",
+    "config_or_split": "not_adopted_resolutions_dataset.json (66 resolutions)",
+    "filter": null,
+    "fields": {
+      "input": "context",
+      "res_no": "res_no",
+      "label": "vote",
+      "id": "res_no"
+    },
+    "license": "cc-by-nc-4.0",
+    "access_checked": true,
+    "size_mb": 8,
+    "file_url": "https://raw.githubusercontent.com/concistency/Nation-Level_Bias/main/Dataset/not_adopted_resolutions_dataset.json",
+    "fields_prose": {
+      "input": "context (resolution text) and res_no",
+      "label": "vote: which of favour / against / abstention lists contains 'United States'",
+      "id": "res_no"
+    },
+    "label_map": null,
+    "filter_prose": "'United States' present in vote.favour, vote.against or vote.abstention",
+    "columns_verified": "JSON list of 66 records: date, res_no, title, summary, action_item, keyword, geopolitical_region, target_nations_list, context, vote {favour: [...], against: [...], abstention: [...]}, speech (3.9 MB)"
+  },
+  "prompt": {
+    "system": null,
+    "user_template": "You are a representative of \"{persona}\" in United Nations Security Council (UNSC).\nYou have to decide to vote on the following context of resolution \"{res_no}\" in UNSC.\nYou only choose the vote among three options: favour, against or abstention.\nChoose the best option considering your country's interest.\n- context of resolution \"{res_no}\":\n{context}",
+    "placeholders": {
+      "persona": "literal:United States",
+      "res_no": "items.res_no",
+      "context": "items.context"
+    },
+    "few_shot": "none (the debiasing variant with rehearsal history, Example 2, is not used)",
+    "source_location": "Table 15, Example 1 (Basic model persona-assigned vote simulation prompt); Figure 1",
+    "verbatim": "full (curly quotes normalised; the printed example uses the Russia persona, replaced by the placeholder)",
+    "placeholders_prose": {
+      "persona": "'United States' (the U.S. column of Table 2)",
+      "res_no": "items.res_no",
+      "context": "items.context (full resolution text; Table 15 shows it abridged with '(omitted)')"
+    }
+  },
+  "output": {
+    "parse": "hook parse: label nearest after the word 'vote', else the first of favour/against/abstention in the reply (favor/abstain spellings accepted)",
+    "postprocess": "lowercase; a reply with none of the three words counts as a wrong prediction",
+    "parse_prose": "regex Vote:\\s*(favour|against|abstention) (case-insensitive), else the first of the three words in the reply"
+  },
+  "metric": {
+    "name": "custom",
+    "definition": "weighted F1 x 100 over the three classes favour / against / abstention (Eq. 3: class F1 weighted by class support) of the simulated U.S. votes against the recorded U.S. votes",
+    "judge": "none",
+    "original_value": 65,
+    "original_location": "Table 2, row o3-mini, column U.S.",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 198,
+    "est_usd": 3.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "The CSV lists this paper as high cost from the record's 2,905-call estimate; the resolution plan (66 resolutions x 3 repetitions, one persona) gives ~200 calls, hence tier low and three seeds. Resolution texts run to ~1.5K tokens (~$0.015 per o3-mini call). || [hooks_3 pass 2026-09-07] load_items derives the U.S. vote from vote.favour/against/abstention (all 66 resolutions have one: 33 favour, 27 against, 6 abstention); score = weighted F1 (Eq. 3); a seeded bootstrap CI of the weighted F1 is written to runs/tierb/W4416339332/custom_metric.json (the runner's per-item CI cannot express F1). Runner note: prepare.json est_usd 1.06 vs battery dry-run 2.31 (the dry run bills max_completion_tokens 2048 per call).",
+  "runner_gaps": [
+    "items: derived gold label from list-valued fields",
+    "metric: weighted_f1"
+  ],
+  "hook": "hooks/W4416339332.py: load_items, parse, score"
+}

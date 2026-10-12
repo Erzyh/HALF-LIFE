@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416385811",
+ "title": "BLAZER: Bootstrapping LLM-based Manipulation Agents with Zero-Shot Data Generation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"All baseline results are reported following MALMM [16] and use GPT-4 Turbo [42] as the underlying LLM model.\" (Sec. IV) -- copied from a cited paper"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none attributable to GPT-4-Turbo run by these authors; Table I's MALMM row reproduces numbers from the cited MALMM paper. This paper's own models are LLaMA-70B/8B",
+  "value": null,
+  "n_items": null,
+  "location": "Table I (MALMM row, copied from the cited paper)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "RLBench manipulation-task benchmark (public); code referenced but exact release not confirmed in extracted text"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is only the underlying model of a cited BASELINE (MALMM), whose results this paper reports as-is rather than reproducing; BLAZER's own method uses LLaMA-70B/8B, and gpt-4o (undated) is used only as a scene-element-listing utility in the vision pipeline with no separately reported accuracy number."
+}

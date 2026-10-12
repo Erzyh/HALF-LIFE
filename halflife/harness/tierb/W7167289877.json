@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W7167289877",
+  "title": "SEFORA: Student Essays with Feedback Corpus and LLM Feedback Evaluation Framework",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "A",
+    "evidence": "Table 3 (similarity-scorer validation): '5 mini low 0.723 0.730'; footnote: 'Snapshot gpt-5-mini-2025-08-07'; adopted scorer is gemini-3.1-flash-lite"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C (similarity-scoring guideline used as prompt); Appendix F, Figures 17-18 (feedback-generation templates)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "Pearson r vs human similarity scores",
+    "value": 0.723,
+    "n_items": 120,
+    "location": "Table 3, row GPT-5 mini (low), column r (120 feedback-unit pairs)",
+    "task_type": "classification",
+    "judge": "human"
+  },
+  "data": {
+    "public": "yes",
+    "source": "SEFORA corpus and code, github.com/ShayanPey/SEFORA"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "gpt-5-mini is only a candidate similarity scorer for the evaluation pipeline (role A); feedback-generation subjects are GPT-5.1 and open models."
+}

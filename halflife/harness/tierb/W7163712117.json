@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7163712117",
+ "title": "MATE: PLATAFORMA DE IA PARA APOIAR POR MEIO DE CONEXÕES VISUAIS O APRENDIZADO DE MATEMÁTICA NO ENSINO FUNDAMENTAL I",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "References: \"Kleina, N. O que é GPT-4 Turbo, a versão mais poderosa do ChatGPT. 2023.\" (cited blog post only); the actual prototype instead runs on \"API do ChatGPT 4.o mini\" via n8n."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (design/prototype paper; no evaluation results reported, pilot testing described as future work)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo appears only in a cited background blog-post reference; the actual math-education chatbot prototype runs on GPT-4o-mini (not a tracked live snapshot) via a no-code n8n pipeline, with no evaluation metric reported."
+}

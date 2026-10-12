@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7160488761",
+  "title": "Tracking policy-relevant narratives of democratic resilience at scale: From experts and machines, to AI & the transformer revolution",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-2025-04-16 ('o3-high'); gpt-4-turbo used only to write seed statements",
+    "resolved": "o3-2025-04-16",
+    "role": "B",
+    "evidence": "Models paragraph: \"OpenAI - 'o3-high' ('o3-2025-04-16', reasoning effort: 'high', cut-off 1 Jun 2024), 'gpt-4.1' ... All calls were made via API with default API parameter settings\""
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Zero-shot and extended populism prompts shown in a figure of the demonstration section; asylum-seeker seed prompts printed (Prompt 1, Prompt 2)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none: Figure 4 shows colour-coded populism labels per model, no accuracy or agreement statistic",
+    "value": null,
+    "n_items": 5,
+    "location": "Figure 4 (small political texts corpus: Trump, Vlaams Belang, Left Front, Albanese, Obama)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "five political text excerpts described with sources in the paper; method code at https://github.com/sodalabsio/textwaves"
+  },
+  "cost": {
+    "est_calls": 90,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Demonstration paper: nine models label five texts and results are displayed qualitatively. gpt-4-turbo (2026 paper, alias) only generated seed statements for paired completion."
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4414852895",
+ "title": "The Topics of Depression on Social Networking Sites",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "gpt-4o-2024-05-13",
+  "resolved": "gpt-4o-2024-05-13",
+  "role": "S",
+  "evidence": "'gpt-4o-2024-05-13...models'; 'clusters automatically named through another prompt (see Appendix B)'; results list 'GPT-4o 14 DepressBR (N) 0.871'"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix B (prompts for theme/label extraction and automatic cluster naming)",
+  "note": "The LLM prompt steps are printed, but they sit inside a larger pipeline (embedding, UMAP dimensionality reduction, clustering) that is not itself a prompt."
+ },
+ "claim": {
+  "metric": "EWETC topic-coherence metric, DepressBR (N) dataset, K=14 topics",
+  "value": 0.871,
+  "n_items": null,
+  "location": "Results table, row 'GPT-4o 14 DepressBR (N) 0.871'",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "DepressBR, Instagram (UFF), Reddit, Twitter (UFF) social-media post collections related to depression"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "GPT-4o participates in a multi-stage topic-modeling pipeline (embedding + UMAP + clustering are non-LLM steps) rather than a single self-contained prompt; number of posts per dataset (n_items) not located in the excerpt read. Depression-related social-media data may carry privacy/ethics constraints even if source platforms are public."
+}

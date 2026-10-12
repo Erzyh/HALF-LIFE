@@ -1,0 +1,24 @@
+﻿model,covariate,coef,hazard_ratio,hr_ci_lo,hr_ci_hi,p,period,papers_at_risk,events_in_period,events_with_covariate,at_risk_with_covariate,estimable
+"episode-split, period-specific terms",field: Medicine,-0.051357678881872766,0.949938836699399,0.8499180508620835,1.0617303545377197,0.3655946200688339,,,,,,
+"episode-split, period-specific terms",field: Social Sciences,-0.05748587535983336,0.9441352258625765,0.8995559930652623,0.9909236685502337,0.019833884387454905,,,,,,
+"episode-split, period-specific terms",field: Engineering,-0.05202161794786935,0.9493083445227614,0.8579774806002314,1.050361289611105,0.313467198195421,,,,,,
+"episode-split, period-specific terms",field: Decision Sciences,-0.060630507899308295,0.9411709307618348,0.8931144583728163,0.9918132134205516,0.02336428352035482,,,,,,
+"episode-split, period-specific terms",field: Psychology,-0.08815439968508344,0.9156194944473182,0.83725911397192,1.0013137446003118,0.05345361498755159,,,,,,
+"episode-split, period-specific terms",field: other,-0.12736261704021667,0.8804143614569098,0.7870372658412222,0.9848700709630104,0.025979462424344728,,,,,,
+"episode-split, period-specific terms",published 2022,0.8562559845634291,2.354329525919737,1.1625058575147857,4.768034054010738,0.017396176618627125,,,,,,
+"episode-split, period-specific terms",published 2023,0.8068109946322681,2.240750814237013,1.0970693974008077,4.57670610756218,0.02681141006422707,,,,,,
+"episode-split, period-specific terms",published 2025,1.56494653155815,4.782419220554982,3.024759862128622,7.5614378144512555,2.1497596459203128e-11,,,,,,
+"episode-split, period-specific terms",published 2026,3.0967359164717787,22.12561343691241,8.724551278709898,56.110939614085005,6.924558263927281e-11,,,,,,
+"episode-split, period-specific terms",preprint,-0.24004620384152986,0.7865915166771494,0.734101279355072,0.8428349486763271,9.586699164183734e-12,,,,,,
+"episode-split, period-specific terms",any Anthropic model | 0-6 months,1.2338449984832767,3.434409480863394,1.8902021067859713,6.240162594200273,5.127881175266146e-05,0-6 months,49212,14872,2808,5935,yes
+"episode-split, period-specific terms",any Anthropic model | 6-12 months,1.3254503284502852,3.763879955635314,2.1434980073277714,6.609193137573554,3.944904102507225e-06,6-12 months,34340,16107,1964,3127,yes
+"episode-split, period-specific terms",any Anthropic model | 12-24 months,1.2726411875691377,3.5702698728459517,1.9578236570019267,6.510712504348344,3.300066262033925e-05,12-24 months,18233,12146,1127,1163,yes
+"episode-split, period-specific terms",any Google model | 0-6 months,1.28468996915262,3.6135474723490857,1.788454390736648,7.301122915156987,0.00034351641537658034,0-6 months,49212,14872,2685,5762,yes
+"episode-split, period-specific terms",any Google model | 6-12 months,1.0173602907002808,2.7658839893609453,1.4754433573018837,5.184959629079114,0.0015078375889917778,6-12 months,34340,16107,2350,3077,yes
+"episode-split, period-specific terms",log(1 + citations) | 0-6 months,0.06725729311478804,1.0695706359353891,0.9050317218863039,1.2640234785040467,0.4300150889368468,0-6 months,49212,14872,14872,49212,yes
+"episode-split, period-specific terms",log(1 + citations) | 6-12 months,-0.01057333639044752,0.9894823648419552,0.8670867184031849,1.1291550539907704,0.875286650907699,6-12 months,34340,16107,16107,34340,yes
+"episode-split, period-specific terms",log(1 + citations) | 12-24 months,-0.09355143677287414,0.9106911732064171,0.8456862208866431,0.9806928296485141,0.013286596467494255,12-24 months,18233,12146,12146,18233,yes
+"episode-split, period-specific terms",log(1 + citations) | over 24 months,-0.11095826858275007,0.8949760967706595,0.8507133493648412,0.941541841783573,1.8055771870470662e-05,over 24 months,6087,6087,6087,6087,yes
+"episode-split, period-specific terms",any Anthropic model | over 24 months,,,,,,over 24 months,6087,6087,36,36,no (complete or near-complete separation: the papers at risk with the covariate almost all had the event in this period)
+"episode-split, period-specific terms",any Google model | 12-24 months,,,,,,12-24 months,18233,12146,727,727,no (complete or near-complete separation: the papers at risk with the covariate almost all had the event in this period)
+"episode-split, period-specific terms",any Google model | over 24 months,,,,,,over 24 months,6087,6087,0,0,no (complete or near-complete separation: the papers at risk with the covariate almost all had the event in this period)

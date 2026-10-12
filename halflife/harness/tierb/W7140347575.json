@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7140347575",
+  "title": "SimulCost: A Cost-Aware Benchmark and Toolkit for Automating Physics Simulations with LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 4.1: 'We evaluate state-of-the-art LLMs including GPT-5-2025-08-07, Claude-3.7-Sonnet-2025-02-19 ... Temperature is set to 0.0 for all models except GPT-5'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix B.3 (system prompt / workflow templates); Figure 1",
+    "note": ""
+  },
+  "claim": {
+    "metric": "success rate (%), single-round",
+    "value": 61.5,
+    "n_items": null,
+    "location": "Sec. 4.2 / Table 12, GPT-5 single-round overall",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "SimulCost tasks over 11 physics solvers (e.g. 662 heat-2D tasks); open-sourced toolkit requires running the simulators"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "The agent must call simulation tools and read numerical feedback; not re-runnable without the toolkit and solvers. data_closed flags environment-generated inputs."
+}

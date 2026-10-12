@@ -1,0 +1,87 @@
+{
+  "wid": "W7131319772",
+  "title": "Can Large Language Models Replace Human Coders? Introducing ContentBench",
+  "status": "ready",
+  "model": {
+    "id": "gpt-5-mini-2025-08-07",
+    "params": {
+      "temperature": null,
+      "max_tokens": 64,
+      "top_p": null,
+      "reasoning_effort": "minimal"
+    },
+    "params_source": "paper Methods (temperature 0.0, GPT-5 series with minimal reasoning effort; API calls September 2025); GPT-5 mini ignores temperature; max_completion_tokens assumed",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 1000,
+    "subset_rule": "all: core split (500) + hard-sarcasm split (500)",
+    "approximation": "none"
+  },
+  "items": {
+    "source_type": "github",
+    "source": "https://github.com/contentbench/contentbench.github.io, files data/researchtalk/v1.0/core.jsonl and hard-sarcasm.jsonl (ContentBench-ResearchTalk v1.0)",
+    "config_or_split": "core.jsonl + hard-sarcasm.jsonl",
+    "filter": null,
+    "fields": {
+      "input": "text",
+      "label": "label",
+      "id": "id",
+      "split": "split"
+    },
+    "license": "unknown (no LICENSE file found in the site repository)",
+    "access_checked": true,
+    "size_mb": 1,
+    "file_url": "https://raw.githubusercontent.com/contentbench/contentbench.github.io/main/data/researchtalk/v1.0/core.jsonl",
+    "file_url_second": "https://raw.githubusercontent.com/contentbench/contentbench.github.io/main/data/researchtalk/v1.0/hard-sarcasm.jsonl",
+    "fields_prose": {
+      "input": "text",
+      "label": "label (sarcastic_critique | procedural_statement | genuine_praise | genuine_critique | neutral_query)",
+      "id": "id",
+      "options": "split"
+    },
+    "label_map": null,
+    "columns_verified": "core.jsonl 500 rows (100 per label), hard-sarcasm.jsonl 500 rows (all sarcastic_critique); keys id, split, text, label; no combined file in the repository",
+    "file_urls": [
+      "https://raw.githubusercontent.com/contentbench/contentbench.github.io/main/data/researchtalk/v1.0/core.jsonl",
+      "https://raw.githubusercontent.com/contentbench/contentbench.github.io/main/data/researchtalk/v1.0/hard-sarcasm.jsonl"
+    ]
+  },
+  "prompt": {
+    "system": "You are an expert research assistant trained to analyze comments about academic papers. Classify the following post into one of the five categories from the codebook. Provide only the single correct code label and nothing else.",
+    "user_template": "Role:\nYou are an expert research assistant trained to analyze comments about academic papers. Classify the following post into one of the five categories from the codebook. Provide only the single correct code label and nothing else.\n\nCodebook:\nsarcastic_critique: The post uses positive language with an ironic tone to express criticism.\nprocedural_statement: The post accurately describes a standard and valid scientific procedure.\ngenuine_praise: The post expresses straightforward and sincere praise for the paper.\ngenuine_critique: The post presents a direct and non-ironic criticism of the paper.\nneutral_query: The post asks a straightforward question for the purpose of clarification.\n\nPost to Classify:\n{text}\n\nYour Classification:",
+    "placeholders": {
+      "text": "items.text"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B 'Classification Prompt' (the role instruction is also passed as the system prompt)",
+    "verbatim": "full"
+  },
+  "output": {
+    "parse": "label from set [sarcastic_critique, procedural_statement, genuine_praise, genuine_critique, neutral_query]",
+    "postprocess": "strip, lowercase; no match counted as disagreement",
+    "parse_prose": "label from set [sarcastic_critique, procedural_statement, genuine_praise, genuine_critique, neutral_query]: first case-insensitive match (underscore or space tolerated)"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "agreement (%) = share of the 1,000 posts whose predicted label equals the jury label.",
+    "judge": "none",
+    "original_value": 99.0,
+    "original_location": "Table 1, row GPT-5 Mini, column Agreement (%) (core macro-F1 0.990, hard-sarcasm recall 99.0)",
+    "bootstrap_unit": "item",
+    "scale": 100,
+    "alternative_cell": "Table 1, row GPT-5 Mini, column 'Core macro-F1' = 0.990 (core.jsonl only, metric macro_f1, scale 1); column 'Hard-sarcasm recall (%)' = 99.0 (hard-sarcasm.jsonl only, = accuracy because every gold label is sarcastic_critique)"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 5.0,
+    "tier": "low"
+  },
+  "open_points": [],
+  "notes": "Field names verified from the first records of core.jsonl and hard-sarcasm.jsonl (id, split, text, label). Prompts average ~295 input tokens. || [hooks_4 2026-09-07] hook concatenates the two split files (items.file_urls); Agreement cell over all 1,000 posts.",
+  "runner_gaps": [
+    "items: list of file_url (concatenate several files)"
+  ],
+  "hook": "harness/tierb/hooks/W7131319772.py: load_items (core.jsonl + hard-sarcasm.jsonl concatenated), parse (codebook label, underscore/space/hyphen tolerated); accuracy = runner"
+}

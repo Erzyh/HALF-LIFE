@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7119538517",
+  "title": "A Comparative Evaluation of GPT-4 Turbo and Gemini-Pro in Medical Licensing Exams: Enhancing Artificial Intelligence's Role in Medical Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "dead-preview",
+    "role": "S",
+    "evidence": "GPT-4 Turbo achieved an accuracy rate of 90.99% on the January 2024 NBME Step 1 questions (Results); prompts submitted via the OpenAI API"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Methods, 'Prompt engineering and logical structuring' (template described: stem, query, options, request for justification; Figure 1)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on NBME Step 1-style questions",
+    "value": 0.9099,
+    "n_items": 111,
+    "location": "Results text and Figure 2 (90.99% = 101/111; text reports 112 items collected, 7 excluded)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "NBME Step 1 self-assessment questions (January 2024 set), copyrighted and not distributed"
+  },
+  "cost": {
+    "est_calls": 333,
+    "tier": "low"
+  },
+  "blockers": [
+    "dead_alias",
+    "data_closed"
+  ],
+  "notes": "Comparator was Gemini-Pro 1.0 and the question set is dated January 2024, so the run almost certainly used gpt-4-0125/1106-preview despite the 2026 publication date. Error categories were adjudicated by humans; accuracy is key-based."
+}

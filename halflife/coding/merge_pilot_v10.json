@@ -1,0 +1,113 @@
+{
+  "set": "pilot",
+  "coders": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "files": [
+    "C:\\Users\\yeonh\\AppData\\Local\\Temp\\claude\\C--Users-yeonh-Desktop-NMI-RS\\e5c583a3-95c4-4f84-b856-2260eab0b4e2\\scratchpad\\pilot\\halflife_coding_pilot_coderA.xlsx",
+    "C:\\Users\\yeonh\\AppData\\Local\\Temp\\claude\\C--Users-yeonh-Desktop-NMI-RS\\e5c583a3-95c4-4f84-b856-2260eab0b4e2\\scratchpad\\pilot\\halflife_coding_pilot_coderB.xlsx",
+    "C:\\Users\\yeonh\\AppData\\Local\\Temp\\claude\\C--Users-yeonh-Desktop-NMI-RS\\e5c583a3-95c4-4f84-b856-2260eab0b4e2\\scratchpad\\pilot\\halflife_coding_pilot_coderC.xlsx",
+    "C:\\Users\\yeonh\\AppData\\Local\\Temp\\claude\\C--Users-yeonh-Desktop-NMI-RS\\e5c583a3-95c4-4f84-b856-2260eab0b4e2\\scratchpad\\pilot\\halflife_coding_pilot_coderD.xlsx"
+  ],
+  "coded_papers": {
+    "A": 30,
+    "B": 30,
+    "C": 29,
+    "D": 30
+  },
+  "role": {
+    "units_coded_by_2plus": 47,
+    "alpha": 0.439,
+    "percent_agreement": 0.574
+  },
+  "dependence_collapsed": {
+    "units_coded_by_2plus": 47,
+    "alpha": 0.543,
+    "percent_agreement": 0.66
+  },
+  "pairwise_role_kappa": {
+    "A-B": {
+      "n": 47,
+      "percent_agreement": 0.723,
+      "kappa": 0.314
+    },
+    "A-C": {
+      "n": 43,
+      "percent_agreement": 0.674,
+      "kappa": 0.271
+    },
+    "A-D": {
+      "n": 46,
+      "percent_agreement": 0.63,
+      "kappa": 0.163
+    },
+    "B-C": {
+      "n": 43,
+      "percent_agreement": 0.93,
+      "kappa": 0.844
+    },
+    "B-D": {
+      "n": 46,
+      "percent_agreement": 0.761,
+      "kappa": 0.467
+    },
+    "C-D": {
+      "n": 42,
+      "percent_agreement": 0.762,
+      "kappa": 0.507
+    }
+  },
+  "questions": {
+    "Q1 접근경로": {
+      "units_coded_by_2plus": 30,
+      "alpha": 0.471,
+      "percent_agreement": 0.467
+    },
+    "Q2 버전표기": {
+      "units_coded_by_2plus": 30,
+      "alpha": 0.499,
+      "percent_agreement": 0.567
+    },
+    "Q3 실행시점": {
+      "units_coded_by_2plus": 30,
+      "alpha": 0.321,
+      "percent_agreement": 0.733
+    },
+    "Q5 열람": {
+      "units_coded_by_2plus": 30,
+      "alpha": 0.318,
+      "percent_agreement": 0.933
+    },
+    "Q6 확신도": {
+      "units_coded_by_2plus": 30,
+      "alpha": 0.05,
+      "percent_agreement": 0.767
+    }
+  },
+  "role_distribution": {
+    "A": {
+      "인용·언급": 9,
+      "실행": 35,
+      "못찾음": 3
+    },
+    "B": {
+      "실행": 35,
+      "인용·언급": 10,
+      "못찾음": 1,
+      "판단불가": 1
+    },
+    "C": {
+      "실행": 30,
+      "인용·언급": 9,
+      "못찾음": 4
+    },
+    "D": {
+      "인용·언급": 4,
+      "실행": 32,
+      "못찾음": 10
+    }
+  }
+}

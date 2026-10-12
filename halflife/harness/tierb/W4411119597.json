@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4411119597",
+  "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (gpt-4o-2024-05-13)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Sec. 4 footnote 3: 'We use the gpt-4o-2024-05-13 version'; 'we empirically set the temperature coefficient to 0.0 for both GPT-4o and Qwen2-72b-Instruct'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix (schema and agent prompt structure); multi-turn agent issuing Cypher queries against a Neo4j code graph",
+    "note": "Prompts are filled with graph-query results at runtime."
+  },
+  "claim": {
+    "metric": "Pass@1 (%) on SWE-bench Lite with CodexGraph",
+    "value": 22.96,
+    "n_items": 300,
+    "location": "Table 1, GPT-4o block, row CODEXGRAPH, column SWE-bench Lite Pass@1",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "CrossCodeEval Lite (Python), SWE-bench Lite (300 instances), EvoCodeBench"
+  },
+  "cost": {
+    "est_calls": 3000,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Agentic retrieval system requiring code-graph databases built from each repository; the NO-RAG row (EvoCodeBench Pass@1 27.83) is closer to a plain prompt but its prompt is not printed either."
+}

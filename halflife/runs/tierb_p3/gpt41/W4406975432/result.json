@@ -1,0 +1,53 @@
+{
+  "wid": "W4406975432",
+  "title": "Actions Speak Louder than Words: Agent Decisions Reveal Implicit Biases in Language Models",
+  "model": "gpt-4.1-2025-04-14",
+  "metric": "custom",
+  "original_value": 0.513,
+  "original_location": "Sec. 5.3 ('GPT-4-turbo also exhibited significant implicit biases in 9 out of 12 cases, with an average DPD of 0.513 (sd = 0.373)'); per-case values in Appendix Figs. 11-12",
+  "reexecution": {
+    "mean_over_seeds": 0.21547660674373004,
+    "per_seed": {
+      "0": {
+        "value": 0.21547660674373004,
+        "n": 4061,
+        "ci95": null,
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 191
+  },
+  "prepare": {
+    "wid": "W4406975432",
+    "n_items": 5600,
+    "n_requests": 5600,
+    "seeds": 1,
+    "est_usd": 7.13,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4.1-2025-04-14",
+    "metric": "custom",
+    "original_value": 0.513,
+    "cap_usd": 8.4
+  },
+  "served": {
+    "models": [
+      "gpt-4.1-2025-04-14"
+    ],
+    "n_fingerprints": 32
+  },
+  "approximation": "Two calls per agent (persona generation, then action generation), so the run is stage 1 with --run and stage 2 with --judge; the metric is only defined once both stages exist. The paper's rationale field is generated but not scored. Appendix B.2 prints the scenario contexts for Negative Information Sharing and Career Path Selection swapped (the career-path context is listed under information sharing and vice versa); the contexts are paired with their own scenarios here, and the printed pairing is kept in the sidecar file as 'context_printed'.",
+  "arm": {
+    "model": "gpt-4.1-2025-04-14",
+    "config_model": "gpt-4-turbo-2024-04-09",
+    "seeds": 1,
+    "config_seeds": 1,
+    "runs_dir": "runs\\tierb_p3\\gpt41\\W4406975432"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.21547660674373004,
+    "delta": -0.29752339325627,
+    "original_inside_ci95": false
+  }
+}

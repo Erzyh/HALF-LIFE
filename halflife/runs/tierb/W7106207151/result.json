@@ -1,0 +1,67 @@
+{
+  "wid": "W7106207151",
+  "title": "Syn-STARTS: Synthesized START Triage Scenario Generation Framework for Scalable LLM Evaluation",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "accuracy",
+  "original_value": 0.72,
+  "original_location": "Appendix E, Table 2(a), row GPT-4, column Datasets(A) = TRIAGE-adult",
+  "reexecution": {
+    "mean_over_seeds": 0.7098765432098766,
+    "per_seed": {
+      "0": {
+        "value": 0.7037037037037037,
+        "n": 54,
+        "ci95": [
+          0.5740740740740741,
+          0.8148148148148148
+        ],
+        "ci_kind": "item-mean"
+      },
+      "1": {
+        "value": 0.7222222222222222,
+        "n": 54,
+        "ci95": [
+          0.5925925925925926,
+          0.8333333333333334
+        ],
+        "ci_kind": "item-mean"
+      },
+      "2": {
+        "value": 0.7037037037037037,
+        "n": 54,
+        "ci95": [
+          0.5740740740740741,
+          0.8148148148148148
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 0
+  },
+  "prepare": {
+    "wid": "W7106207151",
+    "n_items": 54,
+    "n_requests": 162,
+    "seeds": 3,
+    "est_usd": 1.25,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "accuracy",
+    "original_value": 0.72,
+    "cap_usd": 3.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "one of the 54 rows (index 1) has an empty narrative; the authors' script skips it and stores no answer, which their accuracy counts as wrong (39/54 = 0.7222 in the released result file), whereas this config sends it to the model like any other item - at most a 1/54 = 1.9 pp difference",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.7098765432098766,
+    "delta": -0.010123456790123386,
+    "original_inside_ci95": true
+  }
+}

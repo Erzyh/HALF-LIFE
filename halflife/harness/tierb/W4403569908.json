@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4403569908",
+ "title": "EmbodiedCity: A Benchmark Platform for Embodied Agent in Real-world City Environment",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"The considered models include Fuyu-8b, Qwen-VL, Claude 3, GPT-4 Turbo.\"; Table 3: \"GPT-4 Turbo 54.01 27.63 12.73 4.53 21.99 28.48 22.39\" (BLEU-1/2/3/4, ROUGE, METEOR, CIDEr)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 5 (task input/output format described per task); Figure 9 (Appendix) referenced for illustration",
+  "note": ""
+ },
+ "claim": {
+  "metric": "BLEU-1, embodied first-view scene understanding",
+  "value": 54.01,
+  "n_items": 12200,
+  "location": "Table 3; Table 2 dataset statistics (scene understanding: 12.2k cases)",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "EmbodiedCity benchmark platform (own released dataset; Table 1 compares it against other public embodied-AI platforms)"
+ },
+ "cost": {
+  "est_calls": 36600,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "GPT-4 Turbo is also evaluated on embodied QA (Table 4), embodied dialogue, and embodied VLN with similarly clean per-task metrics; it is described as achieving 'a very significant performance improvement against all other models' on QA. It is unconfirmed whether the full 12.2k-case pool or a cost-limited subset was actually sent to the vision-capable API for this specific task."
+}

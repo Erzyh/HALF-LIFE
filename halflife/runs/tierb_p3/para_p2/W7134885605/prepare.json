@@ -1,0 +1,29 @@
+{
+  "wid": "W7134885605",
+  "n_items": 200,
+  "n_requests": 200,
+  "seeds": 1,
+  "est_usd": 6.69,
+  "subset_note": "paraphrase p2: 3 instruction segment(s) reworded in the baseline's seed-0 request bodies, items and model unchanged; replacements applied per message: [200, 200, 200]",
+  "dropped_unrenderable": 0,
+  "model": "gpt-5-2025-08-07",
+  "metric": "accuracy",
+  "original_value": 0.86,
+  "cap_usd": 2.67,
+  "baseline_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb\\W7134885605",
+  "paraphrase": "p2",
+  "pairs": [
+    [
+      "You will be provided with text excerpts from a cancer clinical trial. Your task is to classify patient eligibility based on disease stage. Specifically, determine whether the trial included:",
+      "The following are excerpts from the text of a cancer clinical trial. Based on them, categorize patient eligibility according to disease stage by determining whether the trial enrolled:"
+    ],
+    [
+      "Your output must be a valid Python-list, this list may contain 0, 1 or 2 elements. The allowed elements are:",
+      "Your answer must take the form of a valid Python list containing zero, one or two of the allowed elements listed here:"
+    ],
+    [
+      "If you are unsure, please provide your best guess.\nDo NOT return any additional text, explanations or punctuation marks outside the list.",
+      "If in doubt, make your best guess.\nDo not add any text, explanation or punctuation outside the list."
+    ]
+  ]
+}

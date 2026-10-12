@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7166884525",
+ "title": "A Dual-Phase Self-Evolution Framework for Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "\"...collects instructions from five sources and uses GPT-4-Turbo as [the automatic evaluator]\"; Table 1 caption: \"results...obtained from GPT-4 automatic evaluation (relative to the GPT-4 reference) and MT-Bench.\""
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "line ~349 (\"The prompt is: 'Please classify the...'\" - a data-labeling prompt, not the judge prompt)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none tied to GPT-4-Turbo's own capability; Table 1/2 report the authors' own DPSE method's win-rate/quality improvements over SFT/PO and Memory baselines, as scored by GPT-4-Turbo",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (DPSE vs. SFT/PO, GPT-4 automatic evaluation), Table 2 (vs. Memory baselines)",
+  "task_type": "generation",
+  "judge": "llm:gpt-4-turbo-2024-04-09"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Instructions collected from five sources (unspecified); MT-Bench (public)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-Turbo is used as the automatic judge (role A) for the paper's own dual-phase self-evolution (DPSE) method, not as a capability subject in its own right."
+}

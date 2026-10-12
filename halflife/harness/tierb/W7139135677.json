@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W7139135677",
+ "title": "A Literature Review of Effects of Rubric on Student Self-Assessment and Peer Assessment in Higher Education",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"Lo et al. [16] conducted an evaluation of an AI-driven feedback system built on GPT-4 Turbo... 333 feedback instances generated for 37 undergraduate students\" (cited study, narrative review)."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Pure literature-review summary, no experiment by these authors."
+ },
+ "claim": {
+  "metric": "none (333/37 figures belong to the cited Lo et al. study)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Narrative literature review on rubric-based assessment; GPT-4 Turbo appears only inside a summary of a different, cited paper."
+}

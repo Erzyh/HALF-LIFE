@@ -1,0 +1,67 @@
+{
+  "wid": "W4403574994",
+  "title": "Measuring Spiritual Values and Bias of Large Language Models",
+  "model": "gpt-4-turbo-2024-04-09",
+  "metric": "custom",
+  "original_value": 52.97,
+  "original_location": "Table 4 (Appendix C), row 'GPT4 Turbo', column 'Religious'",
+  "reexecution": {
+    "mean_over_seeds": 46.268311584420786,
+    "per_seed": {
+      "0": {
+        "value": 48.09322033898305,
+        "n": 133,
+        "ci95": [
+          33.704837816212226,
+          64.8816072709878
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "1": {
+        "value": 44.91525423728814,
+        "n": 133,
+        "ci95": [
+          29.92873303167421,
+          62.84513978918887
+        ],
+        "ci_kind": "set-level resample"
+      },
+      "2": {
+        "value": 45.796460176991154,
+        "n": 133,
+        "ci95": [
+          31.03286664992466,
+          62.979661979554244
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W4403574994",
+    "n_items": 133,
+    "n_requests": 399,
+    "seeds": 3,
+    "est_usd": 0.75,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "gpt-4-turbo-2024-04-09",
+    "metric": "custom",
+    "original_value": 52.97,
+    "cap_usd": 3.0
+  },
+  "served": {
+    "models": [
+      "gpt-4-turbo-2024-04-09"
+    ],
+    "n_fingerprints": 13
+  },
+  "approximation": "The paper treats the LLM as a questionnaire taker; each statement is asked in a separate, stateless call (the paper's Figure 1 shows one statement per prompt). Decoding parameters for GPT-4-turbo are not reported.",
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 46.268311584420786,
+    "delta": -6.701688415579213,
+    "original_inside_ci95": true
+  }
+}

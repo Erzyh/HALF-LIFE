@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7166525782",
+  "title": "A Multilingual Linguistic Analysis of Human vs LLM-Generated News in a Disinformation Context",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-5-mini-2025-08-07",
+    "resolved": "gpt-5-mini-2025-08-07",
+    "role": "B",
+    "evidence": "Section 3.2.1: 'For the preprocessing stage, we employ GPT-5 (gpt-5-mini-2025-08-07)'; 3.2.2: it is also one of three generation models for synthetic news."
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Generation prompts not printed in the extracted text",
+    "note": ""
+  },
+  "claim": {
+    "metric": "linguistic-feature differences human vs LLM news (Kruskal-Wallis, classifier report)",
+    "value": null,
+    "n_items": null,
+    "location": "Tables 1-3 (statistics pooled over prompt types/models)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "Multilingual human-written news corpus in a disinformation context (source not resolved in the extracted text)"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "No per-model performance number and no printed prompt; outputs are analysed with linguistic statistics."
+}

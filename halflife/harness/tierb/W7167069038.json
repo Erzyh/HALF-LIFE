@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7167069038",
+  "title": "From knowledge to judgment: A three-year longitudinal analysis of artificial intelligence large language model performance on the Chinese national nurse licensing examination",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (endpoint documented in Supplementary S1 only); 'GPT-4-turbo' mentioned only as a mid-year-update example",
+    "resolved": "unresolved (GPT-4o snapshot not in the text)",
+    "role": "S",
+    "evidence": "Table 1: 'OpenAI GPT-4o Q2 2024 — — 72.1% (70.2-74.0) 75.0% (73.1-76.9) < 0.001'; Methods: 'GPT-4 evaluations in 2023 employed the gpt-4-0314 endpoint, while 2024 evaluations utilized gpt-4-0613'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Methods, 'Standardized prompting framework' (Chinese zero-shot prompt template printed; temperature 0, top_p 1, max_tokens 100)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy (%) on the 2025 NNLE question set",
+    "value": 75.0,
+    "n_items": 2600,
+    "location": "Table 1, row OpenAI GPT-4o, column 2025 Accuracy (95% CI 73.1-76.9)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "9,800 Chinese nurse licensing exam questions (2022-2025); available only to qualified researchers under a data-sharing agreement"
+  },
+  "cost": {
+    "est_calls": 7800,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "dead_alias"
+  ],
+  "notes": "CSV live_id gpt-4-turbo is a methodological aside (role C). The GPT-4o endpoint is only in a supplementary file; the exam corpus is restricted."
+}

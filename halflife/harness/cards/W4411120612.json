@@ -1,0 +1,99 @@
+{
+  "card_id": "W4411120612",
+  "openalex_id": "https://openalex.org/W4411120612",
+  "title": "AI Conversational Interviewing: Transforming Surveys with LLMs as Adaptive Interviewers",
+  "doi": "10.18653/v1/2025.latechclfl-1.17",
+  "paper": {
+    "authors": "Wuttke, Assenmacher, Klamm, Lang, Wuerschinger, Kreuter (LMU Munich / MCML / Mannheim / Oxford / Maryland)",
+    "year": 2025,
+    "repo": "https://github.com/AIinterviewing/ai-conversational-interviewing-LaTeCH-CLfL2025",
+    "repo_note": "Scaffold URLs were PDF line-break fragments of this one URL",
+    "repo_commit": "57620dfa7f17c5886aac59a34a1c73f7a3278a7e",
+    "repo_license": "CC0-1.0"
+  },
+  "dependence": {
+    "type": "component",
+    "strength": "core",
+    "note": "The LLM is the interviewer agent ('InterviewGPT') that conducts live multi-turn interviews with human students; all outcomes (response quality, interviewer guideline adherence, participant survey) are human-coded properties of those human-AI conversations."
+  },
+  "claim": {
+    "statement": "Five GPT-4-Turbo-led in-depth interviews (Chainlit app, GPT-4 turbo 'version 04/2024', voice-assisted) vs. six human-led interviews with students on an identical political questionnaire yielded comparable response quality on 5-point coder scales (relevance 4.6 vs 4.3, clarity 4.3 vs 3.9, engagement 2.6 vs 3.2, specificity 3.1 vs 3.6), longer answers (52.39 vs 32.81 tokens/answer), higher readability (Flesch 77.66 vs 62.22) and similar guideline-violation counts (72 vs 64 per interview), with the AI failing mainly to ask follow-up questions (88% of such violations) (Table 1, Figure 6).",
+    "claim_type": "method_effect",
+    "metric": "human double-coded quality ratings (2 research assistants, codebook Appendix G), coded interviewer guideline violations (Appendix H), tokens per answer, Flesch reading ease, post-interview survey scores",
+    "original_values": {
+      "n_ai_interviews": 5,
+      "n_human_interviews": 6,
+      "tokens_per_answer": { "ai": 52.39, "human": 32.81 },
+      "readability_flesch": { "ai": 77.66, "human": 62.22 },
+      "clarity": { "ai": 4.3, "human": 3.9 },
+      "empathy": { "ai": 2.6, "human": 2.9 },
+      "engagement": { "ai": 2.6, "human": 3.2 },
+      "grammatical_correctness": { "ai": 4.3, "human": 3.8 },
+      "relevance": { "ai": 4.6, "human": 4.3 },
+      "response_complexity_lower_better": { "ai": 1.9, "human": 2.1 },
+      "specificity": { "ai": 3.1, "human": 3.6 },
+      "tone": { "ai": 3.1, "human": 3.3 },
+      "violations_per_interview": { "ai": 72, "human": 64 },
+      "active_listening_violations_share_human_pct": 94,
+      "followup_violations_share_ai_pct": 88,
+      "survey_interestingness": { "ai": 2.5, "human": 3.9 },
+      "survey_overall_satisfaction": { "ai": 3.8, "human": 3.8 },
+      "interview_duration_min": { "ai": 22, "human": 16 }
+    },
+    "original_source": "Table 1; Findings section 4 text; Figure 6 (guideline violations); Appendix I"
+  },
+  "protocol": {
+    "model": "gpt-4-turbo (paper footnote 2: 'GPT-4 turbo, version: 04/2024' -> gpt-4-turbo-2024-04-09)",
+    "model_note": "app-v1/app.py instantiates ChatOpenAI(model='gpt-4-turbo-preview', streaming=False) - an alias that resolved to gpt-4-0125-preview (dead) at the time; the paper's '04/2024' suggests gpt-4-turbo-2024-04-09. Discrepancy unresolved.",
+    "model_status": "dying 2026-10-23 if gpt-4-turbo-2024-04-09; dead 2026-03-26 if gpt-4-0125-preview",
+    "endpoint": "OpenAI chat completions via LangChain ChatOpenAI inside a Chainlit app (Fly.io); OpenAI Whisper for speech input and tts-1 for voice output; conversation logging via Literal AI",
+    "prompt_source": "app-v1/prompt.md (system role 'InterviewGPT', interviewing guidelines, 14-question questionnaire on politics/democracy); paper Appendix C/D",
+    "params": {
+      "temperature": "not set (LangChain ChatOpenAI default 0.7)",
+      "max_tokens": "not set",
+      "seed": "not set",
+      "other": "multi-turn conversation with a live human; ~22 minutes per interview; voice or text input chosen by respondent"
+    },
+    "n_items": 5,
+    "n_items_note": "5 AI-led interviews x 14 questionnaire items (multi-turn); 6 human-led comparators",
+    "samples_per_item": 1,
+    "evaluation": "Human: two research assistants double-code every interviewer turn (guideline violations) and every response (quality dimensions); post-interview survey (Appendix K); observers log technical issues. Automatic: tokens per response, Flesch reading ease (scripts/quantitative-evaluation-scripts/quantitative-evaluation.ipynb), plots in analysis.R"
+  },
+  "artifacts": {
+    "prompts_path": "app-v1/prompt.md; app-v1/app.py",
+    "data_path": "interviews/ai-human/ai-interviewing-responses.csv; interviews/human-human/interview-transcriped_i1..i5.csv; evaluation/post-interview-surveys/*, evaluation/quality-coding-annotators/*, evaluation/observer-comments/*",
+    "eval_path": "scripts/quantitative-evaluation-scripts/quantitative-evaluation.ipynb; scripts/response-interviewer-evaluation-scripts/analysis.R; evaluation/quality-coding-annotators/coding-guidelines.md",
+    "data_public": true,
+    "data_license": "CC0-1.0 (repo LICENSE)",
+    "redistributable": true,
+    "notes": "Study pre-registered on OSF Registries (link in paper); raw per-annotator data partly withheld for anonymisation."
+  },
+  "blockers": [
+    "requires live human respondents (university students in a Zoom seminar, informed consent, ethics protocol) - not re-executable as an API-only harness",
+    "outcome metrics are human-coded by two research assistants using codebooks",
+    "n = 5 AI interviews vs 6 human interviews; no inferential statistics - any re-run is descriptive only",
+    "model identity ambiguous (paper '04/2024' vs code alias 'gpt-4-turbo-preview')"
+  ],
+  "arms": {
+    "baseline_alive": { "model": "gpt-4-turbo-2024-04-09 (nominal, per paper footnote)" },
+    "successors": ["gpt-5-2025-08-07", "gpt-5-mini-2025-08-07", "claude (current dated snapshot)", "gemini (current dated snapshot)", "llama-3.x (open weights, hash-pinned)", "qwen3 (open weights, hash-pinned)"]
+  },
+  "budget": {
+    "est_calls": 450,
+    "est_tokens_in": 1125000,
+    "est_tokens_out": 54000,
+    "est_cost_usd": 13,
+    "pricing_usd_per_1m": { "gpt-4-turbo": { "input": 10.0, "output": 30.0 } },
+    "assumptions": "HYPOTHETICAL simulated-respondent replay only (not the original design): 5 interviews x ~30 interviewer turns x 3 seeds; growing context ~2,500 tokens/turn, ~120 output tokens/turn. The original design (human respondents + human coders) has no API cost model."
+  },
+  "judgment": {
+    "rule": "Not judgeable under ANALYSIS_PLAN section 1 without human participants. If a simulated-respondent replay is approved, only interviewer-behaviour metrics (guideline-violation rate per interview, share of follow-up-question violations, active-listening behaviour) are comparable, judged by direction (AI violation rate ~ human rate; AI far fewer active-listening violations, far more missed follow-ups).",
+    "notes": "Response-quality and survey metrics depend on real respondents and cannot be reproduced with a simulated respondent."
+  },
+  "status": "blocked",
+  "user_checks": [
+    "Policy question: classify human-in-the-loop interaction studies as 'blocked: human participants' uniformly, or allow an LLM-simulated-respondent replay as a successor design for interviewer-behaviour claims only?",
+    "If a replay is allowed, which model string - gpt-4-turbo-2024-04-09 (paper) or the code's alias target gpt-4-0125-preview (dead)?"
+  ],
+  "domain_notes": "Survey-methodology study (LaTeCH-CLfL 2025) embedded in a student seminar, English questionnaire on politics/democracy for German students; human interviewers were untrained students, which the authors flag as a limitation. Voice input via Whisper with editable transcripts. The AI's characteristic failure - not asking follow-up questions despite explicit instructions, after succeeding in internal pre-tests - is a prompt/model-version-sensitive behaviour, which is exactly what a successor-model re-run would probe."
+}

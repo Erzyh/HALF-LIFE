@@ -1,0 +1,43 @@
+{
+  "openalex_id": "W7197053618",
+  "title": "AI-Assisted Peer Review Across Research Communities: From Reviewer AI Policies to LLM Review Quality",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "gpt-5-2025-08-07",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Table 5: 'GPT-5 (OpenAI, 2025) gpt-5-2025-08-07 OpenAI API'; Appendix A: 'GPT-5 is queried using the OpenAI API defaults: a temperature of 1.0 and medium reasoning effort'"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix C.4 (ICLR system prompt), C.5 (Nature Communications system prompt), Appendix D (judge rubric)",
+    "note": "Output schema is appended programmatically; venue reviewer guidelines are inserted from external documents; ICLR fields generated sequentially."
+  },
+  "claim": {
+    "metric": "LLM-as-a-judge overall score (1-7), ICLR 2026",
+    "value": 6.7,
+    "n_items": 50,
+    "location": "Table 4, block ICLR 2026, row GPT, column Overall",
+    "task_type": "generation",
+    "judge": "llm:gpt-5-2025-08-07"
+  },
+  "data": {
+    "public": "yes",
+    "source": "50 ICLR 2026 submissions (OpenReview, pre-revision versions) + 31 Nature Communications manuscripts; code and data released on GitHub"
+  },
+  "cost": {
+    "est_calls": 1050,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "Judge is the same model as the subject; Table 1 review length (3,447 words, n=50) is a judge-free alternative. Long inputs (15k words per paper) and 10k-token output budget.",
+  "resolution": {
+    "gap": "items_in_repo",
+    "plan": "The 50 randomly sampled ICLR 2026 submissions (pre-revision text, Sec. 4.1.1) are identifiable only from the released dataset, and the C.4 system prompt is completed at run time with venue reviewer guidelines inserted from external documents and a programmatically appended output schema, with ICLR fields generated sequentially (Sec. 4.2, Appendix C.2). Take the manuscripts, guideline documents and schema from the release, run gpt-5-2025-08-07 at temperature 1.0 / medium reasoning, and judge with GPT-5 via the Appendix D rubric to get the mean overall score (6.7).",
+    "approximation": "Judge is the subject model; 15k-word inputs make three seeds costly; the GitHub URL is not in the extracted text.",
+    "needs_repo": true,
+    "repo_url": "",
+    "needs_pdf_figure": false,
+    "resolved_by": "maybe-pass-1"
+  }
+}

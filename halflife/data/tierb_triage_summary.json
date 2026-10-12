@@ -1,0 +1,117 @@
+{
+  "records": 1185,
+  "unique_papers": 1182,
+  "verdict": {
+    "eligible": 215,
+    "maybe": 201,
+    "ineligible": 766
+  },
+  "verdict_by_group": {
+    "?": {
+      "maybe": 1,
+      "ineligible": 1
+    },
+    "CS": {
+      "eligible": 31,
+      "maybe": 21,
+      "ineligible": 75
+    },
+    "ENG": {
+      "eligible": 37,
+      "maybe": 45,
+      "ineligible": 174
+    },
+    "LIFE": {
+      "eligible": 17,
+      "maybe": 17,
+      "ineligible": 34
+    },
+    "MED": {
+      "eligible": 32,
+      "maybe": 27,
+      "ineligible": 160
+    },
+    "SOC": {
+      "eligible": 98,
+      "maybe": 90,
+      "ineligible": 322
+    }
+  },
+  "eligible_task_type": {
+    "extraction": 14,
+    "classification": 91,
+    "mcq": 28,
+    "generation": 46,
+    "other": 22,
+    "agentic": 14
+  },
+  "eligible_cost_tier": {
+    "low": 68,
+    "mid": 68,
+    "high": 79
+  },
+  "eligible_live_model": {
+    "gpt-4o-2024-05-13": 45,
+    "gpt-4-turbo-2024-04-09": 98,
+    "o4-mini-2025-04-16": 7,
+    "o3-mini-2025-01-31": 13,
+    "o3-mini-2025-01-31 (alias)": 1,
+    "o1-2024-12-17": 4,
+    "gpt-4.1-nano-2025-04-14": 16,
+    "gpt-5-2025-08-07": 12,
+    "o3-2025-04-16": 9,
+    "gpt-4.1-nano": 5,
+    "gpt-5-mini-2025-08-07": 5
+  },
+  "maybe_cost_tier": {
+    "high": 55,
+    "low": 72,
+    "mid": 74
+  },
+  "blockers_ineligible": {
+    "no_number": 465,
+    "no_prompt": 125,
+    "aux_model_dead": 25,
+    "tos": 20,
+    "data_closed": 136,
+    "dead_alias": 47,
+    "human_outcome": 29,
+    "webui": 56,
+    "alias_unpinned": 9
+  },
+  "role_all": {
+    "B": 205,
+    "S": 607,
+    "A": 120,
+    "C": 250
+  },
+  "prompt_verbatim_all": {
+    "partial": 374,
+    "full": 423,
+    "none": 385
+  },
+  "alias_resolution_all": {
+    "gpt-4o-2024-05-13": 150,
+    "gpt-4-turbo-2024-04-09": 504,
+    "o4-mini-2025-04-16": 32,
+    "o3-mini-2025-01-31": 34,
+    "o3-mini-2025-01-31 (alias)": 1,
+    "o1-2024-12-17": 19,
+    "gpt-4.1-nano-2025-04-14": 72,
+    "gpt-5-2025-08-07": 47,
+    "o3-2025-04-16": 19,
+    "gpt-4.1-nano": 18,
+    "gpt-5-mini-2025-08-07": 24,
+    "gpt-4o-2024-05-13 (inferred from mid-2024 study date; unresolved in text)": 1,
+    "unresolved": 217,
+    "gpt-5-nano-2025-08-07": 5,
+    "gpt-4.1-nano-2025-04-14 (alias; snapshot not stated)": 3,
+    "dead-preview": 32,
+    "gpt-4o-2024-11-20 (dated snapshot, not on the still-callable list)": 1,
+    "o3-mini": 1,
+    "gpt-4-turbo-2024-04-09 (alias behind an institutional proxy; unresolved)": 1,
+    "unresolved (GPT-4o snapshot not in the text)": 1
+  },
+  "est_cost_usd_eligible_all": 4384,
+  "est_cost_usd_eligible_low_mid": 1224
+}

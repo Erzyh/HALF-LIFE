@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7203893220",
+ "title": "GAPL: Grounded Action-effect Policy Learning for LLM-Based Trajectory Planning",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "Table VI: \"GPT-4.1-nano consistently outperforms GPT-3.5-turbo across all metrics\"; row \"Rou. GPT-4.1-nano 7.22 ± 1.04 9.13 ± 1.06 6.84 ± 0.41\" (ADE/FDE/Reward)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec III/IV (Method) describes the LLM-based Effect Evaluator's prompting scheme; no verbatim template or appendix found",
+  "note": ""
+ },
+ "claim": {
+  "metric": "ADE (Average Displacement Error, lower better), Roundabout scenario, GPT-4.1-nano backbone",
+  "value": 7.22,
+  "n_items": null,
+  "location": "Table VI",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Highway-env (open-source simulator, https://github.com/eleurent/highway-env)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Highway-env is a public RL simulator; GPT-4.1-nano is a compared backbone with printed per-scenario metrics (Table VI), but episode count behind each mean+-std isn't stated and no verbatim prompt is printed -- two soft gaps behind maybe. The LLM sits inside a PPO training loop, so re-execution cost is likely high."
+}

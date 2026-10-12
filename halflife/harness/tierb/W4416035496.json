@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W4416035496",
+  "title": "Are Vision-Language Models Safe in the Wild? A Meme-Based Benchmark Study",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4.1-nano-2025-04-14 (subject in Table 14; judge candidate in Table 4); o4-mini-2025-04-16 (judge candidate only)",
+    "resolved": "gpt-4.1-nano-2025-04-14",
+    "role": "S",
+    "evidence": "Table 14 (App. F.5): 'gpt-4.1-nano-2025-04-14 single-turn w/o meme 73.85 16.15 23.69 ... single-turn w/ meme 70.77 21.87 26.35'; Table 4: judge agreement 0.8487"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix D (instruction generation / verification prompts) and Appendix F settings; judge prompts in Appendix",
+    "note": "VLM receives meme image plus generated instruction; temperature 1.0"
+  },
+  "claim": {
+    "metric": "refusal rate (%) on harmful data, single-turn with meme",
+    "value": 70.77,
+    "n_items": null,
+    "location": "Table 14 (Appendix F.5), row gpt-4.1-nano-2025-04-14 / single-turn w/ meme, column Harmful Data Refusal",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-mini-2024-07-18 (task completion); refusal/harmfulness judges per Appendix"
+  },
+  "data": {
+    "public": "yes",
+    "source": "MemeSafetyBench (50,430 meme-instruction pairs), https://huggingface.co/datasets/oneonlee/Meme-Safety-Bench"
+  },
+  "cost": {
+    "est_calls": 100000,
+    "tier": "high"
+  },
+  "blockers": [
+    "tos",
+    "aux_model_dead"
+  ],
+  "notes": "Benchmark deliberately elicits harmful content via memes (ToS risk). Main metrics are computed by the gpt-4o-mini-2024-07-18 judge, which is not in the live list. Harmful-subset size not stated in the text."
+}

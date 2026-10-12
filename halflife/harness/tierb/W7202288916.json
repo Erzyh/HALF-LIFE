@@ -1,0 +1,37 @@
+{
+  "openalex_id": "W7202288916",
+  "title": "Toward Human Rights Benchmarking for LLMs: A Pilot Methodology",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (OpenAI, gpt-5-2025-08-07)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "S",
+    "evidence": "Sec. 4: 'The proprietary tier comprises GPT-5 (OpenAI, gpt-5-2025-08-07), Claude Opus 4.7 ... Every model is queried with five independent random seeds per question'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendix C shows one example scenario and the five question types as figures; full scenarios and questions are not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "overall mean accuracy across 5 seeds, pooled question types",
+    "value": 0.537,
+    "n_items": null,
+    "location": "Table 4, row GPT-5 (0.537±0.015)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "HumRightsBench pilot scenarios (9 scenarios, 5 question types); no release link"
+  },
+  "cost": {
+    "est_calls": 500,
+    "tier": "mid"
+  },
+  "blockers": [
+    "data_closed",
+    "no_prompt"
+  ],
+  "notes": "Pilot methodology paper; remedy (PR) items are scored by embedding similarity calibrated on 40 annotated responses."
+}

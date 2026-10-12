@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4404313830",
+ "title": "Enhancing Inflation Nowcasting with LLM: Sentiment Analysis on News",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "A",
+  "evidence": "'the recent release of OpenAI's highly performant GPT-4 model...we leverage the GPT-4 Turbo API for labeling our...further labeling with the expensive GPT-4'"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Labeling instructions for the sentiment-labeling step are not printed in the excerpt read."
+ },
+ "claim": {
+  "metric": "none for GPT-4 Turbo itself (it only labels training data for InflaBERT, a separately fine-tuned BERT-based forecasting model, which is what the headline results measure)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "News articles used for inflation sentiment labeling; not confirmed public"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4 Turbo is used only as a data-labeling/annotation tool (role A) to build training labels for InflaBERT; the paper's reported forecasting-performance numbers belong to InflaBERT, not to GPT-4 Turbo."
+}

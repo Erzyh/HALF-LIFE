@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7169688936",
+  "title": "Assessing AI in Introductory Physics Problem Solving",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o4-mini-2025-04-16",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "'model=\"o4-mini-2025-04-16\", reasoning={\"effort\": \"medium\"}' (Appendix A); \"the problems with overall accuracy of about 90%\" (abstract); Table IV average 0.90(0.06)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix A (API call; input is the bare problem text plus images, no instruction text)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy on end-of-chapter physics problems, graded by GPT-5 against textbook answers",
+    "value": 0.9,
+    "n_items": 6015,
+    "location": "Table IV, Average row (0.96 text / 0.79 text+image / 0.90 all); N x n = 6015 scored runs",
+    "task_type": "other",
+    "judge": "llm:gpt-5 (undated)"
+  },
+  "data": {
+    "public": "no",
+    "source": "Halliday & Resnick 'Fundamentals of Physics' end-of-chapter problems transcribed to a private spreadsheet (copyrighted, not released)"
+  },
+  "cost": {
+    "est_calls": 6015,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Grader is an undated GPT-5 (97.67% agreement on a 600-item audit). Problems and images are not released."
+}

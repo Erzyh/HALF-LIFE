@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404783080",
+  "title": "One Thousand and One Pairs: A “novel” challenge for long-context language models",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13 (and gpt-4-turbo-2024-04-09)",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "Table 1 model list: 'GPT-4O 128k gpt-4o-2024-05-13', 'GPT-4-TURBO 128k gpt-4-turbo-2024-04-09'; Table 2: 'GPT-4O 55.8 (344/617) 58.2 (206/354)'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix Table 17 (main prompt), Table 18 (simplified prompt), Table 19 (BM25 retrieval prompt)",
+    "note": "whole book in context; temperature 0; up to 800 output tokens"
+  },
+  "claim": {
+    "metric": "pair accuracy (both claims of a pair judged correctly), %",
+    "value": 55.8,
+    "n_items": 617,
+    "location": "Table 2, row GPT-4O, column PAIR ACC (344/617)",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "NoCha: 1,001 claim pairs about 67 recent copyrighted novels; footnote 4: full dataset will not be released (copyright, contamination); only a public-domain subset planned"
+  },
+  "cost": {
+    "est_calls": 3702,
+    "tier": "high"
+  },
+  "blockers": [
+    "data_closed"
+  ],
+  "notes": "Each call carries an entire novel (~100k tokens). GPT-4-TURBO row: 40.2 (248/617). Earlier arXiv version used gpt-4-1106-preview; the EMNLP version uses gpt-4-turbo-2024-04-09."
+}

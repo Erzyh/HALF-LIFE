@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4416184585",
+  "title": "A High-Scale Assessment of Social Media and Mainstream Media in Scientific Communication",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (citation only); gpt-4o-2024-08-06 (tweet theme summarisation)",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "SI: 'A recent evaluation (14) comparing GPT-3.5 and GPT-4 Turbo ...'; SI: 'we asked GPT-4o (gpt-4o-2024-08-06) to summarize their themes'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "SI: one-sentence tweet-summarisation prompt printed; GPT-4o-mini sentiment prompt referenced (Figure S35)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "GPT-4 Turbo is only cited; GPT-4o / GPT-4o-mini are descriptive annotation tools without accuracy numbers",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "OpenAlex, media-mention data, Twitter API samples (107 users)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Bibliometric study; LLMs used only for descriptive coding."
+}

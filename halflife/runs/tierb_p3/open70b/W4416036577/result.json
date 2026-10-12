@@ -1,0 +1,56 @@
+{
+  "wid": "W4416036577",
+  "title": "Cross-domain Rumor Detection via Test-Time Adaptation and Large Language Models",
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "metric": "accuracy",
+  "original_value": 0.643,
+  "original_location": "Table 1, row GPT-4o, block Source TWITTER / Target Twitter-COVID19, column Acc.",
+  "reexecution": {
+    "mean_over_seeds": 0.5575,
+    "per_seed": {
+      "0": {
+        "value": 0.5575,
+        "n": 400,
+        "ci95": [
+          0.51,
+          0.605
+        ],
+        "ci_kind": "item-mean"
+      }
+    },
+    "unparsed": 1
+  },
+  "prepare": {
+    "wid": "W4416036577",
+    "n_items": 400,
+    "n_requests": 400,
+    "seeds": 1,
+    "est_usd": 0.06,
+    "subset_note": null,
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "accuracy",
+    "original_value": 0.643,
+    "cap_usd": 1.0
+  },
+  "served": {
+    "models": [
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ],
+    "n_fingerprints": 0
+  },
+  "approximation": "The paper does not say which Table 7 variant produced the Table 1 GPT-4o baseline ('base' assumed, per the resolution plan); <Event content> is taken as the source post text (thread not included); decoding parameters unstated; tweet availability may have decayed.",
+  "arm": {
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "config_model": "gpt-4o-2024-05-13",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b\\W4416036577"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.5575,
+    "delta": -0.08550000000000002,
+    "original_inside_ci95": false
+  }
+}

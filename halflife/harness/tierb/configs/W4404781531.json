@@ -1,0 +1,70 @@
+{
+  "wid": "W4404781531",
+  "title": "MalAlgoQA: Pedagogical Evaluation of Counterfactual Reasoning in Large Language Models and Implications for AI in Education",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4o-2024-05-13",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 807,
+    "subset_rule": "paper-defined split: Math questions (807, Table 2); AIA setting feeds the correct answer choice as {choice}",
+    "approximation": "None beyond the unprinted formatting of the rationale list."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/luffycodes/MalAlgoQA-Dataset (README only; the dataset is released on request through a Google Form)",
+    "config_or_split": "Math subset (807 questions)",
+    "filter": "subject == math",
+    "fields": {
+      "input": "question (best reading)",
+      "options": "answer choices A-D with their rationales (best reading)",
+      "label": "rationale matching the given choice (best reading)",
+      "id": "question id (best reading)"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 0
+  },
+  "prompt": {
+    "system": "Provide step-by-step reasoning to determine the answer rationale that corresponds to the given choice for the question. Then, provide your answer in the specified JSON format.",
+    "user_template": "Question: {question}\nChoice: {choice}\nAnswer Rationales: {formatted_rationales}\nGiven the question and answer rationales, determine which answer rationale corresponds to the given choice for the question.\nProvide step-by-step reasoning. Show the steps.\nAnd then provide your answer in the following JSON format:\n{{\n\"Correct Choice\": \"[A/B/C/D]\"\n}}",
+    "placeholders": {
+      "question": "items.input",
+      "choice": "the correct answer choice (AIA); the incorrect choices give the MIA cell",
+      "formatted_rationales": "the four rationales labelled A-D (formatting not printed)"
+    },
+    "few_shot": "none",
+    "source_location": "Table 5 (CoT prompt for Malgorithm Identification; the 'Provide step-by-step reasoning. Show the steps.' sentence is the CoT addition)",
+    "verbatim": "full (the doubled braces in the JSON block are literal braces, not slots)"
+  },
+  "output": {
+    "parse": "json field 'Correct Choice'",
+    "postprocess": "letter A-D; unparseable = incorrect"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "AIA = share of math questions where the selected rationale letter is the rationale of the correct choice",
+    "judge": "none",
+    "original_value": 95.65,
+    "original_location": "Table 6, block 'GPT 4o Math', row '0 CoT', column AIA",
+    "bootstrap_unit": "item"
+  },
+  "cost": {
+    "est_calls": 2421,
+    "est_usd": 12.0,
+    "tier": "mid"
+  },
+  "open_points": [
+    "The dataset is distributed only on request via a Google Form linked from github.com/luffycodes/MalAlgoQA-Dataset; someone must request and receive it (no public mirror found).",
+    "Rationale-list format and the 'Choice' field content must be taken from the received data (not printed)."
+  ],
+  "notes": "MIA (66.10) needs the three incorrect choices per question (about three calls per item). || [hook pass 2026-09-07] no hook possible (data gated)."
+}

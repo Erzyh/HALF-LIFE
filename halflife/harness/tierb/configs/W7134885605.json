@@ -1,0 +1,88 @@
+{
+  "wid": "W7134885605",
+  "title": "More Signal vs. More Noise - Comparing Full Text and Abstract as Inputs for Large Language Model-based Classification of Oncology Trial Eligibility Criteria",
+  "status": "ready",
+  "model": {
+    "id": "gpt-5-2025-08-07",
+    "params": {
+      "temperature": 1.0,
+      "max_tokens": 4096,
+      "top_p": 1.0,
+      "reasoning_effort": "high"
+    },
+    "params_source": "paper Methods 'LLM-based Classification' (snapshot gpt-5-2025-08-07, temperature 1, reasoning level high, structured output); max_tokens/top_p assumed; reasoning_effort high added as the paper states (the runner passes it for gpt-5 and drops temperature/top_p)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "classification",
+    "n_items": 200,
+    "subset_rule": "all (200 trials; abstract arm)",
+    "approximation": "Paper used a single batch run; the structured-output schema is not printed (a list of the allowed strings is enforced here); the abstract arm only (full texts are paywalled although the CSV carries a text column). The model reply is parsed by a regex instead of a structured-output schema."
+  },
+  "items": {
+    "source_type": "github",
+    "source": "github.com/JuliaWy/Full-text-vs-Abstract, file 1_dataset/metastatic_local_random200_noJCO.csv (200 rows verified; columns doi, date, title, abstract, text, answer, ...)",
+    "config_or_split": "single CSV",
+    "filter": null,
+    "fields": {
+      "input": "abstract",
+      "label": "accept",
+      "id": "doi"
+    },
+    "license": "unknown",
+    "access_checked": true,
+    "size_mb": 1.8,
+    "file_url": "https://raw.githubusercontent.com/JuliaWy/Full-text-vs-Abstract/main/1_dataset/metastatic_local_random200_noJCO.csv",
+    "fields_prose": {
+      "input": "abstract",
+      "label": "answer (string list such as \"['LOCAL', 'METASTATIC']\", spacing inconsistent; LOCAL positive if present)",
+      "id": "doi"
+    },
+    "label_map": {
+      "['LOCAL']": "LOCAL",
+      "['LOCAL', 'METASTATIC']": "LOCAL",
+      "['METASTATIC', 'LOCAL']": "LOCAL",
+      "['LOCAL','METASTATIC']": "LOCAL",
+      "['METASTATIC','LOCAL']": "LOCAL",
+      "['METASTATIC']": "",
+      "[]": ""
+    },
+    "columns_verified": "200 rows; the gold list is the 'accept' column (the 'answer' column holds the Prodigy verdict 'accept' for every row): ['LOCAL'] 72, ['LOCAL', 'METASTATIC'] 50, ['METASTATIC'] 40, [] 20, ['METASTATIC', 'LOCAL'] 15, ['LOCAL','METASTATIC'] 2, ['METASTATIC','LOCAL'] 1; doi unique; abstracts non-empty",
+    "label_map_note": "gold = 'LOCAL' when the list contains LOCAL, '' otherwise (binary Localized-disease cell); the parse below yields the same two values from the reply"
+  },
+  "prompt": {
+    "system": "You will be provided with text excerpts from a cancer clinical trial. Your task is to classify patient eligibility based on disease stage. Specifically, determine whether the trial included:\n● Patients with localized or locally advanced disease, i.e. cancer that has not formed distant metastases\n● Patients with metastatic disease\nYour output must be a valid Python-list, this list may contain 0, 1 or 2 elements. The allowed elements are:\n● 'LOCAL' = Patients with localized or locally advanced disease were eligible for the trial\n● 'METASTATIC' = Patients with metastatic disease were eligible for the trial\nIf you are unsure, please provide your best guess.\nDo NOT return any additional text, explanations or punctuation marks outside the list.",
+    "user_template": "{abstract}",
+    "placeholders": {
+      "abstract": "items.abstract"
+    },
+    "few_shot": "none",
+    "source_location": "Methods, 'LLM-based Classification' (system prompt printed verbatim; user prompt = the abstract)",
+    "verbatim": "full",
+    "placeholders_prose": {
+      "abstract": "items.abstract (the user prompt is the respective text section)"
+    }
+  },
+  "output": {
+    "parse": "regex (LOCAL|$)",
+    "postprocess": "regex group 1 is 'LOCAL' when the reply contains LOCAL and the empty string otherwise (the '$' alternative matches at the end of any reply), so pred == gold reproduces 1[LOCAL in output] == 1[LOCAL in answer]; an invalid reply without LOCAL counts as negative, as in the paper",
+    "parse_prose": "python list; LOCAL present -> positive"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "share of the 200 trials where 1['LOCAL' in output] equals 1['LOCAL' in answer] (F1 0.90, precision 0.98, recall 0.83 secondary)",
+    "judge": "none",
+    "original_value": 0.86,
+    "original_location": "Table 1, 'Based on Abstract', row Localized disease, Accuracy (95% CI 0.81-0.91)",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 600,
+    "est_usd": 24.0,
+    "tier": "mid"
+  },
+  "open_points": [],
+  "notes": "Label distribution in the CSV: LOCAL-only 72, both 68, METASTATIC-only 40, neither 20. The METASTATIC row (0.99) is the alternative cell. Machine fields added 2026-09-07 (label distribution re-verified from the 'accept' column). --prepare 2026-09-07: 200 items, 600 requests (3 seeds), est $25.27; rendered prompt checked (system prompt verbatim, user = abstract; body max_completion_tokens 4096, reasoning_effort high).",
+  "runner_gaps": []
+}

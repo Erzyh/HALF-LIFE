@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4416573512",
+ "title": "GenAI in the Military: Trends and Opportunities",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo / GPT-4-Vision (as used in a cited study)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "\"Goecks and Waytowich (2024) have researched...GPT-4-Turbo as well as GPT-4-Vision which are prompted to act as a COA-GPT...\" -- a third-party study"
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (this is a narrative trends/survey article discussing other researchers' military-AI studies; the authors run no LLM themselves)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (no experiment by these authors)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Published in the Scandinavian Journal of Military Studies as a trends/opportunities discussion piece; GPT-4-Turbo is mentioned only while summarizing Goecks & Waytowich (2024)'s COA-GPT study and Rivera et al. (2024)'s escalation-risk study, both third-party work."
+}

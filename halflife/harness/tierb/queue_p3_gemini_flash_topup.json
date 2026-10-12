@@ -1,0 +1,22 @@
+[
+ {
+  "wid": "W4400611869",
+  "cap": 3.0,
+  "seeds": 1,
+  "arm": "gemini_flash",
+  "arm_model": "gemini-3.8-flash",
+  "model": "gpt-4o-2024-05-13",
+  "force": true,
+  "note": "Lynx: cap-stopped 21 calls short (969 of 990); archived calls are reused, only the remainder is sent"
+ },
+ {
+  "wid": "W7126280993",
+  "cap": 16.0,
+  "seeds": 1,
+  "arm": "gemini_flash",
+  "arm_model": "gemini-3.8-flash",
+  "model": "o3-2025-04-16",
+  "force": true,
+  "note": "Semantic Content (o3 paper): cap-stopped at 206 of 480 items because Flash thinks ~6,900 tokens per call here (about $0.03 a call); remaining 274 calls about $8.5"
+ }
+]

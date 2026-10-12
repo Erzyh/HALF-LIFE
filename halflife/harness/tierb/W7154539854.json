@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7154539854",
+ "title": "General-purpose LLMs as Models of Human Driver Behavior: The Case of Simplified Merging",
+ "verdict": "maybe",
+ "live_model": {
+  "id_in_text": "OpenAI o3 (o3-2025-04-16)",
+  "resolved": "o3-2025-04-16",
+  "role": "S",
+  "evidence": "\"We evaluated two general-purpose LLM driver agents, OpenAI o3 (o3-2025-04-16) and Gemini 2.5 Pro (June 2025 release)\"; Table III/IV/V report o3-specific regression coefficients and behavioral metrics."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Table II (prompt components C0-C5 and ablations A1-A7 described); \"the full prompt text is provided in the supplementary online material\"",
+  "note": "In-paper text gives the component structure and ablation design, not the literal prompt string; full text is only in supplementary material, which is not part of this corpus."
+ },
+ "claim": {
+  "metric": "mean gap at merge point (meters), o3 baseline prompt",
+  "value": 9.28,
+  "n_items": 109,
+  "location": "Sec III-A / Table V: \"o3 maintains substantially larger gaps on average (9.28 m) than humans (3.85 m) and Gemini 2.5 Pro (3.84 m)\"; n=109 o3 trials (baseline prompt, 11 kinematic conditions x 10 repetitions, minus excluded collisions/unfinished trials)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Simulated one-dimensional merging scenario; software, simulated data and supplementary info at https://github.com/shamohammad/General-purpose-LLM-Merging"
+ },
+ "cost": {
+  "est_calls": 500,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Clean dated snapshot, role S (o3 embedded as a standalone closed-loop driver agent), n=109 baseline trials plus 55 trials per each of 7 single-factor ablations (all public via GitHub). Soft gap keeping this at 'maybe' rather than 'eligible': the literal prompt text lives only in supplementary material not present in papers_tierb, only its component structure (Table II) is in the main text. Cost is likely underestimated at 500 calls since each trial may involve multiple re-planning calls across the interaction window; o-series pricing pushes this into the high tier regardless."
+}

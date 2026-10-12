@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4416034242",
+  "title": "Humanity’s Last Code Exam: Can Advanced LLMs Conquer Human’s Hardest Code Competition?",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "o4-mini (High)",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "\"even state-of-the-art models o4-mini(high) and Gemini-2.5 Pro achieve only 15.1% and 11.4% pass@1 rates\"; Table 2 row \"o4-mini (High) 25.21 43.84 6.48 14.77 15.85 29.31\"."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec. 3 (benchmark construction); problem statements extracted from IOI/ICPC sources",
+    "note": "Models are given the official competition problem statement and asked to produce a solution; no separate custom instruction template is quoted."
+  },
+  "claim": {
+    "metric": "average pass@1 across HLCE competitive-programming problems",
+    "value": 15.85,
+    "n_items": 235,
+    "location": "Table 2 (HLCE code generation task), row 'o4-mini (High)', Avg. column",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "partial",
+    "source": "235 curated problems from IOI and ICPC World Finals (2010-2024); problem statements are from public competition archives, but official grading test cases are not confirmed redistributable"
+  },
+  "cost": {
+    "est_calls": 705,
+    "tier": "high"
+  },
+  "blockers": [],
+  "notes": "\"o3-mini\" and \"o4-mini\" appear undated in the body text; resolved via the still-callable list since each name maps to exactly one released API snapshot (o3-mini-2025-01-31, o4-mini-2025-04-16). \"High\" denotes maximum reasoning effort, which raises real per-call cost above typical o4-mini usage."
+}

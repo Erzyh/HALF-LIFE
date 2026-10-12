@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4416036264",
+  "title": "Position: LLMs Can be Good Tutors in English Education",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "\"Likewise, Siyan et al. (2024) deploy GPT-4-Turbo for audio transcript annotations.\" (Sec. on Annotation Generation, discussing prior work)"
+  },
+  "prompt": {"verbatim": "none", "location": "n/a", "note": "Position paper; no prompts or original experiments."},
+  "claim": {
+    "metric": "none", "value": null, "n_items": null, "location": "n/a",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {"public": "no", "source": "n/a (position paper, no primary dataset)"},
+  "cost": {"est_calls": null, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "ACL position paper arguing LLMs can tutor English learners. GPT-4-Turbo is cited only as an example from Siyan et al. (2024); the authors run no models themselves."
+}

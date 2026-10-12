@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4412605667",
+  "title": "IOAgent: Democratizing Trustworthy HPC I/O Performance Diagnosis Capability via LLMs",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "one uses the proprietary gpt-4o (gpt-4o-2024-05-13) model from OpenAI, and the other uses the open-source Llama-3.1-70B-Instruct (Section VII); ION baseline also uses gpt-4o-2024-05-13"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Fig. 1 (direct-query prompt); IOAgent stage prompts are described in Section IV but not printed in full ('Due to space constraints')",
+    "note": ""
+  },
+  "claim": {
+    "metric": "accuracy score from LLM-judge ranking (overall)",
+    "value": 0.641,
+    "n_items": null,
+    "location": "Table IV, row IOAgent-gpt-4o, column Overall Accuracy",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4o-2024-05-13"
+  },
+  "data": {
+    "public": "partial",
+    "source": "TraceBench (Darshan traces: synthetic C benchmarks, 21 IO500 configurations, 9 real applications); release not stated in the text"
+  },
+  "cost": {
+    "est_calls": 300,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Metrics are anonymized 1-4 rankings by GPT-4o among four tools, so re-execution also needs Drishti and ION outputs; trace counts for the synthetic subset are not given."
+}

@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4414156829",
+  "title": "AI Agents for Economic Research",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-5 (2025-08-07)",
+    "resolved": "gpt-5-2025-08-07",
+    "role": "C",
+    "evidence": "Provider overview table: 'OpenAI GPT-5 2025-08-07 89.4% 75%' (external benchmark scores reproduced from a leaderboard)"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Appendix A (LangChain/LangGraph agent code with gpt-4.1 calls and embedded prompts)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Tutorial working paper; the GPT-5 numbers are third-party benchmark scores",
+    "task_type": "agentic",
+    "judge": "none"
+  },
+  "data": {
+    "public": "no",
+    "source": "n/a"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "NBER tutorial without experiments of its own."
+}

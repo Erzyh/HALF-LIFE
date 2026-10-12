@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412465533",
+ "title": "Evaluación del Potencial de LLM (ChatGPT-4) como Métrica Objetiva para la Calidad de Imagen en CT de Mama",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo (versión del modelo: gpt-4-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec. 2: \"se evaluó el desempeño de un LLM: GPT-4-turbo (OpenAI, versión del modelo: gpt-4-2024-04-09) en comparación con seis observadores humanos...\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 2 (training prompt shown in Fig. 2; full evaluation prompt quoted verbatim)",
+  "note": "Both the 6-image training prompt and the 50-image evaluation prompt are quoted in the paper."
+ },
+ "claim": {
+  "metric": "Cohen's kappa agreement vs. human observers (qualitative summary: 'slight to acceptable agreement in >=60% of comparisons')",
+  "value": null,
+  "n_items": 50,
+  "location": "Fig. 3a-3f (kappa values shown only graphically as bar charts, not as printed numbers)",
+  "task_type": "classification",
+  "judge": "human"
+ },
+ "data": {
+  "public": "no",
+  "source": "Custom-simulated numerical breast-CT phantom images (100 generated via SART-TV reconstruction); not stated as released"
+ },
+ "cost": {
+  "est_calls": 56,
+  "tier": "low"
+ },
+ "blockers": [
+  "data_closed"
+ ],
+ "notes": "Exemplary prompt documentation (full verbatim training and evaluation prompts) and a clean n=50 test set, but the phantom CT image set is custom-generated and not stated as public/released, and exact kappa values are shown only in bar-chart figures rather than printed as text/table numbers."
+}

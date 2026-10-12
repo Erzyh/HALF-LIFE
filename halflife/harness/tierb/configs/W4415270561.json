@@ -1,0 +1,108 @@
+{
+  "wid": "W4415270561",
+  "title": "Diff-XYZ: A Benchmark for Evaluating Diff Understanding",
+  "status": "ready",
+  "model": {
+    "id": "gpt-4.1-nano-2025-04-14",
+    "params": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 4096
+    },
+    "params_source": "assumed (the paper states no decoding parameters anywhere; Sec. 4 fixes only the user prompt and the two system-prompt conditions). max_tokens 4096 is generous: the reference new_code is at most 2,607 characters (~700 tokens) plus the triple-backtick wrapper.",
+    "seeds": 3
+  },
+  "task": {
+    "type": "extraction",
+    "n_items": 1000,
+    "subset_rule": "all 1,000 Diff-XYZ instances (200 each for Python, JavaScript, Java, Kotlin, Rust; Sec. 2)",
+    "approximation": "none for the Apply task under the w/o-format condition; the diff handed to the model is the dataset's `udiff` column (the standard unified diff of Figure 6), which is the format Table 1 evaluates."
+  },
+  "items": {
+    "source_type": "hf",
+    "source": "JetBrains-Research/diff-xyz",
+    "config_or_split": "default/test (1,000 rows)",
+    "filter": null,
+    "fields": {
+      "input": "old_code",
+      "label": "new_code",
+      "id": "commit"
+    },
+    "license": "unknown (no license field on the dataset card; the per-row `license` column records each source repository's licence, e.g. apache-2.0, and the benchmark is built from CommitPackFT)",
+    "access_checked": true,
+    "size_mb": 2.7,
+    "hf": {
+      "dataset": "JetBrains-Research/diff-xyz",
+      "config": "default",
+      "split": "test"
+    },
+    "fields_paper": {
+      "input": "old code plus the unified diff (the triple <old code, new code, diff> of Sec. 2)",
+      "label": "new code",
+      "id": "source commit sha (unique over the 1,000 rows; repo/path also available)"
+    },
+    "columns_checked": [
+      "repo",
+      "commit",
+      "path",
+      "lang",
+      "license",
+      "message",
+      "old_code",
+      "new_code",
+      "n_added",
+      "n_removed",
+      "n_hunks",
+      "change_kind",
+      "udiff",
+      "udiff-h",
+      "udiff-l",
+      "search-replace"
+    ],
+    "download": {
+      "date": "2026-09-19",
+      "url": "https://huggingface.co/api/datasets/JetBrains-Research/diff-xyz/parquet/default/test/0.parquet",
+      "bytes": 2700000,
+      "local": "external/data/tierb_items/W4415270561/test.parquet",
+      "note": "downloaded only to read the column names and size the prompts; the runner re-fetches it through the Hub parquet API"
+    }
+  },
+  "prompt": {
+    "system": "You are a helpful assistant.",
+    "user_template": "You need to write a code that is a result of applying the following diff in unified diff format to the following code snippet:\nDiff:\n{diff}\nCode:\n{old_code}\nUse triple backtick formatting for you answer (e.g., ```python...```).",
+    "placeholders": {
+      "diff": "items.udiff",
+      "old_code": "items.old_code"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix A.1 Figure 1 (w/o format system prompt) and Appendix A.2 Figure 3 (Prompt Template for the Apply Task)",
+    "verbatim": "full; the extraction's hard line wraps inside the sentences were rejoined into the four printed lines of Figure 3 (the {diff} / {old_code} slots and the backtick example are as printed, including the paper's own typo \"for you answer\")",
+    "placeholders_paper": {
+      "diff": "the instance's unified diff",
+      "old_code": "the instance's old code"
+    }
+  },
+  "output": {
+    "parse": "hook (harness/tierb/hooks/W4415270561.py): the content of the last fenced ``` block, or the whole reply when the model emits no fence",
+    "postprocess": "none beyond the fence stripping; the stripped comparison happens in the metric",
+    "parse_paper": "the answer is requested inside triple backticks (Figure 3); the paper does not print its extraction rule"
+  },
+  "metric": {
+    "name": "exact_match",
+    "definition": "Stripped Exact Match (Sec. 3.1): 1 when the generated code and the reference new code are identical after removing every line that contains only whitespace characters; 0 otherwise. Computed by the hook's score(), not by the runner's normalising exact_match (which would lower-case and collapse whitespace).",
+    "judge": "rule",
+    "original_value": 0.38,
+    "original_location": "Table 1, row 'GPT 4.1 nano w/o format', column Apply / EM",
+    "bootstrap_unit": "item",
+    "scale": 1
+  },
+  "cost": {
+    "est_calls": 3000,
+    "est_usd": 5.08,
+    "tier": "low",
+    "est_usd_prepare": 5.08,
+    "prepare_note": "runner --prepare --dry-run 2026-09-19 (chars/4 input tokens, max_tokens counted as output per call)"
+  },
+  "open_points": [],
+  "notes": "Only the Apply task under the w/o-format system prompt is reproduced here; Anti-Apply (Figure 4) and Diff Generation (Figure 5, Table 2 EM 0.23) reuse the same dataset and prompts and could be added as sibling configs. The dataset card carries no licence field, so items.license is 'unknown' even though each row records the source repository's own licence. || [check 2026-09-19] Hub parquet listing default/test resolves; 1,000 rows, 200 per language, commit column unique, old_code <= 2,404 chars and udiff <= 3,327 chars, so no prompt approaches the context limit."
+}

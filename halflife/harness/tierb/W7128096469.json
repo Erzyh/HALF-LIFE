@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W7128096469",
+ "title": "AgentXRay: White-Boxing Agentic Systems via Workflow Reconstruction",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "gpt-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Implementation Details: \"we leverage both proprietary and open-weight LLMs to construct the primitive space...access all models via API endpoints. Proprietary models include gpt-4-turbo, gpt-4, gpt-4o-mini, and gpt-3.5-turbo.\""
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Prompts are assembled at runtime per workflow node by the MCTS-based search over agent roles/tool calls; the word 'prompt' occurs only 5 times in the whole text and no template is printed."
+ },
+ "claim": {
+  "metric": "proxy fidelity (similarity score), AGENTXRAY(Selected), average across 5 domains",
+  "value": 0.421,
+  "n_items": null,
+  "location": "Table 1, row AGENTXRAY(Selected), AVG column",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Five domain workflows (ChatDev, MetaGPT, TeachMaster, 3D Modeling, Sci) reconstructed by the framework; no released benchmark/prompt set is cited for them"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "high"
+ },
+ "blockers": [
+  "no_prompt",
+  "no_number"
+ ],
+ "notes": "gpt-4-turbo is one of eight interchangeable models (proprietary + open-weight) forming a combinatorial 'primitive space' searched by Monte Carlo Tree Search; Table 1 only reports method-level scores (SFT/CLAUDE/REACT/AFLOW/AGENTXRAY variants) aggregated over whichever primitives the search selects, so no number is attributable to gpt-4-turbo alone, and its prompts are runtime-assembled rather than printed. The extracted text also contains embedded null-byte/binary artifacts from PDF conversion near the Implementation Details section."
+}

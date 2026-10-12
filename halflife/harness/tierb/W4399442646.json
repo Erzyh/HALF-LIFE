@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4399442646",
+  "title": "ACCORD: Closing the Commonsense Measurability Gap",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4o (2024-05-13) / gpt-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"Figure 3 shows the performance of GPT-4o (2024-05-13) (OpenAI, 2024a), Llama-3-70B-Instruct ..., and Mixtral-8x22B-Instruct-v0.1 on ACCORD_CSQA in a zero-shot setting\" (Sec. 3)"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Appendix H (instruction prompt) and Appendix D example instances",
+    "note": "Instruction prompt that asks the model to accept anti-factual contexts is printed; answer format shown with examples."
+  },
+  "claim": {
+    "metric": "accuracy (factual vs anti-factual, by reasoning hops)",
+    "value": null,
+    "n_items": 2864,
+    "location": "Figure 3 (plots only; no numeric table)",
+    "task_type": "mcq",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "https://github.com/francois-rd/accord (ACCORD_CSQA release, Tables 4-5 give subset sizes)"
+  },
+  "cost": {
+    "est_calls": 2864,
+    "tier": "high"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Accuracies appear only as bar/line plots (Figure 3, Figure 11); no number is printed in text or tables, so there is nothing to match. Fixed seed 314159, Wald SE over 93 pairings, answer extraction via JSON parsing cascade in the released code."
+}

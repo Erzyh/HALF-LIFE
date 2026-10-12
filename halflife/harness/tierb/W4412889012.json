@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412889012",
+ "title": "EMULATE: A Multi-Agent Framework for Determining the Veracity of Atomic Claims by Emulating Human Actions",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4.1-nano",
+  "resolved": "gpt-4.1-nano-2025-04-14",
+  "role": "B",
+  "evidence": "Fig. 2 caption: \"Results on the entire GPT-4.1 model family. The strongest/weakest model according to OpenAI is GPT-4.1/GPT-4.1-nano.\" (Sec 5 ablation)."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 4 Implementation (\"zero-shot prompts that contain instructions for the subtasks\"); no appendix template found",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none printed for GPT-4.1-nano (weighted-F1 by model family is only shown as a Figure 2 chart, no numeric value in text)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 2 (chart only)",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "FacTool-KBQA, BingCheck, Factcheck-Bench (public fact-checking datasets, Table 1)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Headline experiments use base gpt-4.1-2025-04-14 (fn.2), outside the tracked list. GPT-4.1-nano appears only in a robustness ablation (Fig. 2) with weighted-F1 shown graphically; no printed numeric value, so the claim isn't extractable without the figure/code."
+}

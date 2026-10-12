@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412690728",
+ "title": "Die großen Fische fressen die kleinen?",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-Turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"Ich habe mit GPT-4-Turbo gearbeitet.\" (I worked with GPT-4-Turbo); used Jan 3-Feb 27, 2025 to define and translate Hungarian proverbs into German/English"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Footnote 3: \"Lefordítanád a következő magyar szépirodalmi szövegrészletet németre és angolra?\" (the exact recurring instruction is quoted verbatim)",
+  "note": "Author states she always quotes ChatGPT verbatim, only reformatting for typographic consistency."
+ },
+ "claim": {
+  "metric": "none (close-reading linguistic critique of specific proverb translations and definitions; no accuracy/quality score or count)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "generation",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "Hungarian literary excerpts chosen by the author; not a released dataset"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "A genuine, well-documented case study (real prompt quoted verbatim, real GPT-4-Turbo usage over a dated period) but purely qualitative: a phraseology/translation-studies scholar critiques specific ChatGPT definitions and translations in prose, with no numeric claim of any kind."
+}

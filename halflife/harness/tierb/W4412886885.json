@@ -1,0 +1,22 @@
+{
+  "openalex_id": "W4412886885",
+  "title": "Ai2 Scholar QA: Organized Literature Synthesis with Attribution",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "o3-mini",
+    "resolved": "o3-mini-2025-01-31",
+    "role": "S",
+    "evidence": "Table 2, row \"o3-mini 60.6 50.2\" (Rubrics/Total, LLM Prompting No Retrieval, ScholarQA-CS); \"We use GPT-4o (Hurst et al., 2024) as a judge\" resolved in Appendix J to gpt-4o-2024-08-06 (Table 2) / gpt-4o-2024-11-20 (Table 6)"
+  },
+  "prompt": {"verbatim": "none", "location": "Sec. 4.3, Table 2/6, Appendix J", "note": "No system/instruction prompt for the ScholarQA-CS generation or the judge rubric is printed; Appendix B only gives the earlier, unrelated retrieval-relevance-labeling prompt for gpt-4-turbo."},
+  "claim": {
+    "metric": "Rubrics score, ScholarQA-CS benchmark, o3-mini, LLM Prompting (No Retrieval)", "value": 60.6, "n_items": 100,
+    "location": "Table 2, row o3-mini, Rubrics column; ScholarQA-CS = 100 expert-annotated CS research questions (Sec. 4.3)",
+    "task_type": "generation",
+    "judge": "llm:gpt-4o-2024-08-06"
+  },
+  "data": {"public": "yes", "source": "ScholarQA-CS (100 CS questions with expert rubrics, Asai et al. 2024, released); retrieval corpus of 2,426 queries / 225,618 passages also released"},
+  "cost": {"est_calls": 300, "tier": "mid"},
+  "blockers": ["aux_model_dead"],
+  "notes": "ACL 2025 demo paper. o3-mini appears as one of several QA systems scored on ScholarQA-CS, but every score in Table 2/6 depends on gpt-4o-2024-08-06 or gpt-4o-2024-11-20 as the LLM judge, neither of which is on the still-callable list. A separate, role-A use of gpt-4-turbo (relevance labeling for retrieval tuning, 80% agreement with humans on 100 queries, Sec. 4.1) is not the paper's benchmarked subject either."
+}

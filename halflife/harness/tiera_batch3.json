@@ -1,0 +1,20 @@
+[
+ {
+  "name": "temperature run (cap 58: gpt-4o Task 1 at nine temperatures with repeats at T=0 and T=2, gpt-4o-mini both tasks)",
+  "group": "temperature",
+  "args": [
+   "temperature_W4405408496.py",
+   "--run",
+   "--cap",
+   "58"
+  ]
+ },
+ {
+  "name": "temperature analyze",
+  "group": "temperature",
+  "args": [
+   "temperature_W4405408496.py",
+   "--analyze"
+  ]
+ }
+]

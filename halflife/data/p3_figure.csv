@@ -1,0 +1,326 @@
+﻿panel,wid,title,metric,original,arm,difference,diff_lo,diff_hi,unit
+a,W4416683695,AI Self-preferencing in Algorithmic Hiring: Empirical Eviden,custom,93.0,baseline,-78.217,-86.913,-69.522,points
+a,W4416683695,AI Self-preferencing in Algorithmic Hiring: Empirical Eviden,custom,93.0,vendor,-79.786,-88.0,-71.214,points
+a,W4404573318,Chat Bankman-Fried: an Exploration of LLM Alignment in Finan,accuracy,0.41,baseline,-5.82,-10.492,0.356,points
+a,W4404573318,Chat Bankman-Fried: an Exploration of LLM Alignment in Finan,accuracy,0.41,vendor,-41.0,-41.0,-41.0,points
+a,W4404573318,Chat Bankman-Fried: an Exploration of LLM Alignment in Finan,accuracy,0.41,open70b,-27.2,-30.2,-24.2,points
+a,W4404573318,Chat Bankman-Fried: an Exploration of LLM Alignment in Finan,accuracy,0.41,gemini_flash,-41.0,-41.0,-41.0,points
+a,W7166799942,CMTD: Cognitive Modeling with Traits and Distortions for Mul,accuracy,42.45,baseline,-29.232,-30.304,-27.622,points
+a,W7166799942,CMTD: Cognitive Modeling with Traits and Distortions for Mul,accuracy,42.45,vendor,-36.78,-37.622,-35.898,points
+a,W7166799942,CMTD: Cognitive Modeling with Traits and Distortions for Mul,accuracy,42.45,open70b,-34.864,-35.86,-33.829,points
+a,W7166799942,CMTD: Cognitive Modeling with Traits and Distortions for Mul,accuracy,42.45,gemini_flash,-28.619,-29.921,-27.316,points
+a,W4400065264,Following Length Constraints in Instructions,custom,49.3,baseline,4.067,0.575,7.558,points
+a,W4400065264,Following Length Constraints in Instructions,custom,49.3,vendor,-36.332,-38.701,-33.963,points
+a,W4400065264,Following Length Constraints in Instructions,custom,49.3,gpt41,-41.195,-43.066,-39.2,points
+a,W4400065264,Following Length Constraints in Instructions,custom,49.3,open70b,-48.677,-49.175,-48.053,points
+a,W4400065264,Following Length Constraints in Instructions,custom,49.3,gemini_flash,-36.208,-38.577,-33.839,points
+a,W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,baseline,-33.333,-46.5,-22.0,points
+a,W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,vendor,-32.0,-42.5,-21.0,points
+a,W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,gpt41,2.0,-10.0,14.5,points
+a,W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,open70b,-38.2,-53.5,-22.8,points
+a,W4411119985,How Inclusively do LMs Perceive Social and Moral Norms?,mean_abs_error,0.92,gemini_flash,-19.0,-29.5,-10.0,points
+a,W4406975432,Actions Speak Louder than Words: Agent Decisions Reveal Impl,custom,0.513,baseline,4.81,,,points
+a,W4406975432,Actions Speak Louder than Words: Agent Decisions Reveal Impl,custom,0.513,vendor,-29.7,,,points
+a,W4406975432,Actions Speak Louder than Words: Agent Decisions Reveal Impl,custom,0.513,gpt41,-29.8,,,points
+a,W7160514285,Large Language Models Show Metacognitive Sensitivity in Medi,accuracy,0.935,baseline,-12.327,-21.278,-5.537,points
+a,W7160514285,Large Language Models Show Metacognitive Sensitivity in Medi,accuracy,0.935,vendor,-27.8,-37.0,-19.4,points
+a,W7160514285,Large Language Models Show Metacognitive Sensitivity in Medi,accuracy,0.935,open70b,-15.7,-24.1,-8.3,points
+a,W7160514285,Large Language Models Show Metacognitive Sensitivity in Medi,accuracy,0.935,gemini_flash,5.6,3.7,6.5,points
+a,W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,baseline,-12.05,-16.55,-6.8,points
+a,W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,vendor,-19.0,-24.3,-14.1,points
+a,W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,gpt41,-13.3,-18.0,-8.5,points
+a,W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,open70b,-8.6,-13.3,-3.8,points
+a,W4416036577,Cross-domain Rumor Detection via Test-Time Adaptation and La,accuracy,0.643,gemini_flash,-15.6,-20.5,-10.6,points
+a,W7126280993,Semantic Content Determines Algorithmic Performance,custom,0.4,baseline,13.73,-8.456,44.615,points
+a,W7126280993,Semantic Content Determines Algorithmic Performance,custom,0.4,vendor,-14.6,-20.5,-3.1,points
+a,W7126280993,Semantic Content Determines Algorithmic Performance,custom,0.4,open70b,-6.3,-16.4,6.3,points
+a,W7126280993,Semantic Content Determines Algorithmic Performance,custom,0.4,gemini_flash,-15.0,-22.6,-2.7,points
+a,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,baseline,-5.471,-8.982,5.201,points
+a,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,vendor,-5.0,-9.0,5.5,points
+a,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,gpt41,42.0,35.0,48.0,points
+a,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,open70b,50.8,46.2,54.9,points
+a,W4416034777,The Illusion of Randomness: How LLMs Fail to Emulate Stochas,custom,0.107,gemini_flash,38.0,30.0,45.0,points
+a,W7164614711,I Understand How You Feel: Enhancing Deeper Emotional Suppor,macro_f1,51.68,baseline,-10.119,-10.896,-9.254,points
+a,W7164614711,I Understand How You Feel: Enhancing Deeper Emotional Suppor,macro_f1,51.68,vendor,-4.009,-4.867,-3.116,points
+a,W7164614711,I Understand How You Feel: Enhancing Deeper Emotional Suppor,macro_f1,51.68,open70b,-5.326,-6.278,-4.501,points
+a,W7164614711,I Understand How You Feel: Enhancing Deeper Emotional Suppor,macro_f1,51.68,gemini_flash,-6.772,-7.703,-5.903,points
+a,W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,baseline,0.289,-0.288,0.853,points
+a,W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,vendor,-3.6,-5.3,-2.2,points
+a,W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,gpt41,2.4,1.9,3.0,points
+a,W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,open70b,3.8,3.1,4.5,points
+a,W4406058562,Applicability of Large Language Models and Generative Models,rouge_l,0.198,gemini_flash,1.7,1.1,2.2,points
+a,W4414979614,Overcoming Language Barriers: Multilingual Analysis of the 2,custom,0.93,baseline,-4.118,-13.0,7.0,points
+a,W4414979614,Overcoming Language Barriers: Multilingual Analysis of the 2,custom,0.93,vendor,-3.3,-20.0,7.0,points
+a,W4414979614,Overcoming Language Barriers: Multilingual Analysis of the 2,custom,0.93,open70b,-14.2,-33.7,-1.8,points
+a,W4414979614,Overcoming Language Barriers: Multilingual Analysis of the 2,custom,0.93,gemini_flash,-0.1,-13.0,7.0,points
+a,W7162149911,Refining and Reusing Annotation Guidelines for LLM Annotatio,custom,0.46,baseline,-19.199,-28.652,-10.059,points
+a,W7162149911,Refining and Reusing Annotation Guidelines for LLM Annotatio,custom,0.46,vendor,-3.2,-7.5,0.9,points
+a,W7162149911,Refining and Reusing Annotation Guidelines for LLM Annotatio,custom,0.46,open70b,-29.5,-32.3,-26.5,points
+a,W7162149911,Refining and Reusing Annotation Guidelines for LLM Annotatio,custom,0.46,gemini_flash,16.1,12.4,19.9,points
+a,W4416037849,CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme,custom,71.22,baseline,-1.315,-3.175,0.815,points
+a,W4416037849,CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme,custom,71.22,vendor,-1.823,-3.706,0.135,points
+a,W4416037849,CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme,custom,71.22,open70b,-4.215,-5.789,-2.497,points
+a,W4416037849,CRAB: A Benchmark for Evaluating Curation of Retrieval-Augme,custom,71.22,gemini_flash,-0.323,-2.38,1.872,points
+a,W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,baseline,-1.059,-4.866,2.494,points
+a,W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,vendor,-1.82,-5.627,1.733,points
+a,W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,gpt41,-1.313,-5.12,2.241,points
+a,W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,open70b,1.987,-1.313,5.286,points
+a,W4411119343,Are LLM-Judges Robust to Expressions of Uncertainty? Investi,accuracy,83.8,gemini_flash,1.479,-2.074,5.032,points
+a,W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,baseline,-1.433,-4.2,2.0,points
+a,W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,vendor,-1.8,-4.8,1.3,points
+a,W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,gpt41,-7.2,-10.2,-4.2,points
+a,W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,open70b,-5.7,-8.702,-2.898,points
+a,W4403786592,A Comprehensive Evaluation of Large Language Models on Menta,custom,39.6,gemini_flash,-1.0,-3.903,2.1,points
+a,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,baseline,-5.589,-10.45,-0.45,points
+a,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,vendor,-1.23,-5.931,3.044,points
+a,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,gpt41,-2.117,-6.7,2.467,points
+a,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,open70b,-1.7,-5.867,2.883,points
+a,W4399911213,WikiContradict: A Benchmark for Evaluating LLMs on Real-Worl,accuracy,86.7,gemini_flash,-0.033,-4.2,4.133,points
+a,W4404985489,Variable Extraction for Model Recovery in Scientific Literat,custom,0.491,baseline,-3.943,,,points
+a,W4404985489,Variable Extraction for Model Recovery in Scientific Literat,custom,0.491,vendor,-1.2,,,points
+a,W4404985489,Variable Extraction for Model Recovery in Scientific Literat,custom,0.491,open70b,-7.1,,,points
+a,W4404985489,Variable Extraction for Model Recovery in Scientific Literat,custom,0.491,gemini_flash,-0.2,,,points
+a,W7140138327,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,accuracy,94.4,baseline,-0.648,-1.707,0.993,points
+a,W7140138327,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,accuracy,94.4,vendor,-1.091,-2.671,0.396,points
+a,W7140138327,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,accuracy,94.4,open70b,-9.174,-11.159,-7.188,points
+a,W7140138327,ReMedQA: Are We Done With Medical Multiple-Choice Benchmarks,accuracy,94.4,gemini_flash,2.661,1.708,3.614,points
+a,W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,baseline,-75.0,-77.6,-72.4,points
+a,W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,vendor,-0.5,-1.0,-0.1,points
+a,W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,gpt41,-7.3,-8.903,-5.8,points
+a,W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,open70b,-68.7,-71.6,-65.9,points
+a,W4411080278,Temperature-Driven Variability in Emergency Diagnostic Accur,custom,100.0,gemini_flash,-49.7,-53.0,-46.5,points
+a,W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,baseline,-9.402,-11.482,-7.446,points
+a,W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,vendor,-0.284,-2.594,2.173,points
+a,W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,gpt41,-1.417,-4.12,1.202,points
+a,W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,open70b,2.033,-0.142,4.231,points
+a,W4399912745,ALiiCE: Evaluating Positional Fine-grained Citation Generati,custom,47.0,gemini_flash,0.138,-1.988,2.406,points
+a,W4403556032,Enhancing Healthcare LLM Trust with Atypical Presentations R,accuracy,0.751,baseline,6.006,4.381,8.548,points
+a,W4403556032,Enhancing Healthcare LLM Trust with Atypical Presentations R,accuracy,0.751,gemini_flash,19.8,18.5,21.0,points
+a,W7140953907,How Utilitarian Are OpenAI's Models Really? Replicating and ,accuracy,100.0,baseline,-0.1,-0.3,0.0,points
+a,W7140953907,How Utilitarian Are OpenAI's Models Really? Replicating and ,accuracy,100.0,vendor,0.0,0.0,0.0,points
+a,W7140953907,How Utilitarian Are OpenAI's Models Really? Replicating and ,accuracy,100.0,open70b,0.0,0.0,0.0,points
+a,W7140953907,How Utilitarian Are OpenAI's Models Really? Replicating and ,accuracy,100.0,gemini_flash,0.0,0.0,0.0,points
+a,W4411119263,ReIFE: Re-evaluating Instruction-Following Evaluation,custom,84.0,baseline,0.393,-2.792,3.232,points
+a,W4411119263,ReIFE: Re-evaluating Instruction-Following Evaluation,custom,84.0,gpt41,2.87,0.097,5.582,points
+a,W4411119490,Are We Done with MMLU?,custom,22.7,baseline,2.927,-0.282,5.935,points
+a,W4411119490,Are We Done with MMLU?,custom,22.7,gpt41,13.263,8.097,18.197,points
+a,W4410110677,Large Language Models for Supporting Clear Writing and Detec,accuracy,0.97,baseline,-0.614,-3.024,1.394,points
+a,W4410110677,Large Language Models for Supporting Clear Writing and Detec,accuracy,0.97,vendor,0.2,-2.2,2.2,points
+a,W4410110677,Large Language Models for Supporting Clear Writing and Detec,accuracy,0.97,open70b,-1.0,-3.4,1.4,points
+a,W4410110677,Large Language Models for Supporting Clear Writing and Detec,accuracy,0.97,gemini_flash,0.6,-1.4,2.2,points
+a,W7144391352,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,accuracy,0.754,baseline,0.944,-3.715,6.32,points
+a,W7144391352,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,accuracy,0.754,vendor,0.6,-4.4,5.6,points
+a,W7144391352,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,accuracy,0.754,open70b,-9.5,-15.5,-4.1,points
+a,W7144391352,CALRK-Bench: Evaluating Context-Aware Legal Reasoning in Kor,accuracy,0.754,gemini_flash,-3.7,-9.1,1.3,points
+a,W7131319772,Can Large Language Models Replace Human Coders? Introducing ,accuracy,99.0,baseline,-0.667,-1.5,0.0,points
+a,W7131319772,Can Large Language Models Replace Human Coders? Introducing ,accuracy,99.0,vendor,0.8,0.5,1.0,points
+a,W7131319772,Can Large Language Models Replace Human Coders? Introducing ,accuracy,99.0,open70b,-6.0,-7.6,-4.5,points
+a,W7131319772,Can Large Language Models Replace Human Coders? Introducing ,accuracy,99.0,gemini_flash,0.8,0.5,1.0,points
+a,W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,baseline,1.398,-1.769,9.636,points
+a,W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,vendor,1.129,-2.692,8.295,points
+a,W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,gpt41,-2.097,-4.265,7.134,points
+a,W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,open70b,1.935,-2.432,8.806,points
+a,W7169474262,The One-Word Census: Answer-Choice Conformity Across 44 Lang,custom,40.0,gemini_flash,-5.323,-5.86,4.788,points
+a,W4414758400,Mitigation of Gender and Ethnicity Bias in AI-Generated Stor,custom,51.5,baseline,-1.896,-3.833,-0.803,points
+a,W4414758400,Mitigation of Gender and Ethnicity Bias in AI-Generated Stor,custom,51.5,vendor,1.561,-0.095,2.777,points
+a,W4414758400,Mitigation of Gender and Ethnicity Bias in AI-Generated Stor,custom,51.5,gpt41,0.313,-0.732,1.275,points
+a,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,baseline,-6.702,-19.265,11.912,points
+a,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,vendor,2.75,-12.373,17.681,points
+a,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,gpt41,-0.428,-14.819,16.018,points
+a,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,open70b,4.331,-20.239,23.668,points
+a,W4403574994,Measuring Spiritual Values and Bias of Large Language Models,custom,52.97,gemini_flash,-2.758,-2.97,-2.196,points
+a,W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,baseline,0.588,-1.58,2.402,points
+a,W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,vendor,2.793,0.796,4.917,points
+a,W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,gpt41,-0.264,-2.275,1.896,points
+a,W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,open70b,-0.55,-2.493,1.421,points
+a,W4403370432,An Evaluation of Requirements Modeling for Cyber-Physical Sy,custom,48.0,gemini_flash,2.468,0.354,4.478,points
+a,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,baseline,-5.067,-8.53,0.202,points
+a,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,vendor,2.9,-2.0,7.2,points
+a,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,gpt41,3.7,-0.4,7.4,points
+a,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,open70b,-1.6,-4.6,1.4,points
+a,W4411112894,The Promises and Pitfalls of LLM Annotations in Dataset Labe,custom,0.683,gemini_flash,9.4,6.5,12.6,points
+a,W4399317891,OR-Bench: An Over-Refusal Benchmark for Large Language Model,custom,12.7,baseline,1.55,-1.919,6.631,points
+a,W4399317891,OR-Bench: An Over-Refusal Benchmark for Large Language Model,custom,12.7,vendor,3.286,-0.795,7.708,points
+a,W4399317891,OR-Bench: An Over-Refusal Benchmark for Large Language Model,custom,12.7,gpt41,13.778,9.408,18.148,points
+a,W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,baseline,0.074,-6.377,3.3,points
+a,W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,vendor,3.3,3.3,3.3,points
+a,W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,gpt41,3.3,3.3,3.3,points
+a,W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,open70b,-12.829,-25.732,0.074,points
+a,W4412888118,Nunchi-Bench: Benchmarking Language Models on Cultural Reaso,accuracy,96.7,gemini_flash,3.3,3.3,3.3,points
+a,W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,baseline,-0.37,-6.163,1.388,points
+a,W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,vendor,3.6,1.1,6.0,points
+a,W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,gpt41,0.367,-1.878,2.717,points
+a,W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,open70b,-6.649,-10.027,-3.405,points
+a,W4407374917,"Large language models possess some ecological knowledge, but",custom,78.0,gemini_flash,5.838,3.715,7.758,points
+a,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,baseline,-1.012,-14.593,9.481,points
+a,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,vendor,3.9,-9.0,15.0,points
+a,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,gpt41,0.2,-12.7,11.3,points
+a,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,open70b,2.1,-9.1,13.2,points
+a,W7106207151,Syn-STARTS: Synthesized START Triage Scenario Generation Fra,accuracy,0.72,gemini_flash,3.9,-9.0,15.0,points
+a,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,baseline,0.13,-2.551,2.4,points
+a,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,vendor,4.088,1.402,6.79,points
+a,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,gpt41,-0.545,-2.761,1.531,points
+a,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,open70b,1.388,-0.958,4.019,points
+a,W4411119711,FaithBench: A Diverse Hallucination Benchmark for Summarizat,custom,55.96,gemini_flash,4.445,1.186,7.48,points
+a,W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,baseline,0.633,-1.109,2.688,points
+a,W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,vendor,4.269,2.917,5.61,points
+a,W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,gpt41,-6.08,-9.491,-3.021,points
+a,W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,open70b,-9.931,-14.46,-5.651,points
+a,W4399911093,Leveraging Large Language Models to Measure Gender Represent,custom,90.24,gemini_flash,5.019,3.667,6.323,points
+a,W4416036063,sudoLLM: On Multi-role Alignment of Language Models,accuracy,89.2,baseline,2.467,-0.033,4.967,points
+a,W4416036063,sudoLLM: On Multi-role Alignment of Language Models,accuracy,89.2,vendor,4.438,3.042,5.757,points
+a,W4416036063,sudoLLM: On Multi-role Alignment of Language Models,accuracy,89.2,open70b,-7.533,-9.533,-5.733,points
+a,W4416036063,sudoLLM: On Multi-role Alignment of Language Models,accuracy,89.2,gemini_flash,4.395,3.013,5.778,points
+a,W4403580619,Evaluating Gender Bias of LLMs in Making Morality Judgements,custom,0.1773,baseline,-0.696,-2.752,1.984,points
+a,W4403580619,Evaluating Gender Bias of LLMs in Making Morality Judgements,custom,0.1773,vendor,4.67,1.97,7.27,points
+a,W4403580619,Evaluating Gender Bias of LLMs in Making Morality Judgements,custom,0.1773,gpt41,3.77,1.17,6.27,points
+a,W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,baseline,-0.719,-7.044,4.173,points
+a,W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,vendor,6.6,4.1,8.0,points
+a,W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,open70b,1.1,-4.0,5.3,points
+a,W7140084705,Quantifying Data Contamination in Psychometric Evaluations o,macro_f1,0.92,gemini_flash,8.0,8.0,8.0,points
+a,W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,baseline,-7.1,-21.1,4.9,points
+a,W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,vendor,6.9,-5.1,16.9,points
+a,W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,open70b,-21.1,-35.1,-7.1,points
+a,W4415332749,J4R: Learning to Judge with Equivalent Initial State Group R,custom,73.1,gemini_flash,18.9,10.9,24.9,points
+a,W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,baseline,5.476,3.834,7.388,points
+a,W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,vendor,7.1,5.1,9.2,points
+a,W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,gpt41,5.4,3.5,7.3,points
+a,W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,open70b,5.7,3.9,7.5,points
+a,W4406058598,Halu-J: Critique-Based Hallucination Judge,accuracy,0.83,gemini_flash,6.7,5.0,8.4,points
+a,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,baseline,1.1,-1.3,3.3,points
+a,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,vendor,7.2,5.9,8.2,points
+a,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,gpt41,7.5,6.7,8.3,points
+a,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,open70b,5.5,3.9,6.9,points
+a,W4403885225,Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge,custom,0.915,gemini_flash,6.3,4.9,7.5,points
+a,W7134885605,More Signal vs. More Noise - Comparing Full Text and Abstrac,accuracy,0.86,baseline,3.0,-1.0,7.0,points
+a,W7134885605,More Signal vs. More Noise - Comparing Full Text and Abstrac,accuracy,0.86,vendor,7.5,4.0,11.0,points
+a,W7134885605,More Signal vs. More Noise - Comparing Full Text and Abstrac,accuracy,0.86,open70b,-22.0,-29.0,-15.5,points
+a,W7134885605,More Signal vs. More Noise - Comparing Full Text and Abstrac,accuracy,0.86,gemini_flash,11.5,9.0,13.5,points
+a,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,baseline,1.235,-2.932,4.995,points
+a,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,vendor,8.584,6.231,11.133,points
+a,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,gpt41,1.012,-2.638,4.661,points
+a,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,open70b,-9.876,-12.903,-6.957,points
+a,W4400611869,Lynx: An Open Source Hallucination Evaluation Model,accuracy,82.2,gemini_flash,6.083,4.161,8.103,points
+a,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,baseline,0.191,-2.126,3.548,points
+a,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,vendor,10.2,7.8,12.5,points
+a,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,gpt41,5.6,2.0,9.0,points
+a,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,open70b,2.3,-0.5,5.1,points
+a,W4404314294,DisasterQA: A Benchmark for Assessing the performance of LLM,accuracy,0.817,gemini_flash,8.4,6.1,10.5,points
+a,W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,baseline,-2.074,-8.0,2.667,points
+a,W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,vendor,11.634,7.896,14.905,points
+a,W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,gpt41,3.111,-1.778,7.555,points
+a,W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,open70b,-8.0,-14.222,-2.222,points
+a,W4414494504,PGxRAG: A Retrieval Augmented Generation supported Pharmacog,accuracy,80.889,gemini_flash,-16.889,-23.111,-10.667,points
+a,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,baseline,1.664,-4.447,6.803,points
+a,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,vendor,11.844,7.123,16.136,points
+a,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,gpt41,-8.197,-14.03,-2.363,points
+a,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,open70b,1.803,-3.613,6.803,points
+a,W4404781158,MultiPragEval: Multilingual Pragmatic Evaluation of Large La,accuracy,75.28,gemini_flash,13.47,9.72,17.22,points
+a,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,baseline,10.555,7.421,14.772,points
+a,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,vendor,15.114,11.524,18.532,points
+a,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,gpt41,0.242,-3.861,4.174,points
+a,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,open70b,14.943,11.524,18.362,points
+a,W7166821175,From Regulatory Approvals to Patents: Cross-Domain Linking f,accuracy,60.1,gemini_flash,30.84,28.447,33.067,points
+a,W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,baseline,17.023,15.934,18.187,points
+a,W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,vendor,16.848,15.544,18.043,points
+a,W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,gpt41,16.729,15.58,17.877,points
+a,W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,open70b,5.068,3.301,6.702,points
+a,W4401545735,Designing Heterogeneous LLM Agents for Financial Sentiment A,accuracy,74.57,gemini_flash,21.101,20.262,21.941,points
+a,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,baseline,0.133,-4.6,4.0,points
+a,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,vendor,17.0,13.4,20.6,points
+a,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,gpt41,14.0,10.195,17.8,points
+a,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,open70b,14.4,10.6,18.2,points
+a,W4404782525,Characterizing LLM Abstention Behavior in Science QA with Co,accuracy,61.2,gemini_flash,6.8,2.795,10.8,points
+a,W7166852552,LexGenius: An Expert-Level Benchmark for Large Language Mode,accuracy,46.51,baseline,1.543,0.488,2.681,points
+a,W7166852552,LexGenius: An Expert-Level Benchmark for Large Language Mode,accuracy,46.51,vendor,17.061,16.042,18.056,points
+a,W7166852552,LexGenius: An Expert-Level Benchmark for Large Language Mode,accuracy,46.51,open70b,9.02,7.941,10.123,points
+a,W7166852552,LexGenius: An Expert-Level Benchmark for Large Language Mode,accuracy,46.51,gemini_flash,18.175,17.228,19.17,points
+a,W7135428702,SommBench: Assessing Sommelier Expertise of Language Models,accuracy,0.73,baseline,1.089,-1.616,3.66,points
+a,W7135428702,SommBench: Assessing Sommelier Expertise of Language Models,accuracy,0.73,vendor,18.3,16.6,20.1,points
+a,W7135428702,SommBench: Assessing Sommelier Expertise of Language Models,accuracy,0.73,open70b,7.5,5.0,9.8,points
+a,W7135428702,SommBench: Assessing Sommelier Expertise of Language Models,accuracy,0.73,gemini_flash,24.9,24.0,25.7,points
+a,W4400375186,CEB: Compositional Evaluation Benchmark for Fairness in Larg,micro_f1,69.5,baseline,-1.5,-8.5,5.0,points
+a,W4400375186,CEB: Compositional Evaluation Benchmark for Fairness in Larg,micro_f1,69.5,vendor,24.618,20.941,28.294,points
+a,W4400375186,CEB: Compositional Evaluation Benchmark for Fairness in Larg,micro_f1,69.5,gpt41,13.5,8.0,19.0,points
+a,W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,baseline,0.708,-2.0,3.875,points
+a,W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,vendor,25.052,21.458,28.782,points
+a,W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,gpt41,12.356,8.828,16.02,points
+a,W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,open70b,24.5,21.0,28.125,points
+a,W4400434899,Are Large Language Models Strategic Decision Makers? A Study,accuracy,25.5,gemini_flash,24.5,21.125,27.75,points
+a,W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,baseline,2.659,1.122,4.184,points
+a,W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,vendor,28.74,26.74,30.94,points
+a,W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,gpt41,16.34,14.54,18.14,points
+a,W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,open70b,-15.16,-16.36,-13.96,points
+a,W4411120580,"QSpell 250K: A Large-Scale, Practical Dataset for Chinese Se",custom,0.4416,gemini_flash,31.54,30.84,32.34,points
+a,W4416339332,"""As Eastern Powers, I will veto."" : An Investigation of Nati",custom,65.0,baseline,1.326,-10.146,13.959,points
+a,W4416339332,"""As Eastern Powers, I will veto."" : An Investigation of Nati",custom,65.0,vendor,28.808,22.424,33.504,points
+a,W4416339332,"""As Eastern Powers, I will veto."" : An Investigation of Nati",custom,65.0,open70b,-8.413,-22.325,4.43,points
+a,W4416339332,"""As Eastern Powers, I will veto."" : An Investigation of Nati",custom,65.0,gemini_flash,28.721,22.049,35.0,points
+a,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,baseline,-2.833,-9.778,3.185,points
+a,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,vendor,32.8,28.6,36.5,points
+a,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,gpt41,12.9,6.9,18.9,points
+a,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,open70b,16.1,10.1,21.7,points
+a,W4416034223,When Instructions Multiply: Measuring and Estimating LLM Cap,custom,0.57,gemini_flash,26.8,22.2,31.4,points
+a,W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,baseline,-5.633,-14.3,-1.3,points
+a,W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,vendor,39.2,33.7,44.7,points
+a,W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,gpt41,6.2,-0.3,13.2,points
+a,W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,open70b,-7.3,-13.8,-1.3,points
+a,W4407571428,The Stochastic Parrot on LLM's Shoulder: A Summative Assessm,accuracy,41.3,gemini_flash,41.2,35.7,46.2,points
+a,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,baseline,1.065,-2.955,6.593,points
+a,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,vendor,41.8,33.5,49.5,points
+a,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,gpt41,27.2,20.2,34.2,points
+a,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,open70b,20.2,13.6,26.7,points
+a,W4402345509,LAB-Bench: Measuring Capabilities of Language Models for Bio,accuracy,0.12,gemini_flash,37.2,30.2,43.8,points
+a,W4406880877,People who frequently use ChatGPT for writing tasks are accu,accuracy,54.0,baseline,0.667,-7.333,8.667,points
+a,W4406880877,People who frequently use ChatGPT for writing tasks are accu,accuracy,54.0,vendor,46.0,46.0,46.0,points
+a,W4406880877,People who frequently use ChatGPT for writing tasks are accu,accuracy,54.0,open70b,-46.0,-50.0,-41.333,points
+a,W4406880877,People who frequently use ChatGPT for writing tasks are accu,accuracy,54.0,gemini_flash,46.0,46.0,46.0,points
+a,W7166872685,Machine Behavior in Relational Moral Dilemmas: Moral Rightne,accuracy,0.53,baseline,46.846,47.0,47.0,points
+a,W7166872685,Machine Behavior in Relational Moral Dilemmas: Moral Rightne,accuracy,0.53,vendor,47.0,47.0,47.0,points
+a,W7166872685,Machine Behavior in Relational Moral Dilemmas: Moral Rightne,accuracy,0.53,open70b,45.8,44.7,46.8,points
+a,W7166872685,Machine Behavior in Relational Moral Dilemmas: Moral Rightne,accuracy,0.53,gemini_flash,25.0,21.1,28.7,points
+a,W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,baseline,11.108,4.899,17.154,points
+a,W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,vendor,49.507,42.644,55.389,points
+a,W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,gpt41,11.272,5.389,17.166,points
+a,W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,open70b,-3.434,-7.846,1.468,points
+a,W4416034248,Can LLMs Truly Plan? A Comprehensive Evaluation of Planning ,custom,17.65,gemini_flash,51.468,44.605,57.362,points
+a,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,accuracy,19.6,baseline,0.4,-4.8,4.8,points
+a,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,accuracy,19.6,vendor,50.342,43.406,57.279,points
+a,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,accuracy,19.6,gpt41,-4.4,-8.8,0.0,points
+a,W4399911276,Whiteboard-of-Thought: Thinking Step-by-Step Across Modaliti,accuracy,19.6,gemini_flash,60.4,55.6,65.2,points
+a,W4415270561,Diff-XYZ: A Benchmark for Evaluating Diff Understanding,exact_match,0.38,baseline,-0.667,-3.7,2.2,points
+a,W4415270561,Diff-XYZ: A Benchmark for Evaluating Diff Understanding,exact_match,0.38,vendor,51.4,49.5,53.3,points
+a,W4415270561,Diff-XYZ: A Benchmark for Evaluating Diff Understanding,exact_match,0.38,open70b,24.3,21.2,27.2,points
+a,W4415270561,Diff-XYZ: A Benchmark for Evaluating Diff Understanding,exact_match,0.38,gemini_flash,60.0,59.1,60.8,points
+a,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,baseline,-4.211,-8.1,-0.596,points
+a,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,vendor,59.9,59.9,59.9,points
+a,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,gpt41,-3.767,-7.433,0.071,points
+a,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,open70b,20.233,16.4,24.237,points
+a,W4403758464,LLMs Still Can't Plan; Can LRMs? A Preliminary Evaluation of,accuracy,40.1,gemini_flash,59.4,58.733,59.9,points
+a,W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,baseline,-5.211,-9.6,-2.1,points
+a,W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,vendor,59.9,59.9,59.9,points
+a,W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,gpt41,-3.767,-7.6,0.067,points
+a,W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,open70b,21.4,17.4,24.904,points
+a,W4403882451,Planning in Strawberry Fields: Evaluating and Improving the ,accuracy,40.1,gemini_flash,59.567,59.067,59.9,points
+b,W4415035710,Do LLMs have a Gender (Entropy) Bias?,custom,2.0,baseline,-111.438,-208.425,-6.123,percent of original
+b,W4415035710,Do LLMs have a Gender (Entropy) Bias?,custom,2.0,vendor,-124.1,-227.1,-22.85,percent of original
+b,W4415035710,Do LLMs have a Gender (Entropy) Bias?,custom,2.0,gpt41,-104.05,-208.25,-1.3,percent of original
+b,W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,baseline,-80.336,-80.336,-80.336,percent of original
+b,W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,vendor,-100.0,-100.0,-100.0,percent of original
+b,W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,gpt41,-100.0,-100.0,-100.0,percent of original
+b,W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,open70b,-100.0,-100.0,-100.0,percent of original
+b,W7134094238,BioLLMAgent: A Hybrid Framework with Enhanced Structural Int,custom,0.002,gemini_flash,-100.0,-100.0,-100.0,percent of original
+b,W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,baseline,-13.262,-37.855,13.911,percent of original
+b,W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,vendor,-15.991,-37.385,7.205,percent of original
+b,W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,open70b,969.791,73.346,1925.453,percent of original
+b,W7117377764,Benchmarking large language models for geolocating colonial ,custom,23.4,gemini_flash,-24.876,-48.526,2.098,percent of original
+b,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,baseline,-7.526,-7.526,-7.526,percent of original
+b,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,vendor,1.084,-3.061,4.273,percent of original
+b,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,gpt41,18.941,16.39,21.173,percent of original
+b,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,open70b,-68.112,-68.112,-68.112,percent of original
+b,W4404792825,Will LLMs Sink or Swim? Exploring Decision-Making Under Pres,custom,31.36,gemini_flash,-2.423,-3.38,-1.467,percent of original
+b,W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,baseline,4.118,-3.529,17.353,percent of original
+b,W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,vendor,49.118,35.441,63.971,percent of original
+b,W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,gpt41,0.882,-10.588,12.941,percent of original
+b,W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,open70b,18.529,8.235,29.412,percent of original
+b,W7159577685,Breaking the Chains of Probability: Neutrosophic Logic as a ,custom,1.36,gemini_flash,33.676,28.088,39.412,percent of original

@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4415772780",
+  "title": "Bridging Behavioral Gaps: Automatic Extrapolation of Concreteness Norms for Arabic and English with a k-Nearest Neighbor Approach",
+  "verdict": "eligible",
+  "live_model": {
+    "id_in_text": "GPT-o4-mini (2025-04-16)",
+    "resolved": "o4-mini-2025-04-16",
+    "role": "S",
+    "evidence": "Sec 4.5/5.5: \"we obtained ratings from GPT-o4-mini (2025-04-16) by prompting it ... instructed to return a single integer (1-5) at zero-temperature\"; Table 6 English Spearman=0.804, RMSE=0.669"
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Sec 4.5: model prompted with \"the human annotation guidelines from Brysbaert et al. (2014)\" plus an instruction to output a single 1-5 integer at temperature 0, queried 3x per word",
+    "note": "The Brysbaert (2014) guideline wording is an external published instrument, not reproduced verbatim in this paper."
+  },
+  "claim": {
+    "metric": "Spearman correlation with human concreteness ratings, English",
+    "value": 0.804,
+    "n_items": 545,
+    "location": "Table 6 (English row); n_items = English held-out test set (Sec 5.4)",
+    "task_type": "other",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Brysbaert et al. (2014) English concreteness norms (public); \"Code and data are available at Supplementary material\" (footnote 4)"
+  },
+  "cost": {
+    "est_calls": 1635,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "Each word queried 3x at temperature 0 (545 English test words x 3 = 1,635 calls for this cell). Arabic arm (n=41 test words) also run: Spearman=0.798 (integer prompt) / 0.824 (decimal prompt)."
+}

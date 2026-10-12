@@ -1,0 +1,96 @@
+{
+  "wid": "W4404990976",
+  "title": "Thai Financial Domain Adaptation of THaLLE -- Technical Report",
+  "status": "needs_human",
+  "model": {
+    "id": "gpt-4-turbo-2024-04-09",
+    "params": {
+      "temperature": 0.0,
+      "max_tokens": 1024,
+      "top_p": 1.0
+    },
+    "params_source": "assumed (paper silent)",
+    "seeds": 3
+  },
+  "task": {
+    "type": "mcq",
+    "n_items": 50,
+    "subset_rule": "all 50 questions of the SET public IC practice exam P1",
+    "approximation": "the Thai exam PDF must be converted to text; the answer is extracted after the prompt's own marker (resolution plan); decoding parameters not stated"
+  },
+  "items": {
+    "source_type": "url",
+    "source": "https://media.set.or.th/set/Documents/2022/Apr/Practice_Plain_Question_Answer.pdf (SET public IC practice exam P1 with answer key; ref. [24]; 0.6 MB)",
+    "config_or_split": "P1 (50 questions)",
+    "filter": null,
+    "fields": {
+      "input": "question",
+      "option_1": "option_1",
+      "option_2": "option_2",
+      "option_3": "option_3",
+      "option_4": "option_4",
+      "label": "answer",
+      "id": "number"
+    },
+    "license": "SET public practice material (terms of use not checked)",
+    "access_checked": true,
+    "size_mb": 0.6,
+    "file_url": "https://media.set.or.th/set/Documents/2022/Apr/Practice_Plain_Question_Answer.pdf",
+    "fields_prose": {
+      "input": "question text and the four numbered options",
+      "options": "options 1)-4)",
+      "label": "answer key digit 1-4",
+      "id": "question number"
+    },
+    "label_map": null,
+    "pdf_text_layer_check": "downloaded 2026-09-07 (22 pages, 0.6 MB): PyMuPDF text extraction loses Thai tone marks (U+0E48/U+0E49, e.g. 'ทีสุด' for 'ที่สุด') and maps digits of one embedded font to letters/symbols (question numbers '3.'/'4.' appear as 'B.'/'F.', answer-key lines read 'ตัวเลือกที ?' or 'ตัวเลือกที  '); the answer key is therefore not machine-readable from the text layer"
+  },
+  "prompt": {
+    "system": "You are a Certified Thai Investment Consultant (IC) taking a multiple choice exam.\nThink step-by-step and then finish your answer with \" ดังนั้น คำตอบที่ถูกต้องคือ: \" followed by the correct choice name (1, 2, 3, or 4).",
+    "user_template": "Question: {question}\n1) {option_1}\n2) {option_2}\n3) {option_3}\n4) {option_4}",
+    "placeholders": {
+      "question": "items.question",
+      "option_1": "items.option_1",
+      "option_2": "items.option_2",
+      "option_3": "items.option_3",
+      "option_4": "items.option_4"
+    },
+    "few_shot": "none",
+    "source_location": "Appendix B, Table 4 (CoT system prompt) and Appendix C, Table 5 (user-prompt layout: 'Question:' plus options '1)'-'4)')",
+    "verbatim": "full for the system prompt (extraction damage repaired: '/uni0E49.low' glyph codes restored to the Thai tone mark U+0E49, 'm ultiple' re-joined); user layout copied from the Appendix C example",
+    "placeholders_prose": {
+      "question": "Thai question text",
+      "option_1": "text of option 1",
+      "option_2": "text of option 2",
+      "option_3": "text of option 3",
+      "option_4": "text of option 4"
+    }
+  },
+  "output": {
+    "parse": "regex คำตอบที่ถูกต้องคือ\\s*:?\\s*\\**\\s*([1-4])",
+    "postprocess": "strip; no digit found counts as incorrect",
+    "parse_prose": "regex 'คำตอบที่ถูกต้องคือ\\s*:?\\s*\\**\\s*([1-4])' (last match); fallback: last standalone digit 1-4 in the reply"
+  },
+  "metric": {
+    "name": "accuracy",
+    "definition": "fraction of the 50 P1 questions whose extracted choice equals the answer key",
+    "judge": "none",
+    "original_value": 72.0,
+    "original_location": "Table 3, row gpt-4-turbo-2024-04-09, column P1 (P2 68%, P3 84%)",
+    "bootstrap_unit": "item",
+    "scale": 100
+  },
+  "cost": {
+    "est_calls": 150,
+    "est_usd": 3.0,
+    "tier": "low"
+  },
+  "open_points": [
+    "no hook: the 50 items exist only inside the SET practice-exam PDF whose text layer is damaged (Thai tone marks dropped, answer-key digits garbled - see items.pdf_text_layer_check); OCR or manual transcription into items.inline (number, question, option_1..option_4, answer) with a check against the rendered PDF is required; no PDF/OCR tooling within stdlib+numpy.",
+    "once items.inline exists: set items.source_type = in_paper; placeholders, the regex parse (a hook should take the LAST marker match; the runner takes the first) and accuracy are already in machine form."
+  ],
+  "notes": "Which system prompt produced Table 3 follows from Appendix C (CoT prompt shown with gpt-4-turbo-2024-04-09 output). The PDF text layer must be checked for Thai extraction errors; P2 (25) and P3 (25) use the same layout.",
+  "runner_gaps": [
+    "items: no PDF source (needs a transcribed table)"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4406975432",
+ "title": "Actions Speak Louder than Words: Agent Decisions Reveal Implicit Biases in Language Models",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "Sec. 4: \"we tested six LLMs -- GPT-3, GPT-3.5-turbo, GPT-4-turbo, GPT-4o...\"; Sec. 5.3: \"GPT-4-turbo...exhibited significant implicit biases in 9/12 cases, avg DPD 0.513\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Appendix Sections B and C (persona/action-generation prompts, implicit-bias test); Appendix Section D (explicit-bias question prompts)",
+  "note": "Language-agent simulation: personas are generated then agents decide an action (e.g. evacuate/stay); DPD (demographic parity difference) is computed across sociodemographic attributes."
+ },
+ "claim": {
+  "metric": "average demographic parity difference (DPD), implicit bias, GPT-4-turbo",
+  "value": 0.513,
+  "n_items": 1200,
+  "location": "Sec. 5.3 (\"GPT-4-turbo also exhibited significant implicit biases in 9 out of 12 cases, with an average DPD of 0.513 (sd = 0.373)\"); n_items = 100 agent personas x 12 sociodemographic-group x scenario combinations (Sec. 4.1); detailed per-case results in Appendix Figs. 11-12",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "Self-contained: 4 scenarios (Emergency Response, Authority Compliance, Negative Info Sharing, Career Path) fully specified in paper/Appendix; no external dataset needed"
+ },
+ "cost": {
+  "est_calls": 4800,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "The paper also reports an explicit-bias DPD for GPT-4-turbo (0 out of 12 cases significant, average DPD=0, sd=0.001; n=3600 = 12 cases x 300 agents) as a companion headline number. GPT-4o (undated, co-primary focus model) is also tested but not resolved here since GPT-4-turbo already gives a clean eligible record; GPT-3 is used to help format GPT-3's own outputs via GPT-4o (utility role, not a separate claim). est_calls is a rough 3-seed-equivalent estimate for the implicit-bias condition alone (multi-stage pipeline: persona generation + action generation + rationale, so real per-item call count may be higher than 1)."
+}

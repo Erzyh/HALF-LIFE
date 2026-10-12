@@ -1,0 +1,34 @@
+{
+  "openalex_id": "W4403038909",
+  "title": "Sarcasm Detection in a Less-Resourced Language",
+  "verdict": "maybe",
+  "live_model": {
+    "id_in_text": "GPT-4o-2024-05-13",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "S",
+    "evidence": "\"We also tested two models offered on the OpenAI platform, GPT-4o-2024-05-13 and GPT-3.5-TURBO-0125...used them in few-shot mode\"; results row \"GPT-4o-2024-05-13 (NFT) 0.686 0.746\"."
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Sec. (prompt for the classification task)",
+    "note": "\"You will be provided with a sarcastic/non-sarcastic sentence in...\" -- a literal zero/few-shot classification prompt is quoted."
+  },
+  "claim": {
+    "metric": "classification score (first reported column), GPT-4o-2024-05-13, few-shot, no fine-tuning (NFT)",
+    "value": 0.686,
+    "n_items": null,
+    "location": "results table, row 'GPT-4o-2024-05-13 (NFT)'",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Slovenian sarcasm-detection dataset built via translated datasets, described in the paper"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [],
+  "notes": "The results table's two numeric columns are not clearly labeled in the reviewed excerpt (likely accuracy and F1), and the exact test-set size was not located; GPT-4o-2024-05-13 is also used separately for a neural machine translation sub-task."
+}

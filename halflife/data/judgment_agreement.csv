@@ -1,0 +1,31 @@
+﻿item,value
+"prompt-level results (343 rows: 86 baselines and 257 successor results): Krippendorff's alpha, survival class",0.997
+"prompt-level results (343 rows: 86 baselines and 257 successor results): Krippendorff's alpha, conclusion level",0.915
+"prompt-level results (343 rows: 86 baselines and 257 successor results): Cohen's kappa A-B, survival class / conclusion level",0.995 / 0.942
+"prompt-level results (343 rows: 86 baselines and 257 successor results): Cohen's kappa A-C, survival class / conclusion level",0.995 / 0.875
+"prompt-level results (343 rows: 86 baselines and 257 successor results): Cohen's kappa B-C, survival class / conclusion level",1.0 / 0.928
+prompt-level results (343 rows: 86 baselines and 257 successor results): rows with three identical survival classes / with a majority / without a majority,342 / 343 / 0
+prompt-level results (343 rows: 86 baselines and 257 successor results): conclusion level rows with three identical answers / without a majority,317 / 1
+"repository-based claims (95 rows): Krippendorff's alpha, survival class",0.977
+"repository-based claims (95 rows): Krippendorff's alpha, conclusion level",0.731
+"repository-based claims (95 rows): Cohen's kappa A-B, survival class / conclusion level",0.965 / 0.927
+"repository-based claims (95 rows): Cohen's kappa A-C, survival class / conclusion level",0.965 / 0.611
+"repository-based claims (95 rows): Cohen's kappa B-C, survival class / conclusion level",1.0 / 0.676
+repository-based claims (95 rows): rows with three identical survival classes / with a majority / without a majority,94 / 95 / 0
+repository-based claims (95 rows): conclusion level rows with three identical answers / without a majority,83 / 0
+prompt-level rows where the majority overturned the written rule's class,7: row 203 W4415035710 baseline (근접 -> 사망); row 204 W4415035710 gpt41 (근접 -> 사망); row 205 W4415035710 vendor (근접 -> 사망); row 302 W7159577685 vendor (재현 -> 사망); row 304 W7159577685 gemini_flash (재현 -> 사망); row 306 W7159577685 open70b (재현 -> 사망); row 311 W7161421448 baseline (편차 -> 판정 불능)
+repository-based papers whose paper-level class differs from the automatic verdict,4: W4402565126 (생존 -> 부분 생존); W4405408496 (생존 -> 부분 생존); W4400435289 (생존 -> 부분 생존); W4400103831 (생존 -> 판정 불능)
+rule the judges applied,"a result reproduced when the reported value lies inside the re-run's 95% interval or within two points on the paper's scale, close within five points, deviated otherwise; results that are not scores (t statistic, odds ratio, kilometre error) judged by the interval alone and cannot be judged without one; results with more than half of the replies unparsed, or a task that does not transfer, cannot be judged; repository-based claims over five points with the same sign are partial (died only when the direction reverses)"
+conclusion level,"whether the sentence the paper builds on the number still holds at the re-run value: holds, holds in part, fails, cannot judge; for a limitation the paper points out, a larger problem keeps the claim and a vanished problem fails it"
+"query round: judge B, return 1 (2026-10-07 16:53)","59 of 438 rows departed from the written rule; prompt-level 44 (inside-interval rows with a 2-5 point difference marked partial; rows flagged in the note column marked died; point rule applied to non-score rows), Tier A 15 (no interval read as cannot judge; moves over five points with the same sign read as died); hidden columns in the returned file"
+"query round: judge B, return 2 (2026-10-07 17:09)","33 of 438 rows departed from the written rule; prompt-level 18 (no-interval rows now read as cannot judge; the note column still hidden), Tier A 15 unchanged"
+"query round: judge B, return 3 (2026-10-07 18:22)","3 of 438 rows departed from the written rule; prompt-level 3 (no-interval rows), Tier A 0; five conclusion-level cells read in the wrong direction"
+"query round: judge B, return 4 (2026-10-07 18:39)",0 of 438 rows departed from the written rule; final
+"query round: judge C, return 1 (2026-10-10 13:48)","9 of 438 rows departed from the written rule; prompt-level 7 and Tier A 2, all no-interval rows read as cannot judge"
+"query round: judge C, return 2 (2026-10-10 14:01)",2 of 438 rows departed from the written rule; two rows shifted by one line
+"query round: judge C, return 3 (2026-10-10 14:03)",0 of 438 rows departed from the written rule; final
+"query round: judge A, return 1 (2026-10-11 00:06)",38 of 438 rows departed from the written rule; prompt-level 24 and Tier A 14 (the same four misreadings as B); the conclusion-level column filled with the survival vocabulary instead of the four conclusion levels; typed values outside the lists
+"query round: judge A, return 2 (2026-10-11 09:43)",37 of 438 rows departed from the written rule; conclusion-level column re-entered in the four levels; verdict rows unchanged; five typed values outside the lists
+"query round: judge A, return 3 (2026-10-11 10:26)",15 of 438 rows departed from the written rule; the Tier A rule (same sign over five points = partial) applied to four prompt-level rows and not to nine Tier A rows
+"query round: judge A, return 4 (2026-10-11 11:01)",2 of 438 rows departed from the written rule; final; the two remaining rows and two conclusion-level rows were left as the judge's answers
+procedure of the query rounds,each return was compared with the written rule; rows that departed from it without a stated reason were returned to the judge with the rule restated; answers with a stated reason were kept; judges never saw each other's answers; the first return of each judge is archived

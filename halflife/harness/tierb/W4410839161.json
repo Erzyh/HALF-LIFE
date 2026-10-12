@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4410839161",
+  "title": "LuminaURO: A comprehensive Artificial Intelligence Driven Assistant for enhancing urological diagnostics and patient care",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo",
+    "resolved": "unresolved",
+    "role": "C",
+    "evidence": "'Kresevic et al. implemented a GPT-4 Turbo' (related work); the assistant uses ChatOpenAI (unversioned) 'with parameters set to temperature = 0 and max_tokens = 1024' and OpenAI embeddings"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "LangChain PromptTemplate described (Section 2) but not printed",
+    "note": ""
+  },
+  "claim": {
+    "metric": "similarity score (expert evaluation, English)",
+    "value": 0.9444,
+    "n_items": null,
+    "location": "Abstract and Results (urologists n = 3; Turkish 0.9408)",
+    "task_type": "generation",
+    "judge": "human"
+  },
+  "data": {
+    "public": "no",
+    "source": "proprietary repository of urological documents"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live id is a citation; the RAG assistant's LLM is unversioned and outcomes are similarity metrics plus urologist ratings."
+}

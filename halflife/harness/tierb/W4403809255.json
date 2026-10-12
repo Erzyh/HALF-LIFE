@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4403809255",
+ "title": "CurricuLLM: Automatic Task Curricula Design for Learning Complex Robot Skills using Large Language Models",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "\"Finally, we use OpenAI's GPT-4-turbo [16] as LLM agents throughout the experiments.\" (curriculum design and reward-function generation for RL robot-skill training)"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Method sections describing the two-step curriculum/reward-generation approach (not fully quoted in the retrieved excerpt)",
+  "note": "The LLM generates reward-function code and subtask curricula; full templates likely in an appendix not reached."
+ },
+ "claim": {
+  "metric": "none as a table number (task success rate shown only as learning-curve figures)",
+  "value": null,
+  "n_items": null,
+  "location": "Figure 5 (learning curves per task, graphical only); RL policies trained with 5 seeds (LLM-zeroshot baseline with 10 seeds)",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "Standard RL benchmarks (Fetch-Push, AntMaze-UMaze, etc.); LLM-generated curricula/reward code not confirmed released"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo's role is to design curricula/reward functions that are then used to train RL policies over many seeds; the headline success-rate results are downstream RL-training outcomes shown only in figures, not a table cell, and reproducing them needs full RL training infrastructure beyond a single prompt call."
+}

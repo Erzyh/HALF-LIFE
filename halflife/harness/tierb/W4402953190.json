@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4402953190",
+  "title": "Pre-Training Multimodal Hallucination Detectors with Corrupted Grounding Data",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo (OpenAI, 2023) / GPT-4o (OpenAI, 2024)",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "B",
+    "evidence": "Appendix C: 'We use GPT-4 Turbo (OpenAI, 2023) and GPT-4o (OpenAI, 2024) as the LMs.' Table 4: 'GPT-4 Turbo ✗ 73.16'"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "Appendix C (prompt only described: instructions + one in-context example + image-prompt-response triple)",
+    "note": "No prompt text is printed."
+  },
+  "claim": {
+    "metric": "sentence-level hallucination classification weighted F1 (wF1)",
+    "value": 73.16,
+    "n_items": null,
+    "location": "Table 4 (Appendix C), row GPT-4 Turbo",
+    "task_type": "classification",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "M-HalDetect (Gunjal et al., 2024) sentence-classification setup; test-set size not stated"
+  },
+  "cost": {
+    "est_calls": 1000,
+    "tier": "mid"
+  },
+  "blockers": [
+    "no_prompt"
+  ],
+  "notes": "Secondary appendix experiment; the paper's main models are fine-tuned LLaVA detectors. 'GPT-4 Turbo' is cited as OpenAI 2023 without a snapshot; paper dated 2024-08-30 with no preview string, so resolved to the 2024-04-09 GA per the alias rule. Item count for the sentence task is not given."
+}

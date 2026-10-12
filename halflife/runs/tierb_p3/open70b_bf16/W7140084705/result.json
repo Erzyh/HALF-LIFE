@@ -1,0 +1,58 @@
+{
+  "wid": "W7140084705",
+  "title": "Quantifying Data Contamination in Psychometric Evaluations of LLMs",
+  "model": "erzyh34-1842/halflife-bf16",
+  "metric": "macro_f1",
+  "original_value": 0.92,
+  "original_location": "Table 1, row gpt-4.1-nano, column Item-Dimension Mapping (F1) (0.92 +/- 0.07); per inventory Tables 3-6",
+  "reexecution": {
+    "mean_over_seeds": 0.926875747605321,
+    "per_seed": {
+      "0": {
+        "value": 0.926875747605321,
+        "n": 138,
+        "ci95": [
+          0.8696964763112629,
+          0.9699622823847553
+        ],
+        "ci_kind": "set-level resample"
+      }
+    },
+    "unparsed": 2
+  },
+  "prepare": {
+    "wid": "W7140084705",
+    "n_items": 138,
+    "n_requests": 138,
+    "seeds": 1,
+    "est_usd": 0.02,
+    "subset_note": "repeat of the open70b condition: same items and request bodies, 1 fresh calls per item; model field rewritten from meta-llama/Llama-3.3-70B-Instruct-Turbo to erzyh34-1842/halflife-bf16",
+    "dropped_unrenderable": 0,
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    "metric": "macro_f1",
+    "original_value": 0.92,
+    "cap_usd": 5.0,
+    "source_dir": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\runs\\tierb_p3\\open70b\\W7140084705",
+    "source_model": "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  },
+  "served": {
+    "models": [
+      "erzyh34-1842/halflife-bf16"
+    ],
+    "n_fingerprints": 1
+  },
+  "approximation": "The released sd3.json has 24 items (psychopathy 6) versus 27 in the paper; the {dimensions} list format is not printed (comma-separated labels from the JSON meta_data); runner macro-F1 is pooled over all 23 dimension labels (the paper averages per-inventory macro-F1 over the four inventories); the runner's label match is a word-bounded substring match rather than the repository's exact string equality",
+  "arm": {
+    "model": "erzyh34-1842/halflife-bf16",
+    "config_model": "gpt-4.1-nano-2025-04-14",
+    "seeds": 1,
+    "config_seeds": 3,
+    "runs_dir": "runs\\tierb_p3\\open70b_bf16\\W7140084705"
+  },
+  "comparison": {
+    "scale_applied": 1.0,
+    "reexecution_scaled": 0.926875747605321,
+    "delta": 0.006875747605320948,
+    "original_inside_ci95": true
+  }
+}

@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W4416907954",
+ "title": "ROLE OF ARTIFICIAL INTELLIGENCE IN PREDICTING OUTCOMES OF CLINICAL TRIALS IN ONCOLOGY",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4 (gpt-4-turbo-2024-04-09)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "B",
+  "evidence": "Model table: 'GPT-4 LLM (Closed-source) gpt-4-turbo-2024-04-09 Dec 2023'; Table 1: 'GPT-4 0.542 0.234 1.000 0.083' (Balanced Accuracy, MCC, Recall, Specificity)"
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Sec. 'Model Input and Prediction Process': 'Each model was prompted with structured trial data using a standardized instruction: \"Use the following clinical trial data to predict whether the outcome will be a success or failure. Reply...\"'",
+  "note": ""
+ },
+ "claim": {
+  "metric": "Balanced Accuracy",
+  "value": 0.542,
+  "n_items": 712,
+  "location": "Table 1, row GPT-4 (MCC 0.234, Recall 1.000, Specificity 0.083 in the same row); '712 were oncology-specific trials' out of 2,163 total extracted",
+  "task_type": "classification",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "ClinicalTrials.gov (publicly accessible database), interventional oncology trials, Phases I-III, completed 2015-2023"
+ },
+ "cost": {
+  "est_calls": 712,
+  "tier": "low"
+ },
+ "blockers": [],
+ "notes": "GPT-4o in this paper is pinned to the rolling alias 'chatgpt-4o-latest' (not a dated snapshot), so despite GPT-4o's higher balanced accuracy (0.573) it is treated as unresolved/non-reproducible; GPT-4 (gpt-4-turbo-2024-04-09) is the cleanest live-listed result in this paper."
+}

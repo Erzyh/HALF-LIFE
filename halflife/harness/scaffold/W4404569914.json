@@ -1,0 +1,16 @@
+{
+  "openalex_id": "https://openalex.org/W4404569914",
+  "title": "Does Prompt Formatting Have Any Impact on LLM Performance?",
+  "doi": "https://doi.org/10.48550/arxiv.2411.10541",
+  "field": "Computer Science",
+  "year": "2024",
+  "live_models": "gpt-4-turbo",
+  "dead_models": "gpt-4-1106-preview|gpt-4-32k",
+  "flags": "",
+  "all_links": [
+    "github.com/openai/evals.OpenAI"
+  ],
+  "candidate_repos": [],
+  "paper_text": "C:\\Users\\yeonh\\Desktop\\NMI_RS\\halflife\\external\\papers\\W4404569914.txt",
+  "paper_text_status": "pdf"
+}

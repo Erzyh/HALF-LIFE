@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4411613311",
+ "title": "Large Language Models in Traditional Chinese Medicine: A Short Survey and Outlook",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4 / ChatGPT (no gpt-4-turbo string found)",
+  "resolved": "unresolved",
+  "role": "C",
+  "evidence": "Tables 2-4 summarize prior studies' use of ChatGPT/GPT-4 in TCM (e.g., \"Only GPT-4o passed with an overall...\"); no original experiment by these authors, no gpt-4-turbo mention found."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none (survey of others' results)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "no",
+  "source": "n/a (survey)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Short survey/outlook paper tabulating findings from cited studies; no original model runs."
+}

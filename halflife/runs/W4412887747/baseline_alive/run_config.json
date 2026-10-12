@@ -1,0 +1,57 @@
+{
+  "card_id": "W4412887747",
+  "model": "gpt-4-turbo-2024-04-09",
+  "temperature": 0,
+  "max_tokens": {
+    "aitqa": 64,
+    "infotabs": 32
+  },
+  "seeds": 3,
+  "calls": 2445,
+  "cap_usd": 25.0,
+  "datasets": {
+    "aitqa": 315,
+    "infotabs": 500
+  },
+  "prompt_sha256": "ef4fa13cfb2456c2b7c21fef925faf216cc127a60c73a8c56f13abff3234a9aa",
+  "repo_commit": "8d3a2c274a6038f0afbf25ba894a5a04313ca4ca",
+  "estimate": {
+    "encoding": "cl100k_base",
+    "pricing": {
+      "input": 10.0,
+      "output": 30.0
+    },
+    "per_dataset": {
+      "aitqa": {
+        "calls": 945,
+        "tokens_in": 518619,
+        "max_tokens": 64,
+        "mean_tokens_in": 548.8,
+        "tokens_out_expected": 7560,
+        "tokens_out_max": 60480,
+        "usd_expected": 5.413,
+        "usd_max_bound": 7.001
+      },
+      "infotabs": {
+        "calls": 1500,
+        "tokens_in": 970023,
+        "max_tokens": 32,
+        "mean_tokens_in": 646.7,
+        "tokens_out_expected": 6000,
+        "tokens_out_max": 48000,
+        "usd_expected": 9.88,
+        "usd_max_bound": 11.14
+      }
+    },
+    "total": {
+      "calls": 2445,
+      "tokens_in": 1488642,
+      "tokens_out_expected": 13560,
+      "tokens_out_max": 108480,
+      "usd_expected": 15.293,
+      "usd_max_bound": 18.141
+    }
+  },
+  "built_utc": "2026-09-19T14:02:45.187333+00:00",
+  "decisions": "card key decisions_2026_09_19"
+}

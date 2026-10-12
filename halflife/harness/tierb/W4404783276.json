@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404783276",
+  "title": "How Do Your Code LLMs perform? Empowering Code Instruction Tuning with Really Good Data",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4-Turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "\"Results for other models are sourced from LiveCodeBench Leaderboard ... The full name of GPT-4 ... are GPT-4o-2024-05-13, GPT-4-Turbo-2024-04-09\" (Figure 3 caption)"
+  },
+  "prompt": {
+    "verbatim": "none",
+    "location": "",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "Figure 3 / Appendix D (copied leaderboard numbers)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {
+    "public": "yes",
+    "source": "HumanEval, LiveCodeBench, BigCodeBench"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Closed-model numbers are copied from public leaderboards, not run by the authors."
+}

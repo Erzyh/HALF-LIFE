@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4415201012",
+ "title": "MathCoder-VL: Bridging Vision and Code for Enhanced Multimodal Mathematical Reasoning",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo (OpenAI, 2024a)",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Table 1: \"GPT-4-turbo (OpenAI, 2024a) - 30.3 43.5 58.3 50.0 - - -\" (MATH-Vision, MathVerse, MathVista, We-Math columns), listed alongside Qwen-VL-Plus/Max, GPT-4V, GPT-4o, Claude, Gemini, each individually citation-tagged."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a - Table 1 is a standard cross-paper comparison table; numbers are attributed to each model's own source via citation tags, not reproduced from a live call by these authors",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none run by these authors for GPT-4-turbo (Table 1 figures are copied from prior publications, per the per-model citation tags)",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (comparison table); the paper's own new experiments concern MathCoder-VL, not GPT-4-turbo",
+  "task_type": "mcq",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "MATH-Vision, MathVerse, MathVista, GAOKAO-MM, We-Math (all public benchmarks); irrelevant since the live id is a citation, not a live call"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "GPT-4-turbo, GPT-4V, GPT-4o, Claude and Gemini rows in Table 1 are all tagged with their originating technical-report citation, consistent with the standard practice of copying previously published leaderboard numbers into a new comparison table rather than re-running proprietary models."
+}

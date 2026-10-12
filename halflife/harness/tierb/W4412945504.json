@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4412945504",
+ "title": "SkillVerse : Assessing and Enhancing LLMs with Tree Evaluation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "C",
+  "evidence": "Fig.4: \"Comparing the strengths and weaknesses of two proprietary models... GPT-4o vs GPT-4-turbo\" on STEM tasks (58.7%-84.0% cells); scored from pre-existing {prompt,response} pairs."
+ },
+ "prompt": {
+  "verbatim": "none",
+  "location": "n/a",
+  "note": "Critiques use Gemini-1.5-Pro (occasionally GPT-4o) as judge; cites Lei-style prompting for other baselines, not reprinted."
+ },
+ "claim": {
+  "metric": "none (Fig.4 scores historical ChatbotArena responses attributed to GPT-4-turbo, not a fresh call to the model)",
+  "value": null,
+  "n_items": null,
+  "location": "n/a",
+  "task_type": "other",
+  "judge": "none"
+ },
+ "data": {
+  "public": "partial",
+  "source": "ChatbotArena/IFEval logs (third-party, not redistributed by this paper)"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_prompt"
+ ],
+ "notes": "SkillVerse's dendrogram/critique framework is applied to GPT-4-turbo's pre-existing ChatbotArena battle transcripts (frozen historical data), not to fresh model calls; the live model that is actually queried by the authors is the Gemini-1.5-Pro/GPT-4o critique model (role A elsewhere in the paper)."
+}

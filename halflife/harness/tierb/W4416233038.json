@@ -1,0 +1,21 @@
+{
+  "openalex_id": "W4416233038",
+  "title": "HLPD: Aligning LLMs to Human Language Preference for Machine-Revised Text Detection",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4o-2024-05-13; gpt-o3-2025-04-16; gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4o-2024-05-13",
+    "role": "B",
+    "evidence": "Appendix A model list: \"OpenAI / GPT-4o : gpt-4o-2024-05-13\", \"GPT-4 Turbo : gpt-4-turbo-2024-04-09\"; Table 1: \"Detection Performance of GPT-3.5 and GPT-4o rewritten text. Metric: AUROC\"."
+  },
+  "prompt": {"verbatim": "full", "location": "Appendix B.1-B.3 (rewrite, polish and adversarial revision instructions)", "note": "Revision prompts given to the source LLMs are printed."},
+  "claim": {
+    "metric": "AUROC of the HLPD detector on GPT-4o rewritten text", "value": null, "n_items": null, "location": "Table 1 and Table 5 (Appendix D)",
+    "task_type": "generation",
+    "judge": "none"
+  },
+  "data": {"public": "yes", "source": "https://github.com/dfq2021/HLPD (XSum, SQuAD, WritingPrompts revisions)"},
+  "cost": {"est_calls": 0, "tier": "low"},
+  "blockers": ["no_number"],
+  "notes": "The live models only generate the machine-revised test texts; every reported number is the AUROC of the trained HLPD detector (and baselines) on those texts. No metric measures the live model itself, and the detector requires the released code and weights."
+}

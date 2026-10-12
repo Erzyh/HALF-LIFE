@@ -1,0 +1,159 @@
+{
+ "card_id": "W4400103831",
+ "openalex_id": "https://openalex.org/W4400103831",
+ "title": "BADGE: BADminton report Generation and Evaluation with LLM",
+ "doi": "10.48550/arxiv.2406.18116",
+ "paper": {
+  "authors": "Chiang, Chao, Wang, Wang, Peng (National Yang Ming Chiao Tung University)",
+  "year": 2024,
+  "venue": "IJCAI 2024 Workshop IT4PSS (arXiv 2406.18116)",
+  "repo": "https://github.com/AndyChiangSH/BADGE",
+  "repo_commit": "83a515a2f618e118cebc4f55ae55096f2a4e7560 (2024-07-22; shallow clone at external/repos/W4400103831/AndyChiangSH__BADGE, 5.5 MB)",
+  "repo_license": "MIT, (c) 2024 Shang-Hsuan Chiang",
+  "other_artifacts": "Rally-level source data derived from ShuttleSet (Wang et al. 2023); a GitHub Pages demo reproduces the generation and evaluation prompts in the browser"
+ },
+ "dependence": {
+  "type": "judge",
+  "strength": "core",
+  "note": "gpt-4-turbo-2024-04-09 is both the writer of the reports under test and the G-Eval-style judge that produces every number in Tables 1 and 2; the human evaluation (Table 3) is the external reference against which the judge's validity is assessed. Report generation and scoring are therefore two dependent uses of the same dying snapshot."
+ },
+ "claim": {
+  "statement": "With the CSV input type and the Chain-of-Thought prompt on 10 ShuttleSet matches, reports written by gpt-4-turbo-2024-04-09 are scored by the same model (G-Eval-style, four criteria, 1-10) at 8.6 coherence / 9.4 consistency / 8.2 excitement / 9.1 fluency, average 8.825, above GPT-3.5-turbo-0125 reports (8.625) and above human-written reports (7.925) on every criterion (Table 2), while human judges rank the same reports GPT-4 8.225 > human 7.450 > GPT-3.5 6.350 (Table 3) and the GPT-4-to-human correlation is only r = 0.333, i.e. the LLM judge shows the G-Eval self-preference for machine-written text.",
+  "claim_type": "tool_validity",
+  "metric": "Mean GPT-4 evaluation score per criterion (coherence, consistency, excitement, fluency; integer 1-10, one call per report per criterion), averaged over the 10 matches, and their 4-criterion average. Secondary: Pearson r between the GPT-4 and human evaluation scores (0.333).",
+  "original_values": {
+   "table2_gpt4_evaluation": {
+    "human_writer": {
+     "coherence": 7.5,
+     "consistency": 8.9,
+     "excitement": 6.8,
+     "fluency": 8.5,
+     "avg": 7.925
+    },
+    "gpt_3_5_turbo_0125_writer": {
+     "coherence": 8.4,
+     "consistency": 9.2,
+     "excitement": 8.0,
+     "fluency": 8.9,
+     "avg": 8.625
+    },
+    "gpt_4_turbo_2024_04_09_writer": {
+     "coherence": 8.6,
+     "consistency": 9.4,
+     "excitement": 8.2,
+     "fluency": 9.1,
+     "avg": 8.825
+    }
+   },
+   "table3_human_evaluation": {
+    "human_writer": 7.45,
+    "gpt_3_5_writer": 6.35,
+    "gpt_4_writer": 8.225
+   },
+   "table1_gpt3_5_writer_by_datatype_and_icl": {
+    "csv_zero_shot": 8.1,
+    "csv_one_shot": 8.325,
+    "csv_few_shot": 8.425,
+    "csv_cot": 8.625,
+    "qa_zero_shot": 8.125,
+    "qa_one_shot": 8.3,
+    "qa_few_shot": 8.225,
+    "qa_cot": 8.125
+   },
+   "pearson_gpt4_vs_human": 0.333,
+   "n_games": 10
+  },
+  "original_source": "Paper Table 2 (GPT-4 evaluation by writer), Table 3 (human evaluation), Table 1 (GPT-3.5 writer across data types and ICL; its CSV+CoT row 8.625 is identical to the Table 2 GPT-3.5 row, which is how we identify Table 2 as the CSV+CoT condition), Sec. 4.5 for the correlation."
+ },
+ "protocol": {
+  "model": "gpt-4-turbo-2024-04-09",
+  "model_status": "dying, OpenAI shutdown 2026-10-23 (target_models.json priority 1)",
+  "model_usage_verified": "yes, dated snapshot in both paper and code. Sec. 3.2 names GPT-4-turbo-2024-04-09; code/generation/GPT-4.py and all three scripts in code/evaluation/ hardcode model = gpt-4-turbo-2024-04-09. No alias inference needed.",
+  "endpoint": "POST https://api.openai.com/v1/chat/completions (openai SDK, single user message, one call per report and per criterion)",
+  "prompt_source": "prompt/generation/CSV+CoT.txt (writer; the paper prints only its opening lines) and prompt/evaluation/{coherence,consistency,excitement,fluency}.txt (judge: task introduction + criterion definition + three fixed evaluation steps + report + an evaluation form asking for scores only). The evaluation steps were auto-generated once by GPT-4 per the G-Eval recipe and are frozen in these files.",
+  "params": {
+   "temperature": "not set (API default 1.0) - matches the original scripts, which pass only model and messages",
+   "max_tokens": "not set",
+   "top_p": "not set",
+   "seed": "not set",
+   "note": "unset temperature means the writer and the judge are both stochastic; with 10 matches per cell the run-to-run spread is large and must be reported"
+  },
+  "n_items": 130,
+  "n_items_note": "per seed: 10 generation calls (10 matches x CSV+CoT, GPT-4 writer) + 120 judge calls (3 writers x 10 matches x 4 criteria). The GPT-3.5 writer arm is not regenerated (gpt-3.5-turbo-0125 is dead, shut down 2026-03-26); its released reports and the human reports are judged as-is.",
+  "samples_per_item": 1,
+  "samples_note": "1 per item per seed, 3 seeds (the paper ran one pass); at temperature 1.0 the seeds are the main variance estimate",
+  "evaluation": "Score extraction from free text: the released judge outputs are sometimes a bare integer, sometimes 'Coherence: 9' plus an explanation, sometimes several paragraphs with the score only at the end. The repo ships no parser or aggregation script, so the card must add one (documented as a pipeline paraphrase, not a prompt change) and archive the raw judge text.",
+  "environment": "python + openai (environment.yaml / requirements.txt, unpinned). One-line path fix needed: the generation scripts write to generation/<game>/<model>/, the evaluation scripts read report/<game>/<model>/."
+ },
+ "artifacts": {
+  "prompts_path": "prompt/generation/ (8 files: CSV|QA x zero-shot|one-shot|few-shot|CoT) and prompt/evaluation/ (4 criteria)",
+  "data_path": "CSV/<game>/CSV.txt and QA/<game>/QA.txt (the 10 pre-formatted match inputs, English, ~6.0 kB and ~2.9 kB per match) built by code/data/CSV+QA.py from data/<game>/set*.csv (ShuttleSet rally records); generation/<game>/{GPT-4,GPT-3.5,human}/ holds the released reports (170 files)",
+  "eval_path": "code/evaluation/{GPT-4,GPT-3.5,human}.py; released judge outputs in evaluation/<game>/<writer>/<report>/<criterion>.txt (680 files). No scorer or table-building script is included.",
+  "data_public": true,
+  "data_license": "repo MIT; the rally data derive from ShuttleSet (public research dataset, separate terms); the 10 human-written reports were collected from the Internet by the authors (third-party news text redistributed in the repo)",
+  "redistributable": "code and derived CSV/QA inputs: yes (MIT). Human-written reports: treat as non-redistributable third-party text; keep them inside the L1 archive only as prompt inputs.",
+  "notes": "Item-level original outputs ARE released, which is rare. We re-aggregated them without any API call: the human row (7.5 / 8.9 / 6.8-6.89 / 8.5, avg 7.933) and the GPT-3.5 row (8.4 / 9.2 / 8.0 / 8.9, avg 8.625) reproduce Table 2 exactly, but the GPT-4 writer row aggregates to 8.40 (coherence 8.40, consistency 8.00, excitement 8.20, fluency 9.00), not 8.825. Two released consistency judgements for GPT-4 reports are 3 and 4 (one file contains no number at all), so the published GPT-4 row cannot be rebuilt from the released files."
+ },
+ "blockers": [
+  "The released judge outputs do not reproduce the published GPT-4 row: our parse gives avg 8.40 vs Table 2's 8.825 (human and GPT-3.5 rows match exactly), so the Table 2 GPT-4 cell corresponds to a different judging pass or a score-extraction rule that is not documented.",
+  "Decoding parameters are unset (temperature 1.0), so both writer and judge are stochastic on n = 10 matches; the 0.20 gap between the GPT-4 and GPT-3.5 rows is within plausible run-to-run noise.",
+  "The GPT-3.5 writer arm (gpt-3.5-turbo-0125) is dead, so that row of Table 2 can only be re-judged from the released reports, never regenerated.",
+  "Table 3 (human evaluation) and the r = 0.333 correlation need human raters and cannot be re-executed; only the GPT-4 side of the comparison is reproducible.",
+  "Repo path mismatch (generation/ written, report/ read) and no aggregation script: a small harness wrapper is required and must be logged as a pipeline paraphrase."
+ ],
+ "arms": {
+  "baseline_alive": {
+   "model": "gpt-4-turbo-2024-04-09",
+   "purpose": "live baseline (P0) in both roles, writer and judge; cheap (about USD 8 for the full three-seed design)"
+  },
+  "successors": [
+   "gpt-5.6-sol (vendor-designated replacement for gpt-4-turbo on the OpenAI deprecations page)",
+   "gpt-4.1-2025-04-14 (GPT-4-class comparator)"
+  ],
+  "dead_comparators_not_runnable": [
+   "gpt-3.5-turbo-0125 (writer arm, shut down 2026-03-26; released reports are reused as fixed inputs)"
+  ],
+  "design_note": "Writer and judge can be varied independently. Default: same snapshot in both roles, as in the paper. A successor-judge / live-writer cell isolates whether the self-preference effect follows the judge or the writer."
+ },
+ "budget": {
+  "est_calls": 390,
+  "est_tokens_in": 451000,
+  "est_tokens_out": 107000,
+  "est_cost_usd": 8,
+  "pricing_usd_per_1m": {
+   "gpt-4-turbo-2024-04-09": {
+    "input": 10.0,
+    "output": 30.0
+   }
+  },
+  "assumptions": "3 seeds x (10 generation + 120 judge) calls. Generation: ~1,830 input tokens (CSV.txt averages 5,995 chars plus the 543-char CoT prompt) and ~560 output tokens (released CSV+CoT reports average 2,149 chars). Judging: ~1,100 input tokens (criterion prompt ~2,200 chars + report) and ~250 output tokens (the judge writes a score plus an explanation despite the scores-only instruction). Repo README's own figures for one pass were USD 2.50 generation and 2 x USD 3.00 + USD 0.37 evaluation."
+ },
+ "judgment": {
+  "rule": "ANALYSIS_PLAN section 1. Primary number: the 4-criterion average for the gpt-4-turbo-2024-04-09 writer under the same-model judge (median of 3 seeds) against 8.825. Survival = median inside the bootstrap 95% CI over the 10 matches of the original AND the direction holds: GPT-4 reports >= GPT-3.5 reports > human reports on the average (the paper's self-preference claim). Partial = level moves outside the CI but the LLM-over-human ordering survives. Death = human-written reports are scored at or above the LLM-written ones, which would undo the paper's central observation.",
+  "notes": "Ordering, not level, is the load-bearing part, and with n = 10 matches at temperature 1.0 the CI is wide (the released item scores range 3-10 on consistency). Report the writer effect (GPT-4 vs GPT-3.5 reports, 0.20 apart) as fragile by default. A second, cleaner test holds the reports fixed (re-judging the released GPT-3.5, GPT-4 and human reports) so that only judge drift is measured; the discrepancy we found between the released judge outputs and Table 2 makes that fixed-report arm the more informative one."
+ },
+ "decisions_2026_09_19": {
+  "adapter": "harness/adapters/badge_W4400103831.py (--check / --dry-run / --run / --analyze)",
+  "primary_arm": "full protocol: regenerate the GPT-4 reports with prompt/generation/CSV+CoT.txt, then judge all three writers' reports with prompt/evaluation/<criterion>.txt. Answers user_check 1.",
+  "secondary_arm": "judge-only on the released reports (reports frozen), which isolates judge drift. The GPT-3.5 and human judge calls are identical in both arms and are issued once, so the secondary arm adds only 10 matches x 4 criteria x seeds calls on the released GPT-4 reports.",
+  "comparison_targets": "the published Table 2 value 8.825 is primary; the 8.40 re-aggregated from the repo's own released judge outputs is reported alongside and is the like-for-like target of the secondary arm. Answers user_check 2.",
+  "score_parser": "bare integer, else the last criterion-labelled number (markdown bold and a trailing 'Score' tolerated), 1-10 enforced, unparseable = missing; logged as a pipeline paraphrase. Answers user_check 3.",
+  "table1_grid": "skipped (user_check 4 declined): only the CSV+CoT condition of Table 2 is run.",
+  "budget": "per-paper cap USD 15, split writer 3 / judge 12; --dry-run 2026-09-19 estimate 510 calls (30 writer + 480 judge) at 3 seeds, ~517k input / ~68k output tokens, ~USD 7.21.",
+  "check_result_2026_09_19": "the primary parser reproduces the Table 2 GPT-3.5 row exactly (8.625) and gives 8.400 for the GPT-4 row (published 8.825). The human row gives 7.947 with one judge reply dropped, and exactly the published 7.925 under a criterion-stem sensitivity variant that reads that reply's renamed criterion ('- Excitiveness: 6') and changes only that 1 of the 120 cells. NOTE: this card's artifacts.notes figure 7.933 for the human row is reproduced only by a markdown-blind parser that additionally drops '- **Fluency**: 9', and that parser breaks the GPT-3.5 row (8.606); all three parsers are computed in runs/W4400103831/environment_check.json so the figure stays traceable. The card's criterion values for the human row (7.5 / 8.9 / 6.8-6.89 / 8.5) are correct; their average is 7.925-7.947, not 7.933."
+ },
+ "status": "done",
+ "user_checks": [
+  "Re-run both stages (regenerate the GPT-4 reports, then judge all three writers), or hold the released reports fixed and re-run only the judge? Cost is nearly identical; only the fixed-report arm isolates judge drift.",
+  "Judge Table 2 against the published 8.825, or against the 8.40 we recomputed from the repo's own released judge outputs (report both, pick the primary)?",
+  "Accept our score parser (bare integer, else the last criterion-labelled number in the text; unparseable = missing) as the documented pipeline paraphrase?",
+  "Include the 8-cell Table 1 grid as a fixed-report judge-only arm (+80 calls per seed, ~+USD 2)?"
+ ],
+ "domain_notes": "BADGE is a two-phase framework: rally-level ShuttleSet records are flattened into a 6-column CSV (or a Q&A rendering) and given to the LLM writer, then a G-Eval-style judge scores the report on four criteria. Table 2 compares the same 10 matches across three writers, and the paper's contribution beyond the sports application is the confirmation of G-Eval's preference for machine-written text: the LLM judge places GPT-3.5 reports above human reports while human raters place them last (Table 3). The workshop paper has 2 citations and reports no statistical test, so this card carries the ordering, not the decimals. No Tier B config exists for this paper (data/tierA_pass2_cards.csv in_tierb = False); this card upgrades the triage plan from a prompt-level replay to a repository-based re-execution: full prompt files instead of the abridged paper text, the 10 identified matches with their pre-formatted CSV inputs, and the released reports and judge outputs as the frozen comparison set.",
+ "judgment_provisional": {
+  "value": "생존 (survived)",
+  "cost_usd": 5.802,
+  "run_date": "2026-09-19",
+  "source": "runs/W4400103831/run_meta.json"
+ }
+}

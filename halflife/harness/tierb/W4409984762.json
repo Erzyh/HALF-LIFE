@@ -1,0 +1,37 @@
+{
+ "openalex_id": "W4409984762",
+ "title": "Evaluation of the Competency of Large Language Models GPT-4o and Claude 3.5 Sonnet in Endodontic Emergencies",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4o (via chatgpt.com)",
+  "resolved": "unresolved",
+  "role": "S",
+  "evidence": "\"Each LLM was used (GPT-4o available at: https://chatgpt.com/; Claude...)\"; \"81 open-ended questions were evaluated.\""
+ },
+ "prompt": {
+  "verbatim": "full",
+  "location": "Table 1 (all 81 endodontic questions listed)",
+  "note": "Each question was submitted directly as the prompt via the ChatGPT web app."
+ },
+ "claim": {
+  "metric": "accuracy Likert score (1-5) on endodontic emergency questions",
+  "value": null,
+  "n_items": 81,
+  "location": "Results (human-rated accuracy/comprehensiveness per topic)",
+  "task_type": "generation",
+  "judge": "human"
+ },
+ "data": {
+  "public": "yes",
+  "source": "81 open-ended endodontics questions, listed in Table 1"
+ },
+ "cost": {
+  "est_calls": 81,
+  "tier": "low"
+ },
+ "blockers": [
+  "webui",
+  "alias_unpinned"
+ ],
+ "notes": "GPT-4o was accessed through the ChatGPT consumer website, not the API, and is undated with no stated access date before 2024-10-02 (paper is 2025), so it cannot be pinned to gpt-4o-2024-05-13. \"GPT-4 Turbo\" appears only in a generic historical-background sentence (role C)."
+}

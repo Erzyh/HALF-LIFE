@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W7163777928",
+  "title": "Three Years of r/ChatGPT: Societal Impact Evaluations from Social Media Data",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "GPT-4 Turbo / o3-mini / o4-mini / GPT-5",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "C",
+    "evidence": "Table 12/13 timeline entries such as '2023-11-06 GPT-4 Turbo + DevDay feature releases', '2025-04-16 o3 + o4-mini'; labeling was done with gpt-4.1-mini (Section 2)."
+  },
+  "prompt": {
+    "verbatim": "partial",
+    "location": "Figures 24-25 (feature interpretation and labeling prompts for gpt-4.1-mini)",
+    "note": ""
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a (social-media trend analysis)",
+    "task_type": "other",
+    "judge": "llm:gpt-4.1-mini"
+  },
+  "data": {
+    "public": "partial",
+    "source": "r/ChatGPT posts (Reddit); interactive site mentioned"
+  },
+  "cost": {
+    "est_calls": null,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Live IDs appear only as product-release dates in the timeline; the models are not run."
+}

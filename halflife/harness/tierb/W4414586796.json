@@ -1,0 +1,36 @@
+{
+ "openalex_id": "W4414586796",
+ "title": "Select, Read, and Write: A Multi-Agent Framework of Full-Text-based Related Work Generation",
+ "verdict": "ineligible",
+ "live_model": {
+  "id_in_text": "GPT-4o (backbone/baseline footnoted as gpt-4o-2024-08-06; LLM-judge ensemble footnoted as \"a distinct version\", gpt-4o-2024-05-13)",
+  "resolved": "unresolved",
+  "role": "A",
+  "evidence": "\"2Version gpt-4o-2024-08-06\" (backbone footnote, Sec. 5.1); \"three advanced LLMs: GPT-4o[3]...3A distinct version, gpt-4o-2024-05-13\" (Sec. 5.2)"
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Appendix D (selector/reader/writer agent prompts); LLM-judge scoring rubric only described narratively (Sec. 5.2)",
+  "note": ""
+ },
+ "claim": {
+  "metric": "none individually attributable to gpt-4o-2024-05-13 (1 of 3 averaged judges); Table 1's GPT-4o numbers use the 2024-08-06 backbone, off the live list",
+  "value": null,
+  "n_items": null,
+  "location": "Table 1 (GPT-4o row uses the 2024-08-06 backbone, not 2024-05-13)",
+  "task_type": "generation",
+  "judge": "llm:ensemble(gpt-4o-2024-05-13,claude-3.5-haiku,gemini-1.5-pro)"
+ },
+ "data": {
+  "public": "yes",
+  "source": "OARelatedWork dataset (Docekal et al., 2024); code at github.com/1190200817/Full_Text_RWG"
+ },
+ "cost": {
+  "est_calls": null,
+  "tier": "low"
+ },
+ "blockers": [
+  "no_number"
+ ],
+ "notes": "Two different GPT-4o snapshots are in play: the backbone/baseline model that produces the paper's headline Table 1 numbers is gpt-4o-2024-08-06 (not on the live list), while the only live-listed snapshot, gpt-4o-2024-05-13, is used solely as 1 of 3 LLM judges whose scores are averaged together (individual contribution not separable)."
+}

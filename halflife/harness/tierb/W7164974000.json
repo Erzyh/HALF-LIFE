@@ -1,0 +1,34 @@
+{
+ "openalex_id": "W7164974000",
+ "title": "WorkBench Revisited: Workplace Agents Two Years On",
+ "verdict": "eligible",
+ "live_model": {
+  "id_in_text": "GPT-4-turbo",
+  "resolved": "gpt-4-turbo-2024-04-09",
+  "role": "S",
+  "evidence": "\"We evaluate 24 models released between March 2023 and June 2026: the GPT line from GPT-3.5-turbo through GPT-5.5...\"; Table 1 row 'GPT-4-turbo': 61.3% completion, 22.3% side effects, $0.307/task."
+ },
+ "prompt": {
+  "verbatim": "partial",
+  "location": "Sec 2.1 (Agent harness): native tool-calling loop, task + all 26 tools + up to 20 steps, temperature 0 where permitted; corrections to scoring/ground-truth/prompts documented in an appendix",
+  "note": "Harness and protocol are described in detail; the underlying WorkBench task set is the original public benchmark (revised here), not reprinted verbatim in the main text."
+ },
+ "claim": {
+  "metric": "successful task completion (%)",
+  "value": 61.3,
+  "n_items": 690,
+  "location": "Table 1, row 'GPT-4-turbo': completion 61.3%, side effects 22.3%, cost/task $0.307; \"Completion and side effects are over all 690 tasks\"",
+  "task_type": "agentic",
+  "judge": "none"
+ },
+ "data": {
+  "public": "yes",
+  "source": "WorkBench benchmark (690 tasks, 26 tools), original 2024 release revised/corrected in this paper's appendix"
+ },
+ "cost": {
+  "est_calls": 690,
+  "tier": "high"
+ },
+ "blockers": [],
+ "notes": "Clean, directly comparable agentic benchmark; GPT-4-turbo is 1 of 24 models run under an identical native-tool-calling harness. Cost per task ($0.307) x 690 tasks is roughly $212 for a single pass, well into the high tier, though the paper's own cost figure is an upper bound (no prompt caching)."
+}

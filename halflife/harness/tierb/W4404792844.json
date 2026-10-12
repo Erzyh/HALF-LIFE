@@ -1,0 +1,36 @@
+{
+  "openalex_id": "W4404792844",
+  "title": "Ask-before-Plan: Proactive Language Agents for Real-World Planning",
+  "verdict": "ineligible",
+  "live_model": {
+    "id_in_text": "gpt-4-turbo-2024-04-09",
+    "resolved": "gpt-4-turbo-2024-04-09",
+    "role": "A",
+    "evidence": "Appendix B.2: 'GPT Score: We utilize the OpenAI model gpt-4-turbo-2024-04-09 with zero temperature to judge the correctness of the generated questions'"
+  },
+  "prompt": {
+    "verbatim": "full",
+    "location": "Table 14 (prompts for clarification evaluation, judge role)",
+    "note": "Subject-model prompts (GPT-3.5, open models) are in Snippets 2-4."
+  },
+  "claim": {
+    "metric": "none",
+    "value": null,
+    "n_items": null,
+    "location": "n/a",
+    "task_type": "agentic",
+    "judge": "llm:gpt-4-turbo-2024-04-09"
+  },
+  "data": {
+    "public": "yes",
+    "source": "Ask-before-Plan dataset (GitHub)"
+  },
+  "cost": {
+    "est_calls": 0,
+    "tier": "low"
+  },
+  "blockers": [
+    "no_number"
+  ],
+  "notes": "Subjects are gpt-3.5-turbo-0125 and fine-tuned open models; live model only scores generated clarification questions."
+}

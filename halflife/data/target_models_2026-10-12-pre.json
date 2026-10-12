@@ -1,0 +1,653 @@
+{
+  "generated": "2026-09-01",
+  "updated": "2026-10-02 (refresh: 20 identifiers retired or given a retirement date after 2026-09-02, and the dateless aliases gpt-3.5-turbo and gpt-4o; previous file data/target_models_2026-09-28.json); 2026-10-11 second refresh: six identifiers with published retirement dates that the earlier passes did not track (previous file data/target_models_2026-10-11-pre.json)",
+  "purpose": "HALF-LIFE 센서스·P0 표적 모델 ID 어휘. 센서스는 이 문자열들의 전문(full-text) 검색으로 수행한다.",
+  "sources": {
+    "openai": "https://developers.openai.com/api/docs/deprecations (2026-09-01/02 조회)",
+    "anthropic": "https://platform.claude.com/docs/en/about-claude/model-deprecations (2026-09-02 조회) — 보존 공약: https://www.anthropic.com/research/deprecation-commitments",
+    "google": "Gemini API changelog·Vertex 공지 (2026-09-02 검색) — 1.5 계열 2025-09-29 종료. text-bison·gemini-1.0-pro는 2025-04-09 (2026-09-15 웹 확인: Vertex 릴리스 노트, Gemini API changelog 2025-02-18)"
+  },
+  "notes": [
+    "status: dead = 공식 셧다운 완료 / dying = 셧다운 일자 공지",
+    "priority: 1 = P0 생전 베이스라인 (2026-10-23 마감) / 2 = 2차 (2026-12-11 마감) / 3 = 사망층·센서스 전용",
+    "alias 항목은 논문들이 실제로 쓰는 표기(dated 스냅숏 문자열을 부분 포함)라 dated 항목을 검색상 포괄한다",
+    "o1-preview(2025-07-28 사망), o1-mini(2025-10-27 사망) 확정 → priority 1에서 3으로 이동. P0 불가, P3 후속 전환만 가능",
+    "Anthropic은 가중치 장기 보존을 공약했고 '연구자들이 비교 연구 접근을 잃는다'는 단종의 해악을 공식 인정 — 논문 서론·처방 레이어(에스크로) 인용원"
+  ],
+  "models": [
+    {
+      "id": "text-davinci-003",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-01-04",
+      "priority": 3
+    },
+    {
+      "id": "text-davinci-002",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-01-04",
+      "priority": 3
+    },
+    {
+      "id": "text-davinci-001",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-01-04",
+      "priority": 3
+    },
+    {
+      "id": "text-curie-001",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-01-04",
+      "priority": 3
+    },
+    {
+      "id": "gpt-3.5-turbo-0301",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-09-13",
+      "priority": 3
+    },
+    {
+      "id": "gpt-3.5-turbo-0613",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-09-13",
+      "priority": 3
+    },
+    {
+      "id": "gpt-3.5-turbo-16k",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-09-13",
+      "priority": 3
+    },
+    {
+      "id": "gpt-4-0314",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-03-26",
+      "priority": 3,
+      "audit_2026-09-28": "corrected from 2024-06-13: the 2023-06-13 notice said 'at earliest 2024-06-13'; the 2025-09-26 notice retired it on 2026-03-26; API returns 404 on 2026-09-28"
+    },
+    {
+      "id": "gpt-4-0613",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 3,
+      "audit_2026-09-28": "corrected from 2024-09-13: 2024-09-13 belongs to gpt-3.5-turbo-0613; the 2026-04-22 notice retires gpt-4-0613 on 2026-10-23; API still answers on 2026-09-28"
+    },
+    {
+      "id": "gpt-4-32k",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2025-06-06",
+      "priority": 3
+    },
+    {
+      "id": "gpt-4-1106-preview",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-03-26",
+      "priority": 3
+    },
+    {
+      "id": "gpt-4-0125-preview",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-03-26",
+      "priority": 3
+    },
+    {
+      "id": "gpt-4-vision-preview",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-12-06",
+      "priority": 3
+    },
+    {
+      "id": "gpt-4-1106-vision-preview",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2024-12-06",
+      "priority": 3
+    },
+    {
+      "id": "gpt-4.5-preview",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2025-07-14",
+      "priority": 3
+    },
+    {
+      "id": "chatgpt-4o-latest",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-02-17",
+      "priority": 3
+    },
+    {
+      "id": "o1-preview",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2025-07-28",
+      "priority": 3
+    },
+    {
+      "id": "o1-mini",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2025-10-27",
+      "priority": 3
+    },
+    {
+      "id": "gpt-4o-2024-05-13",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "gpt-4-turbo",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "gpt-4-turbo-2024-04-09",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "gpt-4.1-nano",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "gpt-4.1-nano-2025-04-14",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "o1-2024-12-17",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "o1-pro-2025-03-19",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1,
+      "note": "고가 — 문항 상한 엄격"
+    },
+    {
+      "id": "o1-pro",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1,
+      "alias": true
+    },
+    {
+      "id": "o3-mini-2025-01-31",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "o3-mini",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1,
+      "alias": true
+    },
+    {
+      "id": "o4-mini-2025-04-16",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1
+    },
+    {
+      "id": "o4-mini",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 1,
+      "alias": true
+    },
+    {
+      "id": "o3-2025-04-16",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 2
+    },
+    {
+      "id": "o3-pro-2025-06-10",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 2,
+      "note": "고가 — 표본만"
+    },
+    {
+      "id": "o3-pro",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 2,
+      "alias": true
+    },
+    {
+      "id": "gpt-5-2025-08-07",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 2
+    },
+    {
+      "id": "gpt-5-mini-2025-08-07",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 2
+    },
+    {
+      "id": "gpt-5-nano-2025-08-07",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 2
+    },
+    {
+      "id": "claude-1",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2024-11-06",
+      "priority": 3,
+      "note": "1.0~1.3 포괄"
+    },
+    {
+      "id": "claude-instant-1.2",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2024-11-06",
+      "priority": 3
+    },
+    {
+      "id": "claude-2",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2025-07-21",
+      "priority": 3,
+      "note": "2.0·2.1 포괄, FP 주의"
+    },
+    {
+      "id": "claude-2.1",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2025-07-21",
+      "priority": 3
+    },
+    {
+      "id": "claude-3-sonnet-20240229",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2025-07-21",
+      "priority": 3
+    },
+    {
+      "id": "claude-3-opus-20240229",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2026-01-05",
+      "priority": 3
+    },
+    {
+      "id": "claude-3-5-sonnet-20240620",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2025-10-28",
+      "priority": 3
+    },
+    {
+      "id": "claude-3-5-sonnet",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2025-10-28",
+      "priority": 3,
+      "alias": true,
+      "note": "20240620·20241022 포괄, 둘 다 2025-10-28 사망"
+    },
+    {
+      "id": "claude-3-haiku",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2026-04-20",
+      "priority": 3,
+      "alias": true
+    },
+    {
+      "id": "claude-3-5-haiku",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2026-02-19",
+      "priority": 3,
+      "alias": true
+    },
+    {
+      "id": "claude-3-7-sonnet",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2026-02-19",
+      "priority": 3,
+      "alias": true
+    },
+    {
+      "id": "claude-opus-4-20250514",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2026-06-15",
+      "priority": 3
+    },
+    {
+      "id": "claude-sonnet-4-20250514",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2026-06-15",
+      "priority": 3
+    },
+    {
+      "id": "claude-opus-4-1-20250805",
+      "vendor": "anthropic",
+      "status": "dead",
+      "shutdown": "2026-08-05",
+      "priority": 3
+    },
+    {
+      "id": "text-bison",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-04-21",
+      "priority": 3,
+      "note": "Vertex AI PaLM 2 discontinuation 2025-04-09 (web check 2026-09-15); the developer PaLM API had dropped it earlier 2026-10-11: retirement date 2025-04-21 per the Vertex AI model-versions table (gemini-1.0-pro-001/-002, text-bison, chat-bison); 2025-04-09 was the extended availability date announced in the Vertex release note of 2024-11-05 and is not stated as the retirement date anywhere."
+    },
+    {
+      "id": "gemini-1.0-pro",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-04-21",
+      "priority": 3,
+      "note": "Vertex gemini-1.0-pro-001 discontinuation 2025-04-09; Gemini API changelog 2025-02-18: Gemini 1.0 Pro is no longer supported (web check 2026-09-15) 2026-10-11: retirement date 2025-04-21 per the Vertex AI model-versions table (gemini-1.0-pro-001/-002, text-bison, chat-bison); 2025-04-09 was the extended availability date announced in the Vertex release note of 2024-11-05 and is not stated as the retirement date anywhere."
+    },
+    {
+      "id": "gemini-1.5-pro",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-09-29",
+      "priority": 3
+    },
+    {
+      "id": "gemini-1.5-flash",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-09-29",
+      "priority": 3
+    },
+    {
+      "id": "gemini-1.5-flash-8b",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-09-29",
+      "priority": 3
+    },
+    {
+      "id": "gpt-3.5-turbo-0125",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 3,
+      "note": "added 2026-10-02: on the vendor page (October 23, 2026) but missing from the 2026-09-02 vocabulary"
+    },
+    {
+      "id": "gpt-3.5-turbo",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 3,
+      "alias": "date rule",
+      "note": "added 2026-10-02: dateless alias; before 2023-12-11 -> gpt-3.5-turbo-0613, 2023-12-11..2024-02-15 unresolved (1106), from 2024-02-16 -> gpt-3.5-turbo-0125"
+    },
+    {
+      "id": "gpt-4o",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-10-23",
+      "priority": 3,
+      "alias": "date rule",
+      "note": "added 2026-10-02: dateless alias; before 2024-10-02 -> gpt-4o-2024-05-13, afterwards a still-served snapshot (outside this census)"
+    },
+    {
+      "id": "gpt-5-pro-2025-10-06",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 3,
+      "note": "added 2026-10-02: on the vendor page (December 11, 2026) but missing from the 2026-09-02 vocabulary"
+    },
+    {
+      "id": "gpt-5-pro",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2026-12-11",
+      "priority": 3,
+      "alias": "gpt-5-pro-2025-10-06",
+      "note": "added 2026-10-02: dateless alias of gpt-5-pro-2025-10-06"
+    },
+    {
+      "id": "claude-sonnet-4-5-20250929",
+      "vendor": "anthropic",
+      "status": "dying",
+      "shutdown": "2026-11-30",
+      "priority": 3,
+      "note": "added 2026-10-02: deprecation announced 2026-09-30"
+    },
+    {
+      "id": "claude-sonnet-4-5",
+      "vendor": "anthropic",
+      "status": "dying",
+      "shutdown": "2026-11-30",
+      "priority": 3,
+      "alias": "claude-sonnet-4-5-20250929",
+      "note": "added 2026-10-02: dateless alias of claude-sonnet-4-5-20250929"
+    },
+    {
+      "id": "gemini-2.0-flash",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-06-01",
+      "priority": 3,
+      "note": "added 2026-10-02: on the vendor page (shutdown 2026-06-01) but missing from the 2026-09-02 vocabulary"
+    },
+    {
+      "id": "gemini-2.0-flash-001",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-06-01",
+      "priority": 3,
+      "note": "added 2026-10-02"
+    },
+    {
+      "id": "gemini-2.0-flash-lite",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-06-01",
+      "priority": 3,
+      "note": "added 2026-10-02"
+    },
+    {
+      "id": "gemini-2.0-flash-lite-001",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-06-01",
+      "priority": 3,
+      "note": "added 2026-10-02"
+    },
+    {
+      "id": "gemini-2.5-pro-preview-03-25",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-12-02",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-2.5-pro-preview-05-06",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-12-02",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-2.5-pro-preview-06-05",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-12-02",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-2.5-flash-preview-05-20",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2025-11-18",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-2.5-flash-preview-09-25",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-02-17",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-2.5-flash-lite-preview-09-2025",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-03-31",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-3-pro-preview",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-03-09",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-3.1-flash-lite-preview",
+      "vendor": "google",
+      "status": "dead",
+      "shutdown": "2026-05-25",
+      "priority": 3,
+      "note": "added 2026-10-02: preview"
+    },
+    {
+      "id": "gemini-3.1-flash-lite",
+      "vendor": "google",
+      "status": "dying",
+      "shutdown": "2027-05-07",
+      "priority": 3,
+      "note": "added 2026-10-02: shutdown date announced at release"
+    },
+    {
+      "id": "gpt-3.5-turbo-instruct",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-09-28",
+      "priority": 3,
+      "note": "added 2026-10-11: completion model, retirement announced 2025-09-26; missing from the 2026-09-02 vocabulary"
+    },
+    {
+      "id": "gpt-3.5-turbo-1106",
+      "vendor": "openai",
+      "status": "dead",
+      "shutdown": "2026-09-28",
+      "priority": 3,
+      "note": "added 2026-10-11: chat snapshot, retirement announced 2025-09-26; the dateless alias gpt-3.5-turbo resolves to it from 2023-12-11 to 2024-02-15"
+    },
+    {
+      "id": "gpt-5.1-2025-11-13",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2027-04-01",
+      "priority": 3,
+      "note": "added 2026-10-11: retirement announced 2026-10-01 (missed by the refresh of 2 October); replacement gpt-6-sol"
+    },
+    {
+      "id": "gpt-5.1",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2027-04-01",
+      "priority": 3,
+      "alias": "gpt-5.1-2025-11-13",
+      "note": "added 2026-10-11: dateless alias of gpt-5.1-2025-11-13"
+    },
+    {
+      "id": "gpt-5.4-nano-2026-03-17",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2027-04-01",
+      "priority": 3,
+      "note": "added 2026-10-11: retirement announced 2026-10-01; replacement gpt-6-luna"
+    },
+    {
+      "id": "gpt-5.4-nano",
+      "vendor": "openai",
+      "status": "dying",
+      "shutdown": "2027-04-01",
+      "priority": 3,
+      "alias": "gpt-5.4-nano-2026-03-17",
+      "note": "added 2026-10-11: dateless alias of gpt-5.4-nano-2026-03-17"
+    }
+  ],
+  "alias_stratum": {
+    "purpose": "버전 미표기 별칭만 쓴 논문 = '검증가능성 불확정' 층 (H3 스냅숏 표기율 측정용). 센서스에서 별도 집계.",
+    "aliases": [
+      "ChatGPT",
+      "GPT-4",
+      "GPT-4o",
+      "GPT-3.5",
+      "Claude",
+      "Gemini",
+      "Bard"
+    ]
+  },
+  "audit": {
+    "2026-09-28": "All 36 OpenAI identifiers checked against the vendor page snapshot data/vendor_pages/openai_deprecations_2026-09-28.txt and one-token API probes; two dates corrected (gpt-4-0314, gpt-4-0613), gpt-4-1106-preview confirmed retired (404). Anthropic dates match the vendor page; Google 1.5-series dates are not on the current page and keep their changelog sources.",
+    "2026-10-02": "Vendor pages and model-list endpoints re-read for the census extension (data/census_ext_models.json): gemini-2.0-flash family retired 2026-06-01, gpt-3.5-turbo-0125 and gpt-5-pro-2025-10-06 on the OpenAI retirement table, claude-sonnet-4-5-20250929 deprecated 2026-09-30, Gemini 2.5 and 3 previews retired; all added by scripts/census_refresh.py",
+    "2026-10-11": "Vendor pages re-read before submission (snapshots data/vendor_pages/openai_deprecations_2026-10-11.md, anthropic_model_deprecations_2026-10-11.md, google_gemini_deprecations_2026-10-11.md). All 75 dates match the pages except gemini-1.0-pro and text-bison, moved from 2025-04-09 to 2025-04-21 (Vertex model-versions table). No announcement after 2026-10-02 enters the vocabulary: OpenAI's newest is 2026-10-01 (gpt-5.1, gpt-5.3-codex, gpt-5.4-nano, shutdown 2027-04-01), Anthropic's 2026-09-30, Google's 2026-10-08 deprecations carry no date. Text identifiers with published dates that the vocabulary does not track: gpt-3.5-turbo-1106, gpt-3.5-turbo-instruct, babbage-002, davinci-002 (retired 2026-09-28; on the page since 2025-09-26), the specialized OpenAI variants retired in 2026 (codex, chat-latest, deep-research, search and computer-use previews) and the 2026-10-01 announcement.",
+    "2026-10-11 refresh": "scripts/census_refresh2.py: gpt-3.5-turbo-instruct and gpt-3.5-turbo-1106 (retired 2026-09-28, announced 2025-09-26) harvested on 2026-10-11 (babbage-002 and davinci-002, harvested in the same run, are not tracked: the phrase search cannot separate them from text-davinci-002 and text-babbage-001); gpt-5.1, gpt-5.1-2025-11-13, gpt-5.4-nano, gpt-5.4-nano-2026-03-17 (retirement 2027-04-01, announced 2026-10-01) folded in from the extension harvest; the gpt-3.5-turbo alias now resolves to gpt-3.5-turbo-1106 between 2023-12-11 and 2024-02-15. Not tracked, by scope: the specialized variants the OpenAI page lists under its three-month notice policy (codex, chat-latest, deep-research, search and computer-use previews) and the audio, image, video, embedding and moderation models."
+  }
+}
